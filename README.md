@@ -1,5 +1,4 @@
 
-
 ![](logo/JindoFS.png)
 
 简体中文 | [English(WIP)](#)
@@ -16,9 +15,9 @@ Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完
 
 * [JindoFS OSS SDK 和 Hadoop-OSS-SDK 性能对比结果](docs/jindofs_sdk_vs_hadoop_sdk.md) (JindoFS SDK在put、get、mv、delete操作上性能均显著好于Hadoop-OSS-SDK）
 
-* Presto 集群使用 JindoSDK 集成 OSS 访问 (更新中)
+* [Presto 集群使用 JindoSDK 集成 OSS 访问 (更新中)](#)
 
-* Flink 使用 JindoSDK (更新中)
+* [Flink 使用 JindoSDK (更新中)](#)
 
 ## Jindo DistCP
 
