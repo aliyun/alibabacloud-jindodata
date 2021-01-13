@@ -2,7 +2,7 @@
 
 ![](logo/JindoFS.png)
 
-简体中文 | [English](README_en.md)
+简体中文 | [English(WIP)](#)
 
 ## 介绍
 
