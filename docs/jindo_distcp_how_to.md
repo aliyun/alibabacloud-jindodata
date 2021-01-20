@@ -23,8 +23,8 @@ Jindo DistCp（分布式文件拷贝工具）是用于大规模集群内部和�
 
 ---
 
-如您使用的是Hadoop 2.7+，请[下载](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/Hadoop2.7%2B/jindo-distcp-3.0.0.jar)<br />
-<br />如您使用的是Hadoop 3.x，请[下载](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/Hadoop3.x/jindo-distcp-3.0.0.jar)<br />
+如您使用的是Hadoop 2.7+，请[下载](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/Hadoop2.7New/jindo-distcp-3.0.0.jar)<br />
+<br />如您使用的是Hadoop 3.x，请[下载](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/Hadoop3.xNew/jindo-distcp-3.0.0.jar)<br />
 
 <a name="A1S3E"></a>
 # 使用指南
@@ -65,6 +65,9 @@ Jindo DistCp提供jar包形式使用，您可以使用hadoop jar命令配合一�
      --s3Key=VALUE   -   Specify your s3 key
      --s3Secret=VALUE   -   Specify your s3 Sercet
      --s3EndPoint=VALUE   -   Specify your s3 EndPoint
+     --enableBatch   -   enbale batch transfer
+     --perNum=VALUE   -   batch transfer num size
+     --byte=VALUE   -   batch transfer num size
 ```
 
 
@@ -485,6 +488,20 @@ hadoop jar /tmp/jindo-distcp-3.0.0.jar --src s3://smartdata1/ --dest s3://smartd
 </configuration>
 ```
 
+#### 24、使用--enableBatch，--perNum，--byte
+在上传文件到OSS时，JindoDistCp默认使用的magicJobCommiter对小文件传输不太友好，当您的传输文件数据量较大且小文件数量较多时可以使用enableBatch参数来分批传输小文件，使用MR自带的jobCommiter进行小文件的传输，而对大文件依然使用优化的后的magicJobCommiter<br/>
+
+示例命令如下：
+```bash
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableBatch --parallelism 20
+```
+
+您也可以指定--perNum参数来指定分批次传输的批次大小，默认为100000。通过--byte参数来指定小于多大的文件是属于小文件范畴，默认小于8M为小文件，单位M
+
+示例命令如下：
+```bash
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableBatch --perNum 100 --byte 6 --parallelism 20
+```
 
 <a name="WwYXi"></a>
 # 发布版本
@@ -492,5 +509,5 @@ hadoop jar /tmp/jindo-distcp-3.0.0.jar --src s3://smartdata1/ --dest s3://smartd
 ---
 
 <a name="TqRR6"></a>
-### v2.7.3
-日期：20200803
+### v3.0.0
+日期：20210120
