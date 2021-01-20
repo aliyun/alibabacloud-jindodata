@@ -71,19 +71,19 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 
 
 参数解释
---src：源数据目标路径，您可以使用hdfs://ip:port/path或者以/代表HDFS的根目录
+--src：源数据目标路径，您可以使用`hdfs://ip:port/path`或者以`/`代表 HDFS 的根目录
 
 
---dest：目标路径，您需要手动设定目标路径的根目录，如您需要将HDFS的/data目录copy到oss//bucket/data下，您需要手动指定--dest oss://bucket/data，否则默认将HDFS上的/data下所有文件copy到oss://bucket/下
+--dest：目标路径，您需要手动设定目标路径的根目录，如您需要将HDFS的`/data`目录copy到`oss//bucket/data`下，您需要手动指定`--dest oss://bucket/data`，否则默认将HDFS上的`/data`下所有文件copy到`oss://bucket/`下
 
 
---ossKey/--ossSecret/--ossEndPoint：OSS的AK和endpoint信息
+`--ossKey`/`--ossSecret`/`--ossEndPoint`：OSS的AK和endpoint信息
 
 
---parallelism：并行任务的个数，即MapReduce任务的task数量，如您的资源充足可适当调大
+`--parallelism`：并行任务的个数，即MapReduce任务的task数量，如您的资源充足可适当调大
 
 
-如果您的数据量很大，文件数量很多，比如百万千万级别，这个时候您除了可以增大parallelism加大并发度，还可以开启--enableBatch参数来进行优化
+如果您的数据量很大，文件数量很多，比如百万千万级别，这个时候您除了可以增大parallelism加大并发度，还可以开启`--enableBatch`参数来进行优化
 
 
 一键执行命令：
@@ -159,7 +159,7 @@ INFO distcp.JindoDistCp: distcp has been done completely
 ```
 
 
-对于生成的manifest文件，您可以使用--copyFromManifest和--previousManifest命令进行剩余文件的copy
+对于生成的manifest文件，您可以使用`--copyFromManifest`和`--previousManifest`命令进行剩余文件的copy
 
 示例命令如下：
 ```bash
@@ -167,7 +167,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 ```
 
 
-即在场景一的基础上增加--previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest这两个参数，其中file:///opt/manifest-2020-04-17.gz为您当前执行命令的本地路径
+即在场景一的基础上增加`--previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest`这两个参数，其中`file:///opt/manifest-2020-04-17.gz`为您当前执行命令的本地路径
 
 ### 场景4、我想从HDFS导数据到OSS，我的DistCp任务能执行成功，但是我的数据不断增量增加，在distcp过程中可能已经产生了新文件，该使用哪些参数？
 
@@ -197,8 +197,8 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 hadoop jar jindo-distcp-2.7.3.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --outputManifest=manifest-2020-04-18.gz --previousManifest=oss://yang-hhht/hourly_table/manifest-2020-04-17.gz --parallelism 10
 ```
 在场景一的基础上需要增加两个参数：
---outputManifest=manifest-2020-04-18.gz  记录本次distcp成功copy的文件
---previousManifest=oss://yang-hhht/hourly_table/manifest-2020-04-17.gz 指定上一次distcp成功的文件，本次distcp会过滤掉该文件中的文件
+`--outputManifest=manifest-2020-04-18.gz`  记录本次distcp成功copy的文件
+`--previousManifest=oss://yang-hhht/hourly_table/manifest-2020-04-17.gz` 指定上一次distcp成功的文件，本次distcp会过滤掉该文件中的文件
 
 
 3、重复执行第2步，不断进行增量文件的同步
@@ -212,8 +212,8 @@ JindoDistCp任务在yarn上提交，如果您想指定特定的yarn队列以及�
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --queue yarnqueue --bandwidth 6 --parallelism 10
 ```
 在场景一的基础上需要增加两个参数，两个参数可以配合使用，也可以单独使用
---queue：指定yarn队列的名称
---bandwidth：指定带宽的大小，单位为MB大小
+`--queue`：指定yarn队列的名称
+`--bandwidth`：指定带宽的大小，单位为MB大小
 ### 场景6、我想以低频或者归档形式写到OSS上，该使用哪些参数？
 
 
@@ -224,14 +224,14 @@ OSS提供归档或者低频类型的文件存储，如果您想将文件以低�
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --archive --parallelism 20
 ```
-在场景一的基础上增加--archive参数
+在场景一的基础上增加`--archive`参数
 
 
 使用低频示例命令如下：
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --ia --parallelism 20
 ```
-在场景一的基础上增加--ia参数
+在场景一的基础上增加`--ia`参数
 ### 场景7、我大概了解我的数据源情况，比如小文件比例和文件大小情况，该使用哪些参数来优化传输速度？
 
 
@@ -239,7 +239,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 
 
 如果您对要传输的数据源的情况比较了解，比如要copy的所有文件中小文件的占比较高，大文件较少但是单个但文件数据较大的情况下，在正常流程中是按照随机方式来进行copy文件分配，这时如果不去做优化很可能造成一个copy进程分配到大文件的同时也分配到很多小文件，这时候不能发挥最好的性能
-这种场景下建议开启--enableDynamicPlan参数进行优化
+这种场景下建议开启`--enableDynamicPlan`参数进行优化
 使用命令如下
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --enableDynamicPlan --parallelism 10
@@ -250,7 +250,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 2、文件总体均衡，大小差不多
 
 如果您要copy的数据里文件大小总体差不多，比较均衡，那么建议开启--enableBalancePlan进行优化
-这种场景下建议开启--enableBalanceDynamicPlan参数进行优化
+这种场景下建议开启`--enableBalanceDynamicPlan`参数进行优化
 使用命令如下
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --enableBalancePlan --parallelism 10
@@ -269,13 +269,13 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 hadoop jar jindo-distcp-<version>.jar --src s3a://yourbucket/ --dest oss://yang-hhht/hourly_table --s3Key yourkey --s3Secret yoursecret --s3EndPoint s3-us-west-1.amazonaws.com --parallelism 10
 ```
 其中需要在场景一的基础上将OSS的相关AK和endPoint参数转换成S3参数
---s3Key：连接S3的accessKey
---s3Secret：连接S3的accessSecret
---s3EndPoint：连接S3的endPoint信息
+`--s3Key`：连接S3的accessKey
+`--s3Secret`：连接S3的accessSecret
+`--s3EndPoint`：连接S3的endPoint信息
 
 
 ### 场景9、我想把我的文件写入到OSS上并进行压缩(lzo,gz格式等)，该使用哪些参数？
-如果您想将写入的目标文件进行压缩，比如进行lzo，gz等格式，以降低目标文件的存储空间，您可以使用--outputCodec参数来完成
+如果您想将写入的目标文件进行压缩，比如进行lzo，gz等格式，以降低目标文件的存储空间，您可以使用`--outputCodec`参数来完成
 
 
 使用命令示例如下：
@@ -300,16 +300,16 @@ JindoDistCp 支持编解码器 gzip、gz、lzo、lzop 和snappy以及关键字 n
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --srcPattern .*\.log --parallelism 10
 ```
-其中在场景一的基础上需要增加--srcPattern参数
---srcPattern：进行过滤的正则表达式，符合规则进行copy，否则抛弃
+其中在场景一的基础上需要增加`--srcPattern`参数
+`--srcPattern`：进行过滤的正则表达式，符合规则进行copy，否则抛弃
 
 
 如果您想copy同一个父目录下的部分子目录，那么您可以使用如下命令
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --srcPrefixesFile file:///opt/folders.txt --parallelism 20
 ```
-在场景一的基础上需要增加--srcPrefixesFile参数
---srcPrefixesFile：存储需要copy的同父目录的文件夹列表的文件
+在场景一的基础上需要增加`--srcPrefixesFile`参数
+`--srcPrefixesFile`：存储需要copy的同父目录的文件夹列表的文件
 
 
 示例中的folders.txt内容如下
@@ -328,8 +328,8 @@ hdfs://emr-header-1.cluster-50466:9000/data/incoming/hourly_table/2017-02-02
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --targetSize=10 --groupBy='.*/([a-z]+).*.txt' --parallelism 20
 ```
 其中需要在场景一的基础上增加如下参数：
---targetSize：合并文件的最大大小，单位M
---groupBy：合并规则，正则表达式
+`--targetSize`：合并文件的最大大小，单位M
+`--groupBy`：合并规则，正则表达式
 
 
 ### 场景12、我想copy完文件，把原文件都删除，只保留目标文件，该使用哪些参数？
@@ -341,7 +341,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --deleteOnSuccess --parallelism 10
 ```
-需要在场景一的基础上增加--deleteOnSuccess参数
+需要在场景一的基础上增加`--deleteOnSuccess`参数
 
 
 ### 场景13、像OSS AK这种参数，不想执行的时候写在命令行里怎么办？
