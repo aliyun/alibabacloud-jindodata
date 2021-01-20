@@ -3,54 +3,56 @@
 ### 阅读使用前须知
 
 
-1、此文档为用户场景化使用JindoDistCp提供指导，如您已知悉JindoDistCp的所有功能请忽略
+1. 此文档为用户场景化使用JindoDistCp提供指导，如您已知悉JindoDistCp的所有功能请忽略
 
-2、如您已购买EMR产品并且支持JindoDistCp，您可以使用 jindo distcp 命令来替换以下场景中出现的 hadoop jar jindo-distcp-<version>.jar 命令即无需下载jindo-distcp-<version>.jar，且EMR环境支持OSS免密，关于OSS AK的相关要求可选择不填（如您的EMR版本较老，您也可以选择下载最新的Jar包）
+2. 如您已购买EMR产品并且支持JindoDistCp，您可以使用 jindo distcp 命令来替换以下场景中出现的 hadoop jar jindo-distcp-<version>.jar 命令即无需下载jindo-distcp-<version>.jar，且EMR环境支持OSS免密，关于OSS AK的相关要求可选择不填（如您的EMR版本较老，您也可以选择下载最新的Jar包）
 
 
-3、环境要求
-     1、JDK 1.8+
-     2、Hadoop环境
-     3、下载jindo-distcp-<version>.jar
+3. 环境要求
+    - JDK 1.8+
+    - Hadoop环境
+    - 下载jindo-distcp-<version>.jar
+
 如您使用的是Hadoop 2.7+，请[下载](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/Hadoop2.7New/jindo-distcp-3.0.0.jar)
+
 如您使用的是Hadoop 3.x，请[下载](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/Hadoop3.xNew/jindo-distcp-3.0.0.jar)
 
 
 ### 场景预览
 
 
-场景1、我想从HDFS导数据到OSS，该使用哪些参数？如果我的数据量很大，文件很多（百万千万级别）该使用哪些参数来优化？
+* 场景1、我想从HDFS导数据到OSS，该使用哪些参数？如果我的数据量很大，文件很多（百万千万级别）该使用哪些参数来优化？
 
-场景2、使用JindoDistCp成功导完数据，我怎么验证数据完整性？
+* 场景2、使用JindoDistCp成功导完数据，我怎么验证数据完整性？
 
-场景3、我想从HDFS导数据到OSS但是我的DistCp任务可能随时失败，想支持断点续传，该使用哪些参数？
+* 场景3、我想从HDFS导数据到OSS但是我的DistCp任务可能随时失败，想支持断点续传，该使用哪些参数？
 
-场景4、我想从HDFS导数据到OSS，我的DistCp任务能执行成功，但是我的数据不断增量增加，在distcp过程中可能已经产生了新文件，该使用哪些参数？
+* 场景4、我想从HDFS导数据到OSS，我的DistCp任务能执行成功，但是我的数据不断增量增加，在distcp过程中可能已经产生了新文件，该使用哪些参数？
 
-场景5、我想指定distcp作业在yarn上的队列以及可用带宽，该使用哪些参数？
+* 场景5、我想指定distcp作业在yarn上的队列以及可用带宽，该使用哪些参数？
 
-场景6、我想以低频或者归档形式写到OSS上，该使用哪些参数？
-
-
-场景7、我大概了解我的数据源情况，比如小文件比例和文件大小情况，该使用哪些参数来优化传输速度？
+* 场景6、我想以低频或者归档形式写到OSS上，该使用哪些参数？
 
 
-场景8、我使用S3作为数据源，该使用哪些参数？
+* 场景7、我大概了解我的数据源情况，比如小文件比例和文件大小情况，该使用哪些参数来优化传输速度？
 
 
-场景9、我想把我的文件写入到OSS上并进行压缩(lzo,gz格式等)，该使用哪些参数？
+* 场景8、我使用S3作为数据源，该使用哪些参数？
 
 
-场景10、我想把本次copy中符合特定规则或者同一个父目录下的部分子目录作为copy对象，该使用哪些参数？
+* 场景9、我想把我的文件写入到OSS上并进行压缩(lzo,gz格式等)，该使用哪些参数？
 
 
-场景11、我想把copy的文件中符合一定规则的文件进行合并，减少文件个数，该使用哪些参数？
+* 场景10、我想把本次copy中符合特定规则或者同一个父目录下的部分子目录作为copy对象，该使用哪些参数？
 
 
-场景12、我想copy完文件，把原文件都删除，只保留目标文件，该使用哪些参数？
+* 场景11、我想把copy的文件中符合一定规则的文件进行合并，减少文件个数，该使用哪些参数？
 
 
-场景13、像OSS AK这种参数，不想执行的时候写在命令行里怎么办？
+* 场景12、我想copy完文件，把原文件都删除，只保留目标文件，该使用哪些参数？
+
+
+* 场景13、像OSS AK这种参数，不想执行的时候写在命令行里怎么办？
 
 
 ### 场景1、我想从HDFS导数据到OSS，该使用哪些参数？
