@@ -518,5 +518,5 @@ hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="TqRR6"></a>
 ### v3.3.0
-date：20210120
+date：20210121
 

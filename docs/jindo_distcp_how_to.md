@@ -488,7 +488,7 @@ hadoop jar /tmp/jindo-distcp-3.0.0.jar --src s3://smartdata1/ --dest s3://smartd
 </configuration>
 ```
 
-#### 24、使用--enableBatch，--perNum，--byte
+#### 24、使用--enableBatch、--perNum、--byte
 在上传文件到OSS时，JindoDistCp默认使用的magicJobCommiter对小文件传输不太友好，当您的传输文件数据量较大且小文件数量较多时可以使用enableBatch参数来分批传输小文件，使用MR自带的jobCommiter进行小文件的传输，而对大文件依然使用优化的后的magicJobCommiter<br/>
 
 示例命令如下：
@@ -510,4 +510,4 @@ hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="TqRR6"></a>
 ### v3.0.0
-日期：20210120
+日期：20210121
