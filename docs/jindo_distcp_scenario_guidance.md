@@ -29,7 +29,7 @@
 如果您不再EMR环境里，那么从HDFS上往OSS传输数据要满足以下几点<br />1、HDFS可访问，有读数据权限<br />2、需要提供OSS的AK即accessKey和accessSecret，以及endPoint信息且该AK具有写目标bucket的权限<br />3、OSS bucket不能为归档类型<br />4、机器环境可提交MapReduce任务<br />5、已下载JindoDistCp jar包
 一键执行命令：
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 10
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 10
 ```
 参数解释
 --src：源数据目标路径，您可以使用hdfs://ip:port/path或者以/代表HDFS的根目录
@@ -40,7 +40,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 如果您的数据量很大，文件数量很多，比如百万千万级别，这个时候您除了可以增大parallelism加大并发度，还可以开启--enableBatch参数来进行优化
 一键执行命令：
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 500 --enableBatch
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 500 --enableBatch
 ```
 
 
@@ -69,7 +69,7 @@ Shuffle Errors
 2、JindoDistCp --diff<br />您可以使用--diff命令来进行源端和目标端的文件比对，该命令会对文件名和文件大小进行比较，将遗漏或者未成功传输到文件进行记录，存储在提交命令的当前目录下，生成一个manifest文件
 在场景一的基础上增加--diff参数即可
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --diff
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --diff
 ```
 
 如果全部文件传输成功，您会看到如下提示
@@ -83,7 +83,7 @@ INFO distcp.JindoDistCp: distcp has been done completely
 在使用场景1的基础上，如果您的distcp任务因为各种原因中间失败了，而此时您想支持断点续传，只copy剩下未copy成功的文件，此时需要您在进行上一次distcp任务完成后进行如下操作：<br />
 
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --diff
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --diff
 ```
 即src和dest目录不变，增加一个--diff命令
 此时如果所有文件都传输完成，那么会提示如下信息，否则在执行目录下生成一个manifest文件
@@ -97,7 +97,7 @@ INFO distcp.JindoDistCp: distcp has been done completely
 
 示例命令如下：
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --dest oss://yang-hhht/hourly_table --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --dest oss://yang-hhht/hourly_table --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
 ```
 即在场景一的基础上增加--previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest这两个参数，其中file:///opt/manifest-2020-04-17.gz为您当前执行命令的本地路径
 
@@ -109,7 +109,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 1、未产生上一次copy的文件信息，需要指定生成一个manifest文件，里面记录已完成的文件信息<br />
 
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --outputManifest=manifest-2020-04-17.gz --requirePreviousManifest=false --parallelism 20
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --outputManifest=manifest-2020-04-17.gz --requirePreviousManifest=false --parallelism 20
 ```
 
 在场景一的基础上需要增加：--outputManifest=manifest-2020-04-17.gz --requirePreviousManifest=false两个信息<br />--outputManifest：指定生成的manifest文件，文件名称自定义但必须以gz结尾，如manifest-2020-04-17.gz，该文件会存放在--dest指定的目录下<br />--requirePreviousManifest：无已生成的历史manifest文件信息
@@ -126,7 +126,7 @@ hadoop jar jindo-distcp-2.7.3.jar --src /data/incoming/hourly_table --dest oss:/
 ### 场景5、我想指定distcp作业在yarn上的队列以及可用带宽，该使用哪些参数？
 JindoDistCp任务在yarn上提交，如果您想指定特定的yarn队列以及可使用的带宽，可以使用如下命令
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --queue yarnqueue --bandwidth 6 --parallelism 10
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --queue yarnqueue --bandwidth 6 --parallelism 10
 ```
 在场景一的基础上需要增加两个参数，两个参数可以配合使用，也可以单独使用<br />--queue：指定yarn队列的名称<br />--bandwidth：指定带宽的大小，单位为MB大小
 <a name="KC9c2"></a>
@@ -134,12 +134,12 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 OSS提供归档或者低频类型的文件存储，如果您想将文件以低频或者归档的形式写到OSS上，可以使用如下命令来完成
 使用归档示例命令如下：
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --archive --parallelism 20
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --archive --parallelism 20
 ```
 在场景一的基础上增加--archive参数
 使用低频示例命令如下：
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --ia --parallelism 20
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --ia --parallelism 20
 ```
 在场景一的基础上增加--ia参数
 <a name="iY8j5"></a>
@@ -147,14 +147,14 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 1、小文件较多，大文件较大
 如果您对要传输的数据源的情况比较了解，比如要copy的所有文件中小文件的占比较高，大文件较少但是单个但文件数据较大的情况下，在正常流程中是按照随机方式来进行copy文件分配，这时如果不去做优化很可能造成一个copy进程分配到大文件的同时也分配到很多小文件，这时候不能发挥最好的性能<br />这种场景下建议开启--enableDynamicPlan参数进行优化<br />使用命令如下
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --enableDynamicPlan --parallelism 10
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --enableDynamicPlan --parallelism 10
 ```
 在场景一的基础上增加--enableDynamicPlan开启优化选项，但不能和--enableBalancePlan一起使用
 <br />2、文件总体均衡，大小差不多
 
 如果您要copy的数据里文件大小总体差不多，比较均衡，那么建议开启--enableBalancePlan进行优化<br />这种场景下建议开启--enableBalanceDynamicPlan参数进行优化<br />使用命令如下
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --enableBalancePlan --parallelism 10
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --enableBalancePlan --parallelism 10
 ```
 在场景一的基础上增加--enableBalancePlan开启优化选项，但不能和--enableDynamicPlan一起使用<br />
 
@@ -163,7 +163,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 如果您想使用AWS S3作为数据源，那么您需要指定AWS S3的相关连接参数，如果您在AWS EMR环境里那么JindoDistCp也支持S3的免密功能
 使用命令如下：
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src s3a://yourbucket/ --dest oss://yang-hhht/hourly_table --s3Key yourkey --s3Secret yoursecret --s3EndPoint s3-us-west-1.amazonaws.com --parallelism 10
+hadoop jar jindo-distcp-3.0.0.jar --src s3a://yourbucket/ --dest oss://yang-hhht/hourly_table --s3Key yourkey --s3Secret yoursecret --s3EndPoint s3-us-west-1.amazonaws.com --parallelism 10
 ```
 其中需要在场景一的基础上将OSS的相关AK和endPoint参数转换成S3参数<br />--s3Key：连接S3的accessKey<br />--s3Secret：连接S3的accessSecret<br />--s3EndPoint：连接S3的endPoint信息<br />
 
@@ -172,7 +172,7 @@ hadoop jar jindo-distcp-<version>.jar --src s3a://yourbucket/ --dest oss://yang-
 如果您想将写入的目标文件进行压缩，比如进行lzo，gz等格式，以降低目标文件的存储空间，您可以使用--outputCodec参数来完成
 使用命令示例如下：
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --outputCodec=gz --parallelism 10
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --outputCodec=gz --parallelism 10
 ```
 需要在场景一的基础上增加--outputCodec参数
 JindoDistCp 支持编解码器 gzip、gz、lzo、lzop 和snappy以及关键字 none 和 keep（默认值）。这些关键字含义如下：<br />"none"– 保存为未压缩的文件。如果文件已压缩，则 jindo distcp 会将其解压缩。<br />"keep"–不更改文件压缩形态，按原样复制。<br />
@@ -182,12 +182,12 @@ JindoDistCp 支持编解码器 gzip、gz、lzo、lzop 和snappy以及关键字 n
 ### 场景10、我想把本次copy中符合特定规则或者同一个父目录下的部分子目录作为copy对象，该使用哪些参数？
 如果您想将copy列表中符合一定规则的文件才进行copy，那么您可以使用如下命令
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --srcPattern .*\.log --parallelism 10
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --srcPattern .*\.log --parallelism 10
 ```
 其中在场景一的基础上需要增加--srcPattern参数<br />--srcPattern：进行过滤的正则表达式，符合规则进行copy，否则抛弃
 <br />如果您想copy同一个父目录下的部分子目录，那么您可以使用如下命令
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --srcPrefixesFile file:///opt/folders.txt --parallelism 20
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --srcPrefixesFile file:///opt/folders.txt --parallelism 20
 ```
 在场景一的基础上需要增加--srcPrefixesFile参数<br />--srcPrefixesFile：存储需要copy的同父目录的文件夹列表的文件
 <br />示例中的folders.txt内容如下
@@ -202,7 +202,7 @@ hdfs://emr-header-1.cluster-50466:9000/data/incoming/hourly_table/2017-02-02
 如果您想把copy的文件按照一定的规则进行合并，并且按照指定的大小合并，从而减少文件个数，那么您可以使用如下命令
 
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --targetSize=10 --groupBy='.*/([a-z]+).*.txt' --parallelism 20
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --targetSize=10 --groupBy='.*/([a-z]+).*.txt' --parallelism 20
 ```
 其中需要在场景一的基础上增加如下参数：<br />--targetSize：合并文件的最大大小，单位M<br />--groupBy：合并规则，正则表达式<br />
 
@@ -211,7 +211,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 如果您想把distcp任务执行完成后的原文件都删除，那么您可以使用如下命令<br />
 
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --deleteOnSuccess --parallelism 10
+hadoop jar jindo-distcp-3.0.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --deleteOnSuccess --parallelism 10
 ```
 需要在场景一的基础上增加--deleteOnSuccess参数<br />
 
