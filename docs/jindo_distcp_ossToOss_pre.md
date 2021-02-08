@@ -85,7 +85,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket
 ```
 ### 6、其他功能
 如您需要其他使用其他功能，请参考
-* [Jindo DistCp 进行数据迁移的使用说明](docs/jindo_distcp_how_to.md)
-* [Jindo DistCp 场景化使用指南](docs/jindo_distcp_scenario_guidance.md)
+* [Jindo DistCp 进行数据迁移的使用说明](jindo_distcp_how_to.md)
+* [Jindo DistCp 场景化使用指南](jindo_distcp_scenario_guidance.md)
 
 
