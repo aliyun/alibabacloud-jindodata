@@ -1,8 +1,9 @@
 ### 环境要求
 * JDK 1.8及以上
-* Hadoop 2.3+版本(2.3版本以下暂未测试，如果问题请开issue反馈)，请下载 [jindo-distcp-3.4.0.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/native/jindo-distcp-3.4.0.jar)
+* Hadoop 2.3+版本，请下载 [jindo-distcp-3.4.0.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/native/jindo-distcp-3.4.0.jar)
+(2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindo-sdk/issues/new) 向我们反馈)
 
-* 如果您的环境出现环境glibc版本低等其他不兼容问题，请下载 [jindo-distcp-3.4.0-lite.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/lite/jindo-distcp-3.4.0-lite.jar)
+* 如果您的 Linux 版本较低，出现 glibc 或其他不兼容问题，请下载 [jindo-distcp-3.4.0-lite.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/lite/jindo-distcp-3.4.0-lite.jar)
 
 ### 1、拷贝数据到 OSS 上
 您可以使用如下命令将 hdfs 上的目录拷贝到 OSS 上
