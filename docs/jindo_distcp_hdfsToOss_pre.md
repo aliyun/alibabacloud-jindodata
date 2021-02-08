@@ -77,6 +77,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey 
 
     <property>
         <name>fs.jfs.cache.oss-endpoint</name>
+        <!-- 阿里云 ECS 环境下推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
