@@ -19,15 +19,7 @@ Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完
 
 * [Flink 使用 JindoSDK (更新中)](#)
 
-## Jindo DistCp
-
-* [《再出王牌：阿里云 Jindo DistCp 全面开放使用，成为阿里云数据迁移利器》](https://developer.aliyun.com/article/767803)
-
-* [Jindo DistCp 和 Hadoop DistCp 性能对比结果](docs/jindo_distcp_vs_hadoop_distcp.md) (Jindo DistCp 有近 1X 的性能提升)
-
-* [Jindo DistCp 进行数据迁移的使用说明](docs/jindo_distcp_how_to.md) (高效、稳定、安全的数据拷贝工具)
-
-* [Jindo DistCp 场景化使用指南](docs/jindo_distcp_scenario_guidance.md)
+## [数据迁移最佳实践](docs/jindo_distcp_overview.md)
 
 ## 数据湖之湖加速系列文章
 
