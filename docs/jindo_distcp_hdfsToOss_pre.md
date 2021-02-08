@@ -28,7 +28,7 @@ INFO distcp.JindoDistCp: distcp has been done completely.
 ```
 ##### 增量的文件列表会被写入到本地的 manifest 文件里，默认生成在当前提交任务的路径下，您可以使用如下命令进行剩余文件的Copy
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
+hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
 ```
 * --copyFromManifest：表示从文件本地文件列表中读取文件
 * --previousManifest：需要拷贝的文件列表，通过 --diff 生成
