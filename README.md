@@ -7,19 +7,17 @@
 
 Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完全兼容 Hadoop 生态，并针对 Hadoop 大数据中 Spark、Hive、Flink、Presto 等组件进行了深度优化。同时，开发者也可以在自建生产环境部署 JindoSDK 快速集成 OSS 和 JindoFS 等存储，获得更好的性能。
 
-## JindoFS OSS SDK
+## JindoFS on EMR
 
-* [《阿里云 JindoFS SDK 全面开放使用，OSS 文件各项操作性能得到大幅提升》](https://developer.aliyun.com/article/767222)
+* [JindoFS 介绍](https://help.aliyun.com/document_detail/199488.html)
 
-* [自建 Hadoop 环境集成 JindoFS/OSS 的使用说明](docs/jindofs_sdk_how_to.md) (支持 Hive, Spark, Presto, Impala, Hbase and Flink)
+## JindoFS OSS Hadoop SDK
 
-* [JindoFS OSS SDK 和 Hadoop-OSS-SDK 性能对比结果](docs/jindofs_sdk_vs_hadoop_sdk.md) (JindoFS SDK在put、get、mv、delete操作上性能均显著好于Hadoop-OSS-SDK）
+* [JindoFS OSS SDK 介绍](docs/jindofs_sdk_overview.md)
 
-* [Presto 集群使用 JindoSDK 集成 OSS 访问](docs/jindosdk_on_presto.md)
+## 数据迁移最佳实践
 
-* [Flink 使用 JindoSDK (更新中)](#)
-
-## [数据迁移最佳实践](docs/jindo_distcp_overview.md)
+* [Jindo Distcp 介绍](docs/jindo_distcp_overview.md)
 
 ## 数据湖之湖加速系列文章
 
