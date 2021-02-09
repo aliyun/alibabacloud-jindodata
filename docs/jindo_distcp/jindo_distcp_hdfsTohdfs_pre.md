@@ -1,6 +1,6 @@
 ### 使用前须知
 * 请参考 [Jindo DistCp 介绍](jindo_distcp_overview.md) 文章内容进行环境适配和工具包下载
-* 检查两个 HDFS 集群的网络情况，保证两个集群的 namenode 和 datanode 的相关端口可以互通访问，您需要将目标 HDFS 集群的 dfs.datanode.address 和 fs.defaultFS 这两个参数对应的端口从源 HDFS 集群的防火墙移除，确保目标 HDFS 的上述端口在源 HDFS 集群上可以访问
+* 假设您的 distcp 任务启动在源 HDFS 集群上，别的情况以此类推。首先检查两个 HDFS 集群的网络情况，保证两个集群的 namenode 和 datanode 的相关端口可以互通访问，您需要将目标 HDFS 集群的 dfs.datanode.address 和 fs.defaultFS 这两个参数对应的端口从源 HDFS 集群的防火墙移除，确保目标 HDFS 的上述端口在源 HDFS 集群上可以访问
 * 检查域名情况，将目的 HDFS 集群的 hosts 信息配置在源 HDFS 的 hosts 文件中
 * 如您在使用过程中遇到问题可参考 [Jindo DistCp 问题排查指南](jindo_distcp_QA_pre.md) 进行解决，也可 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindo-sdk/issues/new) 向我们反馈
 
