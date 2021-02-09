@@ -11,7 +11,7 @@ Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完
 
 * [JindoFS Hadoop SDK 介绍和使用](docs/jindofs_sdk_overview.md)
 
-* [JindoFS Python SDK 介绍和使用(即将发布)](docs/jindofs_sdk_overview.md)
+* [JindoFS Python SDK 介绍和使用(即将发布)](#)
 
 ## 数据迁移最佳实践
 
