@@ -16,6 +16,8 @@ hadoop-jindofs-worker-k2969   1/1     Running   0          8m9s
 ```
 修改JindoRuntime中的 spec.replicas 参数来节点个数，比如修改 spec.replicas = 4
 ```yaml
+$ kubectl edit jindoruntime hadoop
+ 
 # Please edit the object below. Lines beginning with a '#' will be ignored,
 # and an empty file will abort the edit. If an error occurs while saving this file will be
 # reopened with the relevant failures.
