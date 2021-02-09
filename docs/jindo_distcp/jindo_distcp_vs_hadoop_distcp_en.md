@@ -1,5 +1,5 @@
 # Jindo DistCp vs Hadoop DistCp Preformance Result
-[中文版](./jindo_distcp_vs_hadoop_distcp.md)
+[中文版](jindo_distcp_vs_hadoop_distcp.md)
 <a name="3baNh"></a>
 # Jindo DistCp Introduction
 
@@ -12,7 +12,7 @@ Jindo DistCp (distributed file copy tool) is a tool used to copy files within an
 
 ---
 
-Jindo DistCp is currently released in [github repo](./jindo_distcp_how_to_en.md). You can download the jar package to use it, and use the distcp function according to the preceding documentation.
+Jindo DistCp is currently released in [github repo](jindo_distcp_how_to_en.md). You can download the jar package to use it, and use the distcp function according to the preceding documentation.
 
 <a name="KWgRo"></a>
 # Environment
