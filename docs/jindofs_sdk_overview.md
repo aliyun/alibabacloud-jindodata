@@ -17,31 +17,18 @@ JindoFS SDK是一个简单易用面向Hadoop/Spark生态的OSS客户端，为阿
 ```
 hadoop dfs -ls oss://bucket/dir
 ```
-或者
-````java
-FileSystem fs = FileSystem.get(URI.create("oss://<bucket>/"), new Configuration());
 
-// 创建文件夹
-fs.mkdir(new Path("oss://<bucket>/test/dir1"));
-    
-// 读文件：
-InputStream in = fs.open(new Path("oss://<bucket>/test/file1"));
-in.read();
-in.close();
-
-...
-````
 
 ### 为什么使用 JindoFS SDK
 
-* [使用 JindoFS SDK 大幅提升 OSS 文件各项操作性能](https://developer.aliyun.com/article/767222)(覆盖 Hadoop 版本多、高性能)
+* [使用 JindoFS SDK 大幅提升 OSS 文件各项操作性能](https://developer.aliyun.com/article/767222)
 
-* [JindoFS OSS SDK 和 Hadoop-OSS-SDK 性能对比结果](jindofs_sdk_vs_hadoop_sdk.md) (JindoFS SDK在put、get、mv、delete操作上性能均显著好于Hadoop-OSS-SDK）
+* [JindoFS OSS SDK 和 Hadoop-OSS-SDK 性能对比结果](jindofs_sdk_vs_hadoop_sdk.md)
 
 ### JindoFS SDK 使用
 
-* [Hadoop 使用 JindoFS SDK](jindofs_sdk_how_to.md) (支持 Hive, Spark, Presto, Impala, Hbase and Flink)
+* [Hadoop 使用 JindoFS SDK](jindofs_sdk_how_to.md) 
 
-* [Presto 使用 JindoFS SDK](jindosdk_on_presto.md) (支持 prestodb 和 prestosql)
+* [Presto 使用 JindoFS SDK](jindosdk_on_presto.md) 
 
 * [Flink 使用 JindoSDK (更新中)](#) 
