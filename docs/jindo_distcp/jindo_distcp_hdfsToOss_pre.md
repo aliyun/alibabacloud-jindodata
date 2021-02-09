@@ -1,5 +1,6 @@
 ### 使用前须知
-请参考 [Jindo DistCp 介绍](jindo_distcp_overview.md) 文章内容进行环境适配和工具包下载
+* 请参考 [Jindo DistCp 介绍](jindo_distcp_overview.md) 文章内容进行环境适配和工具包下载
+* 如您在使用过程中遇到问题可参考 [Jindo DistCp 问题排查指南](jindo_distcp_QA_pre.md) 进行解决，也可 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindo-sdk/issues/new) 向我们反馈
 
 ### 1、拷贝数据到 OSS 上
 您可以使用如下命令将 hdfs 上的目录拷贝到 OSS 上
@@ -16,8 +17,8 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey 
 ### 2、增量拷贝文件
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
 #### 使用--diff命令，获得增量的文件列表
-使用--diff命令时，默认开启 checksum 比较，也可通过 --disableChecksum 关闭。
-开启时，比较的方式是，从 hdfs 中获取的 checksum，与上次拷贝时记录在 OSS 中的 checksum 是否一致。因此仅支持比较通过 3.4.0 及以上版本拷贝得到的文件，如希望增量比较老版本拷贝得到的文件，推荐关闭 checksum 比较。
+使用 --diff 命令时，默认开启 checksum 比较，也可通过 --disableChecksum 关闭。
+开启时，比较的方式是，从 hdfs 中获取的 checksum，判断与上次拷贝时记录在 OSS 中的 checksum 是否相同。因此仅支持比较通过 3.4.0 及以上版本拷贝得到的文件，如希望增量比较老版本拷贝得到的文件，推荐关闭 checksum 比较。
 ```
 hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff
 ```

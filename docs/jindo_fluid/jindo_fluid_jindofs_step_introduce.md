@@ -17,7 +17,7 @@ hadoop-jindofs-worker-k2969   1/1     Running   0          8m9s
 修改JindoRuntime中的 spec.replicas 参数来节点个数，比如修改 spec.replicas = 4
 ```yaml
 $ kubectl edit jindoruntime hadoop
- 
+
 # Please edit the object below. Lines beginning with a '#' will be ignored,
 # and an empty file will abort the edit. If an error occurs while saving this file will be
 # reopened with the relevant failures.
@@ -110,7 +110,6 @@ hadoop-jindofs-worker-fcjhq   1/1     Running   0          8m9s
 hadoop-jindofs-worker-k2969   1/1     Running   0          8m9s
 hadoop-jindofs-worker-zb7hk   1/1     Running   0          5m9s
 ```
-
 
 ### 2、调整预读等参数
 如您想对数据进行预读和调整 OSS 连接相关参数，可通过增加以下参数来调整
