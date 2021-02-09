@@ -4,10 +4,10 @@
 
 
 ## 1、前提条件
-[Fluid](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/332cache/fluid-0.5.0.tgz) (version 0.5.0)
-[Arena](https://github.com/kubeflow/arena)（version >= 0.4.0）
-[Horovod](https://github.com/horovod/horovod) (version=0.18.1)
-[Benchmark](https://github.com/tensorflow/benchmarks/tree/cnn_tf_v1.14_compatible)
+[Fluid](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/332cache/fluid-0.5.0.tgz) (version 0.5.0)<br/>
+[Arena](https://github.com/kubeflow/arena)（version >= 0.4.0）<br/>
+[Horovod](https://github.com/horovod/horovod) (version=0.18.1)<br/>
+[Benchmark](https://github.com/tensorflow/benchmarks/tree/cnn_tf_v1.14_compatible)<br/>
 > **注意**：
 > 1. 本文要求在Kubernetes集群中已安装好 Fluid，如果您还没部署 Fluid，请参考 [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](https://developer.aliyun.com/article/781656?spm=a2c6h.13148508.0.0.59544f0emzSkc5%E5%B7%B2%E5%8F%91) 在您的Kubernetes集群上安装Fluid。
 > 2. `Arena`是一个方便数据科学家运行和监视机器学习任务的CLI, 本文使用`Arena`提交机器学习任务，安装教程可参考 [Arena安装教程](https://github.com/kubeflow/arena/blob/master/docs/installation/INSTALL_FROM_BINARY.md)。
