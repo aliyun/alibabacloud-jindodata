@@ -2,9 +2,11 @@
 
 ### 1、什么是 Fluid
 [Fluid](https://github.com/fluid-cloudnative/fluid) 是一个开源的 Kubernetes 原生的分布式数据集编排和加速引擎，主要服务于云原生场景下的数据密集型应用，例如大数据应用、AI应用等。通过 Kubernetes 服务提供的数据层抽象，可以让数据像流体一样在诸如 HDFS、OSS、Ceph 等存储源和 Kubernetes 上层云原生应用计算之间灵活高效地移动、复制、驱逐、转换和管理。而具体数据操作对用户透明，用户不必再担心访问远端数据的效率、管理数据源的便捷性，以及如何帮助 Kuberntes 做出运维调度决策等问题。用户只需以最自然的 Kubernetes 原生数据卷方式直接访问抽象出来的数据，剩余任务和底层细节全部交给 Fluid 处理。Fluid 项目当前主要关注数据集编排和应用编排这两个重要场景。数据集编排可以将指定数据集的数据缓存到指定特性的 Kubernetes 节点，而应用编排将指定该应用调度到可以或已经存储了指定数据集的节点上。这两者还可以组合形成协同编排场景，即协同考虑数据集和应用需求进行节点资源调度。
+
 <div align=center>
 <img src="../../pic/fluid.png#pic_center" />
 </div>
+
 然后介绍 Fluid 中 Dataset 的概念，数据集是逻辑上相关的一组数据的集合，会被运算引擎使用，比如大数据的 Spark，AI场景的 TensorFlow，而关于数据集智能的应用和调度会创造工业界的核心价值。Dataset 的管理实际上也有多个维度，比如安全性，版本管理和数据加速。
 
 
@@ -45,9 +47,11 @@ JindoRuntime 提供对 Aliyun OSS 对象存储服务的访问和缓存加速能�
 
 ### 4、JindoRuntime 性能怎么样
 我们使用 [ImageNet](http://www.image-net.org/) 数据集基于 Kubernetes 集群并使用 [Arena](https://github.com/kubeflow/arena) 在此数据集上训练 ResNet-50 模型，基于 JindoFS 的 JindoRuntime 在开启本地缓存的情况下性能大幅度优于开源 OSSFS，训练耗时缩短了76%，该测试场景会在后续文章中进行详细介绍。
+
 <div align=center>
 <img src="../../pic/fluid_jindofs_resnet50_result.png#pic_center" />
 </div>
+
 ### 5、如何快速上手使用 JindoRuntime
 使用 JindoRuntime 流程简单，在准备好基本 k8s 和 OSS 环境的条件下，您只需要耗费10分钟左右时间即可部署好需要的 JindoRuntime 环境，您可以按照下面的流程进行部署。
 #### 1、创建命名空间
