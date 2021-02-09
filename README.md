@@ -19,7 +19,7 @@ Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完
 
 ## JindoFS 云原生
 
-* [Fluid 结合 JindoFS 介绍和使用](docs/jindo_distcp_overview.md)
+* [Fluid 结合 JindoFS 介绍和使用](docs/jindo_fluid/jindo_fluid_overview.md)
 
 ## 关于 JindoFS
 
