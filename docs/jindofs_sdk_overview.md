@@ -32,14 +32,16 @@ in.close();
 ...
 ````
 
-### JindoFS SDK 使用
+### 为什么使用 JindoFS SDK
 
-* [《阿里云 JindoFS SDK 全面开放使用，OSS 文件各项操作性能得到大幅提升》](https://developer.aliyun.com/article/767222)
-
-* [自建 Hadoop 环境集成 JindoFS/OSS 的使用说明](jindofs_sdk_how_to.md) (支持 Hive, Spark, Presto, Impala, Hbase and Flink)
+* [使用 JindoFS SDK 大幅提升 OSS 文件各项操作性能](https://developer.aliyun.com/article/767222)(覆盖 Hadoop 版本多、高性能)
 
 * [JindoFS OSS SDK 和 Hadoop-OSS-SDK 性能对比结果](jindofs_sdk_vs_hadoop_sdk.md) (JindoFS SDK在put、get、mv、delete操作上性能均显著好于Hadoop-OSS-SDK）
 
-* [Presto 集群使用 JindoSDK 集成 OSS 访问](jindosdk_on_presto.md)
+### JindoFS SDK 使用
 
-* [Flink 使用 JindoSDK (更新中)](#)
+* [Hadoop 使用 JindoFS SDK](jindofs_sdk_how_to.md) (支持 Hive, Spark, Presto, Impala, Hbase and Flink)
+
+* [Presto 使用 JindoFS SDK](jindosdk_on_presto.md) (支持 prestodb 和 prestosql)
+
+* [Flink 使用 JindoSDK (更新中)](#) 
