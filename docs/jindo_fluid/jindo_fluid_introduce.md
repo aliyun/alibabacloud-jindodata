@@ -10,9 +10,9 @@
 然后介绍 Fluid 中 Dataset 的概念，数据集是逻辑上相关的一组数据的集合，会被运算引擎使用，比如大数据的 Spark，AI场景的 TensorFlow，而关于数据集智能的应用和调度会创造工业界的核心价值。Dataset 的管理实际上也有多个维度，比如安全性，版本管理和数据加速。
 
 
-我们希望从数据加速出发，对于数据集的管理提供支持。在 Dataset上面我们通过定义 Runtime 这样一个执行引擎来实现数据集安全性，版本管理和数据加速等能力，Runtime 定义了一系列生命周期的接口，可以通过实现这些接口来支持数据集的管理和加速，目前 Fluid 中支持的 Runtime 有 AlluxioRuntime 和 JindoRuntime 两种。Fluid 的目标是为 AI 与大数据云原生应用提供一层高效便捷的数据抽象，将数据从存储抽象出来从而达到如下功能：
-1、通过数据亲和性调度和分布式缓存引擎加速，实现数据和计算之间的融合，从而加速计算对数据的访问。
-2、将数据独立于存储进行管理，并且通过 Kubernetes 的命名空间进行资源隔离，实现数据的安全隔离。
+我们希望从数据加速出发，对于数据集的管理提供支持。在 Dataset上面我们通过定义 Runtime 这样一个执行引擎来实现数据集安全性，版本管理和数据加速等能力，Runtime 定义了一系列生命周期的接口，可以通过实现这些接口来支持数据集的管理和加速，目前 Fluid 中支持的 Runtime 有 AlluxioRuntime 和 JindoRuntime 两种。Fluid 的目标是为 AI 与大数据云原生应用提供一层高效便捷的数据抽象，将数据从存储抽象出来从而达到如下功能：<br/>
+1、通过数据亲和性调度和分布式缓存引擎加速，实现数据和计算之间的融合，从而加速计算对数据的访问。<br/>
+2、将数据独立于存储进行管理，并且通过 Kubernetes 的命名空间进行资源隔离，实现数据的安全隔离。<br/>
 3、将来自不同存储的数据联合起来进行运算，从而有机会打破不同存储的差异性带来的数据孤岛效应。
 
 
@@ -89,8 +89,8 @@ stringData:
 kubectl create -f mySecret.yaml
 ```
 创建一个 resource.yaml 文件里面包含两部分：
-1、首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源。
-2、接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFS 的集群来提供缓存服务。
+* 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源。
+* 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFS 的集群来提供缓存服务。
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -128,13 +128,16 @@ spec:
         high: "0.99"
         low: "0.8"
 ```
-1、mountPoint：oss://<oss_bucket>/<bucket_dir> 表示挂载UFS的路径，路径中不需要包含endpoint信息。
-2、fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可。
-3、replicas：表示创建 JindoFS 集群的 worker 的数量。
-4、mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
-5、path：存储路径，暂只支持一块盘，当选择MEM做缓存也需要一块盘来存储log等文件。
-6、quota：缓存最大容量，单位Gi。
-7、high：水位上限大小 / low： 水位下限大小。
+
+* mountPoint：oss://<oss_bucket>/<bucket_dir> 表示挂载UFS的路径，路径中不需要包含endpoint信息。
+* fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可。
+* replicas：表示创建 JindoFS 集群的 worker 的数量。
+* mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
+* path：存储路径，暂只支持一块盘，当选择MEM做缓存也需要一块盘来存储log等文件。
+* quota：缓存最大容量，单位Gi。
+* high：水位上限大小 / low： 水位下限大小。
+
+创建 JindoRuntime 
 ```shell
 kubectl create -f resource.yaml
 ```
@@ -203,12 +206,12 @@ user	0m0.001s
 sys	0m0.046s
 ```
 #### 7、环境清理
-1、删除应用和应用容器
-2、删除 JindoRuntime
+* 删除应用和应用容器
+* 删除 JindoRuntime
 ```shell
 kubectl delete jindoruntime hadoop
 ```
-3、删除 dataset
+* 删除 dataset
 ```shell
 kubectl delete dataset hadoop
 ```

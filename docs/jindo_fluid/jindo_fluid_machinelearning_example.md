@@ -126,13 +126,13 @@ arena submit mpi     --name horovod-resnet50     --gpus=8     --workers=4     --
 
 
 Arena参数说明：
-1、--name：指定job的名字
-2、--workers：指定参与训练的节点（worker）数
-3、--gpus：指定每个worker使用的GPU数
-4、--working-dir：指定工作路径
-5、--data：挂载Volume imagenet到worker的/data目录
-6、-e DATA_DIR：指定数据集位置
-7、./launch-example.sh 4 8：运行脚本启动四机八卡测试
+* --name：指定job的名字
+* --workers：指定参与训练的节点（worker）数
+* --gpus：指定每个worker使用的GPU数
+* --working-dir：指定工作路径
+* --data：挂载Volume imagenet到worker的/data目录
+* -e DATA_DIR：指定数据集位置
+* launch-example.sh 4 8：运行脚本启动四机八卡测试
 
 
 检查任务是否正常执行：
