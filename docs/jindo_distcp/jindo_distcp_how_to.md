@@ -9,7 +9,7 @@ Jindo DistCp（分布式文件拷贝工具）是用于大规模集群内部和�
 
 您可以使用Jindo DistCp进行hdfs和OSS之间的数据迁移，相对于 Hadoop 社区 DistCp 实现，您可以获得更好的性能和阿里云 E-MapReduce 产品技术团队更专业的支持。<br />
 
-<br />关于 Jindo Distcp 和 Hadoop DistCp 的性能对比，请参考文档[Jindo DistCp和Hadoop DistCp 性能对比测试](./jindo_distcp_vs_hadoop_distcp.md)。<br />
+<br />关于 Jindo Distcp 和 Hadoop DistCp 的性能对比，请参考文档[Jindo DistCp和Hadoop DistCp 性能对比测试](jindo_distcp_vs_hadoop_distcp.md)。<br />
 
 
 <a name="A1S3E"></a>

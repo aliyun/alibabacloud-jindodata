@@ -1,5 +1,5 @@
 # Jindo DistCp User Guide
-[中文版](./jindo_distcp_how_to.md)
+[中文版](jindo_distcp_how_to.md)
 <a name="3baNh"></a>
 # Introduction
 
