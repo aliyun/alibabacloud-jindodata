@@ -1,12 +1,12 @@
 ### 使用前须知
 请参考 [Jindo DistCp 介绍](jindo_distcp_overview.md) 文章内容进行环境适配和工具包下载
 
-### 1、拷贝数据到 JindoFS block 模式上
-您可以使用如下命令将 hdfs 上的目录拷贝到 JindoFS block 模式上
+### 1、拷贝数据到 JindoFS Block 模式上
+您可以使用如下命令将 HDFS 上的目录拷贝到 JindoFS Block 模式上
 ```
 hadoop jar jindo-distcp-3.4.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
 ```
-* --src：hdfs 的源路径
+* --src：HDFS 的源路径
 * --dest：block 模式下后端 oss 的目标路径
 * --ossKey：block 模式下后端 AccessKey
 * --ossSecret：block 模式下后端 AccessSecret
