@@ -186,6 +186,14 @@ client.namespace.rpc.address = header-1:8101
 
 # 发布日志
 
+### v3.1.3
+日期：20210115<br />文件：[jindofs-sdk-3.1.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.1.3.jar)，[jindo-flink-sink.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindo-flink-sink.jar)<br
+/>更新内容：
+
+1. 支持 Flink 流式写入 OSS
+2. 修复
+
+
 ### v3.1.1
 日期：20201207<br />文件：[jindofs-sdk-3.1.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.1.1.jar)<br />更新内容：
 
