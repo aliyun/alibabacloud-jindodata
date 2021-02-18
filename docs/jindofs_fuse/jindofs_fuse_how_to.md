@@ -13,7 +13,6 @@ Fuse是Linux系统内核提供的一种挂载文件系统的方式。通过Jindo
 ### 1. 下载安装包
 下载最新的release包 jindofs-fuse-x.x.x.tar.gz 并解压
 
-注意： 目前jindofs-fuse只支持Linux操作系统。大多数Linux发行版已经内置了Fuse模块，没有的话你需要安装或者编译Fuse模块。 <br />
 
 ### 2. 配置账号访问信息
 将Bucket名称以及具有此Bucket访问权限的AccessKeyId/AccessKeySecret信息存放在/etc/passwd-ossfs文件中。每一行为一个bucket的配置信息，包含bucket名字、key、secret三项，用：号分割。如果您配置了免密功能，那么key、secret可以放空。
