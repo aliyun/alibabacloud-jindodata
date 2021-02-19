@@ -148,43 +148,12 @@ public class TestJindoSDK {
 
 <br />
 
-# 附录: SDK配置项列表
+## 附录: SDK配置项列表
 
-配置文件名为bigboot.cfg，该文件会使用2个section，其中bigboot是日志相关配置，bigboot-client是客户端相关配置。配置模板如下
-
-```
-[bigboot]
-logger.dir = /tmp/bigboot-log
-logger.sync = false
-
-[bigboot-client]
-client.storage.rpc.port = 6101
-client.namespace.rpc.address = header-1:8101
-
-```
-
-
-以下是重要的配置项列表
-| 配置项                                    | section          | 默认值           | 说明                                                            |
-| ----------------------------------------- | ---------------- | ---------------- | --------------------------------------------------------------- |
-| logger.dir                                | [bigboot]        | /tmp/bigboot-log | 日志目录                                                        |
-| logger.sync                               | [bigboot]        | false            | 是否同步flush日志文件                                           |
-| client.storage.rpc.port                   | [bigboot-client] | 6101             | 本地storage服务进程端口号                                       |
-| client.namespace.rpc.address              | [bigboot-client] | localhost:8101   | 访问JindoFS集群的namespace服务地址<br />（block/cache模式必填） |
-| client.oss.retry                          | [bigboot-client] | 5                | 访问oss失败重试次数                                             |
-| client.oss.upload.threads                 | [bigboot-client] | 5                | 单个文件oss并发上传线程数                                       |
-| client.oss.upload.queue.size              | [bigboot-client] | 5                | oss并发上传任务队列大小                                         |
-| client.oss.upload.max.parallelism         | [bigboot-client] | 16               | 进程内oss最大并发上传任务数                                     |
-| client.oss.timeout.millisecond            | [bigboot-client] | 30000            | 请求oss超时时间（毫秒）                                         |
-| client.oss.connection.timeout.millisecond | [bigboot-client] | 3000             | 连接oss超时时间（毫秒）                                         |
-| client.read.oss.readahead.buffer.size     | [bigboot-client] | 1048576          | 预读oss的buffer大小                                             |
-| client.read.oss.readahead.buffer.count    | [bigboot-client] | 4                | 同时预读oss的buffer个数                                         |
-| jfs.cache.data-cache.enable               | [bigboot-client] | false            | (仅用于cache模式)cache模式开启缓存功能                          |
-
+jindofs-fuse可以进行一些参数调整，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](./jindofs_sdk_configuration_list.md)。
 <br />
 
-
-# 发布日志
+## 发布日志
 
 ### v3.1.3
 日期：20210115<br />文件：[jindofs-sdk-3.1.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.1.3.jar)，[jindo-flink-sink.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindo-flink-sink.jar)<br
