@@ -32,5 +32,5 @@ jindofs-fuse -oonly_sdk /mnt/jfs
 
 # 附录: SDK配置项列表
 
-jindofs-fuse可以进行一些参数调整，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](./jindofs_sdk_how_to.md#附录-sdk配置项列表)。
+jindofs-fuse可以进行一些参数调整，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](../jindofs_sdk_how_to.md#附录-sdk配置项列表)。
 <br />
