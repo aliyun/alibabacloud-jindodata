@@ -1,12 +1,12 @@
-## SDK 参数配置
+## JindoFS SDK 高级参数配置
 
 ### 创建并使用配置文件
 
 将下面环境变量添加到/etc/profile文件中
 ```
-export B2SDK_CONF_DIR=/etc/jindofs-sdk-conf
+export B2SDK_CONF_DIR=/etc/jindo-conf
 ```
-创建文件 /etc/jindofs-sdk-conf/bigboot.cfg  包含以下基本内容
+创建文件 /etc/jindo-conf/bigboot.cfg  包含以下基本内容
 ```
 [bigboot]
 logger.dir = /tmp/bigboot-log

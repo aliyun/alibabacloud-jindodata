@@ -12,17 +12,25 @@ Fuse是Linux系统内核提供的一种挂载文件系统的方式。
 
 ### 为什么使用 JindoFS Fuse
 
-JindoFS Fuse基于JindoFS SDK，相对于开源的[ossfs客户端](https://github.com/aliyun/ossfs)做了很多的性能优化。
+JindoFS Fuse基于JindoFS SDK，在访问OSS的能力上，相对于开源的[ossfs客户端](https://github.com/aliyun/ossfs)做了很多的性能优化。
+
+JindoFS Fuse基于c++实现，不依赖JVM，相对于HDFS或Alluxio的Fuse实现节省了JNI调用的开销。
+
+JindoFS Fuse还可以访问JindoFS集群上的缓存数据，利用缓存加速数据访问性能。
 
 * [JindoFS Fuse 性能测试](./jindofs_fuse_benchmark.md)
-
-* [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](../jindo_fluid/jindo_fluid_introduce.md)
 
 ### JindoFS Fuse 使用
 
 * [使用 JindoFS Fuse 访问 OSS](./jindofs_fuse_2_oss.md)
 
 * [使用 JindoFS Fuse 访问 JindoFS Cache/Block 模式集群](./jindofs_fuse_2_block_cache_mode.md)
+
+### JindoFS Fuse 系列文章
+
+* [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](../jindo_fluid/jindo_fluid_introduce.md)
+
+* [JindoFS Fuse 支持（视频）](https://developer.aliyun.com/live/2766)
 
 
 ### 发布日志
