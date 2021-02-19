@@ -14,6 +14,8 @@ Fuse是Linux系统内核提供的一种挂载文件系统的方式。
 
 JindoFS Fuse基于JindoFS SDK，相对于开源的[ossfs客户端](https://github.com/aliyun/ossfs)做了很多的性能优化。
 
+* [JindoFS Fuse 性能测试](./jindofs_fuse_benchmark.md)
+
 * [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](../jindo_fluid/jindo_fluid_introduce.md)
 
 ### JindoFS Fuse 使用
