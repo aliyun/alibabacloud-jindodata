@@ -32,3 +32,5 @@ hadoop dfs -ls oss://bucket/dir
 * [Presto 使用 JindoFS SDK](jindosdk_on_presto.md) 
 
 * [Flink 使用 JindoSDK](jindosdk_on_flink.md) 
+
+* [Credential Provider 使用](jindosdk_credential_provider.md)
