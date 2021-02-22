@@ -16,8 +16,8 @@
 ## v3.0.0 (10/16/2020)
 [jindofs-sdk-3.0.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.0.0.jar)  
 
-## v2.7.401 (09/14/2019)
-[jindofs-sdk-2.7.401.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-2.7.401.jar)  
+## v2.7.4 (09/14/2019)
+[jindofs-sdk-2.7.4.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-2.7.401.jar)  
 
 ## v2.7.1 (06/19/2019)
 [jindofs-sdk-2.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-2.7.1.jar)  
