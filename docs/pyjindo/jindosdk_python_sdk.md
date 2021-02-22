@@ -14,6 +14,6 @@ PyJindo 目前支持的版本为 python 3.5 至 3.9，其他 python3 版本及 p
 ```
 pip install <package-file.whl>
 ```
-其中 <package-file.whl> 就是下载得到的安装文件，下载[地址](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/pyjindo-0.1-cp35-abi3-linux_x86_64.whl)
+其中 <package-file.whl> 就是下载得到的安装文件，[下载页面](/docs/jindofs_sdk_download.md)
 
 使用文档参见 [PyJindo 介绍及 API 文档](jindosdk_python_api.md)

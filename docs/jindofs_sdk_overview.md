@@ -1,11 +1,11 @@
 ### 环境要求
 * JDK 1.8及以上
 
-* Hadoop 2.3+ 版本，请下载 <a href="jindofs_sdk_how_to.md#发布日志" target="_blank">jindofs-sdk.jar</a>, 
+* Hadoop 2.3+ 版本，请下载 [jindofs-sdk.jar](/docs/jindofs_sdk_download.md),
   该版本基于 native 代码实现，支持功能较丰富
 (2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindo-sdk/issues/new) 向我们反馈)
 
-* 如果您的 Linux 版本较低，出现 glibc 或其他不兼容问题，请下载 [jindofs-sdk-lite.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-3.0.0-lite.jar), 该版本基于 Java 代码实现，支持基本功能
+* 如果您的 Linux 版本较低，出现 glibc 或其他不兼容问题，请下载 [jindofs-sdk-lite.jar](/docs/jindofs_sdk_download.md), 该版本基于 Java 代码实现，支持基本功能
 
 ### 什么是 JindoFS SDK
 

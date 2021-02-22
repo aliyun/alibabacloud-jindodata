@@ -14,7 +14,7 @@ JindoFS SDK是一个简单易用面向Hadoop/Spark生态的OSS客户端，为阿
 ## 步骤
 
 ### 1. 安装jar包
-下载最新的jar包 jindofs-sdk-x.x.x.jar ，将sdk包安装到hadoop的classpath下
+下载最新的jar包 jindofs-sdk-x.x.x.jar ([下载页面](/docs/jindofs_sdk_download.md))，将sdk包安装到hadoop的classpath下
 ```
 cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
 ```
@@ -153,47 +153,3 @@ public class TestJindoSDK {
 jindofs-fuse可以进行一些参数调整，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](./jindofs_sdk_configuration_list.md)。
 <br />
 
-## 发布日志
-
-### v3.1.3
-日期：20210115<br />文件：[jindofs-sdk-3.1.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.1.3.jar)，[jindo-flink-sink.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindo-flink-sink.jar)<br
-/>更新内容：
-
-1. 支持 Flink 流式写入 OSS
-2. 修复
-
-
-### v3.1.1
-日期：20201207<br />文件：[jindofs-sdk-3.1.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.1.1.jar)<br />更新内容：
-
-1. 修复多个bugs.
-2. 小的性能优化.
-3. 改善兼容性.
-
-
-### v3.0.0
-日期：20201016<br />文件：[jindofs-sdk-3.0.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.0.0.jar)<br />更新内容：
-
-1. 修复多个bugs.
-
-
-### v3.0.0
-日期：20201016<br />文件：[jindofs-sdk-3.0.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.0.0.jar)<br />更新内容：
-
-1. 修复多个bugs.
-
-
-### v2.7.401
-日期：20190914<br />文件：[jindofs-sdk-2.7.401.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-2.7.401.jar)<br />更新内容：
-
-1. 修复多个bugs.
-
-
-### v2.7.1
-日期：20190619<br />文件：[jindofs-sdk-2.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-2.7.1.jar)<br />更新内容：
-
-1. 支持访问OSS （作为OSS客户端）
-1. 支持访问JindoFS Cache模式集群
-1. 支持访问JindoFS Block模式集群
-
-<br />

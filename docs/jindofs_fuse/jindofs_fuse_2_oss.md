@@ -2,7 +2,7 @@
 ## 使用 JindoFS Fuse 访问 OSS
 
 ### 1. 下载安装包
-下载最新的release包 jindofs-fuse-x.x.x.tar.gz 并解压
+下载最新的release包 jindofs-fuse-x.x.x.tar.gz ([下载页面](/docs/jindofs_sdk_download.md))，并解压
 
 
 ### 2. 配置账号访问信息

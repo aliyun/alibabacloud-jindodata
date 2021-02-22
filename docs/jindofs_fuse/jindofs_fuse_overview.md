@@ -32,13 +32,3 @@ JindoFS Fuse还可以访问JindoFS集群上的缓存数据，利用缓存加速�
 
 * [JindoFS Fuse 支持（视频）](https://developer.aliyun.com/live/2766)
 
-
-### 发布日志
-
-#### v3.4.0
-日期：20210210<br />文件：[jindofs-fuse-3.4.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-fuse-3.4.0.tar.gz)<br />更新内容：
-
-1. 支持访问OSS。
-2. 支持访问JindoFS Block/Cache模式集群。
-
-<br />

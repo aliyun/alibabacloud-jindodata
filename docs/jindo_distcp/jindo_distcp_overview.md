@@ -1,9 +1,9 @@
 ### 环境要求
 * JDK 1.8及以上
-* Hadoop 2.3+版本，请下载 [jindo-distcp-3.4.0.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/native/jindo-distcp-3.4.0.jar), 该版本基于 native 代码实现，支持功能较丰富
+* Hadoop 2.3+版本，请下载 [jindo-distcp-3.4.0.jar](/docs/jindofs_sdk_download.md), 该版本基于 native 代码实现，支持功能较丰富
 (2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindo-sdk/issues/new) 向我们反馈)
 
-* 如果您的 Linux 版本较低，出现 glibc 或其他不兼容问题，请下载 [jindo-distcp-3.4.0-lite.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/lite/jindo-distcp-3.4.0-lite.jar), 该版本基于 Java 代码实现，支持基本功能
+* 如果您的 Linux 版本较低，出现 glibc 或其他不兼容问题，请下载 [jindo-distcp-3.4.0-lite.jar](/docs/jindofs_sdk_download.md), 该版本基于 Java 代码实现，支持基本功能
 
 ### 什么是 Jindo DistCp
 随着阿里云 JindoFS SDK 的全面放开使用，基于 JindoFS SDK 的阿里云数据迁移利器 Jindo DistCp 现在也全面面向用户开放使用。Jindo DistCp 是阿里云 E-MapReduce 团队开发的大规模集群内部和集群之间分布式文件拷贝的工具。其使用 MapReduce 实现文件分发，错误处理和恢复，把文件和目录的列表作为 map/reduce 任务的输入，每个任务会完成源列表中部分文件的拷贝。目前全量支持 HDFS/OSS/S3 之间的的数据拷贝场景，提供多种个性化拷贝参数和多种拷贝策略。重点优化 HDFS 到 OSS 的数据拷贝，通过定制化 CopyCommitter，实现 No-Rename 拷贝，并保证数据拷贝落地的一致性。功能全量对齐 S3 DistCp 和 HDFS DistCp，性能较 HDFS DistCp 有较大提升，目标提供高效、稳定、安全的数据拷贝工具。
