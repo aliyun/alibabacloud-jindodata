@@ -2,38 +2,31 @@
 
 ---
 
-## 背景介绍
+## 环境要求
 
-Apache Flink 是一种当前业界流行的开源分布式大数据计算引擎，以流式数据处理为核心，同时支持批处理。其依靠检查点和容错机制，结合可重发的数据源，可实现 “严格一次”（EXACTLY_ONCE）语义，在大数据场景下确保数据的正确性
+在集群上有开源版本 Flink 软件，版本不低于 1.10.1
 
-Aliyun Object Storage Service (Aliyun OSS) 与 JindoFS 则属于阿里云旗下的核心产品，提供对象存储或文件系统等语义，凭借优异的性能和安全性已服务于海量用户。
+## 为什么 Flink 需要使用 JindoSDK 访问 OSS 与 JindoFS
 
-目前，开源版本 Flink 对写入 Aliyun OSS 与 JindoFS 尚不能支持 EXACTLY_ONCE 语义，成为用户痛点。JindoFS 团队则通过 SDK 的方式提供了这种支持。
+Apache Flink 是一种当前业界流行的开源大数据流式计算引擎，支持 “严格一次”（EXACTLY_ONCE）语义写入部分存储介质。Aliyun Object Storage Service (Aliyun OSS) 与 JindoFS 则属于阿里云旗下的核心产品，提供对象存储或文件系统等语义，凭借优异的性能和安全性已服务于海量用户。
+
+目前，开源版本 Flink 对流式写入 Aliyun OSS 与 JindoFS 尚不能支持 EXACTLY_ONCE 语义，如有该需求则需要使用 JindoSDK。
 
 ## SDK 配置
 
-#### 非阿里云 EMR 集群
-
 需要在所有 Flink 节点进行配置。在每个节点 Flink 根目录下的 lib 文件夹，放置两个 .jar 文件：
-* jindo-flink-sink.jar
-* jindofs-sdk-${version}.jar
-
-下载[地址](jindofs_sdk_how_to.md#%E5%8F%91%E5%B8%83%E6%97%A5%E5%BF%97)
-
-#### 阿里云 EMR 集群
-
-EMR-3 系列，如果是 EMR-3.30.0 及更高版本，则可以直接使用（写入 JindoFS 从 EMR-3.32.0 开始支持）。EMR-4 系列从 EMR-4.5.0 开始支持。
-
-更早的 EMR 版本均不支持，但仍可配置，按照上一小节 “非阿里云 EMR 集群” 相同方法即可。若出现不兼容等现象，请联系 JindoFS 团队寻求支持。
+* jindo-flink-sink.jar，下载[地址](jindosdk_on_flink.md#发布日志)
+* jindofs-sdk-${version}.jar，下载[地址](jindofs_sdk_how_to.md#%E5%8F%91%E5%B8%83%E6%97%A5%E5%BF%97)
 
 ## 如何使用
 
-#### 通用配置
+如果已经按照上一节配置好 SDK，则可以直接使用。例如，如果有一个写入 HDFS 的流式作业，若要改为写入 OSS，则只需将路径改写为 OSS 路径即可，无需做其他额外修改或配置。写入 OSS 以 oss:// 为前缀，写入 JindoFS 以 jfs:// 为前缀。
 
-为了支持 EXACTLY_ONCE 写入 JindoFS/OSS，用户首先要做一些通用的配置，这在其他写入场景下也需要（例如写入 HDFS）：
+下面是一个简单的示例程序，如果已经按照上一节配置好 SDK，则下列程序应能正确运行：
 
-(1) 打开 Flink 的 “检查点”（Checkpoint）
-例如，如果 env 是一个已经建立的 StreamExecutionEnvironment，例如通过下面的方式建立：
+(1) 通用配置
+
+* 打开 Flink 的 “检查点”（Checkpoint）。例如，env 是一个已经建立的 StreamExecutionEnvironment，可以通过下面的方式建立：
 ```
 StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 ```
@@ -42,13 +35,11 @@ StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironm
 env.enableCheckpointing(<userDefinedCheckpointInterval>, CheckpointingMode.EXACTLY_ONCE);
 ```
 
-(2) 使用可重发的数据源，例如 Kafka
+* 使用可重发的数据源，例如 Kafka
 
-#### 便捷使用
+(2) 示例程序
 
-用户无需编写任何专用程序，也不用引入额外依赖，唯一需要做的只是在流式文件写入 (StreamingFileSink) 作业中，使用一个带 jfs:// 或 oss:// 前缀的路径。jfs:// 前缀对应 JindoFS，oss:// 前缀对应 OSS。如果原本的计划就是写入 JindoFS/OSS，那么使用带对应前缀的路径本来就是必然的。SDK 会自动识别 jfs:// 或 oss:// 前缀，并启用该功能。
-
-以 String 类型 DataStream 举例。例如，先前通过计算、转换，最终形成了一个 DataStream<String> 对象 outputStream，并期望将其写入 JindoFS，那么用户可以这样添加 sink：
+下文中，outputStream 是一个预先形成的 DataStream&lt;String&gt; 对象，并期望将其写入 JindoFS，那么用户可以这样添加 sink：
 ```
 String outputPath = "jfs://<user-defined-jfs-namespace>/<user-defined-jfs-dir>"
 StreamingFileSink<String> sink = StreamingFileSink.forRowFormat(
@@ -63,7 +54,7 @@ outputStream.addSink(sink);
 String outputPath = "oss://<user-defined-oss-bucket>/<user-defined-oss-dir>"
 ```
 
-## 自定义参数
+## 高级设置：自定义参数
 
 用户在提交 Flink 作业时，可以自定义配置一些参数，以开启或控制特定功能。例如，以 yarn-cluster 模式提交时，可以通过 -yD 进行配置，方式类似于：
 ```
@@ -88,3 +79,11 @@ oss.entropy.length=<user-defined-length>
 #### 分片上传并行度
 
 当写入场景为 OSS 或 JindoFS Cache 模式时（Block 模式不在此列），本文介绍的功能会自动调用高效的 “分片上传” (Multipart Upload) 机制，将待上传的文件分为多个数据块 (part) 分别上传，最后组合。目前支持配置参数 oss.upload.max.concurrent.uploads，用来控制上传数据块 (part) 的并行度，如果设置较高的数值则可能会提高写入效率（但也会占用更多资源）。默认情况下，该值为当前可用的处理器数量。
+
+## 发布日志
+
+#### v3.1.3
+日期：20210115<br />文件：[jindo-flink-sink.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindo-flink-sink.jar)<br
+/>更新内容：
+
+1. 支持 Flink 流式写入 OSS
