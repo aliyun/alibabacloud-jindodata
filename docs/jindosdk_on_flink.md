@@ -15,12 +15,16 @@ Apache Flink 是一种当前业界流行的开源大数据流式计算引擎，�
 ## SDK 配置
 
 需要在所有 Flink 节点进行配置。在每个节点 Flink 根目录下的 lib 文件夹，放置两个 .jar 文件：
-* jindo-flink-sink.jar，下载[地址](jindosdk_on_flink.md#发布日志)
-* jindofs-sdk-${version}.jar，下载[地址](jindofs_sdk_how_to.md#%E5%8F%91%E5%B8%83%E6%97%A5%E5%BF%97)
+* jindo-flink-sink.jar
+* jindofs-sdk-${version}.jar
+
+[下载页面](/docs/jindofs_sdk_download.md)
 
 ## 如何使用
 
 如果已经按照上一节配置好 SDK，则可以直接使用。例如，如果有一个写入 HDFS 的流式作业，若要改为写入 OSS，则只需将路径改写为 OSS 路径即可，无需做其他额外修改或配置。写入 OSS 以 oss:// 为前缀，写入 JindoFS 以 jfs:// 为前缀。
+
+## 示例
 
 下面是一个简单的示例程序，如果已经按照上一节配置好 SDK，则下列程序应能正确运行：
 
@@ -79,11 +83,3 @@ oss.entropy.length=<user-defined-length>
 #### 分片上传并行度
 
 当写入场景为 OSS 或 JindoFS Cache 模式时（Block 模式不在此列），本文介绍的功能会自动调用高效的 “分片上传” (Multipart Upload) 机制，将待上传的文件分为多个数据块 (part) 分别上传，最后组合。目前支持配置参数 oss.upload.max.concurrent.uploads，用来控制上传数据块 (part) 的并行度，如果设置较高的数值则可能会提高写入效率（但也会占用更多资源）。默认情况下，该值为当前可用的处理器数量。
-
-## 发布日志
-
-#### v3.1.3
-日期：20210115<br />文件：[jindo-flink-sink.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindo-flink-sink.jar)<br
-/>更新内容：
-
-1. 支持 Flink 流式写入 OSS
