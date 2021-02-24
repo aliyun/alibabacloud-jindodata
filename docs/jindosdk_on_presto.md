@@ -7,8 +7,8 @@
 
 # 使用
 
-* 在所有 Presto 节点安装 JindoSDK 
-下载[地址](./jindofs_sdk_how_to.md#%E5%8F%91%E5%B8%83%E6%97%A5%E5%BF%97)
+* 在所有 Presto 节点安装 JindoSDK
+下载[地址](jindofs_sdk_download.md)
 ````
 cp jindofs-sdk-${version}.jar  $PRESTO_HOME/plugin/hive-hadoop2/
 ````
