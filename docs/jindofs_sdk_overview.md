@@ -27,10 +27,12 @@ hadoop dfs -ls oss://bucket/dir
 
 ### JindoFS SDK 使用
 
-* [Hadoop 使用 JindoFS SDK](jindofs_sdk_how_to.md) 
+* [Hadoop 使用 JindoFS SDK](jindofs_sdk_how_to.md)
 
-* [Presto 使用 JindoFS SDK](jindosdk_on_presto.md) 
+* [Presto 使用 JindoFS SDK](jindosdk_on_presto.md)
 
-* [Flink 使用 JindoFS SDK](/docs/flink/jindofs_sdk_on_flink.md) 
+* [Flink 使用 JindoFS SDK](/docs/flink/jindofs_sdk_on_flink.md)
 
 * [Sqoop 使用 kiteSDK](kitesdk_on_sqoop.md)
+
+* [Druid 使用 JindoFS SDK](jindosdk_on_druid.md)
