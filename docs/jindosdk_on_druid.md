@@ -4,7 +4,7 @@
 
 ---
 * 您的 Druid 集群已经配置 HADOOP 相关参数，并且加载HDFS Deep Storage 扩展
-确保$DRUID_HOME/conf/cluster/_common目录下包含hadoop配置文件, 可以将core-site.xml, hdfs-site.xml等hadoop的配置文件拷贝到$DRUID_HOME/conf/cluster/_common目录下
+* 确保$DRUID_HOME/conf/cluster/_common目录下包含hadoop配置文件, 可以将core-site.xml, hdfs-site.xml等hadoop的配置文件拷贝到$DRUID_HOME/conf/cluster/_common目录下
 
 # 使用
 
