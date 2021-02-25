@@ -12,13 +12,13 @@ Fuse是Linux系统内核提供的一种挂载文件系统的方式。
 
 ### 为什么使用 JindoFS Fuse
 
-JindoFS Fuse基于JindoFS SDK，在访问OSS的能力上，相对于开源的[ossfs客户端](https://github.com/aliyun/ossfs)做了很多的性能优化。
+* JindoFS Fuse基于JindoFS SDK，在访问OSS的能力上，相对于开源的[ossfs客户端](https://github.com/aliyun/ossfs)做了很多的性能优化。
 
-JindoFS Fuse基于c++实现，不依赖JVM，相对于HDFS或Alluxio的Fuse实现节省了JNI调用的开销。
+* JindoFS Fuse基于c++实现，不依赖JVM，相对于HDFS或Alluxio的Fuse实现节省了JNI调用的开销。
 
-JindoFS Fuse还可以访问JindoFS集群上的缓存数据，利用缓存加速数据访问性能。
+* JindoFS Fuse还可以访问JindoFS集群上的缓存数据，利用缓存加速数据访问性能。
 
-* [JindoFS Fuse 性能测试](./jindofs_fuse_benchmark.md)
+* 关于JindoFS Fuse在性能上的优势，我们做了对比测试，可以参考[JindoFS Fuse 性能测试](./jindofs_fuse_benchmark.md)。
 
 ### JindoFS Fuse 使用
 

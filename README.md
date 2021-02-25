@@ -29,6 +29,8 @@ Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完
 
 ## 数据湖之湖加速系列文章
 
+* [《10亿+文件数压测，阿里云 JindoFS 轻松应对》](https://developer.aliyun.com/article/781801)
+
 * [《数据湖架构，为什么需要“湖加速”？》](https://developer.aliyun.com/article/774556)
 
 * [《基于 JindoFS+OSS 构建高效数据湖》](https://developer.aliyun.com/article/772305)
@@ -36,8 +38,6 @@ Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完
 * [《JindoFS 缓存加速数据湖上的机器学习训练》](https://developer.aliyun.com/article/772307)
 
 * [《JindoTable 数据湖优化与查询加速》](https://developer.aliyun.com/article/772311)
-
-* [《JindoDistCp 数据湖离线数据迁移最佳实践》](https://developer.aliyun.com/article/772322)
 
 * [《基于 OSS 的 EB 级数据湖》](https://developer.aliyun.com/article/772300)
 

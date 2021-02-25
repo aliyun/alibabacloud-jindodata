@@ -1,7 +1,7 @@
 # Jindo SDK 下载
 
 ## v3.4.0 (01/15/2021)
-[jindo-flink-sink.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindo-flink-sink.jar)  
+[jindo-flink-sink-3.4.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Flink/jindo-flink-sink-3.4.0.jar)  
 [jindo-distcp-3.4.0.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/native/jindo-distcp-3.4.0.jar)  
 [jindo-distcp-3.4.0-lite.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/lite/jindo-distcp-3.4.0-lite.jar)  
 [jindofs-fuse-3.4.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-fuse-3.4.0.tar.gz)  
