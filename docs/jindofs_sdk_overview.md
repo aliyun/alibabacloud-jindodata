@@ -33,13 +33,14 @@ hadoop dfs -ls oss://bucket/dir
 
 * [Hadoop](jindofs_sdk_how_to.md)
 * [Presto](jindosdk_on_presto.md)
-* [Flink](/docs/flink/jindofs_sdk_on_flink.md)
+* [Flink](/docs/flink/jindofs_sdk_on_flink_for_oss.md)
 * [Sqoop](kitesdk_on_sqoop.md)
 * [Druid](jindosdk_on_druid.md)
 
 ### 部署 JindoFS SDK 访问 JindoFS
 
 - [Hadoop](jindofs_sdk_how_to_jfs.md)
+- [Flink](/docs/flink/jindofs_sdk_on_flink_for_jfs.md)
 
 ### 相关文章
 
