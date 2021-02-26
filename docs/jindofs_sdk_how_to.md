@@ -26,10 +26,7 @@ cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
 ```
 hadoop fs -ls oss://<ak>:<secret>@<bucket>.<endpoint>/
 ```
-
-#### 2.1 （可选）配置AK
-
-上述方式，即在每个uri路径临时指定ak的方式比较繁琐，容易产生安全问题。您可以将oss的ak、secret、endpoint预先配置在hadoop的core-site.xml，配置项如下：
+#### 2.1 配置JindoFS OSS实现类
 ```xml
 <configuration>
     <property>
@@ -41,7 +38,14 @@ hadoop fs -ls oss://<ak>:<secret>@<bucket>.<endpoint>/
         <name>fs.oss.impl</name>
         <value>com.aliyun.emr.fs.oss.JindoOssFileSystem</value>
     </property>
+</configuration>
+```
 
+#### 2.2 配置OSS Access Key
+
+上述方式，即在每个uri路径临时指定ak的方式比较繁琐，容易产生安全问题。您可以将oss的ak、secret、endpoint预先配置在hadoop的core-site.xml，配置项如下：
+```xml
+<configuration>
     <property>
         <name>fs.jfs.cache.oss.accessKeyId</name>
         <value>xxx</value>
@@ -58,52 +62,11 @@ hadoop fs -ls oss://<ak>:<secret>@<bucket>.<endpoint>/
     </property>
 </configuration>
 ```
-如需更多的OSS Credential配置方式，请参考[Credential Provider 使用](jindosdk_credential_provider.md)。<br />
+JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK OSS AccessKey 配置](./jindosdk_credential_provider.md)。<br />
 然后就可以用以下方式访问OSS：
 ```
 hadoop fs -ls oss://<bucket>/
 ```
-
-<br />
-
-# 在IDE工程中使用SDK开发调试代码
-
-在maven中添加本地sdk jar包的依赖
-```xml
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-common</artifactId>
-            <version>2.8.5</version>
-        </dependency>
-        <dependency>
-            <groupId>bigboot</groupId>
-            <artifactId>jindofs</artifactId>
-            <version>0.0.1</version>
-            <scope>system</scope>
-            <systemPath>/Users/xx/xx/jindofs-sdk-${version}.jar</systemPath>
-            <!-- 请将${version}替换为具体的版本号 -->
-        </dependency>
-```
-然后您可以编写Java程序使用SDK
-```java
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FSDataInputStream;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
-
-import java.net.URI;
-
-public class TestJindoSDK {
-  public static void main(String[] args) throws Exception {
-    Configuration conf = new Configuration();
-    FileSystem fs = FileSystem.get(URI.create("oss://<bucket>/"), conf);
-    FSDataInputStream in = fs.open(new Path("/uttest/file1"));
-    in.read();
-    in.close();
-  }
-}
-```
-<br />
 
 ## 附录: SDK配置项列表
 

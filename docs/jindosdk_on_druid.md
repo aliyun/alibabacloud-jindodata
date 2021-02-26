@@ -50,7 +50,7 @@ cp jindofs-sdk-${version}.jar  $DRUID_HOME/extensions/druid-hdfs-storage/
 </configuration>
 
 ````
-如需更多的OSS Credential配置方式，请参考[Credential Provider 使用](jindosdk_credential_provider.md)
+JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK OSS AccessKey 配置](./jindosdk_credential_provider.md)。<br />
 
 * 配置 Druid 使用 OSS 作为Deep Storage, 编辑 $DRUID_HOME/conf/druid/cluster/_common/common.runtime.properties.
 
