@@ -137,5 +137,5 @@ curl -X 'POST' -H 'Content-Type:application/json' -d @oss.json http://{YOUR_ROUT
 * 检查Druid 的DataSource, 可以通过Druid Console或者以下命令检查OSSWikipedia的DataSoure是否生成，替换下面命令中{YOUR_ROUTER}为Druid Router组件的地址。
 
 ````
-url -X GET -H "Content-type: application/json" http://{YOUR_ROUTER}/druid/coordinator/v1/metadata/datasources/OSSWikipedia
+curl -X GET -H "Content-type: application/json" http://{YOUR_ROUTER}/druid/coordinator/v1/metadata/datasources/OSSWikipedia
 ````
