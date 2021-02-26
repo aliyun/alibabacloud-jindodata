@@ -46,5 +46,6 @@ cp jindofs-sdk-${version}.jar  $PRESTO_HOME/plugin/hive-hadoop2/
 </configuration>
 
 ````
+如需更多的OSS Credential配置方式，请参考[Credential Provider 使用](jindosdk_credential_provider.md)
 
 * 重启 Presto 所有服务，使配置生效。

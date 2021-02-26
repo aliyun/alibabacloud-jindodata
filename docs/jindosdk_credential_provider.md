@@ -27,13 +27,19 @@
 ## Credential Provider 类型
 您可以根据情况，选择不同的Credential Provider，支持如下Provider：
 ### 全局方式配置
-#### TemporaryAliyunCredentialsProvider适合使用有时效性的AccessKey和SecurityToken访问OSS的情况。
+#### 1. TemporaryAliyunCredentialsProvider适合使用有时效性的AccessKey和SecurityToken访问OSS的情况。
+* 配置Provider类型：
 ```xml
 <configuration>
     <property>
         <name>fs.jfs.cache.oss.credentials.provider</name>
         <value>com.aliyun.emr.fs.auth.TemporaryAliyunCredentialsProvider</value>
     </property>
+</configuration>
+```
+* 配置OSS AK：
+```xml
+<configuration>
     <property>
         <name>fs.jfs.cache.oss.accessKeyId</name>
         <value>OSS的AccessKey Id</value>
@@ -48,14 +54,37 @@
     </property>
 </configuration>
 ```
- 
-#### SimpleAliyunCredentialsProvider适合使用长期有效的AccessKey访问OSS的情况。
+* 也可以使用Hadoop Aliyun OSS 的配置AK的方式：
+```xml
+<configuration>
+    <property>
+        <name>fs.oss.accessKeyId</name>
+        <value>OSS的AccessKey Id</value>
+    </property>
+    <property>
+        <name>fs.oss.accessKeySecret</name>
+        <value>OSS的AccessKey Secret</value>
+    </property>
+    <property>
+        <name>fs.oss.securityToken</name>
+        <value>OSS的SecurityToken（临时安全令牌)</value>
+    </property>
+</configuration>
+```
+
+#### 2. SimpleAliyunCredentialsProvider适合使用长期有效的AccessKey访问OSS的情况。
+* 配置Provider类型：
 ```xml
 <configuration>
     <property>
         <name>fs.jfs.cache.oss.credentials.provider</name>
         <value>com.aliyun.emr.fs.auth.SimpleAliyunCredentialsProvider</value>
     </property>
+</configuration>
+```
+* 配置OSS AK：
+```xml
+<configuration>
     <property>
         <name>fs.jfs.cache.oss.accessKeyId</name>
         <value>OSS的AccessKey Id</value>
@@ -66,8 +95,22 @@
     </property>
 </configuration>
 ```
- 
-#### EnvironmentVariableCredentialsProvider在环境变量中获取AK。
+* 也可以使用Hadoop Aliyun OSS 的配置AK的方式：
+```xml
+<configuration>
+    <property>
+        <name>fs.oss.accessKeyId</name>
+        <value>OSS的AccessKey Id</value>
+    </property>
+    <property>
+        <name>fs.oss.accessKeySecret</name>
+        <value>OSS的AccessKey Secret</value>
+    </property>
+</configuration>
+```
+
+#### 3. EnvironmentVariableCredentialsProvider在环境变量中获取AK。
+* 配置Provider类型：
 ```xml
 <configuration>
     <property>
@@ -76,21 +119,28 @@
     </property>
 </configuration>
 ```
-该方式需要在环境变量中配置以下参数。
+* 配置OSS AK，需要在环境变量中配置以下参数：
+
 | 参数                                    | 参数说明             |
 | ------------------------------------------| ----------------- |
 | ALIYUN_ACCESS_KEY_ID                      | OSS的AccessKey Id |
 | ALIYUN_ACCESS_KEY_SECRET                  | OSS的AccessKey Secret |
 | ALIYUN_SECURITY_TOKEN                     | OSS的SecurityToken（临时安全令牌）。说明 仅配置有时效Token时需要。|
 
- 
-#### JindoCommonCredentialsProvider为通用配置。
+
+#### 4. JindoCommonCredentialsProvider为通用配置。
+* 配置Provider类型：
 ```xml
 <configuration>
     <property>
         <name>fs.jfs.cache.oss.credentials.provider</name>
         <value>com.aliyun.emr.fs.auth.JindoCommonCredentialsProvider</value>
     </property>
+</configuration>
+```
+* 配置OSS AK：
+```xml
+<configuration>
     <property>
         <name>jindo.common.accessKeyId</name>
         <value>OSS的AccessKey Id</value>
@@ -107,13 +157,19 @@
 ```
 
 ### 按照bucket配置
-#### TemporaryAliyunCredentialsProvider适合使用有时效性的AccessKey和SecurityToken访问OSS的情况。
+#### 1. TemporaryAliyunCredentialsProvider适合使用有时效性的AccessKey和SecurityToken访问OSS的情况。
+* 配置Provider类型：
 ```xml
 <configuration>
     <property>
         <name>fs.jfs.cache.oss.bucket.XXX.credentials.provider</name>
         <value>com.aliyun.emr.fs.auth.TemporaryAliyunCredentialsProvider</value>
     </property>
+</configuration>
+```
+* 配置OSS AK：
+```xml
+<configuration>
     <property>
         <name>fs.jfs.cache.oss.bucket.XXX.accessKeyId</name>
         <value>OSS bucket的AccessKey Id</value>
@@ -128,14 +184,20 @@
     </property>
 </configuration>
 ```
- 
-#### SimpleAliyunCredentialsProvider适合使用长期有效的AccessKey访问OSS的情况。
+
+#### 2. SimpleAliyunCredentialsProvider适合使用长期有效的AccessKey访问OSS的情况。
+* 配置Provider类型：
 ```xml
 <configuration>
     <property>
         <name>fs.jfs.cache.oss.bucket.XXX.credentials.provider</name>
         <value>com.aliyun.emr.fs.auth.SimpleAliyunCredentialsProvider</value>
     </property>
+</configuration>
+```
+* 配置OSS AK：
+```xml
+<configuration>
     <property>
         <name>fs.jfs.cache.oss.bucket.XXX.accessKeyId</name>
         <value>OSS bucket的AccessKey Id</value>
@@ -146,8 +208,9 @@
     </property>
 </configuration>
 ```
- 
-#### EnvironmentVariableCredentialsProvider在环境变量中获取AK。
+
+#### 3. EnvironmentVariableCredentialsProvider在环境变量中获取AK。
+* 配置Provider类型：
 ```xml
 <configuration>
     <property>
@@ -156,22 +219,28 @@
     </property>
 </configuration>
 ```
+* 配置OSS AK，需要在环境变量中配置以下参数：
 
-该方式需要在环境变量中配置以下参数
 | 参数                                    | 参数说明             |
 | ------------------------------------------| ----------------- |
 | ALIYUN_ACCESS_KEY_ID                      | OSS bucket的AccessKey Id |
 | ALIYUN_ACCESS_KEY_SECRET                  | OSS bucket的AccessKey Secret |
 | ALIYUN_SECURITY_TOKEN                     | OSS bucket的SecurityToken（临时安全令牌）。说明 仅配置有时效Token时需要。|
 
- 
-#### JindoCommonCredentialsProvider为通用配置。
+
+#### 4. JindoCommonCredentialsProvider为通用配置。
+* 配置Provider类型：
 ```xml
 <configuration>
     <property>
         <name>fs.jfs.cache.oss.bucket.XXX.credentials.provider</name>
         <value>com.aliyun.emr.fs.auth.JindoCommonCredentialsProvider</value>
     </property>
+</configuration>
+```
+* 配置OSS AK：
+```xml
+<configuration>
     <property>
         <name>jindo.common.accessKeyId</name>
         <value>OSS bucket的AccessKey Id</value>

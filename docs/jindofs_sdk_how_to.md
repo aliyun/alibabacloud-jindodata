@@ -58,7 +58,8 @@ hadoop fs -ls oss://<ak>:<secret>@<bucket>.<endpoint>/
     </property>
 </configuration>
 ```
-然后就可以用以下方式访问OSS
+如需更多的OSS Credential配置方式，请参考[Credential Provider 使用](jindosdk_credential_provider.md)。<br />
+然后就可以用以下方式访问OSS：
 ```
 hadoop fs -ls oss://<bucket>/
 ```

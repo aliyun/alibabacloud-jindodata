@@ -46,4 +46,3 @@ hadoop dfs -ls oss://bucket/dir
 
 * [使用 JindoFS SDK 大幅提升 OSS 文件各项操作性能](https://developer.aliyun.com/article/767222)
 * [JindoFS OSS SDK 和 Hadoop-OSS-SDK 性能对比结果](jindofs_sdk_vs_hadoop_sdk.md)
-* [Credential Provider 使用](jindosdk_credential_provider.md)

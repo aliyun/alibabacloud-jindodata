@@ -56,11 +56,11 @@ You can also pre-configure ak, secret and endpoint of OSS to hadoop core-site.xm
     </property>
 </configuration>
 ```
+For the detail configurations of OSS Credential, please refer to the document [Credential Provider User Guide](jindosdk_credential_provider.md).<br />
 Then OSS can then be accessed in the following way:
 ```
 hadoop fs -ls oss://<bucket>/
 ```
-
 <br />
 
 # Access to JindoFS Cache/Block Mode Cluster
