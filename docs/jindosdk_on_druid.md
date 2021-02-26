@@ -9,7 +9,7 @@
 
 # 使用
 
-* 下载JindoFS SDK最新版本， 下载[地址](jindofs_sdk_download.md).
+* 前往[地址](jindofs_sdk_download.md)下载JindoFS SDK最新版本， 下载jindofs-sdk-${version}.jar对应的jar包.
 
 * 在所有 Druid 节点安装 JindoFS SDK.
 

@@ -1,19 +1,15 @@
-# Presto 使用 JindoSDK 访问 OSS
+# Presto 使用 JindoFS SDK 访问 OSS
 
-# 前置
+# 安装部署
 
----
-* 您的 Presto 集群已经配置 HADOOP 相关参数，并正确配置了 core-site.xml
+* 前往[地址](jindofs_sdk_download.md)下载JindoFS SDK最新版本， 下载jindofs-sdk-${version}.jar对应的jar包
 
-# 使用
-
-* 在所有 Presto 节点安装 JindoSDK
-下载[地址](jindofs_sdk_download.md)
+* 在所有 Presto 节点安装 JindoFS SDK
 ````
 cp jindofs-sdk-${version}.jar  $PRESTO_HOME/plugin/hive-hadoop2/
 ````
 
-* 在所有 Presto 节点修改 core-site.xml 配置 JindoSDK 访问 OSS
+* 在所有 Presto 节点修改 core-site.xml 配置 JindoFS SDK 访问 OSS
 
 ````
 <configuration>
