@@ -65,6 +65,7 @@ hadoop fs -put <path> oss://<bucket>/
 <div align=center>
 <img src="../pic/jindofs_sdk_put.png#pic_center" />
 </div>
+<br />
 
 * ls 操作
 ```
@@ -73,6 +74,7 @@ hadoop fs -ls oss://<bucket>/
 <div align=center>
 <img src="../pic/jindofs_sdk_ls.png#pic_center" />
 </div>
+<br />
 
 * mkdir 操作
 ```
@@ -81,6 +83,7 @@ hadoop fs -mkdir oss://<bucket>/<path>
 <div align=center>
 <img src="../pic/jindofs_sdk_mkdir.png#pic_center" />
 </div>
+<br />
 
 * rm 操作
 ```
