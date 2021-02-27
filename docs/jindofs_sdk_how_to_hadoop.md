@@ -79,7 +79,7 @@ hadoop fs -ls oss://<bucket>/
 hadoop fs -mkdir oss://<bucket>/<path>
 ```
 <div align=center>
-<img src="../pic/jindofs_sdk_mkdir.png.png#pic_center" />
+<img src="../pic/jindofs_sdk_mkdir.png#pic_center" />
 </div>
 
 * rm 操作
@@ -87,7 +87,7 @@ hadoop fs -mkdir oss://<bucket>/<path>
 hadoop fs rm oss://<bucket>/<path>
 ```
 <div align=center>
-<img src="../pic/jindofs_sdk_delete.png#pic_center" />
+<img src="../pic/jindofs_sdk_rm.png#pic_center" />
 </div>
 
 ### 5. 参数调优
