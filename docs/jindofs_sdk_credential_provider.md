@@ -182,5 +182,5 @@ hadoop credential create fs.jfs.cache.oss.securityToken -value  CCC -provider jc
 ```
 
 ### JindoFS SDK 还支持不同的 OSS bucket 配置不同的 Credential Provider
-  详情参考[JindoFS SDK Credential Provider 按 OSS bucket 配置使用说明](./jindosdk_credential_provider-bucket.md)。
+  详情参考[JindoFS SDK Credential Provider 按 OSS bucket 配置使用说明](./jindofs_sdk_credential_provider-bucket.md)。
 

@@ -1,4 +1,4 @@
-# Hadoop 使用 JindoFS SDK 在 IDE 开发调试
+# Spark 使用 JindoFS SDK 在 IDE 开发调试 
 
 在maven中添加本地sdk jar包的依赖
 ```xml
@@ -18,20 +18,20 @@
 ```
 然后您可以编写Java程序使用SDK
 ```java
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FSDataInputStream;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
-
-import java.net.URI;
-
+import org.apache.spark.sql.SparkSession;
 public class TestJindoSDK {
   public static void main(String[] args) throws Exception {
-    Configuration conf = new Configuration();
-    FileSystem fs = FileSystem.get(URI.create("oss://<bucket>/"), conf);
-    FSDataInputStream in = fs.open(new Path("/uttest/file1"));
-    in.read();
-    in.close();
+    SparkSession spark = SparkSession
+        .builder()
+        .config("spark.hadoop.fs.AbstractFileSystem.oss.impl", "com.aliyun.emr.fs.oss.OSS")
+        .config("spark.hadoop.fs.oss.impl", "com.aliyun.emr.fs.oss.JindoOssFileSystem")
+        .config("spark.hadoop.fs.jfs.cache.oss.accessKeyId", "xxx")
+        .config("spark.hadoop.fs.jfs.cache.oss.accessKeySecret", "xxx")
+        .appName("TestJindoSDK")
+        .getOrCreate();
+    spark.read().parquet("oss://xxx").count();
+    spark.stop();
   }
 }
 ```
+<br />
