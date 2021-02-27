@@ -49,9 +49,9 @@ Jindo DistCp提供jar包形式使用，您可以使用hadoop jar命令配合一�
      --s3Key=VALUE   -   Specify your s3 key
      --s3Secret=VALUE   -   Specify your s3 Sercet
      --s3EndPoint=VALUE   -   Specify your s3 EndPoint
-     --enableBatch   -   enbale batch transfer
      --perNum=VALUE   -   batch transfer num size
      --byte=VALUE   -   batch transfer num size
+     --disableChecksum   -   disable checksum
 ```
 
 
@@ -470,21 +470,6 @@ hadoop jar /tmp/jindo-distcp-3.4.0.jar --src s3://smartdata1/ --dest s3://smartd
     <value>file:///tmp/jdk-8u251-linux-x64.tar.gz</value>
   </property>
 </configuration>
-```
-
-#### 24、使用--enableBatch、--perNum、--byte
-在上传文件到OSS时，JindoDistCp默认使用的magicJobCommiter对小文件传输不太友好，当您的传输文件数据量较大且小文件数量较多时可以使用enableBatch参数来分批传输小文件，使用MR自带的jobCommiter进行小文件的传输，而对大文件依然使用优化的后的magicJobCommiter<br/>
-
-示例命令如下：
-```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableBatch --parallelism 20
-```
-
-您也可以指定--perNum参数来指定分批次传输的批次大小，默认为100000。通过--byte参数来指定小于多大的文件是属于小文件范畴，默认小于8M为小文件，单位M
-
-示例命令如下：
-```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableBatch --perNum 100 --byte 6 --parallelism 20
 ```
 
 <a name="WwYXi"></a>
