@@ -67,9 +67,9 @@ Jindo DistCp provides a jar package for use. You can use the hadoop jar command 
      --s3Key=VALUE   -   Specify your s3 key
      --s3Secret=VALUE   -   Specify your s3 Sercet
      --s3EndPoint=VALUE   -   Specify your s3 EndPoint
-     --enableBatch   -   enbale batch transfer
      --perNum=VALUE   -   batch transfer num size
      --byte=VALUE   -   batch transfer num size
+     --disableChecksum   -   disable checksum
 ```
 
 
@@ -494,21 +494,6 @@ put jdk-8u251-linux-x64.tar.gz to tmp/
     <value>file:///tmp/jdk-8u251-linux-x64.tar.gz</value>
   </property>
 </configuration>
-```
-
-#### 24、Use --enableBatch、--perNum、--byte
-When uploading files to OSS, the magicJobCommiter used by JindoDistCp by default is not very friendly to small file transfers. When your transfer file has a large amount of data and a large number of small files, you can use the enableBatch parameter to transfer small files in batches. Use the FileOutputFormat transfers small files, but still uses the optimized magicJobCommiter for large files<br/>
-
-The sample command is as follows:
-```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableBatch --parallelism 20
-```
-
-You can also specify the --perNum parameter to specify the batch size for batch transmission, the default is 100000. Use the --byte parameter to specify how large a file is smaller than a small file. The default is a small file smaller than 8M, and the unit is M
-
-The sample command is as follows:
-```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableBatch --perNum 100 --byte 6 --parallelism 20
 ```
 
 <a name="WwYXi"></a>
