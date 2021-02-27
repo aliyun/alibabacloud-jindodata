@@ -56,41 +56,29 @@ cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
 JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK OSS AccessKey 配置](./jindofs_sdk_credential_provider.md)。<br />
 
 ### 4. 使用 JindoFS SDK 访问 OSS
-用Hadoop Shell访问OSS。
+用Hadoop Shell访问OSS，下面列举了几个常用的命令。
 
 * put 操作
 ```
 hadoop fs -put <path> oss://<bucket>/
 ```
-<div align=center>
-<img src="../pic/jindofs_sdk_put.png#pic_center" />
-</div>
-<br />
 
 * ls 操作
 ```
 hadoop fs -ls oss://<bucket>/
 ```
-<div align=center>
-<img src="../pic/jindofs_sdk_ls.png#pic_center" />
-</div>
-<br />
 
 * mkdir 操作
 ```
 hadoop fs -mkdir oss://<bucket>/<path>
 ```
-<div align=center>
-<img src="../pic/jindofs_sdk_mkdir.png#pic_center" />
-</div>
-<br />
 
 * rm 操作
 ```
 hadoop fs rm oss://<bucket>/<path>
 ```
 <div align=center>
-<img src="../pic/jindofs_sdk_rm.png#pic_center" />
+<img src="../pic/jindofs_sdk_cmd.png#pic_center" />
 </div>
 
 ### 5. 参数调优
