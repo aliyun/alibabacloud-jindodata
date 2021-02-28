@@ -17,8 +17,6 @@ JindoFS SDK是一个简单易用面向Hadoop/Spark生态的OSS客户端，为阿
 cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
 ```
 
-注意： 目前SDK只支持Linux、MacOS操作系统<br />。
-
 ### 2. 配置 JindoFS OSS 实现类
 ```xml
 <configuration>
