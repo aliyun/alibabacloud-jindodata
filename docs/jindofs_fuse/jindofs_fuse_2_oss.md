@@ -23,14 +23,16 @@ mkdir /mnt/jfs
 ### 4. 运行fuse挂载
 
 ```
-jindofs-fuse -oonly_sdk /mnt/jfs
+./jindofs-fuse -oonly_sdk /mnt/jfs
 ```
+
+<img src="/pic/jindofs_fuse_2_oss_1.png" alt="title" width="500"/>
+
 
 此时，您可以在/mnt/jfs路径下看到挂载的Bucket列表，并且像本地磁盘一样操作OSS上面的文件。
 
-<br />
+<img src="/pic/jindofs_fuse_2_oss_2.png" alt="title" width="300"/>
 
-## 附录: SDK配置项列表
-
-jindofs-fuse可以进行一些参数调整，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](../jindofs_sdk_configuration_list.md)。
+### 5. 参数调优
+JindoFS Fuse 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](../jindofs_sdk_configuration_list.md)。
 <br />

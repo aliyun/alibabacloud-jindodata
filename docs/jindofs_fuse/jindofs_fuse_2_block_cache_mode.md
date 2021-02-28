@@ -39,14 +39,16 @@ mkdir /mnt/jfs
 ### 4. 运行fuse挂载
 
 ```
-jindofs-fuse /mnt/jfs
+./jindofs-fuse /mnt/jfs
 ```
+
+<img src="/pic/jindofs_fuse_2_jfs_1.png" alt="title" width="500"/>
 
 此时，您可以在/mnt/jfs路径下看到JindoFS集群namespace列表，并且像本地磁盘一样操作JindoFS集群上的文件。
 
-<br />
+<img src="/pic/jindofs_fuse_2_jfs_2.png" alt="title" width="350"/>
 
-## 附录: SDK配置项列表
 
-jindofs-fuse可以进行一些参数调整，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](../jindofs_sdk_configuration_list.md)。
+### 5. 参数调优
+JindoFS Fuse 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](../jindofs_sdk_configuration_list.md)。
 <br />
