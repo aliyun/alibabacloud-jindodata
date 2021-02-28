@@ -65,18 +65,6 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 
 `--parallelism`：并行任务的个数，即MapReduce任务的task数量，如您的资源充足可适当调大
 
-
-如果您的数据量很大，文件数量很多，比如百万千万级别，这个时候您除了可以增大parallelism加大并发度，还可以开启`--enableBatch`参数来进行优化
-
-
-一键执行命令：
-```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 500 --enableBatch
-```
-
-
-
-
 ### 场景2、使用JindoDistCp成功导完数据，我怎么验证数据完整性？
 
 
