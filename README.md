@@ -9,7 +9,7 @@ JindoFS 作为阿里云基于 OSS 的一揽子数据湖存储优化方案，完�
 
 ## JindoFS SDK 生产使用
 
-* [Hadoop\Spark 生态使用 JindoFS SDK](docs/jindofs_sdk_overview.md)
+* [Hadoop、Spark 生态使用 JindoFS SDK](docs/jindofs_sdk_overview.md)
 
 * [JindoFS Python SDK](docs/pyjindo/jindosdk_python_sdk.md)
 
