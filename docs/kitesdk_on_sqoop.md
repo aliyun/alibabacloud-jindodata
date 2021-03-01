@@ -16,11 +16,11 @@ Sqoop 本身并不支持对 OSS 的读写，需要使用第三方 Kite SDK 进�
 cp ./kite-data-oss-3.4.0.jar <Sqoop_HOME>/lib/kite-data-oss-3.4.0.jar
 ```
 
-### 2.授予对 JAR 的权限。
+### 2.授予对 JAR 的权限
 ```
 sudo chmod 755 kite-data-oss-3.4.0.jar
 ```
-### 3.使用 oss 连接器导入 mysql 上的数据。
+### 3.使用 oss 连接器导入 mysql 上的数据
 ```
 sqoop import --connect jdbc:mysql://<host>:<port>/database --username username --password password --table yourtable --target-dir "oss://yourbucket/dir/" --as-parquetfile -m 5
 ```
