@@ -73,9 +73,8 @@ hadoop fs -mkdir oss://<bucket>/<path>
 ```
 hadoop fs rm oss://<bucket>/<path>
 ```
-<div align=center>
+
 <img src="../pic/jindofs_sdk_cmd.png#pic_center" />
-</div>
 
 ### 5. 参数调优
 JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](./jindofs_sdk_configuration_list.md)。
