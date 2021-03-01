@@ -19,7 +19,7 @@ Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完
 
 * [Hadoop 使用 JindoFS SDK 在 IDE 开发调试](docs/jindofs_sdk_ide_hadoop.md)
 
-* [Spark 使用 JindoFS SDK 在 IDE 开发调试](docs/jindofs_sdk_ide_spark.md)
+* [Spark 使用 JindoFS SDK 在 IDE 开发调试](docs/spark/jindofs_sdk_ide_spark.md)
 
 ## 数据迁移最佳实践
 

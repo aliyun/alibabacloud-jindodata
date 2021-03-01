@@ -18,6 +18,7 @@ cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
 ```
 
 ### 2. 配置 JindoFS OSS 实现类
+将 JindoFS OSS 实现类配置到Hadoop的core-site.xml中。
 ```xml
 <configuration>
     <property>
