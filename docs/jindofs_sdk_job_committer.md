@@ -1,4 +1,4 @@
-#Jindo Job Committer 使用说明
+# Jindo Job Committer 使用说明
 本文主要介绍Jindo Job Committer的使用。Jindo Job Committer较早开始支持JindoOssCommitter。从JindoFS SDK 3.4.0版本开始，针对OSS bucket开启多版本功能多情况，增加支持了JindoOssDirectCommitter。
 
 ## 背景信息
