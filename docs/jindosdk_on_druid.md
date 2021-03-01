@@ -1,7 +1,7 @@
 # Druid 使用 JindoFS SDK 访问 OSS
 
 Druid是Apache社区提供一款高性能的实时分析数据库软件，开源社区的Druid版本并不支持访问阿里云OSS数据湖存储，本文介绍如何配置Druid通过JindoFS SDK访问阿里云OSS数据湖存储。
-## 前置
+## 环境要求
 
 * Druid 集群已经配置 HADOOP 相关参数，并且加载HDFS Deep Storage 扩展。
 
@@ -73,7 +73,7 @@ druid.storage.storageDirectory = oss://xxxx/xxxx
 ### 5. 重启 Druid 所有服务
 重启Druid 服务使配置生效。
 
-## 验证
+## 验证使用
 
 ### 1. 准备Druid OSS 测试数据
 将 $DRUID_HOME/quickstart/tutorial/wikiticker-2015-09-12-sampled.json.gz 上传到OSS测试路径oss://{YOUR_BUCKET}/druid-oss/，实际使用中替换{YOUR_BUCKET}为测试OSS BUCKET名称。
