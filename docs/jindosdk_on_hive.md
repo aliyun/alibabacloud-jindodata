@@ -55,4 +55,4 @@ cp jindofs-sdk-${version}.jar  $HIVE_HOME/lib/
 
 4. 当使用 Hive on Tez 方式执行 Hive 作业时，还应保证配置 `tez.lib.uris` 所指向路径中包含 `jindofs-sdk-${version}.jar`。
 
-5. 当使用 Hive on Spark 方式执行 Hive 作业时，请参考[Spark 使用 JindoSDK 访问 OSS](jindofs_on_spark.md)同时配置好 Spark。
+5. 当使用 Hive on Spark 方式执行 Hive 作业时，请参考[Spark 使用 JindoSDK 访问 OSS](/docs/spark/jindosdk_on_spark.md)同时配置好 Spark。
