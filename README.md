@@ -33,10 +33,6 @@ Jindo 作为阿里云 OSS 数据湖计算存储场景中的湖加速方案，完
 
 * [JindoFS SDK 和 Hadoop OSS Connector 比较](#)(*Coming Soon*)
 
-* [Jindo Python SDK 和 OSS2 性能比较](#) (*Coming Soon*)
-
-* [JindoFS Fuse 和 OSS Fuse 比较](#) (*Coming Soon*)
-
 * [JindoFS 缓存系统（Cache 模式）性能比较](#) (*Coming Soon*)
 
 * [JindoFS 存储系统（Block 模式）和 HDFS 比较](docs/comparisons/jindofs_block_vs_hdfs.md)
