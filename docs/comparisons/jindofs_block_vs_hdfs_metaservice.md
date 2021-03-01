@@ -195,7 +195,7 @@ time hadoop dfs -count [DIR] > /dev/null
 
 ## 总结
 
-JindoFS 块模式可以轻松地存储10亿+文件数，并且提供高性能的读写请求处理能力。跟 HDFS NameNode 相比占用内存更小、性能更好、运维更加简单。我们可以利用 JindoFS 作为存储引擎，将底层数据存放在对象存储（比如OSS）上，并且利用 JindoFS 的本地缓存加速能力，组成一个云上稳定、可靠、高性能的大数据存储方案，给上层计算分析引擎提供强大有力的支撑。
+JindoFS 块模式可以轻松地存储10亿+文件数，并且提供高性能的读写请求处理能力。跟 HDFS NameNode 相比占用内存更小、性能更好、运维更加简单。我们可以利用 JindoFS 作为存储引擎，将底层数据存放在对象存储（比如OSS）上，并且利用 JindoFS 的本地缓存加速能力，组成一个云上稳定、可靠、高性能的大数据存储方案，给上层计算分析引擎提供强大有力的支撑。除此之外，JindoFS 在数据缓存、弹性扩容、权限等特性上均有很好的支持，具体可以[参考链接](./jindofs_block_vs_hdfs.md)。
 
 
-另外，JindoFS SDK可以单独使用，替代Hadoop社区OSS客户端实现。相比于Hadoop社区实现，JindoFS SDK对读写OSS的能力上做了很多的性能优化，可以访问[github repo](https://github.com/aliyun/alibabacloud-jindo-sdk/blob/master/docs/jindofs_sdk_how_to.md)下载使用。
+另外，JindoFS SDK可以单独使用，替代Hadoop社区OSS客户端实现。相比于Hadoop社区实现，JindoFS SDK对读写OSS的能力上做了很多的性能优化，可以访问[github repo](/docs/jindofs_sdk_overview.md)下载使用。

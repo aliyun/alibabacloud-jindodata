@@ -451,15 +451,7 @@ HBase有100w的数据，对系统进行重启。重启了三次，没发现有re
 <img src="/pic/jindofs_block_vs_hdfs_hbase_17.png" alt="title" width="800"/>
 
 ## 五、运维对比
-对于HBase跑在HDFS和JindoFS block模式上，在运维方面主要关注的是存储方面的区别。JindoFS Block模式与HDFS在运维方面相比，大大减轻了存储方面的运维工作。具体有以下的运维优势。
-
-1. JindoFS的元数据信息会异步实时同步到OTS服务上，也可以通过命令将元信息上传到OSS。集群如果需要升级/重建/恢复，运维操作十分简单，可以从 OTS 和 OSS 上即时恢复数据。对比HDFS这方面的操作，整个运维操作步长和复杂度都比较高。
-1. JindoFS高可用是通过rocksdb+raft实现，而HDFS的高可用需要依赖多个组件zookeeper/journalnode/zkfailovercontroller实现，需要运维多个被HDFS依赖的服务，所以相比较高可用运维方面JindoFS优势明显。
-1. 在JindoFS block模式下，数据有1备份存储在 OSS 上, 稳定性有SLA保证。出现坏盘、坏节点时候的运维操作非常简单，只需要下线坏盘或者坏的节点，无须进行手工 rebalance。
-1. JindoFS的元数据服务为native实现，无 JVM GC 影响。不需要担心因为GC对文件系统的元信息服务的性能带来影响，也不需要针对GC进行JVM参数调优等运维操作。
-1. JindoFS支持更大规模的元数据，对于10亿+级别文件数的规模，元数据服务性能表现稳定。对比HDFS需要进行配置Federation才能提供超大规模的文件系统的元信息服务，而且在Federation架构下需要维护多个Namenode实例，运维复杂的成倍提升。
-1. 支持对冷热数据进行分层存储，只需对目录级别进行冷热设置，自动完成对应数据的冷热分层存储。
-1. 在弹性方面，HDFS需要手动扩容，每次需要扩容都是增加一定量的空间，数据会逐渐存进来。如果扩的容量少，就要经常扩，工作量很大。如果扩的多，资源利用率就低，造成成本上升。JindoFS支持在线平滑伸缩，存储和计算可以分别进行伸缩。
+对于HBase跑在HDFS和 JindoFS block 模式上，在运维方面主要关注的是存储方面的区别。JindoFS Block 模式与 HDFS 在运维方面相比，大大减轻了存储方面的运维工作，您可以更多地关注在 Hbase 的运维上。通过 JindoFS Block 模式，可以将大部分冷数据存放在对象存储 OSS 上，一方面可以节省成本，另一方面可以借助 OSS 的 SLA 稳定性保证，保证数据安全和服务高可用。更多关于 JindoFS 和 HDFS 的对比，可以[参考链接](./jindofs_block_vs_hdfs.md)。
 
 
 
