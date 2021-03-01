@@ -49,9 +49,9 @@ Jindo DistCp提供jar包形式使用，您可以使用hadoop jar命令配合一�
      --s3Key=VALUE   -   Specify your s3 key
      --s3Secret=VALUE   -   Specify your s3 Sercet
      --s3EndPoint=VALUE   -   Specify your s3 EndPoint
-     --perNum=VALUE   -   batch transfer num size
-     --byte=VALUE   -   batch transfer num size
-     --disableChecksum   -   disable checksum
+     --perNum=VALUE   -   Batch transfer num size
+     --byte=VALUE   -   Batch transfer num size
+     --disableChecksum   -   Disable checksum
 ```
 
 
