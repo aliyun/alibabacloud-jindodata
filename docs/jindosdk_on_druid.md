@@ -1,13 +1,15 @@
 # Druid 使用 JindoFS SDK 访问 OSS
 
-# 前置
+Druid是Apache社区提供一款高性能的实时分析数据库软件，开源社区的Druid版本并不支持访问阿里云OSS数据湖存储，本文介绍如何配置Druid通过JindoFS SDK访问阿里云OSS数据湖存储。
+## 前置
 
 ---
 * 您的 Druid 集群已经配置 HADOOP 相关参数，并且加载HDFS Deep Storage 扩展。
 
 * 确保$DRUID_HOME/conf/cluster/_common目录下包含hadoop配置文件, 可以将core-site.xml, hdfs-site.xml等hadoop的配置文件拷贝到$DRUID_HOME/conf/cluster/_common目录下。
 
-# 使用
+## 安装步骤
+---
 
 * 前往[地址](jindofs_sdk_download.md)下载JindoFS SDK最新版本， 下载jindofs-sdk-${version}.jar对应的jar包。
 
@@ -17,7 +19,7 @@
 cp jindofs-sdk-${version}.jar  $DRUID_HOME/extensions/druid-hdfs-storage/
 ````
 
-* 配置Druid HDFS的扩展使用JindoFS SDK 访问OSS，编辑 $DRUID_HOME/conf/cluster/_common/core-site.xml。
+* 编辑 $DRUID_HOME/conf/cluster/_common/core-site.xml，配置JindoFS OSS的实现。
 
 ````
 <configuration>
@@ -31,6 +33,15 @@ cp jindofs-sdk-${version}.jar  $DRUID_HOME/extensions/druid-hdfs-storage/
         <name>fs.oss.impl</name>
         <value>com.aliyun.emr.fs.oss.JindoOssFileSystem</value>
     </property>
+
+</configuration>
+
+````
+
+* 编辑 $DRUID_HOME/conf/cluster/_common/core-site.xml，配置 OSS 访问秘钥
+
+````
+<configuration>
 
     <property>
         <name>fs.jfs.cache.oss.accessKeyId</name>
@@ -61,7 +72,8 @@ druid.storage.storageDirectory = oss://xxxx/xxxx
 
 * 重启 Druid 所有服务，使配置生效。
 
-# 验证
+## 验证
+---
 
 * 将 $DRUID_HOME/quickstart/tutorial/wikiticker-2015-09-12-sampled.json.gz 上传到测试OSS路径oss://{YOUR_BUCKET}/druid-oss/， 实际使用中替换{YOUR_BUCKET}为测试OSS BUCKET名称。
 
