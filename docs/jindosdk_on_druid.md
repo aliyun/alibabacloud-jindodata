@@ -16,7 +16,7 @@ Druid是Apache社区提供一款高性能的实时分析数据库软件，开源
 cp jindofs-sdk-${version}.jar  $DRUID_HOME/extensions/druid-hdfs-storage/
 ````
 
-### 2. 配置JindoFS OSS的实现
+### 2. 配置JindoFS OSS实现类
 编辑 $DRUID_HOME/conf/cluster/_common/core-site.xml, 添加OSS 实现类的相关配置。
 
 ````
