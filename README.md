@@ -31,7 +31,7 @@ JindoFS 作为阿里云基于 OSS 的一揽子数据湖存储优化方案，完�
 
 ## JindoFS 比较
 
-* [JindoFS SDK 和 Hadoop OSS Connector 比较](#)(*Coming Soon*)
+* [JindoFS SDK 和 Hadoop OSS Connector 比较](docs/jindofs_sdk_vs_hadoop_sdk.md)
 
 * [JindoFS Fuse 和 OSS Fuse 比较](docs/jindofs_fuse/jindofs_fuse_benchmark.md)
 
