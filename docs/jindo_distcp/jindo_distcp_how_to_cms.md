@@ -1,8 +1,8 @@
-# Jindo DistCp使用云监控服务进行失败告警
+# Jindo DistCp使用CMS进行告警
 
 Jindo DistCp（分布式文件拷贝工具）是用于大规模集群内部和集群之间拷贝文件的工具。使用MapReduce实现文件分发，错误处理和恢复，把文件和目录的列表作为map/reduce任务的输入，每个任务会完成源列表中部分文件的拷贝。
 
-云监控服务（简称CMS），可用于收集阿里云资源的监控指标或用户自定义的监控指标，探测服务可用性，以及针对指标设置警报。使您全面了解阿里云上资源的使用情况和业务运行状况，并及时对故障资源进行处理，保证业务正常运行。
+CMS（云监控服务），可用于收集阿里云资源的监控指标或用户自定义的监控指标，探测服务可用性，以及针对指标设置警报。使您全面了解阿里云上资源的使用情况和业务运行状况，并及时对故障资源进行处理，保证业务正常运行。
 
 您可以指定本次Jindo DistCp任务结束后是否需要开启CMS，以上报任务失败信息，并使用CMS控制台来配置告警功能。
 
@@ -16,13 +16,13 @@ Jindo DistCp（分布式文件拷贝工具）是用于大规模集群内部和�
 
 具体请参考文档[《创建应用分组》](https://help.aliyun.com/document_detail/45243.html?spm=a2c4g.11186623.6.573.469f3142Ps85rh)
 
-创建**标准应用分组**，获取分组ID，即cmsGroupId
+创建**标准应用分组**，并在应用分组界面查找自建分组，记录分组ID（即cmsGroupId）
 
 ### 3. 创建报警规则
 
 具体请参考文档[《创建报警规则》](https://help.aliyun.com/document_detail/103171.html?spm=a2c4g.11186623.6.663.18f87d95abSz2u)
 
-**事件类型**选择**自定义事件**，并指定事件名称为: **JindoDistcpCounter**
+**事件类型**选择**自定义事件**，所属应用分组选择上述分组，并指定事件名称为: **JindoDistcpCounter**
 
 ### 4. 配置环境变量
 
@@ -39,10 +39,10 @@ Jindo DistCp（分布式文件拷贝工具）是用于大规模集群内部和�
 export cmsAccessKeyId=<your_key_id>
 export cmsAccessSecret=<your_key_secret>
 export cmsRegion=cn-hangzhou
-export cmsGroupId=1
+export cmsGroupId=<your_group_id>
 ```
 
-### 5. 使用云监控进行失败告警
+### 5. 开启CMS进行任务失败告警
 
 * copy操作
 
