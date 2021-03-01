@@ -42,7 +42,7 @@ export cmsRegion=cn-hangzhou
 export cmsGroupId=<your_group_id>
 ```
 
-### 5. 开启CMS进行任务失败告警
+### 5. 开启CMS对失败任务进行告警
 
 * copy操作
 
