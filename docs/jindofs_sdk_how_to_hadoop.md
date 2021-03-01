@@ -1,7 +1,4 @@
 # Hadoop 使用 JindoFS SDK 访问 OSS
-[English Version](./jindofs_sdk_how_to_en.md)
-
-# 使用 JindoFS SDK 访问 OSS
 
 JindoFS SDK是一个简单易用面向Hadoop/Spark生态的OSS客户端，为阿里云OSS提供高度优化的Hadoop FileSystem实现。
 
