@@ -32,11 +32,12 @@ hadoop dfs -ls oss://bucket/dir
 ### 部署 JindoFS SDK 访问 OSS
 
 * [Hadoop](jindofs_sdk_how_to_hadoop.md)
+* [Hive](jindosdk_on_hive.md)
+* [Spark](/docs/spark/jindosdk_on_spark.md)
 * [Presto](jindosdk_on_presto.md)
 * [Flink](/docs/flink/jindofs_sdk_on_flink_for_oss.md)
 * [Sqoop](kitesdk_on_sqoop.md)
 * [Druid](jindosdk_on_druid.md)
-* [Spark](/docs/spark/jindosdk_on_spark.md)
 * [Impala](/docs/impala/jindosdk_on_impala.md)
 
 ### 部署 JindoFS SDK 访问 JindoFS
