@@ -59,5 +59,6 @@ hadoop jar jindo-distcp-3.4.0.jar \
 hadoop jar jindo-distcp-3.4.0.jar \
 --src /data/incoming/hourly_table \
 --dest oss://yang-hhht/hourly_table \
+--diff \
 --enableCMS
 ```
