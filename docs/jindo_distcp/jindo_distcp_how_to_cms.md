@@ -62,3 +62,38 @@ hadoop jar jindo-distcp-3.4.0.jar \
 --diff \
 --enableCMS
 ```
+
+## 告警内容
+
+### 告警内容格式
+```
+JindoDistCp COPY/DIFF job failed
+JobTime:yyyy-MM-dd HH:mm:ss~yyyy-MM-dd HH:mm:ss
+Counter:
+COUNTER_1:XX
+COUNTER_2:XX
+...
+```
+
+### 告警任务计数器
+
+告警内容中的counter计数器有以下几种：
+
+* copy操作
+
+| 任务计数器 | 说明 |
+| --- | --- |
+| COPY_FAILED | copy失败的文件数，**不为0时告警** |
+| CHECKSUM_DIFF | checksum校验失败的文件数，并计入COPY_FAILED |
+| FILES_EXPECTED | 预期的copy文件数量 |
+| FILES_COPIED | copy成功的文件数 |
+
+* diff操作
+
+| 任务计数器 | 说明 |
+| --- | --- |
+| DIFF_FAILED | diff失败的文件数，**不为0时告警** |
+| DST_MISS | 目标路径不存在的文件数，并计入DIFF_FAILED |
+| LENGTH_DIFF | 源文件和目标文件大小不一致的数量，并计入DIFF_FAILED |
+| CHECKSUM_DIFF | checksum校验失败的文件数，并计入DIFF_FAILED |
+| SAME_FILES | 经校验完全相同的文件数 |
