@@ -18,6 +18,7 @@
 * [数据在 OSS 不同 bucket 之间迁移](jindo_distcp_ossToOss_pre.md)
 * [数据从 S3 迁移到 OSS 上](jindo_distcp_s3ToOss_pre.md)
 * [数据从 HDFS 迁移到 HDFS 上](jindo_distcp_hdfsTohdfs_pre.md)
+* [数据从 COS 迁移到 OSS 上](jindo_distcp_cosToOss_pre.md)
 
 ### Jindo DistCp 问题排查指南
 我们总结了一些在不同环境使用 Jindo DistCp 用户可能会遇到的一些问题，您可以参照下文进行常见问题排查和解决
