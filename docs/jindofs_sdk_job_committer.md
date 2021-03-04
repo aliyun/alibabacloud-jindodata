@@ -43,15 +43,14 @@ JindoOssCommitter是阿里云E-MapReduce针对OSS场景开发的高效Job Commit
 </configuration>
 ```
 
-## 在Spark中使用JindoOssCommitter
+## 在Spark SQL中使用JindoOssCommitter
 ### 配置Job Committer
-在Spark服务的 spark-defaults.conf 中设置以下参数。这三个参数分别用来设置写入数据到Spark DataSource表、Spark Parquet格式的DataSource表和Hive表时使用的Job Committer。
+在Spark服务的 spark-defaults.conf 中设置以下参数。下列参数分别用来设置写入数据到Spark DataSource表和Parquet表时使用的Job Committer。
 
 | 参数                                       | 参数值            |
 | ------------------------------------------| ----------------- |
 | spark.sql.sources.outputCommitterClass    | com.aliyun.emr.fs.oss.commit.JindoOssCommitter |
 | spark.sql.parquet.output.committer.class  | com.aliyun.emr.fs.oss.commit.JindoOssCommitter |
-| spark.sql.hive.outputCommitterClass       | com.aliyun.emr.fs.oss.commit.JindoOssCommitter |
 
 ### 开启 Jindo Oss Magic Committer
 在Hadoop的 core-site.xml 中配置开关 fs.oss.committer.magic.enabled 便捷地控制所使用的Job Committer。当打开时，Spark任务会使用无需Rename操作的Jindo Oss Magic Committer，当关闭时，JindoOssCommitter和FileOutputCommitter行为一样。
