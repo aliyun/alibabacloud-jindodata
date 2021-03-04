@@ -5,7 +5,7 @@
 
 ## 介绍
 
-JindoFS 作为阿里云基于 OSS 的一揽子数据湖存储优化方案，完全兼容 Hadoop/Spark 生态，并针对 Spark、Hive、Flink、Presto 等大数据组件和 AI 生态实现了大量扩展和优化。JindoFS 项目包括 JindoFS OSS 支持、JindoFS 分布式缓存系统（JindoFS Cache 模式）和 JindoFS 分布式存储优化系统（JindoFS Block 模式）。JindoSDK 是各个计算组件可以用来使用JindoFS 这些优化扩展功能和模式的套件，包括 Hadoop Java SDK、Python SDK 和 Fuse/POSIX 支持。JindoSDK 在阿里云 E-MapReduce 产品中被深度集成，同时也开放给非 EMR 产品用户在各种 Hadoop/Spark 环境上使用，欢迎大家反馈问题和提供最佳实践。关于JindoFS 请参考 [JindoFS 介绍和使用](https://help.aliyun.com/document_detail/199488.html)。
+JindoFS 作为阿里云基于 OSS 的一揽子数据湖存储优化方案，完全兼容 Hadoop/Spark 生态，并针对 Spark、Hive、Flink、Presto 等大数据组件和 AI 生态实现了大量扩展和优化。JindoFS 项目包括 JindoFS OSS 支持、JindoFS 分布式缓存系统（JindoFS Cache 模式）和 JindoFS 分布式存储优化系统（JindoFS Block 模式）。JindoSDK 是各个计算组件可以用来使用JindoFS 这些优化扩展功能和模式的套件，包括 Hadoop Java SDK、Python SDK 和 Fuse/POSIX 支持。JindoSDK 在阿里云 E-MapReduce 产品中被深度集成，同时也开放给非 EMR 产品用户在各种 Hadoop/Spark 环境上使用，欢迎大家反馈问题和提供最佳实践。关于JindoFS 请参考 [JindoFS 介绍和使用](https://help.aliyun.com/document_detail/199488.html)。JindoSDK 下载请访问[JindoSDK 下载](/docs/jindofs_sdk_download.md)
 
 ## JindoFS SDK 生产使用
 
