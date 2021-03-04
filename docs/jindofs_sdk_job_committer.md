@@ -43,7 +43,12 @@ JindoOssCommitter是阿里云E-MapReduce针对OSS场景开发的高效Job Commit
 </configuration>
 ```
 
+## 在Spark RDD中使用JindoOssCommitter
+
+请参考在 MapReduce 中使用 JindoOssCommitter 的方法，配置相关 Hadoop 参数，并确保 OutputFormat 是 FileOutputFormat 或其子类。
+
 ## 在Spark SQL中使用JindoOssCommitter
+
 ### 配置Job Committer
 在Spark服务的 spark-defaults.conf 中设置以下参数。下列参数分别用来设置写入数据到Spark DataSource表和Parquet表时使用的Job Committer。
 
