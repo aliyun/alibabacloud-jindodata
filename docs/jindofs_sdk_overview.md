@@ -39,6 +39,7 @@ hadoop dfs -ls oss://bucket/dir
 * [Sqoop](kitesdk_on_sqoop.md)
 * [Druid](jindosdk_on_druid.md)
 * [Impala](/docs/impala/jindosdk_on_impala.md)
+* [CDH](jindofs_sdk_how_to_hadoop_cdh.md)
 
 ### 部署 JindoFS SDK 访问 JindoFS
 
