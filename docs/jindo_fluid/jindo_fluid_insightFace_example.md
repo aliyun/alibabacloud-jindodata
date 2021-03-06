@@ -1,8 +1,8 @@
 ### 机器规格
-单机
-gn6v-c10g1.20xlarge
-82 vCPU
-336 GiB 内存
+单机<br/>
+gn6v-c10g1.20xlarge<br/>
+82 vCPU<br/>
+336 GiB 内存<br/>
 8 V100 GPU
 
 
