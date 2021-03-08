@@ -68,6 +68,8 @@ hadoop jar jindo-distcp-3.4.0.jar \
 ### 告警内容格式
 ```
 JindoDistCp COPY/DIFF job failed
+SrcPath:hdfs://cluster-xxx:9000/data/incoming/hourly_table
+DestPath:oss://yang-hhht/hourly_table
 JobTime:yyyy-MM-dd HH:mm:ss~yyyy-MM-dd HH:mm:ss
 Counter:
 COUNTER_1:XX
@@ -92,8 +94,9 @@ COUNTER_2:XX
 
 | 任务计数器 | 说明 |
 | --- | --- |
-| DIFF_FAILED | diff失败的文件数，**不为0时告警** |
-| DST_MISS | 目标路径不存在的文件数，并计入DIFF_FAILED |
-| LENGTH_DIFF | 源文件和目标文件大小不一致的数量，并计入DIFF_FAILED |
-| CHECKSUM_DIFF | checksum校验失败的文件数，并计入DIFF_FAILED |
+| DIFF_FILES | 不相同的文件数，**不为0时告警** |
 | SAME_FILES | 经校验完全相同的文件数 |
+| DST_MISS | 目标路径不存在的文件数，并计入DIFF_FILES |
+| LENGTH_DIFF | 源文件和目标文件大小不一致的数量，并计入DIFF_FILES |
+| CHECKSUM_DIFF | checksum校验失败的文件数，并计入DIFF_FILES |
+| DIFF_FAILED | diff操作异常的文件数，具体报错参见job日志 |
