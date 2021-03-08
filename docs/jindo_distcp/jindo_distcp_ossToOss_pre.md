@@ -17,7 +17,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket
 如果您的 src 和 dest 的 bucket 不在同一个 region 或者不能使用同一个 ossKey 和 ossSecret 进行读写，那么您可以使用如下命令
 
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src oss://ossKey1@srcbucket.oss-cn-xxx.aliyuncs.com/ --dest oss://ossKey2@destBucket.oss-cn-xxx.aliyuncs.com/ --parallelism 10
+hadoop jar jindo-distcp-3.4.0.jar --src oss://ossKey1:ossSecret1@srcbucket.oss-cn-xxx.aliyuncs.com/ --dest oss://ossKey2:ossSecret2@destBucket.oss-cn-xxx.aliyuncs.com/ --parallelism 10
 ```
 * 其中需要将 --src 和 --dest 都写成 oss://osskey@bucket.endpoint/dir 的拼接形式
 
