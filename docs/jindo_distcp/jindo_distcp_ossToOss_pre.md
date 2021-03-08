@@ -19,7 +19,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket
 ```
 hadoop jar jindo-distcp-3.4.0.jar --src oss://ossKey1:ossSecret1@srcbucket.oss-cn-xxx.aliyuncs.com/ --dest oss://ossKey2:ossSecret2@destBucket.oss-cn-xxx.aliyuncs.com/ --parallelism 10
 ```
-* 其中需要将 --src 和 --dest 都写成 oss://osskey@bucket.endpoint/dir 的拼接形式
+* 其中需要将 --src 和 --dest 都写成 oss://osskey:ossSecret@bucket.endpoint/dir 的拼接形式
 
 ### 2、增量拷贝文件
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
