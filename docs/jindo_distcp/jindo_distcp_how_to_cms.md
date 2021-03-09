@@ -12,26 +12,19 @@ CMS（云监控服务），可用于收集阿里云资源的监控指标或用�
 
 具体请参考文档[《创建报警联系人或报警联系组》](https://help.aliyun.com/document_detail/104004.html?spm=a2c4g.11186623.6.672.1a493b70h9Bgby)
 
-### 2. 创建应用分组
+### 2. 获取报警Token
 
-具体请参考文档[《创建应用分组》](https://help.aliyun.com/document_detail/45243.html?spm=a2c4g.11186623.6.573.469f3142Ps85rh)
+点击左侧导航栏“报警服务”->"报警联系人"->切换上测页签到"报警联系组"->选择对应的报警联系组->点击右侧接入外部报警
 
-创建**标准应用分组**，并在应用分组界面查找自建分组，记录分组ID（即cmsGroupId）
 
-### 3. 创建报警规则
-
-具体请参考文档[《创建报警规则》](https://help.aliyun.com/document_detail/103171.html?spm=a2c4g.11186623.6.663.18f87d95abSz2u)
-
-**事件类型**选择**自定义事件**，所属应用分组选择上述分组，并指定事件名称为: **JindoDistcpCounter**
-
-### 4. 配置环境变量
+### 3. 配置环境变量
 
 | 环境变量 | 说明 |
 | --- | --- |
 | cmsAccessKeyId | 设置账号对应AccessKey ID |
 | cmsAccessSecret | 设置账号对应Access Key Secret |
 | cmsRegion | 设置CMS所在Region，需要与其他相关的云上资源一致，例如ECS，OSS，EMR所对应的Region |
-| cmsGroupId | 设置创建的CMS应用分组ID |
+| cmsToken | 设置创建的CMS Token |
 
 示例如下
 
@@ -39,7 +32,7 @@ CMS（云监控服务），可用于收集阿里云资源的监控指标或用�
 export cmsAccessKeyId=<your_key_id>
 export cmsAccessSecret=<your_key_secret>
 export cmsRegion=cn-hangzhou
-export cmsGroupId=<your_group_id>
+export cmsToken=<your_cms_token>
 ```
 
 ### 5. 开启CMS对失败任务进行告警
@@ -67,13 +60,16 @@ hadoop jar jindo-distcp-3.4.1.jar \
 
 ### 告警内容格式
 ```
-JindoDistCp COPY/DIFF job failed
-SrcPath:hdfs://cluster-xxx:9000/data/incoming/hourly_table
-DestPath:oss://yang-hhht/hourly_table
-JobTime:yyyy-MM-dd HH:mm:ss~yyyy-MM-dd HH:mm:ss
-Counter:
-COUNTER_1:XX
-COUNTER_2:XX
+{
+	"JobTime": "2021-03-09 19:45:27~2021-03-09 19:45:28",
+	"SrcPath": "hdfs://cluster-xxx:9000//data/incoming/hourly_table",
+	"DestPath": "oss://yang-hhht/hourly_table",
+	"Counter": {
+		"COUNTER_1": XXX,
+		"COUNTER_2": XXX,
+		...
+	}
+}
 ...
 ```
 
