@@ -189,19 +189,19 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 
 OSS提供归档或者低频类型的文件存储，如果您想将文件以低频或者归档的形式写到OSS上，可以使用如下命令来完成
 
-
 使用归档示例命令如下：
+
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --policy archive --parallelism 20
 ```
-在场景一的基础上增加`--archive`参数
+在场景一的基础上增加`--policy archive`参数
 
 
 使用低频示例命令如下：
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --policy ia --parallelism 20
 ```
-在场景一的基础上增加`--ia`参数
+在场景一的基础上增加`--policy ia`参数
 ### 场景7、我大概了解我的数据源情况，比如小文件比例和文件大小情况，该使用哪些参数来优化传输速度？
 
 

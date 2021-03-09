@@ -1,6 +1,7 @@
 # 使用Jindo DistCp
 [English Version](./jindo_distcp_how_to_en.md)
 <a name="3baNh"></a>
+
 # 介绍
 
 ---
@@ -360,14 +361,16 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="IMjaY"></a>
 #### 18、以归档/低频写入OSS
-在您的distcp任务写入OSS时，您可以通过--archive和--ia来分别指定以归档和低频的模式写入OSS，进行数据存储。<br />
-<br />使用归档（archive）示例命令如下：
+在您的distcp任务写入OSS时，您可以通过--policy来指定以归档和低频的模式写入OSS，进行数据存储。<br />
+
+使用归档（archive）示例命令如下：
+
 ```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --archive --parallelism 20
+hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy archive --parallelism 20
 ```
 使用低频（ia）示例命令如下：
 ```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ia --parallelism 20
+hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy ia --parallelism 20
 ```
 如您不指定则默认以standard及标准模式写入，不进行归档和低频操作<br />
 

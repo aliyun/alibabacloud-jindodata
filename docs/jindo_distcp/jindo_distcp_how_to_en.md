@@ -387,15 +387,16 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="IMjaY"></a>
 #### 18、Write data to OSS by archive or low frequency
-<br />When writing a distcp task to OSS, you can use --archive and --ia to specify whether to write the task to OSS in archive or low frequency mode for data storage.
+<br />When writing a distcp task to OSS, you can use --policy to specify whether to write the task to OSS in archive or low frequency mode for data storage.
 
 Use the archive sample command as follows:
+
 ```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --archive --parallelism 20
+hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy archive --parallelism 20
 ```
 Use the ia sample command as follows:
 ```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ia --parallelism 20
+hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy ia --parallelism 20
 ```
 
 If you do not specify this parameter, the data is written in standard or standard mode by default, and no archiving or low-frequency operations are performed.<br />
