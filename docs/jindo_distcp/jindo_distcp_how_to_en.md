@@ -389,10 +389,10 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 #### 18、Write data to OSS by coldArchive, archive or low frequency
 <br />When writing a distcp task to OSS, you can use --policy to specify whether to write the task to OSS in coldArchive, archive or low frequency mode for data storage.
 
-Use the coldArchive sample command as follows:
+Use the coldArchive (version 3.4.1) sample command as follows:
 
 ```bash
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy coldArchive --parallelism 20
+hadoop jar jindo-distcp-3.4.1.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy coldArchive --parallelism 20
 ```
 
 Use the archive sample command as follows:

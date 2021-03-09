@@ -363,10 +363,10 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 #### 18、以冷归档/归档/低频写入OSS
 在您的distcp任务写入OSS时，您可以通过--policy来指定以冷归档、归档和低频的模式写入OSS，进行数据存储。<br />
 
-冷归档目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)，使用冷归档（coldArchive）示例命令如下：
+冷归档（coldArchive）必须使用jindo-distcp-3.4.1以上版本，目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)，使用示例命令如下：
 
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy coldArchive --parallelism 20
+hadoop jar jindo-distcp-3.4.1.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy coldArchive --parallelism 20
 ```
 
 使用归档（archive）示例命令如下：

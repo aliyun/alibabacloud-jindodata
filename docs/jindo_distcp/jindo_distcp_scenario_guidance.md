@@ -189,7 +189,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 
 OSS提供冷归档、归档或者低频类型的文件存储，如果您想将文件以低频或者归档的形式写到OSS上，可以使用如下命令来完成
 
-冷归档目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)，使用冷归档示例命令如下：
+冷归档必须使用jindo-distcp-3.4.1以上版本，目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)，使用示例命令如下：
 
 ```bash
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --policy coldArchive --parallelism 20

@@ -37,10 +37,10 @@ hadoop jar jindo-distcp-3.4.0.jar --src s3a://srcbucket/ --dest oss://destBucket
 ### 3、文件冷备份
 如您想对写入到 OSS 上的文件进行冷备，如转化成冷归档（coldArchive）、归档（archive）和低频（ia）文件，可利用 Jindo DistCp 直接进行该流程
 
-##### 写入冷归档文件
+##### 写入冷归档文件（3.4.1以上版本）
 
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src s3a://srcbucket/ --dest oss://destBucket/ --s3Key yourKey --s3Secret yourSecret --s3EndPoint s3-xxx-1.amazonaws.com --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy coldArchive --parallelism 10
+hadoop jar jindo-distcp-3.4.1.jar --src s3a://srcbucket/ --dest oss://destBucket/ --s3Key yourKey --s3Secret yourSecret --s3EndPoint s3-xxx-1.amazonaws.com --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy coldArchive --parallelism 10
 ```
 
 * --policy coldArchive：表示写入到 OSS 文件以冷归档文件形式存放，冷归档目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)

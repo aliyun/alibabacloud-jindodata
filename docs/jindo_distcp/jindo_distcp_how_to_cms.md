@@ -47,7 +47,7 @@ export cmsGroupId=<your_group_id>
 * copy操作
 
 ```bash
-hadoop jar jindo-distcp-3.4.0.jar \
+hadoop jar jindo-distcp-3.4.1.jar \
 --src /data/incoming/hourly_table \
 --dest oss://yang-hhht/hourly_table \
 --enableCMS
@@ -56,7 +56,7 @@ hadoop jar jindo-distcp-3.4.0.jar \
 * diff操作
 
 ```bash
-hadoop jar jindo-distcp-3.4.0.jar \
+hadoop jar jindo-distcp-3.4.1.jar \
 --src /data/incoming/hourly_table \
 --dest oss://yang-hhht/hourly_table \
 --diff \
