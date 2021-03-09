@@ -35,7 +35,7 @@ export cmsRegion=cn-hangzhou
 export cmsToken=<your_cms_token>
 ```
 
-### 5. 开启CMS对失败任务进行告警
+### 4. 开启CMS对失败任务进行告警
 
 * copy操作
 
