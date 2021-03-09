@@ -386,8 +386,14 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 <br />In addition, we recommend that you configure the [password-free feature](https://help.aliyun.com/document_detail/156418.html) to avoid saving accesskeys in plaintext and improve security.<br />
 
 <a name="IMjaY"></a>
-#### 18、Write data to OSS by archive or low frequency
-<br />When writing a distcp task to OSS, you can use --policy to specify whether to write the task to OSS in archive or low frequency mode for data storage.
+#### 18、Write data to OSS by coldArchive, archive or low frequency
+<br />When writing a distcp task to OSS, you can use --policy to specify whether to write the task to OSS in coldArchive, archive or low frequency mode for data storage.
+
+Use the coldArchive sample command as follows:
+
+```bash
+hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy coldArchive --parallelism 20
+```
 
 Use the archive sample command as follows:
 

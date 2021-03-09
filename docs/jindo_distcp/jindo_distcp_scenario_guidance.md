@@ -184,10 +184,18 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 在场景一的基础上需要增加两个参数，两个参数可以配合使用，也可以单独使用
 `--queue`：指定yarn队列的名称
 `--bandwidth`：指定带宽的大小，单位为MB大小
-### 场景6、我想以低频或者归档形式写到OSS上，该使用哪些参数？
+### 场景6、我想以低频、归档或者冷归档形式写到OSS上，该使用哪些参数？
 
 
-OSS提供归档或者低频类型的文件存储，如果您想将文件以低频或者归档的形式写到OSS上，可以使用如下命令来完成
+OSS提供冷归档、归档或者低频类型的文件存储，如果您想将文件以低频或者归档的形式写到OSS上，可以使用如下命令来完成
+
+冷归档目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)，使用冷归档示例命令如下：
+
+```bash
+hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --policy coldArchive --parallelism 20
+```
+
+在场景一的基础上增加`--policy coldArchive`参数
 
 使用归档示例命令如下：
 

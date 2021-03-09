@@ -360,8 +360,14 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 <br />另外，我们推荐配置[免密功能](https://help.aliyun.com/document_detail/156418.html)，避免明文保存accessKey，提高安全性。<br />
 
 <a name="IMjaY"></a>
-#### 18、以归档/低频写入OSS
-在您的distcp任务写入OSS时，您可以通过--policy来指定以归档和低频的模式写入OSS，进行数据存储。<br />
+#### 18、以冷归档/归档/低频写入OSS
+在您的distcp任务写入OSS时，您可以通过--policy来指定以冷归档、归档和低频的模式写入OSS，进行数据存储。<br />
+
+冷归档目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)，使用冷归档（coldArchive）示例命令如下：
+
+```
+hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy coldArchive --parallelism 20
+```
 
 使用归档（archive）示例命令如下：
 
@@ -372,7 +378,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 ```bash
 hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy ia --parallelism 20
 ```
-如您不指定则默认以standard及标准模式写入，不进行归档和低频操作<br />
+如您不指定则默认以standard及标准模式写入，不进行冷归档、归档和低频操作<br />
 
 <a name="UEx2K"></a>
 #### 19、清理残留文件
