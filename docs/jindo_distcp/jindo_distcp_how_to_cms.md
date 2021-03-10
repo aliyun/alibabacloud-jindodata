@@ -4,7 +4,7 @@ Jindo DistCp（分布式文件拷贝工具）是用于大规模集群内部和�
 
 CMS（云监控服务），可用于收集阿里云资源的监控指标或用户自定义的监控指标，探测服务可用性，以及针对指标设置警报。使您全面了解阿里云上资源的使用情况和业务运行状况，并及时对故障资源进行处理，保证业务正常运行。
 
-您可以指定本次Jindo DistCp任务结束后是否需要开启CMS，以上报任务失败信息，并使用CMS控制台来配置告警功能。
+您可以指定本次Jindo DistCp任务结束后是否需要开启CMS，以上报任务失败信息，并使用CMS控制台来配置告警功能。告警条件参见[告警任务计数器](#告警任务计数器)。
 
 ## 步骤
 
@@ -24,7 +24,7 @@ CMS（云监控服务），可用于收集阿里云资源的监控指标或用�
 | cmsAccessKeyId | 设置账号对应AccessKey ID |
 | cmsAccessSecret | 设置账号对应Access Key Secret |
 | cmsRegion | 设置CMS所在Region，需要与其他相关的云上资源一致，例如ECS，OSS，EMR所对应的Region |
-| cmsToken | 设置创建的CMS Token |
+| cmsLevel | 设置标识告警通知方式，如果未设置，默认为WARN。INFO为*邮件+钉钉机器人*，WARN为*短信+邮件+钉钉机器人*，CRITICAL为*电话+短信+邮件+钉钉机器人* |
 
 示例如下
 
@@ -33,11 +33,12 @@ export cmsAccessKeyId=<your_key_id>
 export cmsAccessSecret=<your_key_secret>
 export cmsRegion=cn-hangzhou
 export cmsToken=<your_cms_token>
+export cmsLevel=WARN
 ```
 
 ### 4. 开启CMS对失败任务进行告警
 
-* copy操作
+#### copy操作
 
 ```bash
 hadoop jar jindo-distcp-3.4.1.jar \
@@ -46,7 +47,7 @@ hadoop jar jindo-distcp-3.4.1.jar \
 --enableCMS
 ```
 
-* diff操作
+#### diff操作
 
 ```bash
 hadoop jar jindo-distcp-3.4.1.jar \
@@ -73,11 +74,11 @@ hadoop jar jindo-distcp-3.4.1.jar \
 ...
 ```
 
-### 告警任务计数器
+### <span id="jump">告警任务计数器</span>
 
 告警内容中的counter计数器有以下几种：
 
-* copy操作
+#### copy操作
 
 | 任务计数器 | 说明 |
 | --- | --- |
@@ -86,7 +87,7 @@ hadoop jar jindo-distcp-3.4.1.jar \
 | FILES_EXPECTED | 预期的copy文件数量 |
 | FILES_COPIED | copy成功的文件数 |
 
-* diff操作
+#### diff操作
 
 | 任务计数器 | 说明 |
 | --- | --- |
