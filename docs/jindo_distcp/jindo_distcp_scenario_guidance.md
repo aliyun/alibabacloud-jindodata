@@ -183,7 +183,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 ```
 在场景一的基础上需要增加两个参数，两个参数可以配合使用，也可以单独使用
 `--queue`：指定yarn队列的名称
-`--bandwidth`：指定带宽的大小，单位为MB大小
+`--bandwidth`：指定单机带宽的大小，单位为MB大小
 ### 场景6、我想以低频、归档或者冷归档形式写到OSS上，该使用哪些参数？
 
 

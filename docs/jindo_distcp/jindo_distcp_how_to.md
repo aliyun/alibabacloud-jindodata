@@ -401,14 +401,15 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="0TVlg"></a>
 #### 21、使用--bandwidth
-在您的distcp过程中，您可以指定本次distcp任务所用的带宽(以MB为单位)，避免占用过大带宽<br />
+在您的distcp过程中，您可以指定本次distcp任务所用的单机带宽(以MB为单位)，避免单机占用过大带宽<br />
 <br />示例命令如下：
+
 ```bash
 hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --bandwidth 6
 ```
 
-
 <a name="UjU6Y"></a>
+
 #### 22、使用s3作为数据源
 您可以指定数据源为s3，目前支持前缀s3a/s3n/s3，您可以在命令中使用--s3Key、--s3Secret、--s3EndPoint选项来指定连接s3的相关信息。您也可以只指定s3EndPoint来使用s3的免密功能。<br />
 <br />示例命令如下：

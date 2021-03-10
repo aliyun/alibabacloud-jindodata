@@ -92,7 +92,7 @@ hadoop jar jindo-distcp-3.4.0.jar -libjars cos_api-bundle-5.6.35.jar,hadoop-cos-
 hadoop jar jindo-distcp-3.4.0.jar -libjars cos_api-bundle-5.6.35.jar,hadoop-cos-2.8.5-5.9.2.jar --src cosn://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
 * --queue：指定 YARN 队列的名称
-* --bandwidth：指定限流带宽的大小，单位 MB
+* --bandwidth：指定单机限流带宽的大小，单位 MB
 
 ### 7、OSS 密钥固定存储
 通常您需要将 OSS 的 AccessKey/AccessSecret/EndPoint 信息写在参数里，但是Jindo DistCp可以将其预先写在 Hadoop 的core-site.xml文件里，以避免使用时多次填写的问题。

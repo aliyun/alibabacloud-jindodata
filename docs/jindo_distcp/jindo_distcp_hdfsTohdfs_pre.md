@@ -36,7 +36,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>
 hadoop jar jindo-distcp-3.4.0.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>:port/dir/ --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
 * --queue：指定 YARN 队列的名称
-* --bandwidth：指定限流带宽的大小，单位 MB
+* --bandwidth：指定单机限流带宽的大小，单位 MB
 
 ### 4、其他功能
 如您需要其他使用其他功能，请参考

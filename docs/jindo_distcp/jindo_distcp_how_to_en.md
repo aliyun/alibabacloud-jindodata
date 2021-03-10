@@ -426,7 +426,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="0TVlg"></a>
 #### 21、use --bandwidth
-During the distcp process, you can specify the bandwidth (in MB) used for this distcp task to avoid excessive bandwidth usage.<br />The sample command is as follows:
+During the distcp process, you can specify the bandwidth (in MB) used for this distcp task to avoid excessive bandwidth usage on single node.<br />The sample command is as follows:
 ```bash
 hadoop jar jindo-distcp-3.4.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --bandwidth 6
 ```
