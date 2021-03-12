@@ -59,7 +59,7 @@ JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK
 
 ### 4. Hive on MR
 
-当使用 Hive on MR 方式执行 Hive 作业时，还应保证集群所有结点均安装了 JindoSDK，需要把 `jindofs-sdk-${version}.jar` 放到 `$HADOOP_CLASSPATH` 并重启 YARN 服务。也可以把 `jindofs-sdk-${version}.jar` 设置到 *hive-env.sh* 的 `HIVE_AUX_JARS_PATH` 变量中，并重启 Hive 所有服务。
+当使用 Hive on MR 方式执行 Hive 作业时，还应保证集群所有结点均安装了 JindoSDK，需要把 `jindofs-sdk-${version}.jar` 放到 `$HADOOP_CLASSPATH` 并重启 YARN 服务。并且把 `jindofs-sdk-${version}.jar` 设置到 *hive-env.sh* 的 `HIVE_AUX_JARS_PATH` 变量中，并重启 Hive 所有服务。
 
 ### 5. Hive on Tez
 
