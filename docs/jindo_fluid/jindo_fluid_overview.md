@@ -6,3 +6,5 @@
 * [拥抱云原生，Fluid结合JindoFS：加速机器学习训练-InsightFace](jindo_fluid_insightFace_example.md)
 
 * [拥抱云原生，Fluid结合JindoFS：进阶使用指南](jindo_fluid_jindofs_step_introduce.md)
+
+* [拥抱云原生，Fluid结合JindoFS：加速 HDFS 使用指南](jindo_fluid_jindofs_hdfs_introduce.md)
