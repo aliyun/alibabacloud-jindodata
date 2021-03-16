@@ -10,6 +10,9 @@
 [pyjindo-3.4.0-cp35-abi3-macosx_10_15_x86_64.whl](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/PyJindo/pyjindo-3.4.0-cp35-abi3-macosx_10_15_x86_64.whl)<br>
 [kite-data-oss-3.4.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/kite/kite-data-oss-3.4.0.jar)
 
+## v3.3.0 (01/18/2021)
+[jindofs-sdk-3.3.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.3.0.jar)  
+
 ## v3.1.3 (01/15/2021)
 [jindofs-sdk-3.1.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.1.3.jar)  
 
