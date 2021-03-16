@@ -1,8 +1,8 @@
 ## 拥抱云原生，Fluid结合JindoFS：加速 HDFS 使用指南
 
-如果选择 HDFS 作为 JindoFS 的底层存储系统，并且 HDFS 具有特殊的配置时，JindoFS 同样需要进行额外配置,以使得 JindoFS 能够正常访问挂载的 HDFS 集群.
+JindoFS 提供了访问 HDFS 的能力，可以通过配置 HDFS 作为 JindoFS 的后端存储，使 Fluid 通过 JindoFS 来访问 HDFS 上的数据，同时 JindoFS 也提供了对 HDFS 上的数据以及元数据的缓存加速功能。
 
-本文档展示了如何在 Fluid 中以声明式的方式完成 JindoFS 部署。
+本文档展示了如何在 Fluid 中以声明式的方式完成 JindoFS 部署，对接 HDFS 数据源。
 
 ## 前提条件
 
@@ -39,7 +39,7 @@ jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ### 5、创建 dataset 和 JindoRuntime
 
 #### 5.1、HA 集群从 HDFS 配置文件创建ConfigMap，非 HA 集群请略过此步骤
-从 HDFS 集群上找到 hdfs-site.xml 配置文件（阿里云EMR集群在 /etc/ecm/hadoop-conf 路径下），需要将其中 rpc 的访问地址中域名的部分参数，修改成可访问的内网 IP 地址。
+从 HDFS 集群上找到 hdfs-site.xml 配置文件（阿里云EMR集群在 /etc/ecm/hadoop-conf 路径下），需要将其中 rpc 的访问地址中域名的部分参数，修改成可访问的内网 IP 地址，例如：
 
 ```xml
 <property>
@@ -70,7 +70,7 @@ $ kubectl create configmap hdfsconfig --from-file=/path/to/hdfs-site.xml
 
 #### 5.2、创建 Dataset 资源对象
 
-首先创建一个名为 dataset.yaml 的文件，分为 HA 集群和非 HA 集群两种不同的情况。
+首先创建一个名为 dataset.yaml 的文件，针对 HDFS 集群分为 HA 集群和非 HA 集群两种不同的情况。
 
 #### HA 集群
 ```yaml
@@ -83,12 +83,12 @@ spec:
     - mountPoint: hdfs://emr-cluster/
       name: hadoop
 ```
-其中 `mountPoint` 为 hdfs-site.xml 文件中默认的访问路径名称（阿里云EMR集群默认为 emr-cluster）
+其中 `mountPoint` 为需要访问的 HDFS 路径（阿里云EMR集群默认名字为 emr-cluster，如下所示）
 
 ```xml
 <property>
-    <name>dfs.internal.nameservices</name>
-    <value>emr-cluster</value>
+    <name>fs.defaultFS</name>
+    <value>hdfs://emr-cluster</value>
 </property>
 ```
 #### 非 HA 集群
@@ -99,7 +99,7 @@ metadata:
   name: hadoop
 spec:
   mounts:
-    - mountPoint: hdfs://<namenodeIP>:<port>
+    - mountPoint: hdfs://<namenodeIP>:<port>/
       name: hadoop
 ```
 其中 `mountPoint` 为 HDFS 集群的 namenode 的 IP 地址和端口的组合
@@ -112,7 +112,7 @@ $ kubectl create -f dataset.yaml
 ```
 
 #### 5.4 创建 JindoRuntime 资源对象
-创建一个 JindoRuntime 对应的 JindoFS 集群，有 Cache 和 NoCache 两种模式。Cache 模式提供对远端 HDFS 上数据的缓存，缓存可存储在本地磁盘或者内存中。
+创建一个 JindoRuntime 对应的 JindoFS 集群，有 Cache 和 NoCache 两种模式。Cache 模式提供对远端 HDFS 上数据缓存以及元数据缓存。
 
 #### Cache 模式
 ```yaml
@@ -135,7 +135,6 @@ spec:
       jfs.cache.data-cache.enable: "true"
       jfs.cache.meta-cache.enable: "true"
       jfs.cache.data-cache.slicecache.enable: "true"
-      client.read.oss.readahead.buffer.count: "0"
 ```
 
 #### NoCache 模式
@@ -159,7 +158,6 @@ spec:
       jfs.cache.data-cache.enable: "false"
       jfs.cache.meta-cache.enable: "false"
       jfs.cache.data-cache.slicecache.enable: "false"
-      client.read.oss.readahead.buffer.count: "0"
 ```
 
 
@@ -174,7 +172,7 @@ path: /mnt/disk1/,/mnt/disk2/,/mnt/disk3/
 quota: 290Gi,290Gi,290Gi
 ```
 其中 path 和 quota 的数量应该相同。
-* `high`：水位上限大小最高 0.9 / `low`： 水位下限大小。
+* `high`：水位上限比例 / `low`： 水位下限比例。
 
 * `configmap-name`须为之前创建的 ConfigMap 资源对象，该 ConfigMap 必须与创建的 JindoRuntime 同处于同一Namespace。其中必须包含以`hdfs-site.xml`为键的键值对，Fluid会检查
 该ConfigMap中的内容，并从中选取`hdfs-site.xml`的键值对并以文件的形式挂载到 JindoFS 的各个 Pod 中。
@@ -211,18 +209,18 @@ hadoop    Ready           Ready           Ready     62m
 ```
 
 ### 6、小文件缓存加速优化
-
+Cache 模式下 JindoFS 自动对小文件打开了缓存优化，从 HDFS 集群读取文件数据后能够自动缓存到本地磁盘。推荐通过以下预加载命令将需要读取的数据目录进行元数据缓存和数据缓存的预加载，以更好地提升后续作业的性能。
 * 登陆到 JindoFS 集群 master 所在的 pod 上
 ```shell
 kubectl exec -ti hadoop-jindofs-master-0  -- /bin/bash
 ```
-* 进行元数据缓存
+* 进行元数据预加载
 ```shell
 jindo jfs -metaSync -R jfs://hadoop/dir/
 ```
 等待执行完毕即可完成元数据缓存
 
-* 进行小文件按需缓存
+* 进行小文件数据预加载
 ```shell
 jindo jfs -cache -s -l jfs://hadoop/dir/
 ```
