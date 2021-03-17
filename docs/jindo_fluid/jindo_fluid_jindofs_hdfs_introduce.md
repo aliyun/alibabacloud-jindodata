@@ -178,7 +178,7 @@ spec:
     levels:
       - mediumtype: SSD
         path: /mnt/disk1/
-        quota: 290Gi
+        quota: 290G
         high: "0.9"
         low: "0.8"
   hadoopConfig: hdfsconfig
