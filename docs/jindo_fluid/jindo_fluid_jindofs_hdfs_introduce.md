@@ -145,7 +145,7 @@ $ kubectl create -f dataset.yaml
 ```
 
 #### 5.4 创建 JindoRuntime 资源对象
-创建一个 JindoRuntime 对应的 JindoFS 集群，有 Cache 和 NoCache 两种模式。Cache 模式提供对远端 HDFS 上数据缓存以及元数据缓存。
+创建一个 JindoRuntime 对应的 JindoFS 集群，有 Cache 和 NoCache 两种模式。Cache 模式提供对远端 HDFS 上数据缓存以及元数据缓存；NoCache 模式即简单作为 HDFS connector 提供访问 HDFS 的能力。
 
 #### Cache 模式
 ```yaml
