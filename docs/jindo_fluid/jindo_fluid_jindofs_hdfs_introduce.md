@@ -104,6 +104,39 @@ spec:
 ```
 其中 `mountPoint` 为 HDFS 集群的 namenode 的 IP 地址和端口的组合
 
+#### 通过节点亲和性指定数据缓存的节点
+查看全部结点
+```shell
+$ kubectl get nodes
+NAME                       STATUS   ROLES    AGE     VERSION
+cn-shanghai.192.168.1.146   Ready    <none>   7d14h   v1.16.9-aliyun.1
+cn-shanghai.192.168.1.147   Ready    <none>   7d14h   v1.16.9-aliyun.1
+```
+使用标签标识结点
+
+```shell
+$ kubectl label nodes cn-shanghai.192.168.1.146 jindo-cache=true
+```
+
+我们将使用`NodeSelector` 来管理集群中存放数据的位置，所以在这里标记期望的结点在该`Dataset`资源对象的`spec`属性中。我们定义了一个`nodeSelectorTerm`的子属性，该子属性要求数据缓存必须被放置在具有 `jindo-cache=true` 标签的节点之上。
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: hadoop
+spec:
+  mounts:
+    - mountPoint: hdfs://emr-cluster/
+      name: hadoop
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: jindo-cache
+              operator: In
+              values:
+                - "true"
+```
 
 #### 5.3、创建 Dataset
 
