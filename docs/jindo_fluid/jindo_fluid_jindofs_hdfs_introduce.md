@@ -15,13 +15,32 @@ JindoFS 提供了访问 HDFS 的能力，可以通过配置 HDFS 作为 JindoFS 
 ```shell
 $ kubectl create ns fluid-system
 ```
-### 2、下载 [fluid-0.5.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/hdfscache/fluid-0.5.0.tgz)
+### 2、下载 [fluid-0.5.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/hdfscache-upgrade/fluid-0.5.0.tgz)
 
 ### 3、使用 Helm 安装 Fluid
 
 ```shell
 $ helm install --set runtime.jindo.enabled=true fluid fluid-0.5.0.tgz
 ```
+#### 自定义镜像
+解压 `fluid-0.5.0.tgz`，修改默认`values.yaml`文件
+```yaml
+runtime:
+  mountRoot: /runtime-mnt
+  jindo:
+    enabled: true
+    smartdata:
+      image: registry.cn-shanghai.aliyuncs.com/jindofs/smartdata:3.5.0
+    fuse:
+      image: registry.cn-shanghai.aliyuncs.com/jindofs/jindo-fuse:3.5.0
+    controller:
+      image: registry.cn-shanghai.aliyuncs.com/jindofs/jindoruntime-controller:v0.5.0-f56a91f
+```
+可以修改`jindo`相关的默认`image`内容，如放到自己的`repo`上，修改完成后重新使用`helm package fluid`打包，使用如下命令更新`fluid`版本
+```shell
+helm upgrade --install fluid fluid-0.5.0.tgz
+```
+
 
 ### 4、查看 Fluid 的运行状态
 
