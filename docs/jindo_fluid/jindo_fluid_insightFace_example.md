@@ -19,7 +19,7 @@ spec:
     levels:
       - mediumtype: SSD
         path: /var/lib/docker/jindo
-        quota: 300Gi
+        quota: 300G
         high: "0.9"
         low: "0.8"
   master:

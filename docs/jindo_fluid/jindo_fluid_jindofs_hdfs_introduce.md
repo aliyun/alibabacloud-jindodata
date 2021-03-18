@@ -201,7 +201,7 @@ spec:
     levels:
       - mediumtype: SSD
         path: /mnt/disk1/
-        quota: 290Gi
+        quota: 290G
         high: "0.9"
         low: "0.8"
   hadoopConfig: hdfsconfig
@@ -216,12 +216,12 @@ spec:
 * `replicas`：表示创建 JindoFS 集群的 worker 的数量。
 * `mediumtype`： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
 * `path`：存储路径，支持一块盘或者多块盘
-* `quota`：缓存最大容量，单位Gi。
+* `quota`：缓存最大容量，单位G。
 
 多块盘多个quota请参考
 ```yaml
 path: /mnt/disk1/,/mnt/disk2/,/mnt/disk3/
-quota: 290Gi,290Gi,290Gi
+quota: 290G,290G,290G
 ```
 其中 path 和 quota 的数量应该相同。
 * `high`：水位上限比例 / `low`： 水位下限比例。

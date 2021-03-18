@@ -124,7 +124,7 @@ spec:
     levels:
       - mediumtype: HDD
         path: /var/lib/docker/jindo
-        quota: 180Gi
+        quota: 180G
         high: "0.99"
         low: "0.8"
   fuse:
@@ -162,7 +162,7 @@ spec:
     levels:
       - mediumtype: HDD
         path: /var/lib/docker/jindo
-        quota: 180Gi
+        quota: 180G
         high: "0.99"
         low: "0.8"
   master:
@@ -190,7 +190,7 @@ spec:
     levels:
       - mediumtype: HDD
         path: /var/lib/docker/jindo
-        quota: 180Gi
+        quota: 180G
         high: "0.99"
         low: "0.8"
   fuse:

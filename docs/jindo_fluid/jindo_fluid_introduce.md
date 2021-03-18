@@ -124,7 +124,7 @@ spec:
     levels:
       - mediumtype: HDD
         path: /mnt/disk1
-        quota: 100Gi
+        quota: 100G
         high: "0.99"
         low: "0.8"
 ```
@@ -134,7 +134,7 @@ spec:
 * replicas：表示创建 JindoFS 集群的 worker 的数量。
 * mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
 * path：存储路径，暂只支持一块盘，当选择MEM做缓存也需要一块盘来存储log等文件。
-* quota：缓存最大容量，单位Gi。
+* quota：缓存最大容量，单位G。
 * high：水位上限大小 / low： 水位下限大小。
 
 创建 JindoRuntime 
