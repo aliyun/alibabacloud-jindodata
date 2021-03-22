@@ -58,7 +58,7 @@ JindoRuntime 提供对 Aliyun OSS 对象存储服务的访问和缓存加速能�
 ```shell
 kubectl create ns fluid-system
 ```
-#### 2、下载 [fluid-0.5.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/332cache/fluid-0.5.0.tgz)
+#### 2、下载 [fluid-0.5.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/hdfscache-upgrade/fluid-0.5.0.tgz)
 #### 3、使用 Helm 安装 Fluid
 ```shell
 helm install --set runtime.jindo.enabled=true fluid fluid-0.5.0.tgz
@@ -125,7 +125,7 @@ spec:
       - mediumtype: HDD
         path: /mnt/disk1
         quota: 100G
-        high: "0.99"
+        high: "0.9"
         low: "0.8"
 ```
 
