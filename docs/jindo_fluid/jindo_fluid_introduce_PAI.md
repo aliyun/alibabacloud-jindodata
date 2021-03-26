@@ -3,10 +3,10 @@
 ```shell
 kubectl create ns fluid-system
 ```
-### 2、下载 [fluid-0.5.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/332cache/fluid-0.5.0.tgz)
+### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/PAI/fluid-0.6.0.tgz)
 ### 3、使用 Helm 安装 Fluid
 ```shell
-helm install --set runtime.jindo.enabled=true fluid fluid-0.5.0.tgz
+helm install --set runtime.jindo.enabled=true fluid fluid-0.6.0.tgz
 ```
 ### 4、查看 Fluid 的运行状态
 ```shell
