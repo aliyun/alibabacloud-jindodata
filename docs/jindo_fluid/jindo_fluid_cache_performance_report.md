@@ -22,7 +22,7 @@ JindoFS 在大数据分析场景下主要提供了兼容 Hadoop 文件系统的�
 另外 JindoFS 也提供了 python 接口等多样的访问接口，可以很好地对接各种常用的 AI 训练场景的使用方式。
 
 ## 实践及性能分析
-本文针对两种典型的大数据存储系统（对象存储 OSS 和 HDFS）进行性能测试及分析，使用 InsightFace 作为测试用例，该测试集为典型的小文件训练集，包含约380万个小文件，每个文件大小约为23KB。测试集群配置如下。
+本文针对两种典型的大数据存储系统（对象存储 OSS 和 HDFS）进行性能测试及分析，使用 InsightFace 作为测试用例（关于 InsightFace 可详见 [拥抱云原生，Fluid结合JindoFS：加速机器学习训练-InsightFace](jindo_fluid_insightFace_example.md)），该测试集为典型的小文件训练集，包含约380万个小文件，每个文件大小约为23KB。测试集群配置如下。
 
 |  |  |
 | --- | --- |
@@ -35,7 +35,7 @@ JindoFS 在大数据分析场景下主要提供了兼容 Hadoop 文件系统的�
 测试过程首先执行元数据和数据预加载命令，将目标目录的数据和元数据缓存到 JindoFS 缓存系统中，然后执行 InsightFace 作业，作为对比，将 JindoFS 的缓存开关关闭后再次执行，则不利用缓存，所有元数据和数据均直接访问后端存储系统。
 
 ### 加速对象存储 OSS
-数据存储在阿里云对象存储 OSS 上，利用 JindoFS 进行缓存加速，结果如下所示：
+数据存储在阿里云对象存储 OSS 上，利用 JindoFS 进行缓存加速（关于如何使用 JindoFS 加速 OSS 可参考文档 [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](jindo_fluid_jindofs_oss_introduce.md)），结果如下所示：
 
 | 元数据预加载 | 数据预加载 | 开启缓存 | 关闭缓存 |
 | --- | --- | --- |--- |
@@ -45,7 +45,7 @@ JindoFS 在大数据分析场景下主要提供了兼容 Hadoop 文件系统的�
 而 JindoFS 元数据和数据预加载命令通过高并发同步 OSS 数据，可以在较短的时间内完成元数据和数据预加载，后续的作业即可利用缓存，访问延时上能够获得数量级上的提升。
 
 ### 加速 HDFS
-数据存储在另一个 HDFS 集群上，HDFS 集群配置如下：
+数据存储在另一个 HDFS 集群上，利用 JindoFS 进行缓存加速（关于如何使用 JindoFS 加速 HDFS 可参考文档 [拥抱云原生，Fluid结合JindoFS：加速 HDFS 使用指南](jindo_fluid_jindofs_hdfs_introduce.md)），HDFS 集群配置如下：
 
 |  |  |
 | --- | --- |

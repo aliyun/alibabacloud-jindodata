@@ -28,7 +28,7 @@ Fuse是Linux系统内核提供的一种挂载文件系统的方式。
 
 ### JindoFS Fuse 系列文章
 
-* [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](../jindo_fluid/jindo_fluid_introduce.md)
+* [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](../jindo_fluid/jindo_fluid_jindofs_oss_introduce.md)
 
 * [JindoFS Fuse 支持（视频）](https://developer.aliyun.com/live/2766)
 
