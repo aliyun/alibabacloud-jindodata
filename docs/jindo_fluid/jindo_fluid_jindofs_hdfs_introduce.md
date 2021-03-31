@@ -15,30 +15,60 @@ JindoFS 提供了访问 HDFS 的能力，可以通过配置 HDFS 作为 JindoFS 
 ```shell
 $ kubectl create ns fluid-system
 ```
-### 2、下载 [fluid-0.5.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/hdfscache-upgrade/fluid-0.5.0.tgz)
+### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/351/fluid-0.6.0.tgz)
 
 ### 3、使用 Helm 安装 Fluid
 
 ```shell
-$ helm install --set runtime.jindo.enabled=true fluid fluid-0.5.0.tgz
+$ helm install --set runtime.jindo.enabled=true fluid fluid-0.6.0.tgz
 ```
 #### 自定义镜像
-解压 `fluid-0.5.0.tgz`，修改默认`values.yaml`文件
+解压 `fluid-0.6.0.tgz`，修改默认`values.yaml`文件
 ```yaml
 runtime:
   mountRoot: /runtime-mnt
   jindo:
     enabled: true
     smartdata:
-      image: registry.cn-shanghai.aliyuncs.com/jindofs/smartdata:3.5.0
+      image: registry.cn-shanghai.aliyuncs.com/jindofs/smartdata:3.5.1
     fuse:
-      image: registry.cn-shanghai.aliyuncs.com/jindofs/jindo-fuse:3.5.0
+      image: registry.cn-shanghai.aliyuncs.com/jindofs/jindo-fuse:3.5.1
     controller:
-      image: registry.cn-shanghai.aliyuncs.com/jindofs/jindoruntime-controller:v0.5.0-f56a91f
+      image: registry.cn-shanghai.aliyuncs.com/jindofs/jindoruntime-controller:v0.6.0-d90f9e5
 ```
 可以修改`jindo`相关的默认`image`内容，如放到自己的`repo`上，修改完成后重新使用`helm package fluid`打包，使用如下命令更新`fluid`版本
 ```shell
-helm upgrade --install fluid fluid-0.5.0.tgz
+helm upgrade --install fluid fluid-0.6.0.tgz
+```
+#### 更新JindoRuntime的crd
+```shell
+$ hdfscache kubectl get crd      
+NAME                                             CREATED AT
+alluxiodataloads.data.fluid.io                   2021-03-26T09:05:01Z
+alluxioruntimes.data.fluid.io                    2021-03-26T09:05:01Z
+databackups.data.fluid.io                        2021-03-26T09:05:01Z
+dataloads.data.fluid.io                          2021-03-26T09:05:01Z
+datasets.data.fluid.io                           2021-03-26T09:05:01Z
+jindoruntimes.data.fluid.io                      2021-03-31T02:30:29Z
+```
+删除已有的jindoruntime的crd
+```shell
+kubectl delete crd jindoruntimes.data.fluid.io
+```
+解压`fluid-0.6.0.tgz`
+```shell
+$ ls -l fluid/
+total 32
+-rw-r--r--  1 frank  staff   489B  3 31 10:27 CHANGELOG.md
+-rw-r--r--  1 frank  staff   270B  3 31 10:27 Chart.yaml
+-rw-r--r--  1 frank  staff   2.1K  3 31 10:27 VERSION
+drwxr-xr-x  8 frank  staff   256B  3 31 10:29 crds
+drwxr-xr-x  6 frank  staff   192B  3 31 10:29 templates
+-rw-r--r--  1 frank  staff   1.2K  3 31 13:18 values.yaml
+```
+创建新的crd
+```shell
+kubectl apply -f crds/data.fluid.io_jindoruntimes.yaml
 ```
 
 
