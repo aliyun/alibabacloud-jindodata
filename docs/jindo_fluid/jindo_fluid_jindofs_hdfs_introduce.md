@@ -221,7 +221,7 @@ spec:
 多块盘多个quota请参考
 ```yaml
 path: /mnt/disk1/,/mnt/disk2/,/mnt/disk3/
-quota: 290G,290G,290G
+quotaList: 290G,290G,290G
 ```
 其中 path 和 quota 的数量应该相同。
 * `high`：水位上限比例 / `low`： 水位下限比例。
@@ -277,3 +277,164 @@ jindo jfs -metaSync -R jfs://hadoop/dir/
 jindo jfs -cache -s -l jfs://hadoop/dir/
 ```
 等待执行完毕即可完成数据缓存，可使用 Fuse / PV 加载数据进行机器学习训练
+
+### 7、指定 FUSE 用户
+使用`user`参数指定通过fuse读写时用户信息，如指定通过hadoop用户来进行访问。
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hadoop
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /mnt/disk1/
+        quota: 290G
+        high: "0.9"
+        low: "0.8"
+  hadoopConfig: hdfsconfig
+  user: hadoop
+  fuse:
+    properties:
+      jfs.cache.data-cache.enable: "true"
+      jfs.cache.meta-cache.enable: "true"
+      jfs.cache.data-cache.slicecache.enable: "true"
+```
+### 8、通过 nodeselector 指定节点部署 master
+可以通过`nodeselector`来指定具有特定`label`属性的节点，并在其上部署master的pod。比如选择具有`kubernetes.io/hostname: cn-shanghai.192.168.0.1`的label节点。
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hadoop
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /mnt/disk1/
+        quota: 290G
+        high: "0.9"
+        low: "0.8"
+  hadoopConfig: hdfsconfig
+  user: hadoop
+  master:
+    nodeSelector:
+      kubernetes.io/hostname: cn-shanghai.192.168.0.1
+  fuse:
+    properties:
+      jfs.cache.data-cache.enable: "true"
+      jfs.cache.meta-cache.enable: "true"
+      jfs.cache.data-cache.slicecache.enable: "true"
+```
+
+### 9、使用 placement 模式部署多个dataset
+您可以使用`placement`在同一个节点上部署多个不同的dataset，如
+创建一个名为`hadoop`的dataset
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: hadoop
+spec:
+  mounts:
+    - mountPoint: hdfs://emr-cluster/
+      name: hadoop
+  placement: "Shared"
+```
+创建dataset
+```shell
+kubectl create -f hadoop-dataset.yaml
+```
+创建另一个名为`hbase`的dataset
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: hbase
+spec:
+  mounts:
+    - mountPoint: hdfs://emr-cluster/
+      name: hbase
+  placement: "Shared"
+```
+创建dataset
+```shell
+kubectl create -f hbase-dataset.yaml
+```
+定义一个绑定`hadoop`的JindoRuntime
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hadoop
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /mnt/disk1/
+        quota: 290G
+        high: "0.9"
+        low: "0.8"
+  hadoopConfig: hdfsconfig
+  user: hadoop
+  master:
+    nodeSelector:
+      kubernetes.io/hostname: cn-shanghai.192.168.0.1
+  fuse:
+    properties:
+      jfs.cache.data-cache.enable: "true"
+      jfs.cache.meta-cache.enable: "true"
+      jfs.cache.data-cache.slicecache.enable: "true"
+```
+创建runtime
+```shell
+kubectl create -f hadoop-runtime.yaml
+```
+确认runtime的状态
+```shell
+$ kubectl get jindoruntime hadoop                      
+NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
+hadoop   Ready          Ready          Ready        50m
+```
+
+### 确认master/worker/fuse都处于`ready`状态后，再进行下一个runtime的Create流程，暂时不能同时create多个runtime
+
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hbase
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /mnt/disk1/
+        quota: 290G
+        high: "0.9"
+        low: "0.8"
+  hadoopConfig: hdfsconfig
+  user: hadoop
+  master:
+    nodeSelector:
+      kubernetes.io/hostname: cn-shanghai.192.168.0.2
+  fuse:
+    properties:
+      jfs.cache.data-cache.enable: "true"
+      jfs.cache.meta-cache.enable: "true"
+      jfs.cache.data-cache.slicecache.enable: "true"
+```
+确认上一个`runtime`处于`ready`状态后，创建新的runtime
+```shell
+kubectl create -f hbase-runtime.yaml
+```
+确认runtime的状态
+```shell
+$ kubectl get jindoruntime hbase                      
+NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
+hbase    Ready          Ready          Ready        30m
+```
