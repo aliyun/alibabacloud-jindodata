@@ -37,10 +37,12 @@ mkdir /mnt/jfs
 
 您也可以在 `jindofs-fuse` 和 `挂载目录`之间，通过 `-o` 传递更过参数：
 
-| 参数名              | 参数说明                                                     | 示例                                                         |
-| ------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| credential_provider | 当 /etc/passwd-ossfs 中没有配置 OSS的 accessKeyId 和 accessKeySecret 时，会通过免密方式访问 OSS，默认为 ECS_ROLE 免密，您可以通过授权 对应节点 Ecs Role 访问 OSS。同时也支持[其他免密服务](../jindofs_sdk_credential_provider.md)，如 http 免密服务和 k8s secrets 免密功能等。 | `-ocredential_provider=ECS_ROLE`  <br/> 或者<br/> `-ocredential_provider=secrets:///secrets_prefix/` |
-| root_ns             |                                                              |                                                              |
+| 参数名                         | 参数说明                                                     | 示例                                                         |
+| ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| credential_provider            | 当 /etc/passwd-ossfs 中没有配置 OSS的 accessKeyId 和 accessKeySecret 时，会通过免密方式访问 OSS，默认为 ECS_ROLE 免密，您可以通过授权 对应节点 Ecs Role 访问 OSS。同时也支持[其他免密服务](../jindofs_sdk_credential_provider.md)，如 http 免密服务和 k8s secrets 免密功能等。 | `-ocredential_provider=ECS_ROLE`  <br/> 或者<br/> `-ocredential_provider=secrets:///secrets_prefix/` |
+| root_ns                        | 默认fuse挂载路径会自动添加一层ns的子目录，通过指定root_ns参数可以去除这一层子目录。 | -oroot_ns=<ns_name><br/><ns_name>为当前jfs的ns名称           |
+| kernel_cache                   | 开启内核读缓存                                               | –okernel_cache                                               |
+| entry_timeout<br/>attr_timeout | 延长元数据有效时间                                           | –oentry_timeout=9000 –oattr_timeout=9000                     |
 
 
 
