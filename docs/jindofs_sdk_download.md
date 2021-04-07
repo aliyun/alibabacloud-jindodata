@@ -1,5 +1,9 @@
 # Jindo SDK 下载
 
+## v3.4.1 (04/07/2021)
+[jindofs-fuse-3.4.1.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-fuse-3.4.1.tar.gz)  
+
+
 ## v3.4.0 (03/03/2021)
 [jindofs-sdk-3.4.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.4.0.jar)  
 [jindo-flink-sink-3.4.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Flink/jindo-flink-sink-3.4.0.jar)  
