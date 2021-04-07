@@ -181,6 +181,62 @@ hadoop credential create fs.jfs.cache.oss.securityToken -value  CCC -provider jc
 </configuration>
 ```
 
+### 5. CustomCredentialsProvider 对接定制的免密服务。
+
+* 配置Provider类型：
+```xml
+<configuration>
+    <property>
+        <name>fs.jfs.cache.oss.credentials.provider</name>
+        <value>com.aliyun.emr.fs.auth.JindoCommonCredentialsProvider</value>
+    </property>
+</configuration>
+```
+
+* 配置免密服务地址
+```xml
+<configuration>
+    <property>
+        <name>aliyun.oss.provider.url</name>
+        <value>免密服务地址</value>
+    </property>
+</configuration>
+```
+
+* aliyun.oss.provider.url 支持 http(s) 协议 和 secrets 协议：
+
+**http(s) 协议**
+
+http(s) 协议免密服务地址格式为  `http://localhost:1234/sts` ,   http 免密协议要求返回结果为 Json 格式，如果您需要对接您的 http 免密服务，免密服务的设计参考  [《通过API使用实例RAM角色#临时授权Token》](https://help.aliyun.com/document_detail/61178.html#title-t3j-zsg-1fh)
+
+```
+{
+"AccessKeyId" : "XXXXXXXXX",
+"AccessKeySecret" : "XXXXXXXXX",
+"Expiration" : "2020-11-01T05:20:01Z",
+"SecurityToken" : "XXXXXXXXX",
+"LastUpdated" : "2020-10-31T23:20:01Z",
+"Code" : "Success"
+}
+```
+
+**Secrets 协议**
+
+Secrets  协议免密服务地址格式为 `secrets:///local_path_prefix` ，常见使用于 [k8s 场景](https://kubernetes.io/docs/concepts/configuration/secret/#consuming-secret-values-from-volumes ) ，
+
+其中 local_path_prefix 为路径前缀，如果 `local_path_prefix` 为 "secrets:///secret/JindoOss"，则会在节点上查找如下 AccessKey 等文件
+
+`/secret/JindoOssAccessKeyId`
+`/secret/JindoOssAccessKeySecret`
+`/secret/JindoOssSecurityToken`
+
+如果 `local_path_prefix` 为 "secrets:///secret/JindoOss/"，则会在节点上查找如下 AccessKey 等文件
+
+`/secret/JindoOss/AccessKeyId`
+`/secret/JindoOss/AccessKeySecret`
+`/secret/JindoOss/SecurityToken`
+
 ### JindoFS SDK 还支持不同的 OSS bucket 配置不同的 Credential Provider
+
   详情参考[JindoFS SDK Credential Provider 按 OSS bucket 配置使用说明](./jindofs_sdk_credential_provider-bucket.md)。
 
