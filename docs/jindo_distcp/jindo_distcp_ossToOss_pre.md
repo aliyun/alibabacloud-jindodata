@@ -5,7 +5,7 @@
 ### 1、拷贝数据到 OSS 上
 您可以使用如下命令将 oss 上的目录拷贝到 OSS 上，如果您的两个要拷贝的 bucket 都在同一个 region 下，且可用同一个 ossKey 和 ossSecret 进行读写，您可使用如下命令
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
 ```
 * --src：oss 的源路径
 * --dest：oss 的目标路径
@@ -17,7 +17,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket
 如果您的 src 和 dest 的 bucket 不在同一个 region 或者不能使用同一个 ossKey 和 ossSecret 进行读写，那么您可以使用如下命令
 
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src oss://ossKey1:ossSecret1@srcbucket.oss-cn-xxx.aliyuncs.com/ --dest oss://ossKey2:ossSecret2@destBucket.oss-cn-xxx.aliyuncs.com/ --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src oss://ossKey1:ossSecret1@srcbucket.oss-cn-xxx.aliyuncs.com/ --dest oss://ossKey2:ossSecret2@destBucket.oss-cn-xxx.aliyuncs.com/ --parallelism 10
 ```
 * 其中需要将 --src 和 --dest 都写成 oss://osskey:ossSecret@bucket.endpoint/dir 的拼接形式
 
@@ -25,7 +25,7 @@ hadoop jar jindo-distcp-3.4.0.jar --src oss://ossKey1:ossSecret1@srcbucket.oss-c
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
 ##### 使用 --diff 命令，获得增量的文件列表
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff
+hadoop jar jindo-distcp-3.5.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff
 ```
 如果所有文件都传输完成，则会提示如下信息。
 ```
@@ -33,7 +33,7 @@ INFO distcp.JindoDistCp: distcp has been done completely.
 ```
 ##### 增量的文件列表会被写入到本地的 manifest 文件里，默认生成在当前提交任务的路径下，您可以使用如下命令进行剩余文件的Copy
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
+hadoop jar jindo-distcp-3.5.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
 ```
 * --copyFromManifest：表示从文件本地文件列表中读取文件
 * --previousManifest：需要拷贝的文件列表，通过 --diff 生成
@@ -52,19 +52,19 @@ hadoop jar jindo-distcp-3.4.1.jar --src oss://srcBucket/ --dest oss://destBucket
 ##### 写入归档文件
 
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
 ```
 * --policy archive：表示写入到 OSS 文件以归档文件形式存放
 ##### 写入低频文件
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
 ```
 * --policy ia：表示写入到 OSS 文件以低频文件形式存放
 
 ### 4、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src oss://srcBucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
 * --queue：指定 YARN 队列的名称
 * --bandwidth：指定单机限流带宽的大小，单位 MB

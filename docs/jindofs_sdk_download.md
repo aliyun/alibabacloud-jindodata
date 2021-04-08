@@ -1,6 +1,11 @@
 # Jindo SDK 下载
 
+## v3.5.0 (04/08/2021)
+
+[jindo-distcp-3.5.0.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/DISTCP-3.5/jindo-distcp-3.5.0.jar) 
+
 ## v3.4.1 (04/07/2021)
+
 [jindofs-fuse-3.4.1.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-fuse-3.4.1.tar.gz)  
 
 

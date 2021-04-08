@@ -5,7 +5,7 @@
 ### 1、拷贝数据到 OSS 上
 您可以使用如下命令将 hdfs 上的目录拷贝到 OSS 上
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
 ```
 * --src：hdfs 的源路径
 * --dest：oss 的目标路径
@@ -20,11 +20,11 @@ hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey 
 使用 --diff 命令时，默认开启 checksum 比较，也可通过 --disableChecksum 关闭。
 开启时，比较的方式是，从 hdfs 中获取的 checksum，判断与上次拷贝时记录在 OSS 中的 checksum 是否相同。因此仅支持比较通过 3.4.0 及以上版本拷贝得到的文件，如希望增量比较老版本拷贝得到的文件，推荐关闭 checksum 比较。
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff
 ```
 关闭时，仅对文件名和文件大小做比较。
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff --disableChecksum
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff --disableChecksum
 ```
 如果所有文件都传输完成，则会提示如下信息。
 ```
@@ -33,7 +33,7 @@ INFO distcp.JindoDistCp: distcp has been done completely.
 #### 增量的文件列表会被写入到本地的 manifest 文件里，默认生成在当前提交任务的路径下，您可以使用如下命令进行剩余文件的Copy
 进行 DistCp 时会同步计算文件的 CRC64 作为 checksum，以保证与 OSS 上最终的结果相同，也可以通过 disableChecksum 关闭传输时校验功能。
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
 ```
 * --copyFromManifest：表示从文件本地文件列表中读取文件
 * --previousManifest：需要拷贝的文件列表，通过 --diff 生成
@@ -52,19 +52,19 @@ hadoop jar jindo-distcp-3.4.1.jar --src /data --dest oss://destBucket/ --ossKey 
 
 ##### 写入归档文件
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
 ```
 * --policy archive：表示写入到 OSS 文件以归档文件形式存放
 ##### 写入低频文件
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
 ```
 * --policy ia：表示写入到 OSS 文件以低频文件形式存放
 
 ### 4、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```
-hadoop jar jindo-distcp-3.4.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
 * --queue：指定 YARN 队列的名称
 * --bandwidth：指定单机限流带宽的大小，单位 MB
