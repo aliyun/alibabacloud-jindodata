@@ -78,5 +78,5 @@ hadoop fs rm oss://<bucket>/<path>
 <img src="../pic/jindofs_sdk_cdh_cmd.png#pic_center" />
 
 ### 5. 参数调优
-JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](./jindofs_sdk_configuration_list.md)。
+JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文档  [JindoFS SDK 配置项列表](jindofs_sdk_configuration_list_3_x.md) 【注：3.0 以下版本此 [参考配置项列表](./jindofs_sdk_configuration_list.md)】
 <br />
