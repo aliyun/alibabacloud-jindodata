@@ -14,7 +14,7 @@ JindoFS 提供了访问 S3 协议的能力，可以通过配置 S3 作为 JindoF
 ```shell
 $ kubectl create ns fluid-system
 ```
-### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/351/fluid-0.6.0.tgz)
+### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/353/fluid-0.6.0.tgz)
 
 ### 3、使用 Helm 安装 Fluid
 
