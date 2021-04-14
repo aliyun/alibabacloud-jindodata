@@ -36,15 +36,15 @@ jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
 
 ### 5、创建 dataset 和 JindoRuntime
-在创建 dataset 之前，我们可以创建一个 secret 来保存 OSS 的 fs.oss.accessKeyId 和fs.oss.accessKeySecret 信息，避免明文暴露出来，k8s会对已创建的 secret 使用加密编码，将key和secret信息填入mySecret.yaml文件中。
+在创建 dataset 之前，我们可以创建一个 secret 来保存 s3 的` key` 和` secret` 信息，避免明文暴露出来，k8s会对已创建的 secret 使用加密编码，将key和secret信息填入mySecret.yaml文件中。
 ```yaml
 apiVersion: v1
 kind: Secret
 metadata:
   name: mysecret
 stringData:
-  fs.oss.accessKeyId: xxx
-  fs.oss.accessKeySecret: xxx
+  fs.s3.accessKeyId: xxx
+  fs.s3.accessKeySecret: xxx
 ```
 生成secret
 ```yaml
@@ -60,21 +60,19 @@ metadata:
   name: hadoop
 spec:
   mounts:
-    - mountPoint: oss://<oss_bucket>/<bucket_dir>
-      options:
-        fs.oss.endpoint: <oss_endpoint>
+    - mountPoint: s3://xxx.cos.ap-shanghai.myqcloud.com/
       name: hadoop
       encryptOptions:
-        - name: fs.oss.accessKeyId
+        - name: fs.s3.accessKeyId
           valueFrom:
             secretKeyRef:
-              name: mysecret
-              key: fs.oss.accessKeyId
-        - name: fs.oss.accessKeySecret
+              name: s3secret
+              key: fs.s3.accessKeyId
+        - name: fs.s3.accessKeySecret
           valueFrom:
             secretKeyRef:
-              name: mysecret
-              key: fs.oss.accessKeySecret
+              name: s3secret
+              key: fs.s3.accessKeySecret
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
@@ -95,8 +93,7 @@ spec:
       jfs.cache.meta-cache.enable: "true"
 ```
 
-* mountPoint：oss://<oss_bucket>/<bucket_dir> 表示挂载UFS的路径，路径中不需要包含endpoint信息。
-* fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可。
+* mountPoint：表示挂载 s3 的路径，支持标准 s3 协议。
 * replicas：表示创建 JindoFS 集群的 worker 的数量。
 * mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
 * path：存储路径，当选择MEM做缓存也需要一块盘来存储log等文件。
@@ -159,30 +156,5 @@ jindo jfs -metaSync -R jfs://hadoop/dir/
 ```shell
 jindo jfs -cache -s -m -r 2 jfs://hadoop/dir/
 ```
--m 表示加载到内存，-r 指定本地缓存的副本数量，如上示例即为缓存2副本。
+`-m` 表示加载到内存，`-r` 指定本地缓存的副本数量，如上示例即为缓存`2`副本。
 等待执行完毕即可完成数据缓存，可使用 Fuse / PV 加载数据进行机器学习训练
-
-### 7、通过 nodeselector 指定节点部署 master
-可以通过`nodeselector`来指定具有特定`label`属性的节点，并在其上部署master的pod。比如选择具有`kubernetes.io/hostname: cn-shanghai.192.168.0.1`的label节点。
-```yaml
-apiVersion: data.fluid.io/v1alpha1
-kind: JindoRuntime
-metadata:
-  name: hadoop
-spec:
-  replicas: 1
-  tieredstore:
-    levels:
-      - mediumtype: MEM
-        path: /mnt/disk1/
-        quota: 290G
-        high: "0.9"
-        low: "0.8"
-  master:
-    nodeSelector:
-      kubernetes.io/hostname: cn-shanghai.192.168.0.1
-  fuse:
-    properties:
-      jfs.cache.data-cache.enable: "true"
-      jfs.cache.meta-cache.enable: "true"
-```
