@@ -1,4 +1,4 @@
-## 拥抱云原生，Fluid结合JindoFS：数据预加载
+## Å拥抱云原生，Fluid结合JindoFS：数据预加载
 
 JindoFS 提供数据元数据缓存和数据缓存的能力，本文档介绍如何使用 JindoRunitime 进行数据预热。
 
@@ -97,7 +97,6 @@ spec:
     properties:
       jfs.cache.data-cache.enable: "true"
       jfs.cache.meta-cache.enable: "true"
-      jfs.cache.data-cache.slicecache.enable: "true"
 ```
 
 
