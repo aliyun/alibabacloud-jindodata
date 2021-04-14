@@ -158,6 +158,6 @@ jindo jfs -metaSync -R jfs://hadoop/dir/
 
 * 进行数据预加载
 ```shell
-jindo jfs -cache -l jfs://hadoop/dir/
+jindo jfs -cache -s jfs://hadoop/dir/
 ```
 等待执行完毕即可完成数据缓存，可使用 Fuse / PV 加载数据进行机器学习训练
