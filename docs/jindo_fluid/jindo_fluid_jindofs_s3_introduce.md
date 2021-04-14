@@ -87,6 +87,9 @@ spec:
         quota: 100G
         high: "0.9"
         low: "0.8"
+  worker:
+    properties:
+      storage.cache.filelet.worker.threads: "50"
   fuse:
     properties:
       jfs.cache.data-cache.enable: "true"
