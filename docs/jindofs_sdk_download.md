@@ -3,6 +3,7 @@
 ## v3.5.0 (04/08/2021)
 
 [jindo-distcp-3.5.0.jar](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/DISTCP-3.5/jindo-distcp-3.5.0.jar) 
+[jindofs-tensorflow-3.5.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Tensorflow/jindofs-tensorflow-3.5.0.tar.gz)  
 
 ## v3.4.1 (04/07/2021)
 

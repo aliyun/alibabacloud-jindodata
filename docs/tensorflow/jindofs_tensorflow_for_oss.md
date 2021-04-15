@@ -1,11 +1,11 @@
-# 使用 JindoFS Tensorflow 访问 JindoFS
+# 使用 JindoFS Tensorflow 访问 OSS
 
-当您已经创建了一个JindoFS集群，并且希望在另外一个集群或ECS机器上访问JindoFS集群时，可以使用该方法。
+当您已经希望直接从本地通过Tensorflow API读取OSS数据时，可以使用本方法。
 
 ## 前提条件
 
-1. 已经创建了一个JindoFS集群
-2. 已知JindoFS集群header节点(即namespace服务)地址，另外一个集群或ECS的网络可以访问该地址
+1. 已经创建了一个OSS bucket，并拥有能读写该bucket的AK信息。
+2. 下载了最新版本的 jindofs-tensorflow 。
 
 ## 1. 下载安装包
 下载最新的release包 jindofs-tensorflow-x.x.x.tar.gz ([下载页面](/docs/jindofs_sdk_download.md))，并解压。
@@ -19,6 +19,8 @@ tar xzvf jindofs-tensorflow-x.x.x.tar.gz -C /path/to/jindofs-tensorflow-x.x.x/
 
 ## 2. 设置环境变量
 ```
+export OSS_ACCESS_ID=<your_oss_access_id>
+export OSS_ACCESS_KEY=<you_oss_access_key>
 export LD_LIBRARY_PATH="/path/to/jindofs-tensorflow-x.x.x/":$LD_LIBRARY_PATH
 ```
 
@@ -38,11 +40,11 @@ tf.load_library("/path/to/libjindofs-tensorflow2.3.so")
 
 ```
 # 目录操作
-tf.io.gfile.mkdir("jfs://namespace/path/to")
-content = tf.io.gfile.listdir("jfs://namespace/path/to")
+tf.io.gfile.mkdir("joss://bucket.")
+content = tf.io.gfile.listdir("joss://bucket/path/to")
 
 # 读
-gmnist = tf.io.gfile.GFile("jfs://namespace/path/to/mnist.npz", "rb")
+gmnist = tf.io.gfile.GFile("joss://bucket/path/to/mnist.npz", "rb")
 gmnist_file = gmnist.read()
 
 # 写
@@ -55,7 +57,7 @@ fh.close()
 ### 3.3 读取TFRecordDataset
 
 ```
-tfRecordJfsPath = "jfs://namespace/path/to/test.tfrecord"
+tfRecordJfsPath = "joss://bucket/path/to/test.tfrecord"
 filenames = [tfRecordJfsPath]
 raw_dataset = tf.data.TFRecordDataset(filenames)
 ```
@@ -68,7 +70,7 @@ import numpy as np
 
 tf.load_library("/path/to/libjindofs-tensorflow2.3.so")
 
-gmnist = tf.io.gfile.GFile("jfs://path/to/mnist.npz", 'rb')
+gmnist = tf.io.gfile.GFile("joss://bucket/path/to/mnist.npz", 'rb')
 print(gmnist.size())
 
 with np.load(gmnist) as f:
