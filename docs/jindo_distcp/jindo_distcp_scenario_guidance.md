@@ -52,7 +52,6 @@
 hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 10
 ```
 
-
 参数解释
 `--src`：源数据目标路径，您可以使用`hdfs://ip:port/path`或者以`/`代表 HDFS 的根目录
 
@@ -142,36 +141,17 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 ### 场景4、我想从HDFS导数据到OSS，我的DistCp任务能执行成功，但是我的数据不断增量增加，在distcp过程中可能已经产生了新文件，该使用哪些参数？
 
 
-在实际操作中，上游进程会以某种节奏产生新的文件。例如，新文件可能每小时或每分钟创建一次。可以配置下游进程，按不同的日程安排接收文件。假设数据传输到 OSS上，我们希望每天在 HDFS 上对其进行处理。每次复制所有文件并不能很好地扩展。JindoDistCp提供了outputManifest方式来记录当前已完成copy的文件信息。
+在实际操作中，上游进程会以某种节奏产生新的文件。例如，新文件可能每小时或每分钟创建一次。可以配置下游进程，按不同的日程安排接收文件。假设数据传输到 OSS上，我们希望每天在 HDFS 上对其进行处理。每次复制所有文件并不能很好地扩展。JindoDistCp提供了update方式来增量copy文件。
 
 
-此时在场景一的基础上，您可以按照如下步骤来完成增量copy
-
-
-1、未产生上一次copy的文件信息，需要指定生成一个manifest文件，里面记录已完成的文件信息
-
+此时在场景一的基础上，只要增加一个update参数即可完成增量copy：
 
 ```bash
-hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --outputManifest=manifest-2020-04-17.gz --requirePreviousManifest=false --parallelism 20
+hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 10 --update
 ```
 
-
-在场景一的基础上需要增加：--outputManifest=manifest-2020-04-17.gz --requirePreviousManifest=false两个信息
-`--outputManifest`：指定生成的manifest文件，文件名称自定义但必须以gz结尾，如manifest-2020-04-17.gz，该文件会存放在--dest指定的目录下
-`--requirePreviousManifest`：无已生成的历史manifest文件信息
-
-2、当上一次distcp任务结束后，源目录可能已经产生了新文件，这时候需要使用一下命令来进行新文件的增量同步
-
-
-```bash
-hadoop jar jindo-distcp-2.7.3.jar --src /data/incoming/hourly_table --dest oss://destBucket/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --outputManifest=manifest-2020-04-18.gz --previousManifest=oss://destBucket/hourly_table/manifest-2020-04-17.gz --parallelism 10
-```
-在场景一的基础上需要增加两个参数：
-`--outputManifest=manifest-2020-04-18.gz`  记录本次distcp成功copy的文件
-`--previousManifest=oss://destBucket/hourly_table/manifest-2020-04-17.gz` 指定上一次distcp成功的文件，本次distcp会过滤掉该文件中的文件
-
-
-3、重复执行第2步，不断进行增量文件的同步
+参数解释
+`--update`：指定为增量copy模式，在copy前先比较文件名，再比较文件大小，最后比较文件checksum。如果不希望比较文件checksum，可以通过增加--disableChecksum参数关闭，即只比较文件名和文件大小。
 
 
 ### 场景5、我想指定distcp作业在yarn上的队列以及可用带宽，该使用哪些参数？

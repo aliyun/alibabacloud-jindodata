@@ -16,21 +16,14 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey your
 
 ### 2、增量拷贝文件
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
-##### 使用 --diff 命令，获得增量的文件列表
+##### 使用 --update 命令，获得增量的文件列表
 ```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
 ```
 如果所有文件都传输完成，则会提示如下信息。
 ```
 INFO distcp.JindoDistCp: distcp has been done completely.
 ```
-##### 增量的文件列表会被写入到本地的 manifest 文件里，默认生成在当前提交任务的路径下，您可以使用如下命令进行剩余文件的Copy
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
-```
-* --copyFromManifest：表示从文件本地文件列表中读取文件
-* --previousManifest：需要拷贝的文件列表，通过 --diff 生成
-
 ### 3、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```

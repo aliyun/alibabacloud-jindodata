@@ -70,6 +70,7 @@ Jindo DistCp provides a jar package for use. You can use the hadoop jar command 
      --perNum=VALUE   -   batch transfer num size
      --byte=VALUE   -   batch transfer num size
      --disableChecksum   -   disable checksum
+     --update   -   Update target, copying only missing files or directories
 ```
 
 
@@ -504,6 +505,17 @@ put jdk-8u251-linux-x64.tar.gz to tmp/
 ```
 
 <a name="WwYXi"></a>
+
+#### 24、use --update
+
+After your distcp task is completed, you can specify src and dest to check the file differences of the current distcp job. If the src file cannot be synchronized to dest, A manifest file is generated in the current directory. You can use the update parameter to copy the remaining files to verify the data size, the number, even checksum of files. <br /><br />The sample command is as follows:<br />
+
+```bash
+hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --dest oss://yang-hhht/hourly_table --update --parallelism 20
+```
+
+<br />
+
 # <br />Release version
 
 ---

@@ -16,27 +16,21 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey 
 
 ### 2、增量拷贝文件
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
-#### 使用--diff命令，获得增量的文件列表
-使用 --diff 命令时，默认开启 checksum 比较，也可通过 --disableChecksum 关闭。
+#### 使用 --update 命令
+使用 --update 命令时，默认开启 checksum 比较，也可通过 --disableChecksum 关闭。
 开启时，比较的方式是，从 hdfs 中获取的 checksum，判断与上次拷贝时记录在 OSS 中的 checksum 是否相同。因此仅支持比较通过 3.4.0 及以上版本拷贝得到的文件，如希望增量比较老版本拷贝得到的文件，推荐关闭 checksum 比较。
+
 ```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
 ```
 关闭时，仅对文件名和文件大小做比较。
 ```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --diff --disableChecksum
+hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --disableChecksum --parallelism 20
 ```
 如果所有文件都传输完成，则会提示如下信息。
 ```
 INFO distcp.JindoDistCp: distcp has been done completely.
 ```
-#### 增量的文件列表会被写入到本地的 manifest 文件里，默认生成在当前提交任务的路径下，您可以使用如下命令进行剩余文件的Copy
-进行 DistCp 时会同步计算文件的 CRC64 作为 checksum，以保证与 OSS 上最终的结果相同，也可以通过 disableChecksum 关闭传输时校验功能。
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
-```
-* --copyFromManifest：表示从文件本地文件列表中读取文件
-* --previousManifest：需要拷贝的文件列表，通过 --diff 生成
 * --disableChecksum：跳过传输时对 checksum 的计算和检查
 
 ### 3、文件冷备份

@@ -491,7 +491,7 @@ hadoop jar /tmp/jindo-distcp-3.5.0.jar --src s3://smartdata1/ --dest s3://smartd
 <br />增量同步（update）必须使用jindo-distcp-3.4.1以上版本，示例命令如下：<br />
 
 ```bash
-hadoop jar jindo-distcp-3.4.1.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --update
+hadoop jar jindo-distcp-3.4.1.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --update --parallelism 20
 ```
 
 <br />
