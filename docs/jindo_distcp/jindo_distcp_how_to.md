@@ -54,6 +54,7 @@ Jindo DistCp提供jar包形式使用，您可以使用hadoop jar命令配合一�
      --byte=VALUE   -   Batch transfer num size
      --disableChecksum   -   Disable checksum
      --update   -   Update target, copying only missing files or directories
+     --filters=VALUE   -   Specify a path of file containing patterns to exlude source files
 ```
 
 
@@ -493,6 +494,30 @@ hadoop jar /tmp/jindo-distcp-3.5.0.jar --src s3://smartdata1/ --dest s3://smartd
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --update --parallelism 20
 ```
+
+<br />
+
+#### 25、使用--filters
+
+您可以通过filters参数指定一个文件路径。在这个文件中，一行配置一个正则表达式，对应distcp任务中需要跳过的文件，即不希望参与copy和diff的文件。<br />
+<br />示例命令如下：<br />
+
+```bash
+hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table -filters /path/to/filterfile.txt --parallelism 20
+```
+
+<br />
+
+正则表达式示例文件如下：<br />
+
+```bash
+.*\.tmp.*
+.*\.staging.*
+```
+
+<br />
+
+使用上述示例文件，会匹配`hdfs://data/incoming/hourly_tabl`下任何带有 `.tmp` 和 `.staging` 字符串的文件路径，在copy/diff时排除这些匹配到的路径不做后续操作。
 
 <br />
 

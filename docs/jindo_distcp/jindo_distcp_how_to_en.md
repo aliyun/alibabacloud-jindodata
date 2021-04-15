@@ -71,6 +71,7 @@ Jindo DistCp provides a jar package for use. You can use the hadoop jar command 
      --byte=VALUE   -   batch transfer num size
      --disableChecksum   -   disable checksum
      --update   -   Update target, copying only missing files or directories
+     --filters=VALUE   -   Specify a path of file containing patterns to exlude source files
 ```
 
 
@@ -515,6 +516,30 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 ```
 
 <br />
+
+#### 25、use --filters
+
+<br />The parameter is used to specify a path of file containing patterns to exlude source files. The referenced file contains regular expressions, one per line, that define file name patterns to exclude from the distcp job. <br />
+
+<br />The sample command is as follows:<br />
+
+```bash
+hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table -filters /path/to/filterfile.txt --parallelism 20
+```
+
+<br />
+
+Contents of the sample `filterfile.txt`:<br />
+
+```
+.*\.tmp.*
+.*\.staging.*
+```
+
+The regular expressions in the `filterfile.txt` exclude the following files:
+
+* `.*\.tmp.*`excludes paths that contain the string ".tmp".
+* `.*\.staging.*`excludes paths that contain the string ".staging".
 
 # <br />Release version
 
