@@ -53,6 +53,7 @@ Jindo DistCp提供jar包形式使用，您可以使用hadoop jar命令配合一�
      --perNum=VALUE   -   Batch transfer num size
      --byte=VALUE   -   Batch transfer num size
      --disableChecksum   -   Disable checksum
+     --enableCMS  -   Enable CMS
      --update   -   Update target, copying only missing files or directories
      --filters=VALUE   -   Specify a path of file containing patterns to exlude source files
 ```
@@ -486,7 +487,12 @@ hadoop jar /tmp/jindo-distcp-3.5.0.jar --src s3://smartdata1/ --dest s3://smartd
 ```
 
 <a name="WwYXi"></a>
-#### 24、使用--update
+
+### 24、 使用--enableCMS
+
+您可以通过enableCMS开启云监控告警功能，具体参见[《Jindo Distcp使用CMS进行告警》](./jindo_distcp_how_to_cms.md)
+
+#### 25、使用--update
 
 您可以通过update参数使用增量同步功能，跳过完全相同的文件和目录，直接将src中新增或发生改变的文件和目录同步到dest上。<br />
 <br />示例命令如下：<br />
@@ -497,7 +503,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <br />
 
-#### 25、使用--filters
+#### 26、使用--filters
 
 您可以通过filters参数指定一个文件路径。在这个文件中，一行配置一个正则表达式，对应distcp任务中需要跳过的文件，即不希望参与copy和diff的文件。<br />
 <br />示例命令如下：<br />

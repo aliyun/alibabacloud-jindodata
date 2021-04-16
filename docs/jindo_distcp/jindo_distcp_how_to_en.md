@@ -70,6 +70,7 @@ Jindo DistCp provides a jar package for use. You can use the hadoop jar command 
      --perNum=VALUE   -   batch transfer num size
      --byte=VALUE   -   batch transfer num size
      --disableChecksum   -   disable checksum
+     --enableCMS  -   Enable CMS
      --update   -   Update target, copying only missing files or directories
      --filters=VALUE   -   Specify a path of file containing patterns to exlude source files
 ```
@@ -507,7 +508,38 @@ put jdk-8u251-linux-x64.tar.gz to tmp/
 
 <a name="WwYXi"></a>
 
-#### 24、use --update
+#### 24、use --enableCMS
+
+You can specify enableCMS to set alarms. If job fails, a alarm will be triggered. <br />
+
+<br />
+
+1. You should create [alert contacts](https://www.alibabacloud.com/help/doc-detail/104004.htm?spm=a2c63.p38356.b99.105.bcb932c9k3wHj1).
+
+2. Get alert token from 'Alerts' -> 'Alert Contacts' -> 'Alert Contact Group' -> 'Access External alert'.
+
+3. Set Environment Variables, such as
+
+   ```
+   export cmsAccessKeyId=<your_key_id>
+   export cmsAccessSecret=<your_key_secret>
+   export cmsRegion=cn-hangzhou
+   export cmsToken=<your_cms_token>
+   export cmsLevel=WARN
+   ```
+
+4. Execute commmand, the sample command is as follows:<br />
+
+```bash
+hadoop jar jindo-distcp-3.5.0.jar \
+--src /data/incoming/hourly_table \
+--dest oss://yang-hhht/hourly_table \
+--enableCMS
+```
+
+<br />
+
+#### 25、use --update
 
 After your distcp task is completed, you can specify src and dest to check the file differences of the current distcp job. If the src file cannot be synchronized to dest, A manifest file is generated in the current directory. You can use the update parameter to copy the remaining files to verify the data size, the number, even checksum of files. <br /><br />The sample command is as follows:<br />
 
@@ -517,7 +549,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <br />
 
-#### 25、use --filters
+#### 26、use --filters
 
 <br />The parameter is used to specify a path of file containing patterns to exlude source files. The referenced file contains regular expressions, one per line, that define file name patterns to exclude from the distcp job. <br />
 
