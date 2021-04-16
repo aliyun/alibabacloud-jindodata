@@ -57,6 +57,16 @@ hadoop jar jindo-distcp-3.5.0.jar \
 --enableCMS
 ```
 
+#### update操作
+
+```bash
+hadoop jar jindo-distcp-3.5.0.jar \
+--src /data/incoming/hourly_table \
+--dest oss://yang-hhht/hourly_table \
+--update \
+--enableCMS
+```
+
 ## 告警内容
 
 ### 告警内容格式
@@ -86,6 +96,8 @@ hadoop jar jindo-distcp-3.5.0.jar \
 | CHECKSUM_DIFF | checksum校验失败的文件数，并计入COPY_FAILED |
 | FILES_EXPECTED | 预期的copy文件数量 |
 | FILES_COPIED | copy成功的文件数 |
+| FILES_SKIPPED | update增量更新时跳过的文件数 |
+| BYTES_SKIPPED | update增量更新时跳过的字节数 |
 
 #### diff操作
 
