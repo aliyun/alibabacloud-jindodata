@@ -104,7 +104,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 
 如果全部文件传输成功，您会看到如下提示
 ```bash
-INFO distcp.JindoDistCp: distcp has been done completely
+INFO distcp.JindoDistCp: Jindo DistCp job exit with 0
 ```
 ### 
 ### 场景3、我想从HDFS导数据到OSS但是我的DistCp任务可能随时失败，想支持断点续传，该使用哪些参数？
@@ -124,7 +124,7 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 此时如果所有文件都传输完成，那么会提示如下信息，否则在执行目录下生成一个manifest文件
 
 ```bash
-INFO distcp.JindoDistCp: distcp has been done completely
+INFO distcp.JindoDistCp: Jindo DistCp job exit with 0
 ```
 
 

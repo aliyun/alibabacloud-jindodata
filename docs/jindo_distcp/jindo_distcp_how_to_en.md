@@ -330,7 +330,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 <br />If all tasks are completed, the following message is displayed. Otherwise, a manifest file is generated in the execution directory.
 
 ```bash
-INFO distcp.JindoDistCp: distcp has been done completely
+INFO distcp.JindoDistCp: Jindo DistCp job exit with 0
 ```
 
 

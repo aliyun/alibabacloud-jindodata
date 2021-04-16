@@ -22,7 +22,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey your
 ```
 如果所有文件都传输完成，则会提示如下信息。
 ```
-INFO distcp.JindoDistCp: distcp has been done completely.
+INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 ```
 ### 3、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令

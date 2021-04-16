@@ -300,7 +300,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 如果全部任务完成则会提示如下信息，否则在执行目录下生成manifest文件
 
 ```bash
-INFO distcp.JindoDistCp: distcp has been done completely
+INFO distcp.JindoDistCp: Jindo DistCp job exit with 0
 ```
 
 

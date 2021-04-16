@@ -29,7 +29,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey 
 ```
 如果所有文件都传输完成，则会提示如下信息。
 ```
-INFO distcp.JindoDistCp: distcp has been done completely.
+INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 ```
 * --disableChecksum：跳过传输时对 checksum 的计算和检查
 

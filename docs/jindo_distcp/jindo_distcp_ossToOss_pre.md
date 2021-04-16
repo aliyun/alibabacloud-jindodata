@@ -29,7 +29,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src oss://srcBucket/ --dest oss://destBucket
 ```
 如果所有文件都传输完成，则会提示如下信息。
 ```
-INFO distcp.JindoDistCp: distcp has been done completely.
+INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 ```
 ### 3、文件冷备份
 如您想对写入到 OSS 上的文件进行冷备，如转化成冷归档（coldArchive）、归档（archive）和低频（ia）文件，可利用 Jindo DistCp 直接进行该流程
