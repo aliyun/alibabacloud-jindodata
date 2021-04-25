@@ -7,9 +7,9 @@
 ### Fluid JindoRuntime 使用文档
 * [快速入门](./common/jindo_fluid_quickStart.md)
 * [安装文档](./common/jindo_fluid_install.md)
-* [使用JindoRuntime加速OSS上数据](./common/jindo_fluid_oss_ufs_example.md)
-* [使用JindoRuntime加速HDFS上数据](./common/jindo_fluid_hdfs_ufs_example.md)
-* [使用JindoRuntime加速S3上数据](./common/jindo_fluid_s3_ufs_example.md)
+* [加速OSS上数据](./common/jindo_fluid_oss_ufs_example.md)
+* [加速HDFS上数据](./common/jindo_fluid_hdfs_ufs_example.md)
+* [加速S3上数据](./common/jindo_fluid_s3_ufs_example.md)
 * [使用参数加密](./common/jindo_fluid_encryptOption.md)
 * [数据亲和性调度](./common/jindo_fluid_nodeAffinity.md)
 * [master节点亲和性部署](./common/jindo_fluid_nodeselector_for_master.md)
