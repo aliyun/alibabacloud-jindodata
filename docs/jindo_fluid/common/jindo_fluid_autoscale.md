@@ -170,7 +170,7 @@ $ kubectl describe jindoruntime hbase
 Events:
   Type    Reason   Age   From            Message
   ----    ------   ----  ----            -------
-  Normal  Succeed  2m2s  AlluxioRuntime  Jindo runtime scaled out. current replicas: 2, desired replicas: 2.
+  Normal  Succeed  2m2s  JindoRuntime  Jindo runtime scaled out. current replicas: 2, desired replicas: 2.
 ```
 
 

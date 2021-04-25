@@ -13,8 +13,7 @@
 在要创建的Secret中，需要写明在上面创建Dataset时需要配置的敏感信息。
 
 
-```shell
-$ cat<<EOF >mysecret.yaml
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -22,7 +21,6 @@ metadata:
 stringData:
   fs.oss.accessKeyId: <OSS_ACCESS_KEY_ID>
   fs.oss.accessKeySecret: <OSS_ACCESS_KEY_SECRET>
-EOF
 ```
 
 
@@ -75,7 +73,4 @@ spec:
 
 
 > 需要注意的是，如果在`options`和`encryptOptions`中配置了同名的键，例如都有`fs.oss.accessKeyId`的配置，那么`encryptOptions`中的值会覆盖`options`中对应的值的内容
-
-
-
 ### 

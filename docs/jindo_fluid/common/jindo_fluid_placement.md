@@ -252,7 +252,7 @@ spark   Bound    spark    100Gi      RWX                           53s
 ```
 
 
-`Dataset`资源对象准备完成后（即与Alluxio实例绑定后），与该资源对象关联的PV, PVC已经由Fluid生成，应用可以通过该PVC完成远程文件在Pod中的挂载，并通过挂载目录实现远程文件访问
+`Dataset`资源对象准备完成后（即与JindoFS实例绑定后），与该资源对象关联的PV, PVC已经由Fluid生成，应用可以通过该PVC完成远程文件在Pod中的挂载，并通过挂载目录实现远程文件访问
 
 
 ## 远程文件访问

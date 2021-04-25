@@ -132,7 +132,7 @@ spec:
     levels:
       - mediumtype: SSD
         path: /mnt/disk1/
-        quota: 2Gi
+        quota: 2G
         high: "0.8"
         low: "0.7"
   fuse:
@@ -201,7 +201,7 @@ spec:
     levels:
       - mediumtype: SSD
         path: /mnt/disk1/
-        quota: 2Gi
+        quota: 2G
         high: "0.8"
         low: "0.7"
   fuse:

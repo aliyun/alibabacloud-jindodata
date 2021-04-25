@@ -116,10 +116,10 @@ spec:
   replicas: 2
   tieredstore:
     levels:
-      - mediumtype: MEM
-        path: /dev/shm
-        quota: 2Gi
-        high: "0.95"
+      - mediumtype: SSD
+        path: /mnt/disk1
+        quota: 2G
+        high: "0.8"
         low: "0.7"
 ```
 

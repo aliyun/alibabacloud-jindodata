@@ -100,8 +100,8 @@ spec:
     levels:
       - mediumtype: MEM
         path: /dev/shm
-        quota: 2Gi
-        high: "0.95"
+        quota: 2G
+        high: "0.8"
         low: "0.7"
   master:
     nodeSelector:
@@ -121,9 +121,9 @@ alluxioruntime.data.fluid.io/hbase created
 
 $ kubectl get pod -o wide
 NAME                 READY   STATUS    RESTARTS   AGE    IP              NODE                       NOMINATED NODE   READINESS GATES
-hbase-fuse-42csf     1/1     Running   0          104s   192.168.1.146   cn-beijing.192.168.1.146   <none>           <none>
-hbase-master-0       2/2     Running   0          3m3s   192.168.1.147   cn-beijing.192.168.1.146   <none>           <none>
-hbase-worker-l62m4   2/2     Running   0          104s   192.168.1.146   cn-beijing.192.168.1.146   <none>           <none>
+hbase-jindofs-fuse-42csf     1/1     Running   0          104s   192.168.1.146   cn-beijing.192.168.1.146   <none>           <none>
+hbase-jindofs-master-0       2/2     Running   0          3m3s   192.168.1.147   cn-beijing.192.168.1.146   <none>           <none>
+hbase-jindofs-worker-l62m4   2/2     Running   0          104s   192.168.1.146   cn-beijing.192.168.1.146   <none>           <none>
 ```
 
 
