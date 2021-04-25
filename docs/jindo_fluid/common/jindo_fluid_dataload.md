@@ -318,6 +318,20 @@ spec:
       replicas: 1
 ```
 
+### 缓存进度及LOG查看
+
+```shell
+$ kubectl get dataload spark-dataload
+NAME             DATASET   PHASE     AGE
+spark-dataload   spark     Loading   2m13s
+```
+
+查看当前缓存的相关信息
+
+```shell
+kubectl logs spark-dataload
+```
+
 
 ## 环境清理
 
