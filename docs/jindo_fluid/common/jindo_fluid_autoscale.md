@@ -48,7 +48,7 @@ spec:
     levels:
       - mediumtype: MEM
         path: /dev/shm
-        quota: 2Gi
+        quota: 2G
         high: "0.95"
         low: "0.7"
 EOF

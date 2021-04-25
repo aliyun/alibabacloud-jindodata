@@ -82,7 +82,7 @@ cn-beijing.192.168.1.147   Ready    <none>   7d14h   v1.16.9-aliyun.1
 **检查待创建的Dataset资源对象**
 
 
-```shell
+```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
 metadata:
@@ -121,7 +121,7 @@ dataset.data.fluid.io/hbase created
 **检查待创建的JindoRuntime资源对象**
 
 
-```shell
+```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
 metadata:
@@ -163,7 +163,7 @@ hbase-jindofs-worker-hvbp2   2/2     Running   0          3m1s    192.168.1.146 
 在此处可以看到，有一个JindoFS Worker成功启动，并且运行在具有指定标签（即`cache-node=true`）的结点之上。JindoFS Fuse的数量为2，运行在所有的子节点上。
 
 
-**检查AlluxioRuntime状态**
+**检查JindoRuntime状态**
 
 
 ```shell
@@ -176,7 +176,7 @@ hbase   1               1                 Ready          1               1      
 这里可以看到JindoFS Worker的数量为1，而JindoFS Fuse的数量为2。
 
 
-**删除AlluxioRuntime**
+**删除JindoRuntime**
 
 
 ```shell
@@ -187,10 +187,10 @@ kubectl delete jindoruntime hbase
 ## 运行示例2: 设置global为true, 并且设置fuse的nodeSelector
 
 
-下面，我们希望通过配置node selector配置Fuse客户端，将其指定到集群中某个节点上。在本例子中，既然我们已经选择节点cn-beijing.192.168.1.146作为缓存节点，为了形成对比，这里选择节点cn-beijing.192.168.1.147运行Alluxio Fuse。
+下面，我们希望通过配置node selector配置Fuse客户端，将其指定到集群中某个节点上。在本例子中，既然我们已经选择节点cn-beijing.192.168.1.146作为缓存节点，为了形成对比，这里选择节点cn-beijing.192.168.1.147运行JindoFS Fuse。
 
 
-```shell
+```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
 metadata:

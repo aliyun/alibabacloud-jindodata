@@ -14,14 +14,11 @@ $ kubectl create ns fluid-system
 
 ### 3、使用 Helm 安装 Fluid
 
-
 ```shell
 $ helm install --set runtime.jindo.enabled=true fluid fluid-0.6.0.tgz
 ```
 
-
 ### 3、查看 Fluid 的运行状态
-
 
 ```shell
 $ kubectl get pod -n fluid-system
@@ -32,16 +29,12 @@ dataset-controller-5465c4bbf9-5ds5p          1/1     Running   0          108s
 jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ```
 
-
 其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
-
 
 #### 到此 Fluid 已成功安装，如需自定义镜像和升级系统 crd 请参考如下说明(非必需)
 ### 4、自定义镜像
 
-
 解压 `fluid-0.6.0.tgz`，修改默认`values.yaml`文件
-
 
 ```yaml
 runtime:
@@ -65,7 +58,7 @@ helm upgrade --install fluid fluid-0.6.0.tgz
 ```
 
 
-### 4、更新 Fluid crd
+### 5、更新 crd
 
 
 ```shell
@@ -80,16 +73,13 @@ jindoruntimes.data.fluid.io                      2021-03-31T02:30:29Z
 ```
 
 
-例如删除已有的jindoruntime的crd
-
+例如更新系统中已有的 `jindoruntime` 的crd，首先删除已有的 crd
 
 ```shell
 kubectl delete crd jindoruntimes.data.fluid.io
 ```
 
-
-解压`fluid-0.6.0.tgz`
-
+解压 `fluid-0.6.0.tgz`
 
 ```shell
 $ ls -l fluid/
@@ -102,13 +92,8 @@ drwxr-xr-x  6 frank  staff   192B  3 31 10:29 templates
 -rw-r--r--  1 frank  staff   1.2K  3 31 13:18 values.yaml
 ```
 
-
 创建新的crd
-
 
 ```shell
 kubectl apply -f crds/data.fluid.io_jindoruntimes.yaml
 ```
-
-
-### 
