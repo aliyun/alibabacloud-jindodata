@@ -10,6 +10,18 @@
 - [DataLoad快速使用](#DataLoad%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8)
 - [DataLoad进阶配置](#DataLoad%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE)
 
+以下 `spec.target.path` 的值均为 `mountpoint` 挂载点下的相对路径。比如当前的挂载点为 `oss://test/`
+原始路径下有以下文件
+```shell
+oss://test/user/sample.txt
+oss://test/data/fluid.tgz
+```
+那么 `target.path` 可定义为
+```yaml
+target:
+    - path: /user
+    - path: /data
+```
 
 
 ## 前提条件
@@ -293,6 +305,26 @@ spec:
   target:
     - path: /
       replicas: 1
+```
+
+### 预热HDFS上数据
+
+若您的数据在远程 HDFS 上，首先按照[加速HDFS上数据](./jindo_fluid_hdfs_ufs_example.md)文档进行 JindoRuntime 启动。这里需要将您在 runtime 中配置的 `spec.hadoopConfig` 的 configmap 名称，配置到dataload 中的 `spec.hdfsConfig` 中，如您的 runtime 中配置了 `spec.hadoopConfig: hdfsconfig`，那么相应的 dataload 任务您需要添加如下的参数
+
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: Hadoop-dataload
+spec:
+  dataset:
+    name: hadoop
+    namespace: default
+  loadMetadata: true
+  hdfsConfig: hdfsconfig
+  target:
+    - path: /user
+    - path: /data
 ```
 
 
