@@ -4,6 +4,7 @@
 * Helm 3
 * [Fluid 0.6.0](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/350/fluid-0.6.0.tgz)
 
+
 ### Fluid JindoRuntime 使用文档
 * [快速入门](./common/jindo_fluid_quickStart.md)
 * [安装文档](./common/jindo_fluid_install.md)

@@ -159,4 +159,35 @@ NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
 hadoop    Ready           Ready           Ready     62m
 ```
 
+### 检查服务是否正常！！！
+此步骤建议用户创建成功后一定要进行验证
+
+#### 检查底层存储端点是否成功连接
+1、登陆到 master/worker pod上
+```shell
+kubectl get pod
+NAME                              READY   STATUS      RESTARTS   AGE
+hadoop-jindofs-fuse-svz4s         1/1     Running     0          23h
+hadoop-jindofs-master-0           1/1     Running     0          23h
+hadoop-jindofs-worker-2fpbk       1/1     Running     0          23h
+```
+```shell
+kubectl exec -ti hadoop-jindofs-master-0 bash
+hadoop fs -ls jfs://jindo/
+```
+观察是否可以正常list文件
+
+2、登陆到 fuse pod上
+```shell
+kubectl exec -ti hadoop-jindofs-fuse-svz4s bash
+ls /jfs/jindo/
+```
+观察是否可以正常list文件
+
+
+
+
+
+
+
 
