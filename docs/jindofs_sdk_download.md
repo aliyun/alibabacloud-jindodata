@@ -2,7 +2,10 @@
 
 ## v3.5.0 (04/08/2021)
 
+[jindofs-sdk-3.5.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.5.0.jar)  
+[jindo-flink-sink-3.5.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Flink/jindo-flink-sink-3.5.0.jar)  
 [jindo-distcp-3.5.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/DISTCP-3.5/jindo-distcp-3.5.0.jar)<br />
+[jindofs-fuse-3.5.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-fuse-3.5.0.tar.gz)  
 [jindofs-tensorflow-3.5.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Tensorflow/jindofs-tensorflow-3.5.0.tar.gz)  
 
 ## v3.4.1 (04/07/2021)

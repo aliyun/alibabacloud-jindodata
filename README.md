@@ -3,7 +3,13 @@
 
 简体中文
 
-## 介绍
+## Jindo 介绍
+
+Jindo 是阿里云大数据平台 EMR (E-MapReduce) 的核心自研组件，主要包含三个部分：JindoFS、JindoTable 与 JindoFuse/Python，为各种大数据引擎提供统一的存储优化、缓存优化、计算加速，以及多种扩展功能，涵盖数据访问、数据治理和数据安全。Jindo 在远端存储与计算引擎之间构成一层加速层，与二者的关系如图：
+
+![](pic/jindo_introduction.png)
+
+## JindoFS 介绍
 
 JindoFS 作为阿里云基于 OSS 的一揽子数据湖存储优化方案，完全兼容 Hadoop/Spark 生态，并针对 Spark、Hive、Flink、Presto 等大数据组件和 AI 生态实现了大量扩展和优化。JindoFS 项目包括 JindoFS OSS 支持、JindoFS 分布式缓存系统（JindoFS Cache 模式）和 JindoFS 分布式存储优化系统（JindoFS Block 模式）。JindoSDK 是各个计算组件可以用来使用JindoFS 这些优化扩展功能和模式的套件，包括 Hadoop Java SDK、Python SDK 和 Fuse/POSIX 支持。JindoSDK 在阿里云 E-MapReduce 产品中被深度集成，同时也开放给非 EMR 产品用户在各种 Hadoop/Spark 环境上使用，欢迎大家反馈问题和提供最佳实践。关于JindoFS 请参考 [JindoFS 介绍和使用](https://help.aliyun.com/document_detail/199488.html)。JindoSDK 下载请访问[JindoSDK 下载页面](/docs/jindofs_sdk_download.md)。
 
