@@ -34,17 +34,17 @@ cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
 ```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss.accessKeyId</name>
+        <name>jindo.common.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.accessKeySecret</name>
+        <name>jindo.common.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.endpoint</name>
+        <name>jindo.common.oss.endpoint</name>
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>

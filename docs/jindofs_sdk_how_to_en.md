@@ -41,17 +41,17 @@ You can also pre-configure ak, secret and endpoint of OSS to hadoop core-site.xm
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.accessKeyId</name>
+        <name>jindo.common.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.accessKeySecret</name>
+        <name>jindo.common.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.endpoint</name>
+        <name>jindo.common.oss.endpoint</name>
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
