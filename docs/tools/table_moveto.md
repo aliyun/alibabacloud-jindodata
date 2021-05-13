@@ -21,7 +21,10 @@ export PATH=$PATH:BIGBOOT_JINDOSDK_HOME/bin
 
 ## 使用说明
 使用 jindo table -help moveTo 查看参数配置。
+
+```shell
 jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>" | -fullTable] [-b/-before <before days>] [-p/-parallel <parallelism>] [-o/-overWrite] [-r/-removeSource] [-e/-explain] [-l/-logDir <log directory>]
+```
 
 ```shell
   <dbName.tableName>      要移动的表。
