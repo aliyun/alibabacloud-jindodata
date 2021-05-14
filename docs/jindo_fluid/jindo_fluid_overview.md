@@ -14,6 +14,7 @@
 * [使用参数加密](./common/jindo_fluid_encryptOption.md)
 * [数据亲和性调度（Worker节点亲和性部署）](./common/jindo_fluid_nodeAffinity.md)
 * [Master节点亲和性部署](./common/jindo_fluid_nodeselector_for_master.md)
+* [多Master节点部署](./common/jindo_fluid_multimaster.md)
 * [Fuse客户端节点亲和性部署](./common/jindo_fluid_fuse_nodeselector.md)
 * [数据容忍污点调度](./common/jindo_fluid_toleration.md)
 * [Fuse客户端全局部署](./common/jindo_fluid_globalfuse.md)
