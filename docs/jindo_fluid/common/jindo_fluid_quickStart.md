@@ -8,7 +8,7 @@
 ```shell
 kubectl create ns fluid-system
 ```
-### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/352cache/fluid-0.6.0.tgz)
+### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/356/fluid-0.6.0.tgz)
 ### 3、使用 Helm 安装 Fluid
 
 
