@@ -79,13 +79,13 @@ kind: JindoRuntime
 metadata:
   name: hadoop
 spec:
-  replicas: 1
+  replicas: 3
   tieredstore:
     levels:
       - mediumtype: HDD
         path: /mnt/disk1
-        quota: 2Gi
-        high: "0.95"
+        quota: 2G
+        high: "0.8"
         low: "0.7"
   master:
     replicas: 3
