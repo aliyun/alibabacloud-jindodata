@@ -16,14 +16,21 @@ export PATH=$PATH:BIGBOOT_JINDOSDK_HOME/bin
 ```
 
 3. Hadoop 与 Hive 环境：
-(1) 确保 `hadoop classpath` 能够返回合理结果
-(2) 确保客户端环境变量 $HIVE_HOME 与 $HIVE_CONF_DIR 正确配置 
+* 确保 `hadoop classpath` 能够返回合理结果
+* 确保客户端环境变量 $HIVE_HOME 与 $HIVE_CONF_DIR 正确配置
+
+4. 配置 MoveTo 工具在 HDFS 下的锁目录：
+
+    在 Hadoop 配置文件 core-site.xml 或 pdfs-site.xml（任一即可，在 $HADOOP_CONF_DIR 目录下）新增配置项：`jindotable.moveto.tablelock.base.dir`
+
+    该配置的值应指向一个 HDFS 目录，目的是存放 MoveTo 工具在运行时自动创建的锁文件。需确保该目录只会被 MoveTo 工具访问，并且有访问权限。如果不配置，则使用缺省值 `hdfs:///tmp/jindotable-lock/`，无权限则报错。
+
 
 ## 使用说明
 使用 jindo table -help moveTo 查看参数配置。
 
 ```shell
-jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>" | -fullTable] [-b/-before <before days>] [-p/-parallel <parallelism>] [-o/-overWrite] [-r/-removeSource] [-e/-explain] [-l/-logDir <log directory>]
+jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>" | -fullTable] [-b/-before <before days>] [-p/-parallel <parallelism>] [-o/-overWrite] [-r/-removeSource] [-skipTrash] [-e/-explain] [-l/-logDir <log directory>]
 ```
 
 ```shell
@@ -34,6 +41,7 @@ jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>
   <parallelism>           整个moveTo任务的最大task并发度，默认为1。
   -o/-overWrite           是否覆盖最终目录。分区级别覆盖，不会覆盖本次移动不涉及的分区。
   -r/-removeSource        是否在移动完成后删除源路径。
+  -skipTrash              如果删除源路径，是否跳过Trash。
   -e/-explain             如果指定explain模式，不会触发实际操作，仅打印会同步的分区。
   <log directory>         本地日志目录，默认为/tmp/<current user>/
 ```
