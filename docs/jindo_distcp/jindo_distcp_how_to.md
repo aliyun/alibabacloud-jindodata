@@ -20,6 +20,9 @@ Jindo DistCp提供jar包形式使用，您可以使用hadoop jar命令配合一�
 
 <a name="AnGTa"></a>
 #### 1、使用--help
+
+*支持版本：所有版本*<br />
+
 ```bash
 [root@emr-header-1 opt]# hadoop jar jindo-distcp-3.5.0.jar --help
      --help   -   Print help text
@@ -61,17 +64,16 @@ Jindo DistCp提供jar包形式使用，您可以使用hadoop jar命令配合一�
 
 <a name="7K1ae"></a>
 #### 2、使用--src和--dest (必选)
---src     表示指定源文件的路径<br />--dest   表示目标文件的路径<br />
+*支持版本：所有版本*<br />--src     表示指定源文件的路径<br />--dest   表示目标文件的路径<br />
 <br />如从HDFS上/opt/tmp目录拷贝到OSS bucket，可以执行如下语句
+
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /opt/tmp --dest oss://yang-hhht/tmp
 ```
-您可以通过指定dest路径来确定拷贝后的文件层次，如您需要将/opt/tmp下的文件拷贝到yang-hhht这个bucket下的tmp目录下，则可以使用上述语句来完成。此处和Hadoop的distcp行为有所不同，jindo distcp会默认将src目录下的所有文件拷贝到您指定dest路径下，并不包括当前的根目录名称，您可以在dest中指定拷贝路径的根目录，如果不存在会自动创建。<br />
-
-<a name="L7ugZ"></a>
+您可以通过指定dest路径来确定拷贝后的文件层次，如您需要将/opt/tmp下的文件拷贝到yang-hhht这个bucket下的tmp目录下，则可以使用上述语句来完成。此处和Hadoop的distcp行为有所不同，jindo distcp会默认将src目录下的所有文件拷贝到您指定dest路径下，并不包括当前的根目录名称，您可以在dest中指定拷贝路径的根目录，如果不存在会自动创建。<br /><a name="L7ugZ"></a>
 
 #### 3、使用--parallelism
-parallelism参数用来指定MR任务里的 mapreduce.job.reduces 参数，该参数在EMR环境中默认为7，您可以根据集群的资源情况自定义 parallelism 的大小来控制distcp任务的并发度。<br />
+*支持版本：所有版本*<br />parallelism参数用来指定MR任务里的 mapreduce.job.reduces 参数，该参数在EMR环境中默认为7，您可以根据集群的资源情况自定义 parallelism 的大小来控制distcp任务的并发度。<br />
 <br />如从HDFS上/opt/tmp目录拷贝到OSS bucket，可以执行<br />
 
 ```bash
@@ -81,7 +83,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /opt/tmp --dest oss://yang-hhht/tmp --pa
 
 <a name="IWvV9"></a>
 #### 4、使用--srcPattern
-srcPattern参数用来使用正则表达式来选择或者过滤需要copy的文件，您可以编写自定义的正则表达式来完成过滤操作，这里的正则表达式必须为全路径正则匹配
+*支持版本：2.6.8+*<br />srcPattern参数用来使用正则表达式来选择或者过滤需要copy的文件，您可以编写自定义的正则表达式来完成过滤操作，这里的正则表达式必须为全路径正则匹配<br /><br />
 
 如需要copy HDFS 上/data/incoming/hourly_table/2017-02-01/03下所有log文件
 ```bash
@@ -109,7 +111,7 @@ Found 2 items
 
 <a name="oXyAI"></a>
 #### 5、使用--deleteOnSuccess
-有时候我们是想要移动数据而不是复制数据，我们可以使用 --deleteOnSuccess 选项。此选项类似于mv操作，首先复制文件，然后从源位置删除文件。
+*支持版本：2.6.8+*<br />有时候我们是想要移动数据而不是复制数据，我们可以使用 --deleteOnSuccess 选项。此选项类似于mv操作，首先复制文件，然后从源位置删除文件。<br /><br />
 
 示例命令如下：
 ```bash
@@ -119,16 +121,16 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="d5KKs"></a>
 #### 6、使用--outputCodec
-原始文件通常以未压缩的文本格式进入OSS或者HDFS。无论是存储成本还是对该数据进行分析，此格式都不甚理想。jindo distcp 可以使用 --outputCodec 选项帮助您在线高效地存储数据和压缩文件
+*支持版本：2.6.8+*<br />原始文件通常以未压缩的文本格式进入OSS或者HDFS。无论是存储成本还是对该数据进行分析，此格式都不甚理想。jindo distcp 可以使用 --outputCodec 选项帮助您在线高效地存储数据和压缩文件<br /><br />
 
 命令示例如下：
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --outputCodec=gz --parallelism 20
 ```
-jindo distcp 的当前版本支持编解码器 gzip、gz、lzo、lzop 和 snappy 以及关键字 **none** 和 **keep**（默认值）。这些关键字含义如下：
+jindo distcp 的当前版本支持编解码器 gzip、gz、lzo、lzop 和 snappy 以及关键字 *none* 和 *keep*（默认值）。这些关键字含义如下：
 
-- **"none"**– 保存为未压缩的文件。如果文件已压缩，则 jindo distcp 会将其解压缩。
-- **"keep"**–不更改文件压缩形态，按原样复制。
+- *"none"*– 保存为未压缩的文件。如果文件已压缩，则 jindo distcp 会将其解压缩。
+- *"keep"*–不更改文件压缩形态，按原样复制。
 
 
 <br />我们检查一下目标文件夹中的文件，这些文件现在已经用 gz 编解码器压缩了：
@@ -146,7 +148,8 @@ Found 6 items
 
 <a name="azhZZ"></a>
 #### 7、使用--outputManifest和--requirePreviousManifest
-在使用过程中我们可以指定生成dictcp的清单文件，用来记录copy过程中的目标文件、源文件、数据量大小等信息，如需只生成这样一个清单文件还需要指定requirePreviousManifest参数为flase。当前outputManifest文件默认且必须为gz类型压缩文件，您可以按照自己的业务需求来命名其前缀。
+*支持版本：2.6.8+*<br />在使用过程中我们可以指定生成dictcp的清单文件，用来记录copy过程中的目标文件、源文件、数据量大小等信息，如需只生成这样一个清单文件还需要指定requirePreviousManifest参数为flase。当前outputManifest文件默认且必须为gz类型压缩文件，您可以按照自己的业务需求来命名其前缀。<br /><br />
+
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --outputManifest=manifest-2020-04-17.gz --requirePreviousManifest=false --parallelism 20
 ```
@@ -165,7 +168,8 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="RtNQn"></a>
 #### 8、使用--outputManifest和--previousManifest
-在实际操作中，上游进程会以某种节奏产生新的文件。例如，新文件可能每小时或每分钟创建一次。可以配置下游进程，按不同的日程安排接收文件。假设数据传输到 OSS上，我们希望每天在 HDFS 上对其进行处理。每次复制所有文件并不能很好地扩展。Jindo distcp 内置了应对此问题的解决方案，对于此解决方案，我们使用清单文件。<br />如在源文件夹中新增加了两个文件，以下是命令示例：
+*支持版本：2.6.8+*<br />在实际操作中，上游进程会以某种节奏产生新的文件。例如，新文件可能每小时或每分钟创建一次。可以配置下游进程，按不同的日程安排接收文件。假设数据传输到 OSS上，我们希望每天在 HDFS 上对其进行处理。每次复制所有文件并不能很好地扩展。Jindo distcp 内置了应对此问题的解决方案，对于此解决方案，我们使用清单文件。<br /><br />如在源文件夹中新增加了两个文件，以下是命令示例：
+
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --outputManifest=manifest-2020-04-18.gz --previousManifest=oss://yang-hhht/hourly_table/manifest-2020-04-17.gz --parallelism 20
 ```
@@ -177,21 +181,21 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 > {"path":"oss://yang-hhht/hourly_table/2017-02-01/03/5.log","baseName":"2017-02-01/03/5.log","srcDir":"oss://yang-hhht/hourly_table","size":4891}
 > {"path":"oss://yang-hhht/hourly_table/2017-02-01/03/6.log","baseName":"2017-02-01/03/6.log","srcDir":"oss://yang-hhht/hourly_table","size":4891}
 ```
-jindo distcp 使用路径 /tmp/mymanifest.gz 在本地文件系统中创建文件。复制操作完成后，它会将清单文件移到dest目录下<br />
+jindo distcp 使用路径 /tmp/mymanifest.gz 在本地文件系统中创建文件。复制操作完成后，它会将清单文件移到dest目录下<br /><a name="BkPxT"></a>
 
-<a name="BkPxT"></a>
 #### 9、使用--copyFromManifest
-使用outputManifest功能生成manifest文件后，您可以通过指定固定的manifest文件来进行文件的拷贝，manifest文件中记录了相关文件信息，从而不需要去从src目录中获取数据信息，您只需要把dest目录指定为需要拷贝的目录即可，即可把上次拷贝生成的manifest文件中包含的文件拷贝到新的目录下。
+*支持版本：2.6.8+*<br />使用outputManifest功能生成manifest文件后，您可以通过指定固定的manifest文件来进行文件的拷贝，manifest文件中记录了相关文件信息，从而不需要去从src目录中获取数据信息，您只需要把dest目录指定为需要拷贝的目录即可，即可把上次拷贝生成的manifest文件中包含的文件拷贝到新的目录下。<br /><br />
 
 示例命令如下：
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --previousManifest=oss://yang-hhht/hourly_table/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
 ```
 
-
 <a name="Cw3ym"></a>
-#### 10、使用--**srcPrefixesFile**
-假设我们需要复制多个文件夹。通常，我们运行的复制作业与需要复制的文件夹一样多。使用 jindo distcp，可以一次性完成复制。我们只需准备一个带有前缀列表的文件，并将其用作工具参数。<br />命令示例如下：
+
+#### 10、使用--*srcPrefixesFile*
+*支持版本：2.6.8+*<br />假设我们需要复制多个文件夹。通常，我们运行的复制作业与需要复制的文件夹一样多。使用 jindo distcp，可以一次性完成复制。我们只需准备一个带有前缀列表的文件，并将其用作工具参数。<br /><br />命令示例如下：
+
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --srcPrefixesFile file:///opt/folders.txt --parallelism 20
 ```
@@ -208,10 +212,11 @@ Found 4 items
 drwxrwxrwx   -          0 1970-01-01 08:00 oss://yang-hhht/hourly_table/2017-02-01
 drwxrwxrwx   -          0 1970-01-01 08:00 oss://yang-hhht/hourly_table/2017-02-02
 ```
-<br />
+<a name="Cw3ym"></a>
 
-#### 11、使用--groupBy和-targetSize
-经过优化后，Hadoop 可以从HDFS 中读取较少数量的大文件，而不再读取大量小文件。您可以使用 jindo distcp将小文件聚合为较少的指定大小的大文件，这样可以优化分析性能和成本。<br />在下面的示例中，我们将小文件合并为较大的文件。为此，我们使用带有 --groupBy 选项的正则表达式。
+#### 11、使用--groupBy和--targetSize
+
+*支持版本：2.6.8+*<br />经过优化后，Hadoop 可以从HDFS 中读取较少数量的大文件，而不再读取大量小文件。您可以使用 jindo distcp将小文件聚合为较少的指定大小的大文件，这样可以优化分析性能和成本。<br /><br />在下面的示例中，我们将小文件合并为较大的文件。为此，我们使用带有 --groupBy 选项的正则表达式。
 
 如我们需要将所有txt按照最大10M为一个文件进行合并，示例命令如下
 ```bash
@@ -258,8 +263,7 @@ Exception in thread "main" java.lang.RuntimeException: Error running job
 
 <a name="zJOc9"></a>
 #### 12、使用--enableBalancePlan
-在您要拷贝的数据整体大小比较均匀的情况下，您可以指定--enableBalancePlan参数来更改Jindo distcp的作业分配计划。使用该计划让各个task的处理的数据量均匀，使其达到更好的distcp性能。<br />
-<br />示例命令如下：<br />
+*支持版本：2.6.8+*<br />在您要拷贝的数据整体大小比较均匀的情况下，您可以指定--enableBalancePlan参数来更改Jindo distcp的作业分配计划。使用该计划让各个task的处理的数据量均匀，使其达到更好的distcp性能。<br /><br />示例命令如下：<br />
 
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableBalancePlan --parallelism 20
@@ -268,9 +272,9 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 <br />该参数不支持和--groupby和--targetSize参数一起使用。<br />
 
 <a name="oM2mZ"></a>
+
 #### 13、使用--enableDynamicPlan
-在您要拷贝的数据大小分化严重，小文件数据较多的场景下，您可以指定--enableDynamicPlan参数来更改Jindo distcp的作业分配计划，使其达到更好的distcp性能。<br />
-<br />示例命令如下：<br />
+*支持版本：2.6.8+*<br />在您要拷贝的数据大小分化严重，小文件数据较多的场景下，您可以指定--enableDynamicPlan参数来更改Jindo distcp的作业分配计划，使其达到更好的distcp性能。<br /><br />示例命令如下：<br />
 
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableDynamicPlan --parallelism 20
@@ -278,9 +282,8 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 该参数不支持和--groupby和--targetSize参数一起使用。<br />
 
 <a name="ePqFH"></a>
-#### 14、使用--**enableTransaction**
-Jindo distcp默认使用task级别完整性，如您需要保证Job级别的完整性以及保证Job之间的事务支持，您可以使用--enableTransaction参数。<br />
-<br />示例命令如下：<br />
+#### 14、使用--*enableTransaction*
+*支持版本：2.6.8+*<br />Jindo distcp默认使用task级别完整性，如您需要保证Job级别的完整性以及保证Job之间的事务支持，您可以使用--enableTransaction参数。<br /><br />示例命令如下：<br />
 
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --enableTransaction --parallelism 20
@@ -289,8 +292,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="pjlfG"></a>
 #### 15、使用--diff
-在您的distcp任务完成后您可以通过指定src和dest来查看当前distcp的文件差异，如果src的文件未能同步到dest上，则会在当前目录下生成一个manifest文件，您可以配合使用--copyFromManifest参数来进行剩余文件的拷贝，从而完成数据大小和文件个数的校验。如您的distcp任务包含压缩或者解压缩则--diff不能显示正确的文件差异，因为压缩或者解压缩会改变文件的大小。<br />
-<br />示例命令如下：<br />
+*支持版本：2.6.8+*<br />在您的distcp任务完成后您可以通过指定src和dest来查看当前distcp的文件差异，如果src的文件未能同步到dest上，则会在当前目录下生成一个manifest文件，您可以配合使用--copyFromManifest参数来进行剩余文件的拷贝，从而完成数据大小和文件个数的校验。如您的distcp任务包含压缩或者解压缩则--diff不能显示正确的文件差异，因为压缩或者解压缩会改变文件的大小。<br /><br />示例命令如下：<br />
 
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --diff
@@ -312,7 +314,7 @@ INFO distcp.JindoDistCp: Jindo DistCp job exit with 0
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --dest oss://yang-hhht/hourly_table --previousManifest=file:///opt/manifest-2020-04-17.gz --copyFromManifest --parallelism 20
 ```
-<br />
+<a name="Cw3ym"></a>
 
 #### 16、查看Distcp Counters
 您可以在MapReduce的Counter信息中找到Distcp Counters的信息如：
@@ -330,12 +332,15 @@ Shuffle Errors
           WRONG_MAP=0
           WRONG_REDUCE=0
 ```
-如您的distcp操作中包含压缩或者解压缩文件，那么Bytes Destination Copied和Bytes Source Read的大小可能是不相等的<br />
+如您的distcp操作中包含压缩或者解压缩文件，那么Bytes Destination Copied和Bytes Source Read的大小可能是不相等的
+
+<a name="Cw3ym"></a>
 
 
 #### 17、使用OSS AK
-在EMR外或者免密服务出现问题的情况下，您可以通过指定AK来获得访问OSS的权限。您可以在命令中使用<br />--ossKey、--ossSecret、--ossEndPoint选项来指定AK。<br />
+*支持版本：2.7.3+*<br />在EMR外或者免密服务出现问题的情况下，您可以通过指定AK来获得访问OSS的权限。您可以在命令中使用<br />--ossKey、--ossSecret、--ossEndPoint选项来指定AK。<br />
 <br />示例命令如下：
+
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 20
 ```
@@ -361,24 +366,32 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 </configuration>
 ```
 
-<br />另外，我们推荐配置[免密功能](https://help.aliyun.com/document_detail/156418.html)，避免明文保存accessKey，提高安全性。<br />
+<br />另外，我们推荐配置[免密功能](https://help.aliyun.com/document_detail/156418.html)，避免明文保存accessKey，提高安全性。
 
 <a name="IMjaY"></a>
-#### 18、以冷归档/归档/低频写入OSS
+
+#### 18、使用冷归档/归档/低频写入OSS
 在您的distcp任务写入OSS时，您可以通过--policy来指定以冷归档、归档和低频的模式写入OSS，进行数据存储。<br />
 
-冷归档（coldArchive）目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)，使用示例命令如下：
+##### 18.1、使用冷归档写入OSS（coldArchive）
+
+*支持版本：3.5.0+*<br />目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)，使用示例命令如下：
 
 ```
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy coldArchive --parallelism 20
 ```
 
-使用归档（archive）示例命令如下：
+##### 18.2、使用归档写入OSS（archive）
+
+*支持版本：2.7.3+*<br />示例命令如下：
 
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy archive --parallelism 20
 ```
-使用低频（ia）示例命令如下：
+##### 18.3、使用低频写入OSS（ia）
+
+*支持版本：2.7.3+*<br />示例命令如下：
+
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --policy ia --parallelism 20
 ```
@@ -386,8 +399,8 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="UEx2K"></a>
 #### 19、清理残留文件
-在您的distcp完成过程中，可能因为多种原因在您的目标目录下产生未正确上传的文件，这部分文件通过uploadId的方式由OSS管理，并且对用户不可见，您可以通过指定--cleanUpPending选项进行指定distcp任务结束时进行清理残留文件，或者您也可以通过OSS控制台来进行清理。<br />
-<br />示例命令如下：
+*支持版本：2.7.3+*<br />在您的distcp完成过程中，可能因为多种原因在您的目标目录下产生未正确上传的文件，这部分文件通过uploadId的方式由OSS管理，并且对用户不可见，您可以通过指定--cleanUpPending选项进行指定distcp任务结束时进行清理残留文件，或者您也可以通过OSS控制台来进行清理。<br /><br />示例命令如下：
+
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --cleanUpPending --parallelism 20
 ```
@@ -395,9 +408,8 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="7WRjP"></a>
 #### 20、使用--queue
-在您的distcp过程中，您可以指定本次distcp任务所在的yarn队列的名称，您可以使用--queue来指定
+*支持版本：2.7.3+*<br />在您的distcp过程中，您可以指定本次distcp任务所在的yarn队列的名称，您可以使用--queue来指定<br /><br />示例命令如下：
 
-示例命令如下：
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --queue yarnqueue
 ```
@@ -405,8 +417,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 <a name="0TVlg"></a>
 #### 21、使用--bandwidth
-在您的distcp过程中，您可以指定本次distcp任务所用的单机带宽(以MB为单位)，避免单机占用过大带宽<br />
-<br />示例命令如下：
+*支持版本：2.7.3+*<br />在您的distcp过程中，您可以指定本次distcp任务所用的单机带宽(以MB为单位)，避免单机占用过大带宽<br /><br />示例命令如下：
 
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --bandwidth 6
@@ -415,13 +426,14 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 <a name="UjU6Y"></a>
 
 #### 22、使用s3作为数据源
-您可以指定数据源为s3，目前支持前缀s3a/s3n/s3，您可以在命令中使用--s3Key、--s3Secret、--s3EndPoint选项来指定连接s3的相关信息。您也可以只指定s3EndPoint来使用s3的免密功能。<br />
-<br />示例命令如下：
+*支持版本：2.7.3+*<br />您可以指定数据源为s3，目前支持前缀s3a/s3n/s3，您可以在命令中使用--s3Key、--s3Secret、--s3EndPoint选项来指定连接s3的相关信息。您也可以只指定s3EndPoint来使用s3的免密功能。<br /><br />示例命令如下：
+
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src s3a://yourbucket/ --dest oss://yang-hhht/hourly_table --s3Key yourkey --s3Secret yoursecret --s3EndPoint s3-us-west-1.amazonaws.com 
 ```
 
-<br />您也可以将s3的key、secret、endpoint预先配置在 hadoop的 core-site.xml 文件里 ，避免每次使用时临时填写ak。
+<br />您也可以将s3的key、secret、endpoint预先配置在 hadoop的 core-site.xml 文件里 ，避免每次使用时临时填写ak：
+
 ```xml
 <configuration>
     <property>
@@ -441,14 +453,13 @@ hadoop jar jindo-distcp-3.5.0.jar --src s3a://yourbucket/ --dest oss://yang-hhht
 </configuration>
 ```
 
-<br />如使用S3免密则示例命令如下，您无需指定AK，但需要指定endPoint<br />
+<br />如使用S3免密则示例命令如下，您无需指定AK，但需要指定endPoint：
 
 ```bash
 hadoop jar /tmp/jindo-distcp-3.5.0.jar --src s3://smartdata1/ --dest s3://smartdata1/tmp --s3EndPoint  s3-us-west-1.amazonaws.com
 ```
-<a name="tqzlD"></a>
-#### <br />
 <a name="h9wI9"></a>
+
 #### 23、使用低版本的JDK
 当前 Jindo DistCp 默认使用的JDK版本是1.8，如您使用1.8以下的JDK，您可以尝试使用指定YARN JDK包的方式来使用Jindo DistCp
 
@@ -488,33 +499,31 @@ hadoop jar /tmp/jindo-distcp-3.5.0.jar --src s3://smartdata1/ --dest s3://smartd
 
 <a name="WwYXi"></a>
 
-### 24、 使用--enableCMS
+#### 24、 使用--enableCMS
 
-您可以通过enableCMS开启云监控告警功能，具体参见[《Jindo Distcp使用CMS进行告警》](./jindo_distcp_how_to_cms.md)
+*支持版本：3.5.0+*<br />您可以通过enableCMS开启云监控告警功能，具体参见[《Jindo Distcp使用CMS进行告警》](./jindo_distcp_how_to_cms.md)
+
+<a name="WwYXi"></a>
 
 #### 25、使用--update
 
-您可以通过update参数使用增量同步功能，跳过完全相同的文件和目录，直接将src中新增或发生改变的文件和目录同步到dest上。<br />
-<br />示例命令如下：<br />
+*支持版本：3.5.0+*<br />您可以通过update参数使用增量同步功能，跳过完全相同的文件和目录，直接将src中新增或发生改变的文件和目录同步到dest上。<br />示例命令如下：<br />
 
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --update --parallelism 20
 ```
 
-<br />
+<a name="WwYXi"></a>
 
 #### 26、使用--filters
 
-您可以通过filters参数指定一个文件路径。在这个文件中，一行配置一个正则表达式，对应distcp任务中需要跳过的文件，即不希望参与copy和diff的文件。<br />
-<br />示例命令如下：<br />
+*支持版本：3.5.0+*<br />您可以通过filters参数指定一个文件路径。在这个文件中，一行配置一个正则表达式，对应distcp任务中需要跳过的文件，即不希望参与copy和diff的文件。<br />示例命令如下：<br />
 
 ```bash
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table -filters /path/to/filterfile.txt --parallelism 20
 ```
 
-<br />
-
-正则表达式示例文件如下：<br />
+<br />正则表达式示例文件如下：<br />
 
 ```bash
 .*\.tmp.*
@@ -525,12 +534,4 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
 使用上述示例文件，会匹配`hdfs://data/incoming/hourly_tabl`下任何带有 `.tmp` 和 `.staging` 字符串的文件路径，在copy/diff时排除这些匹配到的路径不做后续操作。
 
-<br />
-
-# 发布版本
-
----
-
-<a name="TqRR6"></a>
-### v3.0.0
-日期：20210121
+<a name="WwYXi"></a>
