@@ -14,10 +14,44 @@ JindoFS 提供了访问 S3 协议的能力，可以通过配置 S3 作为 JindoF
 ```shell
 $ kubectl create ns fluid-system
 ```
-### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/353/fluid-0.6.0.tgz)
+### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/zuoyebang/fluid-0.6.0.tgz)
 
 ### 3、使用 Helm 安装 Fluid
 
+如果是在原有集群上进行升级，请先更新`dataload`的`crd`
+
+```shell
+$ k get crd                              
+NAME                                             CREATED AT
+databackups.data.fluid.io                        2021-04-14T06:36:38Z
+dataloads.data.fluid.io                          2021-05-20T03:59:14Z
+datasets.data.fluid.io                           2021-04-14T06:36:38Z
+jindoruntimes.data.fluid.io                      2021-04-14T06:36:38Z
+```
+
+找到 `dataloads.data.fluid.io ` 
+
+```shell
+$ k delete crd                            
+NAME                                             CREATED AT
+databackups.data.fluid.io                        2021-04-14T06:36:38Z
+dataloads.data.fluid.io                          2021-05-20T03:59:14Z
+datasets.data.fluid.io                           2021-04-14T06:36:38Z
+jindoruntimes.data.fluid.io                      2021-04-14T06:36:38Z
+
+$ k delete crd dataloads.data.fluid.io
+```
+
+删除完之后，需要重新apply新的`dataload`，解压 `fluid-0.6.0.tgz`
+
+```shell
+$ tar -zxvf fluid-0.6.0.tgz
+```
+
+```shell
+$ kubectl apply -f fluid/crds/data.fluid.io_dataloads.yaml
+```
+升级相关 `contrller`
 ```shell
 $ helm install --set runtime.jindo.enabled=true fluid fluid-0.6.0.tgz
 ```
@@ -79,17 +113,18 @@ kind: JindoRuntime
 metadata:
   name: hadoop
 spec:
-  replicas: 2
+  replicas: 3
   tieredstore:
     levels:
       - mediumtype: MEM
-        path: /mnt/disk1
-        quota: 100G
+        path: /var/lib/docker/jindo
+        quota: 20G
         high: "0.9"
         low: "0.8"
-  worker:
+  master:
+    replicas: 1
     properties:
-      storage.cache.filelet.worker.threads: "50"
+      namespace.cache.sync.load-type: "never"
   fuse:
     properties:
       jfs.cache.data-cache.enable: "true"
@@ -97,7 +132,8 @@ spec:
 ```
 
 * mountPoint：表示挂载 s3 的路径，支持标准 s3 协议。
-* replicas：表示创建 JindoFS 集群的 worker 的数量。
+* spec.replicas：表示创建 JindoFS 集群的 worker 的数量。
+* spec.master.replicas: 表示创建master节点的个数，高可用模式请使用`spec.master.replicas=3`，表示创建3个master，通过raft协议来进行选举节点
 * mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
 * path：存储路径，当选择MEM做缓存也需要一块盘来存储log等文件。
 * quota：缓存最大容量，单位G。
@@ -143,21 +179,47 @@ NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
 hadoop    Ready           Ready           Ready     62m
 ```
 
-### 6、文件缓存加速优化
-推荐通过以下预加载命令将需要读取的数据目录进行元数据缓存和数据缓存的预加载，以更好地提升后续作业的性能。
-* 登陆到 JindoFS 集群 master 所在的 pod 上
-```shell
-kubectl exec -ti hadoop-jindofs-master-0  -- /bin/bash
-```
-* 进行元数据预加载
-```shell
-jindo jfs -metaSync -R jfs://hadoop/dir/
-```
-等待执行完毕即可完成元数据缓存
+### 数据预热
 
-* 进行文件数据预加载
-```shell
-jindo jfs -cache -s -m -r 2 jfs://hadoop/dir/
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: fluid-dataload
+spec:
+  dataset:
+    name: hadoop
+    namespace: default
+  loadMetadata: true
+  loadMemoryData: true
+  atomicCache: true
+  target:
+    - path: /path1
+      replicas: 3
+    - path: /path2
+      replicas: 2
 ```
-`-m` 表示加载到内存，`-r` 指定本地缓存的副本数量，如上示例即为缓存`2`副本。
-等待执行完毕即可完成数据缓存，可使用 Fuse / PV 加载数据进行机器学习训练
+
+* loadMetadata: 进行元数据缓存，true代表打开
+* loadMemoryData: 表示进行数据内存缓存，true代表打开
+* atomicCache: 原子性cache，true代表打开
+* path: 代表挂载点下的相对路径
+* replicas: 缓存的副本个数，默认为1
+
+执行数据预热
+```shell
+$ kubectl create -f dataload.yaml
+```
+
+查看数据预热的进度
+```shell
+$ kubectl get dataload                   
+NAME             DATASET   PHASE      AGE   DURATION
+fluid-dataload   hadoop    Complete   19m   12s
+```
+`Complete` 代表完成全部缓存流程
+
+也可找到数据预热的pod查看详细信息，如
+```shell
+$ kubectl logs -f fluid-dataload-loader-job-zxxxx
+```
