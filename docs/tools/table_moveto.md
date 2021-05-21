@@ -1,12 +1,11 @@
-# JindoTable Hive 数据迁移（HDFS<->OSS）功能 MoveTo 命令简介
+# JindoTable Hive 数据迁移（HDFS<->OSS）功能 MoveTo 命令使用
 
 HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶颈。云厂商提供的对象存储可以作为 HDFS 的替代或补充，扩展云上 Hadoop 平台的存储能力。
 本工具用于把 Hive 数据根据分区键规则筛选，在 HDFS 和 OSS 之间转移分区。
 
 ## 安装说明
 
-1. 将 jindofs-sdk-3.5.0.jar 与 Hadoop 集成，配置方法参考一篇 Github 文档：
-[https://github.com/aliyun/alibabacloud-jindofs/blob/master/docs/jindofs_sdk_how_to_hadoop.md](https://github.com/aliyun/alibabacloud-jindofs/blob/master/docs/jindofs_sdk_how_to_hadoop.md) 
+1. 将 jindofs-sdk-3.5.0.jar 与 Hadoop 集成，配置方法参考这篇[文档](https://github.com/aliyun/alibabacloud-jindofs/blob/master/docs/jindofs_sdk_how_to_hadoop.md) 。
 
 2. 下载[压缩包](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/JindoTable-moveto/JindoTable-MoveTo.zip)并解压，保持 *b2jindosdk-current* 的目录结构并放置于集群 master 节点，然后配置路径：
 

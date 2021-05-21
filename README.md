@@ -13,6 +13,10 @@ Jindo 是阿里云大数据平台 EMR (E-MapReduce) 的核心自研组件，主�
 
 JindoFS 作为阿里云基于 OSS 的一揽子数据湖存储优化方案，完全兼容 Hadoop/Spark 生态，并针对 Spark、Hive、Flink、Presto 等大数据组件和 AI 生态实现了大量扩展和优化。JindoFS 项目包括 JindoFS OSS 支持、JindoFS 分布式缓存系统（JindoFS Cache 模式）和 JindoFS 分布式存储优化系统（JindoFS Block 模式）。JindoSDK 是各个计算组件可以用来使用JindoFS 这些优化扩展功能和模式的套件，包括 Hadoop Java SDK、Python SDK 和 Fuse/POSIX 支持。JindoSDK 在阿里云 E-MapReduce 产品中被深度集成，同时也开放给非 EMR 产品用户在各种 Hadoop/Spark 环境上使用，欢迎大家反馈问题和提供最佳实践。关于JindoFS 请参考 [JindoFS 介绍和使用](https://help.aliyun.com/document_detail/199488.html)。JindoSDK 下载请访问[JindoSDK 下载页面](/docs/jindofs_sdk_download.md)。
 
+## JindoTable 介绍
+
+JindoTable 是 JindoFS 结合计算引擎的使用推出的一套解决方案，支持 Spark、Hive、Presto 等引擎，以及表格式数据的管理功能。目前 JindoTable 提供的功能包括计算加速和基于表分区的分层存储功能。
+
 ## JindoFS SDK 生产使用
 
 * [Hadoop/Spark 生态使用 JindoFS SDK](docs/jindofs_sdk_overview.md)
@@ -27,14 +31,10 @@ JindoFS 作为阿里云基于 OSS 的一揽子数据湖存储优化方案，完�
 
 * [Spark 使用 JindoFS SDK 在 IDE 开发调试](docs/spark/jindofs_sdk_ide_spark.md)
 
-## JindoTable 介绍
-
-JindoTable 是 JindoFS 结合计算引擎的使用推出的一套解决方案，支持 Spark、Hive、Presto 等引擎，以及表格式数据的管理功能。目前 JindoTable 提供的功能包括计算加速和基于表分区的分层存储功能。
-
 ## 数据迁移最佳实践
 
 * [Jindo Distcp 介绍和使用](docs/jindo_distcp/jindo_distcp_overview.md)
-* [JindoTable Hive表数据迁移功能（HDFS<->OSS）简介](docs/tools/table_moveto.md)
+* [JindoTable Hive表数据迁移功能（HDFS<->OSS）使用](docs/tools/table_moveto.md)
 
 ## JindoFS 云原生
 
