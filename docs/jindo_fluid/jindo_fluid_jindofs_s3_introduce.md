@@ -21,7 +21,7 @@ $ kubectl create ns fluid-system
 如果是在原有集群上进行升级，请先更新`dataload`的`crd`
 
 ```shell
-$ k get crd                              
+$ kubectl get crd                              
 NAME                                             CREATED AT
 databackups.data.fluid.io                        2021-04-14T06:36:38Z
 dataloads.data.fluid.io                          2021-05-20T03:59:14Z
@@ -32,14 +32,14 @@ jindoruntimes.data.fluid.io                      2021-04-14T06:36:38Z
 找到 `dataloads.data.fluid.io ` 
 
 ```shell
-$ k delete crd                            
+$ kubectl delete crd                            
 NAME                                             CREATED AT
 databackups.data.fluid.io                        2021-04-14T06:36:38Z
 dataloads.data.fluid.io                          2021-05-20T03:59:14Z
 datasets.data.fluid.io                           2021-04-14T06:36:38Z
 jindoruntimes.data.fluid.io                      2021-04-14T06:36:38Z
 
-$ k delete crd dataloads.data.fluid.io
+$ kubectl delete crd dataloads.data.fluid.io
 ```
 
 删除完之后，需要重新apply新的`dataload`，解压 `fluid-0.6.0.tgz`
