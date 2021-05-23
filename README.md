@@ -34,7 +34,7 @@ JindoTable 是 JindoFS 结合计算引擎的使用推出的一套解决方案，
 ## 数据迁移最佳实践
 
 * [Jindo Distcp 介绍和使用](docs/jindo_distcp/jindo_distcp_overview.md)
-* [JindoTable Hive表数据迁移功能（HDFS<->OSS）使用](docs/tools/table_moveto.md)
+* [使用 JindoTable 将 Hive 数据分区归档和分层到 OSS](docs/tools/table_moveto.md)
 
 ## JindoFS 云原生
 
