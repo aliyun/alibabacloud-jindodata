@@ -15,7 +15,7 @@ JindoFS 作为阿里云基于 OSS 的一揽子数据湖存储优化方案，完�
 
 ## JindoTable 介绍
 
-JindoTable 是 JindoFS 结合计算引擎的使用推出的一套解决方案，支持 Spark、Hive、Presto 等引擎，以及表格式数据的管理功能。目前 JindoTable 提供的功能包括计算加速和基于表分区的分层存储功能。关于JindoTable 请参考 [JindoTable 介绍和使用](/docs/jindotable/jindotable.md)
+JindoTable 是 JindoFS 结合计算引擎的使用推出的一套解决方案，支持 Spark、Hive、Presto 等引擎，以及表格式数据的管理功能。目前 JindoTable 提供的功能包括计算加速和基于表分区的分层存储功能。关于JindoTable 请参考 [JindoTable 介绍和使用](/docs/jindotable/jindotable.md)。
 
 ## JindoFS SDK 生产使用
 
@@ -34,7 +34,7 @@ JindoTable 是 JindoFS 结合计算引擎的使用推出的一套解决方案，
 ## 数据迁移最佳实践
 
 * [Jindo Distcp 介绍和使用](docs/jindo_distcp/jindo_distcp_overview.md)
-* [JindoTable Hive表数据迁移功能（HDFS<->OSS）使用](docs/tools/table_moveto.md)
+* [使用 JindoTable 将 Hive 数据分区归档和分层到 OSS](docs/tools/table_moveto.md)
 
 ## JindoFS 云原生
 

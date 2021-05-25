@@ -1,4 +1,4 @@
-# JindoTable Hive 数据迁移（HDFS<->OSS）功能 MoveTo 命令使用
+# 使用 JindoTable 将 Hive 数据分区归档和分层到OSS
 
 HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶颈。云厂商提供的对象存储可以作为 HDFS 的替代或补充，扩展云上 Hadoop 平台的存储能力。
 本工具用于把 Hive 数据根据分区键规则筛选，在 HDFS 和 OSS 之间转移分区。
