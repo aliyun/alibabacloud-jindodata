@@ -48,6 +48,7 @@ cp jindofs-sdk-${version}.jar  $SPARK_HOME/jars/
 
     <property>
         <name>fs.jfs.cache.oss.endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
@@ -58,7 +59,7 @@ JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK
 使用参数在 Spark 任务提交的时候设置 JindoFs SDK, 以下为示例:
  ```  
 spark-submit --conf spark.hadoop.fs.AbstractFileSystem.oss.impl=com.aliyun.emr.fs.oss.OSS --conf spark.hadoop.fs.oss.impl=com.aliyun.emr.fs.oss.JindoOssFileSystem --conf spark.hadoop.fs.jfs.cache.oss.accessKeyId=xxx  --conf spark.hadoop.fs.jfs.cache.oss.accessKeySecret=xxx --conf spark.hadoop.fs.jfs.cache.oss.endpoint=oss-cn-xxx.aliyuncs.com 
- ``` 
+ ```
 ### 4. 启动 Spark, 即可访问 OSS
 
 ### 5. 参数调优

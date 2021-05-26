@@ -16,7 +16,7 @@ JindoFS SDK是一个简单易用面向Hadoop/Spark生态的OSS客户端，为阿
 cp jindofs-sdk-${version}.jar  $IMPALA_HOME/lib/
 ````
 
-   
+
 ### 3. 配置 JindoFS SDK  
 #### 配置 IMPALA 使用的 core-site.xml 配置 JindoFS SDK  访问 OSS
 * 配置 JindoFS OSS 实现类
@@ -48,6 +48,7 @@ cp jindofs-sdk-${version}.jar  $IMPALA_HOME/lib/
 
     <property>
         <name>fs.jfs.cache.oss.endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>

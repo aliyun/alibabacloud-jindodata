@@ -54,9 +54,10 @@ JindoFS SDK 是一个简单易用面向 Hadoop/Spark 生态的 JindoFS / OSS客�
     </property>
 
     <property>
-        <name>jindo.common.oss.endpoint</name>
         <!-- 访问 JindoFS OSS 后端存储的 Endpoint  -->
-        <value>oss-cn-hangzhou.aliyuncs.com</value>
+        <name>jindo.common.oss.endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
+        <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 ```
 
@@ -103,9 +104,10 @@ public class TestJindoSDK {
   public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
     conf.set("fs.jfs.namespace.rpc-address","172.16.xx.xx:8101,172.16.xx.xx:8101,172.16.xx.xx:8101");
-    conf.set("jindo.common.accessKeyId","your oss accessKeyId");
-    conf.set("jindo.common.accessKeySecret","your oss accessKeySecret");
-    conf.set("jindo.common.oss.endpoint","oss-cn-xxxx.aliyuncs.com");
+    conf.set("fs.jfs.cache.oss.accessKeyId","your oss accessKeyId");
+    conf.set("fs.jfs.cache.oss.accessKeySecret","your oss accessKeySecret");
+    // ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com 
+    conf.set("fs.jfs.cache.oss.endpoint","oss-cn-xxxx.aliyuncs.com");
     FileSystem fs = FileSystem.get(URI.create("jfs://<namespace>/"), conf);
     FSDataInputStream in = fs.open(new Path("/uttest/file1"));
     in.read();

@@ -7,6 +7,8 @@
 ```
 hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
 ```
+ *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
+
 * --src：HDFS 的源路径
 * --dest：block 模式下后端 oss 的目标路径
 * --ossKey：block 模式下后端 AccessKey
@@ -20,7 +22,10 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey your
 ```
 hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
 ```
+ *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
+
 如果所有文件都传输完成，则会提示如下信息。
+
 ```
 INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 ```
@@ -29,6 +34,8 @@ INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 ```
 hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
+ *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
+
 * --queue：指定 YARN 队列的名称
 * --bandwidth：指定单机限流带宽的大小，单位 MB
 
@@ -58,5 +65,4 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey your
 如您需要其他使用其他功能，请参考
 * [Jindo DistCp 进行数据迁移的使用说明](jindo_distcp_how_to.md)
 * [Jindo DistCp 场景化使用指南](jindo_distcp_scenario_guidance.md)
-
 
