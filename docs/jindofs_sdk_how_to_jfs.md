@@ -16,7 +16,7 @@ JindoFS SDK 是一个简单易用面向 Hadoop/Spark 生态的 JindoFS / OSS客�
 
 当您已经创建了一个E-MapReduce JindoFS集群，并且希望在另外一个集群或ECS机器上访问JindoFS集群时，可以使用该方法。
 
-* 您使用的是  [JindoFS 3.1 及以上版本](jindofs_sdk_how_to_jfs_3_1.md) 
+* 您使用的是  [JindoFS 3.3 及以上版本](jindofs_sdk_how_to_jfs_3_3.md) 
 
-* 您使用的是  [JindoFS 3.0 及以下版本](jindofs_sdk_how_to_jfs_3_0.md) 
+* 您使用的是  [JindoFS 3.2 及以下版本](jindofs_sdk_how_to_jfs_3_2.md) 
 
