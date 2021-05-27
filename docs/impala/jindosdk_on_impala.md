@@ -56,7 +56,21 @@ cp jindofs-sdk-${version}.jar  $IMPALA_HOME/lib/
 JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK OSS AccessKey 配置](../jindofs_sdk_credential_provider.md)。<br />
 
 
-### 4. 重启 Impala 所有服务，使配置生效。
+### 4. 使用 Impala 访问 OSS。
+
+创建表
+ ```  
+create table test_oss (c1 string) location "oss://bucket/dir";
+ ```
+插入数据
+ ```  
+insert into table test_oss values ("testdata");
+ ``` 
+
+查询 OSS 表
+ ```  
+select * from test_oss;
+ ``` 
 
 ### 5. 参数调优
 JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](../jindofs_sdk_configuration_list.md)。
