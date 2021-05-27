@@ -14,7 +14,7 @@ JindoFS SDK 是一个简单易用面向 Hadoop/Spark 生态的 JindoFS / OSS客�
 
 # 访问 JindoFS Cache/Block模式集群
 
-当您已经创建了一个E-MapReduce JindoFS集群，**您使用的 JindoFS 为3.1 及之后的版本**，并且希望在另外一个集群或ECS机器上访问JindoFS集群时，可以使用该方法。
+当您已经创建了一个E-MapReduce JindoFS集群，**您使用的 JindoFS 为3.3 及之后的版本**，并且希望在另外一个集群或ECS机器上访问JindoFS集群时，可以使用该方法。
 
 ### 前提条件
 
@@ -121,6 +121,6 @@ public class TestJindoSDK {
 
 ## 附录: SDK配置项列表
 
-JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文档  [JindoFS SDK 配置项列表](jindofs_sdk_configuration_list_3_x.md) 【注：3.0 以下版本此 [参考配置项列表](./jindofs_sdk_configuration_list.md)】
+JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文档  [JindoFS SDK 配置项列表](jindofs_sdk_configuration_list_3_x.md) 
 <br />
 

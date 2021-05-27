@@ -14,7 +14,7 @@ JindoFS SDK 是一个简单易用面向 Hadoop/Spark 生态的 JindoFS / OSS客�
 
 # 访问 JindoFS Cache/Block模式集群
 
-当您已经创建了一个E-MapReduce JindoFS集群，**您使用的 JindoFS 为3.0 及之前的版本**，并且希望在另外一个集群或ECS机器上访问JindoFS集群时，可以使用该方法。
+当您已经创建了一个E-MapReduce JindoFS集群，**您使用的 JindoFS 为3.2 及之前的版本**，并且希望在另外一个集群或ECS机器上访问JindoFS集群时，可以使用该方法。
 
 ### 前提条件
 
