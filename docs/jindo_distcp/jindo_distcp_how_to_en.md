@@ -381,6 +381,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
     <property>
         <name>fs.jfs.cache.oss-endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>

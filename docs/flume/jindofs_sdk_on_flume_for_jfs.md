@@ -12,7 +12,9 @@ Flume 通过 flush() 调用保证事务性写入，JindoFS Block 默认支持 Fl
 
 ## SDK 配置
 
-需要在 Flume 节点进行配置。在每个节点 Flume 根目录下的 lib 文件夹，放置 JindoSDK：
+需要在 Flume 节点进行配置 JindoFS SDK，参考 [《JindoFS 客户端部署》](../jindofs_sdk_how_to_jfs.md) 。
+
+在每个节点 Flume 根目录下的 lib 文件夹，放置 JindoSDK：
 
 * jindofs-sdk-${version}.jar
 

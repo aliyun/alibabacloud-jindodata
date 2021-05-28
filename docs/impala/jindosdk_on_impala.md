@@ -16,7 +16,7 @@ JindoFS SDK是一个简单易用面向Hadoop/Spark生态的OSS客户端，为阿
 cp jindofs-sdk-${version}.jar  $IMPALA_HOME/lib/
 ````
 
-   
+
 ### 3. 配置 JindoFS SDK  
 #### 配置 IMPALA 使用的 core-site.xml 配置 JindoFS SDK  访问 OSS
 * 配置 JindoFS OSS 实现类
@@ -48,6 +48,7 @@ cp jindofs-sdk-${version}.jar  $IMPALA_HOME/lib/
 
     <property>
         <name>fs.jfs.cache.oss.endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
@@ -55,7 +56,21 @@ cp jindofs-sdk-${version}.jar  $IMPALA_HOME/lib/
 JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK OSS AccessKey 配置](../jindofs_sdk_credential_provider.md)。<br />
 
 
-### 4. 重启 Impala 所有服务，使配置生效。
+### 4. 使用 Impala 访问 OSS。
+
+创建表
+ ```  
+create table test_oss (c1 string) location "oss://bucket/dir";
+ ```
+插入数据
+ ```  
+insert into table test_oss values ("testdata");
+ ``` 
+
+查询 OSS 表
+ ```  
+select * from test_oss;
+ ``` 
 
 ### 5. 参数调优
 JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文档 [JindoFS SDK配置项列表](../jindofs_sdk_configuration_list.md)。

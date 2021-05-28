@@ -46,6 +46,7 @@ cp ./jindofs-sdk-*.jar /opt/cloudera/parcels/CDH/lib/hadoop/lib/jindofs-sdk.jar
     </property>
     <property>
         <name>fs.jfs.cache.oss.endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>

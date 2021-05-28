@@ -345,8 +345,10 @@ Shuffle Errors
 hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-hangzhou.aliyuncs.com --parallelism 20
 ```
 
+ *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
 您也可以将oss的ak、secret、endpoint预先配置在 hadoop的 core-site.xml 文件里 ，避免每次使用时临时填写ak。
+
 ```xml
 <configuration>
     <property>
@@ -361,6 +363,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 
     <property>
         <name>fs.jfs.cache.oss-endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>

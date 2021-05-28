@@ -34,17 +34,18 @@ cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
 ```xml
 <configuration>
     <property>
-        <name>jindo.common.accessKeyId</name>
+        <name>fs.jfs.cache.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>jindo.common.accessKeySecret</name>
+        <name>fs.jfs.cache.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>jindo.common.oss.endpoint</name>
+        <name>fs.jfs.cache.oss.endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>

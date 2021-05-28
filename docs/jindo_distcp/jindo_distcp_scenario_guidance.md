@@ -38,7 +38,6 @@
 
 ### 场景1、我想从HDFS导数据到OSS，该使用哪些参数？
 
-
 如果您不再EMR环境里，那么从HDFS上往OSS传输数据要满足以下几点
 1、HDFS可访问，有读数据权限
 2、需要提供OSS的AK即accessKey和accessSecret，以及endPoint信息且该AK具有写目标bucket的权限
@@ -164,6 +163,9 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 在场景一的基础上需要增加两个参数，两个参数可以配合使用，也可以单独使用
 `--queue`：指定yarn队列的名称
 `--bandwidth`：指定单机带宽的大小，单位为MB大小
+
+ *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
+
 ### 场景6、我想以低频、归档或者冷归档形式写到OSS上，该使用哪些参数？
 
 
