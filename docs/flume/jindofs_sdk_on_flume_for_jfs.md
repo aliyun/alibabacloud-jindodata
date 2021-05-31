@@ -4,11 +4,11 @@
 
 ## 环境要求
 
-已有 EMR JindoFS Block 模式集群，已部署 SMARTDATA 3.2 以上版本。
+已有 EMR JindoFS Block 模式集群，已部署 SMARTDATA 3.1 以上版本。
 
-## 使用 JindoFS SDK 写入  JindoFS Block 模式
+## 为什么 Flume 需要使用 JindoFS SDK 写入 JindoFS Block 模式
 
-Flume 通过 flush() 调用保证事务性写入，JindoFS Block 默认支持 Flush 功能，直接配置 Sink 即可。
+Flume 通过 flush() 调用保证事务性写入，JindoFS Block 在 SMARTDATE 3.2 以上版本默认支持 Flush 功能，直接配置 Sink 即可。
 
 ## SDK 配置
 
