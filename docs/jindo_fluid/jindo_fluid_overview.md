@@ -12,7 +12,7 @@
 * [加速HDFS上数据](./common/jindo_fluid_hdfs_ufs_example.md)
 * [加速S3上数据](./common/jindo_fluid_s3_ufs_example.md)
 * [使用参数加密](./common/jindo_fluid_encryptOption.md)
-* [数据亲和性调度（Worker节点亲和性部署）](./common/jindo_fluid_nodeAffinity.md)
+* [数据亲和性调度](./common/jindo_fluid_nodeAffinity.md)
 * [Master节点亲和性部署](./common/jindo_fluid_nodeselector_for_master.md)
 * [多Master节点部署](./common/jindo_fluid_multimaster.md)
 * [Fuse客户端节点亲和性部署](./common/jindo_fluid_fuse_nodeselector.md)
