@@ -58,14 +58,10 @@ JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK
 
 ### 4. 使用 Impala 访问 OSS。
 
-创建表
+创建外部表
  ```  
-create table test_oss (c1 string) location "oss://bucket/dir";
+create external table test_oss (c1 string) location 'oss://bucket/dir';
  ```
-插入数据
- ```  
-insert into table test_oss values ("testdata");
- ``` 
 
 查询 OSS 表
  ```  
