@@ -62,7 +62,7 @@ JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK
 
 上传数据
  ```  
-hadoop fs -put test_data oss://bucket/dir;
+hadoop fs -put test_data oss://bucket/dir
  ```
 
 创建表
