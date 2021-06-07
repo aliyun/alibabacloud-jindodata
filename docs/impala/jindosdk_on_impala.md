@@ -58,14 +58,32 @@ JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK
 
 ### 4. 使用 Impala 访问 OSS。
 
-创建外部表
+下载测试数据集[链接](../test_data/customer_demographics/part-00000-2ac0f56e-0834-45b5-b27a-9e2e6babc6be-c000.snappy.parquet)
+
+上传数据
  ```  
-create external table test_oss (c1 string) location 'oss://bucket/dir';
+hadoop fs -put test_data oss://bucket/dir;
  ```
+
+创建表
+ ```  
+CREATE EXTERNAL TABLE customer_demographics (
+  `cd_demo_sk` INT,
+  `cd_gender` STRING,
+  `cd_marital_status` STRING,
+  `cd_education_status` STRING,
+  `cd_purchase_estimate` INT,
+  `cd_credit_rating` STRING,
+  `cd_dep_count` INT,
+  `cd_dep_employed_count` INT,
+  `cd_dep_college_count` INT)
+STORED AS PARQUET
+LOCATION 'oss://bucket/dir'; 
+ ``` 
 
 查询 OSS 表
  ```  
-select * from test_oss;
+select * from customer_demographics;
  ``` 
 
 ### 5. 参数调优
