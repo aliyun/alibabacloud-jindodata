@@ -1,5 +1,10 @@
 # Jindo SDK 下载
 
+## v3.6.0 (06/10/2021)
+
+[jindofs-sdk-3.6.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.6.0.jar)
+[b2smartdata-3.6.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/b2smartdata-3.6.0.tar.gz)
+
 ## v3.5.0 (04/08/2021)
 
 [jindofs-sdk-3.5.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.5.0.jar)  

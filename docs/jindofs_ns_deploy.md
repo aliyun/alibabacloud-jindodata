@@ -1,0 +1,81 @@
+# 部署 JindoFS NameSpace Service
+
+## 部署 JindoFS SDK
+### 1. 安装 jar 包
+下载最新的jar包 jindofs-sdk-x.x.x.jar ([下载页面](/docs/jindofs_sdk_download.md))，将sdk包安装到hadoop的classpath下。
+```
+cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
+```
+
+### 2. 配置 JindoFS JFS 实现类
+将 JindoFS JFS 实现类配置到Hadoop的core-site.xml中。
+```xml
+<configuration>
+    <property>
+        <name>fs.AbstractFileSystem.jfs.impl</name>
+        <value>com.aliyun.emr.fs.jfs.JFS</value>
+    </property>
+
+    <property>
+        <name>fs.jfs.impl</name>
+        <value>com.aliyun.emr.fs.jfs.JindoFileSystem</value>
+    </property>
+</configuration>
+```
+
+## 部署 NameSpace 服务
+### 下载最新安装包
+
+下载最新 Release 包 b2smartdata-x.x.x.tar.gz ([下载页面](/docs/jindofs_sdk_download.md))。
+
+### 解压
+```
+tar -xzvf b2smartdata-x.x.x.tar.gz
+```
+
+### 配置 bigboot.cfg
+在 b2smartdata-x.x.x/conf 文件夹下创建文件 bigboot.cfg  包含以下主要内容:
+```
+[bigboot]
+logger.dir = /tmp/bigboot-log
+
+[bigboot-client]
+client.storage.rpc.port = 6101
+client.namespace.rpc.address = localhost:8101
+
+[bigboot-namespace]
+namespace.rpc.port = 8101
+```
+需要将[bigboot-client] 中的参数 client.namespace.rpc.address 修改为 JindoFS 集群的 namespace 服务的所在节点地址，其中 8101 为 namespace RPC 的端口号， 需要与 [bigboot-namespace] 中的参数 namespace.rpc.port 中的端口号一致。
+[bigboot-client] 高级参数配置请参考[JindoFS SDK 配置项列表](jindofs_sdk_configuration_list_3_x.md)
+
+### 配置环境变量
+以 b2smartdata-3.6.0 安装在 /usr/lib 为例：
+```
+export BIGBOOT_SMARTDATA_HOME=/usr/lib/b2smartdata-3.6.0/
+export BIGBOOT_JINDOSDK_HOME=/usr/lib/b2smartdata-3.6.0/
+export B2SDK_CONF_DIR=/usr/lib/b2smartdata-3.6.0/conf
+export SMARTDATA_CONF_DIR=/usr/lib/b2smartdata-3.6.0/conf
+```
+
+### 启动 JindoFS NameSpace
+```
+cd b2smartdata-x.x.x
+sh sbin/start-namespace.sh
+```
+注：若 NameSpace 部署的节点为阿里云 ECS 节点，可以通过配置安全组，限制访问NameSpace的客户端。
+
+## 配置 NameSpace
+### 添加 NameSpace
+JindoFS支持多命名空间，本文命名空间以 test-cache-ranger 为例, 在 b2smartdata-x.x.x/conf/bigboot.cfg 文件的 [bigboot-namespace] section 下添加下面配置。
+```
+jfs.namespaces = test-cache-ranger
+jfs.namespaces.test-cache-ranger.oss.uri = oss://BUCKET.oss-cn-shanghai.aliyuncs.com/ranger-test
+jfs.namespaces.test-cache-ranger.mode = cache
+jfs.namespaces.test-cache-ranger.oss.access.key = ACCESS_KEY
+jfs.namespaces.test-cache-ranger.oss.access.secret = ACCESS_SECRET
+```
+### 重启 JindoFS NameSpace 服务
+```
+sh sbin/stop-namespace.sh
+sh sbin/start-namespace.sh
