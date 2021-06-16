@@ -30,6 +30,7 @@ sh sbin/start-namespace.sh
 | Add New Configurations | 不填写 |
 
 以 test-cache-ranger 为例：
+
 <img src="/pic/jindofs_ranger_2.png" width="800"/>
 
 ## 配置用户权限
