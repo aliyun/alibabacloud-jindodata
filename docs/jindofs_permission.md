@@ -1,12 +1,20 @@
 # 权限功能
 
-## 启用JindoFS Ranger权限
+## 启用 JindoFS Ranger权限
 在 bigboot.cfg 文件的 [bigboot-namespace] section 下对应的 namespace 配置项中添加Key为 jfs.namespaces.<namespace>.permission.method，Value 为 ranger 的配置项。
 以 test-cache-ranger namespace 为例:
 ```
 [bigboot-namespace]
 jfs.namespaces.test-cache-ranger.permission.method = ranger
 ```
+
+## 配置 Ranger Admin URL
+```
+[bigboot-namespace]
+ranger.plugin.jfs.policy.rest.url = http://hostname:port
+```
+hostname 和 port 为 Ranger Admin 所在的节点地址和端口号
+
 ## 重启 namespace
 ```
 sh sbin/stop-namespace.sh
