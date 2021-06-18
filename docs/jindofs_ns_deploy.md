@@ -46,7 +46,7 @@ client.namespace.rpc.address = localhost:8101
 [bigboot-namespace]
 namespace.rpc.port = 8101
 ```
-需要将[bigboot-client] 中的参数 client.namespace.rpc.address 修改为 JindoFS 集群的 namespace 服务的所在节点地址，其中 8101 为 namespace RPC 的端口号， 需要与 [bigboot-namespace] 中的参数 namespace.rpc.port 中的端口号一致。
+需要将[bigboot-client] 中的参数 client.namespace.rpc.address 修改为 JindoFS 集群的 NamesSpace 服务的所在节点地址，其中 8101 为 NameSpace RPC 的端口号， 需要与 [bigboot-namespace] 中的参数 namespace.rpc.port 中的端口号一致。
 [bigboot-client] 高级参数配置请参考[JindoFS SDK 配置项列表](jindofs_sdk_configuration_list_3_x.md)
 
 ### 配置环境变量
@@ -79,3 +79,38 @@ jfs.namespaces.test-cache-ranger.oss.access.secret = ACCESS_SECRET
 ```
 sh sbin/stop-namespace.sh
 sh sbin/start-namespace.sh
+```
+
+## 配置高可用 NameSpace
+NameSpace 高可用部署需要3个节点分别启动Namespace服务组成1个Raft实例。
+### 暂停SmartData所有服务
+```
+sh sbin/stop-namespace.sh
+```
+### 配置本地 raft 后端
+在 bigboot.cfg 文件的 [bigboot-namespace] section 下对应的 namespace 配置项中添加下面配置项。
+
+| 参数 | 描述 | 示例 |
+| :--- | :--- | :--- |
+| namespace.backend.type | 设置namespace后端存储类型，支持：<br /> rocksdb <br /> ots <br /> raft <br /> 默认为rocksdb。 | raft |
+| namespace.backend.raft.initial-conf | 部署raft实例的3个NameSpace地址 | emr-header-1:8103:0,emr-header-2:8103:0,emr-header-3:8103:0 |
+| jfs.namespace.server.rpc-address | Client端访问raft实例的3个NameSpace地址 | emr-header-1:8101,emr-header-2:8101,emr-header-3:8101 |
+
+需要将 namespace.backend.raft.initial-conf 和 jfs.namespace.server.rpc-address 中的 hostname 替换为 NamesSpace 服务所在的节点地址。
+
+### 同步 b2smartdata-x.x.x 文件夹
+完成上述配置后，将 b2smartdata-x.x.x 同步至另两台机器的同一目录
+
+### 同步环境变量
+将下面的环境变量同步至另外两台机器，以 b2smartdata-3.6.0 安装在 /usr/lib 为例：
+```
+export BIGBOOT_SMARTDATA_HOME=/usr/lib/b2smartdata-3.6.0/
+export BIGBOOT_JINDOSDK_HOME=/usr/lib/b2smartdata-3.6.0/
+export B2SDK_CONF_DIR=/usr/lib/b2smartdata-3.6.0/conf
+export SMARTDATA_CONF_DIR=/usr/lib/b2smartdata-3.6.0/conf
+```
+### 启动 JindoFS NameSpace
+在所有的 NameSpace 节点启动 NameSpace 服务。
+```
+sh sbin/start-namespace.sh
+```
