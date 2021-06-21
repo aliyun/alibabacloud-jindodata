@@ -40,6 +40,9 @@ JindoTable 是 JindoFS 结合计算引擎的使用推出的一套解决方案，
 
 * [Fluid 结合 JindoFS 介绍和使用](docs/jindo_fluid/jindo_fluid_overview.md)
 
+## JindoFS 缓存模式
+* [JindoFS 缓存模式部署](docs/jindofs_cache_mode_deploy.md)
+
 ## JindoFS 比较
 
 * [JindoFS SDK 和 Hadoop OSS Connector 比较](docs/jindofs_sdk_vs_hadoop_sdk.md)
