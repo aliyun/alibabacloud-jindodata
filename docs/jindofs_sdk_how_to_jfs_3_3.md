@@ -24,7 +24,7 @@ JindoFS SDK 是一个简单易用面向 Hadoop/Spark 生态的 JindoFS / OSS客�
 ### 1. 安装jar包
 下载 3.x 最新版本的 JindoSDK 并将 sdk 包安装到 hadoop 的 classpath 下。方法同上。
 
-关于版本兼容性。3.1 及之后的版本推荐使用最新版本的 3.x SDK 版本。
+关于版本兼容性。3.1 及之后的版本推荐使用最新版本的 3.x SDK 版本。[下载地址](./jindofs_sdk_download.md)
 
 
 ### 2. 创建客户端配置文件
