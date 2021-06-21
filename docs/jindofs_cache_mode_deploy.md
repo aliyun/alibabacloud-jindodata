@@ -1,10 +1,10 @@
 # JindoFS 缓存模式部署
 
-JindoFS 提供了缓存模式，通过分布式缓存服务，利用 Jindo 分布式缓存服务在计算集群上为访问 OSS 提供缓存加速，以满足大规模的分析和训练吞吐需求，提升作业访问OSS的效率。
+JindoFS 提供了缓存模式，通过分布式缓存服务在计算集群上为访问 OSS 提供缓存加速，以满足大规模的分析和训练吞吐需求，提升作业访问OSS的效率。
 本文将详细说明如何在计算集群上部署 Jindo 缓存服务，以及如何利用缓存服务实现对 OSS 的缓存加速。
 
 ## JindoFS 缓存服务架构概述
-下图为 JindoFS 缓存服务架构图，利用本地存储介质，构成一个分布式缓存系统，可对 OSS 实现缓存加速，主要包含以下3各组件模块，包括两个服务组件（Namespace Service 和 Storage Service）以一个客户端：
+下图为 JindoFS 缓存服务架构图，利用本地存储介质，构成一个分布式缓存系统，可对 OSS 实现缓存加速，主要包含以下3个组件模块，包括两个服务组件（Namespace Service 和 Storage Service）以及一个客户端：
 * Jindo Namespace Service：负责缓存块元数据管理，以及提供整个分布式缓存系统的中心管理服务；
 * Jindo Storage Service：部署在各个存储节点上，管理维护数据缓存；
 * Jindo SDK：提供标准 Hadoop Filesystem 客户端访问 OSS，并且能够连接缓存服务实现缓存加速。
@@ -57,7 +57,7 @@ manager.namespace.rpc.address=emr-header-1:8101 # Namespace service 地址及端
 ```
 必要配置说明：
 1. 需要将[bigboot-client] 中的参数 client.namespace.rpc.address、 [bigboot-storage] 中的参数 storage.namespace.rpc.address 以及 [bigboot-manager] 中的参数 manager.namespace.rpc.address 修改为 JindoFS 集群的 Namespace 服务的所在节点地址（hostname 或者 ip 均可），其中 8101 为 Namespace 服务 RPC 的端口号， 需要与 [bigboot-namespace] 中的参数 namespace.rpc.port 中的端口号一致；
-2. [bigboot-storage] 中需配置好数据缓存相关参数，storage.data-dirs 为缓存目录，可以指定多个，以逗号隔开；storage.data-dirs.capacities 为每块磁盘大小，数量应与 storage.data-dirs 一致；storage.watermark.high.ratio 表示磁盘使用量的上水位比例（0~1的小数），每块数据盘的缓存数据目录占用的磁盘空间到达上水位即会触发清理，并且 Storage Service 会确保缓存空间占用不超过上水位；storage.watermark.low.ratio 表示使用量的下水位比例（0~1的小数，需小于上水位），触发清理后会自动清理冷数据，将缓存数据目录占用空间清理到下水位。
+2. [bigboot-storage] 中需配置好数据缓存相关参数，storage.data-dirs 为缓存目录，可以指定多个，以逗号隔开；storage.data-dirs.capacities 为每块磁盘大小，数量应与 storage.data-dirs 一致；storage.watermark.high.ratio 表示磁盘使用量的上水位比例（0到1之间的小数），每块数据盘的缓存数据目录占用的磁盘空间到达上水位即会触发清理，并且 Storage Service 会确保缓存空间占用不超过上水位；storage.watermark.low.ratio 表示使用量的下水位比例（0到1之间的小数，需小于上水位），触发清理后会自动清理冷数据，将缓存数据目录占用空间清理到下水位。
 
 
 ### 配置环境变量
