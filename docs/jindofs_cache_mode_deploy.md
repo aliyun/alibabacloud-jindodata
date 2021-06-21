@@ -8,12 +8,12 @@ JindoFS 提供了缓存模式，通过分布式缓存服务，利用 Jindo 分�
 * Jindo Namespace Service：负责缓存块元数据管理，以及提供整个分布式缓存系统的中心管理服务；
 * Jindo Storage Service：部署在各个存储节点上，管理维护数据缓存；
 * Jindo SDK：提供标准 Hadoop Filesystem 客户端访问 OSS，并且能够连接缓存服务实现缓存加速。
-<img src="pic/jindofs_cache_mode_deploy_1.png" alt="title" width="700"/>
+<img src="/pic/jindofs_cache_mode_deploy_1.png" alt="title" width="700"/>
 
 ## 部署配置 JindoFS SDK
 
 ### 安装jar包
-下载并安装最新的jar包 jindofs-sdk-x.x.x.jar ([下载页面](/docs/jindofs_sdk_download.md))，针对各常用大数据组件的 JindoFS SDK 安装说明详见([Hadoop/Spark 生态使用 JindoFS SDK](docs/jindofs_sdk_overview.md))。
+下载并安装最新的jar包 jindofs-sdk-x.x.x.jar ([下载页面](/docs/jindofs_sdk_download.md))，针对各常用大数据组件的 JindoFS SDK 安装说明详见([Hadoop/Spark 生态使用 JindoFS SDK](/docs/jindofs_sdk_overview.md))。
 
 
 ## 部署 Jindo 缓存服务
@@ -105,5 +105,5 @@ sh sbin/start-manager.sh
 Manager 服务监听在 manager.rpc.port 配置的端口上（默认为 8104），可以通过 http://{server_address}:8104 访问 Web UI 功能（页面详情可参考[访问JindoFS Web UI](https://help.aliyun.com/document_detail/213351.html?spm=a2c4g.11186623.6.1111.460f6194PFUUQf))。
 
 ## 缓存使用
-完成以上配置后，作业访问 OSS 即可利用上缓存，JindoFS 缓存模式提供了透明缓存的使用方式，作业访问 OSS 的方式无需做任何修改，参照[Hadoop/Spark 生态使用 JindoFS SDK](docs/jindofs_sdk_overview.md)的方式访问 OSS 即可。
+完成以上配置后，作业访问 OSS 即可利用上缓存，JindoFS 缓存模式提供了透明缓存的使用方式，作业访问 OSS 的方式无需做任何修改，参照[Hadoop/Spark 生态使用 JindoFS SDK](/docs/jindofs_sdk_overview.md)的方式访问 OSS 即可。
 作业读取 OSS 上的数据后，会自动缓存到 JindoFS 缓存系统中，后续访问相同的数据就能够命中缓存，可以通过 Web UI 查看缓存目录的使用情况。
