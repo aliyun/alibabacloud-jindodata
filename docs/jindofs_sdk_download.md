@@ -1,4 +1,4 @@
-# Jindo SDK 下载
+# Jindo SDK + Jindo 服务下载
 
 ## v3.6.0 (06/10/2021)
 
