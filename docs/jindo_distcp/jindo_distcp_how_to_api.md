@@ -180,18 +180,18 @@ public interface DistCpService {
 
 ## 响应参数
 
-| 方法                                    | 参数类型 | 说明                       | 默认值 |
-| --------------------------------------- | -------- | -------------------------- | ------ |
-| String getRequestId()                   | 必选     | 获取请求ID                 | -      |
-| int getErrorCode()                      | 必选     | 获取错误码                 | 0      |
-| String getErrorMsg()                    | 必选     | 获取错误原因               | -      |
-| String getSrc()                         | 必选     | 获取请求的源目录           | -      |
-| String getDest()                        | 必选     | 获取请求的目标目录         | -      |
-| long getJobStartTime()                  | 必选     | 获取任务的开始时间，单位秒 | -      |
-| long getJobEndTime()                    | 必选     | 获取任务的结束时间，单位秒 | -      |
-| Map<String, Long> getCounters(）        | 必选     | 获取计数器                 | -      |
-| List<String> getSuccessPathList()       | 可选     | 获取成功文件列表           | null   |
-| Map<String, String> getFailedPathList() | 可选     | 获取失败文件列表           | null   |
+| 方法                                    | 参数类型 | 说明                                                         | 默认值 |
+| --------------------------------------- | -------- | ------------------------------------------------------------ | ------ |
+| String getRequestId()                   | 必选     | 获取请求ID                                                   | -      |
+| int getErrorCode()                      | 必选     | 获取错误码                                                   | 0      |
+| String getErrorMsg()                    | 必选     | 获取错误原因                                                 | -      |
+| String getSrc()                         | 必选     | 获取请求的源目录                                             | -      |
+| String getDest()                        | 必选     | 获取请求的目标目录                                           | -      |
+| long getJobStartTime()                  | 必选     | 获取任务的开始时间，单位秒                                   | -      |
+| long getJobEndTime()                    | 必选     | 获取任务的结束时间，单位秒                                   | -      |
+| Map<String, Long> getCounters(）        | 必选     | 获取计数器，返回一个Map，Map中的key为计数器名称，value为计数器值 | -      |
+| List<String> getSuccessPathList()       | 可选     | 获取成功文件列表，返回一个List，List中的值为源文件路径       | null   |
+| Map<String, String> getFailedPathList() | 可选     | 获取失败文件列表，返回一个Map，Map中的key为源文件路径，value为错误信息 | null   |
 
 ### 错误码说明
 
