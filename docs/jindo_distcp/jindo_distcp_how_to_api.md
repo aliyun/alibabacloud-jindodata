@@ -1,4 +1,4 @@
-# 使用Jindo DistCp SDK
+# 使用Jindo DistCp API
 
 # 快速入手
 
