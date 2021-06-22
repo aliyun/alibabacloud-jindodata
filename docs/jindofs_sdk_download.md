@@ -3,13 +3,13 @@
 ## v3.6.0 (06/10/2021)
 
 [jindofs-sdk-3.6.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.6.0.jar)<br />
-[b2smartdata-3.6.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/b2smartdata-3.6.0.tar.gz)
+[b2smartdata-3.6.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/b2smartdata-3.6.0.tar.gz)<br />[jindo-distcp-3.6.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/native/jindo-distcp-3.6.0.jar)<br />
 
 ## v3.5.0 (04/08/2021)
 
 [jindofs-sdk-3.5.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.5.0.jar)  
 [jindo-flink-sink-3.5.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Flink/jindo-flink-sink-3.5.0.jar)  
-[jindo-distcp-3.5.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp-3.0/DISTCP-3.5/jindo-distcp-3.5.0.jar)<br />
+[jindo-distcp-3.5.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/native/jindo-distcp-3.5.0.jar)<br />
 [jindofs-fuse-3.5.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-fuse-3.5.0.tar.gz)  
 [jindofs-tensorflow-3.5.0.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Tensorflow/jindofs-tensorflow-3.5.0.tar.gz)  
 
