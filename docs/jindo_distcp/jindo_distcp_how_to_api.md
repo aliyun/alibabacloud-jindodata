@@ -42,7 +42,7 @@
 
   1. 下载[jindo-distcp-3.6.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/native/jindo-distcp-3.6.0.jar)。
   2. 将jindo-distcp-3.6.0.jar文件拷贝到您的项目中。
-  3. 在Intellij IDEA中选择您的工程，右键选择***\*File\** > \**Project Structure\** > \**Modules\** > \**Dependencies\** > \**+\** > \**JARs or directories\**** 。
+  3. 在Intellij IDEA中选择您的工程，右键选择`File` > `Project Structure` > `Modules` > `Dependencies` > `+` > `JARs or directories`。
   4. 选中拷贝的所有JAR文件，导入到External Libraries中。
 
 ## 示例代码
