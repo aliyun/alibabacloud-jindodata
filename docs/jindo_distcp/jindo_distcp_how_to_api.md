@@ -135,7 +135,7 @@ public interface DistCpService {
 }
 ```
 
-**所有已知实现类: ** com.aliyun.emr.jindo.distcp.JindoDistCp
+**所有已知实现类**: com.aliyun.emr.jindo.distcp.JindoDistCp
 
 ## 请求参数
 
