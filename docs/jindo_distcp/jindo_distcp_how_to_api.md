@@ -146,7 +146,7 @@ public interface DistCpService {
 | void setRequestId(String requestId)                          | 必选     | 设置请求ID                                                   | -                      |
 | void setSrc(String src)                                      | 必选     | 设置源目录，支持的前缀有<br />file://<br/>hdfs://<br/>oss://<br/>jfs://<br/>s3:// | -                      |
 | void setDest(String dest)                                    | 必选     | 设置目标目录，支持的前缀有<br/>file://<br/>hdfs://<br/>oss://<br/>jfs://<br/>s3:// | -                      |
-| void setMode(DistCpMode mode)                                | 可选     | 设置DistCp模式，支持一下模式<br>COPY（拷贝）<br/>DIFF（差异比较）<br/>UPADTE（增量拷贝） | DistCpMode.COPY        |
+| void setMode(DistCpMode mode)                                | 可选     | 设置DistCp模式，支持的模式有<br/>COPY（拷贝）<br/>DIFF（差异比较）<br/>UPADTE（增量拷贝） | DistCpMode.COPY        |
 | void setCopyFromManifest(boolean copyFromManifest)           | 可选     | 设置是否开启从manifest文件中获取源文件列表                   | false                  |
 | void setPreviousManifest(String previousManifest)            | 可选     | 设置manifest文件目录，以获取源文件列表                       | null                   |
 | void setRequirePreviousManifest(boolean requirePreviousManifest) | 可选     | 与setOutputManifest配合使用用生成manifest文件                | false                  |
