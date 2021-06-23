@@ -32,10 +32,10 @@ Jindo SDK 安装说明详见([Hadoop 使用 Jindo SDK 访问 JindoFS](/docs/jind
 ```
 tar -xzvf b2smartdata-3.6.0.tar.gz -C /opt
 ```
-将b2smartdata-3.6.0.tar.gz解压到/opt目录下， 在每个安装结点（示例部署拓扑中header-1, worker-1, worker-2, worker-3）上执行上述操作。
+将b2smartdata-3.6.0.tar.gz解压到/opt目录下， 在每个安装结点（示例部署拓扑中header-1, header-2, header-3, worker-1, worker-2, worker-3）上执行上述操作。
 
 ### 配置 bigboot.cfg
-编辑 /opt/b2smartdata-3.6.0/conf 文件夹下配置文件 bigboot.cfg  包含以下主要内容，并将配置文件部署到所有所需节点上（示例部署拓扑中header-1, worker-1, worker-2, worker-3）:
+编辑 /opt/b2smartdata-3.6.0/conf 文件夹下配置文件 bigboot.cfg  包含以下主要内容，并将配置文件部署到所有所需节点上（示例部署拓扑中header-1, header-2, header-3, worker-1, worker-2, worker-3）:
 ```
 [bigboot]
 logger.dir = /tmp/bigboot-log # 日志目录
