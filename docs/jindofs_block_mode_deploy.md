@@ -11,9 +11,9 @@ JindoFS 提供了Block模式，该模式下文件元数据由JindoFS Namespace�
 * Jindo SDK：提供标准 Hadoop Filesystem 客户端访问 JindoFS。
 <img src="../pic/jindofs_cache_mode_deploy_1.png" alt="title" width="700"/>
 
-## 示例部署拓扑
+## 部署拓扑示例
 
-下图为示例的部署拓扑图，其中在header-1, header-2, header-3节点上部署Namespace高可用服务，在worker-1, worker-2, worker-3部署Storage 服务, 本文以JindoFS 3.6.0版本为例， 对应软件包版本为b2smartdata-3.6.0.tar.gz, 并且配置名为my-jfs的namespace，my-jfs的namespace数据存放到oss://my-jfs.oss-cn-shanghai.aliyuncs.com/my-jfs的OSS路径上。
+下图为示例的部署拓扑图，其中在header-1, header-2, header-3节点上部署Namespace高可用服务，在worker-1, worker-2, worker-3部署Storage 服务, 本文以JindoFS 3.6.0版本为例， 对应软件包版本为b2smartdata-3.6.0.tar.gz, 初始配置名为my-jfs的namespace，my-jfs的namespace数据存放到oss://my-jfs.oss-cn-shanghai.aliyuncs.com/my-jfs的OSS路径上。
 
 <img src="../pic/jindo_block_mode_deploy_example.png" alt="title" width="700"/>
 
@@ -87,7 +87,7 @@ export SMARTDATA_CONF_DIR=/opt/b2smartdata-3.6.0/conf
 ```
 可将环境变量配置到 /etc/profile.d/bigboot.sh 中，并确认部署到所有节点。
 
-### 启动 JindoFS 缓存服务
+### 启动 JindoFS 服务
 在 header-1, header-2, header-3 节点启动 Namespace服务
 
 ```
