@@ -20,7 +20,7 @@ JindoFS 提供了Block模式，该模式下文件元数据由JindoFS Namespace�
 ## 部署配置 JindoFS SDK
 
 ### 安装jar包
-下载并安装最新的jar包 jindofs-sdk-x.x.x.jar ([下载页面](/docs/jindofs_sdk_download.md))，针对各常用大数据组件的 JindoFS SDK 安装说明详见([Hadoop/Spark 生态使用 JindoFS SDK](/docs/jindofs_sdk_overview.md))。
+下载并安装最新的jar包 jindofs-sdk-x.x.x.jar ([下载页面](/docs/jindofs_sdk_download.md))，针对各常用大数据组件的 JindoFS SDK 安装说明详见([Hadoop 使用 Jindo SDK 访问 JindoFS](/docs/jindofs_sdk_how_to_jfs.md))。
 
 
 ## 部署 JindoFS 服务
