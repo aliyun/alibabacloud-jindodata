@@ -87,6 +87,7 @@ export SMARTDATA_CONF_DIR=/opt/b2smartdata-3.6.0/conf
 可将环境变量配置到 /etc/profile.d/bigboot.sh 中，并确认部署到所有节点。
 
 ### 启动 JindoFS 服务
+必要说明
 1. 确保后面启动服务脚本的用户对 [bigboot-namespace] namespace.meta-dir 以及 [bigboot-storage] storage.data-dirs 目录具有写的权限。
 2. 由于脚本通过 pssh 命令批量执行远程节点的服务启停，需要保证 执行脚本节点到服务所在节点 ssh 的免密连通
 
