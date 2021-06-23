@@ -87,30 +87,34 @@ export SMARTDATA_CONF_DIR=/opt/b2smartdata-3.6.0/conf
 可将环境变量配置到 /etc/profile.d/bigboot.sh 中，并确认部署到所有节点。
 
 ### 启动 JindoFS 服务
-在 header-1, header-2, header-3 节点启动 Namespace服务
+1. 确保后面启动服务脚本的用户对 [bigboot-namespace] namespace.meta-dir 以及 [bigboot-storage] storage.data-dirs 目录具有写的权限。
+2. 由于脚本通过 pssh 命令批量执行远程节点的服务启停，需要保证 执行脚本节点到服务所在节点 ssh 的免密连通
 
+在 header-1, header-2, header-3 节点启动 Namespace服务， 编辑sbin/headers文件
+
+```
+header-1
+header-2
+header-3
+```
+
+在worker-1, worker-2, worker-3 节点上启动Storage 服务, 编辑sbin/nodes文件
+```
+worker-1
+worker-2
+worker-3
+```
+
+可以通过以下命令启动JindoFS 服务：
 ```
 cd /opt/b2smartdata-3.6.0/
-sh sbin/start-namespace.sh
+sh sbin/start-service.sh
 ```
 
-可以通过以下命令停止Namespace 服务：
+可以通过以下命令停止JindoFS 服务：
 ```
 cd /opt/b2smartdata-3.6.0/
-sh sbin/stop-namespace.sh
-```
-
-在worker-1, worker-2, worker-3 节点上启动Storage 服务
-
-```
-cd /opt/b2smartdata-3.6.0/
-sh sbin/start-storage.sh
-```
-
-可以通过以下命令停止Storage 服务：
-```
-cd /opt/b2smartdata-3.6.0/
-sh sbin/stop-storage.sh
+sh sbin/stop-service.sh
 ```
 
 ### 组件服务状态检查
