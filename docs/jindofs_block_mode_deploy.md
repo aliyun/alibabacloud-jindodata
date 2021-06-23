@@ -112,6 +112,7 @@ sh sbin/start-storage.sh
 ```
 cd /opt/b2smartdata-3.6.0/
 sh sbin/stop-storage.sh
+```
 
 ### 组件服务状态检查
 缓存服务的进程可以通过以下命令查看，日志文件可在 [Bigboot] 中 logger.dir 配置的目录下查看
