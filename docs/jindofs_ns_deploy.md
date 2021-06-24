@@ -20,6 +20,19 @@ cp ./jindofs-sdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindofs-sdk.jar
         <name>fs.jfs.impl</name>
         <value>com.aliyun.emr.fs.jfs.JindoFileSystem</value>
     </property>
+
+    <property>
+        <name>fs.jfs.namespace.rpc-address</name>
+        <!-- JindoFS 集群的 namespace rpc 地址，如您未使用 Raft 配置，添加一个 rpc-address 即可 -->
+        <value>172.16.xx.xx:8101,172.16.xx.xx:8101,172.16.xx.xx:8101</value>
+    </property>
+
+    <property>
+        <!-- 访问 JindoFS OSS 后端存储的 Endpoint  -->
+        <name>jindo.common.oss.endpoint</name>
+      	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
+        <value>oss-cn-xxx.aliyuncs.com</value>
+    </property>
 </configuration>
 ```
 
@@ -68,6 +81,9 @@ sh sbin/start-namespace.sh
 ## 配置 NameSpace
 ### 添加 NameSpace
 JindoFS支持多命名空间，本文命名空间以 test-cache-ranger 为例, 在 b2smartdata-x.x.x/conf/bigboot.cfg 文件的 [bigboot-namespace] section 下添加下面配置。
+
+（ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com）
+
 ```
 jfs.namespaces = test-cache-ranger
 jfs.namespaces.test-cache-ranger.oss.uri = oss://BUCKET.oss-cn-shanghai.aliyuncs.com/ranger-test

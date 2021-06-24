@@ -31,7 +31,7 @@ sh sbin/start-namespace.sh
 ```
 
 ## 进入Ranger UI页面， 添加HDFS Service
-<img src="/pic/jindofs_ranger_1.png" width="800"/>
+<img src="../pic/jindofs_ranger_1.png" width="800"/>
 
 | 参数 | 描述 |
 | :--- | ---: |
@@ -48,14 +48,14 @@ sh sbin/start-namespace.sh
 
 以 test-cache-ranger 为例：
 
-<img src="/pic/jindofs_ranger_2.png" width="800"/>
+<img src="../pic/jindofs_ranger_2.png" width="800"/>
 
 ## 配置用户权限
 ### 单击配置好的 jfs-test-cache-ranger 服务
-<img src="/pic/jindofs_ranger_3.png" width="800"/>
+<img src="../pic/jindofs_ranger_3.png" width="800"/>
 
 ### 单击右上角的 Add New Policy
-<img src="/pic/jindofs_ranger_4.png" width="800"/>
+<img src="../pic/jindofs_ranger_4.png" width="800"/>
 
 ### 配置相关参数
 | 参数 | 描述 |
@@ -68,10 +68,10 @@ sh sbin/start-namespace.sh
 | Permissions | 选择授予的权限 |
 
 以授予 test 用户 /user/test 路径的 Read 和 Execute 权限为例：
-<img src="/pic/jindofs_ranger_5.png" width="800"/>
+<img src="../pic/jindofs_ranger_5.png" width="800"/>
 
 
 ### 检查用户的读写权限
 以上面 test 在 /user/test 路径为例子，具有 Read 和 Execute 权限，没有Write：
-<img src="/pic/jindofs_ranger_6.png" width="800"/>
+<img src="../pic/jindofs_ranger_6.png" width="800"/>
 
