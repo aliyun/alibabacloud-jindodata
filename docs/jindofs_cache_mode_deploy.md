@@ -1,6 +1,6 @@
-# JindoFS 缓存模式部署
+# JindoFS 兼容模式部署
 
-JindoFS 提供了缓存模式，通过分布式缓存服务在计算集群上为访问 OSS 提供缓存加速，以满足大规模的分析和训练吞吐需求，提升作业访问OSS的效率。
+JindoFS 提供兼容模式，通过分布式缓存服务在计算集群上为访问 OSS 提供缓存加速，以满足大规模的分析和训练吞吐需求，提升作业访问OSS的效率。
 本文将详细说明如何在计算集群上部署 Jindo 缓存服务，以及如何利用缓存服务实现对 OSS 的缓存加速。
 
 ## JindoFS 缓存服务架构概述
@@ -105,5 +105,5 @@ sh sbin/start-manager.sh
 Manager 服务监听在 manager.rpc.port 配置的端口上（默认为 8104），可以通过 http://{server_address}:8104 访问 Web UI 功能（页面详情可参考[访问JindoFS Web UI](https://help.aliyun.com/document_detail/213351.html?spm=a2c4g.11186623.6.1111.460f6194PFUUQf))。
 
 ## 缓存使用
-完成以上配置后，作业访问 OSS 即可利用上缓存，JindoFS 缓存模式提供了透明缓存的使用方式，作业访问 OSS 的方式无需做任何修改，参照[Hadoop/Spark 生态使用 JindoFS SDK](/docs/jindofs_sdk_overview.md)的方式访问 OSS 即可。
+完成以上配置后，作业访问 OSS 即可利用上缓存，JindoFS 兼容模式提供了透明缓存的使用方式，作业访问 OSS 的方式无需做任何修改，参照[Hadoop/Spark 生态使用 JindoFS SDK](/docs/jindofs_sdk_overview.md)的方式访问 OSS 即可。
 作业读取 OSS 上的数据后，会自动缓存到 JindoFS 缓存系统中，后续访问相同的数据就能够命中缓存，可以通过 Web UI 查看缓存目录的使用情况。

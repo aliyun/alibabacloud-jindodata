@@ -1,11 +1,11 @@
-# JindoFS Block模式部署
+# JindoFS 存储模式部署
 
-JindoFS 提供了Block模式，该模式下文件元数据由JindoFS Namespace服务进行管理，数据以Block的形式存放OSS上，同时本地缓存一副本数据用以加速数据访问。
+JindoFS 提供了存储模式，该模式下文件元数据由JindoFS Namespace服务进行管理，数据以Block的形式存放OSS上，同时本地缓存一副本数据用以加速数据访问。
 
-本文将详细说明如何在计算集群上部署 Jindo Block模式。
+本文将详细说明如何在计算集群上部署 Jindo 存储模式。
 
-## JindoFS Block模式架构概述
-下图为 JindoFS Block模式架构图，主要包含以下3个组件模块，包括两个服务组件（Namespace Service 和 Storage Service）以及一个客户端：
+## JindoFS 存储模式架构概述
+下图为 JindoFS 存储模式架构图，主要包含以下3个组件模块，包括两个服务组件（Namespace Service 和 Storage Service）以及一个客户端：
 * Jindo Namespace Service：负责缓存块元数据管理以及数据块管理；
 * Jindo Storage Service：部署在各个存储节点上，管理本地一副本的数据；
 * Jindo SDK：提供标准 Hadoop Filesystem 客户端访问 JindoFS。
