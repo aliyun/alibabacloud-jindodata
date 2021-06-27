@@ -5,7 +5,7 @@ HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶
 
 ## 安装说明
 
-1. 将 jindofs-sdk-3.5.0.jar 与 Hadoop 集成，配置方法参考这篇[文档](https://github.com/aliyun/alibabacloud-jindofs/blob/master/docs/jindofs_sdk_how_to_hadoop.md) 。
+1. 将 jindofs-sdk-{version}.jar 与 Hadoop 集成，配置方法参考这篇[文档](https://github.com/aliyun/alibabacloud-jindofs/blob/master/docs/jindofs_sdk_how_to_hadoop.md) 。
 
 2. 下载[压缩包](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/JindoTable-moveto/JindoTable-MoveTo.zip)并解压，保持 *b2jindosdk-current* 的目录结构并放置于集群 master 节点，然后配置路径：
 
@@ -29,15 +29,16 @@ export PATH=$PATH:BIGBOOT_JINDOSDK_HOME/bin
 使用 jindo table -help moveTo 查看参数配置。
 
 ```shell
-jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>" | -fullTable] [-b/-before <before days>] [-p/-parallel <parallelism>] [-o/-overWrite] [-r/-removeSource] [-skipTrash] [-e/-explain] [-l/-logDir <log directory>]
+jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>" | -fullTable] [-b/-before <before days>] [-p/-parallel <parallelism>] [-s/-storagePolicy <OSS storage policy>] [-o/-overWrite] [-r/-removeSource] [-skipTrash] [-e/-explain] [-l/-logDir <log directory>]
 ```
 
 ```shell
   <dbName.tableName>      要移动的表。
   <destination path>      目标路径，为表级别的路径，分区路径会在这个路径下自动创建。
   <condition>             分区过滤条件表达式，支持基本运算符，不支持udf。
-  <before days>           根据分区创建时间，创建时间超过给定天数的分区进行移动。
+  <before days>           根据分区创建时间，创建时间超过给定天数的分区才进行移动。
   <parallelism>           整个moveTo任务的最大task并发度，默认为1。
+  <OSS storage policy>    拷贝至 OSS 时数据文件的存储策略，支持 Standard（默认）、IA、Archive、ColdArchive。
   -o/-overWrite           是否覆盖最终目录。分区级别覆盖，不会覆盖本次移动不涉及的分区。
   -r/-removeSource        是否在移动完成后删除源路径。
   -skipTrash              如果删除源路径，是否跳过Trash。
