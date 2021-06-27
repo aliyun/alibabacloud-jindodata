@@ -1,4 +1,4 @@
-# HBase on JindoFS block模式性能测试
+# HBase on JindoFS 存储模式性能测试
 
 ## 一、测试环境
 | 主实例组 (MASTER) | 核心实例组 (CORE) |
@@ -20,7 +20,7 @@
 ```
 
 #### 2、SmartData配置
-  block模式配置
+  存储模式配置
 ```
 "jfs.namespaces": "test",
 "jfs.namespaces.test.mode": "block",
@@ -46,7 +46,7 @@ create 'usertable', 'family', {SPLITS => (1..n_splits).map {|i| "user#{1000+i*(9
 60w条数据，用不同线程数写入HBase
 
 
-**JindoFS block模式**
+**JindoFS 存储模式**
 
 |  | 线程数10 | 线程数20 | 线程数30 | 线程数40 |
 | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ create 'usertable', 'family', {SPLITS => (1..n_splits).map {|i| "user#{1000+i*(9
 40个线程，向HBase写入10w，100w和100w条数据
 
 
-**JindoFS block模式**
+**JindoFS 存储模式**
 
 |  | 10w | 100w | 1000w |
 | --- | --- | --- | --- |
@@ -104,14 +104,14 @@ create 'usertable', 'family', {SPLITS => (1..n_splits).map {|i| "user#{1000+i*(9
 
 #### 
 #### 测试分析
-随着数据量增大，HBase在JindoFS block模式和HDFS模式下写入性能相近。
+随着数据量增大，HBase在JindoFS 存储模式和HDFS模式下写入性能相近。
 
 
 ### 读场景测试
 #### 场景1 不同线程数100%读
 60w条数据，用不同线程数从HBase读取数据
 
-**JindoFS block模式**
+**JindoFS 存储模式**
 
 |  | 线程数10 | 线程数20 | 线程数30 | 线程数40 |
 | --- | --- | --- | --- | --- |
@@ -145,7 +145,7 @@ create 'usertable', 'family', {SPLITS => (1..n_splits).map {|i| "user#{1000+i*(9
 #### 场景2 不同数据量100%读
 40个线程，从HBase读取10w，100w和100w条数据
 
-**JindoFS block模式**
+**JindoFS 存储模式**
 
 
 |  | 10w | 100w | 1000w |
@@ -178,13 +178,13 @@ create 'usertable', 'family', {SPLITS => (1..n_splits).map {|i| "user#{1000+i*(9
 
 
 #### 测试分析
-随着测试数据量增加，读取数据性能表现稳定。HBase在JindoFS block模式 与HDFS模式这两种模式下读性能相差不大。
+随着测试数据量增加，读取数据性能表现稳定。HBase在JindoFS 存储模式 与HDFS模式这两种模式下读性能相差不大。
 
 #### 场景3 50% Get 和 50% Scan
 数据量 60w, 线程数40
 
 
-**JindoFS block模式**
+**JindoFS 存储模式**
 
 
 
@@ -213,7 +213,7 @@ create 'usertable', 'family', {SPLITS => (1..n_splits).map {|i| "user#{1000+i*(9
 
 
 #### 测试分析
-在read和scan混合读场景，HBase在JindoFS block模式 与HDFS模式这两种模式下读性能基本相同。
+在read和scan混合读场景，HBase在JindoFS 存储模式 与HDFS模式这两种模式下读性能基本相同。
 
 ### 读写混合测试
 #### 场景1 40%读 60%写
@@ -221,7 +221,7 @@ create 'usertable', 'family', {SPLITS => (1..n_splits).map {|i| "user#{1000+i*(9
 
 40%读 + 20% 写入 + 20%更新 + 20%扫描
 
-**JindoFS block模式**
+**JindoFS 存储模式**
 
 
 |  |  |
@@ -287,7 +287,7 @@ create 'usertable', 'family', {SPLITS => (1..n_splits).map {|i| "user#{1000+i*(9
 
 #### 
 #### 测试分析
-HBase在block模式下的读写混合的情况下，读/写/更新/扫描等操作的性能表现与HDFS性能表现整体接近。 
+HBase在 JindoFS 存储模式下的读写混合的情况下，读/写/更新/扫描等操作的性能表现与HDFS性能表现整体接近。 
 
 
 #### 场景2 长时间不间断读写测试
@@ -345,14 +345,14 @@ CPU：
 <img src="/pic/jindofs_block_vs_hdfs_hbase_4.png" alt="title" width="800"/>
 
 #### 测试分析
-三台机器在同时开启40个线程进行总共30亿数据的读写测试情况下，每台机器运行时间接近，同时在4天左右完成整个数据集，且对比三台机器的测试数据，读写性能都表现接近。在4天的运行期间，整个HBase性能表现平稳，无明显qps波动。验证了HBase在JindoFS block模式下长时间的运行系统表现平稳。
+三台机器在同时开启40个线程进行总共30亿数据的读写测试情况下，每台机器运行时间接近，同时在4天左右完成整个数据集，且对比三台机器的测试数据，读写性能都表现接近。在4天的运行期间，整个HBase性能表现平稳，无明显qps波动。验证了HBase在JindoFS 存储模式下长时间的运行系统表现平稳。
 ####
 ### Compact&Split
 #### 场景1
 创建测试表，split设置为3。 向表中写入500w数据
 
 
-**JindoFS block模式**
+**JindoFS 存储模式**
 
 
 
@@ -389,7 +389,7 @@ CPU：
 对HBase的一张500w数据的表进行读取操作，同时触发Major Compaction
 
 
-**JindoFS block模式**
+**JindoFS 存储模式**
 
 
 
@@ -420,16 +420,16 @@ CPU：
 <img src="/pic/jindofs_block_vs_hdfs_hbase_10.png" alt="title" width="800"/>
 
 #### 测试分析
-在向HBase写入数据触发Minor Compaction的情况下，HBase写入延迟增加，在两种模式下的写入性能接近。在系统进行Major Compaction的过程中，HBase在JindoFS block存储模式下系统qps下降不明显，在HDFS模式下qps有下降趋势。
+在向HBase写入数据触发Minor Compaction的情况下，HBase写入延迟增加，在两种模式下的写入性能接近。在系统进行Major Compaction的过程中，HBase在JindoFS 存储模式下系统qps下降不明显，在HDFS模式下qps有下降趋势。
 
 
-通过观察在Major Compaction的worker节点的CPU占有率发现，在HDFS模式下由于Datanode读写存在一把大锁，当major compaction时，由于增加了大量写请求，所以出现CPU增高。而在JindoFS block模式下，不会往Datnode中写数据，Compaction过程也只是读写本地和oss文件。所以整体性能JindoFS略优。
+通过观察在Major Compaction的worker节点的CPU占有率发现，在HDFS模式下由于Datanode读写存在一把大锁，当major compaction时，由于增加了大量写请求，所以出现CPU增高。而在JindoFS 存储模式下，不会往Datnode中写数据，Compaction过程也只是读写本地和oss文件。所以整体性能JindoFS略优。
 
 HDFS模式下Major Compaction时机器的CPU占有率
 
 <img src="/pic/jindofs_block_vs_hdfs_hbase_11.png" alt="title" width="800"/>
 
-JindoFS block模式下Major Compaction时机器的CPU占有率
+JindoFS 存储模式下Major Compaction时机器的CPU占有率
 
 <img src="/pic/jindofs_block_vs_hdfs_hbase_12.png" alt="title" width="800"/>
 
@@ -451,7 +451,7 @@ HBase有100w的数据，对系统进行重启。重启了三次，没发现有re
 <img src="/pic/jindofs_block_vs_hdfs_hbase_17.png" alt="title" width="800"/>
 
 ## 五、运维对比
-对于HBase跑在HDFS和 JindoFS block 模式上，在运维方面主要关注的是存储方面的区别。JindoFS Block 模式与 HDFS 在运维方面相比，大大减轻了存储方面的运维工作，您可以更多地关注在 Hbase 的运维上。通过 JindoFS Block 模式，可以将大部分冷数据存放在对象存储 OSS 上，一方面可以节省成本，另一方面可以借助 OSS 的 SLA 稳定性保证，保证数据安全和服务高可用。更多关于 JindoFS 和 HDFS 的对比，可以[参考链接](./jindofs_block_vs_hdfs.md)。
+对于HBase跑在HDFS和 JindoFS 存储模式上，在运维方面主要关注的是存储方面的区别。JindoFS 存储模式与 HDFS 在运维方面相比，大大减轻了存储方面的运维工作，您可以更多地关注在 Hbase 的运维上。通过 JindoFS 存储模式，可以将大部分冷数据存放在对象存储 OSS 上，一方面可以节省成本，另一方面可以借助 OSS 的 SLA 稳定性保证，保证数据安全和服务高可用。更多关于 JindoFS 和 HDFS 的对比，可以[参考链接](./jindofs_block_vs_hdfs.md)。
 
 
 

@@ -1,9 +1,9 @@
 
-## JindoFS 存储系统（Block 模式）和 HDFS 比较
+## JindoFS 存储模式和 HDFS 比较
 
 ## 综合比较
 
-从各个方面对 JindoFS Block 模式和 HDFS进行对比，我们可以总结为一个表格，参见
+从各个方面对 JindoFS 存储模式和 HDFS进行对比，我们可以总结为一个表格，参见
 
 | | HDFS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| JindoFS |
 | --- | --- | --- |
@@ -30,9 +30,9 @@
 
 #### 数据存储
 
-1. 在 JindoFS block 模式下，数据有1备份存储在 OSS 上, 稳定性有SLA保证。出现坏盘、坏节点时候的运维操作非常简单，只需要下线坏盘或者坏的节点，无须进行手工 rebalance。
+1. 在 JindoFS 存储模式下，数据有1备份存储在 OSS 上, 稳定性有SLA保证。出现坏盘、坏节点时候的运维操作非常简单，只需要下线坏盘或者坏的节点，无须进行手工 rebalance。
 1. 支持对冷热数据进行分层存储，只需对目录级别进行冷热设置，自动完成对应数据的冷热分层存储。
 1. 在弹性方面，HDFS 需要手动扩容，每次需要扩容都是增加一定量的空间，数据会逐渐存进来。如果扩的容量少，就要经常扩，工作量很大。如果扩的多，资源利用率就低，造成成本上升。JindoFS 支持在线平滑伸缩，存储和计算可以分别进行伸缩。
 
 ## Hbase 比较
-* Hbase 是 HDFS 之上很重要的一个使用场景，拥有广泛的用户。Hbase 同样可以使用 JindoFS 进行存储，这种方式一方面可以利用上述 JindoFS 的诸多优势，另一方面可以获得跟 HDFS 不相上下的性能。可以参考文章[《HBase on JindoFS block模式性能测试》](./jindofs_block_vs_hdfs_hbase.md)。
+* Hbase 是 HDFS 之上很重要的一个使用场景，拥有广泛的用户。Hbase 同样可以使用 JindoFS 进行存储，这种方式一方面可以利用上述 JindoFS 的诸多优势，另一方面可以获得跟 HDFS 不相上下的性能。可以参考文章[《HBase on JindoFS 存储模式性能测试》](./jindofs_block_vs_hdfs_hbase.md)。
