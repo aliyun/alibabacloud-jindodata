@@ -80,3 +80,6 @@ hadoop fs rm oss://<bucket>/<path>
 ### 5. 参数调优
 JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文档  [JindoFS SDK 配置项列表](jindofs_sdk_configuration_list_3_x.md) 【注：3.0 以下版本此 [参考配置项列表](./jindofs_sdk_configuration_list.md)】
 <br />
+
+### 6. 权限管理
+请参考 [JindoFS 使用 Ranger 的鉴权方案](jindofs_permission.md)
