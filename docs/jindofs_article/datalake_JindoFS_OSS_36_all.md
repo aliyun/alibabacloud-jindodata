@@ -1,0 +1,17 @@
+## 数据湖 JindoFS + OSS  36讲（持续更新中）
+### 数据迁移
+* [第一讲：高效迁移 HDFS 海量文件到 OSS](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484177&idx=1&sn=dd9f9db441f67f41b1545d1931bd43b7&chksm=e92e044fde598d5942c499c8ddd46a4746f250228fcb508802ec82bde413d20409211e29665d&scene=178&cur_album_id=1865656849547526147#rd)
+* [第二讲 数据无忧：利用 checksum 迁移 HDFS 数据到 OSS](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484198&idx=1&sn=2c2fe84179113f7945919ebce4308e46&chksm=e92e0478de598d6ef51940295231039ad88e734f20f44c927c91af25ecf4492e44e1d9ca30b0&scene=178&cur_album_id=1865656849547526147#rd)
+* [第三讲：如何将 HDFS 海量文件归档到 OSS](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484256&idx=1&sn=159c8883f8025f11a2a93d8f822c34fb&chksm=e92e043ede598d288df72e35bdab3b593c9f7651f1b8abb813a0a97702ae64106bc538e7ac36&scene=178&cur_album_id=1865656849547526147#rd)
+* [第四讲：如何将 Hive 数据按分区归档到 OSS](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484257&idx=1&sn=707717cc70b494f3b0492d737e9ff12b&chksm=e92e043fde598d294d956af4d65f508ff3fe3a2229aad4efe6a24d2a75612fe795cea4404209&scene=178&cur_album_id=1865656849547526147#rd)
+### OSS访问加速
+* [第五讲：访问 OSS 这类对象存储最快的方式 - JindoFS SDK](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484294&idx=1&sn=442840b3d6d21532714d6c85e328b726&chksm=e92e04d8de598dce08eafb788e4be042c137cd71737a87fdcd4c5a8a29acac9c6726f4761010&scene=178&cur_album_id=1865656849547526147#rd)
+* [第六讲：Hadoop/Spark 访问 OSS 加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484295&idx=1&sn=8b8108cb68c32629b4ead46404974e62&chksm=e92e04d9de598dcf32b63bb56c14d1ba7011b347edbaeade8d681fcd722bf095e228818e8d1b&scene=178&cur_album_id=1865656849547526147#rd)
+* [第七讲：Flink 高效 sink 写入 OSS](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484323&idx=1&sn=d2e58a1da797aaa51eaf8058580dca3c&chksm=e92e04fdde598debe8df0615f5c7531d6085670665f340e9ff0eed4261958737e46c8c27226a&scene=178&cur_album_id=1865656849547526147#rd)
+* [第八讲：Flume 高效写入 OSS](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484326&idx=1&sn=56bea6c5ca610bca5769fb4ae220397f&chksm=e92e04f8de598deee682c1d656d0338b1a7d9732cc9c46e132b7ec5abce9456321646b2af740&scene=178&cur_album_id=1865656849547526147#rd)
+* [第九讲：Presto 如何高效查询 OSS 数据](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484414&idx=1&sn=f0e12f647f3a33873a9b7304e6a1dffe&chksm=e92e04a0de598db67f80c82e14495a390705d825fb0c9de0cdaf4c4f17d31e1497d171168cfd&scene=178&cur_album_id=1865656849547526147#rd)
+* [第十讲：Impala 如何高效查询 OSS 数据](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484415&idx=1&sn=0868cd464277debff76f467c1d1d62dd&chksm=e92e04a1de598db7157c13904fe30ae492b011b1bfcb747959c88df735712f7da91ac36c1e8e&scene=178&cur_album_id=1865656849547526147#rd)
+* [第十一讲：打开 OSS 多版本-合规和分析两不误](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484431&idx=1&sn=7bf069ee13a82fd4363ee47baf0fdcee&chksm=e92e0351de598a47fb670d351839c84434b4931d88cffda6fae66dd89e362210216a5f4dec87&scene=178&cur_album_id=1865656849547526147#rd)
+### JindoFS 缓存加速
+* [第十二讲：Spark 访问 OSS 透明缓存加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484453&idx=1&sn=7544f5246eb2fbca0f5506c1f8a3bbc4&chksm=e92e037bde598a6d1bde0fc7546420d78ea33ecc3cf004bfca0549062d82edfe85781c226093&scene=178&cur_album_id=1865656849547526147#rd)
+* [第十三讲：Presto 访问 OSS 透明缓存加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484480&idx=1&sn=5139f070e38b26de4cd5553ac0487315&chksm=e92e031ede598a0869ca1bc84ca7e211ffec0d6fd43ec4c986fd97492bd53c98fa1e3b02ca36&scene=178&cur_album_id=1865656849547526147#rd)
