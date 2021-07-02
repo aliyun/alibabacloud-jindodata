@@ -29,7 +29,7 @@ export PATH=$PATH:BIGBOOT_JINDOSDK_HOME/bin
 使用 jindo table -help moveTo 查看参数配置。
 
 ```shell
-jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>" | -fullTable] [-b/-before <before days>] [-p/-parallel <parallelism>] [-s/-storagePolicy <OSS storage policy>] [-o/-overWrite] [-r/-removeSource] [-skipTrash] [-e/-explain] [-l/-logDir <log directory>]
+jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>" | -fullTable] [-b/-before <before days>] [-p/-parallel <parallelism>] [-s/-storagePolicy <OSS storage policy>] [-o/-overWrite] [-r/-removeSource] [-skipTrash] [-e/-explain] [-q/-queue <yarn queue>] [-w/-workingDir <working directory>][-l/-logDir <log directory>]
 ```
 
 ```shell
@@ -43,6 +43,8 @@ jindo table -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>
   -r/-removeSource        是否在移动完成后删除源路径。
   -skipTrash              如果删除源路径，是否跳过Trash。
   -e/-explain             如果指定explain模式，不会触发实际操作，仅打印会同步的分区。
+  <yarn queue>            指定分布式拷贝的yarn队列。
+  <working directory>     指定分布式拷贝的工作临时目录。
   <log directory>         本地日志目录，默认为/tmp/<current user>/
 ```
 
