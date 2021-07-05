@@ -1,7 +1,7 @@
-### JindoRuntime log获取
+# JindoRuntime相关log获取
 
 
-JindoRuntime 的 log 存储路径为您设定的 `runtime.spec.path`下，具体路径为 `<runtime.spec.path>/<namespace>/<DatasetName>/bigboot/log` 
+JindoRuntime 的 log 存储路径为您设定的 `runtime.spec.path`下，具体路径为 `<runtime.spec.path>/<namespace>/<DatasetName>/bigboot/log`，可登录到节点的pod上或者在pod所在物理机器上查看，两者路径相同。
 
 
 结构如下：
@@ -21,14 +21,17 @@ lrwxrwxrwx  1 root root        32 Apr 25 17:06 jboot.LOG -> jboot-20210425-17064
 -rw-r--r--  1 root root   5269358 Apr 25 16:27 time.log
 ```
 
+1、元数据缓存开启的情况下，可以查看 `b2-namespaceservice.LOG` 和 `jboot.LOG` 的内容，可结合错误时间和error等关键字进行搜索 
 
-大多数情况下只要 jboot 相关的 log 就足够。
+2、元数据缓存关闭的情况下，大多数情况下只要查看 `jboot.LOG` 内容，跳转到发生错误的时间来查看
 
 
 ### ISSUE
 
 
 如您的环境出现问题，也可开 [ISSUE](https://github.com/aliyun/alibabacloud-jindofs/issues) 给我们，会第一时间处理
+
+# Fluid 安装使用相关问题
 
 ## 1. 为什么我使用Helm安装fluid失败了？
 
