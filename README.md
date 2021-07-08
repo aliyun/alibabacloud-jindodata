@@ -3,9 +3,9 @@
 
 简体中文
 
-## Jindo 介绍
+## JindoData 介绍
 
-Jindo 是阿里云大数据平台 EMR (E-MapReduce) 的核心自研组件，主要包含三个部分：JindoFS、JindoTable 与 JindoFuse/Python，为各种大数据引擎提供统一的存储优化、缓存优化、计算加速，以及多种扩展功能，涵盖数据访问、数据治理和数据安全。Jindo 在远端存储与计算引擎之间构成一层加速层，与二者的关系如图：
+JindoData 是阿里云大数据平台 EMR (E-MapReduce) 的核心自研组件，主要包含三个部分：JindoFS、JindoTable 与 JindoFuse/Python，为各种大数据引擎提供统一的存储优化、缓存优化、计算加速，以及多种扩展功能，涵盖数据访问、数据治理和数据安全。Jindo 在远端存储与计算引擎之间构成一层加速层，与二者的关系如图：
 
 ![](pic/jindo_introduction.png)
 
