@@ -16,5 +16,6 @@
 * [第十二讲：Spark 访问 OSS 透明缓存加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484453&idx=1&sn=7544f5246eb2fbca0f5506c1f8a3bbc4&chksm=e92e037bde598a6d1bde0fc7546420d78ea33ecc3cf004bfca0549062d82edfe85781c226093&scene=178&cur_album_id=1865656849547526147#rd)
 * [第十三讲：Presto 访问 OSS 透明缓存加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484480&idx=1&sn=5139f070e38b26de4cd5553ac0487315&chksm=e92e031ede598a0869ca1bc84ca7e211ffec0d6fd43ec4c986fd97492bd53c98fa1e3b02ca36&scene=178&cur_album_id=1865656849547526147#rd)
 * [第十四讲：指定表和分区来预先缓存，查询分析更高效](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484502&idx=1&sn=e46ae578340b68cc9d4edd05fd9cd6c0&chksm=e92e0308de598a1e88958a754bf7efd08ed46e8dd67afe03d525fd05c4defcc3c6883cb416bb&scene=178&cur_album_id=1865656849547526147#rd)
+* [第十五讲：云上计算云下数据-HDFS 缓存加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484547&idx=1&sn=66ec3d3fa63f1cc861265548b254c959&chksm=e92e03ddde598acb23bddc4055b5c8ddd0f51fd9faabb395db8393f57d7ea9d47c7ff757fac1&cur_album_id=1865656849547526147&scene=190#rd)
 ### AI 训练加速
-* [第十五讲：Fluid + JindoFS 对 OSS 上的数据进行训练加速]()
+* [第十六讲：Fluid + JindoFS 对 OSS 上的数据进行训练加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484575&idx=1&sn=4c56a529ce4e5b22827198c0c6f27d98&chksm=e92e03c1de598ad72145ee7f5897add728fe524f874eaef0cec1e227786997eebdead0292bf7&scene=178&cur_album_id=1865656849547526147#rd)
