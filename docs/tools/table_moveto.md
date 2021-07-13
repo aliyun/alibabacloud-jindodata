@@ -20,7 +20,7 @@ export PATH=$PATH:BIGBOOT_JINDOSDK_HOME/bin
 
 4. 配置 MoveTo 工具在 HDFS 下的锁目录：
 
-    在 Hadoop 配置文件 core-site.xml 或 pdfs-site.xml（任一即可，在 $HADOOP_CONF_DIR 目录下）新增配置项：`jindotable.moveto.tablelock.base.dir`
+    在 Hadoop 配置文件 core-site.xml 或 hdfs-site.xml（任一即可，在 $HADOOP_CONF_DIR 目录下）新增配置项：`jindotable.moveto.tablelock.base.dir`
 
     该配置的值应指向一个 HDFS 目录，目的是存放 MoveTo 工具在运行时自动创建的锁文件。需确保该目录只会被 MoveTo 工具访问，并且有访问权限。如果不配置，则使用缺省值 `hdfs:///tmp/jindotable-lock/`，无权限则报错。
 
