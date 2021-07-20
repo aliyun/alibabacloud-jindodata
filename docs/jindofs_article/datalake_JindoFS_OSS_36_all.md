@@ -19,3 +19,5 @@
 * [第十五讲：云上计算云下数据-HDFS 缓存加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484547&idx=1&sn=66ec3d3fa63f1cc861265548b254c959&chksm=e92e03ddde598acb23bddc4055b5c8ddd0f51fd9faabb395db8393f57d7ea9d47c7ff757fac1&cur_album_id=1865656849547526147&scene=190#rd)
 ### AI 训练加速
 * [第十六讲：Fluid + JindoFS 对 OSS 上的数据进行训练加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484575&idx=1&sn=4c56a529ce4e5b22827198c0c6f27d98&chksm=e92e03c1de598ad72145ee7f5897add728fe524f874eaef0cec1e227786997eebdead0292bf7&scene=178&cur_album_id=1865656849547526147#rd)
+* [第十六讲：Fluid + JindoFS 对 OSS 上的数据进行训练加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484597&idx=1&sn=a9a160d3613de16af04a494b2f130c22&chksm=e92e03ebde598afd50a80f03cc9fea2aee69afe163c2db2ae0aca5e8dc38e374310d4892a484&scene=178&cur_album_id=1865656849547526147#rd)
+* [第十八讲：Fluid + JindoFS 对海量小文件的训练加速](https://mp.weixin.qq.com/s?__biz=MzIzOTA5NjM2OQ==&mid=2247484620&idx=1&sn=a2de342ae2e67150279e5ab70fe7058a&chksm=e92e0392de598a844d2427aeaf292f7ec3f1bdfaddabb0811318b08317c63c5da69f882bca7f&scene=178&cur_album_id=1865656849547526147#rd)
