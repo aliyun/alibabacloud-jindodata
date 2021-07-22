@@ -523,7 +523,7 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss:/
 *支持版本：3.5.0+*<br /><br />您可以通过filters参数指定一个文件路径。在这个文件中，一行配置一个正则表达式，对应distcp任务中需要跳过的文件，即不希望参与copy和diff的文件。<br /><br />示例命令如下：<br />
 
 ```bash
-hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table -filters /path/to/filterfile.txt --parallelism 20
+hadoop jar jindo-distcp-3.5.0.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --filters /path/to/filterfile.txt --parallelism 20
 ```
 
 <br />正则表达式示例文件如下：<br />
