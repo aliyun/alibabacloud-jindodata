@@ -101,7 +101,7 @@ spec:
 kubectl create -f dataload.yaml
 ```
 
-### 3、指定文件列表位置
+### 4、指定文件列表到OSS功能
 1、将文件列表的文件放到 OSS 上，名称为`filepath.txt`不变，可以使用 OSS 客户端工具等来完成
 
 2、通过 dataload 的 yaml 指定文件存放在 OSS 上的访问信息
