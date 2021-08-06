@@ -118,7 +118,7 @@ spec:
   cacheListFile:
     accessKeyId: xxx
     accessKeySecret: xxx
-    endpoint: oss-cn-shanghai.aliyuncs.com
+    endpoint: oss-cn-<region>.aliyuncs.com
     url: oss://<bucket>/<dir>/filepath.txt
 ```
 执行
