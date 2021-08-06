@@ -100,3 +100,28 @@ spec:
 ```shell
 kubectl create -f dataload.yaml
 ```
+
+### 3、指定文件列表位置
+1、将文件列表的文件放到 OSS 上，名称为`filepath.txt`不变，可以使用 OSS 客户端工具等来完成
+
+2、通过 dataload 的 yaml 指定文件存放在 OSS 上的访问信息
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: dataload
+spec:
+  dataset:
+    name: hadoop
+    namespace: default
+  loadMetadata: true
+  cacheListFile:
+    accessKeyId: xxx
+    accessKeySecret: xxx
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    url: oss://<bucket>/<dir>/filepath.txt
+```
+执行
+```shell
+kubectl create -f dataload.yaml
+```
