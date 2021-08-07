@@ -1,9 +1,9 @@
 ## JindoRuntime 支持文件列表缓存
 
-### 1、更新 Fluid 和 CRD 版本
+### 1、下载和安装 Fluid
 1、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/FuseOnly/fluid-0.6.0.tgz)
 
-2、更新 Fluid 组建
+2、安装 Fluid
 ```shell
 helm install fluid fluid-0.6.0.tgz
 ```
