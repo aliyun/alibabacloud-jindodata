@@ -1,5 +1,10 @@
 # Jindo SDK + Jindo 服务下载
 
+## v3.6.1 (07/12/2021)
+
+[jindofs-sdk-3.6.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/JindoFS-SDK/jindofs-sdk-3.6.1.jar)<br />
+[jindo-flink-sink-3.6.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Flink/jindo-flink-sink-3.6.1.jar)<br />
+
 ## v3.6.0 (06/10/2021)
 
 [jindofs-sdk-3.6.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/jindofs-sdk-3.6.0.jar)<br />
