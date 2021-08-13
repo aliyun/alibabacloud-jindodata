@@ -42,56 +42,7 @@ spec:
         high: "0.9"
         low: "0.2"
 ```
-
-
 当然为了AK等信息安全性，建议使用secret来保存相关密钥信息，secret使用请参考[使用参数加密](./jindo_fluid_encryptOption.md)
-
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: mysecret
-stringData:
-  fs.oss.accessKeyId: <OSS_ACCESS_KEY_ID>
-  fs.oss.accessKeySecret: <OSS_ACCESS_KEY_SECRET>
----
-apiVersion: data.fluid.io/v1alpha1
-kind: Dataset
-metadata:
-  name: hadoop
-spec:
-  mounts:
-    - mountPoint: oss://yourbucket/
-      options:
-        fs.oss.endpoint: oss-cn-hangzhou.aliyuncs.com
-      name: hadoop
-      encryptOptions:
-        - name: fs.oss.accessKeyId
-          valueFrom:
-            secretKeyRef:
-              name: mysecret
-              key: fs.oss.accessKeyId
-        - name: fs.oss.accessKeySecret
-          valueFrom:
-            secretKeyRef:
-              name: mysecret
-              key: fs.oss.accessKeySecret
----
-apiVersion: data.fluid.io/v1alpha1
-kind: JindoRuntime
-metadata:
-  name: hadoop
-spec:
-  replicas: 2
-  tieredstore:
-    levels:
-      - mediumtype: SSD
-        path: /mnt/disk1
-        quota: 100G
-        high: "0.9"
-        low: "0.2"
-```
 
 
 - mountPoint：表示挂载UFS的路径，路径中不需要包含 endpoint 信息。
