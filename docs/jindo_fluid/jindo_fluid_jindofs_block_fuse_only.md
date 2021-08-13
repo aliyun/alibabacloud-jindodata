@@ -36,6 +36,10 @@ metadata:
 spec:
   replicas: 1
   secret: mysecret
+  master:
+    disable: true
+  worker:
+    disable: true
   fuse:
     global: true
 ```
