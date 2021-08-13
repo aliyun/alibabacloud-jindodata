@@ -11,7 +11,7 @@ HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶
 
 ```shell
 export BIGBOOT_JINDOSDK_HOME=/path/to/b2jindosdk-current
-export PATH=$PATH:BIGBOOT_JINDOSDK_HOME/bin 
+export PATH=$BIGBOOT_JINDOSDK_HOME/bin:$PATH
 ```
 
 3. Hadoop 与 Hive 环境：
