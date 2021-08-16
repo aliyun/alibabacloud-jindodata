@@ -20,7 +20,12 @@
 # 操作过程
 <a name="mg8hb"></a>
 ## 创建hadoop集群
-   此步骤可选，如果已有hadoop集群，则可跳过此步骤。如果没有，请在[emr控制台](https://emr.console.aliyun.com/?)，参考如下步骤创建hadoop集群。<br />![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628841457833-046cafe3-a3a1-40fd-8f68-ac29d1aeecf5.png#clientId=ub7314bd2-fbe2-4&from=paste&height=349&id=u2411628d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=697&originWidth=2559&originalType=binary&ratio=1&size=370651&status=done&style=none&taskId=u775f014c-028a-4a8e-82b8-b9e73231839&width=1279.5)<br />![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628841522882-52b10d78-e267-4821-9177-e1f5448cdb12.png#clientId=ub7314bd2-fbe2-4&from=paste&height=621&id=ueee5ba55&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1241&originWidth=2559&originalType=binary&ratio=1&size=735822&status=done&style=none&taskId=u783cd8e9-400a-437d-8bfd-585dd275e81&width=1279.5)<br />此处的vpc和网关尽可能和发起访问的ack集群保持一致。<br />![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628841582794-39e919b9-edc7-4ab2-8ef0-ca804f11f19a.png#clientId=ub7314bd2-fbe2-4&from=paste&height=618&id=uc324b84e&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1236&originWidth=2559&originalType=binary&ratio=1&size=422478&status=done&style=none&taskId=uab44894b-57ee-4ff0-ab2c-7b43f3c8957&width=1279.5)<br />![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628841594494-1c53f8dc-8dbb-44f1-98d3-51bbdfd9cd6d.png#clientId=ub7314bd2-fbe2-4&from=paste&height=617&id=u08810732&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1233&originWidth=2553&originalType=binary&ratio=1&size=307905&status=done&style=none&taskId=uc6c0d8b7-7771-4fd6-b422-026070c1970&width=1276.5)
+   此步骤可选，如果已有hadoop集群，则可跳过此步骤。如果没有，请在[emr控制台](https://emr.console.aliyun.com/?)，参考如下步骤创建hadoop集群。<br />
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_create_hadoop1.png" alt="title" width="700"/> <br />
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_create_hadoop2.png" alt="title" width="700"/> <br />
+   此处的vpc和网关尽可能和发起访问的ack集群保持一致。<br />
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_create_hadoop3.png" alt="title" width="700"/> <br />
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_create_hadoop4.png" alt="title" width="700"/>
 <a name="srsSs"></a>
 ## 安装fluid
 
@@ -57,7 +62,13 @@ jindoruntime-controller-84d586b49-c6ll7   1/1     Running   0          46s
 ```
 <a name="XHPPb"></a>
 ## 配置smartdata的namespace
-1 在[emr控制台](https://emr.console.aliyun.com/?)，smartdata中新增namespace配置并保存(注意不要忘记保存)。<br />![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628842540298-dace869d-c502-4ed3-b6ef-d5173467e605.png#clientId=ub7314bd2-fbe2-4&from=paste&height=539&id=ucad2a5cb&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1077&originWidth=2559&originalType=binary&ratio=1&size=421003&status=done&style=none&taskId=u6d7725a6-7794-4477-8d02-cd9480ef9d3&width=1279.5)<br />![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628842609778-d6ffb3ba-4422-4c4d-ae2c-26797ab910a6.png#clientId=ub7314bd2-fbe2-4&from=paste&height=536&id=ub568d475&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1072&originWidth=2460&originalType=binary&ratio=1&size=367274&status=done&style=none&taskId=u2a0d82ac-ee2d-4105-a6b2-f438061807c&width=1230)<br />2 新增oss的访问配置，并保存(注意不要忘记保存)。<br />![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628842745934-8e946ac4-dbf8-4eca-a0ac-164fa0f876ba.png#clientId=ub7314bd2-fbe2-4&from=paste&height=539&id=ue45f2b5b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1078&originWidth=2559&originalType=binary&ratio=1&size=454470&status=done&style=none&taskId=ua2225cb6-671b-430b-89a7-c79c0fb41d2&width=1279.5)<br />3 重启ns service（务必要重启）。<br />![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628846214584-41554419-9697-43c8-ab88-2baf314cb348.png#clientId=ub7314bd2-fbe2-4&from=paste&height=471&id=u568236ad&margin=%5Bobject%20Object%5D&name=image.png&originHeight=942&originWidth=2559&originalType=binary&ratio=1&size=506070&status=done&style=none&taskId=u39e4bd8c-e80d-4928-bec2-d9bc001eff0&width=1279.5)
+1 在[emr控制台](https://emr.console.aliyun.com/?)，smartdata中新增namespace配置并保存(注意不要忘记保存)。<br />
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_config_smartdata1.png" alt="title" width="700"/> <br />
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_config_smartdata2.png" alt="title" width="700"/> <br />
+2 新增oss的访问配置，并保存(注意不要忘记保存)。<br />
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_config_smartdata3.png" alt="title" width="700"/> <br />
+3 重启ns service（务必要重启）。<br />
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_config_smartdata4.png" alt="title" width="700"/>
 <a name="rWwnD"></a>
 ## 在ack集群创建dataset
 在ack集群中，准备读取数据的dataset.yaml，具体内容参考：
@@ -98,8 +109,9 @@ EOF
 
 1. OSS_ACCESS_ID，OSS_ACCESS_KEY与配置smartdata的namespace时相同。
 1. SMARTDATA_NAMESPACE_IP，在[emr控制台](https://emr.console.aliyun.com/?)如下位置获取。
-
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/115161/1628842861968-4403955b-0bb9-4df5-9573-e99994c7ff57.png#clientId=ub7314bd2-fbe2-4&from=paste&height=456&id=JViiC&margin=%5Bobject%20Object%5D&name=image.png&originHeight=911&originWidth=2559&originalType=binary&ratio=1&size=509825&status=done&style=none&taskId=u18f6b62f-ab9c-4c69-8d92-cf1972d65b3&width=1279.5)<br />执行dataset.yaml，创建fluid dataset：
+  
+   <img src="../../pic/jindo_fluid_jindofs_block_fuse_e2e_get_ns_ip.png" alt="title" width="700"/> <br />
+执行dataset.yaml，创建fluid dataset：
 ```bash
 $kubectl apply -f resource.yaml
 secret/mysecret created
