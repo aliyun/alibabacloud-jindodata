@@ -4,7 +4,7 @@
 ## v3.7.1 (09/02/2021)
 
 [jindofs-sdk-3.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1/jindofs-sdk-3.7.1.jar)  
-[jindo-flink-sink-3.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1jindo-flink-sink-3.7.1.jar)  
+[jindo-flink-sink-3.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1/jindo-flink-sink-3.7.1.jar)  
 [jindo-distcp-3.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1/jindo-distcp-3.7.1.jar)  
 [jindofs-fuse-3.7.1.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1/jindofs-fuse-3.7.1.tar.gz)  
 
