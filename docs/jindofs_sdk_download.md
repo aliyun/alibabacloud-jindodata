@@ -1,5 +1,16 @@
 # Jindo SDK + Jindo 服务下载
 
+
+## v3.7.1 (09/02/2021)
+
+[jindofs-sdk-3.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1/jindofs-sdk-3.7.1.jar)  
+[jindo-flink-sink-3.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1jindo-flink-sink-3.7.1.jar)  
+[jindo-distcp-3.7.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1/jindo-distcp-3.7.1.jar)  
+[jindofs-fuse-3.7.1.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.1/jindofs-fuse-3.7.1.tar.gz)  
+
+
+# JindoSDK 历史版本
+
 ## v3.6.1 (07/12/2021)
 
 [jindofs-sdk-3.6.1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/JindoFS-SDK/jindofs-sdk-3.6.1.jar)<br />
