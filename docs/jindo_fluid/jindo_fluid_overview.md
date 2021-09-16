@@ -32,7 +32,7 @@
 * [微博海量深度学习模型训练效率跃升的秘密](https://www.infoq.cn/article/FClx4Cco6b1jomi6UZSy)
   
 ### Fluid 结合 JindoFS 系列文章
-* [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器]([jindo_fluid_jindofs_oss_introduce.md](https://developer.aliyun.com/article/781935))
+* [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](https://developer.aliyun.com/article/781935)
 * [拥抱云原生，Fluid结合JindoFS：加速机器学习训练-ResNet50](jindo_fluid_resnet50_example.md)
 * [拥抱云原生，Fluid结合JindoFS：加速机器学习训练-InsightFace](jindo_fluid_insightFace_example.md)
 * [拥抱云原生，Fluid结合JindoFS：进阶使用指南](jindo_fluid_jindofs_step_introduce.md)
