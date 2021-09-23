@@ -105,4 +105,5 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey 
 如您需要其他使用其他功能，请参考
 * [Jindo DistCp 进行数据迁移的使用说明](jindo_distcp_how_to.md)
 * [Jindo DistCp 场景化使用指南](jindo_distcp_scenario_guidance.md)
+* [Jindo DistCp 使用 CMS 进行告警](jindo_distcp_how_to_cms.md)
 
