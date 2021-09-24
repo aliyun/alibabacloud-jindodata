@@ -2,7 +2,7 @@
 * Kubernetes version > 1.14, 支持CSI
 * Golang 1.12+
 * Helm 3
-* [Fluid 0.6.0](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/360/fluid-0.6.0.tgz)
+* [Fluid 0.6.0](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/fluid-0.6.0.tgz)
 
 
 ### Fluid JindoRuntime 使用文档
