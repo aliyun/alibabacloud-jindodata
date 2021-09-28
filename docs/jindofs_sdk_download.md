@@ -3,12 +3,11 @@
 
 ## v3.7.2 (09/27/2021)
 
-[jindofs-sdk-3.7.2.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindofs-sdk-3.7.2.jar)  
-[jindo-flink-sink-3.7.2.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindo-flink-sink-3.7.2.jar)  
-[jindo-distcp-3.7.2.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindo-distcp-3.7.2.jar)  
-[jindofs-fuse-3.7.2.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindofs-fuse-3.7.2.tar.gz)
-[b2smartdata-3.7.2.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/b2smartdata-3.7.2.tar.gz)
-
+[jindofs-sdk-3.7.2.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindofs-sdk-3.7.2.jar)<br />
+[jindo-flink-sink-3.7.2.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindo-flink-sink-3.7.2.jar)<br />
+[jindo-distcp-3.7.2.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindo-distcp-3.7.2.jar)<br />
+[jindofs-fuse-3.7.2.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindofs-fuse-3.7.2.tar.gz)<br />
+[b2smartdata-3.7.2.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/b2smartdata-3.7.2.tar.gz)<br />
 
 # JindoSDK 历史版本
 
