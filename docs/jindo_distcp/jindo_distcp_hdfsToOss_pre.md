@@ -4,8 +4,8 @@
 
 ### 1、拷贝数据到 OSS 上
 您可以使用如下命令将 hdfs 上的目录拷贝到 OSS 上
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -22,15 +22,15 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey 
 使用 --update 命令时，默认开启 checksum 比较，也可通过 --disableChecksum 关闭。
 开启时，比较的方式是，从 hdfs 中获取的 checksum，判断与上次拷贝时记录在 OSS 中的 checksum 是否相同。因此仅支持比较通过 3.4.0 及以上版本拷贝得到的文件，如希望增量比较老版本拷贝得到的文件，推荐关闭 checksum 比较。
 
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
 关闭时，仅对文件名和文件大小做比较。
 
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --disableChecksum --parallelism 20
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --disableChecksum --parallelism 20
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -46,8 +46,8 @@ INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 
 ##### 写入冷归档文件
 
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy coldArchive --parallelism 10
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy coldArchive --parallelism 10
 ```
 
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
@@ -55,15 +55,15 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey 
 * --policy coldArchive：表示写入到 OSS 文件以冷归档文件形式存放，冷归档目前只在部分region可用，具体参见[OSS存储类型介绍](https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65)
 
 ##### 写入归档文件
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
 * --policy archive：表示写入到 OSS 文件以归档文件形式存放
 ##### 写入低频文件
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -71,8 +71,8 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey 
 
 ### 4、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -82,20 +82,20 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest oss://destBucket/ --ossKey 
 ### 5、免密及密钥固定存储
 通常您需要将 OSS AccessKey/AccessSecret/EndPoint 信息写在参数里，但是Jindo DistCp可以将 其预先写在 Hadoop 的core-site.xml文件里 ，以避免使用时多次填写的问题。
 如果您需要保存 OSS 的相关信息，您需要将以下信息保存在core-site.xml中，可省去在命令行里填写 ossKey/ossSecret/ossEndPoint 等信息。
-```
+```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss-accessKeyId</name>
+        <name>fs.jfs.cache.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss-accessKeySecret</name>
+        <name>fs.jfs.cache.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss-endpoint</name>
+        <name>fs.jfs.cache.oss.endpoint</name>
         <!-- 阿里云 ECS 环境下推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>

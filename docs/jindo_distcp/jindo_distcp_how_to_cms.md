@@ -41,7 +41,7 @@ export cmsLevel=WARN
 #### copy操作
 
 ```bash
-hadoop jar jindo-distcp-3.5.0.jar \
+hadoop jar jindo-distcp-3.7.2.jar \
 --src /data/incoming/hourly_table \
 --dest oss://yang-hhht/hourly_table \
 --enableCMS
@@ -50,7 +50,7 @@ hadoop jar jindo-distcp-3.5.0.jar \
 #### diff操作
 
 ```bash
-hadoop jar jindo-distcp-3.5.0.jar \
+hadoop jar jindo-distcp-3.7.2.jar \
 --src /data/incoming/hourly_table \
 --dest oss://yang-hhht/hourly_table \
 --diff \
@@ -60,7 +60,7 @@ hadoop jar jindo-distcp-3.5.0.jar \
 #### update操作
 
 ```bash
-hadoop jar jindo-distcp-3.5.0.jar \
+hadoop jar jindo-distcp-3.7.2.jar \
 --src /data/incoming/hourly_table \
 --dest oss://yang-hhht/hourly_table \
 --update \

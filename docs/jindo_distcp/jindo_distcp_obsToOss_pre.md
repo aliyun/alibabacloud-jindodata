@@ -2,32 +2,32 @@
 * 请参考 [Jindo DistCp 介绍](jindo_distcp_overview.md) 文章内容进行环境适配和工具包下载
 * 如您在使用过程中遇到问题可参考 [Jindo DistCp 问题排查指南](jindo_distcp_QA_pre.md) 进行解决，也可 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindo-sdk/issues/new) 向我们反馈
 
-### 1、配置 COS 相关实现类和用户信息
-修改Hadoop的core-site.xml，增加 COS 相关用户和实现类信息。
+### 1、配置 OBS 相关实现类和用户信息
+修改Hadoop的core-site.xml，增加 OBS 相关用户和实现类信息。
 ```xml
 <configuration>
     <property>
-        <name>fs.cos.impl</name>
-        <value>com.aliyun.emr.fs.cos.JindoCOSFileSystem</value>
+        <name>fs.obs.impl</name>
+        <value>com.aliyun.emr.fs.obs.JindoOBSFileSystem</value>
     </property>
     <property>
-        <name>fs.AbstractFileSystem.cos.impl</name>
-        <value>com.aliyun.emr.fs.cos.COS</value>
+        <name>fs.AbstractFileSystem.obs.impl</name>
+        <value>com.aliyun.emr.fs.obs.OBS</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.cos.accessKeyId</name>
+        <name>fs.obs.access.key</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.cos.accessKeySecret</name>
+        <name>fs.obs.secret.key</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.cos.endpoint</name>
-        <value>ap-xxx.myqcloud.com</value>
+        <name>fs.obs.endpoint</name>
+        <value>obs.xxx.myhuaweicloud.com</value>
     </property>
 </configuration>
 ```

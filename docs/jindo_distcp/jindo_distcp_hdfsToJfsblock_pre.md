@@ -4,8 +4,8 @@
 
 ### 1、拷贝数据到 JindoFS Block 模式上
 您可以使用如下命令将 HDFS 上的目录拷贝到 JindoFS Block 模式上
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -19,8 +19,8 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey your
 ### 2、增量拷贝文件
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
 ##### 使用 --update 命令，获得增量的文件列表
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -31,8 +31,8 @@ INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 ```
 ### 3、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
-```
-hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
+```shell
+hadoop jar jindo-distcp-3.7.2.jar --src /data --dest jfs://ns/dir/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -42,20 +42,20 @@ hadoop jar jindo-distcp-3.5.0.jar --src /data --dest jfs://ns/dir/ --ossKey your
 ### 4、免密及密钥固定存储
 通常您需要将 OSS AccessKey/AccessSecret/EndPoint 信息写在参数里，但是Jindo DistCp可以将 其预先写在 Hadoop 的core-site.xml文件里 ，以避免使用时多次填写的问题。
 如果您需要保存 OSS 的相关信息，您需要将以下信息保存在core-site.xml中，可省去在命令行里填写 ossKey/ossSecret/ossEndPoint 等信息。
-```
+```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss-accessKeyId</name>
+        <name>fs.jfs.cache.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss-accessKeySecret</name>
+        <name>fs.jfs.cache.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss-endpoint</name>
+        <name>fs.jfs.cache.oss.endpoint</name>
         <!-- 阿里云 ECS 环境下推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>

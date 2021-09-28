@@ -4,7 +4,7 @@
 
 ## 兼容性
 
-目前仅支持[jindo-distcp-3.6.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/Jindo-distcp/Jar/native/jindo-distcp-3.6.0.jar)版本
+3.6.0+
 
 ## 安装
 
@@ -14,13 +14,13 @@
 
   以3.6.0版本为例，步骤如下：
 
-```
+```xml
         <dependency>
             <groupId>bigboot</groupId>
             <artifactId>jindo-distcp</artifactId>
-            <version>3.6.0</version>
+            <version>3.7.2</version>
             <scope>system</scope>
-            <systemPath>/your/path/to/jindo-distcp-3.6.0.jar</systemPath>
+            <systemPath>/your/path/to/jindo-distcp-3.7.2.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -129,7 +129,7 @@ FailedList:
 
 ## 接口描述
 
-```
+```java
 public interface DistCpService {
     DistCpResponse distCp(DistCpRequest request);
 }
@@ -141,42 +141,50 @@ public interface DistCpService {
 
 相关方法的具体描述可参考[《使用Jindo DistCp》](jindo_distcp_how_to.md)
 
-| 方法                                                         | 参数类型 | 说明                                                         | 默认值                 |
-| ------------------------------------------------------------ | -------- | ------------------------------------------------------------ | ---------------------- |
-| void setRequestId(String requestId)                          | 必选     | 设置请求ID                                                   | -                      |
-| void setSrc(String src)                                      | 必选     | 设置源目录，支持的前缀有<br />file://<br/>hdfs://<br/>oss://<br/>jfs://<br/>s3:// | -                      |
-| void setDest(String dest)                                    | 必选     | 设置目标目录，支持的前缀有<br/>file://<br/>hdfs://<br/>oss://<br/>jfs://<br/>s3:// | -                      |
-| void setMode(DistCpMode mode)                                | 可选     | 设置DistCp模式，支持的模式有<br/>COPY（拷贝）<br/>DIFF（差异比较）<br/>UPADTE（增量拷贝） | DistCpMode.COPY        |
-| void setCopyFromManifest(boolean copyFromManifest)           | 可选     | 设置是否开启从manifest文件中获取源文件列表                   | false                  |
-| void setPreviousManifest(String previousManifest)            | 可选     | 设置manifest文件目录，以获取源文件列表                       | null                   |
-| void setRequirePreviousManifest(boolean requirePreviousManifest) | 可选     | 与setOutputManifest配合使用用生成manifest文件                | false                  |
-| void setOutputManifest(String outputManifest)                | 可选     | 设置输出的manifest文件路径，用于记录结果文件的清单           | null                   |
-| void setSrcPattern(String srcPattern)                        | 可选     | 设置一个正则表达式，来选择需要进行拷贝的文件                 | null                   |
-| void setSrcPrefixesFile(String srcPrefixesFile)              | 可选     | 设置一个带有前缀列表的文件路径，用于拷贝多个文件夹           | null                   |
-| void setFilters(String filters)                              | 可选     | 设置一个带有正则表达式列表的文件路径，用于过滤符合正则的文件 | null                   |
-| void setStorageClass(String storageClass)                    | 可选     | 设置目标存储策略，支持Standard、IA、Archive、ColdArchive     | Standard               |
-| void setDisableChecksum(boolean disableChecksum)             | 可选     | 设置是否关闭Checksum检查                                     | false                  |
-| void setOutputCodec(String outputCodec)                      | 可选     | 设置压缩类型，支持编解码器有 gzip、gz、lzo、lzop、lzop、snappy | keep（不更改压缩类型） |
-| void setDeleteOnSuccess(boolean deleteOnSuccess)             | 可选     | 设置是否删除源文件，用于移动数据                             | false                  |
-| void setCleanUpPending(boolean cleanUpPending)               | 可选     | 设置是否清理残留文件                                         | false                  |
-| void setEnableDynamicPlan(boolean enableDynamicPlan)         | 可选     | 设置是否开启作业动态分配计划，以优化存在大量小文件的场景     | false                  |
-| void setEnableBalancePlan(boolean enableBalancePlan)         | 可选     | 设置是否开启作业平衡分配计划，用数据整体大小较均衡的场景     | false                  |
-| void setEnableTransaction(boolean enableTransaction)         | 可选     | 设置是否开启事务，以保证Job级别的原子性                      | false                  |
-| void setQueue(String queue)                                  | 可选     | 设置DistCp任务所在的yarn队列名称                             | null                   |
-| void setAppendToLastFile(boolean appendToLastFile)           | 可选     | 设置是否开启合并文件                                         | false                  |
-| void setTargetSize(Integer targetSize)                       | 可选     | 设置目标文件合并后的大小限制，单位M                          | null                   |
-| void setSizeLimit(Long sizeLimit)                            | 可选     | 设置文件大小限制，单位M，将符合要求的小文件聚合为一个大文件  | 8L                     |
-| void setLineLimit(Long lineLimit)                            | 可选     | 设置文件行数限制，将符合要求的小文件聚合为一个大文件         | 100000L                |
-| void setGroupBy(String groupBy)                              | 可选     | 设置一个正则表达式，将符合要求的小文件聚合为一个大文件       | 10null                 |
-| void setParallelism(int parallelism)                         | 可选     | 设置DistCp任务的并发度，对应MR任务中的mapreduce.job.reduces  | 10                     |
-| void setBandWidth(int bandWidth)                             | 可选     | 设置单个节点的带宽限制，单位M                                | -1                     |
-| void setOssEndpoint(String ossEndpoint)                      | 可选     | 设置OSS的Endpoint                                            | null                   |
-| void setOssKey(String ossKey)                                | 可选     | 设置OSS的AccessKey ID                                        | null                   |
-| void setOssSecret(String ossSecret)                          | 可选     | 设置OSS的AccessKey Secret                                    | null                   |
-| void setS3Endpoint(String s3Endpoint)                        | 可选     | 设置S3的Endpoint                                             | null                   |
-| void setS3Key(String s3Key)                                  | 可选     | 设置S3的Acesss Key ID                                        | null                   |
-| void setS3Secret(String s3Secret)                            | 可选     | 设置S3的Secret Access Key                                    | null                   |
-| void setEnableCMS(boolean enableCMS)                         | 可选     | 是否开启监控告警                                             | false                  |
+| 方法                                                         | 参数类型 | 说明                                                         | 默认值                 | 兼容   |
+| ------------------------------------------------------------ | -------- | ------------------------------------------------------------ | ---------------------- | ------ |
+| void setRequestId(String requestId)                          | 必选     | 设置请求ID                                                   | -                      | 3.6.0+ |
+| void setSrc(String src)                                      | 必选     | 设置源目录，支持的前缀有<br />file://<br/>hdfs://<br/>oss://<br/>jfs://<br/>s3:// | -                      | 3.6.0+ |
+| void setDest(String dest)                                    | 必选     | 设置目标目录，支持的前缀有<br/>file://<br/>hdfs://<br/>oss://<br/>jfs://<br/>s3:// | -                      | 3.6.0+ |
+| void setMode(DistCpMode mode)                                | 可选     | 设置DistCp模式，支持的模式有<br/>COPY（拷贝）<br/>DIFF（差异比较）<br/>UPADTE（增量拷贝） | DistCpMode.COPY        | 3.6.0+ |
+| void setCopyFromManifest(boolean copyFromManifest)           | 可选     | 设置是否开启从manifest文件中获取源文件列表                   | false                  | 3.6.0+ |
+| void setPreviousManifest(String previousManifest)            | 可选     | 设置manifest文件目录，以获取源文件列表                       | null                   | 3.6.0+ |
+| void setRequirePreviousManifest(boolean requirePreviousManifest) | 可选     | 与setOutputManifest配合使用用生成manifest文件                | false                  | 3.6.0+ |
+| void setOutputManifest(String outputManifest)                | 可选     | 设置输出的manifest文件路径，用于记录结果文件的清单           | null                   | 3.6.0+ |
+| void setSrcPattern(String srcPattern)                        | 可选     | 设置一个正则表达式，来选择需要进行拷贝的文件                 | null                   | 3.6.0+ |
+| void setSrcPrefixesFile(String srcPrefixesFile)              | 可选     | 设置一个带有前缀列表的文件路径，用于拷贝多个文件夹           | null                   | 3.6.0+ |
+| void setFilters(String filters)                              | 可选     | 设置一个带有正则表达式列表的文件路径，用于过滤符合正则的文件 | null                   | 3.6.0+ |
+| void setIgnoreFailures(boolean ignoreFailures)               | 可选     | 设置是否忽略拷贝任务中抛出的异常，避免中断任务               | False                  | 3.7.2+ |
+| void setStorageClass(String storageClass)                    | 可选     | 设置目标存储策略，支持Standard、IA、Archive、ColdArchive     | Standard               | 3.6.0+ |
+| void setDisableChecksum(boolean disableChecksum)             | 可选     | 设置是否关闭Checksum检查                                     | false                  | 3.6.0+ |
+| void setOutputCodec(String outputCodec)                      | 可选     | 设置压缩类型，支持编解码器有 gzip、gz、lzo、lzop、lzop、snappy | keep（不更改压缩类型） | 3.6.0+ |
+| void setDeleteOnSuccess(boolean deleteOnSuccess)             | 可选     | 设置是否删除源文件，用于移动数据                             | false                  | 3.6.0+ |
+| void setCleanUpPending(boolean cleanUpPending)               | 可选     | 设置是否清理残留文件                                         | false                  | 3.6.0+ |
+| void setEnableDynamicPlan(boolean enableDynamicPlan)         | 可选     | 设置是否开启作业动态分配计划，以优化存在大量小文件的场景     | false                  | 3.6.0+ |
+| void setEnableBalancePlan(boolean enableBalancePlan)         | 可选     | 设置是否开启作业平衡分配计划，用数据整体大小较均衡的场景     | false                  | 3.6.0+ |
+| void setEnableTransaction(boolean enableTransaction)         | 可选     | 设置是否开启事务，以保证Job级别的原子性                      | false                  | 3.6.0+ |
+| void setQueue(String queue)                                  | 可选     | 设置DistCp任务所在的yarn队列名称                             | null                   | 3.6.0+ |
+| void setAppendToLastFile(boolean appendToLastFile)           | 可选     | 设置是否开启合并文件                                         | false                  | 3.6.0+ |
+| void setTargetSize(Integer targetSize)                       | 可选     | 设置目标文件合并后的大小限制，单位M                          | null                   | 3.6.0+ |
+| void setSizeLimit(Long sizeLimit)                            | 可选     | 设置文件大小限制，单位M，将符合要求的小文件聚合为一个大文件  | 8L                     | 3.6.0+ |
+| void setLineLimit(Long lineLimit)                            | 可选     | 设置文件行数限制，将符合要求的小文件聚合为一个大文件         | 100000L                | 3.6.0+ |
+| void setGroupBy(String groupBy)                              | 可选     | 设置一个正则表达式，将符合要求的小文件聚合为一个大文件       | 10null                 | 3.6.0+ |
+| void setParallelism(int parallelism)                         | 可选     | 设置DistCp任务的并发度，对应MR任务中的mapreduce.job.reduces  | 10                     | 3.6.0+ |
+| void setBandWidth(int bandWidth)                             | 可选     | 设置单个节点的带宽限制，单位M                                | -1                     | 3.6.0+ |
+| void setOssEndpoint(String ossEndpoint)                      | 可选     | 设置OSS的Endpoint                                            | null                   | 3.6.0+ |
+| void setOssKey(String ossKey)                                | 可选     | 设置OSS的AccessKey ID                                        | null                   | 3.6.0+ |
+| void setOssSecret(String ossSecret)                          | 可选     | 设置OSS的AccessKey Secret                                    | null                   | 3.6.0+ |
+| void setS3Endpoint(String s3Endpoint)                        | 可选     | 设置S3的Endpoint                                             | null                   | 3.6.0+ |
+| void setS3Key(String s3Key)                                  | 可选     | 设置S3的Acesss Key ID                                        | null                   | 3.6.0+ |
+| void setS3Secret(String s3Secret)                            | 可选     | 设置S3的Secret Access Key                                    | null                   | 3.6.0+ |
+| void setCOSEndpoint(String cosEndpoint)                      | 可选     | 设置COS的Endpoint                                            | null                   | 3.7.1+ |
+| void setCOSKey(String cosKey)                                | 可选     | 设置COS的Acesss Key ID                                       | null                   | 3.7.1+ |
+| void setCOSSecret(String cosSecret)                          | 可选     | 设置COS的Secret Access Key                                   | null                   | 3.7.1+ |
+| void setOBSEndpoint(String cosEndpoint)                      | 可选     | 设置OBS的Endpoint                                            | null                   | 3.7.1+ |
+| void setOBSKey(String cosKey)                                | 可选     | 设置OBS的Acesss Key ID                                       | null                   | 3.7.1+ |
+| void setOBSSecret(String cosSecret)                          | 可选     | 设置OBS的Secret Access Key                                   | null                   | 3.7.1+ |
+| void setEnableCMS(boolean enableCMS)                         | 可选     | 是否开启监控告警                                             | false                  | 3.6.0+ |
+| void setWorkPath(String workPath)                            | 可选     | 设置临时目录                                                 | /tmp                   | 3.6.0+ |
 
 ## 响应参数
 
