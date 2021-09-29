@@ -23,8 +23,7 @@ tar -zxvf prometheus-2.30.1.linux-amd64.tar.gz
 mv prometheus-2.30.1.linux-amd64 prometheus-server
 ```
 
-2、修改默认 `prometheus.yml`
-修改解压安装包内的 `prometheus.yml` 文件，替换为
+2、修改解压安装包内的 `prometheus.yml` 文件，替换为
 
 ```yaml
 global:
