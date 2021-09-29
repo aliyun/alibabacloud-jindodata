@@ -1,4 +1,4 @@
-JindoFS cache 模式 metrics 收集展示文档
+## JindoFS cache 模式 metrics 收集展示文档
 ### 环境要求
 
 * Smartdata 3.7.2
