@@ -3,9 +3,9 @@ JindoFS cache 模式 metrics 收集展示文档
 
 * Smartdata 3.7.2
 
-* Prometheus
+* Prometheus >= 2.10
  
-* Grafana
+* Grafana >= 7.3.7
 
 ### 1、Prometheus 安装
 首先需要在环境里安装 Prometheus 和 Grafana 服务，下面以 centos7 环境为例
@@ -113,7 +113,7 @@ tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      
 
 <img src="../pic/grafana-3.png">
 
-添加 JindoFS cache 模式的 JSON 展示模版，点击这里下载，下载到本地后，点击 `Upload JSON file`
+添加 JindoFS cache 模式的 JSON 展示模版，[点击这里下载 JSON 文件](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/fluid-jindo-prometheus-grafana-monitor.json)，下载到本地后，点击 `Upload JSON file`
 
 <img src="../pic/grafana-5.png">
 <img src="../pic/grafana-6.png">
