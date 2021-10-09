@@ -23,6 +23,7 @@
 * [数据源mount到根目录下](./common/jindo_fluid_mount.md)
 * [数据预加载](./common/jindo_fluid_dataload.md)
 * [数据缓存和元数据缓存](./common/jindo_fluid_data_meta_cache.md)
+* [监控及可观测功能](./common/jindo_fluid_monitor_metric.md)
 * [问题诊断及处理](./common/jindo_fluid_question.md)
 
 
