@@ -52,7 +52,6 @@ spec:
   fuse:
     properties:
       jfs.cache.meta-cache.enable: "true"
-      jfs.cache.data-cache.slicecache.enable: "true"
 ```
 
 
