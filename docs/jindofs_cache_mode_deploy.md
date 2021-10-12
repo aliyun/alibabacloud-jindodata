@@ -107,3 +107,8 @@ Manager 服务监听在 manager.rpc.port 配置的端口上（默认为 8104）�
 ## 缓存使用
 完成以上配置后，作业访问 OSS 即可利用上缓存，JindoFS 兼容模式提供了透明缓存的使用方式，作业访问 OSS 的方式无需做任何修改，参照[Hadoop/Spark 生态使用 JindoFS SDK](/docs/jindofs_sdk_overview.md)的方式访问 OSS 即可。
 作业读取 OSS 上的数据后，会自动缓存到 JindoFS 缓存系统中，后续访问相同的数据就能够命中缓存，可以通过 Web UI 查看缓存目录的使用情况。
+
+## 使用 Prometheus + Grafana 可视化指标观测平台
+在完成缓存集群的启动后，JindoFS 兼容模式提供基于 Prometheus + Grafana 的可视化指标观测平台，你可以参考如下文档进行安装和使用该功能
+
+[基于 Prometheus + Grafana 的可视化指标观测平台](./jindofs_cache_metric.md)
