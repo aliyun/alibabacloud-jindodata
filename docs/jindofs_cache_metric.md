@@ -112,7 +112,7 @@ tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      
 
 <img src="../pic/grafana-3.png">
 
-添加 JindoFS cache 模式的 JSON 展示模版，[点击这里下载 JSON 文件](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/fluid-jindo-prometheus-grafana-monitor.json)，下载到本地后，点击 `Upload JSON file`
+添加 JindoFS cache 模式的 JSON 展示模版，[点击这里下载 JSON 文件](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/fluid-prometheus-grafana-monitor-jindofs.json)，下载到本地后，点击 `Upload JSON file`
 
 <img src="../pic/grafana-5.png">
 <img src="../pic/grafana-6.png">
@@ -120,4 +120,85 @@ tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      
 
 点击 import 后即可看到 cache 模式的 UI
 
-<img src="../pic/grafana-8.png">
+<img src="../pic/common_grafana_playfront.png">
+
+
+### Prometheus 指标预览(更新中)
+下面对 JindoRuntime 当前收集的指标进行预览和描述，您可以基于已收集指标在 Grafana 中进行组合和图表展示，如您需要额外的基本 metrics 展示，请开 issue 联系我们
+```yaml
+# HELP jindofsx_ns_backend_read_bytes_time_total_window
+# TYPE jindofsx_ns_backend_read_bytes_time_total_window gauge
+jindofsx_ns_backend_read_bytes_time_total_window 20367553  #一分钟内底层读取总数据量大小所用时间大小，单位微秒
+# HELP jindofsx_ns_backend_read_bytes_total
+# TYPE jindofsx_ns_backend_read_bytes_total gauge
+jindofsx_ns_backend_read_bytes_total 166703347021 #总底层读取数据量大小，单位Byte
+# HELP jindofsx_ns_backend_read_bytes_total_window
+# TYPE jindofsx_ns_backend_read_bytes_total_window gauge
+jindofsx_ns_backend_read_bytes_total_window 1174671374 #一分钟内底层读取总数据量大小，单位Byte
+# HELP jindofsx_ns_backend_read_time_total
+# TYPE jindofsx_ns_backend_read_time_total gauge
+jindofsx_ns_backend_read_time_total 8717632094 #底层读取数据所用总时间大小，单位微秒
+# HELP jindofsx_ns_backend_readop_num_total
+# TYPE jindofsx_ns_backend_readop_num_total gauge
+jindofsx_ns_backend_readop_num_total 181951 #底层总读取数据次数，对应 JindoFS 中 Block 个数
+# HELP jindofsx_ns_local_read_bytes_time_total_window
+# TYPE jindofsx_ns_local_read_bytes_time_total_window gauge
+jindofsx_ns_local_read_bytes_time_total_window 0 #一分钟内短路读时间大小，单位微秒
+# HELP jindofsx_ns_local_read_bytes_total
+# TYPE jindofsx_ns_local_read_bytes_total gauge
+jindofsx_ns_local_read_bytes_total 0  #总短路读取数据量大小，单位Byte
+# HELP jindofsx_ns_local_read_bytes_total_window
+# TYPE jindofsx_ns_local_read_bytes_total_window gauge
+jindofsx_ns_local_read_bytes_total_window 0 #一分钟内短路读所用时间大小，单位微秒
+# HELP jindofsx_ns_local_read_time_total
+# TYPE jindofsx_ns_local_read_time_total gauge
+jindofsx_ns_local_read_time_total 0 #短路读取数据所用总时间大小，单位微秒
+# HELP jindofsx_ns_local_readop_num_total
+# TYPE jindofsx_ns_local_readop_num_total gauge
+jindofsx_ns_local_readop_num_total 0 #短路读总读取数据次数，对应 JindoFS 中 Block 个数
+# HELP jindofsx_ns_remote_read_bytes_time_total_window
+# TYPE jindofsx_ns_remote_read_bytes_time_total_window gauge
+jindofsx_ns_remote_read_bytes_time_total_window 73714663 #一分钟内远端读所用时间大小，单位微秒
+# HELP jindofsx_ns_remote_read_bytes_total
+# TYPE jindofsx_ns_remote_read_bytes_total gauge
+jindofsx_ns_remote_read_bytes_total 112108045498 #总远端读取数据量大小，单位Byte
+# HELP jindofsx_ns_remote_read_bytes_total_window
+# TYPE jindofsx_ns_remote_read_bytes_total_window gauge
+jindofsx_ns_remote_read_bytes_total_window 13380884043 #一分钟内远端读取总数据量大小，单位Byte
+# HELP jindofsx_ns_remote_read_time_total
+# TYPE jindofsx_ns_remote_read_time_total gauge
+jindofsx_ns_remote_read_time_total 765272359 #总远端读取时间，单位微秒
+# HELP jindofsx_ns_remote_readop_num_total
+# TYPE jindofsx_ns_remote_readop_num_total gauge
+jindofsx_ns_remote_readop_num_total 107314 #远端读总读取数据次数，对应 JindoFS 中 Block 个数
+# HELP jindofsx_ns_slicelet_read_bytes_time_total_window
+# TYPE jindofsx_ns_slicelet_read_bytes_time_total_window gauge
+jindofsx_ns_slicelet_read_bytes_time_total_window 0 #一分钟内小文件读所用时间大小，单位微秒
+# HELP jindofsx_ns_slicelet_read_bytes_total
+# TYPE jindofsx_ns_slicelet_read_bytes_total gauge
+jindofsx_ns_slicelet_read_bytes_total 0 #总小文件读取数据量大小，单位Byte
+# HELP jindofsx_ns_slicelet_read_bytes_total_window
+# TYPE jindofsx_ns_slicelet_read_bytes_total_window gauge
+jindofsx_ns_slicelet_read_bytes_total_window 0 #一分钟内小文件读取总数据量大小，单位Byte
+# HELP jindofsx_ns_slicelet_read_time_total
+# TYPE jindofsx_ns_slicelet_read_time_total gauge
+jindofsx_ns_slicelet_read_time_total 0 #小文件读取数据所用总时间大小，单位微秒
+# HELP jindofsx_ns_slicelet_readop_num_total
+# TYPE jindofsx_ns_slicelet_readop_num_total gauge
+jindofsx_ns_slicelet_readop_num_total 0 #小文件读总读取数据次数，对应 JindoFS 中 Block 个数
+# HELP jindofsx_ns_total_disk_cap
+# TYPE jindofsx_ns_total_disk_cap gauge
+jindofsx_ns_total_disk_cap 840739848192 #磁盘缓存总容量大小，单位Byte
+# HELP jindofsx_ns_total_mem_cap
+# TYPE jindofsx_ns_total_mem_cap gauge
+jindofsx_ns_total_mem_cap 0 #内存缓存总容量大小，单位Byte
+# HELP jindofsx_ns_total_stsnodes_num
+# TYPE jindofsx_ns_total_stsnodes_num gauge
+jindofsx_ns_total_stsnodes_num 3 #alive worker 节点的数量
+# HELP jindofsx_ns_total_used_disk_cap
+# TYPE jindofsx_ns_total_used_disk_cap gauge
+jindofsx_ns_total_used_disk_cap 153423446016 #已用磁盘缓存容量大小，单位Byte
+# HELP jindofsx_ns_total_used_mem_cap
+# TYPE jindofsx_ns_total_used_mem_cap gauge
+jindofsx_ns_total_used_mem_cap 0 #已用内存缓存容量大小，单位Byte
+```
