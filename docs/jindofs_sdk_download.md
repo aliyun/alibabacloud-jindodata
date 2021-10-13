@@ -1,7 +1,7 @@
 # Jindo SDK + Jindo 服务下载
 
 
-## v3.7.2 (10/13/2021)
+## v3.7.2 (10/12/2021)
 
 [jindofs-sdk-3.7.2.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindofs-sdk-3.7.2.jar)<br />
 [jindo-flink-sink-3.7.2.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.2/jindo-flink-sink-3.7.2.jar)<br />
