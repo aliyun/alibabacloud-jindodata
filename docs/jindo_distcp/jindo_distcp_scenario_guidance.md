@@ -314,17 +314,17 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 ```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.endpoint</name>
+        <name>fs.oss.endpoint</name>
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
@@ -335,16 +335,18 @@ hadoop jar jindo-distcp-<version>.jar --src /data/incoming/hourly_table --dest o
 ```xml
 <configuration>
     <property>
-        <name>fs.s3a.access.key</name>
+        <name>fs.s3a.accessKeyId</name>
         <value>xxx</value>
     </property>
+    
     <property>
-        <name>fs.s3a.secret.key</name>
+        <name>fs.s3a.accessKeySecret</name>
         <value>xxx</value>
     </property>
+    
     <property>
         <name>fs.s3a.endpoint</name>
-        <value>s3-us-west-1.amazonaws.com</value>
+        <value>s3-xxx.amazonaws.com</value>
     </property>
 </configuration>
 ```

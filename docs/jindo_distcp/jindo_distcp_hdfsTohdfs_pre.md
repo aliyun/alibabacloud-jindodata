@@ -7,7 +7,7 @@
 ### 1、拷贝数据到 HDFS 上
 您可以使用如下命令将 hdfs 上的目录拷贝到 OSS 上
 ```shell
-hadoop jar jindo-distcp-3.7.2.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>:port/dir/ --parallelism 10
+hadoop jar jindo-distcp-${version}.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>:port/dir/ --parallelism 10
 ```
 * --src：源hdfs的路径
 * --dest：目标hdfs的路径，支持 hdfs://<ip/hostname>:port/dir/ 形式
@@ -17,7 +17,7 @@ hadoop jar jindo-distcp-3.7.2.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
 ##### 使用 --update 命令
 ```shell
-hadoop jar jindo-distcp-3.7.2.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>:port/dir/ --update --parallelism 20
+hadoop jar jindo-distcp-${version}.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>:port/dir/ --update --parallelism 20
 ```
 如果所有文件都传输完成，则会提示如下信息。
 ```
@@ -26,7 +26,7 @@ INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 ### 3、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```shell
-hadoop jar jindo-distcp-3.7.2.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>:port/dir/ --queue yarnQueue --bandwidth 100 --parallelism 10
+hadoop jar jindo-distcp-${version}.jar --src /srchdfs/dir --dest hdfs://<ip/hostname>:port/dir/ --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
 * --queue：指定 YARN 队列的名称
 * --bandwidth：指定单机限流带宽的大小，单位 MB

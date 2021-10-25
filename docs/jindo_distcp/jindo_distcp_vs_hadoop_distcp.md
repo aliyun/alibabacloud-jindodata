@@ -1,6 +1,4 @@
 # Jindo DistCp vs Hadoop DistCp 性能测试
-[English Version](./jindo_distcp_vs_hadoop_distcp_en.md)
-<a name="3baNh"></a>
 # Jindo DistCp介绍
 
 ---
@@ -12,7 +10,7 @@ Jindo DistCp（分布式文件拷贝工具）是用于大规模集群内部和�
 
 ---
 
-Jindo DistCp目前发布在[github repo](./jindo_distcp_how_to.md)，我们可以在上面下载jar包进行使用，并且根据上面的使用文档，进行distcp功能使用。
+Jindo DistCp目前发布在[github repo](jindo_distcp_how_to.md)，我们可以在上面下载jar包进行使用，并且根据上面的使用文档，进行distcp功能使用。
 
 <a name="KWgRo"></a>
 # 测试环境

@@ -7,26 +7,26 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.cos.impl</name>
-        <value>com.aliyun.emr.fs.cos.JindoCOSFileSystem</value>
+        <name>fs.cosn.impl</name>
+        <value>com.aliyun.jindodata.sdk.CosFileSystem</value>
     </property>
     <property>
-        <name>fs.AbstractFileSystem.cos.impl</name>
-        <value>com.aliyun.emr.fs.cos.COS</value>
+        <name>fs.AbstractFileSystem.cosn.impl</name>
+        <value>com.aliyun.jindodata.sdk.COS</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.cos.accessKeyId</name>
+        <name>fs.cosn.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.cos.accessKeySecret</name>
+        <name>fs.cosn.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.cos.endpoint</name>
+        <name>fs.cosn.endpoint</name>
         <value>ap-xxx.myqcloud.com</value>
     </property>
 </configuration>
@@ -35,7 +35,7 @@
 ### 3、拷贝数据到 OSS 上
 您可以使用如下命令将 COS 上的目录拷贝到 OSS 上，您可使用如下命令
 ```shell
-hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
+hadoop jar jindo-distcp-${version}.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -50,7 +50,7 @@ hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
 ##### 使用 --update 命令
 ```bash
-hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
+hadoop jar jindo-distcp-${version}.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --update --parallelism 20
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -65,7 +65,7 @@ INFO distcp.JindoDistCp: Jindo DistCp job exit with 0.
 ##### 写入冷归档文件
 
 ```shell
-hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy coldArchive --parallelism 10
+hadoop jar jindo-distcp-${version}.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy coldArchive --parallelism 10
 ```
 
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
@@ -75,14 +75,14 @@ hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket
 ##### 写入归档文件
 
 ```shell
-hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
+hadoop jar jindo-distcp-${version}.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
 * --policy archive：表示写入到 OSS 文件以归档文件形式存放
 ##### 写入低频文件
 ```shell
-hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
+hadoop jar jindo-distcp-${version}.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -91,7 +91,7 @@ hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket
 ### 6、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```shell
-hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
+hadoop jar jindo-distcp-${version}.jar --src cos://srcbucket/ --dest oss://destBucket/ --ossKey yourkey --ossSecret yoursecret --ossEndPoint oss-cn-xxx.aliyuncs.com --queue yarnQueue --bandwidth 100 --parallelism 10
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
@@ -104,23 +104,23 @@ hadoop jar jindo-distcp-3.7.2.jar --src cos://srcbucket/ --dest oss://destBucket
 ```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.endpoint</name>
+        <name>fs.oss.endpoint</name>
       	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
 ```
-JindoFS还支持更多的OSS AccessKey的配置方式，详情参考[JindoFS SDK OSS AccessKey 配置](./jindofs_sdk_credential_provider.md)。<br />
+JindoSDK还支持更多的OSS AccessKey的配置方式，详情参考[JindoSDK OSS AccessKey 配置](../jindosdk_credential_provider.md)。<br />
 
 ### 8、其他功能
 如您需要其他使用其他功能，请参考
