@@ -112,7 +112,7 @@ tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      
 
 <img src="../pic/grafana-3.png">
 
-添加 JindoFS cache 模式的 JSON 展示模版，[点击这里下载 JSON 文件](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/fluid-prometheus-grafana-monitor-jindofs.json)，下载到本地后，点击 `Upload JSON file`
+添加 JindoFS cache 模式的 JSON 展示模版，[点击这里下载 JSON 文件](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/Jindofsx-grafana-json)，下载到本地后，点击 `Upload JSON file`
 
 <img src="../pic/grafana-5.png">
 <img src="../pic/grafana-6.png">
