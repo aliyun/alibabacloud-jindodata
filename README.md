@@ -23,7 +23,7 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 ## JindoSDK 使用
 
-* [Hadoop/Spark 生态使用 JindoFS SDK](docs/jindosdk_overview.md)
+* [Hadoop/Spark 生态使用 JindoSDK](docs/jindosdk_overview.md)
 
 ## JindoSDK 开发
 
