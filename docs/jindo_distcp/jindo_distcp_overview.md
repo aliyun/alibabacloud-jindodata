@@ -14,16 +14,16 @@
 
 ### Jindo DistCp 使用场景
 
-* [数据从 HDFS 迁移到 OSS 上](jindo_distcp_hdfsToOss_pre.md)
-* [数据从 HDFS 迁移到 JindoSDK Block 模式上](jindo_distcp_hdfsToJfsblock_pre.md)
-* [数据在 OSS 不同 bucket 之间迁移](jindo_distcp_ossToOss_pre.md)
-* [数据从 S3 迁移到 OSS 上](jindo_distcp_s3ToOss_pre.md)
-* [数据从 HDFS 迁移到 HDFS 上](jindo_distcp_hdfsTohdfs_pre.md)
-* [数据从 COS 迁移到 OSS 上](jindo_distcp_cosToOss_pre.md)
+* [数据从 HDFS 迁移到 OSS 上](jindo_distcp_on_hdfs_to_oss.md)
+* [数据从 HDFS 迁移到 DLS 上](jindo_distcp_how_to_hdfs_to_dls.md)
+* [数据在 OSS 不同 bucket 之间迁移](jindo_distcp_on_oss_to_oss.md)
+* [数据从 S3 迁移到 OSS 上](jindo_distcp_on_s3_to_oss.md)
+* [数据从 HDFS 迁移到 HDFS 上](jindo_distcp_on_hdfs_to_hdfs.md)
+* [数据从 COS 迁移到 OSS 上](jindo_distcp_on_cos_to_oss.md)
 
 ### Jindo DistCp 问题排查指南
 我们总结了一些在不同环境使用 Jindo DistCp 用户可能会遇到的一些问题，您可以参照下文进行常见问题排查和解决
-* [Jindo DistCp 问题排查指南](jindo_distcp_QA_pre.md)
+* [Jindo DistCp 问题排查指南](jindo_distcp_QA.md)
 
 ### Jindo DistCp 性能测试
 我们利用 Hadoop 自带的测试数据集 TestDFSIO 分别生成 1000个10M、1000个500M、1000个1G 大小的文件进行 DistCp 性能测试，把数据从 HDFS 上拷贝到 OSS 上，测试发现 Jindo DistCp 相比 Hadoop DistCp 有近 1.6x 的性能提升，详细测试可参阅以下文档。
