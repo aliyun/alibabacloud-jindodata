@@ -1,5 +1,5 @@
 
-![](pic/logo/Jindo.png)
+![](docs_v4/image/jindo_logo.png)
 
 简体中文
 
@@ -7,7 +7,7 @@
 
 JindoData 是阿里云大数据平台 EMR (E-MapReduce) 的核心自研组件，为各种大数据引擎提供统一的存储优化、缓存优化、计算加速，以及多种扩展功能，涵盖数据访问、数据治理和数据安全。Jindo 在远端存储与计算引擎之间构成一层加速层，与二者的关系如图：
 
-![](pic/jindo_introduction.png)
+![](docs_v4/image/jindo_introduction.png)
 
 ## JindoFS 介绍
 
@@ -23,21 +23,21 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 ## JindoSDK 使用
 
-* [Hadoop/Spark 生态使用 JindoSDK](docs/jindosdk_overview.md)
+* [Hadoop/Spark 生态使用 JindoSDK](docs_v4/cn/jindosdk_overview.md)
 
 ## JindoSDK 开发
 
-* [Hadoop 使用 JindoSDK 在 IDE 开发调试](docs/jindosdk_ide_hadoop.md)
+* [Hadoop 使用 JindoSDK 在 IDE 开发调试](docs_v4/cn/jindosdk_ide_hadoop.md)
 
-* [Spark 使用 JindoSDK 在 IDE 开发调试](docs/spark/jindosdk_ide_spark.md)
+* [Spark 使用 JindoSDK 在 IDE 开发调试](docs_v4/cn/spark/jindosdk_ide_spark.md)
 
 ## 数据迁移最佳实践
 
-* [Jindo Distcp 数据迁移](docs/jindo_distcp/jindo_distcp_overview.md)
+* [Jindo Distcp 数据迁移](docs_v4/cn/jindo_distcp/jindo_distcp_overview.md)
 
 ## JindoFS 云原生
 
-* [Fluid 结合 JindoFS 介绍和使用](docs/jindo_fluid/jindo_fluid_overview.md)
+* [Fluid 结合 JindoFS 介绍和使用](docs_v4/cn/jindo_fluid/jindo_fluid_overview.md)
 
 ## 历史版本
 
