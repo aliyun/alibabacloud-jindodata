@@ -17,7 +17,7 @@ JindoFS 作为阿里云基于 OSS 的一套完整的数据湖存储优化方案�
 
 JindoSDK 是一个简单易用面向 Hadoop、Spark 生态的 OSS 客户端，为阿里云 OSS 提供高度优化的 Hadoop FileSystem 实现。
 
-JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake Storage，以下简称 DLS。支持 DLS 的 JindoSDK 全面兼容 Hadoop FileSystem 接口。借助该 SDK，Apache Hadoop 的计算分析应用（如 MapReduce、Hive、Spark、Flink等）可以无需修改代码和编译，可以直接使用文件存储 HDFS 作为 defaultFS，从而获得超越原始 HDFS 的功能和性能优势 。
+JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake Storage，以下简称 DLS。支持 DLS 的 JindoSDK 全面兼容 Hadoop FileSystem 接口，提供了更好的兼容性和易用性，又能兼具OSS的性能和成本优势。
 
 当然您也可以使用 JindoSDK 仅仅作为 OSS 客户端，相对于 Hadoop 社区 OSS 客户端实现，您仍然可以获得更好的性能和阿里云 E-MapReduce 产品技术团队更专业的支持。
 
