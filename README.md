@@ -39,10 +39,6 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 * [Fluid 结合 JindoFS 介绍和使用](docs/jindo_fluid/jindo_fluid_overview.md)
 
-## JindoFS 相关文章
-
-* [JindoFS 相关文章](docs/jindofs_articles.md)
-
 ## 历史版本
 
 * [JindoData 3.x](https://github.com/aliyun/alibabacloud-jindodata/blob/3.x/README.md)
