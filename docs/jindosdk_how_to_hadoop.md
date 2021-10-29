@@ -6,15 +6,15 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 当然您也可以使用 JindoSDK 仅仅作为 OSS 客户端，相对于 Hadoop 社区 OSS 客户端实现，您仍然可以获得更好的性能和阿里云 E-MapReduce 产品技术团队更专业的支持。
 
-目前支持市面上大部分 Hadoop 版本，在 Hadoop 2.3 及以上的版本上验证通过（2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindo-sdk/issues/new) 向我们反馈）<br />关于 JindoSDK 和 Hadoop 社区 OSS connector的性能对比，请参考文档 [JindoSDK和Hadoop-OSS-SDK性能对比测试](../docs_v4/cn/jindosdk_vs_hadoop_sdk.md)。<br />
+目前支持市面上大部分 Hadoop 版本，在 Hadoop 2.3 及以上的版本上验证通过（2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindo-sdk/issues/new) 向我们反馈）<br />关于 JindoSDK 和 Hadoop 社区 OSS connector的性能对比，请参考文档 [JindoSDK和Hadoop-OSS-SDK性能对比测试](/docs_v4/cn/jindosdk_vs_hadoop_sdk.md)。<br />
 
 ## 步骤
 
 ### 1. 权限设置
 
-#### 1.1. 服务端权限配置
+#### 1.1. DLS 服务授权
 
-使用 DLS 服务需要在 [RAM 控制台](https://ram.console.aliyun.com/overview) 完成以下授权，以便 OSS 服务账号能够访问 Bucket 里面的相关数据。 
+首次使用 DLS 服务时，需要先在 [RAM 控制台](https://ram.console.aliyun.com/overview) 完成以下授权，以便 DLS 服务账号能够管理 Bucket 中的数据块。 
 
 #### a. 新建名为AliyunOSSDlsDefaultRole的角色
 
@@ -52,29 +52,37 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 对刚创建的角色AliyunOSSDlsDefaultRole进行“精确授权”，权限类型为自定义策略，策略名称为：“AliyunOSSDlsRolePolicy”
 
-#### 1.2. 客户端权限配置
+#### 1.2. 客户端授权访问 DLS 服务
 
-注意：使用 DLS 客户端需要保证拥**至少**有以下 OSS 权限，设置方式可参考[《通过RAM对OSS进行权限管理》](https://help.aliyun.com/document_detail/58905.html)。
+注意：如您使用 子账号 或者 服务角色（如 [EMR 服务角色](https://help.aliyun.com/document_detail/28072.html)）的方式访问 DLS，客户端 AK 或者 服务角色 需要以下策略，设置方式可参考[《通过RAM对OSS进行权限管理》](https://help.aliyun.com/document_detail/58905.html)。
 
 ```json
 {
-  "Version": "1",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "oss:GetBucketInfo",
-        "oss:PostDataLakeStorageFileOperation"
-      ],
-      "Resource": "*"
-    }
-  ]
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "oss:*",
+            "Resource": [
+                "acs:oss:*:*:*/.dlsdata",
+                "acs:oss:*:*:*/.dlsdata*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "oss:GetBucketInfo",
+                "oss:PostDataLakeStorageFileOperation"
+            ],
+            "Resource": "*"
+        }
+    ],
+    "Version": "1"
 }
 ```
 
 
 ### 2. 安装 jar 包
-下载最新的 jar 包 jindosdk-x.x.x.jar ([下载页面](../docs_v4/cn/jindosdk_download.md))，将sdk包安装到 hadoop 的 classpath 下。
+下载最新的 jar 包 jindosdk-x.x.x.jar ([下载页面](/docs_v4/cn/jindosdk_download.md))，将sdk包安装到 hadoop 的 classpath 下。
 ```bash
 cp ./jindosdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindosdk-xxx.jar
 ```
@@ -115,7 +123,7 @@ cp ./jindosdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindosdk-xxx.jar
     </property>
 </configuration>
 ```
-JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS AccessKey 配置](../docs_v4/cn/jindosdk_credential_provider.md)。<br />
+JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS AccessKey 配置](/docs_v4/cn/jindosdk_credential_provider.md)。<br />
 
 ### 3. （可选）配置 OSS Access Key
 
@@ -141,7 +149,7 @@ JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoS
 </configuration>
 ```
 
-JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS AccessKey 配置](../docs_v4/cn/jindosdk_credential_provider.md)。<br />
+JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS AccessKey 配置](/docs_v4/cn/jindosdk_credential_provider.md)。<br />
 
 ### 4. 使用 JindoSDK 访问 OSS
 用 Hadoop Shell 访问 OSS，下面列举了几个常用的命令。
@@ -167,4 +175,4 @@ hadoop fs rm oss://<bucket>/<path>
 ```
 
 ### 5. 参数调优
-JindoSDK包含一些高级调优参数，配置方式以及配置项参考文档  [JindoSDK 配置项列表](../docs_v4/cn/jindosdk_configuration_list.md) 
+JindoSDK包含一些高级调优参数，配置方式以及配置项参考文档  [JindoSDK 配置项列表](/docs_v4/cn/jindosdk_configuration_list.md) 
