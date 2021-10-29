@@ -12,9 +12,9 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 ### 1. 权限设置
 
-#### 1.1. 服务端权限配置
+#### 1.1. DLS 服务授权
 
-使用 DLS 服务需要在 [RAM 控制台](https://ram.console.aliyun.com/overview) 完成以下授权，以便 OSS 服务账号能够访问 Bucket 里面的相关数据。 
+首次使用 DLS 服务时，需要先在 [RAM 控制台](https://ram.console.aliyun.com/overview) 完成以下授权，以便 DLS 服务账号能够管理 Bucket 中的数据块。 
 
 #### a. 新建名为AliyunOSSDlsDefaultRole的角色
 
@@ -52,23 +52,31 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 对刚创建的角色AliyunOSSDlsDefaultRole进行“精确授权”，权限类型为自定义策略，策略名称为：“AliyunOSSDlsRolePolicy”
 
-#### 1.2. 客户端权限配置
+#### 1.2. 客户端授权访问 DLS 服务
 
-注意：使用 DLS 客户端需要保证拥**至少**有以下 OSS 权限，设置方式可参考[《通过RAM对OSS进行权限管理》](https://help.aliyun.com/document_detail/58905.html)。
+注意：如您使用 子账号 或者 特定服务授权 的方式访问 DLS，客户端 AK 或 STS 需要以下 OSS 权限，设置方式可参考[《通过RAM对OSS进行权限管理》](https://help.aliyun.com/document_detail/58905.html)。
 
 ```json
 {
-  "Version": "1",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "oss:GetBucketInfo",
-        "oss:PostDataLakeStorageFileOperation"
-      ],
-      "Resource": "*"
-    }
-  ]
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "oss:*",
+            "Resource": [
+                "acs:oss:*:*:*/.dlsdata",
+                "acs:oss:*:*:*/.dlsdata*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "oss:GetBucketInfo",
+                "oss:PostDataLakeStorageFileOperation"
+            ],
+            "Resource": "*"
+        }
+    ],
+    "Version": "1"
 }
 ```
 
