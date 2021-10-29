@@ -12,7 +12,9 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 ### 1. 权限设置
 
-使用 DLS 需要在 [RAM 控制台](https://ram.console.aliyun.com/overview) 完成以下授权，以便 OSS 服务账号能够访问 Bucket 里面的相关数据。 
+#### 1.1. 服务端权限配置
+
+使用 DLS 服务需要在 [RAM 控制台](https://ram.console.aliyun.com/overview) 完成以下授权，以便 OSS 服务账号能够访问 Bucket 里面的相关数据。 
 
 #### a. 新建名为AliyunOSSDlsDefaultRole的角色
 
@@ -49,6 +51,26 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 #### c. 对新建的角色AliyunOSSDlsDefaultRole进行授权
 
 对刚创建的角色AliyunOSSDlsDefaultRole进行“精确授权”，权限类型为自定义策略，策略名称为：“AliyunOSSDlsRolePolicy”
+
+#### 1.2. 客户端权限配置
+
+注意：使用 DLS 客户端需要保证拥**至少**有以下 OSS 权限，设置方式可参考[《通过RAM对OSS进行权限管理》](https://help.aliyun.com/document_detail/58905.html)。
+
+```
+{
+  "Version": "1",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "oss:GetBucketInfo",
+        "oss:PostDataLakeStorageFileOperation"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
 
 
 ### 2. 安装 jar 包
@@ -94,25 +116,6 @@ cp ./jindosdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindosdk-xxx.jar
 </configuration>
 ```
 JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS AccessKey 配置](jindosdk_credential_provider.md)。<br />
-
-
-注意：使用 DLS 需要保证拥**至少**有以下 OSS 权限，设置方式可参考[《通过RAM对OSS进行权限管理》](https://help.aliyun.com/document_detail/58905.html)。
-
-```
-{
-  "Version": "1",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "oss:GetBucketInfo",
-        "oss:PostDataLakeStorageFileOperation"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
 
 ### 3. （可选）配置 OSS Access Key
 
