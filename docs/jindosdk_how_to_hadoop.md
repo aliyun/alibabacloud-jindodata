@@ -56,7 +56,7 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 注意：使用 DLS 客户端需要保证拥**至少**有以下 OSS 权限，设置方式可参考[《通过RAM对OSS进行权限管理》](https://help.aliyun.com/document_detail/58905.html)。
 
-```
+```json
 {
   "Version": "1",
   "Statement": [
@@ -75,7 +75,7 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 ### 2. 安装 jar 包
 下载最新的 jar 包 jindosdk-x.x.x.jar ([下载页面](../docs_v4/cn/jindosdk_download.md))，将sdk包安装到 hadoop 的 classpath 下。
-```
+```bash
 cp ./jindosdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindosdk-xxx.jar
 ```
 
