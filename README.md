@@ -21,6 +21,14 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 当然您也可以使用 JindoSDK 仅仅作为 OSS 客户端，相对于 Hadoop 社区 OSS 客户端实现，您仍然可以获得更好的性能和阿里云 E-MapReduce 产品技术团队更专业的支持。
 
+## JindoFSx 介绍
+
+JindoFSx 是一套为远端存储提供缓存服务和访问优化的系统，针对带宽瓶颈的场景，为大数据和 AI 场景提供性能保障。
+
+JindoFSx 支持识别数据冷热，智能缓存热数据，提高缓存利用率，同时支持 OSS 分层存储，为用户节约存储成本。
+
+JindoFSx 4.0 版本还支持权限管理和云原生可观测性，保障数据安全的同时，可以让用户直观地查看数据访问效率和缓存的情况。
+
 ## JindoSDK 使用
 
 * [Hadoop/Spark 生态使用 JindoSDK](docs_v4/cn/jindosdk_overview.md)
