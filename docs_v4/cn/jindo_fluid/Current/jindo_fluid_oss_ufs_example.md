@@ -8,12 +8,13 @@
 ```shell
 kubectl create ns fluid-system
 ```
-### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/fluid-0.6.0.tgz)
+### 2、[下载 Fluid 安装包](./jindo_fluid_download.md)
+
 ### 3、使用 Helm 安装 Fluid
 
 
 ```shell
-helm install --set runtime.jindo.enabled=true fluid fluid-0.6.0.tgz
+helm install --set runtime.jindo.enabled=true fluid fluid-<version>.tgz
 ```
 ### 4、查看 Fluid 的运行状态
 
@@ -115,11 +116,11 @@ kubectl create -f resource.yaml
 ```
 
 
-查看部署的 JinRuntime 情况，显示都为 Ready 状态表示部署成功。
+查看部署的 JinRuntime 情况，其中 fuse 会 lazy 启动，根据应用挂载情况来相应的节点上启动
 ```shell
 kubectl get jindoruntime hadoop
 NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
-hadoop    Ready           Ready           Ready     62m
+hadoop    Ready           Ready                     62m
 ```
 
 
@@ -199,6 +200,29 @@ user	0m0.002s
 sys	  0m0.105s
 ```
 
+此时我们对 oss 上文件进行一次数据预热，将 oss 上文件加载到本地
+
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: hadoop-dataload
+spec:
+  loadMetadata: true
+  dataset:
+    name: hadoop
+    namespace: default
+```
+执行
+```shell
+kubectl create -f dataload.yaml
+```
+观察 dataload 任务的执行情况
+```shell
+$ kubectl get dataload spark-dataload
+NAME             DATASET     PHASE       AGE
+hadoop-dataload   hadoop     Completed   2m13s
+```
 
 查看此时 dataset 的缓存情况，发现210MB的数据已经都缓存到了本地。
 
@@ -232,24 +256,15 @@ sys	  0m0.046s
 
 #### 7、环境清理
 
-
 - 删除应用和应用容器
 - 删除 JindoRuntime
-
-
 
 ```shell
 kubectl delete jindoruntime hadoop
 ```
 
-
 - 删除 dataset
-
-
 
 ```shell
 kubectl delete dataset hadoop
 ```
-
-
-以上通过一个简单的例子完成 JindoFS on Fluid 的入门体验和理解，并最后进行环境的清理，更多Fluid JindoRuntime 的功能使用后续文章会进行详细介绍

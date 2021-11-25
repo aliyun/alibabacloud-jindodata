@@ -5,16 +5,32 @@ JindoFS 提供了访问 S3 协议的能力，可以通过配置 S3 作为 JindoF
 
 
 本文档展示了如何在 Fluid 中以声明式的方式完成 JindoFS 部署，对接 S3 数据源（包括提供 S3 兼容的所有对象存储）。
+#### 创建命名空间
+```shell
+kubectl create ns fluid-system
+```
+#### [下载 Fluid 安装包](./jindo_fluid_download.md)
+
+#### 使用 Helm 安装 Fluid
 
 
-## 前提条件
+```shell
+helm install --set runtime.jindo.enabled=true fluid fluid-<version>.tgz
+```
+#### 查看 Fluid 的运行状态
 
 
-- [Fluid](https://github.com/fluid-cloudnative/fluid)
+```shell
+$ kubectl get pod -n fluid-system
+NAME                                         READY   STATUS    RESTARTS   AGE
+csi-nodeplugin-fluid-2mfcr                   2/2     Running   0          108s
+csi-nodeplugin-fluid-l7lv6                   2/2     Running   0          108s
+dataset-controller-5465c4bbf9-5ds5p          1/1     Running   0          108s
+jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
+```
 
-- 请参考[安装文档](./jindo_fluid_install.md)完成安装
 
-
+其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
 ### 创建 dataset 和 JindoRuntime
 
 
@@ -42,10 +58,8 @@ kubectl create -f mySecret.yaml
 
 创建一个 resource.yaml 文件里面包含两部分：
 
-
 - 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源。
 - 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFS 的集群来提供缓存服务。
-
 
 
 ```yaml
@@ -77,18 +91,11 @@ spec:
   replicas: 2
   tieredstore:
     levels:
-      - mediumtype: MEM
+      - mediumtype: SSD
         path: /mnt/disk1
         quota: 100G
         high: "0.9"
         low: "0.8"
-  worker:
-    properties:
-      storage.cache.filelet.worker.threads: "50"
-  fuse:
-    properties:
-      jfs.cache.data-cache.enable: "true"
-      jfs.cache.meta-cache.enable: "true"
 ```
 
 
@@ -156,34 +163,8 @@ persistentvolumeclaim/hadoop   Bound    hadoop   100Gi      RWX                 
 ```shell
 $ kubectl get jindoruntime hadoop
 NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
-hadoop    Ready           Ready           Ready     62m
+hadoop    Ready           Ready                     62m
 ```
-
-### 检查服务是否正常！！！
-此步骤建议用户创建成功后一定要进行验证
-
-#### 检查底层存储端点是否成功连接
-1、登陆到 master/worker pod上
-```shell
-kubectl get pod
-NAME                              READY   STATUS      RESTARTS   AGE
-hadoop-jindofs-fuse-svz4s         1/1     Running     0          23h
-hadoop-jindofs-master-0           1/1     Running     0          23h
-hadoop-jindofs-worker-2fpbk       1/1     Running     0          23h
-```
-```shell
-kubectl exec -ti hadoop-jindofs-master-0 bash
-hadoop fs -ls jfs://jindo/
-```
-观察是否可以正常list文件
-
-2、登陆到 fuse pod上
-```shell
-kubectl exec -ti hadoop-jindofs-fuse-svz4s bash
-ls /jfs/jindo/
-```
-观察是否可以正常list文件
-
 
 
 
