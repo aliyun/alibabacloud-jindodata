@@ -1,3 +1,23 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [配置待创建的DataLoad对象](#%E9%85%8D%E7%BD%AE%E5%BE%85%E5%88%9B%E5%BB%BA%E7%9A%84dataload%E5%AF%B9%E8%B1%A1)
+  - [创建DataLoad对象](#%E5%88%9B%E5%BB%BAdataload%E5%AF%B9%E8%B1%A1)
+  - [查看创建的DataLoad对象状态](#%E6%9F%A5%E7%9C%8B%E5%88%9B%E5%BB%BA%E7%9A%84dataload%E5%AF%B9%E8%B1%A1%E7%8A%B6%E6%80%81)
+  - [等待数据加载过程完成](#%E7%AD%89%E5%BE%85%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B%E5%AE%8C%E6%88%90)
+- [DataLoad进阶配置](#dataload%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE)
+  - [指定一个或多个数据集子目录进行加载](#%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%88%96%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E5%AD%90%E7%9B%AE%E5%BD%95%E8%BF%9B%E8%A1%8C%E5%8A%A0%E8%BD%BD)
+  - [设置数据加载时的缓存副本数量](#%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E7%BC%93%E5%AD%98%E5%89%AF%E6%9C%AC%E6%95%B0%E9%87%8F)
+  - [指定文件列表进行缓存](#%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8%E8%BF%9B%E8%A1%8C%E7%BC%93%E5%AD%98)
+    - [指定 OSS 上文件作为文件列表](#%E6%8C%87%E5%AE%9A-oss-%E4%B8%8A%E6%96%87%E4%BB%B6%E4%BD%9C%E4%B8%BA%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8)
+  - [原子性缓存](#%E5%8E%9F%E5%AD%90%E6%80%A7%E7%BC%93%E5%AD%98)
+  - [单独进行元数据缓存，不做数据缓存](#%E5%8D%95%E7%8B%AC%E8%BF%9B%E8%A1%8C%E5%85%83%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98%E4%B8%8D%E5%81%9A%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98)
+- [缓存进度及LOG查看](#%E7%BC%93%E5%AD%98%E8%BF%9B%E5%BA%A6%E5%8F%8Alog%E6%9F%A5%E7%9C%8B)
+  - [环境清理](#%E7%8E%AF%E5%A2%83%E6%B8%85%E7%90%86)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 为了保证应用在访问数据时的性能，可以通过**数据预加载**提前将远程存储系统中的数据拉取到靠近计算结点的分布式缓存引擎中，使得消费该数据集的应用能够在首次运行时即可享受到缓存带来的加速效果。
 
 
