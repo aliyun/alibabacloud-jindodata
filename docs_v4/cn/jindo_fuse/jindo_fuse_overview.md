@@ -22,4 +22,4 @@ FUSE 是 Linux 系统内核提供的一种挂载文件系统的方式。
 ### JindoFUSE 使用
 
 * [使用 JindoFUSE 访问 OSS](jindo_fuse_on_oss.md)
-
+* [使用 JindoFUSE 访问 JindoFS 服务](jindo_fuse_on_dls.md)
