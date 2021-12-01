@@ -1,9 +1,6 @@
 
 ![](v4/image/jindo_logo.png)
 
-(推荐使用此链接浏览)
-https://aliyun.github.io/alibabacloud-jindodata/
-
 ## JindoData 介绍
 
 JindoData 是阿里云大数据平台 EMR (E-MapReduce) 的核心自研组件，为各种大数据引擎提供统一的存储优化、缓存优化、计算加速，以及多种扩展功能，涵盖数据访问、数据治理和数据安全。JindoData 在远端存储与计算引擎之间构成一层加速层，与二者的关系如图：
