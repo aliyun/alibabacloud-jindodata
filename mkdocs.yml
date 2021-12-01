@@ -1,0 +1,85 @@
+site_name: AlibabaCloud JindoData
+docs_dir: docs
+copyright: Copyright &copy; 2018-2021 AlibabaCloud
+
+theme: united
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - toc:
+      permalink: §
+
+plugins:
+  - search
+  - mike:
+      version_selector: true
+      exclude_from_nav: ["images", "js", "css", "fonts", "img"]
+
+nav:
+  - 首页 : README.md
+  - Hadoop生态:
+    - JindoSDK 介绍: jindofs_sdk_overview.md
+    - Hadoop:
+      - Hadoop 使用 JindoSDK 访问 OSS: jindofs_sdk_how_to_hadoop.md
+      - Hadoop 使用 JindoSDK 访问 JFS: jindofs_sdk_how_to_jfs.md
+    - Spark:
+      - Spark 使用 JindoSDK 访问 OSS: spark/jindosdk_on_spark.md
+      - Spark 使用 JindoSDK 在 IDE 开发调试: spark/jindofs_sdk_ide_spark.md
+    - Hive:
+      - Hive 使用 JindoSDK 访问 OSS: jindosdk_on_hive.md
+    - Flink:
+      - JindoSDK Flink 支持: flink/jindofs_sdk_on_flink.md
+      - Flink 使用 JindoSDK 操作 OSS: flink/jindofs_sdk_on_flink_for_oss.md
+      - Flink 使用 JindoSDK 操作 JFS: flink/jindofs_sdk_on_flink_for_jfs.md
+    - Presto:
+      - Presto 使用 JindoSDK 访问 OSS: jindosdk_on_presto.md
+    - Flume:
+      - Flume 使用 JindoSDK 操作 OSS: jindofs_sdk_on_flume_for_oss.md
+      - Flume 使用 JindoSDK 操作 JFS: jindofs_sdk_on_flume_for_jfs.md
+    - Sqoop:
+      - Sqoop 使用 JindoSDK 访问 OSS: kitesdk_on_sqoop.md
+    - Driud:
+      - Driud 使用 JindoSDK 访问 OSS: jindosdk_on_druid.md
+    - Impala:
+      - Impala 使用 JindoSDK 访问 OSS: jindosdk_on_impala.md
+    - Ranger:
+      - Ranger 权限集成: jindofs_permission.md
+    - CDH:
+      - CDH 集成 JindoSDK : indofs_sdk_how_to_hadoop_cdh.md
+    - 开发和使用:
+      - IDE 集成: jindofs_sdk_ide_hadoop.md
+    - 进阶配置:
+      - 高级配置参数(3.6+): jindofs_sdk_configuration_list.md
+      - 高级配置参数(3.1~3.6): jindofs_sdk_configuration_list_3_6.md
+      - 高级配置参数(3.0 及以下): jindofs_sdk_configuration_list_3_x.md
+  - 云原生支持:
+      - JindoFuse:
+        - JindoFuse 介绍: jindofs_fuse/jindofs_fuse_overview.md
+        - 使用 JindoFS Fuse 访问 OSS: jindofs_fuse/jindofs_fuse_2_oss.md
+        - 使用 JindoFS Fuse 访问 JindoFS Cache/Block 模式集群: jindofs_fuse/jindofs_fuse_2_block_cache_mode.md
+        - JindoFS Fuse 性能测试: jindofs_fuse/jindofs_fuse_benchmark.md
+      - Fluid JindoRuntime:
+        - Fluid JindoRuntime 介绍: jindo_fluid/jindo_fluid_overview.md
+      - JindoPythonSDK:
+        - PyJindo 介绍: pyjindo/jindosdk_python_sdk.md
+        - PyJindo API: pyjindo/jindosdk_python_api.md
+      - Tensorflow:
+        - JindoFS Tensorflow 支持: tensorflow/jindofs_tensorflow_overview.md
+  - 数据迁移和工具:
+      - JindoDistcp 数据迁移:
+        - JindoDistcp 介绍: jindo_distcp/jindo_distcp_overview.md
+      - JindoTable:
+        - 使用 JindoTable 将 Hive 数据分区归档和分层到OSS: tools/table_moveto.md
+        - 使用 JindoTable 将 MaxCompute 内表保存为 Hadoop 集群的 Parquet 表: tools/table_dumpmc.md
+  - 最佳实践:
+    - JindoFS 存储模式和 HDFS 比较: comparisons/jindofs_block_vs_hdfs.md
+    - HBase on JindoFS 存储模式性能测试: comparisons/jindofs_block_vs_hdfs_hbase.md
+    - JindoFS 轻松应对 10亿+文件数: comparisons/jindofs_block_vs_hdfs_metaservice.md
+    - 使用 JindoTable Native Engine 加速 Spark 读取 Parquet 效果: comparisons/jindotable_native_vs_spark_parquet.md
+  - 下载:
+    - JindoSDK下载: jindofs_sdk_download.md
+    - JindoFS 服务部署:
+      - Block 模式部署: jindofs_block_mode_deploy.md
+      - Cache 模式部署: jindofs_cache_mode_deploy.md
