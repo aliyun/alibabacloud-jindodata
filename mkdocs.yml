@@ -1,3 +1,19 @@
+########## MKDOCS 简易使用说明 ##########
+#
+# 环境安装:
+# brew install python3
+# pip3 install mkdocs mike mkdocs-bootswatch
+#
+# 本地预览：
+# 1. mkdocs serve
+# 2. 访问 http://127.0.0.1:8000/ 查看
+#
+# 发布至 Github:
+# 1. mkdocs gh-pages
+# 2. 访问 https://aliyun.github.io/alibabacloud-jindodata/ 查看
+#
+##########
+
 site_name: AlibabaCloud JindoData
 docs_dir: docs
 copyright: Copyright &copy; 2018-2021 AlibabaCloud
