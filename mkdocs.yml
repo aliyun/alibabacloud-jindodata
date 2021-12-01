@@ -9,7 +9,7 @@
 # 2. 访问 http://127.0.0.1:8000/ 查看
 #
 # 发布至 Github:
-# 1. mkdocs gh-pages
+# 1. mkdocs gh-deploy
 # 2. 访问 https://aliyun.github.io/alibabacloud-jindodata/ 查看
 #
 ##########
@@ -77,7 +77,7 @@ nav:
         - 使用 JindoFS Fuse 访问 JindoFS Cache/Block 模式集群: jindofs_fuse/jindofs_fuse_2_block_cache_mode.md
         - JindoFS Fuse 性能测试: jindofs_fuse/jindofs_fuse_benchmark.md
       - Fluid JindoRuntime:
-        - Fluid JindoRuntime 介绍: jindo_fluid/jindo_fluid_overview.md
+        - Fluid JindoRuntime 介绍: v4/cn/jindo_fluid/jindo_fluid_overview.md
       - JindoPythonSDK:
         - PyJindo 介绍: pyjindo/jindosdk_python_sdk.md
         - PyJindo API: pyjindo/jindosdk_python_api.md
