@@ -175,6 +175,4 @@ ls: /mnt/jindodls/: Input/output error
 
 下面展示的这个错误就来自 `jindosdk.log`，根据报错信息可见，这个错误是常见的鉴权问题。
 
-```
-EMMDD HH:mm:ss jindofs_connectivity.cpp:13] Please check your Endpoint/Bucket/RoleArn. Failed test connectivity, operation: mkdir, errMsg:  [RequestId]: 618B8183343EA53531C62B74 [HostId]: oss-cn-shanghai-internal.aliyuncs.com [ErrorMessage]: [E1010]HTTP/1.1 403 Forbidden: <?xml version="1.0" encoding="UTF-8"?><Error>  <Code>AccessDenied</Code>
-```
+> EMMDD HH:mm:ss jindofs_connectivity.cpp:13] Please check your Endpoint/Bucket/RoleArn. Failed test connectivity, operation: mkdir, errMsg:  [RequestId]: 618B8183343EA53531C62B74 [HostId]: oss-cn-shanghai-internal.aliyuncs.com [ErrorMessage]: [E1010]HTTP/1.1 403 Forbidden ...
