@@ -15,7 +15,7 @@
 ##########
 
 site_name: AlibabaCloud JindoData
-docs_dir: docs_v4/cn
+docs_dir: docs
 copyright: Copyright &copy; 2021 AlibabaCloud
 
 theme: united

@@ -1,7 +1,8 @@
 
 ![](docs_v4/image/jindo_logo.png)
 
-简体中文
+(推荐使用此链接浏览)
+https://aliyun.github.io/alibabacloud-jindodata/
 
 ## JindoData 介绍
 
