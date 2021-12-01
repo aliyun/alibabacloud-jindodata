@@ -330,19 +330,19 @@ HBase在 JindoFS 存储模式下的读写混合的情况下，读/写/更新/扫
 系统性能截图
 CPU：
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_1.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_1.png" alt="title" width="800"/>
 
 #### 内存
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_2.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_2.png" alt="title" width="800"/>
 
 网络IO
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_3.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_3.png" alt="title" width="800"/>
 
 磁盘吞吐
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_4.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_4.png" alt="title" width="800"/>
 
 #### 测试分析
 三台机器在同时开启40个线程进行总共30亿数据的读写测试情况下，每台机器运行时间接近，同时在4天左右完成整个数据集，且对比三台机器的测试数据，读写性能都表现接近。在4天的运行期间，整个HBase性能表现平稳，无明显qps波动。验证了HBase在JindoFS 存储模式下长时间的运行系统表现平稳。
@@ -374,15 +374,15 @@ CPU：
 
 观察到触发了split，table的region变成5。
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_5.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_5.png" alt="title" width="800"/>
 
 在写入的时候，有minor compaction触发。
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_6.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_6.png" alt="title" width="800"/>
 
 触发split和compaction的过程中，qps稳定，波动幅度不大，维持在3500左右。
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_7.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_7.png" alt="title" width="800"/>
 
 
 #### 场景2
@@ -400,7 +400,7 @@ CPU：
 
 观察触发Major Compact期间，系统qps未发生明显波动。总耗时比不触发Major Compact时略有增加，
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_8.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_8.png" alt="title" width="800"/>
 
 **HDFS**
 
@@ -413,11 +413,11 @@ CPU：
 
 观察触发Major Compaction期间，系统qps发生波动，qps从84000～99000波动最低下降到4371，Major Compaction结束后qps回升。
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_9.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_9.png" alt="title" width="800"/>
 
 在没有Major Compact的情况下，系统qps维持在80000～99000。
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_10.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_10.png" alt="title" width="800"/>
 
 #### 测试分析
 在向HBase写入数据触发Minor Compaction的情况下，HBase写入延迟增加，在两种模式下的写入性能接近。在系统进行Major Compaction的过程中，HBase在JindoFS 存储模式下系统qps下降不明显，在HDFS模式下qps有下降趋势。
@@ -427,28 +427,28 @@ CPU：
 
 HDFS模式下Major Compaction时机器的CPU占有率
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_11.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_11.png" alt="title" width="800"/>
 
 JindoFS 存储模式下Major Compaction时机器的CPU占有率
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_12.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_12.png" alt="title" width="800"/>
 
 ### 测试重启
 HBase有100w的数据，对系统进行重启。重启了三次，没发现有region长时间处于RIT（Region-In-Transaction)状态。均能正常重启。
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_13.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_13.png" alt="title" width="800"/>
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_14.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_14.png" alt="title" width="800"/>
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_15.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_15.png" alt="title" width="800"/>
 
 ### 测试扩容
 在EMR集群管理页面对集群进行扩容，增加2台Core实例。HBase和JindoFS的各项服务都能正常启动。RegsionServer数增加为5，且没有长时间处于RIT状态。
 
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_16.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_16.png" alt="title" width="800"/>
 
-<img src="/pic/jindofs_block_vs_hdfs_hbase_17.png" alt="title" width="800"/>
+<img src="../../pic/jindofs_block_vs_hdfs_hbase_17.png" alt="title" width="800"/>
 
 ## 五、运维对比
 对于HBase跑在HDFS和 JindoFS 存储模式上，在运维方面主要关注的是存储方面的区别。JindoFS 存储模式与 HDFS 在运维方面相比，大大减轻了存储方面的运维工作，您可以更多地关注在 Hbase 的运维上。通过 JindoFS 存储模式，可以将大部分冷数据存放在对象存储 OSS 上，一方面可以节省成本，另一方面可以借助 OSS 的 SLA 稳定性保证，保证数据安全和服务高可用。更多关于 JindoFS 和 HDFS 的对比，可以[参考链接](./jindofs_block_vs_hdfs.md)。

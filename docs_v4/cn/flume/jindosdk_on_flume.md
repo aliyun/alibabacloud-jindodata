@@ -15,7 +15,7 @@ Flume 通过 flush() 调用保证事务性写入，OSS 本身不支持 Flush 功
 需要在 Flume 节点进行配置。在每个节点 Flume 根目录下的 lib 文件夹，放置 JindoSDK：
 * jindosdk-${version}.jar
 
-[下载页面](jindosdk_download.md)
+[下载页面](../jindosdk_download.md)
 
 ## 如何使用
 

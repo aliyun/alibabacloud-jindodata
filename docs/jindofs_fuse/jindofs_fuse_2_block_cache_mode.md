@@ -42,11 +42,11 @@ mkdir /mnt/jfs
 ./jindofs-fuse /mnt/jfs
 ```
 
-<img src="/pic/jindofs_fuse_2_jfs_1.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_fuse_2_jfs_1.png" alt="title" width="500"/>
 
 此时，您可以在/mnt/jfs路径下看到JindoFS集群namespace列表，并且像本地磁盘一样操作JindoFS集群上的文件。
 
-<img src="/pic/jindofs_fuse_2_jfs_2.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_fuse_2_jfs_2.png" alt="title" width="500"/>
 
 
 ### 5. 参数调优

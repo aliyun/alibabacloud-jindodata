@@ -8,7 +8,7 @@ JindoFS 提供兼容模式，通过分布式缓存服务在计算集群上为访
 * Jindo Namespace Service：负责缓存块元数据管理，以及提供整个分布式缓存系统的中心管理服务；
 * Jindo Storage Service：部署在各个存储节点上，管理维护数据缓存；
 * Jindo SDK：提供标准 Hadoop Filesystem 客户端访问 OSS，并且能够连接缓存服务实现缓存加速。
-<img src="/pic/jindofs_cache_mode_deploy_1.png" alt="title" width="700"/>
+<img src="../pic/jindofs_cache_mode_deploy_1.png" alt="title" width="700"/>
 
 ## 部署配置 JindoFS SDK
 

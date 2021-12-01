@@ -39,15 +39,15 @@ TPC-DS采用星型、雪花型等多维数据模式。它包含7张事实表，1
 ### 测试结果
 * OSS带宽为10Gb下测试结果
 
-<img src="/pic/jindofs_cache_vs_no_cache_1.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_cache_vs_no_cache_1.png" alt="title" width="700"/>
 
 * OSS带宽为20Gb下测试结果
 
-<img src="/pic/jindofs_cache_vs_no_cache_2.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_cache_vs_no_cache_2.png" alt="title" width="700"/>
 
 * OSS带宽为50Gb下测试结果
 
-<img src="/pic/jindofs_cache_vs_no_cache_3.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_cache_vs_no_cache_3.png" alt="title" width="700"/>
 
 ### 测试分析
 
@@ -55,23 +55,23 @@ TPC-DS采用星型、雪花型等多维数据模式。它包含7张事实表，1
 
 以10Gb带宽场景测试为例，下图所示为OSS服务端监控的流量情况，可以看到缓存禁用情况下存在较高的流量，打开缓存第一次执行由于本地没有缓存数据所以需要向OSS进行一次拉取，另外由于整体任务执行存在数据重复读取，因此缓存加载之后后续的任务就可以利用到缓存，所以存在一定的OSS流量，但总体流量明显小于缓存禁用的场景。最后当数据已经全部缓存之后，再重复执行测试作业，可以看到完全没有OSS流量，说明所有数据读取均通过了缓存读取。
 
-<img src="/pic/jindofs_cache_vs_no_cache_4.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_cache_vs_no_cache_4.png" alt="title" width="700"/>
 
 同时也可以观察到在OSS访问压力较大的一些时间触发了OSS流控，流控是OSS服务端为避免过大的压力而对客户端请求实施的限流措施，触发流控也会对客户端的OSS访问性能产生较为明显的影响。
 
-<img src="/pic/jindofs_cache_vs_no_cache_5.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_cache_vs_no_cache_5.png" alt="title" width="700"/>
 
 #### ECS端IO分析
 
 以10Gb计算任务Core节点上的IOPS为例，最高为2.9k。测试所用的磁盘为IO增强型最高IOPS可达1788GiB，可以看到IO并不是本地计算性能的瓶颈因素。
 
-<img src="/pic/jindofs_cache_vs_no_cache_6.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_cache_vs_no_cache_6.png" alt="title" width="700"/>
 
 #### ECS端磁盘分析
 
 以10Gb计算任务Task节点上的磁盘平均BPS来看，读写最高为613Mbit/s，磁盘读写任务也很流畅。
 
-<img src="/pic/jindofs_cache_vs_no_cache_7.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_cache_vs_no_cache_7.png" alt="title" width="700"/>
 
 ## 总结
 

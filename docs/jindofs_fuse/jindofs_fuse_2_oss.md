@@ -26,12 +26,12 @@ mkdir /mnt/jfs
 ./jindofs-fuse -oonly_sdk /mnt/jfs
 ```
 
-<img src="/pic/jindofs_fuse_2_oss_1.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_fuse_2_oss_1.png" alt="title" width="500"/>
 
 
 此时，您可以在/mnt/jfs路径下看到挂载的Bucket列表，并且像本地磁盘一样操作OSS上面的文件。
 
-<img src="/pic/jindofs_fuse_2_oss_2.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_fuse_2_oss_2.png" alt="title" width="500"/>
 
 ### 5. 其他挂载参数
 

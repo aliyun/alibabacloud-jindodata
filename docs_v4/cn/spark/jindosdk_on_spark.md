@@ -12,7 +12,7 @@ JindoSDK是一个简单易用面向Hadoop/Spark生态的OSS客户端，为阿里
 
 
 ### 2. 在 Spark CLASSPATH 中添加 JindoSDK
-下载最新的jar包 jindosdk-dls-x.x.x.jar ([下载页面](jindosdk_download.md))，将sdk包安装到 Spark 的classpath下。
+下载最新的jar包 jindosdk-dls-x.x.x.jar ([下载页面](../jindosdk_download.md))，将sdk包安装到 Spark 的classpath下。
 ````
 cp jindosdk-dls-${version}.jar  $SPARK_HOME/jars/
 ````
@@ -52,7 +52,7 @@ cp jindosdk-dls-${version}.jar  $SPARK_HOME/jars/
     </property>
 </configuration>
 ```
-JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考[JindoSDK OSS AccessKey 配置](jindosdk_credential_provider.md)。<br />
+JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考[JindoSDK OSS AccessKey 配置](../jindosdk_credential_provider.md)。<br />
 
 #### 任务级别配置
 使用参数在 Spark 任务提交的时候设置 JindoFs SDK, 以下为示例:
@@ -76,5 +76,5 @@ select * from test_oss;
  ```
 
 ### 5. 参数调优
-JindoSDK包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK配置项列表](jindosdk_configuration_list.md)。
+JindoSDK包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK配置项列表](../jindosdk_configuration_list.md)。
 <br />

@@ -68,9 +68,9 @@ NNBench全称NameNode Benchmark，是HDFS官方自带的用于测试NameNode性�
 |   open_read | 24853 |   24097 | 23521 |   23567 |
 
 
-<img src="/pic/jindofs_block_vs_hdfs_metaservice_1.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_block_vs_hdfs_metaservice_1.png" alt="title" width="500"/>
 
-<img src="/pic/jindofs_block_vs_hdfs_metaservice_2.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_block_vs_hdfs_metaservice_2.png" alt="title" width="500"/>
 
 
 NNBench的结果很好地反馈了随着元数据规模增长，元数据服务的性能变化曲线。通过结果我们可以分析得出：
@@ -86,7 +86,7 @@ NNBench的结果很好地反馈了随着元数据规模增长，元数据服务�
 使用的是官方TPC-DS数据集，5TB数据量，使用的是ORC格式，Spark作为执行引擎进行测试。
 测试成绩如下，时间单位秒：
 
-<img src="/pic/jindofs_block_vs_hdfs_metaservice_3.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_block_vs_hdfs_metaservice_3.png" alt="title" width="700"/>
 
 99个查询总耗时对比：
 
@@ -132,7 +132,7 @@ time hadoop fs -count jfs://test/warehouse/xxx.db
 
 测试结果如下（使用10亿文件数据集）
 
-<img src="/pic/jindofs_block_vs_hdfs_metaservice_4.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_block_vs_hdfs_metaservice_4.png" alt="title" width="500"/>
 
 通过观察发现，冷启动情况下，这些操作耗时增加了约0.2秒，只受到细微的影响。
 
@@ -158,7 +158,7 @@ time hadoop fs -count jfs://test/warehouse/xxx.db
 time hadoop dfs -ls [DIR] > /dev/null
 ```
 
-<img src="/pic/jindofs_block_vs_hdfs_metaservice_5.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_block_vs_hdfs_metaservice_5.png" alt="title" width="500"/>
 
 
 **递归 list 操作**
@@ -167,7 +167,7 @@ time hadoop dfs -ls [DIR] > /dev/null
 time hadoop dfs -ls -R [DIR] > /dev/null
 ```
 
-<img src="/pic/jindofs_block_vs_hdfs_metaservice_6.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_block_vs_hdfs_metaservice_6.png" alt="title" width="500"/>
 
 
 
@@ -178,7 +178,7 @@ time hadoop dfs -ls -R [DIR] > /dev/null
 time hadoop dfs -du [DIR] > /dev/null
 ```
 
-<img src="/pic/jindofs_block_vs_hdfs_metaservice_7.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_block_vs_hdfs_metaservice_7.png" alt="title" width="500"/>
 
 **count 操作**
 对目录的文件(夹)数量、容量进行计算，采样方法：
@@ -186,7 +186,7 @@ time hadoop dfs -du [DIR] > /dev/null
 time hadoop dfs -count [DIR] > /dev/null
 ```
 
-<img src="/pic/jindofs_block_vs_hdfs_metaservice_8.png" alt="title" width="500"/>
+<img src="../../pic/jindofs_block_vs_hdfs_metaservice_8.png" alt="title" width="500"/>
 
 #### 结果分析
 通过上述测试结果，可以明显发现 JindoFS 在list、du、count等常用操作上速度明显快于 HDFS。分析原因，HDFS NameNode 内存中使用了全局的读写锁，所以对于查询操作，尤其是对目录的递归查询操作都需要拿读锁。拿锁之后使用了单线程串行的方式做目录递归操作，速度较慢。拿锁时间长继而又影响了其它rpc请求的执行。JindoFS 从设计上解决了这些问题。它对目录的递归操作使用了多线程并发加速，因此在对目录树的递归操作上速度更快。同时使用了不同的目录树存储结构，配合细粒度锁，从而减少了多个请求之间的影响。

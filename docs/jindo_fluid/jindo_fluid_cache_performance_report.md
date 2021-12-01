@@ -64,19 +64,19 @@ JindoFS 在大数据分析场景下主要提供了兼容 Hadoop 文件系统的�
 
 下面再对 HDFS 集群的相关监控指标进行分析，首先观察 DataNode 节点，下图所示分别是关闭缓存和开启缓存情况下某个 DataNode 节点的网络吞吐情况，缓存之后 DataNode 吞吐几乎降为零，可以大幅减小对 HDFS 集群 DataNode 的网络带宽压力，在实际生产集群上，HDFS 集群往往会有大量的大数据分析作业，无论是 DataNode 读取数据还是作业 shuffle 过程，都会对节点的磁盘和网络带宽产生巨大压力，从而对 AI 训练作业的数据读取产生明显的影响，通过 JindoFS 缓存可以很好的减轻 DataNode 的带宽压力。
 * 关闭缓存：
-<img src="/pic/jindofs_fluid_cache_performance_report_1.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_fluid_cache_performance_report_1.png" alt="title" width="700"/>
 
 * 开启缓存：
-<img src="/pic/jindofs_fluid_cache_performance_report_2.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_fluid_cache_performance_report_2.png" alt="title" width="700"/>
 
 下面是 NameNode 节点的网络吞吐及 CPU 监控，可以看到大量小文件访问对 NameNode 的网络及 CPU 也会产生显著的压力，另外NameNode 作为一个单点服务，大量小文件访问也很容易对其稳定性产生影响，通过 JindoFS 进行元数据缓存后可以有效降低对 NameNode 的冲击。
 * 关闭缓存：
-<img src="/pic/jindofs_fluid_cache_performance_report_3.png" alt="title" width="700"/>
-<img src="/pic/jindofs_fluid_cache_performance_report_4.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_fluid_cache_performance_report_3.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_fluid_cache_performance_report_4.png" alt="title" width="700"/>
 
 * 开启缓存：
-<img src="/pic/jindofs_fluid_cache_performance_report_5.png" alt="title" width="700"/>
-<img src="/pic/jindofs_fluid_cache_performance_report_6.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_fluid_cache_performance_report_5.png" alt="title" width="700"/>
+<img src="../../pic/jindofs_fluid_cache_performance_report_6.png" alt="title" width="700"/>
 
 ## 总结
 AI 训练场景对于数据读取有很高的性能要求，而且海量的小文件对于访问延时也非常敏感，通过 JindoFS 的缓存能力可以有效地对大数据存储系统上的数据进行缓存加速，提供稳定可靠的高吞吐、低延时的数据访问性能，同时也可以有效地缓解对后端存储系统的的压力，保证后端存储的稳定性。
