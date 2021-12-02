@@ -30,8 +30,8 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中�
   <img src="../pic/jindofs_oss_ranger_4.png" width="800"/>
 
 ### 4. 创建用户 Principal。
-##### a. 通过SSH方式连接集群的emr-header-1节点。
-#####  b. 执行如下命令，进入Kerberos的admin工具。
+#### a. 通过SSH方式连接集群的emr-header-1节点。
+#### b. 执行如下命令，进入Kerberos的admin工具。
 ```
 sh /usr/lib/has-current/bin/admin-local.sh /etc/ecm/has-conf -k /etc/ecm/has-conf/admin.keytab
 ```
@@ -40,7 +40,7 @@ sh /usr/lib/has-current/bin/admin-local.sh /etc/ecm/has-conf -k /etc/ecm/has-con
 addprinc -pw 123456 test
 ```
 ###### 说明: 需要记录用户名和密码，在创建TGT时会用到。如果您不想记录用户名和密码，则可以执行下一步，把Principal的用户名和密码导入到keytab文件中。
-##### c. 可选：执行如下命令，生成keytab文件。
+#### c. 可选：执行如下命令，生成keytab文件。
 ```
 ktadd -k /root/test.keytab test
 ```
@@ -48,11 +48,11 @@ ktadd -k /root/test.keytab test
 
 ### 5. 创建TGT。
 创建TGT的机器，可以是任意一台需要访问OSS的机器。
-##### a. 使用root用户执行以下命令，创建test用户。
+#### a. 使用root用户执行以下命令，创建test用户。
 ```
 useradd test
 ```
-##### b. 执行以下命令，切换为test用户。
+#### b. 执行以下命令，切换为test用户。
 ```
 su test
 ```
@@ -86,6 +86,7 @@ renew until 07/25/2021 13:20:44
 例：配置用户test拥有访问oss://bucket-test-hangzhou/user/test目录的所以权限的步骤：
 ##### a. 配置test用户访问oss://bucket-test-hangzhou/user/test目录的访问权限为ALL。
 <img src="../pic/jindofs_oss_ranger_6.png" width="800"/>
+
 ###### 说明：
 * 规则配置页面中，配置的path没有oss://的前缀。
 * recursive按钮不可关闭
