@@ -6,7 +6,7 @@ JindoFS 服务（OSS-HDFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoF
 
 ### 基本使用
 
-#### 配置 JindoSDK
+#### 配置
 
 设置配置目录，例如：
 
@@ -19,29 +19,12 @@ export JINDOSDK_CONF_DIR=${JINDO_HOME}/conf
 ```toml
 [common]
 logger.dir = /tmp/fuse-log
-logger.sync = true
-logger.consolelogger = true
-logger.level = 2
-logger.verbose = 0
-logger.cleaner.enable = true
 
 [jindodls]
 fs.dls.endpoint = <your_endpoint>
 fs.dls.accessKeyId = <your_key_id>
 fs.dls.accessKeySecret = <your_key_secret>
 ```
-
-| 配置项                 | 默认值           | 说明                                                         |
-| ---------------------- | ---------------- | ------------------------------------------------------------ |
-| logger.dir             | /tmp/bigboot-log | 日志目录，不存在会创建                                       |
-| logger.sync            | false            | 是否同步输出日志，false表示异步输出                          |
-| logger.consolelogger   | false            | 打印日志到终端                                               |
-| logger.level           | 2                | 输出大于等于该等级的日志，等级范围为0-6，分别表示：TRACE、DEBUG、INFO、WARN、ERROR、CRITICAL、OFF |
-| logger.verbose         | 0                | 输出大于等于该等级的VERBOSE日志，等级范围为0-99，0表示不输出 |
-| logger.cleaner.enable  | false            | 是否开启日志清理                                             |
-| fs.dls.endpoint        |                  | 访问 JindoFS 服务的地址，如cn-xxx.oss-dls.aliyuncs.com       |
-| fs.dls.accessKeyId     |                  | 访问 JindoFS 服务需要的 accessKeyId                          |
-| fs.dls.accessKeySecret |                  | 访问 JindoFS 服务需要的 accessKeySecret                      |
 
 #### 挂载 JindoFuse
 
@@ -156,7 +139,19 @@ apt install -y fuse3
 | attr_timeout     |      | 默认值，0.1。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。 | -oattr_timeout=60    |
 | negative_timeout |      | 默认值，0.1。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。 | -onegative_timeout=0 |
 
-#### SDK选项
+#### 配置选项
+
+| 配置项                 | 默认值           | 说明                                                         |
+| ---------------------- | ---------------- | ------------------------------------------------------------ |
+| logger.dir             | /tmp/bigboot-log | 日志目录，不存在会创建                                       |
+| logger.sync            | false            | 是否同步输出日志，false表示异步输出                          |
+| logger.consolelogger   | false            | 打印日志到终端                                               |
+| logger.level           | 2                | 输出大于等于该等级的日志，等级范围为0-6，分别表示：TRACE、DEBUG、INFO、WARN、ERROR、CRITICAL、OFF |
+| logger.verbose         | 0                | 输出大于等于该等级的VERBOSE日志，等级范围为0-99，0表示不输出 |
+| logger.cleaner.enable  | false            | 是否开启日志清理                                             |
+| fs.dls.endpoint        |                  | 访问 JindoFS 服务的地址，如cn-xxx.oss-dls.aliyuncs.com       |
+| fs.dls.accessKeyId     |                  | 访问 JindoFS 服务需要的 accessKeyId                          |
+| fs.dls.accessKeySecret |                  | 访问 JindoFS 服务需要的 accessKeySecret                      |
 
 更多参数可见[相关文档](../jindosdk_configuration_list.md)。
 
