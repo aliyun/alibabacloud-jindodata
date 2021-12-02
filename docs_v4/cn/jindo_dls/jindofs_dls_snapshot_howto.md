@@ -1,5 +1,5 @@
 # JindoFS服务（OSS-HDFS服务） 快照功能使用介绍
-JindoFS服务（OSS-HDFS服务）是OSS新推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过JindoSDK 4.0.0 可以兼容访问JindoFS服务（OSS-HDFS服务）。关于用户如何创建和使用JindoFS服务（OSS-HDFS服务）的基本功能，请参考[链接](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs_v4/cn/jindo_dls/jindo_dls_howto.md)。
+JindoFS服务（OSS-HDFS服务）是OSS新推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过Jindo SDK 4.0.0 可以兼容访问JindoFS服务（OSS-HDFS服务）。关于用户如何创建和使用JindoFS服务（OSS-HDFS服务）的基本功能，请参考[链接](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs_v4/cn/jindo_dls/jindo_dls_howto.md)。
 
 本文主要介绍JindoFS服务（OSS-HDFS服务）中使用快照功能。
 为了方便下面命令的解释，我们假设oss://oss-dfs-test这个Bucket已经开启JindoFS服务（OSS-HDFS服务）。下面所有的例子都会针对这个bucket进行操作。
@@ -8,7 +8,7 @@ JindoFS服务（OSS-HDFS服务）是OSS新推出新的存储空间类型，兼�
 ```bash
 hdfs dfs -mkdir oss://oss-dfs-test/TestSnapshot
 ```
-默认情况下，目录的快照功能是关闭的。需要开启和关闭目录的快照功能，需要使用JindoSDK的shell命令行。具体的开启快照的格式为
+默认情况下，目录的快照功能是关闭的。需要开启和关闭目录的快照功能，需要使用Jindo SDK的shell命令行。具体的开启快照的格式为
 ```bash
 jindo dlsadmin -allowSnapshot -dlsUri <path>
 ```
@@ -89,7 +89,7 @@ hdfs dfs -deleteSnapshot <path> <snapshotName>
 hdfs dfs -deleteSnapshot oss://oss-dfs-test/TestSnapshot S100
 ```
 ## 关闭快照功能
-当我们需要关闭目录的快照功能的时候，我们同样需要使用JindoSDK的shell命令行。具体的关闭快照的格式为
+当我们需要关闭目录的快照功能的时候，我们同样需要使用Jindo SDK的shell命令行。具体的关闭快照的格式为
 ```bash
 jindo dlsadmin -disallowSnapshot <path>
 ```
