@@ -1,7 +1,7 @@
-# JindoFS服务化（OSS-HDFS服务） 快照功能使用介绍
+# JindoFS服务（OSS-HDFS服务） 快照功能使用介绍
 JindoFS服务（OSS-HDFS服务）是OSS新推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过JindoSDK 4.0.0 可以兼容访问JindoFS服务（OSS-HDFS服务）。关于用户如何创建和使用JindoFS服务（OSS-HDFS服务）的基本功能，请参考[链接](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs_v4/cn/jindo_dls/jindo_dls_howto.md)。
 
-本文主要介绍JindoFS服务（OSS-HDFS服务）场景中使用快照功能。
+本文主要介绍JindoFS服务（OSS-HDFS服务）中使用快照功能。
 为了方便下面命令的解释，我们假设oss://oss-dfs-test这个Bucket已经开启JindoFS服务（OSS-HDFS服务）。下面所有的例子都会针对这个bucket进行操作。
 ## 开启快照功能
 假设我们先在oss://oss-dfs-test下创建一个目录TestSnapshot。
@@ -55,17 +55,17 @@ hdfs dfs -ls oss://oss-dfs-test/TestSnapshot/.snapshot/S1/dir1
 ### 利用快照恢复数据
 快照的一个常见作用是进行数据备份和恢复。利用快照可以对重要数据进行恢复，防止用户错误性的操作。只要根据上面讲的**快照目录的格式**就可以访问到只读副本中的数据，然后可以根据需求进行恢复操作。
 
-在上面的文件系统中，我们已经对/TestSnapshot添加了快照S1。假设在后面的某次任务中误删了/TestSnapshot/dir1
+在上面的文件系统中，假设在后面的某次任务中误删了/TestSnapshot/dir1
 ```bash
-hdfs dfs -rm -r oss://oss-dfs-test/TestSnapshot/.snapshot/S1/dir1
+hdfs dfs -rm -r oss://oss-dfs-test/TestSnapshot/dir1
 ```
-我们可以用如下的命令恢复数据。
+由于我们已经对/TestSnapshot添加了快照S1。我们可以用如下的命令恢复数据。
 ```bash
 hdfs dfs -cp oss://oss-dfs-test/TestSnapshot/.snapshot/S1/dir1 oss://oss-dfs-test/TestSnapshot
 ```
 这个时候我们再访问/TestSnapshot/dir1，就会发现原来的误删的文件夹和文件都恢复了。
 ```bash
-hdfs dfs  -ls oss://oss-dfs-test/TestSnapshot/.snapshot/S1/dir1
+hdfs dfs  -ls oss://oss-dfs-test/TestSnapshot/dir1
 ```
 
 ## 重命名快照
