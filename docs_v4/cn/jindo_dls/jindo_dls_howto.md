@@ -1,11 +1,11 @@
 # OSS DLS存储空间（Bucket）
 阿里云对象存储服务（Object Storage Service，OSS）是一种海量、安全、低成本、高可靠的云存储服务，适合存放任意类型的文件关于OSS产品的相关介绍可详见[产品官网](https://help.aliyun.com/product/31815.html?spm=5176.7933691.J_7985555940.2.19b94c59dVm8gi)。
 
-OSS DLS存储空间（Bucket）是OSS新推出新的存储空间类型，支持目录以及目录层级，全面兼容Hadoop FileSystem接口，通过JindoFS SDK 4.0可以兼容访问数据湖类型的OSS存储空间， Apache Hadoop的计算分析应用（例如MapReduce、Hive、Spark、Flink等）可在不修改代码或者编译的情况下，直接使用OSS存储空间（Bucket），用户如何创建OSS DLS存储空间，详细步骤请参考[链接](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs_v4/cn/jindosdk_how_to_hadoop.md)
+OSS DLS存储空间（Bucket）是OSS新推出新的存储空间类型，全面兼容Hadoop FileSystem接口, 支持目录以及目录层级，通过JindoFS SDK 4.0.0 可以兼容访问OSS DLS存储空间(Bucket)， Apache Hadoop的计算分析应用（例如MapReduce、Hive、Spark、Flink等）可在不修改代码或者编译的情况下，直接使用OSS存储空间（Bucket），用户如何创建OSS DLS存储空间，详细步骤请参考[链接](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs_v4/cn/jindosdk_how_to_hadoop.md)
 
 
 # 基本操作示例
-在数据湖类型（DLS）存储空间创建以及配置完成后，在EMR集群可以通过hadoop fs命令进行OSS相关操作
+OSS DLS存储空间(Bucket)创建以及配置完成后，可以通过hadoop fs命令进行OSS相关操作
 ### 新建目录
 在OSS创建目录
 指令: mkdir
