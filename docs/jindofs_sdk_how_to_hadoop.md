@@ -82,4 +82,5 @@ JindoFS SDK包含一些高级调优参数，配置方式以及配置项参考文
 <br />
 
 ### 6. 权限管理
-请参考 [JindoFS 使用 Ranger 的鉴权方案](jindofs_permission.md)
+* 自建集群，请参考 [JindoFS 使用 Ranger 的鉴权方案](jindofs_permission.md)
+* 阿里云 E-MapReduce 集群，请参考 [JindoFS OSS 使用 Ranger 的鉴权方案](jindofs_oss_permission.md)
