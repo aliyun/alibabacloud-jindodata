@@ -215,6 +215,25 @@ spec:
 * endpoint：OSS 所在的 region 信息，需要注意内网和公网地址的区别，确认可访问
 * url：该文件在 OSS 上的路径，比如 `oss://xyz/dir/filepath.txt`
 
+下面介绍下文件列表的内容，文件列表的一行代表一个要缓存的文件：
+
+如当前 OSS 的目录结构为
+
+```shell
+oss://test/user/sample.txt
+oss://test/data/fluid.tgz
+```
+且 `dataset.spec.mountpoint = oss://test/`
+
+那么想缓存上面两个文件可定义文件列表 filepath.txt 的内容为
+
+```shell
+/user/sample.txt
+/data/fluid.tgz
+```
+
+即文件列表路径为全路径在 mountpoint 路径下的相对路径内容
+
 ### 原子性缓存
 如您想保持缓存一致性和原子性，那么您可以使用如下 yaml 来完成这个功能，需要注意的是使用原子性缓存功能，您需要在runtime里开启元数据缓存开关，具体为
 ```yaml
