@@ -215,9 +215,9 @@ spec:
 * endpoint：OSS 所在的 region 信息，需要注意内网和公网地址的区别，确认可访问
 * url：该文件在 OSS 上的路径，比如 `oss://xyz/dir/filepath.txt`
 
-下面介绍下文件列表的内容，文件列表的一行代表一个要缓存的文件：
+下面介绍下文件列表的内容，文件列表的`一行`代表一个要缓存的文件：
 
-如当前 OSS 的目录结构为
+如当前 OSS 上的文件目录结构为
 
 ```shell
 oss://test/user/sample.txt
@@ -225,7 +225,7 @@ oss://test/data/fluid.tgz
 ```
 且 `dataset.spec.mountpoint = oss://test/`
 
-那么想缓存上面两个文件可定义文件列表 filepath.txt 的内容为
+那么想缓存上面两个文件可定义文件列表 `filepath.txt` 的内容为
 
 ```shell
 /user/sample.txt
