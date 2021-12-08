@@ -2,14 +2,15 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [挂载点在根目录下](#%E6%8C%82%E8%BD%BD%E7%82%B9%E5%9C%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B)
-- [Secret 加密 AK 参数](#secret-%E5%8A%A0%E5%AF%86-ak-%E5%8F%82%E6%95%B0)
-- [Raft 3 master 模式](#raft-3-master-%E6%A8%A1%E5%BC%8F)
-- [使用 Placement 部署多个 runtime](#%E4%BD%BF%E7%94%A8-placement-%E9%83%A8%E7%BD%B2%E5%A4%9A%E4%B8%AA-runtime)
-- [使用 NoseSelector 部署节点](#%E4%BD%BF%E7%94%A8-noseselector-%E9%83%A8%E7%BD%B2%E8%8A%82%E7%82%B9)
-- [使用 dataset nodeAffinity 功能](#%E4%BD%BF%E7%94%A8-dataset-nodeaffinity-%E5%8A%9F%E8%83%BD)
-- [Worker 个数扩缩容](#worker-%E4%B8%AA%E6%95%B0%E6%89%A9%E7%BC%A9%E5%AE%B9)
-- [使用 tolerations 功能](#%E4%BD%BF%E7%94%A8-tolerations-%E5%8A%9F%E8%83%BD)
+- [挂载点在根目录下](#挂载点在根目录下)
+- [Secret 加密 AK 参数](#secret-加密-ak-参数)
+- [Raft 3 master 模式](#raft-3-master-模式)
+- [使用 Placement 部署多个 runtime](#使用-placement-部署多个-runtime)
+- [使用 NoseSelector 部署节点](#使用-noseselector-部署节点)
+- [使用 dataset nodeAffinity 功能](#使用-dataset-nodeaffinity-功能)
+- [Worker 个数扩缩容](#worker-个数扩缩容)
+- [使用 tolerations 功能](#使用-tolerations-功能)
+- [resource 资源](#resource-资源)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -110,7 +111,7 @@ spec:
 ```
 
 ### 使用 NoseSelector 部署节点
-```shell
+```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
 metadata:
@@ -121,7 +122,7 @@ spec:
     levels:
       - mediumtype: SSD
         path: /mnt/disk1
-        quota: 10G
+        quota: 10Gi
         high: "0.9"
         low: "0.8"
   master:
@@ -204,7 +205,7 @@ spec:
     levels:
       - mediumtype: HDD
         path: /mnt/disk1
-        quota: 2G
+        quota: 2Gi
         high: "0.8"
         low: "0.7"
   master:
@@ -222,4 +223,38 @@ spec:
     - key: hbase 
       operator: Equal 
       value: "true"  
+```
+
+### resource 资源
+可以指定 master/worker 等的 resource 资源
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hadoop
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /var/lib/docker/jindo
+        quota: 200Gi
+        high: "0.9"
+        low: "0.8"
+  master:
+    resources:
+      limits:
+        cpu: "4"
+        memory: "8Gi"
+      requests:
+        cpu: "2"
+        memory: "3Gi"
+  worker:
+    resources:
+      limits:
+        cpu: "4"
+        memory: "8Gi"
+      requests:
+        cpu: "2"
+        memory: "3Gi"
 ```

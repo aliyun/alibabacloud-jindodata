@@ -149,7 +149,7 @@ spec:
     levels:
       - mediumtype: SSD
         path: /mnt/disk1/
-        quota: 290G
+        quota: 290Gi
         high: "0.9"
         low: "0.2"
   hadoopConfig: hdfsconfig
@@ -273,7 +273,7 @@ spec:
     levels:
       - mediumtype: SSD
         path: /mnt/disk1/
-        quota: 290G
+        quota: 290Gi
         high: "0.9"
         low: "0.2"
   hadoopConfig: hdfsconfig
