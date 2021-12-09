@@ -1,16 +1,14 @@
-## 使用 JindoFuse 访问 JindoFS 服务
-
-### 简介
+# 使用 JindoFuse 访问 JindoFS 服务
 
 JindoFS 服务（OSS-HDFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 JindoFS 服务上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作该服务上的文件。
 
-### 基本使用
+# 基本使用
 
-#### 配置
+## 配置
 
 设置配置目录，例如：
 
-```bash
+```
 export JINDOSDK_CONF_DIR=${JINDO_HOME}/conf
 ```
 
@@ -26,42 +24,43 @@ fs.dls.accessKeyId = <your_key_id>
 fs.dls.accessKeySecret = <your_key_secret>
 ```
 
-#### 挂载 JindoFuse
+## 挂载 JindoFuse
 
 在完成对 JindoSDK 的配置后，可以使用以下命令创建一个挂载点：
 
-```bash
+```
+mkdir -p <mount_point>
 jindo-fuse <mount_point> -omode=jindodls -ouri=[<jindodls_path>]
 ```
 
 这个命令会启动一个后台的守护进程，将指定的 <jindodls_path> 挂载到本地文件系统的 <mount_point>。
 
-#### 访问 JindoFuse
+## 访问 JindoFuse
 
 如果将 JindoFS 服务挂载到了本地 /mnt/jindodls/，可以执行以下命令访问 JindoFuse。
 
 1. 列出/mnt/jindodls/下的所有目录：
 
-   ```bash
+   ```
    ls /mnt/jindodls/
    ```
 
 2. 创建目录：
 
-   ```bash
+   ```
    mkdir /mnt/jindodls/dir1
    ls /mnt/jindodls/
    ```
 
 3. 写入文件：
 
-   ```bash
+   ```
    echo "hello world" > /mnt/jindodls/dir1/hello.txt
    ```
 
 4. 读取文件：
 
-   ```bash
+   ```
    cat /mnt/jindodls/dir1/hello.txt
    ```
 
@@ -69,23 +68,23 @@ jindo-fuse <mount_point> -omode=jindodls -ouri=[<jindodls_path>]
 
 5. 删除目录：
 
-   ```bash
+   ```
    rm -rf /mnt/jindodls/dir1/
    ```
    
-#### 卸载 JindoFuse
+## 卸载 JindoFuse
 
 想卸载之前挂载的挂载点，可以使用如下命令：
 
-```bash
+```
 umount <mount_point>
 ```
 
-#### 自动卸载 JindoFuse
+## 自动卸载 JindoFuse
 
 可以使用`-oauto_unmount` 参数，自动卸载挂载点。但该参数需要依赖 fusermount3，可以通过以下命令安装：
 
-```bash
+```
 # CentOS
 yum install -y fuse3
 # Debian
@@ -94,7 +93,7 @@ apt install -y fuse3
 
 使用该参数后，可以使用  `kill `pidof jindof-fuse``发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
 
-### 特性支持
+# 特性支持
 
 目前 JindoFuse 已经支持以下 POSIX API：
 
@@ -120,9 +119,9 @@ apt install -y fuse3
 | chmod()         | 修改文件权限，类似 chmod                 |
 | access()        | 查询文件权限                             |
 
-### 高阶使用
+# 高阶使用
 
-#### 挂载选项
+## 挂载选项
 
 | 参数名称         | 必选 | 参数说明                                                     | 使用范例             |
 | ---------------- | ---- | ------------------------------------------------------------ | -------------------- |
@@ -139,7 +138,7 @@ apt install -y fuse3
 | attr_timeout     |      | 默认值，0.1。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。 | -oattr_timeout=60    |
 | negative_timeout |      | 默认值，0.1。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。 | -onegative_timeout=0 |
 
-#### 配置选项
+## 配置选项
 
 | 配置项                 | 默认值           | 说明                                                         |
 | ---------------------- | ---------------- | ------------------------------------------------------------ |
@@ -155,13 +154,13 @@ apt install -y fuse3
 
 更多参数可见[相关文档](../jindosdk_configuration_list.md)。
 
-### 常见问题
+# 常见问题
 
-#### Input/Output error
+## Input/Output error
 
 不像使用 JindoSDK 调用 API 可以获取更为具体的 ErrorMsg，JindoFuse 只能显示操作系统预设的错误信息，比如以下错误就非常常见：
 
-```bash
+```
 $ ls /mnt/jindodls/
 ls: /mnt/jindodls/: Input/output error
 ```
