@@ -8,7 +8,7 @@ JindoFS 服务（OSS-HDFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoF
 
 设置配置目录，例如：
 
-```bash
+```
 export JINDOSDK_CONF_DIR=${JINDO_HOME}/conf
 ```
 
@@ -28,7 +28,7 @@ fs.dls.accessKeySecret = <your_key_secret>
 
 在完成对 JindoSDK 的配置后，可以使用以下命令创建一个挂载点：
 
-```bash
+```
 jindo-fuse <mount_point> -omode=jindodls -ouri=[<jindodls_path>]
 ```
 
@@ -40,26 +40,26 @@ jindo-fuse <mount_point> -omode=jindodls -ouri=[<jindodls_path>]
 
 1. 列出/mnt/jindodls/下的所有目录：
 
-   ```bash
+   ```
    ls /mnt/jindodls/
    ```
 
 2. 创建目录：
 
-   ```bash
+   ```
    mkdir /mnt/jindodls/dir1
    ls /mnt/jindodls/
    ```
 
 3. 写入文件：
 
-   ```bash
+   ```
    echo "hello world" > /mnt/jindodls/dir1/hello.txt
    ```
 
 4. 读取文件：
 
-   ```bash
+   ```
    cat /mnt/jindodls/dir1/hello.txt
    ```
 
@@ -67,7 +67,7 @@ jindo-fuse <mount_point> -omode=jindodls -ouri=[<jindodls_path>]
 
 5. 删除目录：
 
-   ```bash
+   ```
    rm -rf /mnt/jindodls/dir1/
    ```
    
@@ -75,7 +75,7 @@ jindo-fuse <mount_point> -omode=jindodls -ouri=[<jindodls_path>]
 
 想卸载之前挂载的挂载点，可以使用如下命令：
 
-```bash
+```
 umount <mount_point>
 ```
 
@@ -83,7 +83,7 @@ umount <mount_point>
 
 可以使用`-oauto_unmount` 参数，自动卸载挂载点。但该参数需要依赖 fusermount3，可以通过以下命令安装：
 
-```bash
+```
 # CentOS
 yum install -y fuse3
 # Debian
@@ -159,7 +159,7 @@ apt install -y fuse3
 
 不像使用 JindoSDK 调用 API 可以获取更为具体的 ErrorMsg，JindoFuse 只能显示操作系统预设的错误信息，比如以下错误就非常常见：
 
-```bash
+```
 $ ls /mnt/jindodls/
 ls: /mnt/jindodls/: Input/output error
 ```
