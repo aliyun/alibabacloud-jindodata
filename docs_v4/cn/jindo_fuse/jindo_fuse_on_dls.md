@@ -29,6 +29,7 @@ fs.dls.accessKeySecret = <your_key_secret>
 在完成对 JindoSDK 的配置后，可以使用以下命令创建一个挂载点：
 
 ```
+mkdir -p <mount_point>
 jindo-fuse <mount_point> -omode=jindodls -ouri=[<jindodls_path>]
 ```
 
