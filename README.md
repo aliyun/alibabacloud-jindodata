@@ -1,9 +1,6 @@
 
 ![](docs_v4/image/jindo_logo.png)
 
-(推荐使用此链接浏览)
-https://aliyun.github.io/alibabacloud-jindodata/
-
 ## JindoData 介绍
 
 JindoData 是阿里云大数据平台 EMR (E-MapReduce) 的核心自研组件，为各种大数据引擎提供统一的存储优化、缓存优化、计算加速，以及多种扩展功能，涵盖数据访问、数据治理和数据安全。JindoData 在远端存储与计算引擎之间构成一层加速层，与二者的关系如图：
@@ -30,24 +27,6 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 
 当然您也可以使用 JindoSDK 仅仅作为 OSS 客户端，相对于 Hadoop 社区 OSS 客户端实现，您仍然可以获得更好的性能和阿里云 E-MapReduce 产品技术团队更专业的支持。
 
-## JindoSDK 使用
+## 用户文档
 
-* [Hadoop/Spark 生态使用 JindoSDK](docs_v4/cn/jindosdk_overview.md)
-
-## JindoSDK 开发
-
-* [Hadoop 使用 JindoSDK 在 IDE 开发调试](docs_v4/cn/jindosdk_ide_hadoop.md)
-
-* [Spark 使用 JindoSDK 在 IDE 开发调试](docs_v4/cn/spark/jindosdk_ide_spark.md)
-
-## 数据迁移最佳实践
-
-* [Jindo Distcp 数据迁移](docs_v4/cn/jindo_distcp/jindo_distcp_overview.md)
-
-## JindoFS 云原生
-
-* [Fluid 结合 JindoFS 介绍和使用](docs_v4/cn/jindo_fluid/jindo_fluid_overview.md)
-
-## 历史版本
-
-* [JindoData 3.x](https://github.com/aliyun/alibabacloud-jindodata/blob/3.x/README.md)
+https://aliyun.github.io/alibabacloud-jindodata/

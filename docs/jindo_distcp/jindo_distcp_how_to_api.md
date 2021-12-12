@@ -16,11 +16,11 @@
 
 ```xml
         <dependency>
-            <groupId>bigboot</groupId>
+            <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-distcp</artifactId>
-            <version>3.7.2</version>
+            <version>${version}</version>
             <scope>system</scope>
-            <systemPath>/your/path/to/jindo-distcp-3.7.2.jar</systemPath>
+            <systemPath>/your/path/to/jindo-distcp-${version}.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -154,7 +154,7 @@ public interface DistCpService {
 | void setSrcPattern(String srcPattern)                        | 可选     | 设置一个正则表达式，来选择需要进行拷贝的文件                 | null                   | 3.6.0+ |
 | void setSrcPrefixesFile(String srcPrefixesFile)              | 可选     | 设置一个带有前缀列表的文件路径，用于拷贝多个文件夹           | null                   | 3.6.0+ |
 | void setFilters(String filters)                              | 可选     | 设置一个带有正则表达式列表的文件路径，用于过滤符合正则的文件 | null                   | 3.6.0+ |
-| void setIgnoreFailures(boolean ignoreFailures)               | 可选     | 设置是否忽略拷贝任务中抛出的异常，避免中断任务               | False                  | 3.7.2+ |
+| void setIgnoreFailures(boolean ignoreFailures)               | 可选     | 设置是否忽略拷贝任务中抛出的异常，避免中断任务               | False                  | ${version}+ |
 | void setStorageClass(String storageClass)                    | 可选     | 设置目标存储策略，支持Standard、IA、Archive、ColdArchive     | Standard               | 3.6.0+ |
 | void setDisableChecksum(boolean disableChecksum)             | 可选     | 设置是否关闭Checksum检查                                     | false                  | 3.6.0+ |
 | void setOutputCodec(String outputCodec)                      | 可选     | 设置压缩类型，支持编解码器有 gzip、gz、lzo、lzop、lzop、snappy | keep（不更改压缩类型） | 3.6.0+ |
