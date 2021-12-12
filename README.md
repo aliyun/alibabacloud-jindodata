@@ -7,6 +7,10 @@ JindoData 是阿里云大数据平台 EMR (E-MapReduce) 的核心自研组件，
 
 ![](docs_v4/image/jindo_introduction.png)
 
+## OSS (对象存储) 介绍
+
+阿里云 OSS 对象存储（Object Storage Service）是一款海量、安全、低成本、高可靠的云存储服务，提供99.9999999999%(12个9)的数据持久性，99.995%的数据可用性。多种存储类型供选择，全面优化存储成本。
+
 ## JindoFS(存储系统) 介绍
 
 JindoFS 作为阿里云基于 OSS 的一套完整的数据湖存储优化方案，完全兼容 Hadoop/Spark 生态，并针对 Spark、Hive、Flink、Presto 等大数据组件和 AI 生态实现了大量扩展和优化。
