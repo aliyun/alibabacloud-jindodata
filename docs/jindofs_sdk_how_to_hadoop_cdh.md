@@ -31,7 +31,7 @@ cp ./jindofs-sdk-*.jar /opt/cloudera/parcels/CDH/lib/hadoop/lib/jindofs-sdk.jar
 ### 3. 配置 OSS Access Key
 通过集群管理工具Cloudera Manager增加OSS的Access Key、Access Key Secret、Endpoint等配置，并根据Cloudera Manager提示重启集群和部署客户端配置。
 
-<img src="../pic/jindofs_sdk_cdh_oss_impl_config.png#pic_center" />
+<img src="../pic/jindofs_sdk_cdh_oss_ak_config.png#pic_center" />
 
 若没有Cloudera Manager管理的集群，可以配置core-site.xml中。
 ```xml
