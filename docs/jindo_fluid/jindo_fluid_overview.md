@@ -1,41 +1,22 @@
-### 环境要求
+## 环境要求
 * Kubernetes version > 1.14, 支持CSI
 * Golang 1.12+
 * Helm 3
-* [Fluid 0.6.0](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/fluid-0.6.0.tgz)
 
+## 安装包下载
+[下载页面](./Current/jindo_fluid_download.md)
 
-### Fluid JindoRuntime 使用文档
-* [快速入门](./common/jindo_fluid_quickStart.md)
-* [安装文档](./common/jindo_fluid_install.md)
-* [加速OSS上数据](./common/jindo_fluid_oss_ufs_example.md)
-* [加速HDFS上数据](./common/jindo_fluid_hdfs_ufs_example.md)
-* [加速S3上数据](./common/jindo_fluid_s3_ufs_example.md)
-* [使用参数加密](./common/jindo_fluid_encryptOption.md)
-* [数据亲和性调度](./common/jindo_fluid_nodeAffinity.md)
-* [Master节点亲和性部署](./common/jindo_fluid_nodeselector_for_master.md)
-* [多Master节点部署](./common/jindo_fluid_multimaster.md)
-* [Fuse客户端节点亲和性部署](./common/jindo_fluid_fuse_nodeselector.md)
-* [数据容忍污点调度](./common/jindo_fluid_toleration.md)
-* [Fuse客户端全局部署](./common/jindo_fluid_globalfuse.md)
-* [Dataset手动扩缩容](./common/jindo_fluid_autoscale.md)
-* [使用Placement在同一个集群上部署多个dataset](./common/jindo_fluid_placement.md)
-* [数据源mount到根目录下](./common/jindo_fluid_mount.md)
-* [数据预加载](./common/jindo_fluid_dataload.md)
-* [数据缓存和元数据缓存](./common/jindo_fluid_data_meta_cache.md)
-* [监控及可观测功能](./common/jindo_fluid_monitor_metric.md)
-* [问题诊断及处理](./common/jindo_fluid_question.md)
+## 使用文档
+* [加速OSS上数据](./Current/jindo_fluid_oss_ufs_example.md)
+* [加速HDFS上数据](./Current/jindo_fluid_hdfs_ufs_example.md)
+* [加速S3上数据](./Current/jindo_fluid_s3_ufs_example.md)
+* [个性化功能使用](./Current/jindo_fluid_ways_to_use.md)
+* [数据预加载](./Current/jindo_fluid_dataload.md)
+* [监控及可观测功能](./Current/jindo_fluid_monitor_metric.md)
+* [问题诊断及处理](./Current/jindo_fluid_question.md)
 
-
-
-### Fluid JindoRuntime 最佳实践系列
+## 最佳实践系列
 * [云原生 AI 在自动驾驶领域的应用探索与毫末智行落地实践](https://www.infoq.cn/article/YkTwXpZGaE86E29MdVo2)
 * [微博海量深度学习模型训练效率跃升的秘密](https://www.infoq.cn/article/FClx4Cco6b1jomi6UZSy)
+* [作业帮检索服务基于 Fluid 的计算存储分离实践](https://www.infoq.cn/article/W65RcTI8AUhmoHVLkzWo?utm_source=tuicool&utm_medium=referral)
   
-### Fluid 结合 JindoFS 系列文章
-* [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](https://developer.aliyun.com/article/781935)
-* [拥抱云原生，Fluid结合JindoFS：加速机器学习训练-ResNet50](jindo_fluid_resnet50_example.md)
-* [拥抱云原生，Fluid结合JindoFS：加速机器学习训练-InsightFace](jindo_fluid_insightFace_example.md)
-* [拥抱云原生，Fluid结合JindoFS：进阶使用指南](jindo_fluid_jindofs_step_introduce.md)
-* [拥抱云原生，Fluid结合JindoFS：加速 HDFS 使用指南](jindo_fluid_jindofs_hdfs_introduce.md)
-* [拥抱云原生，Fluid结合JindoFS：AI 训练场景 JindoFS 缓存加速最佳实践](jindo_fluid_cache_performance_report.md)
