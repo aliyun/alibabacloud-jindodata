@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 ### 推荐下载最新版本
 - [下载](#下载)
+  - [0.7.0-1216](#070-1216)
   - [0.7.0-1208](#070-1208)
   - [0.7.0-1126](#070-1126)
   - [0.6.0](#060)
@@ -10,6 +11,15 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 下载
+
+### 0.7.0-1216
+更新日期：2021-12-16 </br>
+[Fluid 0.7.0](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/0.7.0/20211216/fluid-0.7.0.tgz)
+
+coommitId：a661cac
+
+JindoRuntime 相关功能升级：<br/>
+* 支持 fuse 回收策略：OnDemand 和 OnRuntimeDeleted（默认）
 
 ### 0.7.0-1208
 更新日期：2021-12-08 </br>

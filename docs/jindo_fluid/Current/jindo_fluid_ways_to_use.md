@@ -11,6 +11,7 @@
 - [Worker 个数扩缩容](#worker-个数扩缩容)
 - [使用 tolerations 功能](#使用-tolerations-功能)
 - [resource 资源](#resource-资源)
+- [fuse 回收策略](#fuse-回收策略)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -258,3 +259,24 @@ spec:
         cpu: "2"
         memory: "3Gi"
 ```
+
+### fuse 回收策略
+
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: oss
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /var/lib/docker/jindo
+        quota: 200Gi
+        high: "0.9"
+        low: "0.8"
+  fuse:
+    cleanPolicy: OnDemand
+```
+* fuse.cleanPolicy: onDemand / OnRuntimeDeleted 分别表示按需启动，任务结束 fuse 也结束和在 runtime 销毁的时候和其他组件一起销毁掉
