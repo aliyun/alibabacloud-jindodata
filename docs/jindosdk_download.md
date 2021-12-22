@@ -2,7 +2,7 @@
 
 ## v4.0.0 (预览版 RC1)
 
-[jindosdk-4.0.0-rc1.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.0.0/jindosdk-4.0.0.tar.gz)<br />
+[jindosdk-4.0.0-rc1.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.0.0/jindosdk-4.0.0-rc1.tar.gz)<br />
 
 ## v3.8.0 (12/06/2021)
 
