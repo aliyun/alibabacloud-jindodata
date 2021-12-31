@@ -39,17 +39,17 @@ hadoop jar jindo-distcp-${version}.jar --src /data --dest oss://bucket/dir/ --dl
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.endpoint</name>
+        <name>fs.oss.endpoint</name>
         <value>cn-xxx.oss-dls.aliyuncs.com</value>
     </property>
 </configuration>

@@ -24,12 +24,12 @@ cp jindosdk-${version}.jar  $IMPALA_HOME/lib/
 <configuration>
     <property>
         <name>fs.AbstractFileSystem.oss.impl</name>
-        <value>com.aliyun.jindodata.dls.DLS</value>
+        <value>com.aliyun.jindodata.oss.JindoOSS</value>
     </property>
 
     <property>
         <name>fs.oss.impl</name>
-        <value>com.aliyun.jindodata.dls.JindoDlsFileSystem</value>
+        <value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
     </property>
 </configuration>
 ```
@@ -37,17 +37,17 @@ cp jindosdk-${version}.jar  $IMPALA_HOME/lib/
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.endpoint</name>
+        <name>fs.oss.endpoint</name>
         <value>cn-xxx.oss-dls.aliyuncs.com</value>
     </property>
 </configuration>

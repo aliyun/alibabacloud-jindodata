@@ -358,17 +358,17 @@ hadoop jar jindo-distcp-${version}.jar --src /data/incoming/hourly_table --dest 
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.endpoint</name>
+        <name>fs.oss.endpoint</name>
       	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>

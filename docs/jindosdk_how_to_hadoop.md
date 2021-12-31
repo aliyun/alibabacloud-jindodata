@@ -80,7 +80,6 @@ JindoSDK 4.0 版本新支持了开启 HDFS 服务的 OSS bucket，即 Data Lake 
 }
 ```
 
-
 ### 2. 安装 jar 包
 下载最新的 jar 包 jindosdk-x.x.x.jar ([下载页面](/docs_v4/cn/jindosdk_download.md))，将sdk包安装到 hadoop 的 classpath 下。
 ```bash
@@ -95,30 +94,30 @@ cp ./jindosdk-*.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/jindosdk-xxx.jar
 <configuration>
     <property>
         <name>fs.AbstractFileSystem.oss.impl</name>
-        <value>com.aliyun.jindodata.dls.DLS</value>
+        <value>com.aliyun.jindodata.oss.JindoOSS</value>
     </property>
 
     <property>
         <name>fs.oss.impl</name>
-        <value>com.aliyun.jindodata.dls.JindoDlsFileSystem</value>
+        <value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
     </property>
 </configuration>
 ```
-将 DLS bucket 对应 的 Access Key、Access Key Secret、Endpoint 等预先配置在 Hadoop 的 core-site.xm l中。
+将 DLS bucket 对应 的 Access Key、Access Key Secret、Endpoint 等预先配置在 Hadoop 的 core-site.xml 中。
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.endpoint</name>
+        <name>fs.oss.endpoint</name>
         <value>cn-xxx.oss-dls.aliyuncs.com</value>
     </property>
 </configuration>

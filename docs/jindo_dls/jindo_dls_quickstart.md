@@ -90,12 +90,12 @@ cp ./jindosdk-*.jar <HADOOP_HOME>/share/hadoop/common/lib/jindosdk-xxx.jar
 <configuration>
     <property>
         <name>fs.AbstractFileSystem.oss.impl</name>
-        <value>com.aliyun.jindodata.dls.DLS</value>
+        <value>com.aliyun.jindodata.oss.JindoOSS</value>
     </property>
 
     <property>
         <name>fs.oss.impl</name>
-        <value>com.aliyun.jindodata.dls.JindoDlsFileSystem</value>
+        <value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
     </property>
 </configuration>
 ```
@@ -103,17 +103,17 @@ cp ./jindosdk-*.jar <HADOOP_HOME>/share/hadoop/common/lib/jindosdk-xxx.jar
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.dls.endpoint</name>
+        <name>fs.oss.endpoint</name>
         <value>cn-xxx.oss-dls.aliyuncs.com</value>
     </property>
 </configuration>

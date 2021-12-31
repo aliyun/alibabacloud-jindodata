@@ -5,21 +5,21 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
     <property>
-        <name>fs.dls.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
     <property>
-        <name>fs.dls.endpoint</name>
+        <name>fs.oss.endpoint</name>
         <value>cn-xxx.oss-dls.aliyuncs.com</value>
     </property>
 </configuration>
 ```
 ## 使用 Hadoop Credential Providers 存储 AccessKey 信息
-上面的 fs.dls.accessKeyId 和 fs.dls.accessKeySecret 将会明文配置在core-site.xml中，可以将其以加密对方式存储至Hadoop Credential Providers文件中。<br />
+上面的 fs.oss.accessKeyId 和 fs.oss.accessKeySecret 将会明文配置在core-site.xml中，可以将其以加密对方式存储至Hadoop Credential Providers文件中。<br />
 使用Hadoop提供的命令，存储AccessKey和SecurityToken信息至Credential文件中。命令格式如下。
 
 ```
@@ -27,15 +27,15 @@ hadoop credential <subcommand> [options]
 ```
 例如，存储AccessKey和Token信息至JECKS文件中，除了使用文件权限保护该文件外，您也可以指定密码加密存储信息，如果不指定密码则使用默认字符串加密。
 ```
-hadoop credential create fs.dls.accessKeyId -value AAA -provider jceks://file/root/oss.jceks
-hadoop credential create fs.dls.accessKeySecret -value BBB -provider jceks://file/root/oss.jceks
-hadoop credential create fs.dls.securityToken -value  CCC -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.accessKeyId -value AAA -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.accessKeySecret -value BBB -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file/root/oss.jceks
 ```
 生成Credential文件后，您需要配置下面的参数来指定Provider的类型和位置。
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.security.credential.provider.path</name>
+        <name>fs.oss.security.credential.provider.path</name>
         <value>jceks://file/root/oss.jceks</value>
         <description>配置存储AK的Credential文件。例如，jceks://file/${user.home}/oss.jceks为HOME下的oss.jceks文件</description>
     </property>
@@ -46,7 +46,7 @@ hadoop credential create fs.dls.securityToken -value  CCC -provider jceks://file
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.credentials.provider</name>
+        <name>fs.oss.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.SimpleAliyunCredentialsProvider,com.aliyun.jindodata.auth.EnvironmentVariableCredentialsProvider,com.aliyun.jindodata.auth.JindoCommonCredentialsProvider,com.aliyun.jindodata.auth.EcsStsCredentialsProvider</value>
         <description>配置com.aliyun.jindodata.auth.AliyunCredentialsProvider的实现类，多个类时使用英文逗号（, ）隔开，按照先后顺序读取Credential直至读到有效的Credential。Provider详情请参见Credential Provider类型。</description>
     </property>
@@ -59,32 +59,13 @@ hadoop credential create fs.dls.securityToken -value  CCC -provider jceks://file
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.credentials.provider</name>
+        <name>fs.oss.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.TemporaryAliyunCredentialsProvider</value>
     </property>
 </configuration>
 ```
 
 * 配置OSS AK：
-
-```xml
-<configuration>
-    <property>
-        <name>fs.dls.accessKeyId</name>
-        <value>OSS的AccessKey Id</value>
-    </property>
-    <property>
-        <name>fs.dls.accessKeySecret</name>
-        <value>OSS的AccessKey Secret</value>
-    </property>
-    <property>
-        <name>fs.dls.securityToken</name>
-        <value>OSS的SecurityToken（临时安全令牌)</value>
-    </property>
-</configuration>
-```
-
-* 也可以使用Hadoop Aliyun OSS 的配置AK的方式：
 
 ```xml
 <configuration>
@@ -109,28 +90,13 @@ hadoop credential create fs.dls.securityToken -value  CCC -provider jceks://file
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.credentials.provider</name>
+        <name>fs.oss.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.SimpleAliyunCredentialsProvider</value>
     </property>
 </configuration>
 ```
 
 * 配置OSS AK：
-
-```xml
-<configuration>
-    <property>
-        <name>fs.dls.accessKeyId</name>
-        <value>OSS的AccessKey Id</value>
-    </property>
-    <property>
-        <name>fs.dls.accessKeySecret</name>
-        <value>OSS的AccessKey Secret</value>
-    </property>
-</configuration>
-```
-
-* 也可以使用Hadoop Aliyun OSS 的配置AK的方式：
 
 ```xml
 <configuration>
@@ -151,7 +117,7 @@ hadoop credential create fs.dls.securityToken -value  CCC -provider jceks://file
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.credentials.provider</name>
+        <name>fs.oss.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.EnvironmentVariableCredentialsProvider</value>
     </property>
 </configuration>
@@ -172,7 +138,7 @@ hadoop credential create fs.dls.securityToken -value  CCC -provider jceks://file
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.credentials.provider</name>
+        <name>fs.oss.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.JindoCommonCredentialsProvider</value>
     </property>
 </configuration>
@@ -204,8 +170,8 @@ hadoop credential create fs.dls.securityToken -value  CCC -provider jceks://file
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.credentials.provider</name>
-        <value>com.aliyun.jindodata.auth.JindoCommonCredentialsProvider</value>
+        <name>fs.oss.credentials.provider</name>
+        <value>com.aliyun.jindodata.auth.CustomCredentialsProvider</value>
     </property>
 </configuration>
 ```

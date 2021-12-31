@@ -4,35 +4,43 @@ JindoFS 服务（OSS-HDFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoF
 
 # 基本使用
 
-## 配置
+## 配置客户端
 
-设置配置目录，例如：
+### 配置目录
+执行以下命令配置目录：
 
 ```
-export JINDOSDK_CONF_DIR=${JINDO_HOME}/conf
+export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 ```
 
-配置文件的文件名为`jindosdk.cfg`，具体配置采用 INI 风格，例如：
+### 配置文件
+使用 INI 风格配置文件，配置文件的文件名为`jindosdk.cfg`，示例如下：
 
 ```toml
 [common]
 logger.dir = /tmp/fuse-log
 
-[jindodls]
-fs.dls.endpoint = <your_endpoint>
-fs.dls.accessKeyId = <your_key_id>
-fs.dls.accessKeySecret = <your_key_secret>
+[jindosdk]
+# 已开启HDFS服务的Bucket对应的Endpoint。以华东1（杭州）为例，填写为cn-hangzhou.oss-dls.aliyuncs.com。
+fs.oss.endpoint = <your_endpoint>
+# 用于访问JindoFS服务的AccessKey ID和AccessKey Secret。阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
+fs.oss.accessKeyId = <your_key_id>
+fs.oss.accessKeySecret = <your_key_secret>
 ```
 
 ## 挂载 JindoFuse
 
-在完成对 JindoSDK 的配置后，可以使用以下命令创建一个挂载点：
+在完成对 JindoSDK 的配置后。
+### 创建一个挂载点， 命令如下：
 
 ```
 mkdir -p <mount_point>
+```
+### 挂载 Fuse, 命令如下：
+```
 jindo-fuse <mount_point> -omode=jindodls -ouri=[<jindodls_path>]
 ```
-
+-ouri需配置为待映射的dls路径，路径可以为Bucket根目录或者子目录。
 这个命令会启动一个后台的守护进程，将指定的 <jindodls_path> 挂载到本地文件系统的 <mount_point>。
 
 ## 访问 JindoFuse
@@ -125,7 +133,6 @@ apt install -y fuse3
 
 | 参数名称         | 必选 | 参数说明                                                     | 使用范例             |
 | ---------------- | ---- | ------------------------------------------------------------ | -------------------- |
-| mode             | ✓    | 默认值，jindodls。                                           | -omode=jindodls      |
 | uri              | ✓    | 配置需要映射的 dls 路径。路径可以是根目录，也可以是子目录。例如：oss://bucket/ 或 oss://bucket/subdir。 | -ouri=oss://bucket/  |
 | f                |      | 在前台启动进程。默认使用守护进程方式后台启动。使用该参数时，推荐开启终端日志。 | -f                   |
 | d                |      | 使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。 | -d                   |
@@ -148,9 +155,9 @@ apt install -y fuse3
 | logger.level           | 2                | 输出大于等于该等级的日志，等级范围为0-6，分别表示：TRACE、DEBUG、INFO、WARN、ERROR、CRITICAL、OFF |
 | logger.verbose         | 0                | 输出大于等于该等级的VERBOSE日志，等级范围为0-99，0表示不输出 |
 | logger.cleaner.enable  | false            | 是否开启日志清理                                             |
-| fs.dls.endpoint        |                  | 访问 JindoFS 服务的地址，如cn-xxx.oss-dls.aliyuncs.com       |
-| fs.dls.accessKeyId     |                  | 访问 JindoFS 服务需要的 accessKeyId                          |
-| fs.dls.accessKeySecret |                  | 访问 JindoFS 服务需要的 accessKeySecret                      |
+| fs.oss.endpoint        |                  | 访问 JindoFS 服务的地址，如cn-xxx.oss-dls.aliyuncs.com       |
+| fs.oss.accessKeyId     |                  | 访问 JindoFS 服务需要的 accessKeyId                          |
+| fs.oss.accessKeySecret |                  | 访问 JindoFS 服务需要的 accessKeySecret                      |
 
 更多参数可见[相关文档](../jindosdk_configuration_list.md)。
 

@@ -29,7 +29,7 @@ hdfs dfs -mkdir oss://oss-dfs-test/TestSnapshot/dir2
 hdfs dfs -touchz oss://oss-dfs-test/TestSnapshot/dir1/file1
 hdfs dfs -touchz oss://oss-dfs-test/TestSnapshot/dir3/file2
 
-#创建快照S1
+#通过HDFS的shell命令行工具执行以下命令创建快照，并将快照命名为S1：
 hdfs dfs -createSnapshot oss://oss-dfs-test/TestSnapshot S1
 ```
 ## 访问快照中的目录和文件
@@ -45,7 +45,7 @@ hdfs dfs -createSnapshot oss://oss-dfs-test/TestSnapshot S1
 ```bash
 hdfs dfs -ls oss://oss-dfs-test/TestSnapshot/dir1
 ```
-​
+
 由于我们在TestSnapshot下开启的快照，并创建了快照S1。我们也可以通过下面的路径来列出快照S1下的目录和文件。
 ```bash
 hdfs dfs -ls oss://oss-dfs-test/TestSnapshot/.snapshot/S1/dir1
@@ -65,7 +65,7 @@ hdfs dfs -cp oss://oss-dfs-test/TestSnapshot/.snapshot/S1/dir1 oss://oss-dfs-tes
 ```
 这个时候我们再访问/TestSnapshot/dir1，就会发现原来的误删的文件夹和文件都恢复了。
 ```bash
-hdfs dfs  -ls oss://oss-dfs-test/TestSnapshot/dir1
+hdfs dfs -ls oss://oss-dfs-test/TestSnapshot/dir1
 ```
 
 ## 重命名快照
@@ -74,7 +74,6 @@ hdfs dfs  -ls oss://oss-dfs-test/TestSnapshot/dir1
 hdfs dfs -renameSnapshot <path> <oldName> <newName>
 ```
 例如上面例子的中的TestSnapshot的快照S1，我们可以用下面的命令进行重命名为S100
-​
 
 ```bash
 hdfs dfs -renameSnapshot oss://oss-dfs-test/TestSnapshot S1 S100

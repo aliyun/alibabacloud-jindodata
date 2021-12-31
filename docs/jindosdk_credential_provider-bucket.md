@@ -5,7 +5,7 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.bucket.XXX.credentials.provider</name>
+        <name>fs.oss.bucket.XXX.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.SimpleAliyunCredentialsProvider,com.aliyun.jindodata.auth.EnvironmentVariableCredentialsProvider,com.aliyun.jindodata.auth.JindoCommonCredentialsProvider,com.aliyun.jindodata.auth.EcsStsCredentialsProvider</value>
         <description>配置com.aliyun.jindodata.auth.AliyunCredentialsProvider的实现类，多个类时使用英文逗号（, ）隔开，按照先后顺序读取Credential直至读到有效的Credential。Provider详情请参见Credential Provider类型。</description>
     </property>
@@ -21,7 +21,7 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.bucket.XXX.credentials.provider</name>
+        <name>fs.oss.bucket.XXX.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.TemporaryAliyunCredentialsProvider</value>
     </property>
 </configuration>
@@ -32,15 +32,15 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.bucket.XXX.accessKeyId</name>
+        <name>fs.oss.bucket.XXX.accessKeyId</name>
         <value>OSS bucket的AccessKey Id</value>
     </property>
     <property>
-        <name>fs.dls.bucket.XXX.accessKeySecret</name>
+        <name>fs.oss.bucket.XXX.accessKeySecret</name>
         <value>OSS bucket的AccessKey Secret</value>
     </property>
     <property>
-        <name>fs.dls.bucket.XXX.securityToken</name>
+        <name>fs.oss.bucket.XXX.securityToken</name>
         <value>OSS bucket的SecurityToken（临时安全令牌)</value>
     </property>
 </configuration>
@@ -52,7 +52,7 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.bucket.XXX.credentials.provider</name>
+        <name>fs.oss.bucket.XXX.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.SimpleAliyunCredentialsProvider</value>
     </property>
 </configuration>
@@ -63,11 +63,11 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.bucket.XXX.accessKeyId</name>
+        <name>fs.oss.bucket.XXX.accessKeyId</name>
         <value>OSS bucket的AccessKey Id</value>
     </property>
     <property>
-        <name>fs.dls.bucket.XXX.accessKeySecret</name>
+        <name>fs.oss.bucket.XXX.accessKeySecret</name>
         <value>OSS bucket的AccessKey Secret</value>
     </property>
 </configuration>
@@ -79,7 +79,7 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.bucket.XXX.credentials.provider</name>
+        <name>fs.oss.bucket.XXX.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.EnvironmentVariableCredentialsProvider</value>
     </property>
 </configuration>
@@ -100,7 +100,7 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.dls.bucket.XXX.credentials.provider</name>
+        <name>fs.oss.bucket.XXX.credentials.provider</name>
         <value>com.aliyun.jindodata.auth.JindoCommonCredentialsProvider</value>
     </property>
 </configuration>
