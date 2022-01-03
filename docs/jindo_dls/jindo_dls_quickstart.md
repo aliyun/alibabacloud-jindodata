@@ -118,7 +118,7 @@ cp ./jindosdk-*.jar <HADOOP_HOME>/share/hadoop/common/lib/jindosdk-xxx.jar
     </property>
 </configuration>
 ```
-JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS AccessKey 配置](/docs_v4/cn/jindosdk_credential_provider.md)。<br />
+JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS AccessKey 配置](/docs/jindosdk_credential_provider.md)。<br />
 
 # 基本操作示例
 JindoFS服务创建以及配置完成后，可以通过hdfs dfs 命令进行相关文件/目录操作
