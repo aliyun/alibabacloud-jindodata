@@ -1,4 +1,4 @@
-# Hive 使用 JindoSDK 处理 JindoFS 服务上的数据
+# Hive 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据
 
 Hive 是大数据的常用工具之一，很多用户使用 Hive 搭建离线数仓。随着数据量不断增长，传统的基于 HDFS 存储的数仓可能无法以较低成本满足用户的需求，结合对象存储等云存储使用 Hive 也是一种常见做法。如果要使用 OSS 作为 Hive 数仓的底层存储，使用 JindoSDK 可以获得更好的读写性能以及更强大的技术支持。
 

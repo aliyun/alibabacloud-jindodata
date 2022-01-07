@@ -116,7 +116,7 @@ spec:
 ```
 
 
-该配置文件片段中，包含了许多与Jindo相关的配置信息，这些信息将被Fluid用来启动一个JindoFS实例。上述配置片段中的`spec.replicas`属性被设置为1，这表明Fluid将会启动一个包含1个JindoFS Master和1个JindoFS Worker的JindoFS实例
+该配置文件片段中，包含了许多与Jindo相关的配置信息，这些信息将被Fluid用来启动一个JindoFSx实例。上述配置片段中的`spec.replicas`属性被设置为1，这表明Fluid将会启动一个包含1个JindoFSx Master和1个JindoFSx Worker的JindoFSx实例
 
 
 **创建JindoRuntime资源并查看状态**

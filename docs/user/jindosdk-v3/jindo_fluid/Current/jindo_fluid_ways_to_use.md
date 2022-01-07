@@ -1,22 +1,18 @@
-# 高阶功能使用
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+# Fluid + JindoFSx 缓存系统高阶功能使用
 
-- [挂载点在根目录下](#%E6%8C%82%E8%BD%BD%E7%82%B9%E5%9C%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B)
-- [Secret 加密 AK 参数](#secret-%E5%8A%A0%E5%AF%86-ak-%E5%8F%82%E6%95%B0)
-- [Raft 3 master 模式](#raft-3-master-%E6%A8%A1%E5%BC%8F)
-- [使用 Placement 部署多个 runtime](#%E4%BD%BF%E7%94%A8-placement-%E9%83%A8%E7%BD%B2%E5%A4%9A%E4%B8%AA-runtime)
-- [使用 NoseSelector 部署节点](#%E4%BD%BF%E7%94%A8-noseselector-%E9%83%A8%E7%BD%B2%E8%8A%82%E7%82%B9)
-- [使用 dataset nodeAffinity 功能](#%E4%BD%BF%E7%94%A8-dataset-nodeaffinity-%E5%8A%9F%E8%83%BD)
-- [Worker 个数扩缩容](#worker-%E4%B8%AA%E6%95%B0%E6%89%A9%E7%BC%A9%E5%AE%B9)
-- [使用 tolerations 功能](#%E4%BD%BF%E7%94%A8-tolerations-%E5%8A%9F%E8%83%BD)
-- [resource 资源](#resource-%E8%B5%84%E6%BA%90)
-- [fuse 回收策略](#fuse-%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5)
-- [JindoFS 客户端相关参数和使用](#jindofs-%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0%E5%92%8C%E4%BD%BF%E7%94%A8)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
+- 高阶功能
+    - [挂载点在根目录下](#%E6%8C%82%E8%BD%BD%E7%82%B9%E5%9C%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B)
+    - [Secret 加密 AK 参数](#secret-%E5%8A%A0%E5%AF%86-ak-%E5%8F%82%E6%95%B0)
+    - [Raft 3 master 模式](#raft-3-master-%E6%A8%A1%E5%BC%8F)
+    - [使用 Placement 部署多个 runtime](#%E4%BD%BF%E7%94%A8-placement-%E9%83%A8%E7%BD%B2%E5%A4%9A%E4%B8%AA-runtime)
+    - [使用 NoseSelector 部署节点](#%E4%BD%BF%E7%94%A8-noseselector-%E9%83%A8%E7%BD%B2%E8%8A%82%E7%82%B9)
+    - [使用 dataset nodeAffinity 功能](#%E4%BD%BF%E7%94%A8-dataset-nodeaffinity-%E5%8A%9F%E8%83%BD)
+    - [Worker 个数扩缩容](#worker-%E4%B8%AA%E6%95%B0%E6%89%A9%E7%BC%A9%E5%AE%B9)
+    - [使用 tolerations 功能](#%E4%BD%BF%E7%94%A8-tolerations-%E5%8A%9F%E8%83%BD)
+    - [Resource 资源](#resource-%E8%B5%84%E6%BA%90)
+    - [Fuse 回收策略](#fuse-%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5)
+    - [JindoFSx 客户端相关参数和使用](#jindofsx-%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0%E5%92%8C%E4%BD%BF%E7%94%A8)
+    
 ### 挂载点在根目录下
 默认使用 JindoRuntime 会在挂载点多一层 /jindo 的目录，如果想挂载在根目录下可以在 dataset 里进行参数指定
 
@@ -228,7 +224,7 @@ spec:
       value: "true"  
 ```
 
-### resource 资源
+### Resource 资源
 可以指定 master/worker 等的 resource 资源
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
@@ -262,7 +258,7 @@ spec:
         memory: "3Gi"
 ```
 
-### fuse 回收策略
+### Fuse 回收策略
 
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
@@ -283,9 +279,9 @@ spec:
 ```
 * fuse.cleanPolicy: onDemand / OnRuntimeDeleted 分别表示按需启动，任务结束 fuse 也结束和在 runtime 销毁的时候和其他组件一起销毁掉
 
-### JindoFS 客户端相关参数和使用
+### JindoFSx 客户端相关参数和使用
 
-下面介绍一些和 JindoFS 缓存相关的参数，可以按照实际场景进行选择
+下面介绍一些和 JindoFSx 缓存相关的参数，可以按照实际场景进行选择
 
 | Parameter      |  Value | Description  |
 | :---         |  :----:   |    :---   |

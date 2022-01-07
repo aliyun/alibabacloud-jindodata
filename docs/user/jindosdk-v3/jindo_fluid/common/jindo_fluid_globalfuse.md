@@ -140,7 +140,7 @@ spec:
 ```
 
 
-该配置文件片段中，包含了许多与JindoFS相关的配置信息，这些信息将被Fluid用来启动一个JindoFS实例。上述配置片段中的`spec.replicas`属性被设置为1,这表明Fluid将会启动一个包含1个JindoFS Master和1个JindoFS Worker的Alluxio实例。 另外一个值得注意的是Fuse包含`global: true`,
+该配置文件片段中，包含了许多与JindoFSx相关的配置信息，这些信息将被Fluid用来启动一个JindoFSx实例。上述配置片段中的`spec.replicas`属性被设置为1,这表明Fluid将会启动一个包含1个JindoFSx Master和1个JindoFSx Worker的Alluxio实例。 另外一个值得注意的是Fuse包含`global: true`,
 这样意味着Fuse可以全局部署，而不依赖于数据缓存的位置。
 
 
@@ -160,7 +160,7 @@ hbase-jindofs-worker-hvbp2   2/2     Running   0          3m1s    192.168.1.146 
 ```
 
 
-在此处可以看到，有一个JindoFS Worker成功启动，并且运行在具有指定标签（即`cache-node=true`）的结点之上。JindoFS Fuse的数量为2，运行在所有的子节点上。
+在此处可以看到，有一个JindoFSx Worker成功启动，并且运行在具有指定标签（即`cache-node=true`）的结点之上。JindoFSx Fuse的数量为2，运行在所有的子节点上。
 
 
 **检查JindoRuntime状态**
@@ -173,7 +173,7 @@ hbase   1               1                 Ready          1               1      
 ```
 
 
-这里可以看到JindoFS Worker的数量为1，而JindoFS Fuse的数量为2。
+这里可以看到JindoFSx Worker的数量为1，而JindoFSx Fuse的数量为2。
 
 
 **删除JindoRuntime**
@@ -187,7 +187,7 @@ kubectl delete jindoruntime hbase
 ## 运行示例2: 设置global为true, 并且设置fuse的nodeSelector
 
 
-下面，我们希望通过配置node selector配置Fuse客户端，将其指定到集群中某个节点上。在本例子中，既然我们已经选择节点cn-beijing.192.168.1.146作为缓存节点，为了形成对比，这里选择节点cn-beijing.192.168.1.147运行JindoFS Fuse。
+下面，我们希望通过配置node selector配置Fuse客户端，将其指定到集群中某个节点上。在本例子中，既然我们已经选择节点cn-beijing.192.168.1.146作为缓存节点，为了形成对比，这里选择节点cn-beijing.192.168.1.147运行JindoFSx Fuse。
 
 
 ```yaml
@@ -229,7 +229,7 @@ hbase-jindofs-worker-vdxd5   2/2     Running   0          1h   192.168.1.146   c
 ```
 
 
-在此处可以看到，有一个JindoFS Worker成功启动，并且运行在具有指定标签（即`cache-node=true`）的结点之上。JindoFS Fuse的数量为1，运行在节点cn-beijing.192.168.1.147上。
+在此处可以看到，有一个JindoFSx Worker成功启动，并且运行在具有指定标签（即`cache-node=true`）的结点之上。JindoFSx Fuse的数量为1，运行在节点cn-beijing.192.168.1.147上。
 
 
 **检查JindoRuntime状态**
@@ -242,7 +242,7 @@ hbase   1               1                 Ready          1               1      
 ```
 
 
-这里可以看到JindoFS Worker的数量为1，而JindoFS Fuse的数量也为1，这是因为JindoRuntime指定了nodeSelector，并且满足条件的节点只有一个。
+这里可以看到JindoFSx Worker的数量为1，而JindoFSx Fuse的数量也为1，这是因为JindoRuntime指定了nodeSelector，并且满足条件的节点只有一个。
 
 
 可见，Fluid支持Fuse客户端的单独的调度策略，这些调度策略为用户提供了更加灵活的Fuse客户端调度策略

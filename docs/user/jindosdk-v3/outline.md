@@ -41,10 +41,10 @@
 
 ## AI 生态
 #### JindoFuse 使用
-* [Flume 使用 JindoSDK 访问 OSS](jindo_fuse/jindo_fuse_on_oss.md)
+* [JindoFuse 使用 JindoSDK 访问 OSS](jindo_fuse/jindo_fuse_on_oss.md)
 
-#### Fluid + JindoFSx 云原生
-* [Fluid 结合 JindoFS 介绍和使用](jindo_fluid/jindo_fluid_overview.md)
+#### Fluid + JindoFSx(缓存系统) 云原生
+* [Fluid 结合 JindoFSx(缓存系统) 介绍和使用](jindo_fluid/jindo_fluid_overview.md)
 
 ## 最佳实践
 #### JindoDistCp 数据迁移

@@ -1,9 +1,9 @@
-# 拥抱云原生，Fluid结合JindoFS：进阶使用指南
+# 拥抱云原生，Fluid 结合 JindoFSx 缓存系统：进阶使用指南
 
 本篇文章将介绍在 Fluid 上使用 JindoRuntime 的一些进阶使用，如节点扩容，参数调配，元数据缓存和FUSE 调优等，进一步丰富 JindoRuntime 的使用场景
 ### 1、节点扩容
-如您需要对通过 Fluid 创建出来的 JindoFS 集群进行节点伸缩，可使用修改 JindoRuntime 参数的方式来进行
-查看当前 JindoFS 集群节点的情况，通过如下命令列举worker/fuse的pod个数，即为当前通过Fluid部署的JindoFS的节点个数，可以看到当前是有3个节点。
+如您需要对通过 Fluid 创建出来的 JindoFSx 集群进行节点伸缩，可使用修改 JindoRuntime 参数的方式来进行
+查看当前 JindoFSx 集群节点的情况，通过如下命令列举worker/fuse的pod个数，即为当前通过Fluid部署的JindoFSx的节点个数，可以看到当前是有3个节点。
 ```shell
 $ kubectl get pod | grep jindofs
 hadoop-jindofs-fuse-f6778     1/1     Running   0          8m9s

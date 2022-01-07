@@ -1,4 +1,4 @@
-## 监控和可观测性功能
+# 监控和可观测性功能
 
 本文介绍在启动 Fluid JindoRuntime 的前提下，通过 Prometheus + Grafana 收集缓存系统相关的 metrics 指标，进行可视化展示的使用方法。
 
@@ -162,7 +162,7 @@ jindofsx_ns_backend_read_bytes_total_window 1174671374 #一分钟内底层读取
 jindofsx_ns_backend_read_time_total 8717632094 #底层读取数据所用总时间大小，单位微秒
 # HELP jindofsx_ns_backend_readop_num_total
 # TYPE jindofsx_ns_backend_readop_num_total gauge
-jindofsx_ns_backend_readop_num_total 181951 #底层总读取数据次数，对应 JindoFS 中 Block 个数
+jindofsx_ns_backend_readop_num_total 181951 #底层总读取数据次数，对应 JindoFSx 中 Block 个数
 # HELP jindofsx_ns_local_read_bytes_time_total_window
 # TYPE jindofsx_ns_local_read_bytes_time_total_window gauge
 jindofsx_ns_local_read_bytes_time_total_window 0 #一分钟内短路读时间大小，单位微秒
@@ -177,7 +177,7 @@ jindofsx_ns_local_read_bytes_total_window 0 #一分钟内短路读所用时间�
 jindofsx_ns_local_read_time_total 0 #短路读取数据所用总时间大小，单位微秒
 # HELP jindofsx_ns_local_readop_num_total
 # TYPE jindofsx_ns_local_readop_num_total gauge
-jindofsx_ns_local_readop_num_total 0 #短路读总读取数据次数，对应 JindoFS 中 Block 个数
+jindofsx_ns_local_readop_num_total 0 #短路读总读取数据次数，对应 JindoFSx 中 Block 个数
 # HELP jindofsx_ns_remote_read_bytes_time_total_window
 # TYPE jindofsx_ns_remote_read_bytes_time_total_window gauge
 jindofsx_ns_remote_read_bytes_time_total_window 73714663 #一分钟内远端读所用时间大小，单位微秒
@@ -192,7 +192,7 @@ jindofsx_ns_remote_read_bytes_total_window 13380884043 #一分钟内远端读取
 jindofsx_ns_remote_read_time_total 765272359 #总远端读取时间，单位微秒
 # HELP jindofsx_ns_remote_readop_num_total
 # TYPE jindofsx_ns_remote_readop_num_total gauge
-jindofsx_ns_remote_readop_num_total 107314 #远端读总读取数据次数，对应 JindoFS 中 Block 个数
+jindofsx_ns_remote_readop_num_total 107314 #远端读总读取数据次数，对应 JindoFSx 中 Block 个数
 # HELP jindofsx_ns_slicelet_read_bytes_time_total_window
 # TYPE jindofsx_ns_slicelet_read_bytes_time_total_window gauge
 jindofsx_ns_slicelet_read_bytes_time_total_window 0 #一分钟内小文件读所用时间大小，单位微秒
@@ -207,7 +207,7 @@ jindofsx_ns_slicelet_read_bytes_total_window 0 #一分钟内小文件读取总�
 jindofsx_ns_slicelet_read_time_total 0 #小文件读取数据所用总时间大小，单位微秒
 # HELP jindofsx_ns_slicelet_readop_num_total
 # TYPE jindofsx_ns_slicelet_readop_num_total gauge
-jindofsx_ns_slicelet_readop_num_total 0 #小文件读总读取数据次数，对应 JindoFS 中 Block 个数
+jindofsx_ns_slicelet_readop_num_total 0 #小文件读总读取数据次数，对应 JindoFSx 中 Block 个数
 # HELP jindofsx_ns_total_disk_cap
 # TYPE jindofsx_ns_total_disk_cap gauge
 jindofsx_ns_total_disk_cap 840739848192 #磁盘缓存总容量大小，单位Byte

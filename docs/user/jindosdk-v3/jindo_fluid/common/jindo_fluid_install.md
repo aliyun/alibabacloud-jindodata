@@ -1,4 +1,4 @@
-## 安装使用流程
+# 安装使用流程
 
 
 ### 1、创建命名空间
@@ -29,7 +29,7 @@ dataset-controller-5465c4bbf9-5ds5p          1/1     Running   0          108s
 jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ```
 
-其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
+其中 csi-nodeplugin-fluid-xx 的数量应该与 K8S 集群中节点node的数量相同。
 
 #### 到此 Fluid 已成功安装，如需自定义镜像和升级系统 crd 请参考如下说明(非必需)
 ### 4、自定义镜像

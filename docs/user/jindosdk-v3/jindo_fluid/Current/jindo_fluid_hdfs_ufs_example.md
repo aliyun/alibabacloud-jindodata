@@ -1,7 +1,7 @@
 # 加速HDFS上数据
 
-JindoFS 提供了访问 HDFS 的能力，可以通过配置 HDFS 作为 JindoFS 的后端存储，使 Fluid 通过 JindoFS 来访问 HDFS 上的数据，同时 JindoFS 也提供了对 HDFS 上的数据以及元数据的缓存加速功能。
-本文档展示了如何在 Fluid 中以声明式的方式完成 JindoFS 部署，对接 HDFS 数据源。
+JindoFSx 提供了访问 HDFS 的能力，可以通过配置 HDFS 作为 JindoFSx 的后端存储，使 Fluid 通过 JindoFSx 来访问 HDFS 上的数据，同时 JindoFSx 也提供了对 HDFS 上的数据以及元数据的缓存加速功能。
+本文档展示了如何在 Fluid 中以声明式的方式完成 JindoFSx 部署，对接 HDFS 数据源。
 
 #### 创建命名空间
 ```shell
@@ -28,7 +28,7 @@ jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ```
 
 
-其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
+其中 csi-nodeplugin-fluid-xx 的数量应该与 K8S 集群中节点node的数量相同。
 
 ### 1、创建 dataset 和 JindoRuntime
 
@@ -134,7 +134,7 @@ $ kubectl create -f dataset.yaml
 #### 1.4 创建 JindoRuntime 资源对象
 
 
-创建一个 JindoRuntime 对应的 JindoFS 集群，有 Cache 和 NoCache 两种模式。Cache 模式提供对远端 HDFS 上数据缓存以及元数据缓存；NoCache 模式即简单作为 HDFS connector 提供访问 HDFS 的能力。
+创建一个 JindoRuntime 对应的 JindoFSx 集群，有 Cache 和 NoCache 两种模式。Cache 模式提供对远端 HDFS 上数据缓存以及元数据缓存；NoCache 模式即简单作为 HDFS connector 提供访问 HDFS 的能力。
 
 
 #### Cache 模式
@@ -189,8 +189,8 @@ spec:
 ```
 
 
-- `replicas`：表示创建 JindoFS 集群的 worker 的数量。
-- `mediumtype`： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
+- `replicas`：表示创建 JindoFSx 集群的 worker 的数量。
+- `mediumtype`： JindoFSx 暂只支持HDD/SSD/MEM中的其中一种。
 - `path`：存储路径，支持一块盘或者多块盘
 - `quota`：缓存最大容量，单位G。
 
@@ -210,7 +210,7 @@ quotaList: 290G,290G,290G
 
 - `high`：水位上限比例 / `low`： 水位下限比例。
 - `configmap-name`须为之前创建的 ConfigMap 资源对象，该 ConfigMap 必须与创建的 JindoRuntime 同处于同一Namespace。其中必须包含以`hdfs-site.xml`为键的键值对，Fluid会检查
-该ConfigMap中的内容，并从中选取`hdfs-site.xml`的键值对并以文件的形式挂载到 JindoFS 的各个 Pod 中。
+该ConfigMap中的内容，并从中选取`hdfs-site.xml`的键值对并以文件的形式挂载到 JindoFSx 的各个 Pod 中。
 
 
 

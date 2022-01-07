@@ -1,4 +1,4 @@
-# HBase 使用 JindoFS 服务作为底层存储
+# HBase 使用阿里云 OSS-HDFS 服务（JindoFS 服务）作为底层存储
 HBase 是 Hadoop 生态中的实时数据库，有很高的写入性能。JindoFS服务是阿里云推出新的存储空间类型，兼容 HDFS 接口, JindoSDK 支持 HBase 使用 JindoFS 服务作为底层存储及 WAL 文件的存储实现存算分离，相对于本地HDFS存储，使用更加灵活，减少运维成本。
 
 ## 1. 下载 JindoSDK 包

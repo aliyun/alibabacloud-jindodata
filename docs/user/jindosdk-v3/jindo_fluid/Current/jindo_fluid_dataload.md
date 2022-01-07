@@ -1,6 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+# 数据预加载
 
 - [配置待创建的DataLoad对象](#%E9%85%8D%E7%BD%AE%E5%BE%85%E5%88%9B%E5%BB%BA%E7%9A%84dataload%E5%AF%B9%E8%B1%A1)
   - [创建DataLoad对象](#%E5%88%9B%E5%BB%BAdataload%E5%AF%B9%E8%B1%A1)
@@ -15,8 +13,6 @@
   - [单独进行元数据缓存，不做数据缓存](#%E5%8D%95%E7%8B%AC%E8%BF%9B%E8%A1%8C%E5%85%83%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98%E4%B8%8D%E5%81%9A%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98)
 - [缓存进度及LOG查看](#%E7%BC%93%E5%AD%98%E8%BF%9B%E5%BA%A6%E5%8F%8Alog%E6%9F%A5%E7%9C%8B)
   - [环境清理](#%E7%8E%AF%E5%A2%83%E6%B8%85%E7%90%86)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 为了保证应用在访问数据时的性能，可以通过**数据预加载**提前将远程存储系统中的数据拉取到靠近计算结点的分布式缓存引擎中，使得消费该数据集的应用能够在首次运行时即可享受到缓存带来的加速效果。
 

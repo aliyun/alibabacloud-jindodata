@@ -1,6 +1,6 @@
-# 使用 JindoFuse 访问 JindoFS 服务
+# 使用 JindoFuse 访问阿里云 OSS-HDFS 服务（JindoFS 服务）
 
-JindoFS 服务（OSS-HDFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 JindoFS 服务上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作该服务上的文件。
+阿里云 OSS-HDFS 服务（JindoFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 JindoFS 服务上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作该服务上的文件。
 
 # 基本使用
 
@@ -95,7 +95,7 @@ umount <mount_point>
 
 可以使用 `-oauto_unmount` 参数，自动卸载挂载点。
 
-使用该参数后，可以支持  `kill `pidof jindof-fuse``发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
+使用该参数后，可以支持  `killall -9 jindo-fuse` 发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
 
 # 特性支持
 

@@ -94,7 +94,7 @@ umount <mount_point>
 
 可以使用 `-oauto_unmount` 参数，自动卸载挂载点。
 
-使用该参数后，可以支持  `kill `pidof jindof-fuse``发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
+使用该参数后，可以支持 `killall -9 jindo-fuse` 发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
 
 # 特性支持
 

@@ -1,14 +1,14 @@
-## JindoRuntime For PAI 使用指南
-### 1、创建命名空间
+# JindoRuntime For PAI 使用指南
+## 1、创建命名空间
 ```shell
 kubectl create ns fluid-system
 ```
-### 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/PAI/fluid-0.6.0.tgz)
-### 3、使用 Helm 安装 Fluid
+## 2、下载 [fluid-0.6.0.tgz](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/PAI/fluid-0.6.0.tgz)
+## 3、使用 Helm 安装 Fluid
 ```shell
 helm install --set runtime.jindo.enabled=true fluid fluid-0.6.0.tgz
 ```
-### 4、查看 Fluid 的运行状态
+## 4、查看 Fluid 的运行状态
 ```shell
 $ kubectl get pod -n fluid-system
 NAME                                         READY   STATUS    RESTARTS   AGE
@@ -18,8 +18,8 @@ dataset-controller-5465c4bbf9-5ds5p          1/1     Running   0          108s
 jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ```
 其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
-### 5、创建 dataset 和 JindoRuntime
-#### 5.1、创建 secret
+## 5、创建 dataset 和 JindoRuntime
+### 5.1、创建 secret
 在创建 dataset 之前，我们可以创建一个 secret 来保存 STS 的 AccessKeyId/AccessKeySecret/SecurityToken。
 ```yaml
 apiVersion: v1
@@ -39,7 +39,7 @@ kubectl create -f mySecret.yaml
 * 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源。
 * 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFS 的集群来提供缓存服务。
 
-#### 5.2、创建 dataset
+### 5.2、创建 dataset
 - 默认挂载
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
@@ -67,7 +67,7 @@ spec:
       name: hadoop
       path: /
 ```
-#### 5.3、创建 JindoRuntime
+### 5.3、创建 JindoRuntime
 创建如下的 runtime.yaml，默认开启缓存。
 ```yaml
 apiVersion: data.fluid.io/v1alpha1

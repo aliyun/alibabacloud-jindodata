@@ -17,7 +17,7 @@ csi-nodeplugin-fluid-l7lv6                   2/2     Running   0          108s
 dataset-controller-5465c4bbf9-5ds5p          1/1     Running   0          108s
 jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ```
-其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
+其中 csi-nodeplugin-fluid-xx 的数量应该与 K8S 集群中节点node的数量相同。
 ### 5、创建 dataset 和 JindoRuntime
 #### 5.1、创建 secret
 在创建 dataset 之前，我们可以创建一个 secret 来保存 STS 的 AccessKeyId/AccessKeySecret/SecurityToken。
@@ -37,7 +37,7 @@ kubectl create -f mySecret.yaml
 ```
 创建一个 `resource.yaml` 文件里面包含两部分：
 * 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源。
-* 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFS 的集群来提供缓存服务。
+* 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFSx 缓存系统集群来提供缓存服务。
 
 #### 5.2、创建 dataset
 - 默认挂载
@@ -88,8 +88,8 @@ spec:
 其中
 * mountPoint：oss://<oss_bucket>/<bucket_dir> 表示挂载UFS的路径，路径中不需要包含endpoint信息。
 * fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可。
-* replicas：表示创建 JindoFS 集群的 worker 的数量。
-* mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
+* replicas：表示创建 JindoFSx 集群的 worker 的数量。
+* mediumtype： JindoFSx 暂只支持HDD/SSD/MEM中的其中一种。
 * path：存储路径，暂只支持一块盘，当选择MEM做缓存也需要一块盘来存储log等文件。
 * quota：缓存最大容量，单位G。
 * high：水位上限大小 / low： 水位下限大小。

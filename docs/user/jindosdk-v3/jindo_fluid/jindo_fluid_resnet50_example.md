@@ -1,6 +1,6 @@
-# 拥抱云原生，Fluid结合JindoFS：加速机器学习训练
+# 拥抱云原生，Fluid 结合 JindoFSx 缓存系统：加速机器学习训练
 
-在 [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](jindo_fluid_jindofs_oss_introduce.md) 这篇文章中，我们已经介绍了 Fluid 以及 JindoRuntime 的基本概念和使用流程，这篇文章我们将继续介绍如何使用 Fluid 和 JindoRuntime 部署[阿里云 OSS](https://cn.aliyun.com/product/oss) 云端 [ImageNet](http://www.image-net.org/) 数据集到 Kubernetes 集群，并使用 [Arena](https://github.com/kubeflow/arena) 在此数据集上训练 ResNet-50 模型(本文以四机八卡测试环境为例)。
+在 [拥抱云原生，Fluid结合JindoFSx ：阿里云OSS加速利器](jindo_fluid_jindofs_oss_introduce.md) 这篇文章中，我们已经介绍了 Fluid 以及 JindoRuntime 的基本概念和使用流程，这篇文章我们将继续介绍如何使用 Fluid 和 JindoRuntime 部署[阿里云 OSS](https://cn.aliyun.com/product/oss) 云端 [ImageNet](http://www.image-net.org/) 数据集到 Kubernetes 集群，并使用 [Arena](https://github.com/kubeflow/arena) 在此数据集上训练 ResNet-50 模型(本文以四机八卡测试环境为例)。
 
 
 ## 1、前提条件
@@ -9,14 +9,14 @@
 [Horovod](https://github.com/horovod/horovod) (version=0.18.1)<br/>
 [Benchmark](https://github.com/tensorflow/benchmarks/tree/cnn_tf_v1.14_compatible)<br/>
 > **注意**：
-> 1. 本文要求在Kubernetes集群中已安装好 Fluid，如果您还没部署 Fluid，请参考 [拥抱云原生，Fluid结合JindoFS ：阿里云OSS加速利器](https://developer.aliyun.com/article/781656?spm=a2c6h.13148508.0.0.59544f0emzSkc5%E5%B7%B2%E5%8F%91) 在您的Kubernetes集群上安装Fluid。
+> 1. 本文要求在Kubernetes集群中已安装好 Fluid，如果您还没部署 Fluid，请参考 [拥抱云原生，Fluid结合JindoFSx ：阿里云OSS加速利器](https://developer.aliyun.com/article/781656?spm=a2c6h.13148508.0.0.59544f0emzSkc5%E5%B7%B2%E5%8F%91) 在您的Kubernetes集群上安装Fluid。
 > 2. `Arena`是一个方便数据科学家运行和监视机器学习任务的CLI, 本文使用`Arena`提交机器学习任务，安装教程可参考 [Arena安装教程](https://github.com/kubeflow/arena/blob/master/docs/installation/INSTALL_FROM_BINARY.md)。
 > 3. 本演示中使用的Horovod， TensorFlow和Benchmark代码均已经开源，您可以从上述链接中获取。
 
 
 ## 
 ## 2、用 Fluid 部署云端数据集
-如下的文件中定义了一个 Secret 和 DataSet，并---符号将它们的定义分割。数据集存储在 [阿里云OSS](https://cn.aliyun.com/product/oss) ，为保证 JindoFS 能够成功挂载OSS上的数据集，请确保以下文件中设置了正确的 mountPoint、fs.oss.accessKeyId、fs.oss.accessKeySecret 和 fs.oss.endpoint。
+如下的文件中定义了一个 Secret 和 DataSet，并---符号将它们的定义分割。数据集存储在 [阿里云OSS](https://cn.aliyun.com/product/oss) ，为保证 JindoFSx 能够成功挂载OSS上的数据集，请确保以下文件中设置了正确的 mountPoint、fs.oss.accessKeyId、fs.oss.accessKeySecret 和 fs.oss.endpoint。
 
 
 > 如果您希望自己准备数据集，可以访问ImageNet官方网站 [http://image-net.org/download-images](http://image-net.org/download-images)。

@@ -55,7 +55,7 @@ EOF
 ```
 
 
-在上述示例中，我们设置`JindoRuntime.spec.replicas`为1，这意味着我们将启动一个带有一个Worker的JindoFS集群来缓存数据集中的数据。
+在上述示例中，我们设置`JindoRuntime.spec.replicas`为1，这意味着我们将启动一个带有一个Worker的JindoFSx集群来缓存数据集中的数据。
 
 
 ```shell
@@ -65,10 +65,10 @@ jindoruntime.data.fluid.io/hbase created
 ```
 
 
-待JindoFS集群正常启动后，可以看到此时创建出来的Dataset以及JindoRuntime处于如下状态：
+待JindoFSx集群正常启动后，可以看到此时创建出来的Dataset以及JindoRuntime处于如下状态：
 
 
-JindoFS各组件运行状态：
+JindoFSx各组件运行状态：
 
 
 ```shell
@@ -112,7 +112,7 @@ jindoruntime.data.fluid.io/hbase scaled
 直接使用`kubectl scale`命令即可完成Dataset的扩容操作。在成功执行上述命令并等待一段时间后可以看到Dataset以及JindoRuntime的状态均发生了变化：
 
 
-一个新的JindoFS Worker以及对应的JindoFS Fuse组件成功启动：
+一个新的JindoFSx Worker以及对应的JindoFSx Fuse组件成功启动：
 
 
 ```shell

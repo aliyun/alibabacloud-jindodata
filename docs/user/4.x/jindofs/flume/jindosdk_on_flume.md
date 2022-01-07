@@ -1,4 +1,4 @@
-# Flume 使用 JindoSDK 写入 JindoFS 服务
+# Flume 使用 JindoSDK 写入阿里云 OSS-HDFS 服务（JindoFS 服务）
 
 ## 环境要求
 

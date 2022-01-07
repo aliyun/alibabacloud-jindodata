@@ -1,4 +1,4 @@
-# Fluid 结合 JindoFS 介绍和使用
+# Fluid 结合 JindoFSx 缓存系统介绍和使用
 
 ## 环境要求
 * Kubernetes version > 1.14, 支持CSI
@@ -12,7 +12,7 @@
 * [加速OSS上数据](Current/jindo_fluid_oss_ufs_example.md)
 * [加速HDFS上数据](Current/jindo_fluid_hdfs_ufs_example.md)
 * [加速S3上数据](Current/jindo_fluid_s3_ufs_example.md)
-* [高阶功能使用](Current/jindo_fluid_ways_to_use.md)
+* [Fluid + JindoFSx 高阶功能使用](Current/jindo_fluid_ways_to_use.md)
 * [数据预加载](Current/jindo_fluid_dataload.md)
 * [监控及可观测功能](Current/jindo_fluid_monitor_metric.md)
 * [问题诊断及处理](Current/jindo_fluid_question.md)

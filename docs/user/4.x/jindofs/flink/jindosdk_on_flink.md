@@ -1,4 +1,4 @@
-# Flink 使用 JindoSDK 处理 JindoFS 服务上的数据
+# Flink 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据
 
 ## 环境要求
 

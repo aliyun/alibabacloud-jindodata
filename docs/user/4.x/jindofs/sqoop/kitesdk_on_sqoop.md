@@ -1,9 +1,9 @@
-# Sqoop 使用 Kite SDK 读写 JindoFS 服务
+# Sqoop 使用 Kite SDK 读写阿里云 OSS-HDFS 服务（JindoFS 服务）
 
 ## 环境要求
 
 * 在集群上有开源版本 Sqoop 软件，版本不低于 1.4.7。
-* Sqoop 依赖的 Hadoop 环境可访问 JindoFS，可参考 [Hadoop 使用 JindoSDK 访问 JindoFS](../hadoop/jindosdk_on_hadoop.md)
+* Sqoop 依赖的 Hadoop 环境可访问 JindoFS，可参考 [Hadoop 使用 JindoSDK 访问 JindoFS 服务](../hadoop/jindosdk_on_hadoop.md)
 
 ## 使用 Kite SDK 读写 OSS
 

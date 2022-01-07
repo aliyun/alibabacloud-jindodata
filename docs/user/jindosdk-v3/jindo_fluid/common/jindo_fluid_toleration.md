@@ -117,7 +117,7 @@ spec:
 ```
 
 
-该配置文件片段中，包含了许多与JindoFS相关的配置信息，这些信息将被Fluid用来启动一个JindoFS实例。上述配置片段中的`spec.replicas`属性被设置为1,这表明Fluid将会启动一个包含1个JindoFS Master和1个JindoFS Worker的JindoFS实例
+该配置文件片段中，包含了许多与JindoFSx相关的配置信息，这些信息将被Fluid用来启动一个JindoFSx实例。上述配置片段中的`spec.replicas`属性被设置为1,这表明Fluid将会启动一个包含1个JindoFSx Master和1个JindoFSx Worker的JindoFSx实例
 
 
 **创建JindoRuntime资源并查看状态**
@@ -135,7 +135,7 @@ hbase-jindofs-worker-qs26l   2/2     Running   0          63m   192.168.1.146   
 ```
 
 
-在此处可以看到，JindoFS Worker被启动，并且运行在具有污点的节点之上。
+在此处可以看到，JindoFSx Worker被启动，并且运行在具有污点的节点之上。
 
 
 **检查JindoRuntime状态**

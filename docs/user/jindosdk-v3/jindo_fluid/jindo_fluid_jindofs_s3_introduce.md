@@ -1,8 +1,8 @@
-## 拥抱云原生，Fluid结合JindoFS：加速对象存储使用 S3 协议
+## 拥抱云原生，Fluid 结合 JindoFSx 缓存系统：加速对象存储使用 S3 协议
 
-JindoFS 提供了访问 S3 协议的能力，可以通过配置 S3 作为 JindoFS 的后端存储，使 Fluid 通过 JindoFS 来访问 S3 上的数据，同时 JindoFS 也提供了对 S3 上的数据以及元数据的缓存加速功能。
+JindoFSx 提供了访问 S3 协议的能力，可以通过配置 S3 作为 JindoFSx 的后端存储，使 Fluid 通过 JindoFSx 来访问 S3 上的数据，同时 JindoFSx 也提供了对 S3 上的数据以及元数据的缓存加速功能。
 
-本文档展示了如何在 Fluid 中以声明式的方式完成 JindoFS 部署，对接 S3 数据源（包括提供 S3 兼容的所有对象存储）。
+本文档展示了如何在 Fluid 中以声明式的方式完成 JindoFSx 部署，对接 S3 数据源（包括提供 S3 兼容的所有对象存储）。
 
 ## 前提条件
 
@@ -67,10 +67,10 @@ dataset-controller-5465c4bbf9-5ds5p          1/1     Running   0          108s
 jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ```
 
-其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
+其中 csi-nodeplugin-fluid-xx 的数量应该与K8S集群中节点node的数量相同。
 
 ### 5、创建 dataset 和 JindoRuntime
-在创建 dataset 之前，我们可以创建一个 secret 来保存 s3 的` key` 和` secret` 信息，避免明文暴露出来，k8s会对已创建的 secret 使用加密编码，将key和secret信息填入mySecret.yaml文件中。
+在创建 dataset 之前，我们可以创建一个 secret 来保存 s3 的` key` 和` secret` 信息，避免明文暴露出来，K8S 会对已创建的 secret 使用加密编码，将key和secret信息填入mySecret.yaml文件中。
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -86,7 +86,7 @@ kubectl create -f mySecret.yaml
 ```
 创建一个 resource.yaml 文件里面包含两部分：
 * 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源。
-* 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFS 的集群来提供缓存服务。
+* 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFSx 的集群来提供缓存服务。
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
@@ -132,9 +132,9 @@ spec:
 ```
 
 * mountPoint：表示挂载 s3 的路径，支持标准 s3 协议。
-* spec.replicas：表示创建 JindoFS 集群的 worker 的数量。
+* spec.replicas：表示创建 JindoFSx 集群的 worker 的数量。
 * spec.master.replicas: 表示创建master节点的个数，高可用模式请使用`spec.master.replicas=3`，表示创建3个master，通过raft协议来进行选举节点
-* mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
+* mediumtype： JindoFSx 暂只支持HDD/SSD/MEM中的其中一种。
 * path：存储路径，当选择MEM做缓存也需要一块盘来存储log等文件。
 * quota：缓存最大容量，单位G。
 * high：水位上限大小 / low： 水位下限大小。

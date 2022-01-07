@@ -1,6 +1,5 @@
 ## 前提条件
 
-
 - [Fluid](https://github.com/fluid-cloudnative/fluid)(version >= 0.6.0)
   
 - 请参考[安装文档](jindo_fluid_install.md)完成安装
@@ -10,7 +9,7 @@
 创建一个 resource.yaml 文件里面包含两部分：
 
 - 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源，如例子中的 test-bucket。
-- 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFS 的集群来提供缓存服务。
+- 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFSx 的集群来提供缓存服务。
 
 
 
@@ -47,9 +46,9 @@ spec:
 
 - mountPoint：表示挂载UFS的路径，路径中不需要包含 endpoint 信息。
 - fs.oss.accessKeyId/fs.oss.accessKeySecret：oss bucket的AK信息，有权限访问该 bucket。
-- fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可，如您的 bucket 在杭州 Region，那么公网地址为 oss-cn-hangzhou.aliyuncs.com，内网地址为 oss-cn-hangzhou-internal.aliyuncs.com(内网地址使用条件为您的k8s集群所在区域和oss区域相同)。
-- replicas：表示创建 JindoFS 集群节点的数量。
-- mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
+- fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可，如您的 bucket 在杭州 Region，那么公网地址为 oss-cn-hangzhou.aliyuncs.com，内网地址为 oss-cn-hangzhou-internal.aliyuncs.com(内网地址使用条件为您的K8S集群所在区域和oss区域相同)。
+- replicas：表示创建 JindoFSx 集群节点的数量。
+- mediumtype： JindoFSx 暂只支持HDD/SSD/MEM中的其中一种。
 - path：存储路径，暂只支持一块盘，当选择MEM做缓存也需要一块盘来存储log等文件。
 - quota：缓存最大容量，单位G。
 - high：水位上限大小 / low： 水位下限大小。

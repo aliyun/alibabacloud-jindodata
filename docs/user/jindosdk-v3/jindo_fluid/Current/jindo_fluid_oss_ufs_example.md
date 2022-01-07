@@ -1,6 +1,6 @@
 # 加速OSS上数据
 
-使用 JindoRuntime 流程简单，在准备好基本 k8s 和 OSS 环境的条件下，您只需要耗费10分钟左右时间即可部署好需要的 JindoRuntime 环境，您可以按照下面的流程进行部署。
+使用 JindoRuntime 流程简单，在准备好基本 K8S 和 OSS 环境的条件下，您只需要耗费10分钟左右时间即可部署好需要的 JindoRuntime 环境，您可以按照下面的流程进行部署。
 
 ## 1、创建命名空间
 ```shell
@@ -26,7 +26,7 @@ jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ```
 
 
-其中 csi-nodeplugin-fluid-xx 的数量应该与k8s集群中节点node的数量相同。
+其中 csi-nodeplugin-fluid-xx 的数量应该与 K8S 集群中节点node的数量相同。
 ## 5、测试数据源准备
 
 
@@ -58,7 +58,7 @@ hadoop fs -put spark-3.1.1-bin-hadoop3.2.tgz oss://test-bucket/spark/spark-3.1.1
 创建一个 resource.yaml 文件里面包含两部分：
 
 - 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源，如例子中的 test-bucket。
-- 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFS 的集群来提供缓存服务。
+- 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFSx 的集群来提供缓存服务。
 
 
 ```yaml
@@ -93,9 +93,9 @@ spec:
 
 - mountPoint：表示挂载UFS的路径，路径中不需要包含 endpoint 信息。
 - fs.oss.accessKeyId/fs.oss.accessKeySecret：oss bucket的AK信息，有权限访问该 bucket。
-- fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可，如您的 bucket 在杭州 Region，那么公网地址为 oss-cn-hangzhou.aliyuncs.com，内网地址为 oss-cn-hangzhou-internal.aliyuncs.com(内网地址使用条件为您的k8s集群所在区域和oss区域相同)。
-- replicas：表示创建 JindoFS 集群节点的数量。
-- mediumtype： JindoFS 暂只支持HDD/SSD/MEM中的其中一种。
+- fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可，如您的 bucket 在杭州 Region，那么公网地址为 oss-cn-hangzhou.aliyuncs.com，内网地址为 oss-cn-hangzhou-internal.aliyuncs.com(内网地址使用条件为您的 K8S 集群所在区域和oss区域相同)。
+- replicas：表示创建 JindoFSx 集群节点的数量。
+- mediumtype： JindoFSx 暂只支持HDD/SSD/MEM中的其中一种。
 - path：存储路径，暂只支持一块盘，当选择MEM做缓存也需要一块盘来存储log等文件。
 - quota：缓存最大容量，100Gi 表示最大可用 100GB 大小的磁盘。
 - high：水位上限大小 / low： 水位下限大小。
@@ -142,7 +142,7 @@ persistentvolumeclaim/hadoop   Bound    hadoop   100Gi      RWX                 
 ## 6、创建应用容器体验加速效果
 
 
-您可以通过创建应用容器来使用 JindoFS 加速服务，或者进行提交机器学习作业来进行体验相关功能。
+您可以通过创建应用容器来使用 JindoFSx 加速服务，或者进行提交机器学习作业来进行体验相关功能。
 接下来，我们创建一个应用容器 app.yaml 来使用该数据集，我们将多次访问同一数据，并比较访问时间来展示JindoRuntime 的加速效果。
 
 
@@ -228,7 +228,7 @@ hadoop   210.00MiB       210.00MiB    180.00GiB        100.0%           Bound   
 ```
 
 
-为了避免其他因素(比如page cache)对结果造成影响，我们将删除之前的容器，新建相同的应用，尝试访问同样的文件。由于此时文件已经被 JindoFS 缓存，可以看到第二次访问所需时间远小于第一次。
+为了避免其他因素(比如page cache)对结果造成影响，我们将删除之前的容器，新建相同的应用，尝试访问同样的文件。由于此时文件已经被 JindoFSx 缓存，可以看到第二次访问所需时间远小于第一次。
 
 
 ```shell

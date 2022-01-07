@@ -1,4 +1,4 @@
-# Impala 使用 JindoSDK 查询 JindoFS 服务上的数据
+# Impala 使用 JindoSDK 查询阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据
 
 JindoSDK 是一个简单易用面向 Hadoop/Spark 生态的 OSS 客户端，为阿里云 OSS 提供高度优化的 Hadoop FileSystem 实现, Impala 使用 JindoSDK 相对于使用 Hadoop 社区 OSS 客户端，可以获得更好的性能,同时还能获得阿里云 E-MapReduce 产品技术团队更专业的支持。
 

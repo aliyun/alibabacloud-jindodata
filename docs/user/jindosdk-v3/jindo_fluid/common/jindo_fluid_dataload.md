@@ -81,7 +81,7 @@ spec:
 
 
 
-在这里，我们将要创建一个kind为`Dataset`的资源对象(Resource object)。`Dataset`是Fluid所定义的一个Custom Resource Definition(CRD)，该CRD被用来告知Fluid在哪里可以找到你所需要的数据。Fluid将该CRD对象中定义的`mountPoint`属性挂载到JindoFS之上。在本示例中，为了简单，我们使用 OSS 进行演示。
+在这里，我们将要创建一个kind为`Dataset`的资源对象(Resource object)。`Dataset`是Fluid所定义的一个Custom Resource Definition(CRD)，该CRD被用来告知Fluid在哪里可以找到你所需要的数据。Fluid将该CRD对象中定义的`mountPoint`属性挂载到JindoFSx之上。在本示例中，为了简单，我们使用 OSS 进行演示。
 **创建Dataset和Runtime对象**
 
 

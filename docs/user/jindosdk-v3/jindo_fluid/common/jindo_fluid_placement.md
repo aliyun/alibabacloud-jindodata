@@ -1,4 +1,4 @@
-通过JindoFS和[Fuse](https://github.com/libfuse/libfuse)，Fluid为用户提供了一种更为简单的文件访问接口，使得任意运行在Kubernetes集群上的程序能够像访问本地文件一样轻松访问存储在远程文件系统中的文件。Fluid 针对数据集进行全生命周期的管理和隔离，尤其对于短生命周期应用（e.g 数据分析任务、机器学习任务），用户可以在集群中大规模部署。
+通过JindoFSx和[Fuse](https://github.com/libfuse/libfuse)，Fluid为用户提供了一种更为简单的文件访问接口，使得任意运行在Kubernetes集群上的程序能够像访问本地文件一样轻松访问存储在远程文件系统中的文件。Fluid 针对数据集进行全生命周期的管理和隔离，尤其对于短生命周期应用（e.g 数据分析任务、机器学习任务），用户可以在集群中大规模部署。
 
 
 本文档通过一个简单的例子演示了上述功能特性
@@ -184,7 +184,7 @@ spark   Ready          Ready          Ready        58s
 ```
 
 
-`JindoRuntime`是另一个Fluid定义的CRD。一个`JindoRuntime`资源对象描述了在Kubernetes集群中运行一个JindoFS实例所需要的配置信息。
+`JindoRuntime`是另一个Fluid定义的CRD。一个`JindoRuntime`资源对象描述了在Kubernetes集群中运行一个JindoFSx实例所需要的配置信息。
 
 
 等待一段时间，让JindoRuntime资源对象中的各个组件得以顺利启动，你会看到类似以下状态：
@@ -252,7 +252,7 @@ spark   Bound    spark    100Gi      RWX                           53s
 ```
 
 
-`Dataset`资源对象准备完成后（即与JindoFS实例绑定后），与该资源对象关联的PV, PVC已经由Fluid生成，应用可以通过该PVC完成远程文件在Pod中的挂载，并通过挂载目录实现远程文件访问
+`Dataset`资源对象准备完成后（即与JindoFSx实例绑定后），与该资源对象关联的PV, PVC已经由Fluid生成，应用可以通过该PVC完成远程文件在Pod中的挂载，并通过挂载目录实现远程文件访问
 
 
 ## 远程文件访问
@@ -494,7 +494,7 @@ spark   1.92GiB          1.92GiB     4.00GiB          100.0%              Bound 
 ```
 
 
-现在，所有远程文件都已经被缓存在了JindoFS中
+现在，所有远程文件都已经被缓存在了JindoFSx中
 
 
 **再次启动测试作业**
@@ -535,7 +535,7 @@ sys     0m 1.57s
 同样的文件访问操，hbase仅耗费了0.36s，spark仅耗费了1.57s。
 
 
-这种大幅度的加速效果归因于JindoFS所提供的强大的缓存能力，这种缓存能力意味着，只要你访问某个远程文件一次，该文件就会被缓存在JindoFS中，你的所有接下来的重复访问都不再需要进行远程文件读取，而是从JindoFS中直接获取数据，因此对于数据的访问加速也就不难解释了。
+这种大幅度的加速效果归因于JindoFSx所提供的强大的缓存能力，这种缓存能力意味着，只要你访问某个远程文件一次，该文件就会被缓存在JindoFSx中，你的所有接下来的重复访问都不再需要进行远程文件读取，而是从JindoFSx中直接获取数据，因此对于数据的访问加速也就不难解释了。
 ## 环境清理
 
 

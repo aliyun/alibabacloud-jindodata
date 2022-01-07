@@ -1,4 +1,4 @@
-# Hadoop 使用 JindoSDK 访问 JindoFS 服务
+# Hadoop 使用 JindoSDK 访问阿里云 OSS-HDFS 服务（JindoFS 服务）
 
 JindoSDK 为 Apache Hadoop的计算分析应用（例如MapReduce、Hive、Spark、Flink等）提供了访问JindoFS服务功能。
 

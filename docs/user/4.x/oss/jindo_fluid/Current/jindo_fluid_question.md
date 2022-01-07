@@ -6,7 +6,7 @@
 
 ### 1. 为什么我使用Helm安装fluid失败了？
 
-**回答**:推荐按照[Fluid安装文档](jindo_fluid_install.md)依次确认Fluid组件是否正常运行。
+**回答**:推荐按照[Fluid安装文档](../common/jindo_fluid_install.md)依次确认Fluid组件是否正常运行。
 
 Fluid安装文档是以`Helm 3`为例进行部署的。如果您使用`Helm 3`以下的版本部署Fluid，
 并且遇到了`CRD没有正常启动`的情况，这可能是因为`Helm 3`及其以上版本会在`helm install`的时候自动安装CRD，
