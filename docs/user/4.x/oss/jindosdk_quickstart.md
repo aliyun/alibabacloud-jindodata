@@ -6,7 +6,7 @@ JindoSDK 全面兼容 Hadoop FileSystem 接口，提供了更好的兼容性和�
 ## 步骤
 
 ### 1. 下载 JindoSDK 包
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](jindosdk_download.md))。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
 
 ### 2. 配置环境变量
 

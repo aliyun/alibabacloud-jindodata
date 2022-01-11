@@ -8,7 +8,7 @@ JindoSDK 是一个简单易用面向 Hadoop/Spark 生态的 OSS 客户端，为�
 确保Impala的配置文件中包含了 HADOOP 相关的配置文件。
 
 ### 2. 在所有 Impala 节点安装 JindoSDK
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](../jindosdk_download.md))，解压后将 sdk 包安装到 Impala 的 classpath 下。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))，解压后将 sdk 包安装到 Impala 的 classpath 下。
 
 ````
 cp jindosdk-x.x.x/lib/*.jar  $IMPALA_HOME/lib/

@@ -75,7 +75,7 @@ JindoFS服务是阿里云推出新的存储空间类型，兼容HDFS接口, 支�
 ```
 
 ### 2. 下载 JindoSDK 包
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](jindosdk_download.md))。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
 
 ### 3. 配置环境变量
 * 配置`JINDOSDK_HOME`

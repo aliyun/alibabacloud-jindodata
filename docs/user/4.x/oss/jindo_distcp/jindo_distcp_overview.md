@@ -2,7 +2,7 @@
 
 ## 环境要求
 * JDK 1.8及以上
-* Hadoop 2.3+版本，请下载 [jindo-distcp-x.x.x.jar](../jindosdk_download.md), 该版本基于 native 代码实现，支持功能较丰富
+* Hadoop 2.3+版本，请下载 [jindo-distcp-x.x.x.jar](/docs/user/4.x/jindodata_download.md), 该版本基于 native 代码实现，支持功能较丰富
 (2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindodata/issues/new) 向我们反馈)
 
 ## 什么是 Jindo DistCp

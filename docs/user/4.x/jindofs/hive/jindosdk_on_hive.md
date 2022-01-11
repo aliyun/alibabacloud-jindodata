@@ -6,7 +6,7 @@ Hive 是大数据的常用工具之一，很多用户使用 Hive 搭建离线数
 
 ### 1. 在 Hive 客户端或服务所在结点安装 JindoSDK。
 
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](../jindosdk_download.md))，解压后将sdk包安装到 Hive 的 classpath下。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))，解压后将sdk包安装到 Hive 的 classpath下。
 
 ````
 cp jindosdk-x.x.x/lib/*.jar  $HIVE_HOME/lib/

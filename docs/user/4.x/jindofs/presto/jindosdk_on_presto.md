@@ -6,7 +6,7 @@ Presto 是一个开源的分布式 SQL 查询引擎，适用于交互式分析�
 
 ### 1. 安装 jar 包
 
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](../jindosdk_download.md))，解压后将sdk包安装到所有 Presto 节点。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))，解压后将sdk包安装到所有 Presto 节点。
 
 ````
 cp jindosdk-x.x.x/lib/*.jar  $PRESTO_HOME/plugin/hive-hadoop2/

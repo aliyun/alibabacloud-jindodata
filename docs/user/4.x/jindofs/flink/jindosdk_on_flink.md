@@ -13,7 +13,7 @@
 需要在所有 Flink 节点进行配置。在每个节点 Flink 根目录下的 lib 文件夹，放置下列 .jar 文件：
 * jindo-flink-${version}-full.jar
 
-该 jar 包含在 jindosdk-${version}.tar.gz 内，解压缩后可在 plugins/flink/ 目录下找到，[下载页面](../jindosdk_download.md)
+该 jar 包含在 jindosdk-${version}.tar.gz 内，解压缩后可在 plugins/flink/ 目录下找到，[下载页面](/docs/user/4.x/jindodata_download.md)
 
 ## 如何使用
 
