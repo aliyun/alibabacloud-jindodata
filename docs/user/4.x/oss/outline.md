@@ -5,6 +5,9 @@
 * [Hadoop 使用 JindoSDK 在 IDE 开发调试](hadoop/jindosdk_ide_hadoop.md)
 * [Spark 使用 JindoSDK 在 IDE 开发调试](spark/jindosdk_ide_spark.md)
 
+## 基本功能
+* [JindoShell CLI 支持阿里云 OSS 使用说明](jindoshell_oss_howto.md)
+
 ## 性能测试
 * [JindoSDK 和 Hadoop-OSS-SDK 性能对比测试](hadoop/jindosdk_vs_hadoop_sdk.md)
 
