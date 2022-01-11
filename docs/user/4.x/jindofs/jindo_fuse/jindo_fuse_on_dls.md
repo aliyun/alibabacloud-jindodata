@@ -130,7 +130,7 @@ umount <mount_point>
 
 | 参数名称         | 必选 | 参数说明                                                     | 使用范例             |
 | ---------------- | ---- | ------------------------------------------------------------ | -------------------- |
-| uri              | ✓    | 配置需要映射的 oss 路径。路径可以是根目录，也可以是子目录。例如：oss://bucket.bucket/ 或 oss://bucket.endpoint/subdir。 | -ouri=oss://bucket.endpoint/，例如：-ouri=oss://test-bucket.cn-beijing.oss-dls.aliyuncs.com/  |
+| uri              | ✓    | 配置需要映射的 oss 路径。路径可以是根目录，也可以是子目录。例如：oss://bucket.bucket/ 或 oss://bucket.endpoint/subdir。 |  -ouri=oss://examplebucket.cn-beijing.oss-dls.aliyuncs.com/  |
 | f                |      | 在前台启动进程。默认使用守护进程方式后台启动。使用该参数时，推荐开启终端日志。 | -f                   |
 | d                |      | 使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。 | -d                   |
 | auto_unmount     |      | fuse进程退出后自动umount挂载节点。                           | -oauto_unmount       |
