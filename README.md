@@ -29,6 +29,7 @@ IDC 机房数据（HDFS）上云迁移和多云迁移利器，支持多种存储
 ## 用户文档
 #### JindoSDK + OSS [用户文档](docs/user/4.x/oss/outline.md)
 #### 阿里云 OSS-HDFS 服务（JindoFS 服务) [用户文档](docs/user/4.x/jindofs/outline.md)
+#### JindoSDK + OSS（3.x 版本）[用户文档](docs/user/3.x/outline.md)
 
 ## 常见问题
 进入[常见问题](docs/user/faq.md)

@@ -44,4 +44,4 @@
 * [使用 JindoSDK 大幅提升 OSS 文件各项操作性能](https://developer.aliyun.com/article/767222)
 
 ## 历史版本
-#### JindoSDK 3.x + OSS [用户文档](../../jindosdk-v3/outline.md)
+#### JindoSDK 3.x + OSS [用户文档](../../3.x/outline.md)
