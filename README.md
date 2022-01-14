@@ -22,6 +22,9 @@ IDC 机房数据（HDFS）上云迁移和多云迁移利器，支持多种存储
 ### 生态插件
 除了默认提供 JindoSDK 支持 Hadoop，另外还支持 Flink Connector 等插件。
 
+## JindoData 架构部署
+![JindoData](docs/image/jindodata-deploy.png)
+
 ## 发布版本
 #### JindoData 4.0.0，2022-01-07，[Release Note](docs/user/4.x/jindodata-4.0.0-release-notes.md)
 #### JindoData 3.x 版本，[原阿里云 E-MapReduce SmartData](https://help.aliyun.com/document_detail/121090.html)
