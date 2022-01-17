@@ -1,6 +1,7 @@
 # JindoSDK + Jindo 服务下载
 
 ## v3.8.0 (12/06/2021)
+(3.8 版本包含 Kerberos 和 Sasl 支持，如果您的环境没有 kerberos 和 sasl2 相关依赖，建议使用 3.7.x 版本)
 
 [jindofs-sdk-3.8.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.8.0/jindofs-sdk-3.8.0.jar)<br />
 [jindo-flink-sink-3.8.0.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.8.0/jindo-flink-sink-3.8.0.jar)<br />
