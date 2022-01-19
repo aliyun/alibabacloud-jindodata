@@ -45,7 +45,7 @@ spec:
 ```
 其中：
 * AccessKeyId 和 AccessKeySecret 为集群后端 OSS 访问 AK信息，必填项。
-* mountPoint：JindoFS Block 模式集群后端访问地址，格式为：NameSpace服务IP地址+端口模式，端口默认为8101，建议 K8S 集群和 Block 模式集群在同一个 VPC 下，IP 地址可为内网 IP，K8S 集群所在节点必须可以访问 Block 模式集群 NameSpace 节点。
+* mountPoint：JindoFS Block 模式集群后端访问地址，格式为：Namespace服务IP地址+端口模式，端口默认为8101，建议 K8S 集群和 Block 模式集群在同一个 VPC 下，IP 地址可为内网 IP，K8S 集群所在节点必须可以访问 Block 模式集群 Namespace 节点。
 * fuse.global：全局部署 fuse 客户端
   
 创建资源文件

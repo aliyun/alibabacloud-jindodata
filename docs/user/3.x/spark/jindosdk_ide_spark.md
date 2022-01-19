@@ -25,8 +25,8 @@ public class TestJindoSDK {
         .builder()
         .config("spark.hadoop.fs.AbstractFileSystem.oss.impl", "com.aliyun.emr.fs.oss.OSS")
         .config("spark.hadoop.fs.oss.impl", "com.aliyun.emr.fs.oss.JindoOssFileSystem")
-        .config("spark.hadoop.fs.jfs.cache.oss.accessKeyId", "xxx")
-        .config("spark.hadoop.fs.jfs.cache.oss.accessKeySecret", "xxx")
+        .config("spark.hadoop.fs.oss.accessKeyId", "xxx")
+        .config("spark.hadoop.fs.oss.accessKeySecret", "xxx")
         .appName("TestJindoSDK")
         .getOrCreate();
     spark.read().parquet("oss://xxx").count();

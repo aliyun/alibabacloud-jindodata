@@ -22,12 +22,12 @@ cp jindofs-sdk-${version}.jar  $SPARK_HOME/jars/
 <configuration>
     <property>
         <name>fs.AbstractFileSystem.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.JindoOSS</value>
+        <value>com.aliyun.emr.fs.oss.OSS</value>
     </property>
 
     <property>
         <name>fs.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
+        <value>com.aliyun.emr.fs.oss.JindoOssFileSystem</value>
     </property>
 </configuration>
 ```
@@ -55,7 +55,7 @@ JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考[JindoSD
 #### 任务级别配置
 使用参数在 Spark 任务提交的时候设置 JindoSDK, 以下为示例:
  ```  
-spark-submit --conf spark.hadoop.fs.AbstractFileSystem.oss.impl=com.aliyun.jindodata.oss.JindoOSS --conf spark.hadoop.fs.oss.impl=com.aliyun.jindodata.oss.JindoOssFileSystem --conf spark.hadoop.fs.oss.accessKeyId=xxx  --conf spark.hadoop.fs.oss.accessKeySecret=xxx --conf spark.hadoop.fs.oss.endpoint=oss-cn-xxx.aliyuncs.com 
+spark-submit --conf spark.hadoop.fs.AbstractFileSystem.oss.impl=com.aliyun.emr.fs.oss.OSS --conf spark.hadoop.fs.oss.impl=com.aliyun.emr.fs.oss.JindoOssFileSystem --conf spark.hadoop.fs.oss.accessKeyId=xxx  --conf spark.hadoop.fs.oss.accessKeySecret=xxx --conf spark.hadoop.fs.oss.endpoint=oss-cn-xxx.aliyuncs.com
  ```
 
 ### 4. 使用 Spark 访问 OSS

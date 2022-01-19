@@ -17,12 +17,12 @@ cp jindosdk-${version}.jar  $PRESTO_HOME/plugin/hive-hadoop2/
 <configuration>
     <property>
         <name>fs.AbstractFileSystem.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.JindoOSS</value>
+        <value>com.aliyun.emr.fs.oss.OSS</value>
     </property>
 
     <property>
         <name>fs.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
+        <value>com.aliyun.emr.fs.oss.JindoOssFileSystem</value>
     </property>
 </configuration>
 ```
@@ -52,19 +52,24 @@ JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考[JindoSD
 ### 4. 重启 Presto 所有服务，使配置生效。
 
 ## 使用示例
-以下以最常用的 Hive catalog 为例，使用 Presto 创建一个 OSS 上的 schema，并执行一些简单的 sql 示例。由于依赖 Hive Metastore，Hive 服务也需要安装部署 JindoSDK，请参考[Hive 使用 JindoSDK 访问 OSS](../hive/jindosdk_on_hive.md)。
+以下以最常用的 Hive catalog 为例，使用 Presto 创建一个 OSS 上的 schema，并执行一些简单的 sql 示例。由于依赖 Hive Metastore，Hive 服务也需要安装部署 JindoSDK，请参考 [Hive 使用 JindoSDK 访问 OSS](../hive/jindosdk_on_hive.md)。
+
 * 执行命令，进入 Presto 控制台
-````bash
+
+```bash
 presto --server <presto_server_address>:<presto_server_port> --catalog hive
-````
+```
 * 创建并使用一个 location 位于 OSS 上的 schema
-````sql
+
+```sql
 create schema testDB with (location='oss://<bucket>/<schema_dir>');
 use testDB;
-````
-* 创建table，执行sql测试验证
-````sql
+```
+
+* 创建table，执行sql测试验
+
+```sql
 create table tbl (key int, val int);
 insert into tbl values (1,666);
 select * from tbl;
-````
+```

@@ -1,18 +1,18 @@
 # JindoFS OSS 使用 Ranger 的鉴权方案
 ## 背景
 Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中的多个组件进行细粒度的权限访问控制。当用户将数据存放在阿里云 OSS 时，则是通过阿里云 RAM 产品创建或管理 RAM 用户，对RAM用户实现对 OSS 资源的访问控制。
-为维持大数据客户的使用习惯，通过 JindoFS NameSpace 接入 Ranger 的客户端，方便用户统一管理大数据组件权限。
+为维持大数据客户的使用习惯，通过 JindoFS Namespace 接入 Ranger 的客户端，方便用户统一管理大数据组件权限。
 
 ## 访问 OSS 鉴权流程
-* OSS 的访问密钥 AccessKey（AK）统一在 JindoFS NameSpace 中设置，避免用户在客户端配置明文密钥，建议只允许管理员操作和管理 NameSpace 服务；
-* JindoSDK 提供标准 Hadoop Filesystem 客户端，将访问 OSS 的请求会发送至 NameSpace 服务；
-* JindoFS NameSpace Service 负责集成 Ranger 客户端，周期性将权限策略从 Ranger 服务端同步到本地；
-* NameSpace 服务在收到 JindoSDK 的鉴权请求后进行细粒度的权限校验；
-* 通过权限校验后 JindoSDK 则可以使用 NameSpace 服务颁发的临时 AK 访问 OSS。
+* OSS 的访问密钥 AccessKey（AK）统一在 JindoFS Namespace 中设置，避免用户在客户端配置明文密钥，建议只允许管理员操作和管理 Namespace 服务；
+* JindoSDK 提供标准 Hadoop Filesystem 客户端，将访问 OSS 的请求会发送至 Namespace 服务；
+* JindoFS Namespace Service 负责集成 Ranger 客户端，周期性将权限策略从 Ranger 服务端同步到本地；
+* Namespace 服务在收到 JindoSDK 的鉴权请求后进行细粒度的权限校验；
+* 通过权限校验后 JindoSDK 则可以使用 Namespace 服务颁发的临时 AK 访问 OSS。
 
   <img src="../pic/jindofs_ranger_0.png" alt="title" width="700"/>
 
-注：若 NameSpace 部署的节点为阿里云 ECS 节点，可以通过配置安全组，限制访问 NameSpace 的客户端。
+注：若 Namespace 部署的节点为阿里云 ECS 节点，可以通过配置安全组，限制访问 Namespace 的客户端。
 
 ## 前提条件
 * 已创建E-MapReduce EMR-5.4.2/EMR-3.38.2或以上版本的高安全集群(启用 Kerberos 认证)，并且选择了Ranger服务。

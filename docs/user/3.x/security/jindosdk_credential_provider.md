@@ -5,31 +5,31 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
     <property>
-        <name>fs.jfs.cache.oss.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
     <property>
-        <name>fs.jfs.cache.oss.endpoint</name>
+        <name>fs.oss.endpoint</name>
       	<!-- ECS 环境推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
 ```
 ## 使用 Hadoop Credential Providers 存储 AccessKey 信息
-上面的`fs.jfs.cache.oss.accessKeyId`和`fs.jfs.cache.oss.accessKeySecret`将会明文配置在`core-site.xml`中，可以将其以加密对方式存储至 Hadoop Credential Providers文件中。<br />
+上面的`fs.oss.accessKeyId`和`fs.oss.accessKeySecret`将会明文配置在`core-site.xml`中，可以将其以加密对方式存储至 Hadoop Credential Providers文件中。<br />
 使用Hadoop提供的命令，存储AccessKey和SecurityToken信息至Credential文件中。命令格式如下。
 ```
 hadoop credential <subcommand> [options]
 ```
 例如，存储 AccessKey 和 Token 信息至 JECKS 文件中，除了使用文件权限保护该文件外，您也可以指定密码加密存储信息，如果不指定密码则使用默认字符串加密。
 ```
-hadoop credential create fs.jfs.cache.oss.accessKeyId -value AAA -provider jceks://file/root/oss.jceks
-hadoop credential create fs.jfs.cache.oss.accessKeySecret -value BBB -provider jceks://file/root/oss.jceks
-hadoop credential create fs.jfs.cache.oss.securityToken -value  CCC -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.accessKeyId -value AAA -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.accessKeySecret -value BBB -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file/root/oss.jceks
 ```
 生成 Credential 文件后，您需要配置下面的参数来指定 Provider 的类型和位置。
 ```xml
@@ -67,15 +67,15 @@ hadoop credential create fs.jfs.cache.oss.securityToken -value  CCC -provider jc
 ```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>OSS的AccessKey Id</value>
     </property>
     <property>
-        <name>fs.jfs.cache.oss.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>OSS的AccessKey Secret</value>
     </property>
     <property>
-        <name>fs.jfs.cache.oss.securityToken</name>
+        <name>fs.oss.securityToken</name>
         <value>OSS的SecurityToken（临时安全令牌)</value>
     </property>
 </configuration>
@@ -112,11 +112,11 @@ hadoop credential create fs.jfs.cache.oss.securityToken -value  CCC -provider jc
 ```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>OSS的AccessKey Id</value>
     </property>
     <property>
-        <name>fs.jfs.cache.oss.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>OSS的AccessKey Secret</value>
     </property>
 </configuration>

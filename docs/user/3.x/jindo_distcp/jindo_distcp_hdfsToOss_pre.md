@@ -85,17 +85,17 @@ hadoop jar jindo-distcp-3.7.2.jar --src /data --dest oss://destBucket/ --ossKey 
 ```xml
 <configuration>
     <property>
-        <name>fs.jfs.cache.oss.accessKeyId</name>
+        <name>fs.oss.accessKeyId</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.accessKeySecret</name>
+        <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
     </property>
 
     <property>
-        <name>fs.jfs.cache.oss.endpoint</name>
+        <name>fs.oss.endpoint</name>
         <!-- 阿里云 ECS 环境下推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
         <value>oss-cn-xxx.aliyuncs.com</value>
     </property>

@@ -20,12 +20,12 @@ cp jindosdk-${version}.jar  $IMPALA_HOME/lib/
 <configuration>
     <property>
         <name>fs.AbstractFileSystem.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.JindoOSS</value>
+        <value>com.aliyun.emr.fs.oss.OSS</value>
     </property>
 
     <property>
         <name>fs.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
+        <value>com.aliyun.emr.fs.oss.JindoOssFileSystem</value>
     </property>
 </configuration>
 ```
