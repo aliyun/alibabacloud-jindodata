@@ -79,4 +79,6 @@ OssFileSystem ossFileSystem = (OssFileSystem) fs;
 boolean isFolder = true;
 ossFileSystem.recover(path, isFolder);
 ```
+## 关于 JindoSDK OSS Flush 原理
 
+原生的 OSS 不支持 Flush，同时对象存储的 MultiPartUpload 功能对单个 Part 的大小存在限制，JindoSDK 利用 staging ，每次 flush 时，当满足 part 大小的数据进行上传，对于不满足 part 大小的数据暂存在 staging 目录，等待文件写入完成后，统一清理 staging。注意，JindoSDK OSS Flush 不能让 flush 后的数据立刻可见，但是可以保证 flush() 后的数据不丢失并且可恢复。
