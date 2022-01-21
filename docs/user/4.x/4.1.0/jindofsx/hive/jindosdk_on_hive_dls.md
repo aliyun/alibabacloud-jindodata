@@ -60,7 +60,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考[JindoSDK Cr
 
 如: `oss://mydlsbucket.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 JindoFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考[JindoFSx（缓存系统) 配置 JindoFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
+这种方式在访问路径中包含 JindoFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考[JindoFSx 缓存系统配置 JindoFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 

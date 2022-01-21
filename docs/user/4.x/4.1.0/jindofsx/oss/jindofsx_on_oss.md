@@ -5,9 +5,9 @@ JindoFSx 缓存系统提供了透明缓存的使用方式，兼容原生 OSS 存
 本文主要介绍 JindoFSx 支持阿里云 OSS 透明缓存加速的使用方式。
 
 ## 前提条件：
-* 已部署 JindoFSx（缓存系统)
+* 已部署 JindoFSx 缓存系统
 
-关于如何部署 JindoFSx（缓存系统)，请参考 [部署 JindoFSx（缓存系统)](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 

@@ -3,9 +3,9 @@
 JindoFSx 客户端 P2P 可以被视作一种本地缓存（LocalCache）。与原有的 LocalCache 相比，P2P 缓存中的本地数据块会优先从其他持有该数据的客户端拉取，只有无法向其他客户端请求时，才会从 STS 或远端读取。从概念上来讲，可以将 P2P 缓存视作 “客户端之间可以交互传输数据” 的 “本地缓存”。
 
 ## 前提条件：
-* 已部署 JindoFSx（缓存系统)
+* 已部署 JindoFSx 缓存系统
 
-关于如何部署 JindoFSx（缓存系统)，请参考 [部署 JindoFSx（缓存系统)](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 

@@ -1,4 +1,4 @@
-# 快速部署一个简单的 JindoFSx 缓存系统
+# 部署高可用 JindoFSx 缓存系统
 
 ## 1. 下载 JindoFSx 包
 下载最新的 Release 包 jindofsx-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
@@ -7,9 +7,12 @@
 ```
 tar -xzvf jindofsx-x.x.x.tar.gz
 ```
+
 并将安装目录部署到所有所需节点上。
 
 ## 3. 配置 jindofsx.cfg
+### 基本配置
+
 在 jindofsx-x.x.x/conf 文件夹下修改配置文件 jindofsx.cfg。并将配置文件部署到所需节点上（NamespaceService 和 StorageService 所在节点）。
 
 ```
@@ -34,6 +37,16 @@ namespace.meta-dir = /tmp/jindofsx/server # 元数据存放目录
 1. [jindofsx-storage] 中的参数 storage.namespace.rpc.address 修改为 JindoFSx 集群的 NamespaceService 服务的所在节点地址（hostname 或者 ip 均可），其中 8101 为 NamespaceService 服务 RPC 的端口号， 需要与 [jindofsx-namespace] 中的参数 namespace.rpc.port 中的端口号一致；
 2. [jindofsx-storage] 中需配置好数据缓存相关参数，storage.data-dirs 为缓存目录，可以指定多个，以逗号隔开；storage.data-dirs.capacities 为每块磁盘大小，数量应与 storage.data-dirs 一致；storage.watermark.high.ratio 表示磁盘使用量的上水位比例（0到1之间的小数），每块数据盘的缓存数据目录占用的磁盘空间到达上水位即会触发清理，并且 StorageService 会确保缓存空间占用不超过上水位；storage.watermark.low.ratio 表示使用量的下水位比例（0到1之间的小数，需小于上水位），触发清理后会自动清理冷数据，将缓存数据目录占用空间清理到下水位。
 
+### 配置高可用 JindoFSx Namespace
+
+JindoFSx Namespace 高可用部署需要 3 个节点分别启动 NamespaceService 服务组成 1 个 Raft 实例。 变更配置文件 jindofsx.cfg 文件中 [jindofsx-namespace] section 下的配置项。
+
+```
+[jindofsx-namespace]# Namespace 配置
+namespace.backend.type = raft #设置namespace后端存储类型，支持 rocksdb, ots 和 raft, 默认为 rocksdb。
+namespace.backend.raft.initial-conf = emr-header-1:8103:0,emr-header-2:8103:0,emr-header-3:8103:0 #部署raft实例的3个Namespace地址
+```
+
 ## 4. 配置环境变量
 以 jindofsx-4.1.0 安装在 /usr/lib 为例：
 ```
@@ -42,6 +55,14 @@ export JINDOFSX_CONF_DIR=/usr/lib/jindofsx-4.1.0/conf/
 并确认部署到所有节点。
 
 ## 5. 启动 JindoFSx 缓存服务
+在 master 节点（启动 JindoFSx NamespaceService 的节点）编辑 sbin/headers 文件，因为 3 个 Master 节点组成 1 个 Raft 实例，添加 3 个 Namespace 所在节点列表，例如：
+
+```
+emr-header-1
+emr-header-1
+emr-header-1
+```
+
 在 master 节点（启动 JindoFSx NamespaceService 的节点）编辑 sbin/nodes 文件，配置上所有需要启动 StorageService 的节点列表，例如：
 ```
 worker-1
@@ -68,5 +89,3 @@ sh sbin/stop-service.sh
 ps -aux | grep jindofsx-namespaceservice
 ps -aux | grep jindofsx-storageservice
 ```
-
-如需部署高可用 JindoFSx 缓存系统, 请参考 [部署高可用 JindoFSx 缓存系统](../deploy/deploy_jindofsx_ha.md)

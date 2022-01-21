@@ -1,4 +1,4 @@
-## JindoFSx 缓存系统 metrics 收集展示文档
+## 基于 Prometheus + Grafana 搭建 JindoFSx 缓存系统可视化指标观测平台
 ### 环境要求
 
 * JindoFSx >= 4.1.0
@@ -6,6 +6,15 @@
 * Prometheus >= 2.10
  
 * Grafana >= 7.3.7
+
+### 前提条件：
+* 已部署 JindoFSx 缓存系统。
+
+关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+
+* 已部署 JindoSDK。
+
+关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindosdk.md)
 
 ### 1、Prometheus 安装
 首先需要在环境里安装 Prometheus 和 Grafana 服务，下面以 centos7 环境为例

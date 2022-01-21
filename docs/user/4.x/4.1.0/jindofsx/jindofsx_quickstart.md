@@ -1,11 +1,11 @@
-# JindoFSx（缓存系统）快速入门
+# JindoFSx 缓存系统快速入门
 
 JindoFSx 是 JindoData 提供的云数据访问中心，为用户管理云平台对于云存储的使用，针对各种访问场景，提供一站式的存储优化服务。JindoFSx 可以为用户同时管理多个后端存储系统。同时，JindoFSx 会为上层应用构建基于多种存储介质的数据缓存，并规划高效的数据访问策略，保障用户作业高速、稳定运行。
 
 ## 前提条件：
-* 已部署 JindoFSx（缓存系统)。
+* 已部署 JindoFSx 缓存系统。
 
-关于如何部署 JindoFSx（缓存系统)，请参考 [部署 JindoFSx（缓存系统)](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK。
 

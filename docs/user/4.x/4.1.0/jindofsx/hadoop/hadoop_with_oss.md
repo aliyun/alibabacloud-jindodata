@@ -1,11 +1,11 @@
 # Hadoop 访问阿里云 OSS + JindoFSx 透明加速
 
-JindoSDK 为 JindoFSx(缓存系统) 系统提供了 Apache Hadoop 支持。
+JindoSDK 为 JindoFSx 缓存系统提供了 Apache Hadoop 支持。
 
 ## 前提条件：
-* 已部署 JindoFSx（缓存系统)
+* 已部署 JindoFSx 缓存系统
 
-关于如何部署 JindoFSx（缓存系统)，请参考 [部署 JindoFSx（缓存系统)](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 

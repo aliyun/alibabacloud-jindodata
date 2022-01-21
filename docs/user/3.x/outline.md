@@ -43,8 +43,8 @@
 #### JindoFuse 使用
 * [JindoFuse 使用 JindoSDK 访问 OSS](jindo_fuse/jindo_fuse_on_oss.md)
 
-#### Fluid + JindoFSx(缓存系统) 云原生
-* [Fluid 结合 JindoFSx(缓存系统) 介绍和使用](jindo_fluid/jindo_fluid_overview.md)
+#### Fluid + JindoFSx 缓存系统云原生
+* [Fluid 结合 JindoFSx 缓存系统介绍和使用](jindo_fluid/jindo_fluid_overview.md)
 
 ## 最佳实践
 #### JindoDistCp 数据迁移

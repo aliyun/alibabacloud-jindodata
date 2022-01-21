@@ -4,9 +4,9 @@
 # 基本使用
 
 ## 前提条件：
-* 已部署 JindoFSx（缓存系统)
+* 已部署 JindoFSx 缓存系统
 
-关于如何部署 JindoFSx（缓存系统)，请参考 [部署 JindoFSx（缓存系统)](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 ## 配置服务端
 
