@@ -49,26 +49,26 @@ jindo-fuse <mount_point> -ouri=[<oss_path>]
 
 如果将 JindoFS 服务挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
 
-1. 列出/mnt/oss/下的所有目录：
+* 列出/mnt/oss/下的所有目录：
 
    ```
    ls /mnt/oss/
    ```
 
-2. 创建目录：
+* 创建目录：
 
    ```
    mkdir /mnt/oss/dir1
    ls /mnt/oss/
    ```
 
-3. 写入文件：
+* 写入文件：
 
    ```
    echo "hello world" > /mnt/oss/dir1/hello.txt
    ```
 
-4. 读取文件：
+* 读取文件：
 
    ```
    cat /mnt/oss/dir1/hello.txt
@@ -76,7 +76,7 @@ jindo-fuse <mount_point> -ouri=[<oss_path>]
 
    显示`hello world`。
 
-5. 删除目录：
+* 删除目录：
 
    ```
    rm -rf /mnt/oss/dir1/

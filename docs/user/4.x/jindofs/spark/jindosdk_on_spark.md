@@ -16,7 +16,7 @@ cp jindosdk-x.x.x/lib/*.jar  $SPARK_HOME/jars/
 
 ### 3. 配置 JindoSDK 
 #### 全局配置, 修改 Spark 使用的`core-site.xml`
-* 配置 JindoSDK OSS 实现类
+* 配置 JindoSDK JindoFS 服务实现类
 ```xml
 <configuration>
     <property>
@@ -30,7 +30,7 @@ cp jindosdk-x.x.x/lib/*.jar  $SPARK_HOME/jars/
     </property>
 </configuration>
 ```
-* 配置 OSS Access Key
+* 配置 JindoFS 服务 Access Key
 ```xml
 <configuration>
     <property>
@@ -44,7 +44,7 @@ cp jindosdk-x.x.x/lib/*.jar  $SPARK_HOME/jars/
     </property>
 </configuration>
 ```
-JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考[JindoSDK Credential Provider 配置](../security/jindosdk_credential_provider.md)。
+JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考[JindoSDK Credential Provider 配置](../security/jindosdk_credential_provider.md)。
 
 * 配置 JindoFS 服务 Endpoint
 
@@ -54,12 +54,12 @@ JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考[JindoSD
 
 如: `oss://dls-chenshi-test.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 JindoFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考[JindoFS 服务 Endpoint 配置](configuration/jindosdk_endpoint_configuration.md)。
+这种方式在访问路径中包含 JindoFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [JindoFS 服务 Endpoint 配置](configuration/jindosdk_endpoint_configuration.md)。
 
 #### 任务级别配置
 使用参数在 Spark 任务提交的时候设置 JindoSDK, 以下为示例:
  ```  
-spark-submit --conf spark.hadoop.fs.AbstractFileSystem.oss.impl=com.aliyun.jindodata.oss.JindoOSS --conf spark.hadoop.fs.oss.impl=com.aliyun.jindodata.oss.JindoOssFileSystem --conf spark.hadoop.fs.oss.accessKeyId=xxx  --conf spark.hadoop.fs.oss.accessKeySecret=xxx --conf spark.hadoop.fs.oss.endpoint=oss-cn-xxx.aliyuncs.com 
+spark-submit --conf spark.hadoop.fs.AbstractFileSystem.oss.impl=com.aliyun.jindodata.oss.JindoOSS --conf spark.hadoop.fs.oss.impl=com.aliyun.jindodata.oss.JindoOssFileSystem --conf spark.hadoop.fs.oss.accessKeyId=xxx  --conf spark.hadoop.fs.oss.accessKeySecret=xxx
  ```
 
 ### 4. 使用 Spark 访问 OSS

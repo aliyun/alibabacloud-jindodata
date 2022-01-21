@@ -53,14 +53,14 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 ```
 JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK Credential Provider 配置](security/jindosdk_credential_provider.md)。
 
-### 4. 配置 JindoFS Endpoint
+### 4. 配置 JindoFS 服务 Endpoint
 访问 OSS Bucket 上 JindoFS 服务需要配置 Endpoint（`cn-xxx.oss-dls.aliyuncs.com`），与 OSS 对象接口的 Endpoint（`oss-cn-xxx.aliyuncs.com`）不同。JindoSDK 会根据配置的 Endpoint 访问 JindoFS 服务 或 OSS 对象接口。
 
 使用 JindoFS 服务时，推荐访问路径格式为：`oss://<Bucket>.<Endpoint>/<Object>`
 
 如: `oss://dls-chenshi-test.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 JindoFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考[JindoFS 服务 Endpoint 配置](configuration/jindosdk_endpoint_configuration.md)。
+这种方式在访问路径中包含 JindoFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [JindoFS 服务 Endpoint 配置](configuration/jindosdk_endpoint_configuration.md)。
 
 ### 5. 使用 JindoSDK 访问 OSS
 用 Hadoop Shell 访问 JindoFS，下面列举了几个常用的命令。

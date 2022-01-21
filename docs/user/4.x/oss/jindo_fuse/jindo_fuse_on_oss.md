@@ -47,28 +47,28 @@ jindo-fuse <mount_point> -ouri=[<oss_path>]
 
 ## 访问 JindoFuse
 
-如果将 JindoFS 服务挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
+如果将 OSS 挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
 
-1. 列出/mnt/oss/下的所有目录：
+* 列出/mnt/oss/下的所有目录：
 
    ```
    ls /mnt/oss/
    ```
 
-2. 创建目录：
+* 创建目录：
 
    ```
    mkdir /mnt/oss/dir1
    ls /mnt/oss/
    ```
 
-3. 写入文件：
+* 写入文件：
 
    ```
    echo "hello world" > /mnt/oss/dir1/hello.txt
    ```
 
-4. 读取文件：
+* 读取文件：
 
    ```
    cat /mnt/oss/dir1/hello.txt
@@ -76,7 +76,7 @@ jindo-fuse <mount_point> -ouri=[<oss_path>]
 
    显示`hello world`。
 
-5. 删除目录：
+* 删除目录：
 
    ```
    rm -rf /mnt/oss/dir1/
@@ -144,9 +144,9 @@ umount <mount_point>
 | logger.level           | 2                | 输出大于等于该等级的日志，等级范围为0-6，分别表示：TRACE、DEBUG、INFO、WARN、ERROR、CRITICAL、OFF |
 | logger.verbose         | 0                | 输出大于等于该等级的VERBOSE日志，等级范围为0-99，0表示不输出 |
 | logger.cleaner.enable  | false            | 是否开启日志清理                                             |
-| fs.oss.endpoint        |                  | 访问 JindoFS 服务的地址，如oss-cn-xxx.aliyuncs.com       |
-| fs.oss.accessKeyId     |                  | 访问 JindoFS 服务需要的 accessKeyId                          |
-| fs.oss.accessKeySecret |                  | 访问 JindoFS 服务需要的 accessKeySecret                      |
+| fs.oss.endpoint        |                  | 访问 OSS 的地址，如oss-cn-xxx.aliyuncs.com       |
+| fs.oss.accessKeyId     |                  | 访问 OSS 需要的 accessKeyId                          |
+| fs.oss.accessKeySecret |                  | 访问 OSS 需要的 accessKeySecret                      |
 
 更多参数可见[相关文档](../configuration/jindosdk_configuration_list.md)。
 

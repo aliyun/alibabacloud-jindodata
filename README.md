@@ -26,12 +26,14 @@ IDC 机房数据（HDFS）上云迁移和多云迁移利器，支持多种存储
 ![JindoData](docs/image/jindodata-deploy.png)
 
 ## 发布版本
+#### JindoData 4.1.0，2022-01-21，[Release Note](docs/user/4.x/4.1.0/jindodata-4.1.0-release-notes.md)
 #### JindoData 4.0.0，2022-01-07，[Release Note](docs/user/4.x/jindodata-4.0.0-release-notes.md)
 #### JindoData 3.x 版本，[原阿里云 E-MapReduce SmartData](https://help.aliyun.com/document_detail/121090.html)
 
 ## 用户文档
-#### JindoSDK + OSS [用户文档](docs/user/4.x/oss/outline.md)
-#### 阿里云 OSS-HDFS 服务（JindoFS 服务) [用户文档](docs/user/4.x/jindofs/outline.md)
+#### JindoSDK + OSS [用户文档](docs/user/4.x/4.1.0/oss/outline.md)
+#### 阿里云 OSS-HDFS 服务（JindoFS 服务) [用户文档](docs/user/4.x/4.1.0/jindofs/outline.md)
+#### JindoFSx（缓存系统）[用户文档](docs/user/4.x/4.1.0/jindofsx/outline.md)
 #### JindoSDK + OSS（3.x 版本）[用户文档](docs/user/3.x/outline.md)
 
 ## 常见问题

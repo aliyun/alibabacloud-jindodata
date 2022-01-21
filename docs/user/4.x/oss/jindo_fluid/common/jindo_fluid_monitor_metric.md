@@ -17,7 +17,7 @@ $ kubectl apply -f prometheus-jindofs.yaml
 ```yaml
 scrape_configs:
 - job_name: 'jindo runtime'
-  metrics_path: /jindometrics/prometheus
+  metrics_path: /metrics/prometheus
   kubernetes_sd_configs:
     - role: endpoints
   relabel_configs:
