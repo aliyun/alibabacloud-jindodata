@@ -116,7 +116,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
     <property>
         <!-- 小文件缓存优化开关 -->
         <name>fs.fsx.slice.cache.enable</name>
-        <value>小文件缓存优化开关</value>
+        <value>false</value>
     </property>
 
     <property>

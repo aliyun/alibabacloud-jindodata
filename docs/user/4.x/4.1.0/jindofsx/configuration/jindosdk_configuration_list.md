@@ -21,7 +21,7 @@
     <property>
         <!-- 小文件缓存优化开关 -->
         <name>fs.fsx.slice.cache.enable</name>
-        <value>小文件缓存优化开关</value>
+        <value>false</value>
     </property>
 
     <property>
