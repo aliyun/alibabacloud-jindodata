@@ -11,11 +11,18 @@
 
 ## v3.7.3 (11/22/2021)
 
+* Hadoop2.7+ 环境
+
 [jindofs-sdk-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/jindofs-sdk-3.7.3.jar)<br />
 [jindo-flink-sink-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/jindo-flink-sink-3.7.3.jar)<br />
 [jindo-distcp-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/jindo-distcp-3.7.3.jar)<br />
 [jindofs-fuse-3.7.3.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/jindofs-fuse-3.7.3.tar.gz)<br />
 [b2smartdata-3.7.3.tar.gz](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/b2smartdata-3.7.3.tar.gz)<br />
+
+* Hadoop3.x 环境
+
+[jindofs-sdk-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindofs-sdk-3.7.3.jar)<br />
+[jindo-distcp-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindo-distcp-3.7.3.jar)<br />
 
 # JindoSDK 历史版本
 
