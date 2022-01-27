@@ -18,7 +18,7 @@
 
 - **JindoFS 和 OSS-HDFS 服务之间的关系**
 
-  OSS-HDFS 服务（有时也提 JindoFS 服务）是JindoFS 存储系统在阿里云 OSS 上的服务化部署形态，和 OSS 对象存储产品深度融合，作为一种新的 bucket 类型，开箱即用。
+  OSS-HDFS 服务（有时也提 JindoFS 服务）是 JindoFS 存储系统在阿里云 OSS 上的服务化部署形态，和 OSS 对象存储产品深度融合，作为一种新的 bucket 类型，开箱即用。
 
 - **JindoFS 服务化成为 OSS-HDFS 服务，为什么叫 HDFS？**
 

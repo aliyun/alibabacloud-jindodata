@@ -39,7 +39,7 @@
     </property>
 </configuration>
 ```
-说明：XXX 为 或 OSS 或 JindoFS 服务 bucket的名称。
+说明：XXX 为 或 OSS 或 OSS-HDFS 服务 bucket的名称。
 
 
 

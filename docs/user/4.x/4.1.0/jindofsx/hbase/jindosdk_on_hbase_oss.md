@@ -1,5 +1,5 @@
 # HBase 使用阿里云 OSS 作为底层存储 + JindoFSx 透明加速
-HBase 是 Hadoop 生态中的实时数据库，有很高的写入性能。JindoFS服务是阿里云推出新的存储空间类型，兼容 HDFS 接口, JindoSDK 支持 HBase 使用 OSS 服务作为底层存储实现存算分离，相对于本地HDFS存储，使用更加灵活，减少运维成本。
+HBase 是 Hadoop 生态中的实时数据库，有很高的写入性能。JindoSDK 支持 HBase 使用 OSS 作为底层存储，但需通过本地 HDFS 集群存储 WAL 文件。
 
 ## 1. 下载 JindoSDK 包
 下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
@@ -17,7 +17,7 @@ export JINDOSDK_HOME=/usr/lib/jindosdk-4.1.0
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 ```
 
-## 3. 配置 JindoFS 服务实现类及 Access Key
+## 3. 配置 OSS 实现类及 Access Key
 
 将 JindoSDK OSS 实现类配置到 Hadoop 的`core-site.xml`中。
 

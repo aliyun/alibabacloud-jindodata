@@ -17,7 +17,7 @@ export JINDOSDK_HOME=/usr/lib/jindosdk-4.0.0
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 ```
 
-## 3. 配置 JindoFS服务实现类及 Access Key
+## 3. 配置 OSS 实现类及 Access Key
 
 将 JindoSDK OSS 实现类配置到 Hadoop 的 `core-site.xml` 中。
 

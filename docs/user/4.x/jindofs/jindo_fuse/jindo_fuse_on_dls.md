@@ -1,6 +1,6 @@
 # 使用 JindoFuse 访问阿里云 OSS-HDFS 服务（JindoFS 服务）
 
-阿里云 OSS-HDFS 服务（JindoFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 JindoFS 服务上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作该服务上的文件。
+阿里云 OSS-HDFS 服务（JindoFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 OSS-HDFS 服务上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作该服务上的文件。
 
 # 基本使用
 
@@ -25,7 +25,7 @@ logger.dir = /tmp/fuse-log
 [jindosdk]
 # 已开启HDFS服务的Bucket对应的Endpoint。以华东1（杭州）为例，填写为cn-hangzhou.oss-dls.aliyuncs.com。
 fs.oss.endpoint = <your_endpoint>
-# 用于访问JindoFS服务的AccessKey ID和AccessKey Secret。阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
+# 用于访问 OSS-HDFS 服务的AccessKey ID和AccessKey Secret。阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
 fs.oss.accessKeyId = <your_key_id>
 fs.oss.accessKeySecret = <your_key_secret>
 ```
@@ -47,7 +47,7 @@ jindo-fuse <mount_point> -ouri=[<oss_path>]
 
 ## 访问 JindoFuse
 
-如果将 JindoFS 服务挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
+如果将 OSS-HDFS 服务挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
 
 * 列出/mnt/oss/下的所有目录：
 
@@ -152,9 +152,9 @@ umount <mount_point>
 | logger.level           | 2                | 输出大于等于该等级的日志，等级范围为0-6，分别表示：TRACE、DEBUG、INFO、WARN、ERROR、CRITICAL、OFF |
 | logger.verbose         | 0                | 输出大于等于该等级的VERBOSE日志，等级范围为0-99，0表示不输出 |
 | logger.cleaner.enable  | false            | 是否开启日志清理                                             |
-| fs.oss.endpoint        |                  | 访问 JindoFS 服务的地址，如cn-xxx.oss-dls.aliyuncs.com       |
-| fs.oss.accessKeyId     |                  | 访问 JindoFS 服务需要的 accessKeyId                          |
-| fs.oss.accessKeySecret |                  | 访问 JindoFS 服务需要的 accessKeySecret                      |
+| fs.oss.endpoint        |                  | 访问 OSS-HDFS 服务的地址，如cn-xxx.oss-dls.aliyuncs.com       |
+| fs.oss.accessKeyId     |                  | 访问 OSS-HDFS 服务需要的 accessKeyId                          |
+| fs.oss.accessKeySecret |                  | 访问 OSS-HDFS 服务需要的 accessKeySecret                      |
 
 更多参数可见[相关文档](../configuration/jindosdk_configuration_list.md)。
 

@@ -31,8 +31,8 @@ Flume 通过 flush() 调用保证事务性写入，OSS 本身不支持 Flush 功
 # 配置 OSS Sink
 xxx.sinks.oss_sink.hdfs.path = oss://${your_bucket}/flume_dir/%Y-%m-%d/%H
 
-# Sink参数，batchSize 需要设置大一些，推荐每次 Flush 的量在 32MB以上，否则会影响性能
-xxx.sinks.oss_sink.hdfs.batchSize = 100000
+# Sink参数，batchSize 需要设置大一些，推荐每次 Flush 的量在 32MB以上，否则会影响性能（详见文末常见问题）
+xxx.sinks.oss_sink.hdfs.batchSize = 200000
 
 ...
 xxx.sinks.oss_sink.hdfs.round = true
@@ -80,6 +80,22 @@ boolean isFolder = true;
 ossFileSystem.recover(path, isFolder);
 ```
 
-## 关于 JindoSDK OSS Flush 原理
+## 常见问题
+
+### 关于 JindoSDK OSS Flush 原理
 
 原生的对象存储不支持 Flush，同时对象存储的 MultiPartUpload 功能对单个 Part 的大小存在限制，都不能满足flume 事务写入需求。JindoSDK 利用 staging ，每次 flush 时，当满足 Part 大小要求时，会对数据进行上传，对于不满足 part 大小的数据暂存在 staging 目录，等待文件写入完成后，统一清理 staging。注意，JindoSDK OSS Flush 不能让 flush 后的数据立刻可见，但是可以保证 flush() 后的数据不丢失并且可恢复。
+
+### 如何评估每次 Flush 的大小（如何避免 fs.oss.flush.enable 为 true 的时候，产生较多的 staging 文件）
+
+推荐每次 Flush 的量在 32MB以上，避免 flush 过小影响整体性能以及产生大量的 staging 文件。由于 batchSize 单位为 event 数量（即日志行数），设置时需要先评估 event 平均大小 A（如 200 Byte），假如每次 Flush 的大小预期为 B（如 32MB）， 则 batchSize 为 B / A (32 MB / 200 Byte, 约为 160000)。
+
+同时也可以通过 Flume 日志可以观测到每次 flush 的数据量，例如
+
+````
+202x-01-01 15:44:37,503 (hdfs-hdfs_sink-call-runner-20) [INFO - FsStats] cmd=flush, src={path}/flume/xxlog/202x-01-01/01/xxlog.xxxxxxxxxxxx1.log.tmp, dst=null, size=745954969, parameter=null, time-in-ms=42, version=x.x.x
+202x-01-01 15:44:38,814 (hdfs-hdfs_sink-call-runner-20) [INFO - FsStats] cmd=flush, src={path}/flume/xxlog/202x-01-01/01/xxlog.xxxxxxxxxxxx1.log.tmp, dst=null, size=785954969, parameter=null, time-in-ms=82, version=x.x.x
+````
+
+如上日志，相同 path 下，可以看到一次 flume size 的变化量为````（785,954,969 - 745,954,969）```` = ````40,000,000````，约为 40 M左右，BatchSize 可以根据 flush 情况进行调整。注意，如果添加或实现了拦截器或者选择器，需要过滤掉空的 event，防止出现 batchSize 设置无效并频繁 flush 的情况。
+

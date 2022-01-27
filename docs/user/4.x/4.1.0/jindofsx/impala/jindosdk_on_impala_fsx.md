@@ -46,7 +46,7 @@ cp jindosdk-x.x.x/lib/*.jar  $IMPALA_HOME/lib/
 ```
 JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx 统一挂载(fsx://) Credential 配置](../security/jindosdk_credential.md)。
 
-* 配置 OSS 或 JindoFS 服务 Endpoint
+* 配置 OSS 或 OSS-HDFS 服务 Endpoint
 ```
 <configuration>
     <property>
@@ -55,7 +55,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
     </property>
 </configuration>
 ```
-如果统一挂载的为 JindoFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 JindoFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
+如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 OSS-HDFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -85,7 +85,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
 ```
 更多缓存优化相关参数，请参考 [缓存优化相关参数](../configuration/jindosdk_configuration_list.md)
 
-* 挂载 OSS 或 JindoFS 服务目录
+* 挂载 OSS 或 OSS-HDFS 服务目录
 
 ```
 jindo fsxadmin -mount <path> <realpath>

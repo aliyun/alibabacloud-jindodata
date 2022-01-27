@@ -1,5 +1,5 @@
 # JindoFuse 读写 JindoFSx 缓存(fsx://路径挂载)
-阿里云 OSS 和 OSS-HDFS 服务（JindoFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 OSS 或 JindoFS 服务上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作该服务上的文件。
+阿里云 OSS 和 OSS-HDFS 服务（JindoFS 服务）通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 OSS 或 OSS-HDFS 服务上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作该服务上的文件。
 
 # 基本使用
 
@@ -56,7 +56,7 @@ logger.dir = /tmp/fuse-log
 # 配置已开启 HDFS 服务的 Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为cn-hangzhou.oss-dls.aliyuncs.com。
 # 或配置阿里云 OSS Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为oss-cn-hangzhou-internal.aliyuncs.com。
 fs.fsx.oss.endpoint= <your_endpoint>
-# 用于访问 OSS 或 JindoFS服务的 AccessKey ID 和AccessKey Secret。阿里云账号 AccessKey 拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
+# 用于访问 OSS 或 OSS-HDFS 服务的 AccessKey ID 和AccessKey Secret。阿里云账号 AccessKey 拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
 fs.fsx.oss.accessKeyId = <your_key_id>
 fs.fsx.oss.accessKeySecret = <your_key_secret>
 
@@ -67,7 +67,7 @@ fs.fsx.namespace.rpc.address = <hostname>:<port>
 fs.fsx.data.cache.enable = false
 ```
 
-## 挂载 OSS 或 JindoFS 服务目录
+## 挂载 OSS 或 OSS-HDFS 服务目录
 
 * 挂载命令
 
@@ -100,7 +100,7 @@ jindo-fuse <mount_point> -ouri=[<fsx_path>]
 
 ## 访问 JindoFuse
 
-如果将 JindoFS 服务挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
+如果将 OSS-HDFS 服务挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
 
 * 列出/mnt/oss/下的所有目录：
 

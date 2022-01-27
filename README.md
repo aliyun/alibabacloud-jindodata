@@ -8,7 +8,7 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 ### JindoFS 存储系统
 基于阿里云 OSS 的云原生存储系统，二进制兼容 Apache HDFS，并且基本功能对齐，提供优化的 HDFS 使用和平迁体验。是原 JindoFS Block 模式的全新升级版本。
 ### 阿里云 OSS-HDFS 服务（JindoFS 服务)
-JindoFS 存储系统在阿里云上的服务化部署形态，和阿里云 OSS 深度融合，开箱即用，无须在自建集群部署维护 JindoFS，免运维。
+JindoFS 存储系统在阿里云上的服务化部署形态，和阿里云 OSS 深度融合，开箱即用，无须在自建集群部署维护 JindoFS，免运维。OSS-HDFS 服务具体介绍请参考 [OSS-HDFS服务概述](https://help.aliyun.com/document_detail/405089.htm)
 ### JindoFSx 缓存系统
 面向大数据和 AI 生态的云原生数据湖缓存加速系统，同时提供透明缓存加速（保持原有 scheme 不变）和统一名字空间（<code>fsx://</code>）多挂载两种使用方式。原生优化支持阿里云 OSS，同时也支持业界主要多云对象存储和 Apache HDFS。是原 JindoFS Cache 模式的全新升级版本。
 ### JindoSDK Hadoop 支持

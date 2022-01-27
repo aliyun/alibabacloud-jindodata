@@ -32,7 +32,7 @@ cp jindosdk-x.x.x/lib/*.jar  $HIVE_HOME/lib/
 </configuration>
 ```
 
-* 配置 OSS 或 JindoFS 服务 Access Key
+* 配置 OSS 或 OSS-HDFS 服务 Access Key
 
 将 OSS Bucket 对应的`Access Key ID`、`Access Key Secret`等预先配置在 Hadoop 的`core-site.xml`中。
 
@@ -52,7 +52,7 @@ cp jindosdk-x.x.x/lib/*.jar  $HIVE_HOME/lib/
 
 JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx 统一挂载(fsx://) Credential 配置](../security/jindosdk_credential.md)。
 
-* 配置 OSS 或 JindoFS 服务 Endpoint
+* 配置 OSS 或 OSS-HDFS 服务 Endpoint
 ```
 <configuration>
     <property>
@@ -61,7 +61,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
     </property>
 </configuration>
 ```
-如果统一挂载的为 JindoFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 JindoFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
+如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 OSS-HDFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址。
 
@@ -103,7 +103,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
 
 当使用 Hive on Spark 方式执行 Hive 作业时，请参考[Spark 使用 JindoSDK 访问 OSS](../spark/jindosdk_on_spark.md)同时配置好 Spark。
 
-## 挂载 OSS 或 JindoFS 服务目录
+## 挂载 OSS 或 OSS-HDFS 服务目录
 
 * 挂载命令
 

@@ -31,9 +31,9 @@ JindoSDK 为 JindoFSx 缓存系统系统提供了 Apache Hadoop 支持。
 </configuration>
 ```
 
-* 配置 OSS 或 JindoFS 服务 AccessKey
+* 配置 OSS 或 OSS-HDFS 服务 AccessKey
 
-将 OSS 或 JindoFS 服务 Bucket 对应的`Access Key ID`、`Access Key Secret`等预先配置在 Hadoop 的`core-site.xml`中。
+将 OSS 或 OSS-HDFS 服务 Bucket 对应的`Access Key ID`、`Access Key Secret`等预先配置在 Hadoop 的`core-site.xml`中。
 ```xml
 <configuration>
     <property>
@@ -49,9 +49,9 @@ JindoSDK 为 JindoFSx 缓存系统系统提供了 Apache Hadoop 支持。
 ```
 JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx 统一挂载(fsx://) Credential 配置](../security/jindosdk_credential.md)。
 
-* 配置 OSS 或 JindoFS 服务 Endpoint
+* 配置 OSS 或 OSS-HDFS 服务 Endpoint
 
-将 OSS 或 JindoFS 服务 Endpoint 配置到 Hadoop 的`core-site.xml`中。
+将 OSS 或 OSS-HDFS 服务 Endpoint 配置到 Hadoop 的`core-site.xml`中。
 ```
 <configuration>
     <property>
@@ -61,7 +61,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
 </configuration>
 ```
 
-如果统一挂载的为 JindoFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 JindoFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
+如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 OSS-HDFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -91,7 +91,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
 ```
 更多缓存优化相关参数，请参考 [缓存优化相关参数](../configuration/jindosdk_configuration_list.md)
 
-## 挂载 OSS 或 JindoFS 服务目录
+## 挂载 OSS 或 OSS-HDFS 服务目录
 
 * 挂载命令
 
@@ -107,9 +107,9 @@ jindo fsxadmin -mount /jindooss oss://<Bucket>.<Endpoint>/
 
 执行如上命令后，则 /jindooss 目录下真正挂载的文件路径是 `oss://<Bucket>.<Endpoint>/`
 
-## 使用 JindoSDK 访问 OSS 或 JindoFS 服务
+## 使用 JindoSDK 访问 OSS 或 OSS-HDFS 服务
 
-用 Hadoop Shell 访问 OSS 或 JindoFS 服务，下面列举了几个常用的命令。
+用 Hadoop Shell 访问 OSS 或 OSS-HDFS 服务，下面列举了几个常用的命令。
 
 * put 操作
 ```

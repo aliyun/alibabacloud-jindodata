@@ -38,7 +38,7 @@ cp jindosdk-x.x.x/lib/*.jar  $SPARK_HOME/jars/
 
 * 配置 AccessKey
 
-将 OSS 或 JindoFS 服务 Bucket 对应的`Access Key ID`、`Access Key Secret`、`Endpoint`等预先配置在 Hadoop 的`core-site.xml`中。
+将 OSS 或 OSS-HDFS 服务 Bucket 对应的`Access Key ID`、`Access Key Secret`、`Endpoint`等预先配置在 Hadoop 的`core-site.xml`中。
 
 ```xml
 <configuration>
@@ -55,7 +55,7 @@ cp jindosdk-x.x.x/lib/*.jar  $SPARK_HOME/jars/
 ```
 JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx 统一挂载(fsx://) Credential 配置](../security/jindosdk_credential.md)。
 
-* 配置 OSS 或 JindoFS 服务 Endpoint
+* 配置 OSS 或 OSS-HDFS 服务 Endpoint
 
 ```
 <configuration>
@@ -65,7 +65,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
     </property>
 </configuration>
 ```
-如果统一挂载的为 JindoFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 JindoFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
+如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 OSS-HDFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址。
 
@@ -99,7 +99,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
 spark-submit --conf spark.hadoop.fs.AbstractFileSystem.oss.impl=com.aliyun.jindodata.fsx.OSS --conf spark.hadoop.fs.oss.impl=com.aliyun.jindodata.fsx.JindoOssFileSystem --conf spark.hadoop.fs.fsx.oss.accessKeyId=xxx  --conf spark.hadoop.fs.fsx.oss.accessKeySecret=xxx --conf spark.hadoop.fs.fsx.oss.endpoint=oss-cn-xxx-internal.aliyuncs.com --conf spark.hadoop.fs.fsx.namespace.rpc.address=hostname:port --conf spark.hadoop.fs.fsx.data.cache.enable=true 
 ```
 
-### 4. 挂载 OSS 或 JindoFS 服务目录
+### 4. 挂载 OSS 或 OSS-HDFS 服务目录
 
 * 挂载命令
 

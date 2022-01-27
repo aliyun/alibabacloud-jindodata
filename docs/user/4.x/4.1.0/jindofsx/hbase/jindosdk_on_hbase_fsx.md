@@ -1,5 +1,5 @@
 # HBase 使用 JindoFSx 统一挂载的数据
-HBase 是 Hadoop 生态中的实时数据库，有很高的写入性能。JindoFS服务是阿里云推出新的存储空间类型，兼容 HDFS 接口, JindoSDK 支持 HBase 使用 JindoFS 服务作为底层存储实现存算分离，相对于本地HDFS存储，使用更加灵活，减少运维成本。
+HBase 是 Hadoop 生态中的实时数据库，有很高的写入性能。 OSS-HDFS 服务是阿里云推出新的存储空间类型，兼容 HDFS 接口, JindoSDK 支持 HBase 使用 OSS-HDFS 服务作为底层存储实现存算分离，相对于本地HDFS存储，使用更加灵活，减少运维成本。
 
 ## 1. 下载 JindoSDK 包
 下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
@@ -17,7 +17,7 @@ export JINDOSDK_HOME=/usr/lib/jindosdk-4.1.0
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 ```
 
-## 3. 配置 JindoFS 服务实现类及 Access Key
+## 3. 配置 OSS-HDFS 服务实现类及 Access Key
 
 将 JindoSDK OSS 实现类配置到 Hadoop 的`core-site.xml`中。
 
@@ -50,7 +50,7 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 ```
 JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx 统一挂载(fsx://) Credential 配置](../security/jindosdk_credential.md)。
 
-* 配置 OSS 或 JindoFS 服务 Endpoint
+* 配置 OSS 或 OSS-HDFS 服务 Endpoint
 ```
 <configuration>
     <property>
@@ -59,7 +59,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
     </property>
 </configuration>
 ```
-如果统一挂载的为 JindoFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 JindoFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
+如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [JindoFSx 缓存系统配置 OSS-HDFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -89,7 +89,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
 ```
 更多缓存优化相关参数，请参考 [缓存优化相关参数](../configuration/jindosdk_configuration_list.md)
 
-* 挂载 OSS 或 JindoFS 服务目录
+* 挂载 OSS 或 OSS-HDFS 服务目录
 
 ```
 jindo fsxadmin -mount <path> <realpath>

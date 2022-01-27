@@ -33,7 +33,7 @@ JindoSDK 为 JindoFSx 缓存系统系统提供了 Apache Hadoop 支持。
 
 * 配置 Access Key
 
-将 JindoFS 服务 Bucket 对应的`Access Key ID`、`Access Key Secret`等预先配置在 Hadoop 的 **core-site.xml** 中。
+将 OSS-HDFS 服务 Bucket 对应的`Access Key ID`、`Access Key Secret`等预先配置在 Hadoop 的 **core-site.xml** 中。
 
 ```xml
 <configuration>
@@ -51,15 +51,15 @@ JindoSDK 为 JindoFSx 缓存系统系统提供了 Apache Hadoop 支持。
 
 JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK Credential Provider 配置](../security/jindosdk_credential_provider.md)。
 
-* 配置 JindoFS 服务 Endpoint
+* 配置 OSS-HDFS 服务 Endpoint
 
-访问 OSS Bucket 上 JindoFS 服务需要配置 Endpoint（`cn-xxx.oss-dls.aliyuncs.com`），与 OSS 对象接口的 Endpoint（`oss-cn-xxx-internal.aliyuncs.com`）不同。JindoSDK 会根据配置的 Endpoint 访问 JindoFS 服务 或 OSS 对象接口。
+访问 OSS Bucket 上 OSS-HDFS 服务需要配置 Endpoint（`cn-xxx.oss-dls.aliyuncs.com`），与 OSS 对象接口的 Endpoint（`oss-cn-xxx-internal.aliyuncs.com`）不同。JindoSDK 会根据配置的 Endpoint 访问 OSS-HDFS 服务 或 OSS 对象接口。
 
-使用 JindoFS 服务时，推荐访问路径格式为：`oss://<Bucket>.<Endpoint>/<Object>`
+使用 OSS-HDFS 服务时，推荐访问路径格式为：`oss://<Bucket>.<Endpoint>/<Object>`
 
 如: `oss://mydlsbucket.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 JindoFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [JindoFS 服务 Endpoint 配置](../configuration/dls_endpoint_configuration.md)。
+这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](../configuration/dls_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -89,7 +89,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
 ```
 更多缓存优化相关参数，请参考 [缓存优化相关参数](../configuration/jindosdk_configuration_list.md)
 
-## 使用 JindoSDK 访问 JindoFS 服务
+## 使用 JindoSDK 访问 OSS-HDFS 服务
 用 Hadoop Shell 访问 JindoFS，下面列举了几个常用的命令。
 
 * put 操作

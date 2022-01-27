@@ -4,9 +4,9 @@
 
 在集群上有开源版本 Flink 软件，版本不低于 1.10.1。
 
-## 为什么 Flink 需要使用 JindoSDK 访问 JindoFS 服务
+## 为什么 Flink 需要使用 JindoSDK 访问 OSS-HDFS 服务
 
-目前，开源版本 Flink 对流式写入 JindoFS 服务并不支持，更不能支持 “严格一次”（EXACTLY_ONCE）语义，如有该需求则需要使用 JindoSDK。
+目前，开源版本 Flink 对流式写入 OSS-HDFS 服务并不支持，更不能支持 “严格一次”（EXACTLY_ONCE）语义，如有该需求则需要使用 JindoSDK。
 
 ## JindoSDK 配置
 
@@ -17,7 +17,7 @@
 
 ## 如何使用
 
-配置好 SDK 后，无需额外配置，以常规 Flink 流式作业方法使用即可，注意使用正确的路径。写入 JindoFS 服务须以 oss:// 为前缀。JindoFS 服务与阿里云 OSS 使用相同的前缀，JindoSDK 内会自动进行识别。二者的联系，参考 [JindoFS 服务介绍](../jindosdk_quickstart.md)
+配置好 SDK 后，无需额外配置，以常规 Flink 流式作业方法使用即可，注意使用正确的路径。写入 OSS-HDFS 服务须以 oss:// 为前缀。JindoFS 服务与阿里云 OSS 使用相同的前缀，JindoSDK 内会自动进行识别。二者的联系，参考 [JindoFS 服务介绍](../jindosdk_quickstart.md)
 
 ## 示例
 

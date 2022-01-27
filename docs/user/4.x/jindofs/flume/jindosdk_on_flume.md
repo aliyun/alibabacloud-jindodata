@@ -4,9 +4,9 @@
 
 在集群上已经部署 Flume，已部署 JindoSDK 4.0 以上版本。
 
-## 为什么 Flume 需要使用 JindoSDK 写入 JindoFS 服务
+## 为什么 Flume 需要使用 JindoSDK 写入 OSS-HDFS 服务
 
-Flume 通过 flush() 调用保证事务性写入，通过 JindoSDK 写入 JindoFS 服务，可以让 flush 后的数据立刻可见，保证数据不丢失。
+Flume 通过 flush() 调用保证事务性写入，通过 JindoSDK 写入 OSS-HDFS 服务，可以让 flush 后的数据立刻可见，保证数据不丢失。
 
 ## SDK 配置
 
