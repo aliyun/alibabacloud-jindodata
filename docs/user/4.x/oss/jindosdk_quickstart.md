@@ -15,6 +15,7 @@ JindoSDK 全面兼容 Hadoop FileSystem 接口，提供了更好的兼容性和�
 解压下载的安装包，以安装包内容解压在`/usr/lib/jindosdk-4.0.0`目录为例：
 ```bash
 export JINDOSDK_HOME=/usr/lib/jindosdk-4.0.0
+export PATH=$JINDOSDK_HOME/bin:$PATH
 ```
 * 配置`HADOOP_CLASSPATH`
 

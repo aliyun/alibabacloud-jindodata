@@ -95,6 +95,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
 若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_raft_ns.md)
 
 * 启用缓存加速功能
+
 启用缓存会利用本地磁盘对访问的热数据块进行缓存，默认状态为禁用，即所有OSS读取都直接访问OSS上的数据。
 
 可根据情况将以下配置添加到 Hadoop 的`core-site.xml`中。
@@ -120,7 +121,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
     </property>
 
     <property>
-        <!-- 内存缓存开关 s-->
+        <!-- 内存缓存开关 -->
         <name>fs.fsx.ram.cache.enable</name>
         <value>false</value>
     </property>

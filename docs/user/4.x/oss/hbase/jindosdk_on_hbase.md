@@ -10,6 +10,7 @@ HBase 是 Hadoop 生态中的实时数据库，有很高的写入性能。JindoS
 解压下载的安装包，以安装包内容解压在`/usr/lib/jindosdk-4.0.0`目录为例：
 ```bash
 export JINDOSDK_HOME=/usr/lib/jindosdk-4.0.0
+export PATH=$JINDOSDK_HOME/bin:$PATH
 ```
 * 配置`HADOOP_CLASSPATH`
 
@@ -62,4 +63,4 @@ JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoS
 | 参数 | 描述                                                                                                                                                         |
 | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | hbase.rootdir | 指定 HBase 的 ROOT 存储目录到 OSS。参数值为`oss://bucket/hbase-root-dir`                                                                                                |
-| hbase.wal.dir | 指定 HBase 的 WAL 存储目录到本地 HDFS 集群。</br> 参数值为：</br> HA集群：`hdfs://${nameservice}/hbase` </br> 非HA集群：`hdfs://${namenode_rpc_address}:${namenode_rpc_port}/hbase` |
+| hbase.wal.dir | 指定 HBase 的 WAL 存储目录到本地 HDFS 集群。</br>  参数值为：</br>  HA集群：`hdfs://${nameservice}/hbase`</br>  非HA集群：`hdfs://${namenode_rpc_address}:${namenode_rpc_port}/hbase` |

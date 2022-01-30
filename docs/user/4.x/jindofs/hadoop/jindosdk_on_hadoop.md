@@ -13,6 +13,7 @@ JindoSDK 为 Apache Hadoop的计算分析应用（例如MapReduce、Hive、Spark
 解压下载的安装包，以安装包内容解压在`/usr/lib/jindosdk-4.0.0`目录为例：
 ```bash
 export JINDOSDK_HOME=/usr/lib/jindosdk-4.0.0
+export PATH=$JINDOSDK_HOME/bin:$PATH
 ```
 * 配置`HADOOP_CLASSPATH`
 

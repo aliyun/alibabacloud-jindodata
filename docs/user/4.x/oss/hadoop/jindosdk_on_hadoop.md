@@ -18,6 +18,7 @@ JindoSDK 是一个简单易用面向 Hadoop/Spark 生态的 OSS 客户端，为�
 解压下载的安装包，以安装包内容解压在`/usr/lib/jindosdk-4.0.0`目录为例：
 ```bash
 export JINDOSDK_HOME=/usr/lib/jindosdk-4.0.0
+export PATH=$JINDOSDK_HOME/bin:$PATH
 ```
 * 配置`HADOOP_CLASSPATH`
 

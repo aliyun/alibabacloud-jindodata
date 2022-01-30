@@ -127,7 +127,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
     </property>
 
     <property>
-        <!-- 内存缓存开关 s-->
+        <!-- 内存缓存开关 -->
         <name>fs.fsx.ram.cache.enable</name>
         <value>false</value>
     </property>
@@ -182,7 +182,7 @@ Found 1 items
 即访问`fsx://emr-header-1:8101/jindodls/`等价于访问`oss://<Bucket>.<Endpoint>/`
 
 ## 访问 OSS-HDFS 服务
-完成上述步骤后作业通过`jfx://`前缀读取 OSS-HDFS 服务上的数据后，会自动缓存到 JindoFSx 缓存系统中，后续通过`jfx://`访问相同的数据就能够命中缓存。
+完成上述步骤后作业通过`fsx://`前缀读取 OSS-HDFS 服务上的数据后，会自动缓存到 JindoFSx 缓存系统中，后续通过`fsx://`访问相同的数据就能够命中缓存。
 
 ## 参数调优
 JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](configuration/jindosdk_configuration_list.md)

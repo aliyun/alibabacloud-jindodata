@@ -89,4 +89,4 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
 | 参数 | 描述                                                                                                                                                         |
 | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | hbase.rootdir | 指定 HBase 的 ROOT 存储目录到 OSS。参数值为`oss://bucket/hbase-root-dir`                           |
-| hbase.wal.dir | 指定 HBase 的 WAL 存储目录到本地 HDFS 集群。</br> 参数值为：</br> HA集群：`hdfs://${nameservice}/hbase` </br> 非HA集群：`hdfs://${namenode_rpc_address}:${namenode_rpc_port}/hbase` |
+| hbase.wal.dir | 指定 HBase 的 WAL 存储目录到本地 HDFS 集群。</br>  参数值为：</br>  HA集群：`hdfs://${nameservice}/hbase`</br>  非HA集群：`hdfs://${namenode_rpc_address}:${namenode_rpc_port}/hbase` |

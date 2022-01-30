@@ -128,7 +128,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
     </property>
 
     <property>
-        <!-- 内存缓存开关 s-->
+        <!-- 内存缓存开关 -->
         <name>fs.fsx.ram.cache.enable</name>
         <value>false</value>
     </property>

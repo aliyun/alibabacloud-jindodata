@@ -83,6 +83,7 @@ OSS-HDFS 服务是阿里云推出新的存储空间类型，兼容HDFS接口, �
 解压下载的安装包，以安装包内容解压在`/usr/lib/jindosdk-4.0.0`目录为例：
 ```bash
 export JINDOSDK_HOME=/usr/lib/jindosdk-4.0.0
+export PATH=$JINDOSDK_HOME/bin:$PATH
 ```
 * 配置`HADOOP_CLASSPATH`
 
@@ -136,7 +137,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
  OSS-HDFS 服务创建以及配置完成后，可以通过hdfs dfs 命令进行相关文件/目录操作
 ### 新建目录
 在 OSS-HDFS 服务上创建目录
-<br>用例: `hdfs dfs -mkdir oss://<Bucket>.<Endpoint>/Test/subdir`
+</br>用例: `hdfs dfs -mkdir oss://<Bucket>.<Endpoint>/Test/subdir`
 
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -mkdir oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir
@@ -148,7 +149,7 @@ drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-tes
 
 ### 新建文件
 利用hdfs dfs -put命令上传本地文件到 OSS-HDFS 服务
-<br> 用例：`hdfs dfs -put <localfile> oss://<Bucket>.<Endpoint>/Test`
+</br>  用例：`hdfs dfs -put <localfile> oss://<Bucket>.<Endpoint>/Test`
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -put /etc/hosts oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/
 [root@emr-header-1 ~]# hdfs dfs -ls oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test
@@ -159,8 +160,8 @@ drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-tes
 ```
 ### 查看文件或者目录信息
 在文件或者目录创建完之后，可以查看指定路径下的文件/目录信息。hdfs dfs没有进入某个目录下的概念。在查看目录和文件的信息的时候需要给出文件/目录的绝对路径。
-<br>指令：ls
-<br>用例：`hdfs dfs -ls oss://<Bucket>.<Endpoint>/Test`
+</br>指令：ls
+</br>用例：`hdfs dfs -ls oss://<Bucket>.<Endpoint>/Test`
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -ls oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test
 Found 2 items
@@ -171,7 +172,7 @@ drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-tes
 
 ### 查看文件或者目录的大小
 查看已有文件或者目录的大小
-<br>用例：`hdfs dfs -du oss://<Bucket>.<Endpoint>/Test`
+</br>用例：`hdfs dfs -du oss://<Bucket>.<Endpoint>/Test`
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -du oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test
 5824  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/hosts
@@ -181,7 +182,7 @@ drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-tes
 
 ### 查看文件的内容
 有时候我们需要查看一下在 OSS-HDFS 服务文件的内容。hdfs dfs命令支持我们将文件内容打印在屏幕上。（请注意，文件内容将会以纯文本形式打印出来，如果文件进行了特定格式的编码，请使用HDFS的JavaAPI将文件内容读取并进行相应的解码获取文件内容）
-<br>用例：`hdfs dfs -cat oss://<Bucket>.<Endpoint>/Test/helloworld.txt`
+</br>用例：`hdfs dfs -cat oss://<Bucket>.<Endpoint>/Test/helloworld.txt`
 
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -cat  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt
@@ -190,7 +191,7 @@ hello world!
 
 ### 复制目录/文件
 有时候我们需要将 OSS-HDFS 服务的一个文件/目录拷贝到另一个位置，并且保持源文件和目录结构和内容不变。
-<br>用例：`hdfs dfs -cp oss://<Bucket>.<Endpoint>/Test/subdir oss://<Bucket>.<Endpoint>/TestTarget/sudir2`
+</br>用例：`hdfs dfs -cp oss://<Bucket>.<Endpoint>/Test/subdir oss://<Bucket>.<Endpoint>/TestTarget/sudir2`
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -cp oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/TestTarget/subdir1
 [root@emr-header-1 ~]# hdfs dfs -ls  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/TestTarget/
@@ -201,7 +202,7 @@ drwxr-x--x   - root supergroup          0 2021-12-01 20:37 oss://dls-chenshi-tes
 
 ### 移动目录/文件
 在很多大数据处理的例子中，我们会将文件写入一个临时目录，然后将该目录移动到另一个位置作为最终结果。源文件和目录结构和内容不做保留。下面的命令可以完成这些操作。
-<br>用例：`hdfs dfs -mv oss://<Bucket>.<Endpoint>/Test/subdir oss://<Bucket>.<Endpoint>/Test/subdir1`
+</br>用例：`hdfs dfs -mv oss://<Bucket>.<Endpoint>/Test/subdir oss://<Bucket>.<Endpoint>/Test/subdir1`
 
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -mv  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/newdir
@@ -215,7 +216,7 @@ drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-tes
 
 ### 下载文件到本地文件系统
 某些情况下，我们需要将OSS文件系统中的某些文件下载到本地，再进行处理或者查看内容。这个可以用下面的命令完成。
-<br>用例：`hdfs dfs -get oss://<Bucket>.<Endpoint>/Test/helloworld.txt <localpath>`
+</br>用例：`hdfs dfs -get oss://<Bucket>.<Endpoint>/Test/helloworld.txt <localpath>`
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -get oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt /tmp/
 [root@emr-header-1 ~]# ll /tmp/helloworld.txt
@@ -225,7 +226,7 @@ drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-tes
 
 ### 删除目录/文件
 在很多情况下，我们在完成工作后，需要删除在 OSS-HDFS 服务上的某些临时文件或者废弃文件。这些可以通过下面的命令完成。
-<br>用例：`hdfs dfs -rm oss://<Bucket>.<Endpoint>/Test/helloworld.txt`
+</br>用例：`hdfs dfs -rm oss://<Bucket>.<Endpoint>/Test/helloworld.txt`
 ```shell
 [root@emr-header-1 ~]# hdfs dfs -rm oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt
 21/12/01 20:46:44 INFO fs.TrashPolicyDefault: Moved: 'oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt' to trash at: oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/user/root/.Trash/Current/Test/helloworld.txt

@@ -108,4 +108,4 @@ jindo fsxadmin -mount /jindodls oss://<Bucket>.<Endpoint>/
 | 参数 | 描述 |
 | --- | --- |
 | hbase.rootdir | 指定 HBase 的 ROOT 存储目录到 FSX。参数值为`fsx://headerhost:8101/jindooss/hbase-root-dir`|
-| hbase.wal.dir | 指定 HBase 的 WAL 存储目录到 FSX 或本地 HDFS。参数值为：</br> HA集群：`hdfs://${nameservice}/hbase` </br> 非HA集群：`hdfs://${namenode_rpc_address}:${namenode_rpc_port}/hbase` </br> |
+| hbase.wal.dir | 指定 HBase 的 WAL 存储目录到 FSX 或本地 HDFS。参数值为：</br>  HA集群：`hdfs://${nameservice}/hbase`</br>  非HA集群：`hdfs://${namenode_rpc_address}:${namenode_rpc_port}/hbase`</br>  |
