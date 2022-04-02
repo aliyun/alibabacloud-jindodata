@@ -1,4 +1,4 @@
-# 拥抱云原生，Fluid 结合 JindoFSx 缓存系统：进阶使用指南
+# 拥抱云原生，Fluid 结合 JindoFSx 存储加速系统：进阶使用指南
 
 本篇文章将介绍在 Fluid 上使用 JindoRuntime 的一些进阶使用，如节点扩容，参数调配，元数据缓存和FUSE 调优等，进一步丰富 JindoRuntime 的使用场景
 ### 1、节点扩容

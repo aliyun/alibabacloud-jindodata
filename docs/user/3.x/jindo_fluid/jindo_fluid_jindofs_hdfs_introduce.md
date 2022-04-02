@@ -1,4 +1,4 @@
-## 拥抱云原生，Fluid结合JindoFSx 缓存系统：加速 HDFS 使用指南
+## 拥抱云原生，Fluid结合JindoFSx 存储加速系统：加速 HDFS 使用指南
 
 JindoFSx 提供了访问 HDFS 的能力，可以通过配置 HDFS 作为 JindoFSx 的后端存储，使 Fluid 通过 JindoFSx 来访问 HDFS 上的数据，同时 JindoFSx 也提供了对 HDFS 上的数据以及元数据的缓存加速功能。
 

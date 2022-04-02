@@ -1,11 +1,11 @@
-# JindoFSx 缓存系统快速入门
+# JindoFSx 存储加速系统快速入门
 
 JindoFSx 是 JindoData 提供的云数据访问中心，为用户管理云平台对于云存储的使用，针对各种访问场景，提供一站式的存储优化服务。JindoFSx 可以为用户同时管理多个后端存储系统。同时，JindoFSx 会为上层应用构建基于多种存储介质的数据缓存，并规划高效的数据访问策略，保障用户作业高速、稳定运行。
 
 ## 前提条件：
-* 已部署 JindoFSx 缓存系统。
+* 已部署 JindoFSx 存储加速系统。
 
-关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK。
 
@@ -111,13 +111,13 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
 ```
 更多缓存优化相关参数，请参考 [缓存优化相关参数](configuration/jindosdk_configuration_list.md)
 
-完成以上配置后，作业访问 OSS 即可利用上缓存，JindoFSx 缓存系统提供了透明缓存的使用方式，作业访问 OSS 的方式无需做任何修改。
-作业读取 OSS 上的数据后，会自动缓存到 JindoFSx 缓存系统中，后续访问相同的数据就能够命中缓存。
+完成以上配置后，作业访问 OSS 即可利用上缓存，JindoFSx 存储加速系统提供了透明缓存的使用方式，作业访问 OSS 的方式无需做任何修改。
+作业读取 OSS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续访问相同的数据就能够命中缓存。
 
 注意：此配置为客户端配置，不需要重启 JindoFSx 服务。
 
 ## 使用 Prometheus + Grafana 可视化指标观测平台
-在完成 JindoFSx 缓存集群的启动后，JindoFSx 缓存系统提供基于 Prometheus + Grafana 的可视化指标观测平台，你可以参考如下文档进行安装和使用该功能
+在完成 JindoFSx 缓存集群的启动后，JindoFSx 存储加速系统提供基于 Prometheus + Grafana 的可视化指标观测平台，你可以参考如下文档进行安装和使用该功能
 
 [基于 Prometheus + Grafana 的可视化指标观测平台](jindofsx_metrics.md)
 

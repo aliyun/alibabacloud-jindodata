@@ -1,4 +1,4 @@
-# Fluid 结合 JindoFSx 缓存系统介绍和使用
+# Fluid 结合 JindoFSx 存储加速系统介绍和使用
 
 ## 环境要求
 * Kubernetes version > 1.14, 支持CSI

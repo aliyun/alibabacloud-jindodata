@@ -58,7 +58,7 @@
     </property>
 
     <property>
-        <!-- 消息体大小（毫秒）-->
+        <!-- 消息体大小 -->
         <name>fs.fsx.rpc.body.size</name>
         <value>256 * 1024 * 1024</value>
     </property>

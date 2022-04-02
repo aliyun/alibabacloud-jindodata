@@ -1,13 +1,13 @@
-# JindoFSx 缓存系统用户文档
+# JindoFSx 存储加速系统用户文档
 
 ## 快速入门
-* [JindoFSx 缓存系统快速入门](/docs/user/4.x/4.1.0/jindofsx/jindofsx_quickstart.md)
-* [使用 JindoSDK C/C++ 访问 JindoFSx 缓存系统](/docs/user/4.x/4.2.0/jindofsx/csdk_quickstart.md) <span style="color:red">*[NEW]*</span>
+* [JindoFSx 存储加速系统快速入门](/docs/user/4.x/4.1.0/jindofsx/jindofsx_quickstart.md)
+* [使用 JindoSDK C/C++ 访问 JindoFSx 存储加速系统](/docs/user/4.x/4.2.0/jindofsx/csdk_quickstart.md) <span style="color:red">*[NEW]*</span>
 
 ## 集群部署
-* [快速部署一个简单的 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
-* [部署高可用 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx_ha.md)
-* [基于 Prometheus + Grafana 搭建 JindoFSx 缓存系统可视化指标观测平台](/docs/user/4.x/4.1.0/jindofsx/jindofsx_metrics.md)
+* [快速部署一个简单的 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+* [部署高可用 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx_ha.md)
+* [基于 Prometheus + Grafana 搭建 JindoFSx 存储加速系统可视化指标观测平台](/docs/user/4.x/4.1.0/jindofsx/jindofsx_metrics.md)
 
 ## 基本功能
 #### 阿里云 OSS 缓存加速

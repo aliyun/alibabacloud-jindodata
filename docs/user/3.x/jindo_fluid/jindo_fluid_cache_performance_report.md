@@ -32,7 +32,7 @@ JindoFSx 在大数据分析场景下主要提供了兼容 Hadoop 文件系统的
 | 磁盘 | ESSD 500GB * 1 |
 
 部署3个节点的 JindoFSx 分布式缓存，使用本地磁盘进行数据缓存，并将 JindoFSx 挂载为 fuse 作为训练作业的数据源。
-测试过程首先执行元数据和数据预加载命令，将目标目录的数据和元数据缓存到 JindoFSx 缓存系统中，然后执行 InsightFace 作业，作为对比，将 JindoFSx 的缓存开关关闭后再次执行，则不利用缓存，所有元数据和数据均直接访问后端存储系统。
+测试过程首先执行元数据和数据预加载命令，将目标目录的数据和元数据缓存到 JindoFSx 存储加速系统中，然后执行 InsightFace 作业，作为对比，将 JindoFSx 的缓存开关关闭后再次执行，则不利用缓存，所有元数据和数据均直接访问后端存储系统。
 
 ### 加速对象存储 OSS
 数据存储在阿里云对象存储 OSS 上，利用 JindoFSx 进行缓存加速（关于如何使用 JindoFSx 加速 OSS 可参考文档 [拥抱云原生，Fluid结合JindoFSx ：阿里云OSS加速利器](jindo_fluid_jindofs_oss_introduce.md)），结果如下所示：

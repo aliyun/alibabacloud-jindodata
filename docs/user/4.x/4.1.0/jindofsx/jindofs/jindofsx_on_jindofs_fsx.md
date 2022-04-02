@@ -3,9 +3,9 @@
 本文主要介绍 JindoFSx 支持阿里云 OSS-HDFS 服务（JindoFS 服务）统一挂载缓存加速的使用方式。
 
 ## 前提条件：
-* 已部署 JindoFSx 缓存系统
+* 已部署 JindoFSx 存储加速系统
 
-关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 
@@ -84,7 +84,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
 
 如: `oss://mydlsbucket.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考[JindoFSx 缓存系统配置 OSS-HDFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
+这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考[JindoFSx 存储加速系统配置 OSS-HDFS 服务 Endpoint](../configuration/dls_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -141,7 +141,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoFSx �
 </configuration>
 ```
 
-完成以上配置后，作业读取 JindoFS 上的数据后，会自动缓存到 JindoFSx 缓存系统中，作业访问 JindoFS 的方式无需做任何修改, 后续访问相同的数据就能够命中缓存。
+完成以上配置后，作业读取 JindoFS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，作业访问 JindoFS 的方式无需做任何修改, 后续访问相同的数据就能够命中缓存。
 
 注意：此配置为客户端配置，不需要重启 JindoFSx 服务。
 
@@ -182,7 +182,7 @@ Found 1 items
 即访问`fsx://emr-header-1:8101/jindodls/`等价于访问`oss://<Bucket>.<Endpoint>/`
 
 ## 访问 OSS-HDFS 服务
-完成上述步骤后作业通过`fsx://`前缀读取 OSS-HDFS 服务上的数据后，会自动缓存到 JindoFSx 缓存系统中，后续通过`fsx://`访问相同的数据就能够命中缓存。
+完成上述步骤后作业通过`fsx://`前缀读取 OSS-HDFS 服务上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续通过`fsx://`访问相同的数据就能够命中缓存。
 
 ## 参数调优
 JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](configuration/jindosdk_configuration_list.md)

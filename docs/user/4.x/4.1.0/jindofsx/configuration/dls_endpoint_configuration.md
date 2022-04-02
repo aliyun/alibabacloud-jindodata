@@ -1,4 +1,4 @@
-# JindoFSx 缓存系统配置阿里云 OSS-HDFS 服务（JindoFS 服务）Endpoint
+# JindoFSx 存储加速系统配置阿里云 OSS-HDFS 服务（JindoFS 服务）Endpoint
 
 有三种方式可以指定 Endpoint，JindoSDK 会以下优先级查找 Endpoint：
 ## 方式一： 在访问路径中指定 Endpoint。（推荐）

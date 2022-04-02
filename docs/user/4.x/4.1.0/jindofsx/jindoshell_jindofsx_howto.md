@@ -1,10 +1,10 @@
-# JindoShell CLI 支持 JindoFSx 缓存系统使用说明
+# JindoShell CLI 支持 JindoFSx 存储加速系统使用说明
 JindoShell CLI 支持操作 JindoFSx 数据缓存、元数据缓存和统一命名空间等命令。
 
 ## 前提条件：
-* 已部署 JindoFSx 缓存系统
+* 已部署 JindoFSx 存储加速系统
 
-关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 

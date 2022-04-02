@@ -37,7 +37,7 @@ kubectl create -f mySecret.yaml
 ```
 创建一个 `resource.yaml` 文件里面包含两部分：
 * 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源。
-* 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFSx 缓存系统集群来提供缓存服务。
+* 接下来需要创建一个 JindoRuntime，相当于启动一个 JindoFSx 存储加速系统集群来提供缓存服务。
 
 #### 5.2、创建 dataset
 - 默认挂载

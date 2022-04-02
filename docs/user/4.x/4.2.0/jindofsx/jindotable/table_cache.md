@@ -1,11 +1,11 @@
 # 使用 JindoTable 缓存 Hive 表或分区的数据
 
-JindoTable 可以使用 JindoFSx 缓存系统缓存 Hive 表或分区的数据，从而提高访问速度。
+JindoTable 可以使用 JindoFSx 存储加速系统缓存 Hive 表或分区的数据，从而提高访问速度。
 
 ## 前提条件
-### 已部署 JindoFSx 缓存系统
+### 已部署 JindoFSx 存储加速系统
 
-关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx（缓存系统)](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 ### 已部署 JindoSDK
 

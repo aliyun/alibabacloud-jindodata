@@ -1,4 +1,4 @@
-## 拥抱云原生，Fluid 结合 JindoFSx 缓存系统：加速对象存储使用 S3 协议
+## 拥抱云原生，Fluid 结合 JindoFSx 存储加速系统：加速对象存储使用 S3 协议
 
 JindoFSx 提供了访问 S3 协议的能力，可以通过配置 S3 作为 JindoFSx 的后端存储，使 Fluid 通过 JindoFSx 来访问 S3 上的数据，同时 JindoFSx 也提供了对 S3 上的数据以及元数据的缓存加速功能。
 

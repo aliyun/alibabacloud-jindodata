@@ -1,13 +1,13 @@
 # 阿里云 OSS 透明缓存加速
 
-JindoFSx 缓存系统提供了透明缓存的使用方式，兼容原生 OSS 存储方式，文件以对象的形式存储在 OSS 上，每个文件根据实际访问情况会在本地进行缓存，提升访问OSS的效率，同时兼容了原有OSS原有文件形式，数据访问上能够与其他OSS客户端完全兼容，作业访问 OSS 的方式无需做任何修改。
+JindoFSx 存储加速系统提供了透明缓存的使用方式，兼容原生 OSS 存储方式，文件以对象的形式存储在 OSS 上，每个文件根据实际访问情况会在本地进行缓存，提升访问OSS的效率，同时兼容了原有OSS原有文件形式，数据访问上能够与其他OSS客户端完全兼容，作业访问 OSS 的方式无需做任何修改。
 
 本文主要介绍 JindoFSx 支持阿里云 OSS 透明缓存加速的使用方式。
 
 ## 前提条件：
-* 已部署 JindoFSx 缓存系统
+* 已部署 JindoFSx 存储加速系统
 
-关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 
@@ -135,7 +135,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
 </configuration>
 ```
 
-完成以上配置后，作业读取 OSS 上的数据后，会自动缓存到 JindoFSx 缓存系统中，后续访问相同的数据就能够命中缓存。
+完成以上配置后，作业读取 OSS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续访问相同的数据就能够命中缓存。
 注意：此配置为客户端配置，不需要重启 JindoFSx 服务。
 
 ## 磁盘空间水位控制

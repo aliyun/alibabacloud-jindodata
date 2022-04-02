@@ -1,4 +1,4 @@
-## 基于 Prometheus + Grafana 搭建 JindoFSx 缓存系统可视化指标观测平台
+## 基于 Prometheus + Grafana 搭建 JindoFSx 存储加速系统可视化指标观测平台
 ### 环境要求
 
 * JindoFSx >= 4.1.0
@@ -8,9 +8,9 @@
 * Grafana >= 7.3.7
 
 ### 前提条件：
-* 已部署 JindoFSx 缓存系统。
+* 已部署 JindoFSx 存储加速系统。
 
-关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx 缓存系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK。
 

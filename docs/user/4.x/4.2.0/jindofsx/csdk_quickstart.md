@@ -1,6 +1,6 @@
-# 使用 JindoSDK C/C++ 访问 JindoFSx 缓存系统
+# 使用 JindoSDK C/C++ 访问 JindoFSx 存储加速系统
 
-提供类似 POSIX 的接口方法访问 JindoFSx 缓存系统。
+提供类似 POSIX 的接口方法访问 JindoFSx 存储加速系统。
 
 ## 下载 JindoSDK 包
 下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
@@ -32,7 +32,7 @@ fs.fsx.oss.accessKeySecret = <your_key_secret>
 
 ## 支持的接口
 
-目前 JindoSDK C/C++ 已经支持以下 API 访问 JindoFSx 缓存系统：
+目前 JindoSDK C/C++ 已经支持以下 API 访问 JindoFSx 存储加速系统：
 
 | 接口            | 说明                                     |
 | --------------- | ---------------------------------------|

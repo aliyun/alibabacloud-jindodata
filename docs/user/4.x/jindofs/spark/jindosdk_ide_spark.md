@@ -29,8 +29,8 @@ public class TestJindoSDK {
   public static void main(String[] args) throws Exception {
     SparkSession spark = SparkSession
         .builder()
-        .config("spark.hadoop.fs.AbstractFileSystem.oss.impl", "com.aliyun.jindodata.oss.JindoOssFileSystem")
-        .config("spark.hadoop.fs.oss.impl", "com.aliyun.jindodata.oss.JindoOSS")
+        .config("spark.hadoop.fs.AbstractFileSystem.oss.impl", "com.aliyun.jindodata.oss.JindoOSS")
+        .config("spark.hadoop.fs.oss.impl", "com.aliyun.jindodata.oss.JindoOssFileSystem")
         .config("spark.hadoop.fs.oss.accessKeyId", "xxx")
         .config("spark.hadoop.fs.oss.accessKeySecret", "xxx")
         .appName("TestJindoSDK")

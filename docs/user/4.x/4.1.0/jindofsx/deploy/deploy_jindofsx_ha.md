@@ -1,4 +1,4 @@
-# 部署高可用 JindoFSx 缓存系统
+# 部署高可用 JindoFSx 存储加速系统
 
 ## 1. 下载 JindoFSx 包
 下载最新的 Release 包 jindofsx-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。

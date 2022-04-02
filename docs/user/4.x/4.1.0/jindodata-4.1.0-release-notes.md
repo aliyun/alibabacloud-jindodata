@@ -2,7 +2,7 @@
 
 ## 版本概要
 JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件，面向大数据和 AI 生态，为阿里云和业界主要数据湖存储系统提供全方位访问加速解决方案。
-JindoData 4.1.0 版本在阿里云 OSS-HDFS 服务（JindoFS 服务）上支持随机写等重要特性，另外添加 JindoFSx 缓存系统，支持对原生阿里云 OSS 和 OSS-HDFS 服务（JindoFS 服务）提供分布式缓存。
+JindoData 4.1.0 版本在阿里云 OSS-HDFS 服务（JindoFS 服务）上支持随机写等重要特性，另外添加 JindoFSx 存储加速系统，支持对原生阿里云 OSS 和 OSS-HDFS 服务（JindoFS 服务）提供分布式缓存。
 
 ## 主要功能
 
@@ -22,7 +22,7 @@ JindoData 4.1.0 版本在阿里云 OSS-HDFS 服务（JindoFS 服务）上支持�
 #### 3. JindoFuse POSIX 支持
 - 支持文件随机修改（seek and write）。
 
-### JindoFSx 缓存系统
+### JindoFSx 存储加速系统
 #### 1. JindoFSx 核心能力
 - 支持对阿里云 OSS 透明缓存加速（保持 `oss://` 不变）。
 - 支持对阿里云 OSS-HDFS 服务（JindoFS 服务）透明缓存加速（保持 `oss://` 不变）。

@@ -1,4 +1,4 @@
-# 拥抱云原生，Fluid 结合 JindoFSx 缓存系统：加速机器学习训练
+# 拥抱云原生，Fluid 结合 JindoFSx 存储加速系统：加速机器学习训练
 
 在 [拥抱云原生，Fluid结合JindoFSx ：阿里云OSS加速利器](jindo_fluid_jindofs_oss_introduce.md) 这篇文章中，我们已经介绍了 Fluid 以及 JindoRuntime 的基本概念和使用流程，这篇文章我们将继续介绍如何使用 Fluid 和 JindoRuntime 部署[阿里云 OSS](https://cn.aliyun.com/product/oss) 云端 [ImageNet](http://www.image-net.org/) 数据集到 Kubernetes 集群，并使用 [Arena](https://github.com/kubeflow/arena) 在此数据集上训练 ResNet-50 模型(本文以四机八卡测试环境为例)。
 

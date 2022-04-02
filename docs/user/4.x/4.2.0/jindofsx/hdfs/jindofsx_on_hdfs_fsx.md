@@ -3,9 +3,9 @@
 Apache HDFS 统一挂载缓存加速可以利用计算集群的闲置存储资源进行数据缓存来加速计算服务，避免了计算集群/服务占用核心集群过多带宽。计算集群或服务使用统一挂载的方式 (fsx://) 访问原 HDFS 集群，同时通过缓存加速访问速度。
 
 ## 前提条件：
-* 已部署 JindoFSx 缓存系统
+* 已部署 JindoFSx 存储加速系统
 
-关于如何部署 JindoFSx 缓存系统，请参考 [部署 JindoFSx（缓存系统)](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 
@@ -140,7 +140,7 @@ sh sbin/start-service.sh
 </configuration>
 ```
 
-完成以上配置后，作业读取 Apache HDFS 上的数据后，会自动缓存到 JindoFSx 缓存系统中，后续访问相同的数据就能够命中缓存。
+完成以上配置后，作业读取 Apache HDFS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续访问相同的数据就能够命中缓存。
 注意：此配置为客户端配置，不需要重启 JindoFSx 服务。
 
 ## 挂载 HDFS
@@ -168,5 +168,5 @@ Found 2 items
 即访问`fsx://emr-header-1:8101/jindohdfs/`等价于访问`hdfs://emr-header-1:9000/`
 
 ## 访问 HDFS
-完成上述步骤后作业通过`fsx://`前缀读取 HDFS 上的数据后，会自动缓存到 JindoFSx 缓存系统中，后续通过`fsx://`访问相同的数据就能够命中缓存。
+完成上述步骤后作业通过`fsx://`前缀读取 HDFS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续通过`fsx://`访问相同的数据就能够命中缓存。
 

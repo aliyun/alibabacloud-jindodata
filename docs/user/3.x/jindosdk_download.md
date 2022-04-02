@@ -21,6 +21,7 @@
 
 * Hadoop3.x 环境
 
+[jindofs-sdk-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindofs-sdk-3.7.3.jar)<br />
 [jindo-distcp-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindo-distcp-3.7.3.jar)<br />
 
 # JindoSDK 历史版本
