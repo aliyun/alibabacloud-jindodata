@@ -32,5 +32,5 @@ fs.oss.read.readahead.buffer.size=1048576
 fs.oss.read.readahead.buffer.count=4  
 ```
 
-【注：4.0版本以上版本支持方式】
+【注：4.3版本以上版本支持方式】
 

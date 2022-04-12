@@ -30,7 +30,15 @@ fs.oss.download.thread.concurrency=16
 fs.oss.read.readahead.buffer.size=1048576
 # 同时预读 oss 的 buffer 个数
 fs.oss.read.readahead.buffer.count=4  
+# 使用ECS免密服务，避免配置AK（不推荐，建议使用固定AK方式访问）
+fs.oss.provider.endpoint=ECS_ROLE
+# oss 读取缓冲区大小（字节），4.3.1以上版本支持
+fs.oss.read.buffer.size=1048576
+# oss 写缓冲区大小（字节），4.3.1以上版本支持
+fs.oss.write.buffer.size=1048576
+# oss 刷新缓冲区间隔（毫秒），小于 0 时不生效，4.3.1以上版本支持
+fs.oss.flush.interval.millisecond=-1
 ```
 
-【注：4.0版本以上版本支持方式】
+【注：4.3版本以上版本支持方式】
 

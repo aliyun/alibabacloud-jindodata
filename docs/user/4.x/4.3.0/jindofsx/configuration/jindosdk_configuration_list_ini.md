@@ -44,5 +44,5 @@ fs.jindofsx.rpc.max.unwritten.size=268435456
 fs.jindofsx.client.metrics.enable=false
 ```
 
-【注：4.1.0 版本以上版本支持】
+【注：4.3.0 版本以上版本支持】
 
