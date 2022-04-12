@@ -12,6 +12,7 @@
 * [加速OSS上数据](jindo_fluid_oss_ufs_example.md)
 * [加速HDFS上数据](jindo_fluid_hdfs_ufs_example.md)
 * [加速S3上数据](jindo_fluid_s3_ufs_example.md)
+* [加速NAS上数据](jindo_fluid_nas_ufs_example.md)
 * [Fluid + JindoFSx 高阶功能使用](jindo_fluid_ways_to_use.md)
 * [数据预加载](jindo_fluid_dataload.md)
 * [监控及可观测功能](jindo_fluid_monitor_metric.md)
