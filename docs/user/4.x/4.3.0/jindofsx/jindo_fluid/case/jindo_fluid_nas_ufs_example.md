@@ -42,7 +42,7 @@ metadata:
 spec:
   mounts:
     - mountPoint: local:///mnt/nas
-      name: data
+      name: nasData
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
@@ -101,21 +101,26 @@ persistentvolumeclaim/nas   Bound    hadoop   100Gi      RWX                    
 apiVersion: data.fluid.io/v1alpha1
 kind: DataLoad
 metadata:
-  name: dataload
+  name: test
 spec:
   dataset:
     name: nas
     namespace: default
+  target:
+    - path: /nasData
+      replicas: 1
 ```
+其中 `/nasData` 中 `nasData` 为 dataset 中挂载点的 name，可以使用 `/nasData/xxx` 来预热其中的子目录。`replicas`表示缓存的备份数，默认是1。
+
 执行
 ```shell
 kubectl create -f dataload.yaml
 ```
 观察 dataload 任务的执行情况
 ```shell
-$ kubectl get dataload spark-dataload
+$ kubectl get dataload test-dataload
 NAME             DATASET     PHASE       AGE
-dataload         hadoop     Completed   2m13s
+dataload         nas       Completed    2m13s
 ```
 
 ## 6、创建应用容器体验加速效果
