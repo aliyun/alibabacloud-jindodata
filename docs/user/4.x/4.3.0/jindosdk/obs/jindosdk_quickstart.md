@@ -84,3 +84,26 @@ JindoSDK 还支持不同的 OBS bucket 配置不同的 Access Key。
 </configuration>
 ```
 说明 XXX 为 OBS bucket 名称。
+
+### 5. 使用 JindoSDK 访问 OBS
+用 Hadoop Shell 访问 OBS，下面列举了几个常用的命令。
+
+* put 操作
+```
+hadoop fs -put <path> obs://<bucket>/
+```
+
+* ls 操作
+```
+hadoop fs -ls obs://<bucket>/
+```
+
+* mkdir 操作
+```
+hadoop fs -mkdir obs://<bucket>/<path>
+```
+
+* rm 操作
+```
+hadoop fs -rm obs://<bucket>/<path>
+```

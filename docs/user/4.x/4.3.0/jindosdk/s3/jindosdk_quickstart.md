@@ -84,3 +84,26 @@ JindoSDK 还支持不同的 S3 bucket 配置不同的 Access Key。
 </configuration>
 ```
 说明 XXX 为 S3 bucket 名称。
+
+### 5. 使用 JindoSDK 访问 S3
+用 Hadoop Shell 访问 S3，下面列举了几个常用的命令。
+
+* put 操作
+```
+hadoop fs -put <path> s3://<bucket>/
+```
+
+* ls 操作
+```
+hadoop fs -ls s3://<bucket>/
+```
+
+* mkdir 操作
+```
+hadoop fs -mkdir s3://<bucket>/<path>
+```
+
+* rm 操作
+```
+hadoop fs -rm s3://<bucket>/<path>
+```

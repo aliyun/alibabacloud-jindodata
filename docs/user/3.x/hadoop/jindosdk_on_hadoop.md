@@ -75,7 +75,7 @@ hadoop fs -mkdir oss://<bucket>/<path>
 
 * rm 操作
 ```
-hadoop fs rm oss://<bucket>/<path>
+hadoop fs -rm oss://<bucket>/<path>
 ```
 
 <img src="../pic/jindofs_sdk_cmd.png#pic_center" />

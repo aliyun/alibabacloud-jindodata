@@ -85,3 +85,26 @@ JindoSDK 还支持不同的 COS bucket 配置不同的 Access Key。
 ```
 说明 XXX 为 COS bucket 名称。
 
+### 5. 使用 JindoSDK 访问 COS
+用 Hadoop Shell 访问 COS，下面列举了几个常用的命令。
+
+* put 操作
+```
+hadoop fs -put <path> cos://<bucket>/
+```
+
+* ls 操作
+```
+hadoop fs -ls cos://<bucket>/
+```
+
+* mkdir 操作
+```
+hadoop fs -mkdir cos://<bucket>/<path>
+```
+
+* rm 操作
+```
+hadoop fs -rm cos://<bucket>/<path>
+```
+

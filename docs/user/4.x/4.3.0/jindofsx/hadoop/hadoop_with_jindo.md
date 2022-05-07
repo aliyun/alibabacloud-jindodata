@@ -137,7 +137,7 @@ hadoop fs -mkdir jindo://emr-header-1:8101/jindooss/<path>
 
 * rm 操作
 ```
-hadoop fs rm jindo://emr-header-1:8101/jindooss/<path>
+hadoop fs -rm jindo://emr-header-1:8101/jindooss/<path>
 ```
 
 ## 参数调优

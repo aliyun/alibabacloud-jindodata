@@ -9,8 +9,6 @@
 * [JindoShell CLI 支持阿里云 OSS 使用说明](/docs/user/4.x/4.3.0/oss/jindoshell_oss_howto.md)
 
 ## 大数据生态
-#### Hadoop 组件
-* [Hadoop 使用 JindoSDK 访问 OSS](/docs/user/4.x/4.3.0/oss/hadoop/jindosdk_on_hadoop.md)
 
 #### Spark 组件
 * [Spark 使用 JindoSDK 处理 OSS 上的数据](/docs/user/4.x/4.3.0/oss/spark/jindosdk_on_spark.md)

@@ -128,7 +128,7 @@ hadoop fs -mkdir fsx://emr-header-1:8101/jindooss/<path>
 
 * rm 操作
 ```
-hadoop fs rm fsx://emr-header-1:8101/jindooss/<path>
+hadoop fs -rm fsx://emr-header-1:8101/jindooss/<path>
 ```
 
 ## 参数调优

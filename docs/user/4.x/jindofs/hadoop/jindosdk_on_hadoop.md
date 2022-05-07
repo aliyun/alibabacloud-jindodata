@@ -83,7 +83,7 @@ hadoop fs -mkdir oss://<Bucket>.<Endpoint>/<path>
 
 * rm 操作
 ```
-hadoop fs rm oss://<Bucket>.<Endpoint>/<path>
+hadoop fs -rm oss://<Bucket>.<Endpoint>/<path>
 ```
 
 ### 6. 参数调优

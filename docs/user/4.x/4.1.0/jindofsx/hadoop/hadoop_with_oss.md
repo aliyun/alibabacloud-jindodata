@@ -101,7 +101,7 @@ hadoop fs -mkdir oss://<Bucket>/<path>
 
 * rm 操作
 ```
-hadoop fs rm oss://<Bucket>/<path>
+hadoop fs -rm oss://<Bucket>/<path>
 ```
 
 ## 参数调优
