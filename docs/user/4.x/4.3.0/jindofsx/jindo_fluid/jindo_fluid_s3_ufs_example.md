@@ -64,33 +64,36 @@ kubectl create -f mySecret.yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
 metadata:
-  name: hadoop
+  name: s3
 spec:
   mounts:
-    - mountPoint: s3://xxx.cos.ap-shanghai.myqcloud.com/
-      name: hadoop
+    - mountPoint: s3://<bucket>/<dir>
+      options:
+        fs.s3.endpoint: s3.ap-east-1.amazonaws.com
+        fs.s3.region: ap-east-1
+      name: s3
       encryptOptions:
         - name: fs.s3.accessKeyId
           valueFrom:
             secretKeyRef:
-              name: s3secret
+              name: mysecret
               key: fs.s3.accessKeyId
         - name: fs.s3.accessKeySecret
           valueFrom:
             secretKeyRef:
-              name: s3secret
+              name: mysecret
               key: fs.s3.accessKeySecret
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
 metadata:
-  name: hadoop
+  name: s3
 spec:
   replicas: 2
   tieredstore:
     levels:
-      - mediumtype: SSD
-        path: /mnt/disk1
+      - mediumtype: MEM
+        path: /dev/shm
         quota: 100Gi
         high: "0.9"
         low: "0.8"
@@ -120,7 +123,7 @@ kubectl create -f resource.yaml
 ```shell
 $ kubectl get dataset hadoop
 NAME     UFS TOTAL SIZE   CACHED   CACHE CAPACITY   CACHED PERCENTAGE   PHASE   AGE
-hadoop        210MiB       0.00B    180.00GiB              0.0%          Bound   1h
+s3        210MiB       0.00B    180.00GiB              0.0%          Bound   1h
 ```
 
 
@@ -138,7 +141,7 @@ $ kubectl create -f runtime.yaml
 ```shell
 $ kubectl get dataset hadoop
 NAME     UFS TOTAL SIZE   CACHED   CACHE CAPACITY   CACHED PERCENTAGE   PHASE   AGE
-hadoop     180.01GiB      0.00B      261.00GiB            0.0%          Bound   62m
+s3     180.01GiB      0.00B      261.00GiB            0.0%          Bound   62m
 ```
 
 
@@ -148,23 +151,39 @@ hadoop     180.01GiB      0.00B      261.00GiB            0.0%          Bound   
 ```shell
 $ kubectl get pv,pvc
 NAME                      CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM            STORAGECLASS   REASON   AGE
-persistentvolume/hadoop   100Gi      RWX            Retain           Bound    default/hadoop                           58m
+persistentvolume/s3   100Gi      RWX            Retain           Bound    default/hadoop                           58m
 
 NAME                           STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-persistentvolumeclaim/hadoop   Bound    hadoop   100Gi      RWX                           58m
+persistentvolumeclaim/s3   Bound    hadoop   100Gi      RWX                           58m
 ```
 
 
 ## 检查 jindoruntime 部署情况
 
+## 进行 dataload 预热
 
 ```shell
 $ kubectl get jindoruntime hadoop
 NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
-hadoop    Ready           Ready                     62m
+s3    Ready           Ready                     62m
 ```
 
+此时我们对 oss 上文件进行一次数据预热，将 NAS 上文件加载到本地
 
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: test
+spec:
+  dataset:
+    name: nas
+    namespace: default
+  target:
+    - path: /nas/dir
+      replicas: 1
+```
+其中 `/nas` 中 `nas` 为 dataset 中挂载点的 name，可以使用 `/nas/dir` 来预热其中的子目录。`replicas`表示缓存的备份数，默认是1
 
 
 
