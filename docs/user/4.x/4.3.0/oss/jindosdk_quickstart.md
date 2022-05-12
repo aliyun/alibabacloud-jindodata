@@ -61,7 +61,7 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
     </property>
 </configuration>
 ```
-JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS Credential Provider 配置](../security/jindosdk_credential_provider_oss.md)。
+JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考 [JindoSDK OSS Credential Provider 配置](/docs/user/4.x/4.3.0/oss/security/jindosdk_credential_provider_oss.md)。
 
 ### 4. 使用 JindoSDK 访问 OSS
 用 Hadoop Shell 访问 OSS，下面列举了几个常用的命令。
