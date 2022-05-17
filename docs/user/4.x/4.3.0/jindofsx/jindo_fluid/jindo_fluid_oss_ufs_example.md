@@ -74,6 +74,7 @@ spec:
         fs.oss.accessKeySecret: <OSS_ACCESS_KEY_SECRET>
         fs.oss.endpoint: <OSS_ENDPOINT> 
       name: hadoop
+      path: /
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
@@ -202,7 +203,6 @@ kind: DataLoad
 metadata:
   name: hadoop-dataload
 spec:
-  loadMetadata: true
   dataset:
     name: hadoop
     namespace: default
