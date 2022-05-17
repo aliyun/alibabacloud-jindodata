@@ -1,18 +1,18 @@
 # Fluid + JindoFSx 存储加速系统高阶功能使用
+- 使用列表
+    - [挂载点在根目录下](#挂载点在根目录下)
+    - [Secret 加密 AK 参数](#secret-加密-ak-参数)
+    - [Raft 3 master 模式](#raft-3-master-模式)
+    - [使用 Placement 部署多个 runtime](#使用-placement-部署多个-runtime)
+    - [使用 NoseSelector 部署节点](#使用-noseselector-部署节点)
+    - [使用 dataset nodeAffinity 功能](#使用-dataset-nodeaffinity-功能)
+    - [Worker 个数扩缩容](#worker-个数扩缩容)
+    - [使用 tolerations 功能](#使用-tolerations-功能)
+    - [Resource 资源](#resource-资源)
+    - [Fuse 回收策略](#fuse-回收策略)
+    - [JindoFSx 客户端相关参数和使用](#jindofsx-客户端相关参数和使用)
+    - [JindoFSx Fuse 客户端相关参数和使用](#jindofsx-fuse-客户端相关参数和使用)
 
-- 高阶功能
-    - [挂载点在根目录下](#%E6%8C%82%E8%BD%BD%E7%82%B9%E5%9C%A8%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B)
-    - [Secret 加密 AK 参数](#secret-%E5%8A%A0%E5%AF%86-ak-%E5%8F%82%E6%95%B0)
-    - [Raft 3 master 模式](#raft-3-master-%E6%A8%A1%E5%BC%8F)
-    - [使用 Placement 部署多个 runtime](#%E4%BD%BF%E7%94%A8-placement-%E9%83%A8%E7%BD%B2%E5%A4%9A%E4%B8%AA-runtime)
-    - [使用 NoseSelector 部署节点](#%E4%BD%BF%E7%94%A8-noseselector-%E9%83%A8%E7%BD%B2%E8%8A%82%E7%82%B9)
-    - [使用 dataset nodeAffinity 功能](#%E4%BD%BF%E7%94%A8-dataset-nodeaffinity-%E5%8A%9F%E8%83%BD)
-    - [Worker 个数扩缩容](#worker-%E4%B8%AA%E6%95%B0%E6%89%A9%E7%BC%A9%E5%AE%B9)
-    - [使用 tolerations 功能](#%E4%BD%BF%E7%94%A8-tolerations-%E5%8A%9F%E8%83%BD)
-    - [Resource 资源](#resource-%E8%B5%84%E6%BA%90)
-    - [Fuse 回收策略](#fuse-%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5)
-    - [JindoFSx 客户端相关参数和使用](#jindofsx-%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0%E5%92%8C%E4%BD%BF%E7%94%A8)
-    
 ### 挂载点在根目录下
 默认使用 JindoRuntime 会在挂载点多一层 /jindo 的目录，如果想挂载在根目录下可以在 dataset 里进行参数指定
 
@@ -285,10 +285,10 @@ spec:
 
 | Parameter      |  Value | Description  |
 | :---         |  :----:   |    :---   |
-| jfs.cache.data-cache.enable      | true/false       | 是否打开数据缓存，默认为 true 打开   |
-| jfs.cache.meta-cache.enable   | true/false        | 是否打开元数据缓存，默认为 false 关闭      |
-| jfs.cache.data-cache.slicecache.enable   | true/false        | 是否打开小文件缓存优化(写磁盘)，默认为 true 打开   |
-| client.storage.connect.enable   | true/false        | 是否打开短路读，默认为 true 打开     |
+| fs.jindofsx.data.cache.enable      | true/false       | 是否打开数据缓存，默认为打开   |
+| fs.jindofsx.meta.cache.enable   | true/false        | 是否打开元数据缓存，默认为关闭      |
+| fs.jindofsx.slicelet.cache.enable   | true/false        | 是否打开小文件缓存优化(写磁盘)，默认为关闭   |
+| fs.jindofsx.short.circuit.enable   | true/false        | 是否打开短路读，默认为打开     |
 
 配置方式
 ```yaml
@@ -307,9 +307,46 @@ spec:
         low: "0.8"
   fuse:
     properties:
-      jfs.cache.data-cache.enable: "false"
-      jfs.cache.meta-cache.enable: "true"
-      jfs.cache.data-cache.slicecache.enable: "false"
-      client.storage.connect.enable: "false"
+      fs.jindofsx.data.cache.enable: "false"
+      fs.jindofsx.meta.cache.enable: "true"
+      fs.jindofsx.slicelet.cache.enable: "false"
+      fs.jindofsx.short.circuit.enable: "false"
 ```
 以 kv 方式写在 `spec.fuse.properties` 里，按照需要填写即可
+
+### JindoFSx Fuse 客户端相关参数和使用
+| 参数名称         | 参数说明                                                     | 使用范例             |
+| ---------------- |------------------------------------------------------------ | -------------------- |
+| auto_unmount  | fuse进程退出后自动umount挂载节点。                           | -oauto_unmount       |
+| ro           | 只读挂载，启用参数后不允许写操作。                           | -oro                 |
+| direct_io            | 开启后，读写文件可以绕过page cache。                         | -odirect_io          |
+| kernel_cache          | 开启后，利用内核缓存优化读性能。                             | -okernel_cache      
+| auto_cache            | 默认开启，与kernel_cache 二选一，与kernel_cache不同的是，如果文件大小或修改时间发生变化，缓存就会失效。 |   -oauto_cache                   |
+| entry_timeout         | 默认值，0.1。文件名读取缓存保留时间（秒），用于优化性能。0表示不缓存。 | 默认-oentry_timeout=60   |
+| attr_timeout          | 默认值，0.1。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。 | 默认-oattr_timeout=60    |
+| negative_timeout       | 默认值，0.1。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。 | 默认-onegative_timeout=30 |
+
+配置方式
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: oss
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /var/lib/docker/jindo
+        quota: 200Gi
+        high: "0.9"
+        low: "0.8"
+  fuse:
+    args:
+      - -oro
+      - -oattr_timeout=60
+      - -oentry_timeout=60
+      - -onegative_timeout=60
+```
+
+以数组方式写在 `spec.fuse.properties` 里，按照需要填写即可
