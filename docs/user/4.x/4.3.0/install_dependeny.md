@@ -1,5 +1,5 @@
 # 安装依赖
-4.3.0 版本包含 Kerberos 和 Sasl 支持，如果您的环境没有 kerberos 和 sasl2 相关依赖，需要在部署 JindoSDK 和 JindoFSx 的所有节点安装如下依赖。
+4.3.x 版本包含 Kerberos 和 Sasl 支持，如果您的环境没有 kerberos 和 sasl2 相关依赖，需要在部署 JindoSDK 和 JindoFSx 的所有节点安装如下依赖。
 
 ### Ubuntu or Debian
 ```
