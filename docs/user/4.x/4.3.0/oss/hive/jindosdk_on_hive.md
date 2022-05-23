@@ -97,6 +97,16 @@ CREATE TABLE db2.table_on_oss ... LOCATION 'oss://bucketname/path/to/db2/tablepa
 ALTER TABLE existed_table ADD PARTITION (dt='2021-03-01', country='cn') LOCATION 'oss://bucketname/path/to/us/part210301cn';
 ```
 
+## 清理回收站
+当使用 Hive 删除 OSS 的表时，若开启了回收站功能，会在 OSS 的 bucket 上存储被删除的表的数据，回收站的目录为`oss://buckect-name/user/<username>/.Trash`。可以通过配置 OSS 所使用的回收站目录的生命周期来清理回收站。
+关于如何设置 OSS 生命周期，请参考 [设置生命周期规则](https://help.aliyun.com/document_detail/31904.html)
+
+若要跳过回收站，直接删除表，则可以指定`PURGE`参数（慎用）。
+
+```
+DROP TABLE [IF EXISTS] table_name [PURGE]
+```
+
 ## 参数调优
 
 JindoSDK包含一些高级调优参数，配置方式以及配置项参考文档[JindoSDK 配置项列表](/docs/user/4.x/4.3.0/oss/configuration/jindosdk_configuration_list.md)。

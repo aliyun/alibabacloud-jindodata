@@ -90,5 +90,16 @@ hadoop fs -rm oss://<bucket>/<path>
 
 <img src="/docs/user/4.x/oss/pic/jindofs_sdk_cmd.png#pic_center" />
 
-### 5. 参数调优
+### 5. 清理回收站
+Hadoop 通过将删除的文件或目录放入回收站来防止误删文件或文件夹。当使用 Hadoop Shell 删除 OSS 的文件或目录时，
+若开启了回收站功能，会在 OSS 的 bucket 上存储被删除的文件或目录，回收站的目录为`oss://buckect-name/user/<username>/.Trash`。可以通过配置 OSS 所使用的回收站目录的生命周期来清理回收站。
+关于如何设置 OSS 生命周期，请参考 [设置生命周期规则](https://help.aliyun.com/document_detail/31904.html)
+
+若要跳过回收站，直接删除，则可以指定`-skipTrash`参数（慎用）。
+
+```
+hadoop fs -rm -skipTrash oss://<bucket>/<path>
+```
+
+### 6. 参数调优
 JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/oss/configuration/jindosdk_configuration_list.md)
