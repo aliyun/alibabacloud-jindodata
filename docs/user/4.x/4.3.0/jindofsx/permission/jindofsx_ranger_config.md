@@ -1,6 +1,6 @@
 # 阿里云 OSS 使用 Ranger 的鉴权方案
 
-本文介绍在阿里云 E-MapReduce 集群配置阿里云 OSS 和  SS-HDFS 服务使用 Ranger 的鉴权方案。
+本文介绍在阿里云 E-MapReduce 集群配置阿里云 OSS 和 OSS-HDFS 服务使用 Ranger 的鉴权方案。
 
 ## 背景
 Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中的多个组件进行细粒度的权限访问控制。当用户将数据存放在阿里云 OSS 时，则是通过阿里云 RAM 产品创建或管理 RAM 用户，对RAM用户实现对 OSS 资源的访问控制。
