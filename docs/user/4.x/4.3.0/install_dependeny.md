@@ -13,5 +13,5 @@ sudo yum install krb5-server krb5-workstation cyrus-sasl-devel cyrus-sasl-gssapi
 
 ### macOS
 ```
-brew install krb5
+brew install krb5 cyrus-sasl
 ```
