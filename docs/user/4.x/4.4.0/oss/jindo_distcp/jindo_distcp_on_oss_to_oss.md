@@ -56,6 +56,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://
 hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://destBucket/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com --policy archive --parallelism 10
 ```
 * --policy archive：表示写入到 OSS 文件以归档文件形式存放
+
 ##### 写入低频文件
 ```shell
 hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://destBucket/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com --policy ia --parallelism 10
@@ -65,8 +66,9 @@ hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://
 ### 4、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://destBucket/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com --bandwidth 100 --parallelism 10
+hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://destBucket/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com --hadoopConf mapreduce.job.queuename=yarnQueue --bandwidth 100 --parallelism 10
 ```
+* --hadoopConf mapreduce.job.queuename=yarnQueue：指定 YARN 队列的名称
 * --bandwidth：指定单机限流带宽的大小，单位 MB
 
 ### 5、免密及密钥固定存储
