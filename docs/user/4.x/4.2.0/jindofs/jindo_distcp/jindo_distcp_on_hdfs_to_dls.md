@@ -12,7 +12,7 @@ hadoop jar jindo-distcp-${version}.jar --src /data --dest oss://destBucket.cn-xx
 
 | 参数 | 描述 | 示例 |
 | --- | --- | --- |
-| --src | OSS-HDFS 服务的源路径。| /data |
+| --src | HDFS 的源路径。| /data |
 | --dest | OSS-HDFS 服务的目标路径。| oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/ |
 | --hadoopConf | 指定 OSS-HDFS 服务的 `Access Key ID`,`Access Key Secret` |  *  配置 OSS-HDFS 服务的 AccessKeyId:</br>  --hadoopConf fs.oss.accessKeyId=yourkey</br>  * 配置 OSS-HDFS 服务 的 AccessKeySecret:</br>  --hadoopConf fs.oss.accessKeySecret=yoursecret |
 | --parallelism | 任务并发大小，根据集群资源可调整。| 10 |

@@ -117,7 +117,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK O
     <property>
         <!-- 数据缓存开关 -->
         <name>fs.jindofsx.data.cache.enable</name>
-        <value>false</value>
+        <value>true</value>
     </property>
 
     <property>

@@ -6,7 +6,7 @@ HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶
 ## 前提条件
 ### 已部署 JindoSDK
 
-关于如何部署 JindoSDK，请参考 [JindoSDK + 阿里云 OSS 快速入门](/docs/user/4.x/oss/jindosdk_quickstart.md) 。
+关于如何部署 JindoSDK，请参考 [JindoSDK + 阿里云 OSS 快速入门](/docs/user/4.x/4.0.0/oss/jindosdk_quickstart.md) 。
 
 ### 已部署 Hadoop 与 Hive 环境
 

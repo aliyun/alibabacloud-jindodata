@@ -115,7 +115,7 @@ sh sbin/start-service.sh
     <property>
         <!-- 数据缓存开关 -->
         <name>fs.jindofsx.data.cache.enable</name>
-        <value>false</value>
+        <value>true</value>
     </property>
 
     <property>

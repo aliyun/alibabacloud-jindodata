@@ -4,25 +4,22 @@ JindoSDK 全面兼容 Hadoop FileSystem 接口，提供了更好的兼容性和�
 相对于 Hadoop 社区 OSS 客户端实现，您仍然可以获得更好的性能和阿里云 E-MapReduce 产品技术团队更专业的支持。
 
 目前支持市面上大部分 Hadoop 版本，在 Hadoop 2.3 及以上的版本上验证通过（2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindodata/issues/new) 向我们反馈）。
-关于 JindoSDK 和 Hadoop 社区 OSS connector 的性能对比，请参考文档[JindoSDK和Hadoop-OSS-SDK性能对比测试](/docs/user/4.x/oss/hadoop/jindosdk_vs_hadoop_sdk.md)。
+关于 JindoSDK 和 Hadoop 社区 OSS connector 的性能对比，请参考文档[JindoSDK和Hadoop-OSS-SDK性能对比测试](/docs/user/4.x/4.0.0/oss/hadoop/jindosdk_vs_hadoop_sdk.md)。
 
 ## 步骤
 
 ### 1. 下载 JindoSDK 包
 下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
 
-### 2. 配置环境变量
-* 配置`JINDOSDK_HOME`
+### 2. 安装 jar 包
+解压下载的安装包，将安装包内的以下 jar 文件安装到 hadoop 的 classpath 下：
+* jindo-core-x.x.x.jar
+* jindo-sdk-x.x.x.jar
 
-解压下载的安装包，以安装包内容解压在`/usr/lib/jindosdk-4.4.0`目录为例：
-```bash
-export JINDOSDK_HOME=/usr/lib/jindosdk-4.4.0
-export PATH=$JINDOSDK_HOME/bin:$PATH
+jindosdk-4.4.0 为例:
 ```
-* 配置`HADOOP_CLASSPATH`
-
-```bash
-export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
+cp jindosdk-4.4.0/lib/jindo-core-4.4.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-4.4.0/lib/jindo-sdk-4.4.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 ### 3. 配置 OSS 实现类及 Access Key
@@ -86,7 +83,7 @@ hadoop fs -mkdir oss://<bucket>/<path>
 hadoop fs -rm oss://<bucket>/<path>
 ```
 
-<img src="/docs/user/4.x/oss/pic/jindofs_sdk_cmd.png#pic_center" />
+<img src="/docs/user/4.x/4.0.0/oss/pic/jindofs_sdk_cmd.png#pic_center" />
 
 ### 5. 清理回收站
 Hadoop 通过将删除的文件或目录放入回收站来防止误删文件或文件夹。当使用 Hadoop Shell 删除 OSS 的文件或目录时，

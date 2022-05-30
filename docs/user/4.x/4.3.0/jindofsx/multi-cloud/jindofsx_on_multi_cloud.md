@@ -167,7 +167,7 @@ sh sbin/start-service.sh
     <property>
         <!-- 数据缓存开关 -->
         <name>fs.jindofsx.data.cache.enable</name>
-        <value>false</value>
+        <value>true</value>
     </property>
 
     <property>
@@ -262,7 +262,7 @@ Found 1 items
 即访问`jindo://emr-header-1:8101/jindos3/`等价于访问`s3://<Bucket>/`
 
 ## 访问 AWS S3
-完成上述步骤后作业通过`jindo://`前缀读取 S3 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续通过`jindo://`访问相同的数据就能够命中缓存。
+完成上述步骤后作业在数据缓存开关打开时通过`jindo://`前缀读取 S3 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续通过`jindo://`访问相同的数据就能够命中缓存。
 
 ## 参数调优
 JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](../configuration/jindosdk_configuration_list.md)

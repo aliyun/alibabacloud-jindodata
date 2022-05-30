@@ -20,17 +20,18 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 * 生态插件。除了默认提供 JindoSDK 支持 Hadoop，另外还支持 Flink Connector 等插件。
 
 ## 发布版本
-#### JindoData 4.3.0，2022-03-30，[Release Note](docs/user/4.x/4.3.0/jindodata-4.3.0-release-notes.md) <span style="color:red">*[NEW]*</span>
-#### JindoData 4.2.0，2022-01-30，[Release Note](docs/user/4.x/4.2.0/jindodata-4.2.0-release-notes.md)
-#### JindoData 4.1.0，2022-01-21，[Release Note](docs/user/4.x/4.1.0/jindodata-4.1.0-release-notes.md)
-#### JindoData 4.0.0，2022-01-07，[Release Note](docs/user/4.x/jindodata-4.0.0-release-notes.md)
-#### JindoData 3.x 版本，[原阿里云 E-MapReduce SmartData](https://help.aliyun.com/document_detail/121090.html)
+#### JindoData 4.4.0，2022-05-30，[Release Note](docs/user/4.x/4.4.0/release-notes.md) <span style="color:red">*[NEW]*</span>
+#### JindoData 4.3.0，2022-03-30，[Release Note](docs/user/4.x/4.3.0/release-notes.md)
+#### JindoData 4.2.0，2022-01-30，[Release Note](docs/user/4.x/4.2.0/release-notes.md)
+#### JindoData 4.1.0，2022-01-21，[Release Note](docs/user/4.x/4.1.0/release-notes.md)
+#### JindoData 4.0.0，2022-01-07，[Release Note](docs/user/4.x/4.0.0/release-notes.md)
+#### JindoData 3.x 版本，[原阿里云 EMR SmartData](https://help.aliyun.com/document_detail/121090.html)
 
 ## 用户文档
-#### JindoSDK + OSS [用户文档](docs/user/4.x/4.3.0/oss/outline.md)
-#### 阿里云 OSS-HDFS 服务（JindoFS 服务) [用户文档](docs/user/4.x/4.3.0/jindofs/outline.md)
-#### JindoFSx 存储加速系统 [用户文档](docs/user/4.x/4.3.0/jindofsx/outline.md)
-#### JindoSDK + 多云存储（S3/COS/OBS）[用户文档](docs/user/4.x/4.3.0/jindosdk/outline.md)
+#### JindoSDK + OSS [用户文档](docs/user/4.x/4.4.0/oss/outline.md)
+#### 阿里云 OSS-HDFS 服务（JindoFS 服务) [用户文档](docs/user/4.x/4.4.0/jindofs/outline.md)
+#### JindoFSx 存储加速系统 [用户文档](docs/user/4.x/4.4.0/jindofsx/outline.md)
+#### JindoSDK + 多云存储（S3/COS/OBS）[用户文档](docs/user/4.x/4.4.0/jindosdk/outline.md)
 #### JindoSDK + OSS（3.x 版本）[用户文档](docs/user/3.x/outline.md)
 
 ## 常见问题

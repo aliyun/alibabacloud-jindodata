@@ -115,7 +115,7 @@ sh sbin/start-service.sh
     <property>
         <!-- 数据缓存开关 -->
         <name>fs.jindofsx.data.cache.enable</name>
-        <value>false</value>
+        <value>true</value>
     </property>
 
     <property>
@@ -172,5 +172,5 @@ Found 2 items
 即访问`jindo://emr-header-1:8101/jindohdfs/`等价于访问`hdfs://emr-header-1:9000/`
 
 ## 访问 HDFS
-完成上述步骤后作业通过`jindo://`前缀读取 HDFS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续通过`jindo://`访问相同的数据就能够命中缓存。
+完成上述步骤后作业在数据缓存开关打开时通过`jindo://`前缀读取 HDFS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续通过`jindo://`访问相同的数据就能够命中缓存。
 

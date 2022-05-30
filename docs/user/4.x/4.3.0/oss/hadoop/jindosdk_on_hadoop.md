@@ -5,7 +5,7 @@ JindoSDK 是一个简单易用面向 Hadoop/Spark 生态的 OSS 客户端，为�
 即使您使用 JindoSDK 仅仅作为 OSS 客户端，相对于 Hadoop 社区 OSS 客户端实现，您还可以获得更好的性能和阿里云 E-MapReduce 产品技术团队更专业的支持。
 
 目前支持市面上大部分 Hadoop 版本，在 Hadoop 2.3 及以上的版本上验证通过（2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindodata/issues/new) 向我们反馈）。
-<br />关于 JindoSDK 和 Hadoop 社区 OSS connector 的性能对比，请参考文档[JindoSDK和Hadoop-OSS-SDK性能对比测试](/docs/user/4.x/oss/hadoop/jindosdk_vs_hadoop_sdk.md)。<br />
+<br />关于 JindoSDK 和 Hadoop 社区 OSS connector 的性能对比，请参考文档[JindoSDK和Hadoop-OSS-SDK性能对比测试](/docs/user/4.x/4.0.0/oss/hadoop/jindosdk_vs_hadoop_sdk.md)。<br />
 
 ## 步骤
 
@@ -87,7 +87,7 @@ hadoop fs -mkdir oss://<bucket>/<path>
 hadoop fs -rm oss://<bucket>/<path>
 ```
 
-<img src="/docs/user/4.x/oss/pic/jindofs_sdk_cmd.png#pic_center" />
+<img src="/docs/user/4.x/4.0.0/oss/pic/jindofs_sdk_cmd.png#pic_center" />
 
 ### 5. 参数调优
 JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.3.0/oss/configuration/jindosdk_configuration_list.md)

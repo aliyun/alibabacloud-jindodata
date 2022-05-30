@@ -11,7 +11,7 @@ Sqoop 本身并不支持对 OSS 的读写，需要使用第三方 Kite SDK 进�
 
 ## 步骤
 ### 1. 安装 jar 包
-下载最新的 jar 包 kite-data-oss-3.4.0.jar ([下载页面](/docs/user/4.x/oss/sqoop/kitesdk_download.md))，将 sdk 包安装到 Sqoop 的 classpath 目录下。
+下载最新的 jar 包 kite-data-oss-3.4.0.jar ([下载页面](/docs/user/4.x/4.0.0/oss/sqoop/kitesdk_download.md))，将 sdk 包安装到 Sqoop 的 classpath 目录下。
 ```
 cp ./kite-data-oss-3.4.0.jar <SQOOP_HOME>/lib/kite-data-oss-3.4.0.jar
 ```

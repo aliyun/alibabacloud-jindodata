@@ -116,7 +116,8 @@ jindo admin -mount /jindonas local:///mnt/nas
 Found 2 items
 ----------   1          0 1970-01-01 08:00 jindo://emr-header-1:8101/jindonas
 ```
+
 即访问`jindo://emr-header-1:8101/jindonas/`等价于访问`/mnt/nas/`
 
 ## 访问 NAS 文件系统
-完成上述步骤后作业通过`jindo://`前缀读取 NAS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续通过`jindo://`访问相同的数据就能够命中缓存。
+完成上述步骤后作业在数据缓存开关打开时通过`jindo://`前缀读取 NAS 上的数据后，会自动缓存到 JindoFSx 存储加速系统中，后续通过`jindo://`访问相同的数据就能够命中缓存。

@@ -54,7 +54,7 @@ JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考[JindoSD
 
 ### 4. 使用 Impala 访问 OSS。
 
-下载测试数据集[链接](/docs/user/4.x/oss/impala/test_data/customer_demographics/part-00000-2ac0f56e-0834-45b5-b27a-9e2e6babc6be-c000.snappy.parquet)
+下载测试数据集[链接](/docs/user/4.x/4.0.0/oss/impala/test_data/customer_demographics/part-00000-2ac0f56e-0834-45b5-b27a-9e2e6babc6be-c000.snappy.parquet)
 
 上传数据
  ```  bash
