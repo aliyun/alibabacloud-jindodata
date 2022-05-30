@@ -54,7 +54,7 @@ emr-worker-2
 通过apply_all.sh 脚本执行修复操作。
 
 ```bash
-./apply_all.sh $JINDOSDK_VERSION
+./apply_all.sh $JINDODATA_VERSION
 ```
 
 如
