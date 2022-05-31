@@ -13,6 +13,8 @@ JindoFSx客户端提供了两种数据缓存使用模式，分布式缓存（Dis
 
 本文以 JindoFSx 支持阿里云 OSS 透明缓存加速的使用方式为例。
 
+
+### Hadoop客户端使用本地缓存
 * 配置 OSS 实现类
 
 将 JindoFSx 服务 OSS 实现类配置到 Hadoop 的`core-site.xml`中。
@@ -101,17 +103,57 @@ JindoFSx客户端提供了两种数据缓存使用模式，分布式缓存（Dis
 
     <property>
         <!-- 磁盘使用量的上水位比例 -->
-        <name>jindofsx.data.cache.local.watermark.high.ratio</name>
+        <name>fs.jindofsx.data.cache.local.watermark.high.ratio</name>
         <value>0.8</value>
     </property>
 
     <property>
         <!-- 磁盘使用量的下水位比例 -->
-        <name>jindofsx.data.cache.local.watermark.low.ratio</name>
+        <name>fs.jindofsx.data.cache.local.watermark.low.ratio</name>
         <value>0.4</value>
     </property>
 
 </configuration>
+```
+
+### Fuse客户端使用本地缓存
+JindoFuse 详细使用文档参考 [JindoFuse 透明缓存加速 OSS](jindo_fuse/jindo_fuse_on_oss.md)。
+对于客户端本地缓存无需部署启动 JindoFSx 缓存加速服务，仅需客户端配置本地缓存相关参数，启动fuse即可，具体如下。
+* 配置`JINDOSDK_CONF_DIR`指定配置文件所在目录
+
+以配置文件`jindosdk.cfg`在`/usr/lib/jindosdk-4.4.0/conf`目录为例：
+```bash
+export JINDOSDK_CONF_DIR=/usr/lib/jindosdk-4.4.0/conf
+```
+
+* 配置文件
+使用 INI 风格配置文件，配置文件的文件名为`jindosdk.cfg`，示例如下：
+
+```ini
+[common]
+logger.dir = /tmp/fuse-log
+
+[jindosdk]
+# 配置阿里云 OSS Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为oss-cn-hangzhou-internal.aliyuncs.com。
+fs.oss.endpoint= <your_endpoint>
+# 用于访问 OSS 或 OSS-HDFS 服务的 AccessKey ID 和AccessKey Secret。阿里云账号 AccessKey 拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
+fs.oss.accessKeyId = <your_key_id>
+fs.oss.accessKeySecret = <your_key_secret>
+
+# 数据缓存开关
+fs.jindofsx.data.cache.enable = true
+# 客户端本地缓存功能通过插件形式提供动态库，需要配置路径以加载动态库，动态库在jindosdk-4.4.0/plugins/路径下
+fs.jdo.plugin.dir=${JINDOSDK_HOME}/plugins
+# 客户端本地缓存
+fs.jindofsx.data.cache.local.enable=true
+# 本地缓存磁盘路径
+fs.jindofsx.data.cache.local.data-dirs=/mnt/disk1/localcache/,/mnt/disk2/localcache/
+# 本地缓存磁盘大小
+fs.jindofsx.data.cache.local.data-dirs.capacities=80G,80G
+# 磁盘使用量的上水位比例
+fs.jindofsx.data.cache.local.watermark.high.ratio=0.8
+# 磁盘使用量的下水位比例
+fs.jindofsx.data.cache.local.watermark.low.ratio=0.4
 ```
 
 ## 注意事项
