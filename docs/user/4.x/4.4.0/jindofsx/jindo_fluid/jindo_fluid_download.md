@@ -1,4 +1,5 @@
 - [下载](#下载)
+  - [0.8.0-20220526](#080-20220526)
   - [0.7.0-20220511](#070-20220511)
   - [0.7.0-20220430](#070-20220430)
   - [0.7.0-20220412](#070-20220412)
@@ -9,11 +10,21 @@
 
 ## 下载
 
+### 0.8.0-20220526
+更新日期：2022-05-26</br>
+[Fluid 0.8.0](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/0.8.0/20220526/fluid-0.8.0.tgz)
+
+commitId:e562a90
+
+JindoRuntime相关功能升级：
+* JindoFSx 升级到 4.4.0
+  
 ### 0.7.0-20220511
 更新日期：2022-04-30</br>
 [Fluid 0.7.0](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/0.7.0/20220511/fluid-0.7.0.tgz)
 
 commitId:fece753
+
 JindoRuntime相关功能升级：
 * 支持 s3 后端
 
@@ -23,6 +34,7 @@ JindoRuntime相关功能升级：
 [Fluid 0.7.0](http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/0.7.0/20220430/fluid-0.7.0.tgz)
 
 commitId:af6d11e
+
 JindoRuntime相关功能升级：
 * 支持 log 等级
 * 修复 dataload 等问题

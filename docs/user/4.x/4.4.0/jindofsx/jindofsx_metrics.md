@@ -16,6 +16,13 @@
 
 关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.4.0/jindofsx/deploy/deploy_jindosdk.md)
 
+### 以简单方式查看 metrics 指标
+在已经成功部署 JindoFSx 存储加速系统的前提下，找到服务 namesapce 所在节点的 ip(localhost) 和服务启动端口 port(8101)，您可以使用 curl/wget 等命令来获取对应的 metrics 输出结果。如
+```
+curl localhost:8101/jindo_metrics/prometheus
+```
+指标详细名称和含义请参考文章末尾
+
 ### 1、Prometheus 安装
 首先需要在环境里安装 Prometheus 和 Grafana 服务，下面以 centos7 环境为例
 * [Prometheus 相关介绍](https://prometheus.io/)
@@ -49,7 +56,7 @@ scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'namespace-prometheus'
     scrape_interval: 5s
-    metrics_path: /metrics/prometheus
+    metrics_path: /jindo_metrics/prometheus
     static_configs:
       - targets: ['<ns Ip>:<ns Port>'] # your ns Ip and ns port eg:localhost:8101
 ```
@@ -130,7 +137,6 @@ tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      
 点击 import 后即可看到 cache 模式的 UI
 
 <img src="pic/common_grafana_playfront.png">
-
 
 ### Prometheus 指标预览(更新中)
 下面对 JindoRuntime 当前收集的指标进行预览和描述，您可以基于已收集指标在 Grafana 中进行组合和图表展示，如您需要额外的基本 metrics 展示，请开 issue 联系我们
