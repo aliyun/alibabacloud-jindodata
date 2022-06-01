@@ -37,7 +37,7 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中�
 
 | 参数             | 值                          |
 | ----------------------------------- | --------|
-| namespace.plugin.dir | ${JINDOSDK_HOME}/plugins |
+| namespace.plugin.dir | ${JINDDATA_HOME}/plugins/ |
 
 ### 启用 Ranger 鉴权
 在 JindoData 服务页面选择`配置` > `namespace` > `自定义配置`，添加如下参数。
@@ -59,7 +59,7 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中�
 
 | 参数             | 值                          |
 | ----------------------------------- | --------|
-| fs.jdo.plugin.dir  | ${JINDOSDK_HOME}/plugins  |
+| fs.jdo.plugin.dir  | ${JINDOSDK_HOME}/plugins/  |
 
 ### 启用 Ranger 鉴权
 
