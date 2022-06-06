@@ -124,8 +124,8 @@ hadoop    Ready           Ready                     62m
 
 ```shell
 $ kubectl get dataset hadoop
-NAME     UFS TOTAL SIZE   CACHED   CACHE CAPACITY   CACHED PERCENTAGE   PHASE   AGE
-hadoop        511MiB       0.00B    180.00GiB              0.0%          Bound   1h
+NAME     UFS TOTAL SIZE   CACHED   CACHE CAPACITY   CACHED PERCENTAGE   PHASE   HCFS URL                                TOTAL FILES     CACHE HIT RATIO   AGE
+hadoop   [Calculating]    0.00B    200.00GiB                            Bound   hadoop-jindofs-master-0.default:18844   [Calculating]                     6m28s
 ```
 
 
@@ -203,6 +203,7 @@ kind: DataLoad
 metadata:
   name: hadoop-dataload
 spec:
+  loadMetadata: true
   dataset:
     name: hadoop
     namespace: default

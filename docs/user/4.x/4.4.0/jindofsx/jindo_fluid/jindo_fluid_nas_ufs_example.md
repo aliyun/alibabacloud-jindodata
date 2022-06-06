@@ -46,6 +46,7 @@ spec:
   mounts:
     - mountPoint: local:///mnt/nas
       name: data
+      path: /
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime

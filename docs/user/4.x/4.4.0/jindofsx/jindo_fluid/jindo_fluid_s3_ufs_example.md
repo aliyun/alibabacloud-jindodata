@@ -72,6 +72,7 @@ spec:
         fs.s3.endpoint: s3.ap-east-1.amazonaws.com
         fs.s3.region: ap-east-1
       name: s3
+      path: /
       encryptOptions:
         - name: fs.s3.accessKeyId
           valueFrom:
