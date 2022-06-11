@@ -139,7 +139,7 @@ umount <mount_point>
 | removexattr()   | 删除文件 xattr 属性                        |
 | lock()          | 支持 posix 锁，类似 fcntl                  |
 | fallocate()     | 为文件预分配物理空间                        |
-| symlink()       | 创建软连接                                |
+| symlink()       | 创建软连接，目前仅支持 OSS-HDFS 内部使用，且不支持缓存加速  |
 | readlink()      | 读取软连接                                |
 
 # 高阶使用
