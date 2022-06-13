@@ -209,19 +209,19 @@ spec:
         low: "0.7"
   master:
     tolerations:
-    - key: hbase 
-      operator: Equal 
-      value: "true"
+      - key: hbase 
+        operator: Equal 
+        value: "true"
   worker:
     tolerations:
-    - key: hbase 
-      operator: Equal 
-      value: "true" 
+      - key: hbase 
+        operator: Equal 
+        value: "true" 
   fuse:
     tolerations:
-    - key: hbase 
-      operator: Equal 
-      value: "true"  
+      - key: hbase 
+        operator: Equal 
+        value: "true"  
 ```
 
 ### Resource 资源
