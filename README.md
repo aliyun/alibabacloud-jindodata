@@ -40,7 +40,7 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 
 扫码入群：
 
-<img src="docs/image/jindodata_dingding.png" width = "200" height = "200"/>
+<img src="docs/image/jindodata_dingding.png" width = "200" height = "250"/>
 
 ## 常见问题
 进入[常见问题](docs/user/faq.md)
