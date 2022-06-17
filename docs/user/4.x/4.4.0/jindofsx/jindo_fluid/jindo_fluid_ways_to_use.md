@@ -12,6 +12,7 @@
     - [Fuse 回收策略](#fuse-回收策略)
     - [JindoFSx 客户端相关参数和使用](#jindofsx-客户端相关参数和使用)
     - [JindoFSx Fuse 客户端相关参数和使用](#jindofsx-fuse-客户端相关参数和使用)
+    - [FuseOnly 使用方式](#fuseonly-使用方式)
 
 ### 挂载点在根目录下
 默认使用 JindoRuntime 会在挂载点多一层 /jindo 的目录，如果想挂载在根目录下可以在 dataset 里进行参数指定
@@ -350,3 +351,17 @@ spec:
 ```
 
 以数组方式写在 `spec.fuse.properties` 里，按照需要填写即可
+
+### FuseOnly 使用方式
+如您想使用 FuseOnly 方式，可以使用如下配置方式
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hadoop
+spec:
+  master:
+    disabled: true
+  worker:
+    disabled: true
+```
