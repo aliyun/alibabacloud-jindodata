@@ -23,7 +23,7 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中�
 ## 1. 配置 JindoFSx Namespace 服务。
 
 ### 1.1 配置 Jindo SASL 插件
-该功能依赖 Jindo SASL 动态库，需要配置路径以加载动态库，动态库在 `jindodata-4.4.0/plugins/` 路径下。
+该功能依赖 Jindo SASL 动态库，需要配置路径以加载动态库，动态库在 `jindofsx-4.4.0/plugins/` 路径下。
 在 jindofsx-x.x.x/conf 文件夹下修改配置文件 jindofsx.cfg， 在 [jindofsx-namespace] section 下添加动态库的绝对路径。
 
 | 参数             | 值                          |
