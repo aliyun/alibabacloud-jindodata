@@ -1,5 +1,16 @@
 # JindoSDK + Jindo 服务下载
 
+JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件，面向大数据和 AI 生态，为阿里云和业界主要数据湖存储系统提供全方位访问加速解决方案。
+
+## 全新 JindoData 4.x 
+
+[JindoData 4.x 介绍](https://github.com/aliyun/alibabacloud-jindodata)
+
+[JindoData 4.x 下载](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/jindodata_download.md)
+
+
+# JindoSDK 3.x 历史版本
+
 ## v3.8.0 (12/06/2021)
 (3.8 版本包含 Kerberos 和 Sasl 支持，如果您的环境没有 kerberos 和 sasl2 相关依赖，建议使用 3.7.x 版本)
 
@@ -24,7 +35,7 @@
 [jindofs-sdk-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindofs-sdk-3.7.3.jar)<br />
 [jindo-distcp-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindo-distcp-3.7.3.jar)<br />
 
-# JindoSDK 历史版本
+# JindoSDK 早期版本
 
 ## v3.7.2 (10/12/2021)
 
