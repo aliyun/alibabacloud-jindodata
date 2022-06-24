@@ -126,7 +126,12 @@ sh sbin/start-service.sh
 Ranger 组件需要安装新插件以支持对 OSS 或 OSS-HDFS 服务对鉴权。
 
 ### 5.1 下载和拷贝插件
+根据集群中安装的 Ranger 版本下载对应的插件版本。
+
+* 1.x 版本
 [下载地址](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/ranger/ranger-oss-plugin-1.2.0.jar)
+* 2.x 版本
+[下载地址](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/ranger/ranger-oss-plugin-2.1.0.jar)
 
 ```
 cd /xxx/ranger-admin-current/ews/webapp/WEB-INF/classes/ranger-plugins

@@ -93,4 +93,6 @@ hadoop fs -rm oss://<bucket>/<path>
 JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.3.0/oss/configuration/jindosdk_configuration_list.md)
 
 ### 6. 权限管理
-阿里云 E-MapReduce 集群，请参考 [阿里云 OSS 使用 Ranger 的鉴权方案](/docs/user/4.x/4.3.0/jindofsx/permission/jindofsx_ranger.md)
+
+* 自建集群，请参考 [阿里云 OSS 使用 Ranger 的鉴权方案](/docs/user/4.x/4.4.0/jindofsx/permission/jindofsx_ranger.md)
+* 阿里云 E-MapReduce 集群，请参考 [EMR 集群中阿里云 OSS 使用 Ranger 的鉴权方案](/docs/user/4.x/4.4.0/jindofsx/permission/jindofsx_ranger_emr.md)
