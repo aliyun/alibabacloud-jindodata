@@ -7,8 +7,6 @@
 - [DataLoad进阶配置](#dataload%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE)
   - [指定一个或多个数据集子目录进行加载](#%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%88%96%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E5%AD%90%E7%9B%AE%E5%BD%95%E8%BF%9B%E8%A1%8C%E5%8A%A0%E8%BD%BD)
   - [设置数据加载时的缓存副本数量](#%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E7%BC%93%E5%AD%98%E5%89%AF%E6%9C%AC%E6%95%B0%E9%87%8F)
-  - [指定文件列表进行缓存](#%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8%E8%BF%9B%E8%A1%8C%E7%BC%93%E5%AD%98)
-    - [指定 OSS 上文件作为文件列表](#%E6%8C%87%E5%AE%9A-oss-%E4%B8%8A%E6%96%87%E4%BB%B6%E4%BD%9C%E4%B8%BA%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8)
   - [原子性缓存](#%E5%8E%9F%E5%AD%90%E6%80%A7%E7%BC%93%E5%AD%98)
   - [单独进行元数据缓存，不做数据缓存](#%E5%8D%95%E7%8B%AC%E8%BF%9B%E8%A1%8C%E5%85%83%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98%E4%B8%8D%E5%81%9A%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98)
 - [缓存进度及LOG查看](#%E7%BC%93%E5%AD%98%E8%BF%9B%E5%BA%A6%E5%8F%8Alog%E6%9F%A5%E7%9C%8B)
@@ -18,21 +16,6 @@
 
 
 为此，我们提供了DataLoad CRD, 该CRD让你可通过简单的配置就能完成整个数据预加载过程，并对数据预加载的许多行为进行自定义控制。
-
-
-本文档通过以下两个例子演示了DataLoad CRD的使用方法：
-以下 `spec.target.path` 的值均为 `mountpoint` 挂载点下的相对路径。比如当前的挂载点为 `oss://test/`
-原始路径下有以下文件
-```shell
-oss://test/user/sample.txt
-oss://test/data/fluid.tgz
-```
-那么 `target.path` 可定义为
-```yaml
-target:
-    - path: /user
-    - path: /data
-```
 
 ## 配置待创建的DataLoad对象
 
@@ -187,72 +170,8 @@ spec:
 
 上述DataLoad在进行数据加载时，对于`/spark/spark-2.4.7`目录下的文件仅会在分布式缓存引擎中保留**1份**数据缓存副本，而对于文件`/spark/spark-3.0.1/pyspark-3.0.1.tar.gz`，分布式缓存引擎将会保留**2份**缓存副本。
 
-### 指定文件列表进行缓存
-#### 指定 OSS 上文件作为文件列表
-您可以使用 OSS 来存储缓存文件列表，您需要使用如下 yaml 文件和指定相应的参数来使用该功能
-
-```yaml
-apiVersion: data.fluid.io/v1alpha1
-kind: DataLoad
-metadata:
-  name: spark-dataload
-spec:
-  loadMetadata: true
-  dataset:
-    name: spark
-    namespace: default
-  options:
-    accessKeyId: xxx
-    accessKeySecret: xxx
-    endpoint: oss-cn-<region>.aliyuncs.com
-    url: oss://<bucket>/<dir>/filepath.txt
-```
-* accessKeyId/accessKeySecret：访问文件存储 OSS 的 AK 信息
-* endpoint：OSS 所在的 region 信息，需要注意内网和公网地址的区别，确认可访问
-* url：该文件在 OSS 上的路径，比如 `oss://xyz/dir/filepath.txt`
-
-下面介绍下文件列表的内容，文件列表的`一行`代表一个要缓存的文件：
-
-如当前 OSS 上的文件目录结构为
-
-```shell
-oss://test/user/sample.txt
-oss://test/data/fluid.tgz
-```
-且 `dataset.spec.mountpoint = oss://test/`
-
-那么想缓存上面两个文件可定义文件列表 `filepath.txt` 的内容为
-
-```shell
-/user/sample.txt
-/data/fluid.tgz
-```
-
-即文件列表路径为全路径在 mountpoint 路径下的相对路径内容
-
 ### 原子性缓存
-如您想保持缓存一致性和原子性，那么您可以使用如下 yaml 来完成这个功能，需要注意的是使用原子性缓存功能，您需要在runtime里开启元数据缓存开关，具体为
-```yaml
-apiVersion: data.fluid.io/v1alpha1
-kind: JindoRuntime
-metadata:
-  name: hadoop
-spec:
-  replicas: 1
-  tieredstore:
-    levels:
-      - mediumtype: SSD
-        path: /mnt/disk1
-        quota: 10G
-        high: "0.9"
-        low: "0.8"
-  fuse:
-    properties:
-      jfs.cache.meta-cache.enable: "true"
-```
-* jfs.cache.meta-cache.enable: "true" 打开元数据缓存开关
-
-然后您可以使用如下 yaml 来完成原子性缓存的功能
+如您想保持缓存一致性和原子性，那么您可以使用如下 yaml 来完成这个功能
 
 ```yaml
 apiVersion: data.fluid.io/v1alpha1

@@ -33,10 +33,14 @@ jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 ### 1、创建 dataset 和 JindoRuntime
 
 
-#### 1.1、HA 集群从 HDFS 配置文件创建ConfigMap，非 HA 集群请略过此步骤
+#### 1.1、HA 集群从 HDFS 配置文件中相关信息，非 HA 集群请略过此步骤
 
 
-从 HDFS 集群上找到 hdfs-site.xml 配置文件（阿里云EMR集群在 /etc/ecm/hadoop-conf 路径下），需要将其中 rpc 的访问地址中域名的部分参数，修改成可访问的内网 IP 地址，例如：
+从 HDFS 集群上找到 hdfs-site.xml 配置文件
+* 阿里云EMR集群在 /etc/ecm/hadoop-conf 路径下
+* CDH 集群可参考 [What-is-the-Path-of-hdfs-site-xml-core-xml](https://community.cloudera.com/t5/Support-Questions/What-is-the-Path-of-hdfs-site-xml-core-xml/m-p/15180) 
+  
+需要将其中 rpc 的访问地址中域名的部分参数，修改成可访问的内网 IP 地址，例如：
 
 
 ```xml
@@ -65,13 +69,12 @@ jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 </property>
 ```
 
+从配置文件里我们可以拿到如下几个信息
 
-创建 ConfigMap
+* 集群namespaceService名称：emr-cluster
+* 两个namenode名字：nn1 和 nn2
+* 两个namenode的访问地址：192.168.0.1:8020 和 192.168.0.2:8020 
 
-
-```shell
-$ kubectl create configmap hdfsconfig --from-file=/path/to/hdfs-site.xml
-```
 
 
 #### 1.2、创建 Dataset 资源对象
@@ -82,21 +85,30 @@ $ kubectl create configmap hdfsconfig --from-file=/path/to/hdfs-site.xml
 
 #### HA 集群
 
+将1.1中拿到的几个信息放到 mounts.options 里面，user 代表用户权限
 
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
 metadata:
-  name: hadoop
+  name: hdfs
 spec:
   mounts:
     - mountPoint: hdfs://emr-cluster/
-      name: hadoop
+      name: hdfs
+      options:
+        fs.hdfs.emr-cluster.dfs.ha.namenodes = nn1,nn2
+        fs.hdfs.emr-cluster.dfs.namenode.rpc-address.nn1 = 192.168.0.1:8020
+        fs.hdfs.emr-cluster.dfs.namenode.rpc-address.nn2 = 192.168.0.2:8020
+        fs.hdfs.user = hadoop
+      path: /
+  accessModes:
+    - ReadOnlyMany
 ```
 
 
 其中 `mountPoint` 为需要访问的 HDFS 路径（阿里云EMR集群默认名字为 emr-cluster，如下所示）
-
+- accessModes: 可选 ReadOnlyMany / ReadWriteMany，前者代表只读，后者代表可读写
 
 ```xml
 <property>
@@ -113,15 +125,20 @@ spec:
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
 metadata:
-  name: hadoop
+  name: hdfs
 spec:
   mounts:
     - mountPoint: hdfs://<namenodeIP>:<port>/
-      name: hadoop
+      name: hdfs
+      path: /
+  accessModes:
+    - ReadOnlyMany
 ```
 
 
 其中 `mountPoint` 为 HDFS 集群的 namenode 的 IP 地址和端口的组合
+
+- accessModes: 可选 ReadOnlyMany / ReadWriteMany，前者代表只读，后者代表可读写
 #### 
 #### 1.3、创建 Dataset
 
@@ -134,17 +151,14 @@ $ kubectl create -f dataset.yaml
 #### 1.4 创建 JindoRuntime 资源对象
 
 
-创建一个 JindoRuntime 对应的 JindoFSx 集群，有 Cache 和 NoCache 两种模式。Cache 模式提供对远端 HDFS 上数据缓存以及元数据缓存；NoCache 模式即简单作为 HDFS connector 提供访问 HDFS 的能力。
-
-
-#### Cache 模式
+创建一个 JindoRuntime 对应的 JindoFSx 集群
 
 
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
 metadata:
-  name: hadoop
+  name: hdfs
 spec:
   replicas: 1
   tieredstore:
@@ -154,47 +168,7 @@ spec:
         quota: 290Gi
         high: "0.9"
         low: "0.2"
-  hadoopConfig: hdfsconfig
-  fuse:
-    properties:
-      jfs.cache.data-cache.enable: "true"
-      jfs.cache.meta-cache.enable: "true"
-      jfs.cache.data-cache.slicecache.enable: "true"
 ```
-
-
-#### NoCache 模式
-
-
-```yaml
-apiVersion: data.fluid.io/v1alpha1
-kind: JindoRuntime
-metadata:
-  name: hadoop
-spec:
-  replicas: 1
-  tieredstore:
-    levels:
-      - mediumtype: SSD
-        path: /mnt/disk1/
-        quota: 290G
-        high: "0.9"
-        low: "0.2"
-  hadoopConfig: hdfsconfig
-  fuse:
-    properties:
-      jfs.cache.data-cache.enable: "false"
-      jfs.cache.meta-cache.enable: "false"
-      jfs.cache.data-cache.slicecache.enable: "false"
-```
-
-
-- `replicas`：表示创建 JindoFSx 集群的 worker 的数量。
-- `mediumtype`： JindoFSx 暂只支持HDD/SSD/MEM中的其中一种。
-- `path`：存储路径，支持一块盘或者多块盘
-- `quota`：缓存最大容量，单位G。
-
-
 
 多块盘多个quota请参考
 
@@ -206,12 +180,6 @@ quotaList: 290G,290G,290G
 
 
 其中 path 和 quota 的数量应该相同。
-
-
-- `high`：水位上限比例 / `low`： 水位下限比例。
-- `configmap-name`须为之前创建的 ConfigMap 资源对象，该 ConfigMap 必须与创建的 JindoRuntime 同处于同一Namespace。其中必须包含以`hdfs-site.xml`为键的键值对，Fluid会检查
-该ConfigMap中的内容，并从中选取`hdfs-site.xml`的键值对并以文件的形式挂载到 JindoFSx 的各个 Pod 中。
-
 
 
 #### 1.5、创建 JindoRuntime
@@ -231,7 +199,7 @@ $ kubectl create -f runtime.yaml
 ```shell
 $ kubectl get dataset hadoop
 NAME     UFS TOTAL SIZE   CACHED   CACHE CAPACITY   CACHED PERCENTAGE   PHASE   AGE
-hadoop     180.01GiB      0.00B      261.00GiB            0.0%          Bound   62m
+hdfs     180.01GiB      0.00B      261.00GiB            0.0%          Bound   62m
 ```
 
 
@@ -241,10 +209,10 @@ hadoop     180.01GiB      0.00B      261.00GiB            0.0%          Bound   
 ```shell
 $ kubectl get pv,pvc
 NAME                      CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM            STORAGECLASS   REASON   AGE
-persistentvolume/hadoop   100Gi      RWX            Retain           Bound    default/hadoop                           58m
+persistentvolume/hdfs       100Gi      RWX            Retain           Bound    default/hadoop                           58m
 
 NAME                           STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-persistentvolumeclaim/hadoop   Bound    hadoop   100Gi      RWX                           58m
+persistentvolumeclaim/hdfs      Bound    hadoop   100Gi      RWX                           58m
 ```
 
 
@@ -254,35 +222,5 @@ persistentvolumeclaim/hadoop   Bound    hadoop   100Gi      RWX                 
 ```shell
 $ kubectl get jindoruntime hadoop
 NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
-hadoop    Ready           Ready                     62m
-```
-
-
-### 2、指定 FUSE 用户
-
-
-使用`user`参数指定通过fuse读写时用户信息，如指定通过hadoop用户来进行访问。
-
-
-```yaml
-apiVersion: data.fluid.io/v1alpha1
-kind: JindoRuntime
-metadata:
-  name: hadoop
-spec:
-  replicas: 1
-  tieredstore:
-    levels:
-      - mediumtype: SSD
-        path: /mnt/disk1/
-        quota: 290Gi
-        high: "0.9"
-        low: "0.2"
-  hadoopConfig: hdfsconfig
-  user: hadoop
-  fuse:
-    properties:
-      jfs.cache.data-cache.enable: "true"
-      jfs.cache.meta-cache.enable: "true"
-      jfs.cache.data-cache.slicecache.enable: "true"
+hdfs     Ready           Ready                     62m
 ```

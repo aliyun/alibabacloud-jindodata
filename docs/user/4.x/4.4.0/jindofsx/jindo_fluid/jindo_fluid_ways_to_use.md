@@ -13,6 +13,7 @@
     - [JindoFSx 客户端相关参数和使用](#jindofsx-客户端相关参数和使用)
     - [JindoFSx Fuse 客户端相关参数和使用](#jindofsx-fuse-客户端相关参数和使用)
     - [FuseOnly 使用方式](#fuseonly-使用方式)
+    - [多挂载点](#多挂载点)
 
 ### 挂载点在根目录下
 默认使用 JindoRuntime 会在挂载点多一层 /jindo 的目录，如果想挂载在根目录下可以在 dataset 里进行参数指定
@@ -365,3 +366,26 @@ spec:
   worker:
     disabled: true
 ```
+
+### 多挂载点
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: data
+spec:
+  mounts:
+    - mountPoint: oss://test-bucket-1/dir1/
+      options:
+        fs.oss.accessKeyId: <OSS_ACCESS_KEY_ID>
+        fs.oss.accessKeySecret: <OSS_ACCESS_KEY_SECRET>
+        fs.oss.endpoint: <OSS_ENDPOINT> 
+      name: spark
+    - mountPoint: oss://test-bucket-2/dir2/
+      options:
+        fs.oss.accessKeyId: <OSS_ACCESS_KEY_ID>
+        fs.oss.accessKeySecret: <OSS_ACCESS_KEY_SECRET>
+        fs.oss.endpoint: <OSS_ENDPOINT> 
+      name: hadoop
+```
+在挂载 pvc 和 fuse 以及做 dataload 的时候，这两个数据源的方式将以 mounts.name 作为区分，比如 /spark 路径下访问 oss://test-bucket-1/dir1/ 下的文件，/hadoop 路径下访问 oss://test-bucket-2/dir2/ 下的文件内容

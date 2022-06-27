@@ -68,13 +68,15 @@ metadata:
   name: hadoop
 spec:
   mounts:
-    - mountPoint: oss://test-bucket/
+    - mountPoint: oss://test-bucket/dir/
       options:
         fs.oss.accessKeyId: <OSS_ACCESS_KEY_ID>
         fs.oss.accessKeySecret: <OSS_ACCESS_KEY_SECRET>
         fs.oss.endpoint: <OSS_ENDPOINT> 
       name: hadoop
       path: /
+  accessModes:
+    - ReadOnlyMany  
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
@@ -93,6 +95,7 @@ spec:
 
 
 - mountPoint：表示挂载UFS的路径，路径中不需要包含 endpoint 信息。
+- accessModes: 可选 ReadOnlyMany / ReadWriteMany，前者代表只读，后者代表可读写
 - fs.oss.accessKeyId/fs.oss.accessKeySecret：oss bucket的AK信息，有权限访问该 bucket。
 - fs.oss.endpoint：oss bucket的endpoint信息，公网或内网地址皆可，如您的 bucket 在杭州 Region，那么公网地址为 oss-cn-hangzhou.aliyuncs.com，内网地址为 oss-cn-hangzhou-internal.aliyuncs.com(内网地址使用条件为您的 K8S 集群所在区域和oss区域相同)。
 - replicas：表示创建 JindoFSx 集群节点的数量。
