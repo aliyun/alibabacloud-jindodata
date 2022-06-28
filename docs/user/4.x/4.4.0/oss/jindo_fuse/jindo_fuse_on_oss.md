@@ -147,7 +147,6 @@ umount <mount_point>
 | jindo_entry_size    |      | 默认值，5000。目录条目缓存数量，用于优化readdir性能。0表示不缓存。 | -ojindo_entry_size=5000   |
 | jindo_attr_size     |      | 默认值，50000。文件属性缓存数量，用于优化getattr性能。0表示不缓存。 | -ojindo_attr_sizet=50000    |
 | max_idle_threads |      | 默认值，10。最大空闲线程数。 | -omax_idle_threads=10 |
-
 | metrics_port     |      | 默认值，9090。开启http端口，输出metrics，如http://localhost:9090/brpc_metrics | -ometrics_port=9090 |
 | enable_pread     |      | 开启后，使用pread接口读取文件。 | -oenable_pread |
 

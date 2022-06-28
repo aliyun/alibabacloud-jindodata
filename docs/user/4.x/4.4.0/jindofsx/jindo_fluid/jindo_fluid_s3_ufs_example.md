@@ -31,29 +31,6 @@ jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 其中 csi-nodeplugin-fluid-xx 的数量应该与 K8S 集群中节点node的数量相同。
 ## 创建 dataset 和 JindoRuntime
 
-
-在创建 dataset 之前，我们可以创建一个 secret 来保存 s3 的`key` 和`secret` 信息，避免明文暴露出来，K8S 会对已创建的 secret 使用加密编码，将key和secret信息填入mySecret.yaml文件中。
-
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: mysecret
-stringData:
-  fs.s3.accessKeyId: xxx
-  fs.s3.accessKeySecret: xxx
-```
-
-
-生成secret
-
-
-```yaml
-kubectl create -f mySecret.yaml
-```
-
-
 创建一个 resource.yaml 文件里面包含两部分：
 
 - 首先包含数据集及 ufs 的 dataset 信息，创建一个 Dataset CRD 对象，其中描述了数据集的来源。
@@ -69,20 +46,14 @@ spec:
   mounts:
     - mountPoint: s3://<bucket>/<dir>
       options:
+        fs.s3.accessKeyId: xxx
+        fs.s3.accessKeySecret: xxx
         fs.s3.endpoint: s3.ap-east-1.amazonaws.com
         fs.s3.region: ap-east-1
       name: s3
-      encryptOptions:
-        - name: fs.s3.accessKeyId
-          valueFrom:
-            secretKeyRef:
-              name: mysecret
-              key: fs.s3.accessKeyId
-        - name: fs.s3.accessKeySecret
-          valueFrom:
-            secretKeyRef:
-              name: mysecret
-              key: fs.s3.accessKeySecret
+      path: /
+  accessModes:
+    - ReadOnlyMany
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
@@ -101,6 +72,7 @@ spec:
 
 
 - mountPoint：表示挂载 s3 的路径，支持标准 s3 协议。
+- accessModes: 可选 ReadOnlyMany / ReadWriteMany，前者代表只读，后者代表可读写
 - replicas：表示创建 JindoFSx 集群的 worker 的数量。
 - mediumtype： JindoFSx 暂只支持HDD/SSD/MEM中的其中一种。
 - path：存储路径，当选择MEM做缓存也需要一块盘来存储log等文件。
@@ -156,35 +128,6 @@ persistentvolume/s3   100Gi      RWX            Retain           Bound    defaul
 NAME                           STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 persistentvolumeclaim/s3   Bound    hadoop   100Gi      RWX                           58m
 ```
-
-
-## 检查 jindoruntime 部署情况
-
-## 进行 dataload 预热
-
-```shell
-$ kubectl get jindoruntime hadoop
-NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
-s3    Ready           Ready                     62m
-```
-
-此时我们对 oss 上文件进行一次数据预热，将 NAS 上文件加载到本地
-
-```yaml
-apiVersion: data.fluid.io/v1alpha1
-kind: DataLoad
-metadata:
-  name: test
-spec:
-  dataset:
-    name: nas
-    namespace: default
-  target:
-    - path: /nas/dir
-      replicas: 1
-```
-其中 `/nas` 中 `nas` 为 dataset 中挂载点的 name，可以使用 `/nas/dir` 来预热其中的子目录。`replicas`表示缓存的备份数，默认是1
-
 
 
 

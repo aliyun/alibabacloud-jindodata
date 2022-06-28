@@ -57,9 +57,10 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK O
 
 这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.4.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
 
-## 指定 HBase 的存储路径
-需要修改`hbase-site`配置文件中的参数`hbase.rootdir`的值为 OSS 地址，指定 HBase 的存储路径和 WAL 文件的存储路径。如果要释放集群，需要先 Disable table，确保 WAL 文件已经完全更新到 HFile。
+## 5. 指定 HBase 的存储路径
+需要修改`hbase-site`配置文件中的参数`hbase.rootdir`和`hbase.wal.dir`的值为 OSS-HDFS 服务地址，指定 HBase 的存储路径和 WAL 文件的存储路径。如果要释放集群，需要先 Disable table，确保 WAL 文件已经完全更新到 HFile。
 
 | 参数 | 描述 |
 | --- | --- |
-| hbase.rootdir | 指定 HBase 的 ROOT 存储目录到 OSS。参数值为`oss://bucket.endpoint/hbase-root-dir`|
+| hbase.rootdir | 指定 HBase 的 ROOT 存储目录到 OSS-HDFS 服务。参数值为`oss://bucket.endpoint/hbase-root-dir`|
+| hbase.wal.dir | 指定 HBase 的 WAL 存储目录到 OSS-HDFS 服务。 参数值为`oss://bucket.endpoint/hbase`|

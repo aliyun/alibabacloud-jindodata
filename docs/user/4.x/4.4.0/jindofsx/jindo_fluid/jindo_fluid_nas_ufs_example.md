@@ -46,6 +46,9 @@ spec:
   mounts:
     - mountPoint: local:///mnt/nas
       name: data
+      path: /
+  accessModes:
+    - ReadOnlyMany
 ---
 apiVersion: data.fluid.io/v1alpha1
 kind: JindoRuntime
@@ -64,6 +67,7 @@ spec:
 
 
 - mountPoint：表示挂载 NAS 的路径，`local://`为本地路径前缀，`/mnt/nas`表示本地真实路径，该路径需要在各个节点上都存在。 
+- accessModes: 可选 ReadOnlyMany / ReadWriteMany，前者代表只读，后者代表可读写
 - replicas：表示创建 JindoFSx 集群节点的数量。
 - mediumtype： JindoFSx 暂只支持HDD/SSD/MEM中的其中一种。
 - path：存储路径，暂只支持一块盘，当选择MEM做缓存也需要一块盘来存储log等文件。

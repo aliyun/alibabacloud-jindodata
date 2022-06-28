@@ -1,98 +1,217 @@
 # 阿里云 OSS 使用 Ranger 的鉴权方案
+
+本文介绍在自建集群配置阿里云 OSS 和 OSS-HDFS 服务使用 Ranger 的鉴权方案。
+
 ## 背景
 Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中的多个组件进行细粒度的权限访问控制。当用户将数据存放在阿里云 OSS 时，则是通过阿里云 RAM 产品创建或管理 RAM 用户，对RAM用户实现对 OSS 资源的访问控制。
 为维持大数据客户的使用习惯，通过 JindoFSx Namespace 接入 Ranger 的客户端，方便用户统一管理大数据组件权限。
 
-## 访问 OSS 鉴权流程
-* OSS 的访问密钥 AccessKey（AK）统一在 JindoFSx Namespace 中设置，避免用户在客户端配置明文密钥，建议只允许管理员操作和管理 JindoFSx Namespace 服务；
-* JindoSDK 提供标准 Hadoop Filesystem 客户端，将访问 OSS 的请求会发送至 Namespace 服务；
-* JindoFSx Namespace Service 负责集成 Ranger 客户端，周期性将权限策略从 Ranger 服务端同步到本地；
-* Namespace 服务在收到 JindoSDK 的鉴权请求后进行细粒度的权限校验；
-* 通过权限校验后 JindoSDK 则可以使用 JindoFSx Namespace 服务颁发的临时 AK 访问 OSS。
-
-  <img src="../pic/jindofsx_oss_ranger_0.png" alt="title" width="700"/>
-
-注：若 Namespace 部署的节点为阿里云 ECS 节点，可以通过配置安全组，限制访问 Namespace 的客户端。
-
 ## 前提条件
-* 已创建E-MapReduce EMR-5.6.0/EMR-3.40.0或以上版本的高安全集群(启用 Kerberos 认证)，并且选择了 Ranger 服务。
 
-### 创建高安全集群
-  <img src="../pic/jindofsx_oss_ranger_1.png" width="800"/>
-  创建集群时，在软件配置页面的高级设置区域中，打开Kerberos集群模式开关。
+* 已部署 JindoSDK
 
-## 1. Ranger 启用 OSS。
-  <img src="../pic/jindofsx_oss_ranger_2.png" width="800"/>
+关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.4.0/jindofsx/deploy/deploy_jindosdk.md)
 
-## 2. 部署客户端配置。
-在 HDFS 服务页面，单击右上角的部署客户端配置。
+* 已部署 JindoFSx Namespace
 
-## 3. 重启 JindoFSx Namespace 服务。
-  <img src="../pic/jindofsx_oss_ranger_4.png" width="800"/>
+关于如何部署 JindoFSx Namespace，请参考 [快速部署一个简单的 JindoFSx 存储加速系统(仅 Namespace)](/docs/user/4.x/4.4.0/jindofsx/deploy/deploy_jindofsx_nsonly.md)
 
-## 4. 重启HiveServer2。
-  <img src="../pic/jindofsx_oss_ranger_5.png" width="800"/>
+* 安装 Kerberos 和 Sasl2 相关依赖
 
-## 5. 创建用户 Principal。
-### a. 通过SSH方式连接集群的emr-header-1节点。
-### b. 执行如下命令，进入Kerberos的admin工具。
+如果您的环境没有 Kerberos 和 Sasl2 相关依赖，请安装相关依赖 [安装说明](install_dependeny.md)
+
+## 1. 配置 JindoFSx Namespace 服务。
+
+### 1.1 配置 Jindo SASL 插件
+该功能依赖 Jindo SASL 动态库，需要配置路径以加载动态库，动态库在 `jindofsx-4.4.0/plugins/` 路径下。
+在 jindofsx-x.x.x/conf 文件夹下修改配置文件 jindofsx.cfg， 在 [jindofsx-namespace] section 下添加动态库的绝对路径。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| namespace.plugin.dir | ${JINDDATA_HOME}/plugins/ |
+
+### 1.2 启用 Ranger 鉴权
+在 jindofsx-x.x.x/conf 文件夹下修改配置文件 jindofsx.cfg， 在 [jindofsx-namespace] section 下添加如下参数。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| namespace.oss.authorization.method  | ranger  |
+
+注意： 将 jindofsx.cfg 配置文件部署到 NamespaceService 所在的所有节点。
+
+### 1.3 配置使用 Assume Role 颁发临时 AK
+在 jindofsx-x.x.x/conf 文件夹下修改配置文件 jindofsx.cfg。
+在 [jindofsx-namespace] section 下添加如下参数。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| namespace.oss.credential.provider  | ASSUME_ROLE  |
+
+在阿里云 RAM 创建用户颁发临时 AK 的 Role, 选择可信实体类型为"阿里云账号", 并为角色授权。
+在 [jindofsx-common] section 下添加或更改如下参数。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| default.credential.provider  | ASSUME_ROLE  |
+| sts.access.key  | STS 的 accessKey  |
+| sts.access.secret  | STS 的 accessKeySecret  |
+| sts.access.endpoint  | STS 的 endpoint, 如： sts.cn-shanghai.aliyuncs.com  |
+| sts.role.name  | 在 RAM 中创建的角色， 如 JindoFsxTestRole  |
+| sts.role.arn  |  角色的ARN，如：acs:ram::xxx:role/JindoFsxTestRole  |
+
+注意： 将 jindofsx.cfg 配置文件部署到 NamespaceService 所在的所有节点。
+
+### 1.4 配置 Principal 和 Keytab（适用于 Kerberos 集群）
+在 jindofsx-x.x.x/conf 文件夹下修改配置文件 jindofsx.cfg。
+在 [jindofsx-namespace] section 下添加如下参数。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| namespace.authentication.enable  | true  |
+| namespace.authentication.keytab  | 配置 keytab 所在的路径， 如： /tmp/jindofsx.keytab  |
+| namespace.authentication.principal  | 配置 keytab 中的 principal, 如： jindofsx/localhost  |
+
+## 2. 重启 JindoFSx Namespace 服务。
+在 master 节点执行以下脚本：
+
+```shell
+cd jindofsx-x.x.x
+sh sbin/stop-service.sh
+sh sbin/start-service.sh
 ```
-sh /usr/lib/has-current/bin/admin-local.sh /etc/ecm/has-conf -k /etc/ecm/has-conf/admin.keytab
-```
-本示例密码设置为 123456。
-```
-addprinc -pw 123456 test
-```
-##### 说明: 需要记录用户名和密码，在创建TGT时会用到。如果您不想记录用户名和密码，则可以执行下一步，把Principal的用户名和密码导入到keytab文件中。
-### c. 可选：执行如下命令，生成keytab文件。
+
+## 3. 配置 JindoSDK。
+
+### 3.1 配置 xengine
+在 Hadoop 的 `core-site.xml` 中 添加如下参数。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| fs.xengine  | jindofsx  |
+
+### 3.2 配置 Jindo SASL 插件
+该功能依赖 Jindo SASL 动态库，需要配置路径以加载动态库，动态库在 `jindosdk-4.4.0/plugins/` 路径下，将该路径的绝对路径添加到 Hadoop 的`core-site.xml`中。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| fs.jdo.plugin.dir  | ${JINDOSDK_HOME}/plugins/  |
+
+### 3.3 启用 Ranger 鉴权
+
+支持统一配置和按 bucket 配置两种方式。
+
+#### a. 对 OSS 和 OSS-HDFS 的全部 bucket 鉴权
+
+在Hadoop 的`core-site.xml`中添加或更新如下参数。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| fs.oss.authorization.method         | ranger  |
+| fs.oss.credentials.provider         | com.aliyun.jindodata.oss.auth.RangerCredentialsProvider  |
+
+#### b. 对 OSS 或 OSS-HDFS 的部分 bucket 鉴权
+
+在Hadoop 的`core-site.xml`中添加或更新如下参数。
+
+| 参数             | 值                          |
+| ----------------------------------- | --------|
+| fs.oss.bucket.XXX.authorization.method        | ranger  |
+| fs.oss.bucket.XXX.credentials.provider        | com.aliyun.jindodata.oss.auth.RangerCredentialsProvider  |
+
+说明：XXX 为 或 OSS 或 OSS-HDFS 服务 bucket的名称。
+
+## 4. 重启 Hive 所有服务，使配置生效。
+
+## 5. 安装支持配置 OSS 权限的 Ranger 插件
+Ranger 组件需要安装新插件以支持对 OSS 或 OSS-HDFS 服务对鉴权。
+
+### 5.1 下载和拷贝插件
+根据集群中安装的 Ranger 版本下载对应的插件版本。
+
+* 1.x 版本
+[下载地址](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/ranger/ranger-oss-plugin-1.2.0.jar)
+* 2.x 版本
+[下载地址](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/ranger/ranger-oss-plugin-2.1.0.jar)
 
 ```
-ktadd -k /root/test.keytab test
+cd /xxx/ranger-admin-current/ews/webapp/WEB-INF/classes/ranger-plugins
+mkdir oss
+cp ranger-oss-plugin-1.2.0.jar /xxx/ranger-admin-current/ews/webapp/WEB-INF/classes/ranger-plugins/oss
+```
+注意：需要安装在部署 Ranger Admin 的所有节点。
+
+### 5.2 安装插件
+
+创建如下ranger-oss.json文件：
+```
+{
+  "id": 500,
+  "name": "oss",
+  "implClass": "org.apache.ranger.services.oss.RangerServiceOSS",
+  "label": "OSS",
+  "description": "OSS",
+  "guid": "0d047247-bafe-4cf8-8e9b-d5d377284b2h",
+  "resources": [
+    {
+      "itemId": 1,
+      "name": "path",
+      "type": "path",
+      "level": 10,
+      "parent": "",
+      "mandatory": true,
+      "lookupSupported": true,
+      "recursiveSupported": true,
+      "excludesSupported": false,
+      "matcher": "org.apache.ranger.plugin.resourcematcher.RangerPathResourceMatcher",
+      "matcherOptions": {
+        "wildCard": true,
+        "ignoreCase": false
+      },
+      "validationRegEx": "",
+      "validationMessage": "",
+      "uiHint": "",
+      "label": "Path",
+      "description": "OSS Path, Should Not Start With /, exp. dir/test.txt"
+    }
+  ],
+  "accessTypes": [
+    {
+      "itemId": 1,
+      "name": "read",
+      "label": "Read"
+    },
+    {
+      "itemId": 2,
+      "name": "write",
+      "label": "Write"
+    },
+    {
+      "itemId": 3,
+      "name": "execute",
+      "label": "Execute"
+    }
+  ],
+  "configs": [
+  ],
+  "enums": [
+  ],
+  "contextEnrichers": [],
+  "policyConditions": []
+}
 ```
 
-执行 quit 命令，可以退出 Kerberos 的 admin 工具。
-
-## 6. 创建 TGT。
-创建 TGT 的机器，可以是任意一台需要访问 OSS 的机器。
-### a. 使用 root 用户执行以下命令，创建 test 用户。
-
+执行如下命令装载 ranger-oss，注意其中 json 文件的路径和 ranger admin 的 url，adminUser 默认为 admin，adminPasswd 默认为 admin：
 ```
-useradd test
+curl -v -u${adminUser}:${adminPasswd} -X POST -H "Accept:application/json" -H "Content-Type:application/json" -d @ranger-oss.json http://emr-header-1:6080/service/plugins/definitions
 ```
+插件成功安装后，可以在 Ranger UI 上看到新增项：
 
-### b. 执行以下命令，切换为 test 用户。
+<img src="../pic/ranger_oss_plugin_1.png" width="800"/>
 
-```
-su test
-```
+创建一个Service，例如emr-oss，创建完成后如下，后续就可以在该Service下创建Policy：
+<img src="../pic/ranger_oss_plugin_2.png" width="800"/>
 
-### c. 生成TGT。
-* 方式一：使用用户名和密码方式，创建 TGT。
-  执行 kinit 命令，回车后输入 test 的密码 123456。
-
-* 方式二：使用 keytab 文件，创建 TGT。
-  在步骤 4 中的 test.keytab 文件，已经保存在 emr-header-1 机器的`/root/`目录下，需要使用 scp 命令拷贝到当前机器的`/home/test/`目录下。
-
-```
-kinit -kt /home/test/test.keytab test
-```
-
-### d. 查看TGT。
-使用 klist 命令，如果出现如下信息，则说明TGT创建成功，即可以访问OSS了。
-
-```
-Ticket cache: FILE:/tmp/krb5cc_1012
-Default principal: test@EMR.23****.COM
-
-Valid starting       Expires              Service principal
-03/27/2022 23:20:44  03/28/2022 23:20:44  krbtgt/EMR.238075.COM@EMR.238075.COM
-renew until 03/28/2022 23:20:44
-```
-
-注意: 需要记录下回显信息 `EMR.23****.COM` 中的数字 `23****`，即为 cluster_id 的值，后面访问 OSS 时需要。
-
-## 7. 在 Ranger WebUI 配置 OSS 权限
-<img src="../pic/jindofsx_oss_ranger_6.png" width="800"/>
+## 6. 在 Ranger WebUI 配置 OSS 或 OSS-HDFS 服务权限
 
 ### Ranger 规则示例
 例：配置用户test拥有访问`oss://bucket-test-hangzhou/user/test`目录的所以权限的步骤：
@@ -106,7 +225,7 @@ renew until 03/28/2022 23:20:44
 #### b. 需要配置访问路径的父目录`oss://bucket-test-hangzhou/user`的权限为 Execute。
 <img src="../pic/jindofsx_oss_ranger_8.png" width="800"/>
 
-## 8. 访问OSS。
+## 7. 访问OSS。
 若用户访问 Ranger 没有授权的路径，则会报如下错误：
 ```
 org.apache.hadoop.security.AccessControlException: Permission denied: user=test, access=READ_EXECUTE, resourcePath="bucket-test-hangzhou/"

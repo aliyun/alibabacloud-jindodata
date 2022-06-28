@@ -15,7 +15,7 @@ sh sbin/stop-service.sh
 
 ```
 [jindofsx-namespace]# Namespace 配置
-namespace.backend.type = raft #设置namespace后端存储类型，支持 rocksdb, ots 和 raft, 默认为 rocksdb。
+namespace.backend.type = raft #设置namespace后端存储类型，支持 rocksdb 和 raft, 默认为 rocksdb。
 namespace.backend.raft.initial-conf = emr-header-1:8103:0,emr-header-2:8103:0,emr-header-3:8103:0 #部署raft实例的3个Namespace地址
 ```
 

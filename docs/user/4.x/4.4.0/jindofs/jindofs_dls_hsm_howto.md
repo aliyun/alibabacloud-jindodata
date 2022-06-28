@@ -61,6 +61,17 @@ jindo fs -getStoragePolicy -path oss://oss-dfs-test/dir1/file1
 jindo fs -unsetStoragePolicy -path oss://oss-dfs-test/dir1
 ```
 
+## 设置OSS生命周期
+在使用分层存储功能将OSS-HDFS的数据进行归档的时候，需要依赖于OSS生命周期功能，通过下面命令
+```bash
+jindo fs -setStoragePolicy -path oss://oss-dfs-test/dir1 -policy CLOUD_AR
+```
+进行数据归档操作，该操作只会将对应目录下的数据进行Tag标记, Tag对应的键值对为transition-storage-class:Archive，需要设置生命周期进行数据的转换，设置按前缀匹配策略规则，前缀为.dlsdata, 具体归档的生命周期策略设置如下：
+
+![生命周期设置](../pic/lifecycle.png)
+
+ 上述生命周期策略设置完毕后，用户需要等待改OSS生命周期策略被调度执行才能完成数据的归档。如何设置生命周期可以参考[文档](https://help.aliyun.com/document_detail/31904.html)。
+
 ### 注意事项
 
 * 如果需要使用归档的存储策略，需要在 OSS 控制台上配置相应的生命周期策略，否则存储的数据块无法真正转为归档类型。
