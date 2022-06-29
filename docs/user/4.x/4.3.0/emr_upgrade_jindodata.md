@@ -20,7 +20,7 @@ tar zxf jindodata-patches.tar.gz
 ```bash
 cd jindodata-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.3.1/jindofsx-4.3.1.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.3.2/jindofsx-4.3.2.tar.gz
 
 ls -l
 ```
@@ -30,7 +30,7 @@ jindodata-patches 内容示例如下：
 -rwxr-xr-x 1 hadoop hadoop       580 May 30 20:28 apply_all.sh
 -rwxr-xr-x 1 hadoop hadoop       677 May 30 20:32 apply.sh
 -rw-r--r-- 1 hadoop hadoop        40 May 14 12:38 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindofsx-4.3.1.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindofsx-4.3.2.tar.gz
 ```
 
 ## 配置升级节点信息
@@ -60,7 +60,7 @@ emr-worker-2
 如
 
 ```bash
-./apply_all.sh 4.3.1
+./apply_all.sh 4.3.2
 ```
 
 脚本执行完成后，返回如下提示信息。
