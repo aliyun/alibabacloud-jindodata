@@ -34,33 +34,7 @@ jindo admin -mount /oss oss://<bucket>/<dir>
 ```
 * /oss：挂载到统一命名空间下的访问路径
 
-### 挂载 S3 数据源
-1、已经将 S3 访问信息配置到 core-site.xml 里<br/>
-可参考 [JindoFSx 挂载 S3 数据源](/docs/user/4.x/4.4.0/jindofsx/multi-cloud/jindofsx_on_multi_cloud.md)
-
-2、执行挂载命令
-
-```shell
-jindo admin -mount /s3 s3://<bucket>/<dir>
-```
-* /s3：挂载到统一命名空间下的访问路径
-
-### 挂载 HDFS 数据源
-1、已经将 HDFS 访问信息配置到 core-site.xml 里<br/>
-可参考 [JindoFSx 挂载 HDFS 数据源](/docs/user/4.x/4.4.0/jindofsx/hdfs/jindofsx_on_hdfs_jindo.md)
-
-2、执行挂载命令
-
-#### 非 HA 集群
-```shell
-jindo admin -mount /hdfs hdfs://<ip>:<port>/<dir>
-```
-#### HA 集群
-```shell
-jindo admin -mount /hdfs hdfs://<cluster-name>/<dir>
-```
-* /hdfs：挂载到统一命名空间下的访问路径
-* cluster-name: hdfs 集群的访问名称
+同样可以把多个 OSS bucket 挂载到不同的路径下面。
 
 ### 挂载 OSS-HDFS 服务数据源
 1、已经将 OSS-HDFS 访问信息配置到 core-site.xml 里<br/>
@@ -74,26 +48,27 @@ jindo admin -mount /oss-hdfs oss://<bucket>/<dir>
 
 * /oss-hdfs：挂载到统一命名空间下的访问路径
 
-### 挂载 NAS 数据源
-1、确定在主机上可访问 NAS 的路径
-
-2、执行挂载命令
-
-```shell
-jindo admin -mount /nas local:///<dir>/
-```
-* /nas：挂载到统一命名空间下的访问路径
-
+同样可以把多个 OSS-HDFS bucket 挂载到不同的路径下面。
 
 ### 使用统一命名空间访问
 ```shell
 $ hadoop fs -ls jindo:///
 drwxrwxr-x   - root root          0 1970-01-01 00:00 jindo:///oss
-drwxrwxr-x   - root root          0 1970-01-01 00:00 jindo:///s3
 drwxrwxr-x   - root root          0 1970-01-01 00:00 jindo:///hdfs
-drwxrwxr-x   - root root          0 1970-01-01 00:00 jindo:///oss-hdfs
-drwxrwxr-x   - root root          0 1970-01-01 00:00 jindo:///nas
 $ hadoop fs -ls jindo:///oss/
 drwxrwxr-x   - root root          0 1970-01-01 00:00 jindo:///oss/test_a_dir
 -rwxrwxr-x   0 root root   19564111 2022-04-11 10:25 jindo:///oss/tmp.txt
+$ hadoop fs -ls jindo:///hdfs/
+drwxrwxr-x   - root root          0 1970-01-01 00:00 jindo:///hdfs/test_a_dir
+-rwxrwxr-x   0 root root   19564111 2022-04-11 10:25 jindo:///hdfs/tmp.txt
 ```
+
+
+我们还支持其他其他数据源的挂载，比如 S3、HDFS、NAS等，可参考以下文档
+
+[JindoFSx 挂载 S3 数据源](/docs/user/4.x/4.4.0/jindofsx/multi-cloud/jindofsx_on_multi_cloud.md)
+
+[JindoFSx 挂载 HDFS 数据源](/docs/user/4.x/4.4.0/jindofsx/hdfs/jindofsx_on_hdfs_jindo.md)
+
+[JindoFSx 挂载 NAS 数据源](/docs/user/4.x/4.4.0/jindofsx/nas/jindofsx_on_nas_jindo.md)
+
