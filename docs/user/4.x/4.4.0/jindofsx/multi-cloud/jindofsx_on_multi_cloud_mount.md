@@ -24,7 +24,8 @@ JindoFSx 存储加速系统提供了对多种数据源的缓存加速功能，�
 ```
 
 ### 挂载 OSS 数据源
-1、已经将 OSS 相关 ak/endpoint 信息配置到 core-site.xml 里
+1、已经将 OSS 相关 ak/endpoint 信息配置到 core-site.xml 里<br/>
+可参考 [JindoFSx 挂载 OSS 数据源](/docs/user/4.x/4.4.0/jindofsx/oss/jindofsx_on_oss_jindo.md)
 
 2、执行挂载命令
 
@@ -34,7 +35,8 @@ jindo admin -mount /oss oss://<bucket>/<dir>
 * /oss：挂载到统一命名空间下的访问路径
 
 ### 挂载 S3 数据源
-1、已经将 S3 访问信息配置到 core-site.xml 里
+1、已经将 S3 访问信息配置到 core-site.xml 里<br/>
+可参考 [JindoFSx 挂载 S3 数据源](/docs/user/4.x/4.4.0/jindofsx/multi-cloud/jindofsx_on_multi_cloud.md)
 
 2、执行挂载命令
 
@@ -44,7 +46,8 @@ jindo admin -mount /s3 s3://<bucket>/<dir>
 * /s3：挂载到统一命名空间下的访问路径
 
 ### 挂载 HDFS 数据源
-1、已经将 HDFS 访问信息配置到 core-site.xml 里
+1、已经将 HDFS 访问信息配置到 core-site.xml 里<br/>
+可参考 [JindoFSx 挂载 HDFS 数据源](/docs/user/4.x/4.4.0/jindofsx/hdfs/jindofsx_on_hdfs_jindo.md)
 
 2、执行挂载命令
 
@@ -60,7 +63,8 @@ jindo admin -mount /hdfs hdfs://<cluster-name>/<dir>
 * cluster-name: hdfs 集群的访问名称
 
 ### 挂载 OSS-HDFS 服务数据源
-1、已经将 OSS-HDFS 访问信息配置到 core-site.xml 里
+1、已经将 OSS-HDFS 访问信息配置到 core-site.xml 里<br/>
+可参考 [JindoFSx 挂载 OSS-HDFS 数据源](/docs/user/4.x/4.4.0/jindofsx/jindofs/jindofsx_on_jindofs_jindo.md)
 
 2、执行挂载命令
 
