@@ -9,7 +9,7 @@
 * [基于 Prometheus + Grafana 搭建 JindoFSx 存储加速系统可视化指标观测平台](/docs/user/4.x/4.4.0/jindofsx/jindofsx_metrics.md)
 
 ## 基本功能
-统一命名空间混合挂载
+[统一命名空间混合挂载](/docs/user/4.x/4.4.0/jindofsx/multi-cloud/jindofsx_on_multi_cloud_mount.md)
 #### 阿里云 OSS 缓存加速
 * [阿里云 OSS 透明缓存加速](/docs/user/4.x/4.4.0/jindofsx/oss/jindofsx_on_oss.md)
 * [阿里云 OSS 统一挂载缓存加速](/docs/user/4.x/4.4.0/jindofsx/oss/jindofsx_on_oss_jindo.md)
