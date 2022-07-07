@@ -165,7 +165,3 @@ Found 1 items
 -rw-r-----   1 root supergroup       5824 2021-12-01 20:24 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/hosts
 
 ```
-
-### 高级功能
-
-除了上述基本操作之外，OSS-HDFS 服务还支持 acl，attr/xattr，snapshot, checksum 等功能。
