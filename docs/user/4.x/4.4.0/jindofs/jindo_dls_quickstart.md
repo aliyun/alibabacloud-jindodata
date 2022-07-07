@@ -1,6 +1,6 @@
 # 阿里云 OSS-HDFS 服务（JindoFS 服务）快速入门
 
-OSS-HDFS 服务是阿里云推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，JindoSDK 为 Apache Hadoop的计算分析应用（例如MapReduce、Hive、Spark、Flink等）提供了访问 OSS-HDFS 服务功能。
+OSS-HDFS 服务是阿里云推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，JindoSDK 为 Apache Hadoop的计算分析应用（例如MapReduce、Hive、Spark、Flink等）提供了访问 OSS-HDFS 服务功能。在用户现有的 Hadoop 环境、Hadoop 集群或者 Hadoop 客户端，通过修改 core-site.xml，如何对接访问 OSS-HDFS 服务，可以快速查看本文档。
 
 ### 1. 服务开通
 
