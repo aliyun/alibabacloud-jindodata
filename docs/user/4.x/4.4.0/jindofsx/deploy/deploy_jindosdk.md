@@ -9,20 +9,15 @@ tar -xzvf jindosdk-x.x.x.tar.gz
 ```
 并将 JindoSDK 安装包部署到所有节点。
 
-## 3. 配置环境变量
+## 3. 安装 jar 包
+解压下载的安装包，将安装包内的以下 jar 文件安装到 hadoop 的 classpath 下：
+* jindo-core-x.x.x.jar
+* jindo-sdk-x.x.x.jar
 
-* 配置`JINDOSDK_HOME`
-
-以安装包内容解压在`/usr/lib/jindosdk-4.4.0`目录为例：
-
-```bash
-export JINDOSDK_HOME=/usr/lib/jindosdk-4.4.0
+jindosdk-4.4.0 为例:
 ```
-
-* 配置`HADOOP_CLASSPATH`
-
-```bash
-export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
+cp jindosdk-4.4.0/lib/jindo-core-4.4.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-4.4.0/lib/jindo-sdk-4.4.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 * 配置 **core-site.xml**
