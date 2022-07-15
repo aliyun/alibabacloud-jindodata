@@ -19,7 +19,11 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中�
 
 ## 前提条件
 
-* 已创建E-MapReduce EMR-5.6.0/EMR-3.40.0或以上版本的高安全集群(启用 Kerberos 认证)，并且选择了 Ranger 服务。
+* 已创建 E-MapReduce EMR-5.6.0/EMR-3.40.0 或以上版本集群，并且选择了 Ranger 服务。
+* 启用 Kerberos 认证满足认证需求。
+* 若使用集群都是可信用户，则可不启用 Kerberos 认证。
+
+注意：EMR 集群开启 Kerberos 后，将无法关闭 Kerberos 认证，请谨慎选择。开启 Kerberos 后，集群所有大数据组件的服务均需要经过 Kerberos 认证，大数据作业提交到集群会先经过身份认证。Kerberos 详情信息，请参见 [高安全类型集群](https://help.aliyun.com/document_detail/89886.html)
 
 ### 创建高安全集群
   <img src="../pic/jindofsx_oss_ranger_1.png" width="800"/>
