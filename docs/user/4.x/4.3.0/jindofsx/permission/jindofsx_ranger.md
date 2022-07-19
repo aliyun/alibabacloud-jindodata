@@ -18,7 +18,7 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中�
 
 * 安装 Kerberos 和 Sasl2 相关依赖
 
-如果您的环境没有 Kerberos 和 Sasl2 相关依赖，请安装相关依赖 [安装说明](/docs/user/4.x/4.3.0/install_dependeny.md)
+如果您的环境没有 Kerberos 和 Sasl2 相关依赖，请安装相关依赖 [安装说明](/docs/user/4.x/install_dependeny_jindodata.md)
 
 ## 1. 配置 JindoFSx Namespace 服务。
 
@@ -205,7 +205,8 @@ curl -v -u${adminUser}:${adminPasswd} -X POST -H "Accept:application/json" -H "C
 
 ##### 说明：
 * 规则配置页面中，配置的 path 没有`oss://`的前缀。
-* recursive按钮不可关闭
+* recursive按钮不可关闭。
+* 路径末尾无需带正斜线（/）。
 
 #### b. 需要配置访问路径的父目录`oss://bucket-test-hangzhou/user`的权限为 Execute。
 <img src="../pic/jindofsx_oss_ranger_8.png" width="800"/>

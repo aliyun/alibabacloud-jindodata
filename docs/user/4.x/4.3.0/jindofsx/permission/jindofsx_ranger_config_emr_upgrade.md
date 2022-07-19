@@ -151,7 +151,8 @@ renew until 03/28/2022 23:20:44
 
 ##### 说明：
 * 规则配置页面中，配置的 path 没有`oss://`的前缀。
-* recursive按钮不可关闭
+* recursive按钮不可关闭。
+* 路径末尾无需带正斜线（/）。
 
 #### b. 需要配置访问路径的父目录`oss://bucket-test-hangzhou/user`的权限为 Execute。
 <img src="../pic/jindofsx_oss_ranger_8.png" width="800"/>
