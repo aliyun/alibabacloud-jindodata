@@ -48,6 +48,11 @@
 #### JindoTable 归档和解冻 OSS 上的表或分区
 * [JindoTable 归档和解冻 OSS 上的表或分区](jindotable/jindotable_archive.md)
 
+## 社区最佳实践
+
+#### Flink-table 使用 JindoSDK + OSS 代替 HDFS 存储实践（作者：李伟）
+* [Flink-table 使用 JindoSDK + OSS 代替 HDFS 存储实践](https://www.yuque.com/docs/share/05167182-c247-4b3e-8b1b-3e6744408d04?#)
+
 ## 相关文章
 * [使用 JindoSDK 大幅提升 OSS 文件各项操作性能](https://developer.aliyun.com/article/767222)
 
