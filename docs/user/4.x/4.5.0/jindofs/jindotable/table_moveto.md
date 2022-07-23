@@ -52,7 +52,7 @@ jindotable -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>"
 | `-w/-workingDir` | 指定分布式拷贝的工作临时目录。 | 否 |
 | `-l/-logDir <log directory>` | 本地日志目录，默认为`/tmp/<current user>/` | 否 |
 
-## 使用事例
+## 使用示例
 
 1. 有一个 HDFS 上的 Hive 分区表，如下图所示：
 
