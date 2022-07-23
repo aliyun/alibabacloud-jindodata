@@ -52,6 +52,32 @@ jindotable -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>"
 | `-w/-workingDir` | 指定分布式拷贝的工作临时目录。 | 否 |
 | `-l/-logDir <log directory>` | 本地日志目录，默认为`/tmp/<current user>/` | 否 |
 
+## 使用事例
+
+1. 有一个 HDFS 上的 Hive 分区表，如下图所示：
+
+![image.png](pic/jindotable_moveto_dls_1.png)
+
+2. 想把 bbb 和 ccc 分区移动到 OSS-HDFS 服务，先用 explain 模式看看会移动的分区是否符合预期，参数为 -e 或 -explain：
+
+![image.png](pic/jindotable_moveto_dls_2.png)
+
+3. 去掉参数 -e，真正移动分区：
+
+![image.png](pic/jindotable_moveto_dls_3.png)
+
+4. 执行完成后，检查数据，数据已经在 OSS-HDFS 服务：
+
+![image.png](pic/jindotable_moveto_dls_4.png)
+
+5. 再移回 HDFS，结果失败了，会显示失败原因，原来是目标目录非空，提示可以使用 -overWrite 清空目标目录：
+
+![image.png](pic/jindotable_moveto_dls_5.png)
+
+6. 使用 -overWrite 强制覆盖：
+
+![image.png](pic/jindotable_moveto_dls_6.png)
+
 ## 异常状态处理
 
 为了尽可能保证数据安全，防止污染，该命令会自动检查目的地目录，确保不存在另一命令向相同目录拷贝。
