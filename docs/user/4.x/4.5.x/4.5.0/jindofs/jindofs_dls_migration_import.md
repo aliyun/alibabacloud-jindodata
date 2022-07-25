@@ -50,7 +50,7 @@ jindo distjob -mkchangelog -auditLogDir oss://samplebuket/sysinfo/auditlog -chan
 通过步骤2生成了Change Log之后，就能运行增量导入命令。此模式下，半托管JindoFS集群产生的元数据的增量更新，会通过对应的AuditLog转换为ChangeLog再经过处理迁移至JindoFS服务中。具体的命令格式如下。
 #### 命令格式
 ```bash
-jindo distjob -migrateImport -srcPath <srcPath> -destPath <desPth> -auditLogDir <auditLogDir> -backendLoc <backendLoc> -update
+jindo distjob -migrateImport -srcPath <srcPath> -destPath <desPth> -changeLogDir <auditLogDir> -backendLoc <backendLoc> -update
 ```
 
 参数说明：
