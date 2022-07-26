@@ -54,7 +54,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考[JindoSDK Cr
 
 如: `oss://dls-chenshi-test.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](configuration/jindosdk_endpoint_configuration.md)。
+这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](../configuration/jindosdk_endpoint_configuration.md)。
 
 #### 任务级别配置
 使用参数在 Spark 任务提交的时候设置 JindoSDK, 以下为示例:
