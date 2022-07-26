@@ -4,11 +4,11 @@ JindoShell CLI 支持操作 JindoFSx 数据缓存、元数据缓存和统一命�
 ## 前提条件：
 * 已部署 JindoFSx 存储加速系统
 
-关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 
-关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
+关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
 
 ## 数据缓存命令
 数据缓存命令可以备份对应路径的数据至本集群的磁盘，以便于后续可以读取本地数据，无需读取OSS等后端上的数据。

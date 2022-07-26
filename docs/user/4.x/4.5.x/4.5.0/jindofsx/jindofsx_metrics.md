@@ -10,11 +10,11 @@
 ### 前提条件：
 * 已部署 JindoFSx 存储加速系统。
 
-关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK。
 
-关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
+关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
 
 ### 以简单方式查看 metrics 指标
 在已经成功部署 JindoFSx 存储加速系统的前提下，找到服务 namesapce 所在节点的 ip(localhost) 和服务启动端口 port(8101)，您可以使用 curl/wget 等命令来获取对应的 metrics 输出结果。如

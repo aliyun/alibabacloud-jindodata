@@ -58,7 +58,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK C
 
 如: `oss://dls-chenshi-test.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
+这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
 
 ### 5. 使用 JindoSDK 访问 OSS-HDFS 服务
 用 Hadoop Shell 访问 JindoFS，下面列举了几个常用的命令。
@@ -84,4 +84,4 @@ hadoop fs -rm oss://<Bucket>.<Endpoint>/<path>
 ```
 
 ### 6. 参数调优
-JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.5.0/jindofs/configuration/jindosdk_configuration_list.md)
+JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.5.x/4.5.0/jindofs/configuration/jindosdk_configuration_list.md)

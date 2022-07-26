@@ -60,9 +60,9 @@ cp jindosdk-x.x.x/lib/*.jar  $SPARK_HOME/jars/
 ```
 JindoSDK 还支持更多的 AccessKey 的配置方式。
 
-OSS Bucket 参考 [JindoSDK OSS Credential Provider 配置](/docs/user/4.x/4.5.0/oss/security/jindosdk_credential_provider_oss.md)。
+OSS Bucket 参考 [JindoSDK OSS Credential Provider 配置](/docs/user/4.x/4.5.x/4.5.0/oss/security/jindosdk_credential_provider_oss.md)。
 
-OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配置](/docs/user/4.x/4.5.0/jindofs/security/jindosdk_credential_provider_dls.md)。
+OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/security/jindosdk_credential_provider_dls.md)。
 
 * 配置 OSS 或 OSS-HDFS 服务 Endpoint
 
@@ -74,7 +74,7 @@ OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配�
     </property>
 </configuration>
 ```
-如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
+如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址。
 
@@ -87,7 +87,7 @@ OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配�
     </property>
 </configuration>
 ```
-若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
+若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
 
 * 开启缓存。
 

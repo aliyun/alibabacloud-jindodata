@@ -3,7 +3,7 @@ JindoFSx 存储加速系统提供了对多种数据源的缓存加速功能，�
 
 ### 前提
 1、已经部署 jindofsx 服务，且在服务端配置好各种数据源的访问密钥。<br/>
-[JindoFSx 存储加速系统快速入门](/docs/user/4.x/4.5.0/jindofsx/jindofsx_quickstart.md)
+[JindoFSx 存储加速系统快速入门](/docs/user/4.x/4.5.x/4.5.0/jindofsx/jindofsx_quickstart.md)
 
 2、在 core-site 里添加 jindo 统一命名空间参数
 ```xml
@@ -25,7 +25,7 @@ JindoFSx 存储加速系统提供了对多种数据源的缓存加速功能，�
 
 ### 挂载 OSS 数据源
 1、已经将 OSS 相关 ak/endpoint 信息配置到 core-site.xml 里<br/>
-可参考 [JindoFSx 挂载 OSS 数据源](/docs/user/4.x/4.5.0/jindofsx/oss/jindofsx_on_oss_jindo.md)
+可参考 [JindoFSx 挂载 OSS 数据源](/docs/user/4.x/4.5.x/4.5.0/jindofsx/oss/jindofsx_on_oss_jindo.md)
 
 2、执行挂载命令
 
@@ -38,7 +38,7 @@ jindo admin -mount /oss oss://<bucket>/<dir>
 
 ### 挂载 OSS-HDFS 服务数据源
 1、已经将 OSS-HDFS 访问信息配置到 core-site.xml 里<br/>
-可参考 [JindoFSx 挂载 OSS-HDFS 数据源](/docs/user/4.x/4.5.0/jindofsx/jindofs/jindofsx_on_jindofs_jindo.md)
+可参考 [JindoFSx 挂载 OSS-HDFS 数据源](/docs/user/4.x/4.5.x/4.5.0/jindofsx/jindofs/jindofsx_on_jindofs_jindo.md)
 
 2、执行挂载命令
 
@@ -66,9 +66,9 @@ drwxrwxr-x   - root root          0 1970-01-01 00:00 jindo:///hdfs/test_a_dir
 
 我们还支持其他其他数据源的挂载，比如 S3、HDFS、NAS等，可参考以下文档
 
-[JindoFSx 挂载 S3 数据源](/docs/user/4.x/4.5.0/jindofsx/multi-cloud/jindofsx_on_multi_cloud.md)
+[JindoFSx 挂载 S3 数据源](/docs/user/4.x/4.5.x/4.5.0/jindofsx/multi-cloud/jindofsx_on_multi_cloud.md)
 
-[JindoFSx 挂载 HDFS 数据源](/docs/user/4.x/4.5.0/jindofsx/hdfs/jindofsx_on_hdfs_jindo.md)
+[JindoFSx 挂载 HDFS 数据源](/docs/user/4.x/4.5.x/4.5.0/jindofsx/hdfs/jindofsx_on_hdfs_jindo.md)
 
-[JindoFSx 挂载 NAS 数据源](/docs/user/4.x/4.5.0/jindofsx/nas/jindofsx_on_nas_jindo.md)
+[JindoFSx 挂载 NAS 数据源](/docs/user/4.x/4.5.x/4.5.0/jindofsx/nas/jindofsx_on_nas_jindo.md)
 

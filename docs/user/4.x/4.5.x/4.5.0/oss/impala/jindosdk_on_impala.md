@@ -83,4 +83,4 @@ select * from customer_demographics;
  ```
 
 ### 5. 参数调优
-JindoSDK包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.5.0/oss/configuration/jindosdk_configuration_list.md)。
+JindoSDK包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.5.x/4.5.0/oss/configuration/jindosdk_configuration_list.md)。

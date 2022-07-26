@@ -5,11 +5,11 @@ JindoSDK 为 JindoFSx 存储加速系统系统提供了 Apache Hadoop 支持。
 ## 前提条件：
 * 已部署 JindoFSx 存储加速系统
 
-关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 
-关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
+关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
 
 ## 配置 JindoSDK
 
@@ -54,9 +54,9 @@ JindoSDK 为 JindoFSx 存储加速系统系统提供了 Apache Hadoop 支持。
 ```
 JindoSDK 还支持更多的 AccessKey 的配置方式。
 
-OSS Bucket 参考 [JindoSDK OSS Credential Provider 配置](/docs/user/4.x/4.5.0/oss/security/jindosdk_credential_provider_oss.md)。
+OSS Bucket 参考 [JindoSDK OSS Credential Provider 配置](/docs/user/4.x/4.5.x/4.5.0/oss/security/jindosdk_credential_provider_oss.md)。
 
-OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配置](/docs/user/4.x/4.5.0/jindofs/security/jindosdk_credential_provider_dls.md)。
+OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/security/jindosdk_credential_provider_dls.md)。
 
 * 配置 OSS 或 OSS-HDFS 服务 Endpoint
 
@@ -70,7 +70,7 @@ OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配�
 </configuration>
 ```
 
-如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
+如果统一挂载的为 OSS-HDFS 服务目录，配置 Endpoint 请参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -84,7 +84,7 @@ OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配�
     </property>
 </configuration>
 ```
-若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
+若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
 
 * 开启数据缓存。
 
@@ -98,7 +98,7 @@ OSS-HDFS 服务 Bucket 参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配�
     </property>
 </configuration>
 ```
-更多缓存优化相关参数，请参考 [缓存优化相关参数](/docs/user/4.x/4.5.0/jindofsx/configuration/jindosdk_configuration_list.md)
+更多缓存优化相关参数，请参考 [缓存优化相关参数](/docs/user/4.x/4.5.x/4.5.0/jindofsx/configuration/jindosdk_configuration_list.md)
 
 ## 挂载 OSS 或 OSS-HDFS 服务目录
 
@@ -141,4 +141,4 @@ hadoop fs -rm jindo://emr-header-1:8101/jindooss/<path>
 ```
 
 ## 参数调优
-JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.5.0/jindofsx/configuration/jindosdk_configuration_list.md)
+JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.5.x/4.5.0/jindofsx/configuration/jindosdk_configuration_list.md)

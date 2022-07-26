@@ -72,7 +72,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.ali
 
 如: `oss://mydlsbucket.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
+这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
 
 ### 6、保存元数据信息
 

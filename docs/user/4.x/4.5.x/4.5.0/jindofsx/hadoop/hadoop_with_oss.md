@@ -5,11 +5,11 @@ JindoSDK 为 JindoFSx 存储加速系统提供了 Apache Hadoop 支持。
 ## 前提条件：
 * 已部署 JindoFSx 存储加速系统
 
-关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindofsx.md)
+关于如何部署 JindoFSx 存储加速系统，请参考 [部署 JindoFSx 存储加速系统](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindofsx.md)
 
 * 已部署 JindoSDK
 
-关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
+关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
 
 ## 配置 JindoSDK
 * 配置 OSS 实现类
@@ -56,7 +56,7 @@ JindoSDK 为 JindoFSx 存储加速系统提供了 Apache Hadoop 支持。
     </property>
 </configuration>
 ```
-JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK OSS Credential Provider 配置](/docs/user/4.x/4.5.0/oss/security/jindosdk_credential_provider_oss.md)。
+JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK OSS Credential Provider 配置](/docs/user/4.x/4.5.x/4.5.0/oss/security/jindosdk_credential_provider_oss.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -70,7 +70,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK O
     </property>
 </configuration>
 ```
-若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
+若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
 
 * 开启缓存。
 
@@ -84,7 +84,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK O
     </property>
 </configuration>
 ```
-更多缓存优化相关参数，请参考 [缓存优化相关参数](/docs/user/4.x/4.5.0/jindofsx/configuration/jindosdk_configuration_list.md)
+更多缓存优化相关参数，请参考 [缓存优化相关参数](/docs/user/4.x/4.5.x/4.5.0/jindofsx/configuration/jindosdk_configuration_list.md)
 
 ## 使用 JindoSDK 访问 OSS
 用 Hadoop Shell 访问 JindoFS，下面列举了几个常用的命令。
@@ -110,4 +110,4 @@ hadoop fs -rm oss://<Bucket>/<path>
 ```
 
 ## 参数调优
-JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.5.0/jindofsx/configuration/jindosdk_configuration_list.md)
+JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/4.x/4.5.x/4.5.0/jindofsx/configuration/jindosdk_configuration_list.md)

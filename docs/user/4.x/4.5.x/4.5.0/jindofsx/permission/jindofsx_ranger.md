@@ -10,11 +10,11 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中�
 
 * 已部署 JindoSDK
 
-关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
+关于如何部署 JindoSDK，请参考 [部署 JindoSDK](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindosdk.md)
 
 * 已部署 JindoFSx Namespace
 
-关于如何部署 JindoFSx Namespace，请参考 [快速部署一个简单的 JindoFSx 存储加速系统(仅 Namespace)](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_jindofsx_nsonly.md)
+关于如何部署 JindoFSx Namespace，请参考 [快速部署一个简单的 JindoFSx 存储加速系统(仅 Namespace)](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_jindofsx_nsonly.md)
 
 * 安装 Kerberos 和 Sasl2 相关依赖
 

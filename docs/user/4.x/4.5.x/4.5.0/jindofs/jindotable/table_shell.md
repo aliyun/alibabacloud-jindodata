@@ -6,7 +6,7 @@ JindoTable 提供多个命令行命令，可以便捷查询 Hive 表和分区的
 ## 前提条件
 ### 已部署 JindoSDK
 
-关于如何部署 JindoSDK，请参考 [阿里云 OSS-HDFS 服务（JindoFS 服务）快速入门](/docs/user/4.x/4.5.0/jindofs/jindo_dls_quickstart.md) 。
+关于如何部署 JindoSDK，请参考 [阿里云 OSS-HDFS 服务（JindoFS 服务）快速入门](/docs/user/4.x/4.5.x/4.5.0/jindofs/jindo_dls_quickstart.md) 。
 
 ### 已部署 Hadoop 与 Hive 环境
 
@@ -71,12 +71,12 @@ jindo table -listTables -db db1
 
 #### moveTo 命令
 
-请参考 [使用 JindoTable 将 Hive 表和分区数据迁移到阿里云 OSS-HDFS 服务](/docs/user/4.x/4.5.0/jindofs/jindotable/table_moveto.md)
+请参考 [使用 JindoTable 将 Hive 表和分区数据迁移到阿里云 OSS-HDFS 服务](/docs/user/4.x/4.5.x/4.5.0/jindofs/jindotable/table_moveto.md)
 
 #### archiveTable/unarchiveTable 命令
 
-暂不支持阿里云 OSS-HDFS 服务，对于 OSS 服务，请参考 [JindoTable 归档和解冻 OSS 上的表或分区](/docs/user/4.x/4.5.0/oss/jindotable/jindotable_archive.md)
+暂不支持阿里云 OSS-HDFS 服务，对于 OSS 服务，请参考 [JindoTable 归档和解冻 OSS 上的表或分区](/docs/user/4.x/4.5.x/4.5.0/oss/jindotable/jindotable_archive.md)
 
 #### cacheTable/uncacheTable 命令
 
-仅支持配备 JindoFSx 存储加速系统的场景，请参考 [使用 JindoTable 缓存 Hive 表或分区的数据](/docs/user/4.x/4.5.0/jindofsx/jindotable/table_cache.md)
+仅支持配备 JindoFSx 存储加速系统的场景，请参考 [使用 JindoTable 缓存 Hive 表或分区的数据](/docs/user/4.x/4.5.x/4.5.0/jindofsx/jindotable/table_cache.md)

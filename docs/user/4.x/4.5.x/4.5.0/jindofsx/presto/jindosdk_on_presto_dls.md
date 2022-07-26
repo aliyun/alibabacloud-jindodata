@@ -51,7 +51,7 @@ cp jindosdk-x.x.x/lib/*.jar  $PRESTO_HOME/plugin/hive-hadoop2/
     </property>
 </configuration>
 ```
-JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配置](/docs/user/4.x/4.5.0/jindofs/security/jindosdk_credential_provider_dls.md)。
+JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/security/jindosdk_credential_provider_dls.md)。
 
 * 配置 OSS-HDFS 服务 Endpoint
 
@@ -61,7 +61,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK O
 
 如: `oss://mydlsbucket.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
+这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -75,7 +75,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK O
     </property>
 </configuration>
 ```
-若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
+若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
 
 * 开启缓存。
 

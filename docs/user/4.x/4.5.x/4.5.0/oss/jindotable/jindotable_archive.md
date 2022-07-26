@@ -8,7 +8,7 @@ JindoTable 提供 archiveTable 和 unarchiveTable 命令，可以进行归档和
 
 * 已部署 JindoSDK
 
-关于如何部署 JindoSDK，请参考 [JindoSDK + 阿里云 OSS 快速入门](/docs/user/4.x/4.5.0/oss/jindosdk_quickstart.md) 。
+关于如何部署 JindoSDK，请参考 [JindoSDK + 阿里云 OSS 快速入门](/docs/user/4.x/4.5.x/4.5.0/oss/jindosdk_quickstart.md) 。
 
 ## archiveTable 命令
 

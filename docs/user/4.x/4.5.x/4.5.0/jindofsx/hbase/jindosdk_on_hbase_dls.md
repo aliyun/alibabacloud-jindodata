@@ -51,7 +51,7 @@ cp jindosdk-4.5.0/lib/jindo-sdk-4.5.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
     </property>
 </configuration>
 ```
-JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配置](/docs/user/4.x/4.5.0/jindofs/security/jindosdk_credential_provider_dls.md)。
+JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK OSS-HDFS 服务 Credential Provider 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/security/jindosdk_credential_provider_dls.md)。
 
 * 配置 JindoFSx Namespace 服务地址
 
@@ -65,7 +65,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK O
     </property>
 </configuration>
 ```
-若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
+若使用高可用 Namespace, 请参考 [高可用 JindoFSx Namespace 配置和使用](/docs/user/4.x/4.5.x/4.5.0/jindofsx/deploy/deploy_raft_ns.md)
 
 * 开启缓存。
 
@@ -88,7 +88,7 @@ JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK O
 
 如: `oss://mydlsbucket.cn-shanghai.cn-shanghai.oss-dls.aliyuncs.com/Test`。
 
-这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
+这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
 
 ## 指定 HBase 的存储路径
 需要修改`hbase-site`配置文件中的参数`hbase.rootdir`的值为 OSS 地址，修改参数`hbase.wal.dir`的值为本地的 HDFS 地址，通过本地 HDFS 集群存储 WAL 文件。如果要释放集群，需要先 Disable table，确保 WAL 文件已经完全更新到 HFile。

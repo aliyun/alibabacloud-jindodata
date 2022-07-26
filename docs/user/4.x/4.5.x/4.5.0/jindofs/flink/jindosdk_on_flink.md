@@ -17,7 +17,7 @@
 
 ## 如何使用
 
-配置好 SDK 后，无需额外配置，以常规 Flink 流式作业方法使用即可，注意使用正确的路径。写入 OSS-HDFS 服务须以 oss:// 为前缀。JindoFS 服务与阿里云 OSS 使用相同的前缀，JindoSDK 内会自动进行识别。二者的联系，参考 [JindoFS 服务介绍](/docs/user/4.x/4.5.0/jindofs/jindo_dls_quickstart.md) 。
+配置好 SDK 后，无需额外配置，以常规 Flink 流式作业方法使用即可，注意使用正确的路径。写入 OSS-HDFS 服务须以 oss:// 为前缀。JindoFS 服务与阿里云 OSS 使用相同的前缀，JindoSDK 内会自动进行识别。二者的联系，参考 [JindoFS 服务介绍](/docs/user/4.x/4.5.x/4.5.0/jindofs/jindo_dls_quickstart.md) 。
 
 ## 示例
 
