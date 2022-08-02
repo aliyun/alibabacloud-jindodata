@@ -34,7 +34,7 @@ JindoDistCp 提供 jar 包形式使用，您可以使用 hadoop jar 命令配合
      --policy=VALUE   -   Specify your oss storage policy
      --cleanUpPending   -   clean up the incomplete upload when distcp job finish
      --queue=VALUE   -   Specify yarn queuename if needed
-     --bandwidth=VALUE   -   Specify bandwidth per map/reduce in MB if needed
+     --bandWidth=VALUE   -   Specify bandWidth per map/reduce in MB if needed
      --perNum=VALUE   -   Batch transfer num size
      --byte=VALUE   -   Batch transfer num size
      --disableChecksum   -   Disable checksum
@@ -374,11 +374,11 @@ hadoop jar jindo-distcp-${version}.jar --src /data/incoming/hourly_table --dest 
 hadoop jar jindo-distcp-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --queue yarnqueue
 ```
 
-### 21、使用--bandwidth
+### 21、使用--bandWidth
 在您的distcp过程中，您可以指定本次distcp任务所用的单机带宽(以MB为单位)，避免单机占用过大带宽<br /><br />示例命令如下：
 
 ```bash
-hadoop jar jindo-distcp-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --bandwidth 6
+hadoop jar jindo-distcp-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --bandWidth 6
 ```
 
 ### 22、使用低版本的JDK

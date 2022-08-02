@@ -65,9 +65,9 @@ hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://
 ### 4、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://destBucket/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com --bandwidth 100 --parallelism 10
+hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://destBucket/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com --bandWidth 100 --parallelism 10
 ```
-* --bandwidth：指定单机限流带宽的大小，单位 MB
+* --bandWidth：指定单机限流带宽的大小，单位 MB
 
 ### 5、免密及密钥固定存储
 通常您需要将 OSS AccessKey/AccessSecret/EndPoint 信息写在参数里，但是JindoDistCp可以将 其预先写在 Hadoop 的`core-site.xml`文件里 ，以避免使用时多次填写的问题。

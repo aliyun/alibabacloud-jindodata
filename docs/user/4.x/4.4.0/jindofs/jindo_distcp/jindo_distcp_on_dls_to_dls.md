@@ -43,10 +43,10 @@ INFO distcp.JindoDistCp: JindoDistCp job exit with 0.
 ### 3、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf mapreduce.job.queuename=yarnQueue --bandwidth 100 --parallelism 10
+hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf mapreduce.job.queuename=yarnQueue --bandWidth 100 --parallelism 10
 ```
 * --hadoopConf mapreduce.job.queuename=yarnQueue：指定 YARN 队列的名称
-* --bandwidth：指定单机限流带宽的大小，单位 MB
+* --bandWidth：指定单机限流带宽的大小，单位 MB
 
 ### 4、免密及密钥固定存储
 通常您需要将 OSS-HDFS 服务的 AccessKey/AccessSecret 信息写在参数里，但是JindoDistCp可以将其预先写在 Hadoop 的`core-site.xml`文件里 ，以避免使用时多次填写的问题。

@@ -20,11 +20,11 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /opt/tmp --dest oss://yang-hhh
 ```
 您可以通过指定dest路径来确定拷贝后的文件层次，如您需要将/opt/tmp下的文件拷贝到yang-hhht这个bucket下的tmp目录下，则可以使用上述语句来完成。此处和Hadoop的distcp行为有所不同，JindoDistCp会默认将src目录下的所有文件拷贝到您指定dest路径下，并不包括当前的根目录名称，您可以在dest中指定拷贝路径的根目录，如果不存在会自动创建。
 
-### 2、使用--bandwidth
+### 2、使用--bandWidth
 在您的distcp过程中，您可以指定本次distcp任务所用的单机带宽(以MB为单位)，避免单机占用过大带宽<br /><br />示例命令如下：
 
 ```bash
-hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table --bandwidth 6
+hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table --bandWidth 6
 ```
 
 ### 3、使用--codec

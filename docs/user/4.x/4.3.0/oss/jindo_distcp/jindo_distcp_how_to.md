@@ -170,11 +170,11 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 ```
 如您不指定则默认以standard及标准模式写入，不进行冷归档、归档和低频操作<br />
 
-### 10、使用--bandwidth
+### 10、使用--bandWidth
 在您的distcp过程中，您可以指定本次distcp任务所用的单机带宽(以MB为单位)，避免单机占用过大带宽<br /><br />示例命令如下：
 
 ```bash
-hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --bandwidth 6
+hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --bandWidth 6
 ```
 
 ### 11、 使用--enableCMS
