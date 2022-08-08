@@ -35,10 +35,6 @@ hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcbucket.oss-cn-xxx.ali
 ```shell
 hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --update --parallelism 20
 ```
-如果所有文件都传输完成，则会提示如下信息。
-```
-INFO distcp.JindoDistCp: JindoDistCp job exit with 0.
-```
 
 ### 3、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令

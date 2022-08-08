@@ -47,3 +47,6 @@
 
 #### JindoTable 数仓迁移
 * [使用 JindoTable 将 Hive 表和分区数据迁移到阿里云 OSS-HDFS 服务](jindotable/table_moveto.md)
+
+#### 半托管 JindoFS 迁移到阿里云 OSS-HDFS 服务（JindoFS 服务）
+* [半托管 JindoFS 迁移到阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.4.0/jindofs/jindofs_dls_migration_import.md)

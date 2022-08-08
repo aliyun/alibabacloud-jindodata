@@ -571,7 +571,7 @@ hadoop jar jindo-distcp-${version}.jar --src /data/incoming/hourly_table --dest 
 *支持版本：3.6.0+*<br /><br />您可以通过tmp参数指定一个临时目录在hdfs上传存放临时数据，默认值为/tmp，即hdfs:///tmp/。<br /><br />示例命令如下：<br />
 
 ```bash
-hadoop jar jindo-distcp-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --parallelism 20 -tmp /tmp
+hadoop jar jindo-distcp-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --parallelism 20 --tmp /tmp
 ```
 
 <a name="WwYXi"></a>

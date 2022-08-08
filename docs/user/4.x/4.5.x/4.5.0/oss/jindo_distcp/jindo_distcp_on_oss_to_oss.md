@@ -35,10 +35,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcbucket.oss-cn-xxx.ali
 ```shell
 hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://destBucket/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com --update --parallelism 20
 ```
-如果所有文件都传输完成，则会提示如下信息。
-```
-INFO distcp.JindoDistCp: JindoDistCp job exit with 0.
-```
+
 ### 3、文件冷备份
 如您想对写入到 OSS 上的文件进行冷备，如转化成冷归档（coldArchive）、归档（archive）和低频（ia）文件，可利用 JindoDistCp 直接进行该流程
 

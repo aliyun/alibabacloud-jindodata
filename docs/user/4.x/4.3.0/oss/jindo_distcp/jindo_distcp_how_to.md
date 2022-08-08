@@ -79,12 +79,6 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --diff
 ```
 
-如果全部任务完成则会提示如下信息，否则在执行目录下生成manifest文件
-
-```bash
-INFO distcp.JindoDistCp: JindoDistCp job exit with 0
-```
-
 如果您的--dest为HDFS路径，现支持`/path`，`hdfs://hostname:ip/path` ，`hdfs://headerIp:ip/path`的写法，暂不支持`hdfs:///path`，`hdfs:/path`和其他自定义写法。
 
 对于生成的manifest文件，您可以使用--copyFromManifest和--previousManifest命令进行剩余文件的copy
@@ -193,7 +187,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 您可以通过tmp参数指定一个临时目录在hdfs上传存放临时数据，默认值为/tmp，即hdfs:///tmp/。<br /><br />示例命令如下：<br />
 
 ```bash
-hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --parallelism 20 -tmp /tmp
+hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --parallelism 20 --tmp /tmp
 ```
 
 ### 14、使用--overwrite

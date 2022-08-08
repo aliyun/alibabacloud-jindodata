@@ -36,11 +36,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data --dest oss://destBucket/
 ```
  *(ECS 环境推荐使用内网 ossEndPoint，即 oss-cn-xxx-internal.aliyuncs.com)*
 
-如果所有文件都传输完成，则会提示如下信息。
 
-```
-INFO distcp.JindoDistCp: JindoDistCp job exit with 0.
-```
 * --disableChecksum：跳过传输时对 checksum 的计算和检查
 
 ### 3、文件冷备份

@@ -38,9 +38,6 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data --dest oss://destBucket/
 
 如果所有文件都传输完成，则会提示如下信息。
 
-```
-INFO distcp.JindoDistCp: JindoDistCp job exit with 0.
-```
 * --disableChecksum：跳过传输时对 checksum 的计算和检查
 
 ### 3、文件冷备份

@@ -118,7 +118,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 您可以通过tmp参数指定一个临时目录在hdfs上传存放临时数据，默认值为/tmp，即hdfs:///tmp/。<br /><br />示例命令如下：<br />
 
 ```bash
-hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --parallelism 20 -tmp /tmp
+hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --parallelism 20 --tmp /tmp
 ```
 ### 10、使用OSS AK
 * 在 EMR 外或者免密服务出现问题的情况下，您可以通过指定AK来获得访问 OSS 的权限。您可以在命令中使用`--hadoopConf`选项来指定AK。
