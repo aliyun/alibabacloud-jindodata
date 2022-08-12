@@ -231,3 +231,6 @@ curl -v -u${adminUser}:${adminPasswd} -X POST -H "Accept:application/json" -H "C
 ```
 org.apache.hadoop.security.AccessControlException: Permission denied: user=test, access=READ_EXECUTE, resourcePath="bucket-test-hangzhou/"
 ```
+
+## 注意事项
+针对阿里云 OSS-HDFS 服务（JindoFS 服务）的鉴权，目前使用的是对象存储的鉴权方式（通过匹配路径），对象存储没有目录或文件的 owner 和 permission 信息，如需对 OSS-HDFS 服务使用`chmod` ,`chown`等操作，只能通过 `hadoop` 用户执行。

@@ -162,12 +162,8 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table --ignore --parallelism 20
 ```
 
-### 14、 使用--enableCMS
 
-您可以通过enableCMS开启云监控告警功能，具体参见[《JindoDistCp使用CMS进行告警》](jindo_distcp_how_to_cms.md)
-
-
-### 15、使用--diff
+### 14、使用--diff
 在您的distcp任务完成后您可以通过指定src和dest来查看当前distcp的文件差异。如您的distcp任务包含压缩或者解压缩则--diff不能显示正确的文件差异，因为压缩或者解压缩会改变文件的大小。<br /><br />示例命令如下：<br />
 
 ```bash
@@ -184,7 +180,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 如果您的--dest为HDFS路径，现支持`/path`，`hdfs://hostname:ip/path` ，`hdfs://headerIp:ip/path`的写法，暂不支持`hdfs:///path`，`hdfs:/path`和其他自定义写法。
 
 
-### 16、使用--update
+### 15、使用--update
 
 您可以通过update参数使用增量同步功能，跳过完全相同的文件和目录，直接将src中新增或发生改变的文件和目录同步到dest上。<br /><br />示例命令如下：<br />
 
@@ -192,7 +188,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table --update --parallelism 20
 ```
 
-### 17、使用--preserveMeta
+### 16、使用--preserveMeta
 
 您可以通过preserveMeta参数, 使得迁移数据的同时迁移包括 Owner, Group, Permission, Atime, Mtime, Replication, BlockSize, XAttrs, ACL 在内的元数据信息。
 

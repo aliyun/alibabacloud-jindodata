@@ -20,6 +20,11 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /opt/tmp --dest oss://yang-hhh
 ```
 您可以通过指定dest路径来确定拷贝后的文件层次，如您需要将/opt/tmp下的文件拷贝到yang-hhht这个bucket下的tmp目录下，则可以使用上述语句来完成。此处和Hadoop的distcp行为有所不同，JindoDistCp会默认将src目录下的所有文件拷贝到您指定dest路径下，并不包括当前的根目录名称，您可以在dest中指定拷贝路径的根目录，如果不存在会自动创建。
 
+注意：如需拷贝单个文件, dest需指定为目录。
+```shell
+hadoop jar jindo-distcp-tool-${version}.jar --src /test.txt --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/tmp
+```
+
 ### 2、使用--bandWidth
 在您的distcp过程中，您可以指定本次distcp任务所用的单机带宽(以MB为单位)，避免单机占用过大带宽<br /><br />示例命令如下：
 
@@ -162,12 +167,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table --ignore --parallelism 20
 ```
 
-### 14、 使用--enableCMS
-
-您可以通过enableCMS开启云监控告警功能，具体参见[《JindoDistCp使用CMS进行告警》](jindo_distcp_how_to_cms.md)
-
-
-### 15、使用--diff
+### 14、使用--diff
 在您的distcp任务完成后您可以通过指定src和dest来查看当前distcp的文件差异, 如果src的文件未能同步到dest上，则会在当前目录下生成一个包含文件内容差异的文件。如您的distcp任务包含压缩或者解压缩则--diff不能显示正确的文件差异，因为压缩或者解压缩会改变文件的大小。<br /><br />示例命令如下：<br />
 
 ```bash
@@ -196,7 +196,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 		META_FILE_DIFF=1
 ```
 
-### 16、使用--update
+### 15、使用--update
 
 您可以通过update参数使用增量同步功能，跳过完全相同的文件和目录，直接将src中新增或发生改变的文件和目录同步到dest上。<br /><br />示例命令如下：<br />
 
@@ -204,7 +204,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table --update --parallelism 20
 ```
 
-### 17、使用--preserveMeta
+### 16、使用--preserveMeta
 
 您可以通过preserveMeta参数, 使得迁移数据的同时迁移包括 Owner, Group, Permission, Atime, Mtime, Replication, BlockSize, XAttrs, ACL 在内的元数据信息。
 
