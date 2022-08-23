@@ -51,3 +51,10 @@
 
 #### 半托管 JindoFS 迁移到阿里云 OSS-HDFS 服务（JindoFS 服务）
 * [半托管 JindoFS 迁移到阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.5.x/4.5.0/jindofs/jindofs_dls_migration_import.md)
+
+## 历史版本
+#### 阿里云 OSS-HDFS 服务（JindoFS 服务）4.4.0 [用户文档](/docs/user/4.x/4.4.0/jindofs/outline.md)
+#### 阿里云 OSS-HDFS 服务（JindoFS 服务）4.3.0 [用户文档](/docs/user/4.x/4.3.0/jindofs/outline.md)
+#### 阿里云 OSS-HDFS 服务（JindoFS 服务）4.2.0 [用户文档](/docs/user/4.x/4.2.0/jindofs/outline.md)
+#### 阿里云 OSS-HDFS 服务（JindoFS 服务）4.1.0 [用户文档](/docs/user/4.x/4.1.0/jindofs/outline.md)
+#### 阿里云 OSS-HDFS 服务（JindoFS 服务）4.0.0 [用户文档](/docs/user/4.x/4.0.0/jindofs/outline.md)

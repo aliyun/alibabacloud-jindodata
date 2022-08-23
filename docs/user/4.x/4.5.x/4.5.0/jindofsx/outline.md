@@ -84,3 +84,9 @@
 ## 最佳实践
 #### 使用 JindoTable 缓存 Hive 表或分区的数据
 * [使用 JindoTable 缓存 Hive 表或分区的数据](jindotable/table_cache.md)
+
+## 历史版本
+#### JindoFSx 存储加速系统 4.4.0 [用户文档](/docs/user/4.x/4.4.0/jindofsx/outline.md)
+#### JindoFSx 存储加速系统 4.3.0 [用户文档](/docs/user/4.x/4.3.0/jindofsx/outline.md)
+#### JindoFSx 存储加速系统 4.2.0 [用户文档](/docs/user/4.x/4.2.0/jindofsx/outline.md)
+#### JindoFSx 存储加速系统 4.1.0 [用户文档](/docs/user/4.x/4.1.0/jindofsx/outline.md)
