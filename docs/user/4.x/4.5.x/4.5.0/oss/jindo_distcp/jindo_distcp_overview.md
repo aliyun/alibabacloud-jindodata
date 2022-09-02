@@ -24,3 +24,7 @@
 * [《再出王牌：阿里云 JindoDistCp 全面开放使用，成为阿里云数据迁移利器》](https://developer.aliyun.com/article/767803)
 
 * [JindoDistCp 进行数据迁移的使用说明](jindo_distcp_how_to.md) (高效、稳定、安全的数据拷贝工具)
+
+## JindoDistCp API 使用说明
+
+*[JindoDistCp API 使用说明](jindo_distcp_how_to_api.md)
