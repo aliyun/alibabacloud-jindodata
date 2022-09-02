@@ -169,4 +169,6 @@ Found 2 items
 | **执行时间**     | 选择**组件启动后**。                                         |                                                              |
 | **执行失败策略** | 选择**继续执行**。                                           |                                                              |
 
-如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
+### 确保加载到最新的修复
+* 如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
+* 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
