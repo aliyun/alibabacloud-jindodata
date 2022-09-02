@@ -1,5 +1,10 @@
 # JindoData 下载
 
+## v4.5.1
+[jindosdk-4.5.1.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.5.1/jindosdk-4.5.1.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+
+[jindofsx-4.5.1.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.5.1/jindofsx-4.5.1.tar.gz) ([安装说明](install_dependeny_jindodata.md))
+
 ## v4.5.0
 [jindosdk-4.5.0.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.5.0/jindosdk-4.5.0.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
 

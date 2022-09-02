@@ -20,7 +20,8 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 * 生态插件。除了默认提供 JindoSDK 支持 Hadoop，另外还支持 Flink Connector 等插件。
 
 ## 发布版本
-#### JindoData 4.5.0，2022-07-25，[Release Note](docs/user/4.x/4.5.x/4.5.0/release-notes.md) <span style="color:red">*[NEW]*</span>
+#### JindoData 4.5.1，2022-09-02，[Release Note](docs/user/4.x/4.5.x/4.5.1/release-notes.md) <span style="color:red">*[NEW]*</span>
+#### JindoData 4.5.0，2022-07-25，[Release Note](docs/user/4.x/4.5.x/4.5.0/release-notes.md)
 #### JindoData 4.4.0，2022-05-30，[Release Note](docs/user/4.x/4.4.0/release-notes.md)
 #### JindoData 4.3.0，2022-03-30，[Release Note](docs/user/4.x/4.3.0/release-notes.md)
 #### JindoData 4.2.0，2022-01-30，[Release Note](docs/user/4.x/4.2.0/release-notes.md)
