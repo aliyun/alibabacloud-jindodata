@@ -1,6 +1,6 @@
 # JindoDistCp API 使用说明
 
-## 1. 下载 JindoSDK 包
+## 下载 JindoSDK 包
 
 下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
 
