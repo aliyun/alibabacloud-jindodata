@@ -6,11 +6,29 @@ OSS 通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 OSS 上的文件�
 
 ## 环境准备
 
+支持 libfuse 3.7 以上版本，推荐使用最新的 libfuse 版本以获得最佳性能。
+
 ```bash
-# CentOS
-yum install -y fuse3 fuse3-devel
-# Debian
-apt install -y fuse3 libfuse3-dev
+# build fuse required meson & ninja, for debian: apt install -y pkg-config meson ninja-build
+sudo yum install -y meson ninja-build
+
+# compile fuse required newer g++ (only CentOS)
+sudo yum install -y scl-utils
+sudo yum install -y alinux-release-experimentals
+sudo yum install -y devtoolset-8-gcc devtoolset-8-gdb devtoolset-8-binutils devtoolset-8-make devtoolset-8-gcc-c++
+sudo su -c "echo 'source /opt/rh/devtoolset-8/enable' > /etc/profile.d/g++.sh"
+source /opt/rh/devtoolset-8/enable
+sudo ln -s /opt/rh/devtoolset-8/root/bin/gcc /usr/local/bin/gcc
+sudo ln -s /opt/rh/devtoolset-8/root/bin/g++ /usr/local/bin/g++
+
+# compile & install libfuse
+wget https://github.com/libfuse/libfuse/releases/download/fuse-3.11.0/fuse-3.11.0.tar.xz
+xz -d fuse-3.11.0.tar.xz
+tar xf fuse-3.11.0.tar
+cd fuse-3.11.0/
+mkdir build; cd build
+meson ..
+sudo ninja install
 ```
 
 ## 配置客户端
