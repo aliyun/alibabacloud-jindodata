@@ -93,7 +93,7 @@ mkdir -p <mount_point>
 ```
 ### 挂载 Fuse, 命令如下：
 ```
-jindo-fuse <mount_point> -ouri=[<jindo_path>]
+jindo-fuse <mount_point> -ouri=[<jindo_path>] -oxengine=jindofsx
 ```
 -ouri 需配置为待映射的 jindo 路径，路径可以为统一挂载，比如之前挂载的`jindo:///jindooss`。
 这个命令会启动一个后台的守护进程，将指定的 <jindo_path> 挂载到本地文件系统的 <mount_point>。
