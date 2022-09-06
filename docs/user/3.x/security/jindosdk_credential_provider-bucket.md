@@ -29,15 +29,15 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.oss.bucket.XXX.accessKeyId</name>
+        <name>fs.jfs.cache.oss.bucket.XXX.accessKeyId</name>
         <value>OSS bucket的AccessKey Id</value>
     </property>
     <property>
-        <name>fs.oss.bucket.XXX.accessKeySecret</name>
+        <name>fs.jfs.cache.oss.bucket.XXX.accessKeySecret</name>
         <value>OSS bucket的AccessKey Secret</value>
     </property>
     <property>
-        <name>fs.oss.bucket.XXX.securityToken</name>
+        <name>fs.jfs.cache.oss.bucket.XXX.securityToken</name>
         <value>OSS bucket的SecurityToken（临时安全令牌)</value>
     </property>
 </configuration>
@@ -57,11 +57,11 @@
 ```xml
 <configuration>
     <property>
-        <name>fs.oss.bucket.XXX.accessKeyId</name>
+        <name>fs.jfs.cache.oss.bucket.XXX.accessKeyId</name>
         <value>OSS bucket的AccessKey Id</value>
     </property>
     <property>
-        <name>fs.oss.bucket.XXX.accessKeySecret</name>
+        <name>fs.jfs.cache.oss.bucket.XXX.accessKeySecret</name>
         <value>OSS bucket的AccessKey Secret</value>
     </property>
 </configuration>
