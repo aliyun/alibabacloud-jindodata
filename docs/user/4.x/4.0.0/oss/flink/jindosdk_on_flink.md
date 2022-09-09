@@ -17,7 +17,7 @@ Apache Flink 是一种当前业界流行的开源大数据流式计算引擎，�
 需要在所有 Flink 节点进行配置。在每个节点 Flink 根目录下的 lib 文件夹，放置 .jar 文件：
 * jindo-flink-${version}-full.jar
 
-该 jar 包含在 jindosdk-${version}.tar.gz ([下载页面](../../../jindodata_download.md)，解压缩后可在 plugins/flink/ 目录下找到。
+该 jar 包含在 jindosdk-${version}.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md)，解压缩后可在 plugins/flink/ 目录下找到。
 
 ## 如何使用
 
