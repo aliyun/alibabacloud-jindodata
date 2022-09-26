@@ -15,9 +15,9 @@ kubectl edit deployment jindoruntime-controller -n fluid-system
 3、例如从 4.5.1 升级到  4.5.2，修改如下镜像即可
 ```yaml
 - name: JINDO_SMARTDATA_IMAGE_ENV
-	value: registry.cn-shanghai.aliyuncs.com/jindofs/smartdata:4.5.2
+    value: registry.cn-shanghai.aliyuncs.com/jindofs/smartdata:4.5.2
 - name: JINDO_FUSE_IMAGE_ENV
-	value: registry.cn-shanghai.aliyuncs.com/jindofs/jindo-fuse:4.5.2
+    value: registry.cn-shanghai.aliyuncs.com/jindofs/jindo-fuse:4.5.2
 ```
 如果是 `fuseOnly` 模式，那么只需修改 `JINDO_FUSE_IMAGE_ENV` 字段即可
 
