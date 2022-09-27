@@ -98,6 +98,7 @@ logger.consolelogger = false
 logger.level = 0
 logger.verbose = 0
 logger.cleaner.enable = true
+hadoopConf.enable = false
 
 [jindosdk]
 fs.oss.endpoint = <OSS_ENDPOINT>   
@@ -130,6 +131,7 @@ logger.consolelogger = false
 logger.level = 0
 logger.verbose = 0
 logger.cleaner.enable = true
+hadoopConf.enable = false
 
 [jindosdk]
 fs.oss.bucket.<OSS_HDFS_BUCKET>.accessKeyId =  <OSS_HDFS_ACCESSKEY_ID>   

@@ -114,7 +114,7 @@ kubectl create -f resource.yaml
 ```
 
 
-查看部署的 JinRuntime 情况，其中 fuse 会 lazy 启动，根据应用挂载情况来相应的节点上启动
+查看部署的 JindoRuntime 情况，其中 fuse 会 lazy 启动，根据应用挂载情况来相应的节点上启动
 ```shell
 kubectl get jindoruntime hadoop
 NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
