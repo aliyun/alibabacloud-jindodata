@@ -9,6 +9,7 @@
 * [阿里云 OSS-HDFS 服务（JindoFS 服务）快照使用说明](/docs/user/4.x/4.5.x/4.5.1/jindofs/jindofs_dls_snapshot_howto.md)
 * [阿里云 OSS-HDFS 服务（JindoFS 服务）分层存储使用说明](/docs/user/4.x/4.5.x/4.5.1/jindofs/jindofs_dls_hsm_howto.md)
 * [阿里云 OSS-HDFS 服务（JindoFS 服务）Shell 命令使用说明 ](/docs/user/4.x/4.5.x/4.5.1/jindofs/jindofs_dls_shell_howto.md)
+* [阿里云 OSS-HDFS 服务（JindoFS 服务）回收站使用说明 ](/docs/user/4.x/4.5.x/4.5.1/jindofs/jindofs_dls_trash_howto.md)
 
 ## 大数据生态
 #### Hadoop 组件
