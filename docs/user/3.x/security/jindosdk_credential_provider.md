@@ -189,7 +189,7 @@ hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file
 <configuration>
     <property>
         <name>fs.jfs.cache.oss.credentials.provider</name>
-        <value>com.aliyun.emr.fs.auth.JindoCommonCredentialsProvider</value>
+        <value>com.aliyun.emr.fs.auth.CustomCredentialsProvider</value>
     </property>
 </configuration>
 ```
