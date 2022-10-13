@@ -1,5 +1,5 @@
-# jindo-util 使用方法
-## 下载 jindo-util 工具（当前只支持 Linux 环境使用）
+# jindo 命令使用方法
+## 下载 jindo 命令行工具包（当前只支持 Linux 环境使用）
 1、下载 [jindofsx-4.5.2.tar.gz](/docs/user/4.x/jindodata_download.md)
 
 2、解压 tar 包 
@@ -13,7 +13,7 @@ chmod 700 jindo-util
 mv jindo-util jindo
 ```
 
-4、查看 jindo-util 所有支持的命令和使用方法
+4、查看 jindo 所有支持的命令和使用方法
 ```shell
 # jindo fs -help
 Usage:
@@ -89,7 +89,7 @@ Usage:
 		[-meta -renameFile -basePath <path> [-n <value>] [-c <value>] [-d <value>] [-entryNum <value>] [-memCheck]]
 ```
 
-## 使用 jindo-util 访问标准 OSS
+## 使用 jindo 命令访问标准 OSS
 1、新建配置文件 `jindosdk.cfg`
 ```shell
 [common]
@@ -122,7 +122,7 @@ export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
 jindo fs -ls oss://<bucket>/<dir>
 ```
 
-## 使用 jindo-util 访问 OSS-HDFS
+## 使用 jindo 命令访问 OSS-HDFS
 1、新建配置文件 `jindosdk.cfg`
 ```shell
 [common]
@@ -158,7 +158,7 @@ jindo fs -ls oss://<bucket>/<dir>
 ```
 
 
-## 使用 jindo-util 同步数据
+## 使用 jindo sync 同步数据
 1、新建配置文件 `jindosdk.cfg`
 ```shell
 [common]
@@ -193,7 +193,7 @@ export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
 ```
 * <JINDOSDK_CFG_DIR> : jindosdk.cfg 配置文件所在的绝对路径，比如 /etc/
 
-3、使用 jindo-util 访问 OSS-HDFS 服务
+3、使用 jindo 命令进行数据传输
 ```shell
 jindo fs -sync -thread 10 /local/dir/ oss://<bucket>/<dir>
 ```
@@ -204,4 +204,4 @@ jindo fs -sync -thread 10 /local/dir/ oss://<bucket>/<dir>
 jindo fs -sync -update -thread 10 /local/dir/ oss://<bucket>/<dir>
 ```
 * 因为需要做文件比较，使用断点续传可能对传输性能有一定的影响
-* 
+  
