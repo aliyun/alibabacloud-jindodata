@@ -56,6 +56,7 @@ Usage:
 		[-setStoragePolicy -path <path> -policy <policy>]
 		[-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
 		[-setfattr {-n name [-v value] | -x name} <path>]
+		[-sync [-update] [-thread thread_num] <localsrc> <dst>
 		[-touchz <path> ...]
 		[-truncate [-w] <length> <path> ...]
 		[-unarchive [-i] [-a] <path>]
@@ -155,3 +156,52 @@ export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
 ```shell
 jindo fs -ls oss://<bucket>/<dir>
 ```
+
+
+## 使用 jindo-util 同步数据
+1、新建配置文件 `jindosdk.cfg`
+```shell
+[common]
+logger.dir = /tmp/jindo-util/
+logger.sync = false
+logger.consolelogger = false
+logger.level = 0
+logger.verbose = 0
+logger.cleaner.enable = true
+hadoopConf.enable = false
+
+[jindosdk]
+fs.oss.endpoint = <OSS_ENDPOINT>   
+fs.oss.accessKeyId = <OSS_ACCESSKEY_ID>   
+fs.oss.accessKeySecret = <OSS_ACCESSKEY_SECRET>       
+fs.oss.bucket.<OSS_HDFS_BUCKET>.accessKeyId =  <OSS_HDFS_ACCESSKEY_ID>   
+fs.oss.bucket.<OSS_HDFS_BUCKET>.accessKeySecret = <OSS_HDFS_ACCESSKEY_SECRET>
+fs.oss.bucket.<OSS_HDFS_BUCKET>.endpoint = <OSS_HDFS_ENDPOINT>   
+fs.oss.bucket.<OSS_HDFS_BUCKET>.data.lake.storage.enable = true                                                        
+```
+* <OSS_ENDPOINT> : 需要访问的 OSS 的 endpoint
+* <OSS_ACCESSKEY_ID> : 需要访问的 OSS 的 AccessKeyId
+* <OSS_ACCESSKEY_SECRET> : 需要访问的 OSS 的 AccessKeySecret
+* <OSS_HDFS_BUCKET> : 需要访问的 OSS-HDFS 的 bucket
+* <OSS_HDFS_ENDPOINT> : 需要访问的 OSS-HDFS 的 endpoint
+* <OSS_HDFS_ACCESSKEY_ID> : 需要访问的 OSS-HDFS 的 AccessKeyId
+* <OSS_HDFS_ACCESSKEY_SECRET> : 需要访问的 OSS-HDFS 的 AccessKeySecret
+
+2、添加环境变量
+```shell 
+export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
+```
+* <JINDOSDK_CFG_DIR> : jindosdk.cfg 配置文件所在的绝对路径，比如 /etc/
+
+3、使用 jindo-util 访问 OSS-HDFS 服务
+```shell
+jindo fs -sync -thread 10 /local/dir/ oss://<bucket>/<dir>
+```
+* thread: 使用线程数量
+
+4、使用端点续传功能
+```shell
+jindo fs -sync -update -thread 10 /local/dir/ oss://<bucket>/<dir>
+```
+* 因为需要做文件比较，使用断点续传可能对传输性能有一定的影响
+* 
