@@ -117,7 +117,7 @@ export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
 ```
 * <JINDOSDK_CFG_DIR> : jindosdk.cfg 配置文件所在的绝对路径，比如 /etc/
 
-3、使用 jindo-util 访问 OSS
+3、使用 jindo 命令访问 OSS
 ```shell
 jindo fs -ls oss://<bucket>/<dir>
 ```
@@ -152,7 +152,7 @@ export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
 ```
 * <JINDOSDK_CFG_DIR> : jindosdk.cfg 配置文件所在的绝对路径，比如 /etc/
 
-3、使用 jindo-util 访问 OSS-HDFS 服务
+3、使用 jindo 命令访问 OSS-HDFS 服务
 ```shell
 jindo fs -ls oss://<bucket>/<dir>
 ```
