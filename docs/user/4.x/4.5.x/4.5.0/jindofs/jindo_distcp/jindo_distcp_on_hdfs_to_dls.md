@@ -58,6 +58,17 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data --dest oss://destBucket.
 
 这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.5.x/4.5.0/jindofs/configuration/jindosdk_endpoint_configuration.md)。
 
+**注意**：
+JindoSDK 4.4.0 及以上版本默认使用域名分离的方式，数据读写域名默认使用内网标准 OSS 域名，如果在非阿里云内网环境执行 distcp 命令，则需要在 Hadoop 的`core-site.xml`文件中配置数据流访问的公网 OSS endpoint。
+```xml
+<configuration>
+    <property>
+        <name>fs.oss.data.endpoint</name>
+        <value>oss-cn-xxx.aliyuncs.com</value>
+    </property>
+</configuration>
+```
+
 ### 6、保存元数据信息
 
 使用preserveMeta参数, 使得迁移数据的同时迁移包括 Owner, Group, Permission, Atime, Mtime, Replication, BlockSize, XAttrs, ACL 在内的元数据信息。

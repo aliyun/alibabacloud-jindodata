@@ -11,3 +11,15 @@ Successfully list objects with prefix xxx/yyy/ in bucket xxx recursive 0 result 
 export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Xmx4096m"
 ```
 
+### 2. checksum 报错
+#### 现象
+如您在使用 JindoDistCp 的过程中，如遇到如下信息
+```
+Failed to get checksum store.
+```
+#### 解决办法
+OSS-HDFS 默认的 checksum 算法是 COMPOSITE_CRC，如果 HDFS 使用的 checksum 类型（通过 dfs.checksum.type 参数配置）是 CRC32C， 则需要变更 OSS-HDFS 的 checksum 算法为 MD5MD5CRC。
+```shell
+hadoop jar jindo-distcp-${version}.jar --src /data --dest oss://destBucket/ --hadoopConf fs.oss.checksum.combine.mode=MD5MD5CRC
+```
+
