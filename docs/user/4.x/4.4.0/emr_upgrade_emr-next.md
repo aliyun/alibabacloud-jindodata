@@ -114,7 +114,13 @@ ls -l
 执行命令制作升级包
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 4.4.3
+bash bootstrap_jindosdk.sh -gen $NEW_JINDOSDK_VERSION $OLD_JINDOSDK_VERSION
+```
+
+如
+
+```bash
+bash bootstrap_jindosdk.sh -gen 4.4.3 4.4.2
 ```
 
 成功后可以看到如下：
