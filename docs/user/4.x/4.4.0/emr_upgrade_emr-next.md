@@ -6,7 +6,7 @@
 
 ## 准备软件包和升级脚本
 
-登录EMR集群的Master节点，并将下载的patch包放在hadoop用户的HOME目录下，将patch包解压缩后，使用hadoop用户执行操作。
+登录EMR集群的Master节点，并将下载的patch包放在emr-user用户的HOME目录下，将patch包解压缩后，使用emr-user用户执行操作。
 
 ```bash
 su - emr-user
@@ -27,10 +27,10 @@ ls -l
 
 jindosdk-patches 内容示例如下：
 ```bash
--rwxrwxr-x 1 hadoop hadoop       575 May 01 00:00 apply_all.sh
--rwxrwxr-x 1 hadoop hadoop      4047 May 01 00:00 apply.sh
--rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-4.4.3.tar.gz
+-rwxrwxr-x 1 emr-user emr-user       575 May 01 00:00 apply_all.sh
+-rwxrwxr-x 1 emr-user emr-user      4047 May 01 00:00 apply.sh
+-rw-rw-r-- 1 emr-user emr-user        40 May 01 00:00 hosts
+-rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-4.4.3.tar.gz
 ```
 
 ## 配置升级节点信息
