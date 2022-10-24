@@ -16,6 +16,8 @@ logger.dir = /tmp/bigboot-log
 
 该文件会使用2个section，其中bigboot是日志相关配置，bigboot-client是客户端相关配置。
 
+(注，如不便修改环境变量，可尝试在默认路径创建配置文件 `/usr/lib/b2smartdata-current/conf/bigboot.cfg`)
+
 ## SDK配置项列表
 
 以下是重要的配置项列表
