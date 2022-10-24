@@ -10,6 +10,7 @@ export B2SDK_CONF_DIR=/etc/jindo-conf
 ```
 [bigboot]
 logger.dir = /tmp/bigboot-log
+logger.level = 2
 
 [bigboot-client]
 ```
@@ -37,5 +38,5 @@ logger.dir = /tmp/bigboot-log
 | client.read.oss.readahead.buffer.size          | [bigboot-client] | 1048576          | 预读oss的buffer大小                                             |
 | client.read.oss.readahead.buffer.count         | [bigboot-client] | 4                | 同时预读oss的buffer个数                                         |
 | jfs.cache.data-cache.enable                    | [bigboot-client] | false            | (仅用于cache模式)cache模式开启缓存功能                          |
-| client.temp-data-dirs                               | [bigboot-client] | /tmp            | 客户端写入时的临时文件目录，可配置多个（逗号隔开），会轮流写入  |
-
+| client.temp-data-dirs                          | [bigboot-client] | /tmp             | 客户端写入时的临时文件目录，可配置多个（逗号隔开），会轮流写入  |
+| logger.level                                   | [bigboot]        | 2                | 2 为开启 INFO 级别日志，1 为 WARNING 级别日志                  |
