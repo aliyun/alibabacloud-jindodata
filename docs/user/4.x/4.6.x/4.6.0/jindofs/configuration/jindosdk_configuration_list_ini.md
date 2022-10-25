@@ -32,6 +32,11 @@ fs.oss.read.readahead.buffer.size=1048576
 fs.oss.read.readahead.buffer.count=4  
 # oss 刷新缓冲区间隔（毫秒），小于 0 时不生效
 fs.oss.flush.interval.millisecond=-1
+# 文件级别 crc64 完整性校验，默认打开
+fs.oss.checksum.crc64.enable=true
+# 请求级别 md5 完整性校验，默认关闭
+fs.oss.checksum.md5.enable=false
+
 ```
 
 【注：4.5版本以上版本支持方式】

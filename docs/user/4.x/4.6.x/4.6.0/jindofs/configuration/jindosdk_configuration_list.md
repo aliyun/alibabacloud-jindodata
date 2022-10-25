@@ -84,6 +84,19 @@
         <name>fs.oss.flush.interval.millisecond</name>
         <value>-1</value>
     </property>
+
+    <property>
+        <!-- 文件级别 crc64 完整性校验，默认打开 -->
+        <name>fs.oss.checksum.crc64.enable</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <!--请求级别 md5 完整性校验，默认关闭 -->
+        <name>fs.oss.checksum.md5.enable</name>
+        <value>false</value>
+    </property>
+
   
 </configuration>
 ```
