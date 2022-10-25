@@ -11,6 +11,7 @@
 * [阿里云 OSS-HDFS 服务（JindoFS 服务）Shell 命令使用说明 ](/docs/user/4.x/4.6.x/4.6.0/jindofs/jindofs_dls_shell_howto.md)
 * [阿里云 OSS-HDFS 服务（JindoFS 服务）回收站使用说明 ](/docs/user/4.x/4.6.x/4.6.0/jindofs/jindofs_dls_trash_howto.md)
 * [阿里云 OSS-HDFS 服务（JindoFS 服务）命令行工具使用说明 ](/docs/user/4.x/4.6.x/4.6.0/jindofs/jindo_util_intro.md)
+* [阿里云 OSS-HDFS 服务（JindoFS 服务）元数据导出使用说明](/docs/user/4.x/4.6.x/4.6.0/jindofs/jindofs_dls_dump_inventory_howto.md)
 
 ## 大数据生态
 #### Hadoop 组件
@@ -56,6 +57,9 @@
 
 #### 通过设置 RootPolicy 实现通过自定义前缀路径访问 JindoFS
 * [通过设置 RootPolicy 实现通过自定义前缀路径访问 JindoFS](/docs/user/4.x/4.6.x/4.6.0/jindofs/jindofs_dls_root_policy.md)
+
+## 常见问题
+* [常见问题](/docs/user/4.x/4.6.x/4.6.0/jindodata_QA.md)
 
 ## 历史版本
 #### 阿里云 OSS-HDFS 服务（JindoFS 服务）4.5.1 [用户文档](/docs/user/4.x/4.5.x/4.5.1/jindofs/outline.md)

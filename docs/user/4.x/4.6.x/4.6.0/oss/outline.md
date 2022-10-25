@@ -59,6 +59,9 @@
 ## 已知问题
 * [已知问题](/docs/user/4.x/4.6.x/4.6.0/known-issues.md)
 
+## 常见问题
+* [常见问题](/docs/user/4.x/4.6.x/4.6.0/jindodata_QA.md)
+
 ## 历史版本
 #### JindoSDK 4.5.1 [用户文档](/docs/user/4.x/4.5.x/4.5.1/oss/outline.md)
 #### JindoSDK 4.5.0 [用户文档](/docs/user/4.x/4.5.x/4.5.0/oss/outline.md)

@@ -17,7 +17,15 @@
 ```bash
 hadoop fs -rm oss://bucket/a/b/c
 ```
-客户端的Hadoop Shell命令默认开启Trash功能，并自动将rm命令转换为一条 ```hadoop fs -mv oss://bucket/a/b/c /user/<username>/.Trash/Current/a/b/c```
+客户端的Hadoop Shell命令默认不开启Trash功能，因此需要在core-site.xml里添加一条配置
+```xml
+  <property>
+    <name>fs.trash.interval</name>
+    <value>1440</value>
+  </property>
+```
+(该值只需大于0即可)   
+此时在客户端会自动将rm命令转换为一条 ```hadoop fs -mv oss://bucket/a/b/c /user/<username>/.Trash/Current/a/b/c```
 命令，因此，您不需要感知回收站功能的存在，服务端会负责清理。    
 如果您想立即删除该文件，释放空间，可以添加 ```-skipTrash``` 参数，此时将立即删除该文件。
 
