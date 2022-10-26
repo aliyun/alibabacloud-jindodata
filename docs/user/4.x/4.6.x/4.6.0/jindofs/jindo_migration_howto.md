@@ -1,3 +1,4 @@
+# JindoFS 迁移服务
 JindoData 迁移服务是新推出的重磅功能，用户支持线下HDFS 或者JindoFS 半托管集群数据迁移到全托管的OSS-HDFS服务。 使用JindoData 迁移服务后，用户无需关系数据如何从线下HDFS 集群或者JindoFS 半托管集群迁移到全托管的OSS-HDFS，用户可以通过极少的操作就可以完成数据的迁移。极大的简化用户上云以及架构演进的迁移流程。在JindoData 4.6.0 版本中支持HDFS 集群无缝迁移到OSS-HDFS集群中，后续陆续支持半托管JindoFS集群 到 OSS-HDFS服务的迁移，下面主要介绍HDFS 到 OSS-HDFS服务迁移操作步骤。
 
 ## HDFS集群到OSS-HDFS服务
