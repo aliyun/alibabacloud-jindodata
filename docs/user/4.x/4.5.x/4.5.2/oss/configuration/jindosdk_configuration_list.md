@@ -97,6 +97,12 @@
         <value>-1</value>
     </property>
 
+    <property>
+        <!-- oss 分块上传时的块大小，默认8M（由于分块数量最多为10000块，因此写入文件不能超过80G）。如果有个别文件超过80G，建议根据文件大小单独调大本配置，并同时调大请求 oss 的超时时间。如文件大小未知，或者远远超过80G（如超过160G），建议考虑使用使用 OSS-HDFS（无文件大小限制）。 -->
+        <name>fs.oss.blocklet.size.mb</name>
+        <value>8</value>
+    </property>
+
 
 
     <property>
