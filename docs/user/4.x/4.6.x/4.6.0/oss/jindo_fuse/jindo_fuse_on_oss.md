@@ -6,11 +6,23 @@ OSS 通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 OSS 上的文件�
 
 ## 环境准备
 
+支持 libfuse 3.7 以上版本，推荐使用最新的 libfuse 版本以获得最佳性能。
+
 ```bash
-# CentOS
-yum install -y fuse3 fuse3-devel
-# Debian
-apt install -y fuse3 libfuse3-dev
+# build fuse required meson & ninja, for debian: apt install -y pkg-config meson ninja-build
+sudo yum install -y meson ninja-build
+
+# compile fuse required newer g++ (only CentOS)
+g++ -v
+
+# compile & install libfuse
+wget https://github.com/libfuse/libfuse/releases/download/fuse-3.11.0/fuse-3.11.0.tar.xz
+xz -d fuse-3.11.0.tar.xz
+tar xf fuse-3.11.0.tar
+cd fuse-3.11.0/
+mkdir build; cd build
+meson ..
+sudo ninja install
 ```
 
 ## 配置客户端
@@ -36,6 +48,20 @@ fs.oss.endpoint = <your_endpoint>
 # 用于访问OSS的AccessKey ID和AccessKey Secret。阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
 fs.oss.accessKeyId = <your_key_id>
 fs.oss.accessKeySecret = <your_key_secret>
+```
+
+#### 免密访问
+前提：使用的是阿里云 ECS，并且该机器已绑定过角色授权。
+示例如下：
+
+```
+[common]
+logger.dir = /tmp/fuse-log
+
+[jindosdk]
+# 已创建的Bucket对应的Endpoint。以华东1（杭州）为例，填写为oss-cn-hangzhou.aliyuncs.com。
+fs.oss.endpoint = <your_endpoint>
+fs.oss.provider.endpoint = ECS_ROLE
 ```
 
 ## 挂载 JindoFuse

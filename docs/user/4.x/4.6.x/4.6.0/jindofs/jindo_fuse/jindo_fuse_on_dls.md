@@ -38,6 +38,21 @@ fs.oss.accessKeyId = <your_key_id>
 fs.oss.accessKeySecret = <your_key_secret>
 ```
 
+#### 免密访问
+前提：使用的是阿里云 ECS，并且该机器已绑定过角色授权。
+示例如下：
+
+```
+[common]
+logger.dir = /tmp/fuse-log
+
+[jindosdk]
+# 已开启HDFS服务的Bucket对应的Endpoint。以华东1（杭州）为例，填写为cn-hangzhou.oss-dls.aliyuncs.com。
+fs.oss.endpoint = <your_endpoint>
+fs.oss.provider.endpoint = ECS_ROLE
+fs.oss.provider.format = JSON
+```
+
 ## 挂载 JindoFuse
 
 在完成对 JindoSDK 的配置后。
