@@ -2,11 +2,29 @@
 
 ## 前提条件
 
-* 已创建E-MapReduce EMR-5.5.0/EMR-3.39.1或以上版本的集群。
+* 已创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群。
+
+* 添加授权历史版本 EMR 访问 OSS-HDFS
+
+https://ram.console.aliyun.com/policies/new
+````
+{
+    "Version": "1",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "oss:PostDataLakeStorageFileOperation",
+            "Resource": "*"
+        }
+    ]
+}
+````
+
+https://ram.console.aliyun.com/roles/AliyunEmrEcsDefaultRole
 
 ## 准备软件包和升级脚本
 
-登录EMR集群的Master节点，并将下载的patch包放在hadoop用户的HOME目录下，将patch包解压缩后，使用hadoop用户执行操作。
+登录EMR集群的Master节点，并将下载的patch包放在 hadoop 用户的HOME目录下，将patch包解压缩后，使用 hadoop 用户执行操作。
 
 ```bash
 su - hadoop
@@ -73,6 +91,22 @@ emr-worker-2
 
 **说明** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
+## 修改集群配置
+
+| 组件        | 配置             	             | 参数                                       | 描述                                                                                                                                                                                                                                               |
+|-----------|------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SMARTDATA | smartdata-site               | fs.oss.impl                              | 固定值为com.aliyun.jindodata.oss.JindoOssFileSystem                                                                                                                                                                                                  |
+| SMARTDATA | smartdata-site               | fs.AbstractFileSystem.oss.impl           | 固定值为com.aliyun.jindodata.oss.OSS                                                                                                                                                                                                                 |
+| SMARTDATA | smartdata-site               | fs.oss.credentials.provider              | 固定值为com.aliyun.jindodata.oss.auth.SimpleCredentialsProvider,com.aliyun.jindodata.oss.auth.EnvironmentVariableCredentialsProvider,com.aliyun.jindodata.oss.auth.CommonCredentialsProvider,com.aliyun.jindodata.oss.auth.EmrStsCredentialsProvider |
+| SMARTDATA | smartdata-site               | fs.oss.endpoint                          | 固定值为oss-${region}-internal.aliyuncs.com。region 替换为所在区，如 cn-shanghai，完整示例为 oss-cn-shanghai-internal.aliyuncs.com                                                                                                                                  |
+| YARN      | mapred-site（Hadoop 2.x版本）    | mapreduce.outputcommitter.class          | 删除参数值，将参数值置为空。例如，搜索mapreduce.outputcommitter.class配置，删除参数值。                                                                                                                                                                                      |
+| YARN      | mapred-site （Hadoop 3.x版本)   | mapreduce.outputcommitter.factory.class  | 删除参数值，将参数值置为空。                                                                                                                                                                                                                                   |
+| SPARK     | spark-defaults               | spark.sql.sources.outputCommitterClass   | 删除参数值，将参数值置为空。                                                                                                                                                                                                                                   |
+| SPARK     | spark-defaults               | spark.sql.parquet.output.committer.class | 固定值为org.apache.parquet.hadoop.ParquetOutputCommitter。                                                                                                                                                                                            |
+| SPARK     | spark-defaults （Spark 2.x版本) | spark.sql.hive.commitProtocolClass       | 固定值为org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol。                                                                                                                                                                 |
+
+
+
 ## 升级后重启服务
 
 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
@@ -111,6 +145,12 @@ ls -l
 ```
 
 执行命令制作升级包
+
+```bash
+bash bootstrap_jindosdk.sh -gen $JINDOSDK_VERSION
+```
+
+如
 
 ```bash
 bash bootstrap_jindosdk.sh -gen 4.4.3
