@@ -22,6 +22,9 @@ https://ram.console.aliyun.com/policies/new
 
 https://ram.console.aliyun.com/roles/AliyunEmrEcsDefaultRole
 
+绑定授权到新加的role上
+
+
 ## 准备软件包和升级脚本
 
 登录EMR集群的Master节点，并将下载的patch包放在 hadoop 用户的HOME目录下，将patch包解压缩后，使用 hadoop 用户执行操作。
