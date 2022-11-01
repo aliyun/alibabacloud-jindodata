@@ -55,7 +55,8 @@ cp jindosdk-4.4.0/lib/jindo-sdk-4.4.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 
     <property>
         <name>fs.oss.endpoint</name>
-        <value>cn-xxx.oss.aliyuncs.com</value>
+        <!-- 阿里云 ECS 环境下推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
+        <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
 ```

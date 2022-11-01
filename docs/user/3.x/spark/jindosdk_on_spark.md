@@ -46,7 +46,8 @@ cp jindofs-sdk-${version}.jar  $SPARK_HOME/jars/
 
     <property>
         <name>fs.oss.endpoint</name>
-        <value>cn-xxx.oss.aliyuncs.com</value>
+        <!-- 阿里云 ECS 环境下推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
+        <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
 ```
