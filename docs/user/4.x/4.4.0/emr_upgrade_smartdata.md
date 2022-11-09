@@ -4,26 +4,6 @@
 
 * 已创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群。
 
-* 添加授权历史版本 EMR 访问 OSS-HDFS
-
-https://ram.console.aliyun.com/policies/new
-````
-{
-    "Version": "1",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "oss:PostDataLakeStorageFileOperation",
-            "Resource": "*"
-        }
-    ]
-}
-````
-
-https://ram.console.aliyun.com/roles/AliyunEmrEcsDefaultRole
-
-绑定授权到新加的role上
-
 
 ## 准备软件包和升级脚本
 
