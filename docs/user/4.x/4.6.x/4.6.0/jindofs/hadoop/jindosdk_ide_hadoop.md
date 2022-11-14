@@ -1,28 +1,59 @@
-# Hadoop 使用 JindoSDK 在 IDE 开发调试
+# Hadoop 使用 JindoSDK 集成开发
 
-在maven中添加本地sdk jar包的依赖
+目前 JindoSDK 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统，Mac M1 系列也暂不支持）
+
+在 maven pom.xml 中添加 JindoSDK 的依赖
+
 ```xml
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-common</artifactId>
-            <version>2.8.5</version>
-        </dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.aliyun.jindodata</groupId>
+    <artifactId>jindo-sdk-example</artifactId>
+    <version>1.0</version>
+    
+    <properties>
+        <jindodata.version>4.6.1</jindodata.version>
+        <hadoop.version>2.8.5</hadoop.version>
+    </properties>
+    
+    <repositories>
+        <!-- Add JindoData Maven Repository -->
+        <repository>
+            <id>jindodata</id>
+            <url>https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/</url>
+        </repository>
+    </repositories>
+
+    
+    <dependencies>
+        <!-- add jindo-core -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core</artifactId>
-            <version>4.6.0</version>
-            <scope>system</scope>
-            <systemPath>/Users/xx/xx/jindo-core-4.6.0.jar</systemPath>
+            <version>${jindodata.version}</version>
         </dependency>
+        
+        <!-- add jindo-hadoop-sdk -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindosdk</artifactId>
-            <version>4.6.0</version>
-            <scope>system</scope>
-            <systemPath>/Users/xx/xx/jindosdk-4.6.0.jar</systemPath>
+            <version>${jindodata.version}</version>
         </dependency>
+        
+        <!-- add hadoop dependency. -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>${hadoop.version}</version>
+        </dependency>
+    </dependencies>
+</project>
 ```
+
 然后您可以编写Java程序使用SDK
+
 ```java
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
@@ -36,7 +67,8 @@ public class TestJindoSDK {
     Configuration conf = new Configuration();
     conf.set("fs.oss.impl", "com.aliyun.jindodata.oss.JindoOssFileSystem");
     conf.set("fs.AbstractFileSystem.oss.impl", "com.aliyun.jindodata.oss.OSS");
-    FileSystem fs = FileSystem.get(URI.create("oss://<Bucket>.<Endpoint>/"), conf);
+    // set accessKey, secret, endpoint and so on.
+    FileSystem fs = FileSystem.get(URI.create("oss://<Bucket>.<HDFS_Endpoint>/"), conf);
     FSDataInputStream in = fs.open(new Path("/uttest/file1"));
     in.read();
     in.close();

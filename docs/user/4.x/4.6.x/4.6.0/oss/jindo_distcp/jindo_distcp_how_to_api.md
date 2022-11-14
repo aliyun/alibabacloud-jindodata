@@ -6,16 +6,42 @@
 
 ## 安装依赖包
 
-解压下载的安装包，maven 中添加本地`jindo-distcp-tool-${version}.jar`依赖。 以4.6.0版本为例，在项目的`pom.xml`文件中加入以下依赖：
+目前 JindoSDK/JindoDistCP 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统，Mac M1 系列也暂不支持）
+
+以4.6.1版本为例，在 maven `pom.xml` 中添加 JindoDistCP 的依赖
 
 ```xml
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.aliyun.jindodata</groupId>
+    <artifactId>jindo-distcp-example</artifactId>
+    <version>1.0</version>
+    
+    <properties>
+        <jindodata.version>4.6.1</jindodata.version>
+        <hadoop.version>2.8.5</hadoop.version>
+    </properties>
+    
+    <repositories>
+        <!-- Add JindoData Maven Repository -->
+        <repository>
+            <id>jindodata</id>
+            <url>https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/</url>
+        </repository>
+    </repositories>
+    
+    <dependencies>
+        <!-- add jindo-distcp -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-distcp</artifactId>
-            <version>${version}</version>
-            <scope>system</scope>
-            <systemPath>/your/path/to/jindo-distcp-tool-${version}.jar</systemPath>
+            <version>${jindodata.version}</version>
         </dependency>
+        
+        <!-- add hadoop with provided scope, your runtime should install hadoop dependency. -->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
@@ -28,6 +54,8 @@
             <version>${hadoop.version}</version>
             <scope>provided</scope>
         </dependency>
+    </dependencies>
+</project>
 ```
 
 ## 示例代码
@@ -46,6 +74,7 @@ public class DistcpExample {
   static public void main(String[] args) throws IOException {
 
     Configuration conf = new Configuration();
+    // set accessKey, secret, endpoint and so on.
     DistCpRequest request = new DistCpRequest();
     request.setSrcDir("hdfs:///user/root/random-data");
     request.setDestDir("oss://oss-bucket/dest");
