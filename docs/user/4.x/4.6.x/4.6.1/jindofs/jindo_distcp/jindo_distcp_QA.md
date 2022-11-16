@@ -18,7 +18,7 @@ export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Xmx4096m"
 Failed to get checksum store.
 ```
 #### 解决办法
-OSS-HDFS 默认的 checksum 算法是 COMPOSITE_CRC，如果 HDFS 使用的 checksum 类型（通过 dfs.checksum.type 参数配置）是 CRC32C， 则需要变更 OSS-HDFS 的 checksum 算法为 MD5MD5CRC。
+OSS-HDFS 默认的 checksum 算法是 COMPOSITE_CRC，如果 HDFS 配置的 dfs.checksum.combine.mode 为 MD5MD5CRC，则需要变更 OSS-HDFS 的 fs.oss.checksum.combine.mode 配置为 MD5MD5CRC。
 ```shell
 hadoop jar jindo-distcp-${version}.jar --src /data --dest oss://destBucket/ --hadoopConf fs.oss.checksum.combine.mode=MD5MD5CRC
 ```
