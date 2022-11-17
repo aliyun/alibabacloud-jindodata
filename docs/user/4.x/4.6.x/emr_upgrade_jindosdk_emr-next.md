@@ -20,7 +20,7 @@ tar zxf jindosdk-patches.tar.gz
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.1/jindosdk-4.6.1.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.2/jindosdk-4.6.2.tar.gz
 
 ls -l
 ```
@@ -30,7 +30,7 @@ jindosdk-patches 内容示例如下：
 -rwxrwxr-x 1 emr-user emr-user       575 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 emr-user emr-user      4047 May 01 00:00 apply.sh
 -rw-rw-r-- 1 emr-user emr-user        40 May 01 00:00 hosts
--rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-4.6.1.tar.gz
+-rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-4.6.2.tar.gz
 ```
 
 ## 配置升级节点信息
@@ -60,7 +60,7 @@ core-1-2
 如 
 
 ```bash
-./apply_all.sh 4.6.1 4.4.2
+./apply_all.sh 4.6.2 4.4.2
 ```
 
 脚本执行完成后，返回如下提示信息。
@@ -87,7 +87,7 @@ Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark �
 
 ### 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-4.6.1.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
+下载的 jindosdk-patches.tar.gz ，jindosdk-4.6.2.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
 
 ```bash
 mkdir jindo-patch
@@ -96,7 +96,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.1/jindosdk-4.6.1.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.2/jindosdk-4.6.2.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
 
@@ -107,7 +107,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-4.6.1.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-4.6.2.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -120,7 +120,7 @@ bash bootstrap_jindosdk.sh -gen $NEW_JINDOSDK_VERSION $OLD_JINDOSDK_VERSION
 如
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 4.6.1 4.4.2
+bash bootstrap_jindosdk.sh -gen 4.6.2 4.4.2
 ```
 
 成功后可以看到如下：
