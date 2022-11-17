@@ -1,6 +1,7 @@
 # 使用 JindoSDK 访问 Fluid JindoRuntime 集群
 
 ## 步骤
+前提：启动 Fluid JindoRuntime 集群
 
 ### 1. 下载 JindoSDK 包
 下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
@@ -22,6 +23,12 @@ cp jindosdk-4.6.1/lib/jindo-sdk-4.6.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 kubectl exec -ti xxx-jindofs-master-0 bash
 ```
 找到  /hdfs-3.2.1/etc/hadoop/core-site.xml 文件，将文件内容全部加入到 hadoop 的 classpath 下的 core-site 文件中
+
+### 4. shell命令
+可以执行 hadoop shell 命令来判断服务是否连接成功
+```shell
+hadoop fs -ls oss://<Bucket>/<Dir>
+```
 
 ### 6. 参数调优
 * JindoFSx 参数说明
