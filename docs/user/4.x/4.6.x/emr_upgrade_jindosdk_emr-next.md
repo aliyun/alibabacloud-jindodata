@@ -60,7 +60,7 @@ core-1-2
 如 
 
 ```bash
-./apply_all.sh 4.6.2 4.4.2
+./apply_all.sh 4.6.2 4.5.1
 ```
 
 脚本执行完成后，返回如下提示信息。
@@ -120,7 +120,7 @@ bash bootstrap_jindosdk.sh -gen $NEW_JINDOSDK_VERSION $OLD_JINDOSDK_VERSION
 如
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 4.6.2 4.4.2
+bash bootstrap_jindosdk.sh -gen 4.6.2 4.5.1
 ```
 
 成功后可以看到如下：
