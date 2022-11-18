@@ -15,7 +15,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>4.6.1</jindodata.version>
+        <jindodata.version>4.6.2</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
