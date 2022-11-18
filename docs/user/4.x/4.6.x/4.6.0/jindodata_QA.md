@@ -63,7 +63,6 @@ less ~/.m2/settings.xml
           <version>4.6.x</version>
           <scope>system</scope>
           <systemPath>/Users/xx/xx/jindosdk-4.6.x.jar</systemPath>
-          <version>${jindodata.version}</version>
       </dependency>
 ````
 
