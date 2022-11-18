@@ -75,3 +75,7 @@ public class TestJindoSDK {
   }
 }
 ```
+
+## 常见问题
+
+[maven 无法下载依赖](/docs/user/4.x/4.6.x/4.6.0/jindodata_QA.md)
