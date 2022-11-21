@@ -61,6 +61,43 @@ jindo fs -getStoragePolicy -path oss://oss-dfs-test/dir1/file1
 jindo fs -unsetStoragePolicy -path oss://oss-dfs-test/dir1
 ```
 
+## 各种场景下 Policy 互转的例子
+```bash
+标准 转 低频IA
+jindo fs -setStoragePolicy -path <path> -policy CLOUD_IA
+
+标准 转 归档CLOUD_AR
+jindo fs -setStoragePolicy -path <path> -policy CLOUD_AR
+
+标准 转 冷归档CLOUD_COLD_AR
+jindo fs -setStoragePolicy -path <path> -policy CLOUD_COLD_AR
+
+低频IA 转 归档CLOUD_AR
+jindo fs -setStoragePolicy -path <path> -policy CLOUD_AR
+
+低频IA 转 冷归档CLOUD_COLD_AR
+jindo fs -setStoragePolicy -path <path> -policy CLOUD_COLD_AR
+
+低频IA 转 标准
+jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
+
+归档 转 冷归档 
+不支持
+
+冷归档 转 归档 
+不支持
+
+归档 转 标准
+jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
+或
+jindo fs -unsetStoragePolicy -path <path>
+
+冷归档 转 标准
+jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
+或
+jindo fs -unsetStoragePolicy -path <path>
+```
+
 ## 设置OSS生命周期
 在使用分层存储功能将OSS-HDFS的数据进行归档的时候，需要依赖于OSS生命周期功能，通过下面命令
 ```bash
