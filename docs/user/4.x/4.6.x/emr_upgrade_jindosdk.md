@@ -2,16 +2,16 @@
 
 ## 前提条件
 
-* 已创建E-MapReduce EMR-5.8.0/EMR-3.42.0 版本的集群。
+* 已创建E-MapReduce EMR-5.5.0/EMR-3.39.1或以上版本的集群。
 
 ## 准备软件包和升级脚本
 
-登录EMR集群的Master节点，并将下载的patch包放在emr-user用户的HOME目录下，将patch包解压缩后，使用emr-user用户执行操作。
+登录EMR集群的Master节点，并将下载的patch包放在hadoop用户的HOME目录下，将patch包解压缩后，使用hadoop用户执行操作。
 
 ```bash
-su - emr-user
-cd /home/emr-user/
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
+su - hadoop
+cd /home/hadoop/
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 tar zxf jindosdk-patches.tar.gz
 ```
 
@@ -20,22 +20,22 @@ tar zxf jindosdk-patches.tar.gz
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.4.3/jindosdk-4.4.3.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.2/jindosdk-4.6.2.tar.gz
 
 ls -l
 ```
 
 jindosdk-patches 内容示例如下：
 ```bash
--rwxrwxr-x 1 emr-user emr-user       575 May 01 00:00 apply_all.sh
--rwxrwxr-x 1 emr-user emr-user      4047 May 01 00:00 apply.sh
--rw-rw-r-- 1 emr-user emr-user        40 May 01 00:00 hosts
--rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-4.4.3.tar.gz
+-rwxrwxr-x 1 hadoop hadoop       575 May 01 00:00 apply_all.sh
+-rwxrwxr-x 1 hadoop hadoop      4047 May 01 00:00 apply.sh
+-rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-4.6.2.tar.gz
 ```
 
 ## 配置升级节点信息
 
-编辑patch包下的hosts文件，添加集群所有节点的host name，如master-1-1或core-1-1，文件内容以行分割。
+编辑patch包下的hosts文件，添加集群所有节点的host name，如emr-header-1或emr-worker-1，文件内容以行分割。
 
 ```bash
 cd jindosdk-patches
@@ -44,9 +44,9 @@ vim hosts
 
 hosts文件内容示例如下：
 ```bash
-master-1-1
-core-1-1
-core-1-2
+emr-header-1
+emr-worker-1
+emr-worker-2
 ```
 
 ## 执行升级
@@ -54,21 +54,20 @@ core-1-2
 通过apply_all.sh 脚本执行修复操作。
 
 ```bash
-./apply_all.sh $NEW_JINDOSDK_VERSION $OLD_JINDOSDK_VERSION
+./apply_all.sh $JINDOSDK_VERSION
 ```
 
-如 
+如
 
 ```bash
-./apply_all.sh 4.4.3 4.4.2
+./apply_all.sh 4.6.2
 ```
 
 脚本执行完成后，返回如下提示信息。
 
 ```
->>> updating ...  master-1-1
->>> updating ...  core-1-1
->>> updating ...  core-1-2
+>>> updating ...  emr-worker-1
+>>> updating ...  emr-worker-2
 ### DONE
 ```
 
@@ -87,18 +86,18 @@ Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark �
 
 ### 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-4.4.3.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
+下载的 jindosdk-patches.tar.gz ，jindosdk-4.6.2.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh),
 
 ```bash
 mkdir jindo-patch
 
 cd jindo-patch
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.4.3/jindosdk-4.4.3.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.2/jindosdk-4.6.2.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
 ls -l
 ```
@@ -107,27 +106,21 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-4.4.3.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-4.6.2.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
 执行命令制作升级包
 
 ```bash
-bash bootstrap_jindosdk.sh -gen $NEW_JINDOSDK_VERSION $OLD_JINDOSDK_VERSION
-```
-
-如
-
-```bash
-bash bootstrap_jindosdk.sh -gen 4.4.3 4.4.2
+bash bootstrap_jindosdk.sh -gen 4.6.2
 ```
 
 成功后可以看到如下：
 
 ```bash
 
-Generated patch at /home/emr-user/jindo-patch/jindosdk-bootstrap-patches.tar.gz
+Generated patch at /home/hadoop/jindo-patch/jindosdk-bootstrap-patches.tar.gz
 
 ```
 

@@ -43,7 +43,7 @@ jindo-util admin -getMnsState -msUri ${MNS_HTTP_ENDPOINT}
   </property>
 ```
 
-**对于原有使用HDFS hflush/hsync语义的用户，需要使用JindoSDK 替换已有的开源HDFS 服务以便在迁移服务上支持 hflush/hsync语义，替换原有客户端请参考[链接](../../4.3.0/emr_upgrade.md)** 。
+**对于原有使用HDFS hflush/hsync语义的用户，需要使用JindoSDK 替换已有的开源HDFS 服务以便在迁移服务上支持 hflush/hsync语义，替换原有客户端请参考[链接](../../emr_upgrade_jindosdk.md)** 。
 
 ### 迁移阶段
 该阶段主要负责将已有的数据后台迁移到OSS-HDFS服务中，直到所有数据迁移完成。首先执行迁移开始命令，具体命令如下
