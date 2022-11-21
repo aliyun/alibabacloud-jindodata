@@ -20,7 +20,6 @@
 public abstract class FileSystem extends Configured implements Closeable {
     // ......
     public void setStoragePolicy(Path src, String policyName) throws IOException;
-    public void unsetStoragePolicy(Path src) throws IOException;
     public BlockStoragePolicySpi getStoragePolicy(Path src) throws IOException;
     public Collection<? extends BlockStoragePolicySpi> getAllStoragePolicies() throws IOException;
 }
@@ -31,7 +30,6 @@ JindoFS 也支持使用下列命令操作存储策略：
 ```bash
 jindo fs -listPolicies
 jindo fs -setStoragePolicy -path <path> -policy <policy>
-jindo fs -unsetStoragePolicy -path <path>
 jindo fs -getStoragePolicy -path <path>
 ```
 
@@ -55,11 +53,6 @@ jindo fs -getStoragePolicy -path oss://oss-dfs-test/dir1/file1
 
 如果最终生效的存储策略为`UNSPECIFIED`（即`getStoragePolicy()`接口返回`null`），则对象默认使用标准存储。
 
-要将设置过存储策略的文件或目录重置存储策略为`UNSPECIFIED`，可以使用`unsetStoragePolicy()`接口或`unsetStoragePolicy`命令，如：
-
-```bash
-jindo fs -unsetStoragePolicy -path oss://oss-dfs-test/dir1
-```
 
 ## 各种场景下 Policy 互转的例子
 ```bash
@@ -89,13 +82,9 @@ jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
 
 归档 转 标准
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
-或
-jindo fs -unsetStoragePolicy -path <path>
 
 冷归档 转 标准
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
-或
-jindo fs -unsetStoragePolicy -path <path>
 ```
 
 ## 设置OSS生命周期
