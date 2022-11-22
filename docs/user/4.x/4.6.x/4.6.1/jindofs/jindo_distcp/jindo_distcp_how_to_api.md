@@ -81,11 +81,10 @@ public class DistcpExample {
     conf.set("fs.oss.credentials.provider", "com.aliyun.jindodata.oss.auth.SimpleCredentialsProvider");
     conf.set("fs.oss.accessKeyId", "XXX");
     conf.set("fs.oss.accessKeySecret", "XXX");
-    conf.set("fs.oss.endpoint", "oss-cn-xxx.aliyuncs.com");
     
     DistCpRequest request = new DistCpRequest();
     request.setSrcDir("hdfs:///user/root/random-data");
-    request.setDestDir("oss://oss-bucket/dest");
+    request.setDestDir("oss://dls-bucket.cn-xxx.oss-dls.aliyuncs.com/dest");
     request.setWorkTempDir("hdfs:///user/root/tmp");
     request.setConf(conf);
 

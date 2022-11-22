@@ -39,10 +39,24 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 ```bash
 hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table --codec gz --parallelism 20
 ```
+
 JindoDistCp 的当前版本支持编解码器 gzip、gz、lzo、lzop 和 snappy 以及关键字 *none* 和 *keep*（默认值）。这些关键字含义如下：
 
 - *"none"*– 保存为未压缩的文件。如果文件已压缩，则 JindoDistCp 会将其解压缩。
-- *"keep"*–不更改文件压缩形态，按原样复制。
+- *"keep"*– 不更改文件压缩形态，按原样复制。
+
+我们检查一下目标文件夹中的文件，这些文件现在已经用 gz 编解码器压缩了：
+```bash
+[root@emr-header-1 opt]# hdfs dfs -ls oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03
+Found 6 items
+-rw-rw-rw-   1        938 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/000151.sst.gz
+-rw-rw-rw-   1       1956 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/1.log.gz
+-rw-rw-rw-   1       1956 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/2.log.gz
+-rw-rw-rw-   1       1956 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/OPTIONS-000109.gz
+-rw-rw-rw-   1        506 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/emp01.txt.gz
+-rw-rw-rw-   1        506 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/emp06.txt.gz
+```
+如您在开源Hadoop集群环境中使用lzo压缩功能，则您需要去安装gplcompression的native库和hadoop-lzo包，如您缺少相关环境，建议使用其他压缩方式进行压缩。
 
 ### 4、使用--filters
 在您的distcp任务写入OSS时，您可以通过--filters来指定有过滤规则的文件。
@@ -136,21 +150,6 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 ```bash
 hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table --deleteOnSuccess --parallelism 20
 ```
-执行完语句后即可从源位置删除文件<br />
-
-
-<br />我们检查一下目标文件夹中的文件，这些文件现在已经用 gz 编解码器压缩了：
-```bash
-[root@emr-header-1 opt]# hdfs dfs -ls oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03
-Found 6 items
--rw-rw-rw-   1        938 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/000151.sst.gz
--rw-rw-rw-   1       1956 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/1.log.gz
--rw-rw-rw-   1       1956 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/2.log.gz
--rw-rw-rw-   1       1956 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/OPTIONS-000109.gz
--rw-rw-rw-   1        506 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/emp01.txt.gz
--rw-rw-rw-   1        506 2020-04-17 20:58 oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/hourly_table/2017-02-01/03/emp06.txt.gz
-```
-如您在开源Hadoop集群环境中使用lzo压缩功能，则您需要去安装gplcompression的native库和hadoop-lzo包，如您缺少相关环境，建议使用其他压缩方式进行压缩。
 
 ### 12、使用--enableTransaction
 JindoDistCp默认使用task级别完整性，如您需要保证Job级别的完整性以及保证Job之间的事务支持，您可以使用--enableTransaction参数。<br /><br />示例命令如下：<br />
