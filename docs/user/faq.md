@@ -23,3 +23,16 @@
 - **JindoFS 服务化成为 OSS-HDFS 服务，为什么叫 HDFS？**
 
   JindoFS 存储系统二进制兼容 Apache HDFS，并且基本功能完全对齐，提供优化的 HDFS 使用体验，可实现 HDFS 自建集群平迁上云上阿里云 OSS。
+
+
+## 历史版本已知问题
+
+#### JindoSDK 4.6.1 [已知问题](/docs/user/4.x/4.6.x/4.6.1/known-issues.md)
+#### JindoSDK 4.6.0 [已知问题](/docs/user/4.x/4.6.x/4.6.0/known-issues.md)
+#### JindoSDK 4.5.1 [已知问题](/docs/user/4.x/4.5.x/4.5.1/known-issues.md)
+#### JindoSDK 4.5.0 [已知问题](/docs/user/4.x/4.5.x/4.5.0/known-issues.md)
+#### JindoSDK 4.4.0 [已知问题](/docs/user/4.x/4.4.0/known-issues.md)
+#### JindoSDK 4.3.0 [已知问题](/docs/user/4.x/4.3.0/known-issues.md)
+#### JindoSDK 4.2.0 [已知问题](/docs/user/4.x/4.2.0/known-issues.md)
+#### JindoSDK 4.1.0 [已知问题](/docs/user/4.x/4.1.0/known-issues.md)
+#### JindoSDK 4.0.0 [已知问题](/docs/user/4.x/4.0.0/known-issues.md)
