@@ -1,13 +1,13 @@
 # jindo 命令使用方法
 ## 下载 jindo 命令行工具包（当前只支持 Linux 环境使用）
-1、下载 [jindofsx-4.6.1.tar.gz](/docs/user/4.x/jindodata_download.md)
+1、下载 [jindosdk-4.6.2.tar.gz](/docs/user/4.x/jindodata_download.md)
 
 2、解压 tar 包 
 ```shell
-tar -zxvf jindofsx-4.6.1.tar.gz
+tar -zxvf jindosdk-4.6.2.tar.gz
 ```
 
-3、在 `/jindofsx-4.6.1/bin/` 目录下找到 `jindo-util` 二进制文件
+3、在 `/jindosdk-4.6.2/bin/` 目录下找到 `jindo-util` 二进制文件
 ```shell
 chmod 700 jindo-util
 mv jindo-util jindo
@@ -15,7 +15,7 @@ mv jindo-util jindo
 
 4、查看 jindo 所有支持的命令和使用方法
 ```shell
-# jindo fs -help
+# ./jindo fs -help
 Usage:
 	jindo fs
 		[-appendToFile <localsrc> ... <dst>]
@@ -89,7 +89,8 @@ Usage:
 		[-meta -renameFile -basePath <path> [-n <value>] [-c <value>] [-d <value>] [-entryNum <value>] [-memCheck]]
 ```
 
-## 使用 jindo 命令访问标准 OSS
+## 使用 jindo 命令访问标准 OSS 或者 OSS-HDFS
+### 全局配置
 1、新建配置文件 `jindosdk.cfg`
 ```shell
 [common]
@@ -102,14 +103,14 @@ logger.cleaner.enable = true
 hadoopConf.enable = false
 
 [jindosdk]
-fs.oss.endpoint = <OSS_ENDPOINT>   
-fs.oss.accessKeyId = <OSS_ACCESSKEY_ID>   
-fs.oss.accessKeySecret = <OSS_ACCESSKEY_SECRET>                                                            
+fs.oss.endpoint = <ENDPOINT>      
+fs.oss.accessKeyId = <ACCESS_KEYID>   
+fs.oss.accessKeySecret = <ACCESS_KEYSECRET>                                        
 ```
 
-* <OSS_ENDPOINT> : 需要访问的 OSS 的 endpoint
-* <OSS_ACCESSKEY_ID> : 需要访问的 OSS 的 AccessKeyId
-* <OSS_ACCESSKEY_SECRET> : 需要访问的 OSS 的 AccessKeySecret
+* < ENDPOINT>: 需要访问的 OSS 或者 OSS-HDFS 的 endpoint
+* <ACCESSKEY_ID> : 需要访问的 OSS 或者 OSS-HDFS 的 AccessKeyId
+* <ACCESSKEY_SECRET> : 需要访问的 OSS 或者 OSS-HDFS 的 AccessKeySecret
 
 2、添加环境变量
 ```shell 
@@ -119,10 +120,10 @@ export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
 
 3、使用 jindo 命令访问 OSS
 ```shell
-jindo fs -ls oss://<bucket>/<dir>
+./jindo fs -ls oss://<bucket>/<dir>
 ```
 
-## 使用 jindo 命令访问 OSS-HDFS
+### bucket 级别配置
 1、新建配置文件 `jindosdk.cfg`
 ```shell
 [common]
@@ -135,16 +136,14 @@ logger.cleaner.enable = true
 hadoopConf.enable = false
 
 [jindosdk]
-fs.oss.bucket.<OSS_HDFS_BUCKET>.accessKeyId =  <OSS_HDFS_ACCESSKEY_ID>   
-fs.oss.bucket.<OSS_HDFS_BUCKET>.accessKeySecret = <OSS_HDFS_ACCESSKEY_SECRET>
-fs.oss.bucket.<OSS_HDFS_BUCKET>.endpoint = <OSS_HDFS_ENDPOINT>   
-fs.oss.bucket.<OSS_HDFS_BUCKET>.data.lake.storage.enable = true                                                        
+fs.oss.bucket.<BUCKET>.accessKeyId =  <ACCESS_KEYID>   
+fs.oss.bucket.<BUCKET>.accessKeySecret = <ACCESS_KEYSECRET>
+fs.oss.bucket.<BUCKET>.endpoint = <ENDPOINT>                                                      
 ```
 
-* <OSS_HDFS_BUCKET> : 需要访问的 OSS-HDFS 的 bucket
-* <OSS_HDFS_ENDPOINT> : 需要访问的 OSS-HDFS 的 endpoint
-* <OSS_HDFS_ACCESSKEY_ID> : 需要访问的 OSS-HDFS 的 AccessKeyId
-* <OSS_HDFS_ACCESSKEY_SECRET> : 需要访问的 OSS-HDFS 的 AccessKeySecret
+* < ENDPOINT>: 需要访问的 OSS 或者 OSS-HDFS 的 endpoint
+* <ACCESSKEY_ID> : 需要访问的 OSS 或者 OSS-HDFS 的 AccessKeyId
+* <ACCESSKEY_SECRET> : 需要访问的 OSS 或者 OSS-HDFS 的 AccessKeySecret
 
 2、添加环境变量
 ```shell 
@@ -154,7 +153,7 @@ export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
 
 3、使用 jindo 命令访问 OSS-HDFS 服务
 ```shell
-jindo fs -ls oss://<bucket>/<dir>
+./jindo fs -ls oss://<bucket>/<dir>
 ```
 
 
@@ -171,21 +170,14 @@ logger.cleaner.enable = true
 hadoopConf.enable = false
 
 [jindosdk]
-fs.oss.endpoint = <OSS_ENDPOINT>   
-fs.oss.accessKeyId = <OSS_ACCESSKEY_ID>   
-fs.oss.accessKeySecret = <OSS_ACCESSKEY_SECRET>       
-fs.oss.bucket.<OSS_HDFS_BUCKET>.accessKeyId =  <OSS_HDFS_ACCESSKEY_ID>   
-fs.oss.bucket.<OSS_HDFS_BUCKET>.accessKeySecret = <OSS_HDFS_ACCESSKEY_SECRET>
-fs.oss.bucket.<OSS_HDFS_BUCKET>.endpoint = <OSS_HDFS_ENDPOINT>   
-fs.oss.bucket.<OSS_HDFS_BUCKET>.data.lake.storage.enable = true                                                        
+fs.oss.endpoint = <ENDPOINT>      
+fs.oss.accessKeyId = <ACCESS_KEYID>   
+fs.oss.accessKeySecret = <ACCESS_KEYSECRET>                                        
 ```
-* <OSS_ENDPOINT> : 需要访问的 OSS 的 endpoint
-* <OSS_ACCESSKEY_ID> : 需要访问的 OSS 的 AccessKeyId
-* <OSS_ACCESSKEY_SECRET> : 需要访问的 OSS 的 AccessKeySecret
-* <OSS_HDFS_BUCKET> : 需要访问的 OSS-HDFS 的 bucket
-* <OSS_HDFS_ENDPOINT> : 需要访问的 OSS-HDFS 的 endpoint
-* <OSS_HDFS_ACCESSKEY_ID> : 需要访问的 OSS-HDFS 的 AccessKeyId
-* <OSS_HDFS_ACCESSKEY_SECRET> : 需要访问的 OSS-HDFS 的 AccessKeySecret
+
+* < ENDPOINT>: 需要访问的 OSS 或者 OSS-HDFS 的 endpoint
+* <ACCESSKEY_ID> : 需要访问的 OSS 或者 OSS-HDFS 的 AccessKeyId
+* <ACCESSKEY_SECRET> : 需要访问的 OSS 或者 OSS-HDFS 的 AccessKeySecret
 
 2、添加环境变量
 ```shell 
@@ -195,13 +187,13 @@ export JINDOSDK_CONF_DIR=<JINDOSDK_CFG_DIR>
 
 3、使用 jindo 命令进行数据传输
 ```shell
-jindo fs -sync -thread 10 /local/dir/ oss://<bucket>/<dir>
+./jindo fs -sync -thread 10 /local/dir/ oss://<bucket>/<dir>
 ```
 * thread: 使用线程数量
 
 4、使用端点续传功能
 ```shell
-jindo fs -sync -update -thread 10 /local/dir/ oss://<bucket>/<dir>
+./jindo fs -sync -update -thread 10 /local/dir/ oss://<bucket>/<dir>
 ```
 * 因为需要做文件比较，使用断点续传可能对传输性能有一定的影响
   
