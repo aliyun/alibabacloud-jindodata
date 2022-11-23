@@ -55,8 +55,8 @@
 #### 半托管 JindoFS 迁移到阿里云 OSS-HDFS 服务（JindoFS 服务）
 * [半托管 JindoFS 迁移到阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.1/jindofs/jindofs_dls_migration_import.md)
 
-#### 通过设置 RootPolicy 实现通过自定义前缀路径访问 JindoFS
-* [通过设置 RootPolicy 实现通过自定义前缀路径访问 JindoFS](/docs/user/4.x/4.6.x/4.6.1/jindofs/jindofs_dls_root_policy.md)
+#### 使用 RootPolicy 访问 OSS-HDFS 服务（JindoFS 服务）
+* [使用 RootPolicy 访问 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.1/jindofs/jindofs_dls_root_policy.md)
 
 ## 常见问题
 * [常见问题](/docs/user/4.x/4.6.x/4.6.1/jindodata_QA.md)
