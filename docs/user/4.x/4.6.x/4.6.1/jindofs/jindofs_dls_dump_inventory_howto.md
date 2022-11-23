@@ -7,7 +7,7 @@
 
 * 执行导出命令
 ```bash
-jindo dlsadmin -dumpInventory oss://<hdfs_bucket>/
+jindo admin -dumpInventory oss://<hdfs_bucket>/
 ```
 
 此时可以观察到输出路径

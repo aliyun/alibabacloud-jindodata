@@ -66,7 +66,7 @@ Usage:
 		[-report]
 		[-reportMetrics]
 		[-umount <mountpoint>]
-	jindo dlsadmin
+	jindo admin
 		[-addProxyUser -dlsUri <path> -proxyUser <value> -users|-groups <value> -hosts <value>] 
 		[-allowSnapshot -dlsUri <path>]
 		[-addUserGroupsMapping -dlsUri <path> -user <value> -groups <value>]
