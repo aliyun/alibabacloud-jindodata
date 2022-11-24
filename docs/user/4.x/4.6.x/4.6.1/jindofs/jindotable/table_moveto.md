@@ -1,4 +1,4 @@
-# 使用 JindoTable 将 Hive 表和分区数据迁移到阿里云 OSS-HDFS 服务
+# 使用 JindoTable 将 Hive 表和分区数据迁移到 OSS-HDFS 服务（JindoFS 服务）
 
 HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶颈。阿里云 OSS-HDFS 服务可以作为 HDFS 的替代或补充，扩展云上 Hadoop 平台的存储能力。
 本工具用于把 Hive 数据根据分区键规则筛选，在 HDFS 和 阿里云 OSS-HDFS 服务之间转移分区。
