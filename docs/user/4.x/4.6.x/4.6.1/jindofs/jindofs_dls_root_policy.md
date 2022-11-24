@@ -5,6 +5,7 @@
 ## 背景
 
 JindoFS 支持 RootPolicy 规则，通过 RootPolicy 可以为 OSS-HDFS（JindoFS 服务）设置自定义前缀，这样用户原有的访问 `hdfs://` 前缀的作业，可以不经修改直接运行在 JindoFS 服务上。
+* 暂只支持非 kerberos HDFS 集群
 
 ## 1. 设置和管理 RootPolicy
 

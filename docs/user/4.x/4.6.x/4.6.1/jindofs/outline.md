@@ -38,9 +38,6 @@
 #### Flume 组件
 * [Flume 使用 JindoSDK 写入阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.1/jindofs/flume/jindosdk_on_flume.md)
 
-#### Sqoop 组件
-* [Sqoop 使用 Kite SDK 读写阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.1/jindofs/sqoop/kitesdk_on_sqoop.md)
-
 ## AI 生态
 #### JindoFuse 使用
 * [使用 JindoFuse 访问阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.1/jindofs/jindo_fuse/jindo_fuse_on_dls.md)
@@ -52,10 +49,7 @@
 #### JindoTable 数仓迁移
 * [使用 JindoTable 将 Hive 表和分区数据迁移到 OSS-HDFS 服务（JindoFS 服务)](jindotable/table_moveto.md)
 
-#### 半托管 JindoFS 迁移到 OSS-HDFS 服务（JindoFS 服务）
-* [半托管 JindoFS 迁移到 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.1/jindofs/jindofs_dls_migration_import.md)
-
-#### 使用 RootPolicy 访问 OSS-HDFS 服务（JindoFS 服务）
+#### AccessPolicy 功能
 * [使用 RootPolicy 访问 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.1/jindofs/jindofs_dls_root_policy.md)
 
 ## 常见问题
