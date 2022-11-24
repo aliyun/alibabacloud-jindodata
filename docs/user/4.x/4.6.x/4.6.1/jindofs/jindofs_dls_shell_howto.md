@@ -1,4 +1,7 @@
 # 阿里云 OSS-HDFS 服务（JindoFS 服务）Shell 命令使用说明
+*(从 4.5.0 开始支持)*
+
+
 
 ## 设置 Hadoop Proxy User 命令
 

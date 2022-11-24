@@ -1,4 +1,6 @@
 # jindo 命令使用方法
+*(从 4.5.0 开始支持)*
+
 ## 下载 jindo 命令行工具包（当前只支持 Linux 环境使用）
 1、下载 [jindosdk-4.6.2.tar.gz](/docs/user/4.x/jindodata_download.md)
 

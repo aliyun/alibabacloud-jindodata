@@ -1,4 +1,5 @@
 # 阿里云 OSS-HDFS 服务（JindoFS 服务）快照使用说明
+*(从 4.0.0 开始支持)*
 
 阿里云 OSS-HDFS 服务（JindoFS 服务）是OSS新推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过Jindo SDK 4.x 可以兼容访问 OSS-HDFS 服务。关于用户如何创建和使用 OSS-HDFS 服务的基本功能，请参考[链接](jindo_dls_quickstart.md)。
 

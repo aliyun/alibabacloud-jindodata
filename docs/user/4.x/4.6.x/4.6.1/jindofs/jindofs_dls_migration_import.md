@@ -1,4 +1,6 @@
 # 半托管 JindoFS 迁移到阿里云 OSS-HDFS 服务（JindoFS 服务）
+*(从 4.5.0 开始支持)*
+
 ## 0.背景
 阿里云 OSS-HDFS 服务（JindoFS 服务）是 OSS 推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级。如果要从JindoFS半托管集群迁移到OSS-HDFS服务。首先需要确保在半托管JindoFS集群对应的OSS Bucket上开通OSS-HDFS服务，同时需要在半托管JindoFS集群开启AuditLog。
 

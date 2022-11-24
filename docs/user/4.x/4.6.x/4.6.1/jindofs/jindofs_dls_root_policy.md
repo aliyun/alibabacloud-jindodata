@@ -1,4 +1,6 @@
 # 使用 RootPolicy 访问 OSS-HDFS 服务（JindoFS 服务）
+*(从 4.6.0 开始支持)*
+
 
 ## 背景
 

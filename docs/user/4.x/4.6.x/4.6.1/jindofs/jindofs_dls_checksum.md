@@ -1,4 +1,6 @@
 # 阿里云 OSS-HDFS 服务（JindoFS 服务）文件内容校验
+*(从 4.6.1 开始支持)*
+
 通过 JindoDistCp 从 HDFS 迁移到 OSS-HDFS 的文件，可以通过以下方式校验文件内容。
 
 ## 步骤1. 
