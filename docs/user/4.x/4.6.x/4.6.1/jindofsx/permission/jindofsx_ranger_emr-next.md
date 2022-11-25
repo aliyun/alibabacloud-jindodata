@@ -92,7 +92,14 @@ ktadd -k jindodata.keytab jindodata/master-1-1.c-9e4fc2dcc****.cn-shanghai.emr.a
 | namespace.authentication.keytab  | 配置 keytab 所在的路径， 如： /opt/apps/JINDODATA/jindodata-current/conf/jindodata.keytab      |
 | namespace.authentication.principal  | 配置 keytab 中的 principal, 如： jindodata/master-1-1.c-9e4fc2dcc****.cn-shanghai.emr.aliyuncs.com@EMR.C-85D4B8D74296****.COM  |
 
-### 1.5. 重启 JindoFSx Namespace 服务。
+### 1.5 配置 Ranger Admin Service URL
+在 JindoData 服务页面选择`配置` > `namespace` > `新增配置项`，添加如下参数。
+
+| 参数             | 值                                                        |
+| ----------------------------------- |----------------------------------------------------------|
+| ranger.plugin.jindo-auth.policy.rest.url  | 配置获取 Ranger Policy 的 URL, 如：http://master-1-1:6080， 默认为 http://emr-header-1:6080 |
+
+### 1.6 重启 JindoFSx Namespace 服务。
 
 ## 2. 配置 JindoSDK。
 
