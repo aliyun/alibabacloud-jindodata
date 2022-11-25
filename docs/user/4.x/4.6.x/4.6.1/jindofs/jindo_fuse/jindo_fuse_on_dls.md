@@ -63,7 +63,7 @@ mkdir -p <mount_point>
 ```
 ### 挂载 Fuse, 命令如下：
 ```
-jindo-fuse <mount_point> -ouri=[<oss_path>]
+jindo-fuse <mount_point> -ouri=<oss_path>
 ```
 -ouri 需配置为待映射的 oss 路径，路径可以为 Bucket 根目录或者子目录。
 这个命令会启动一个后台的守护进程，将指定的 <oss_path> 挂载到本地文件系统的 <mount_point>。
@@ -199,7 +199,7 @@ umount <mount_point>
 * 支持将 jindosdk 配置节参数与挂载选项一同在挂载时指定（挂载时指定参数的优先级高于配置文件），如:
 
 ```
-jindo-fuse <mount_point> -ouri=[<oss_path>] -ofs.oss.endpoint=[<your_endpoint>] -ofs.oss.accessKeyId=[<your_key_id>] -ofs.oss.accessKeySecret=[<your_key_secret>]
+jindo-fuse <mount_point> -ouri=<oss_path> -ofs.oss.endpoint=<your_endpoint> -ofs.oss.accessKeyId=<your_key_id> -ofs.oss.accessKeySecret=<your_key_secret>
 ```
 
 # 常见问题
