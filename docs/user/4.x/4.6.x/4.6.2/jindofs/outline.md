@@ -59,7 +59,7 @@
 * [使用 RootPolicy 访问 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.2/jindofs/jindofs_dls_root_policy.md)
 
 ## 常见问题
-* [常见问题](/docs/user/4.x/4.6.x/4.6.2/jindodata_QA.md)
+* [常见问题](/docs/user/faq.md)
 
 ## 历史版本
 #### 阿里云 OSS-HDFS 服务（JindoFS 服务）4.6.0 [用户文档](/docs/user/4.x/4.6.x/4.6.0/jindofs/outline.md)

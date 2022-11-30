@@ -59,6 +59,6 @@
 ## 历史版本
 #### JindoSDK 3.x + OSS [用户文档](/docs/user/3.x/outline.md)
 
-## 已知问题
-* [已知问题](/docs/user/4.x/4.4.0/known-issues.md)
+## 常见问题
+* [常见问题](/docs/user/faq.md)
 

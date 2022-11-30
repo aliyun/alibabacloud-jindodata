@@ -56,11 +56,8 @@
 ## 相关文章
 * [使用 JindoSDK 大幅提升 OSS 文件各项操作性能](https://developer.aliyun.com/article/767222)
 
-## 已知问题
-* [已知问题](/docs/user/4.x/4.6.x/4.6.1/known-issues.md)
-
 ## 常见问题
-* [常见问题](/docs/user/4.x/4.6.x/4.6.1/jindodata_QA.md)
+* [常见问题](/docs/user/faq.md)
 
 ## 历史版本
 #### JindoSDK 4.6.0 [用户文档](/docs/user/4.x/4.6.x/4.6.0/oss/outline.md)
