@@ -55,6 +55,9 @@ jindo fs -getStoragePolicy -path oss://oss-dfs-test/dir1/file1
 
 如果最终生效的存储策略为`UNSPECIFIED`（即`getStoragePolicy()`接口返回`null`），则对象默认使用标准存储。
 
+## 目录嵌套
+
+目前 JindoFS <span style="color:red">**不支持嵌套策略**</span>, 例如对 `oss://oss-dfs-test/warehouse/dwd.db/dt=20220101` 使用了`CLOUD_AR`策略, 再对 `oss://oss-dfs-test/warehouse/dwd.db` 父目录使用`CLOUD_STD`策略, 是不会执行解归档操作的. 因此建议<span style="color:red">**只对之前设置过policy的目录修改policy, 不要再修改其上下级目录的policy.**</span>
 
 ## 各种场景下 Policy 互转的例子
 ```bash
