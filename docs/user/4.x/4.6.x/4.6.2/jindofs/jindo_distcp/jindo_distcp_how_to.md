@@ -210,3 +210,12 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 ```bash
 hadoop jar jindo-distcp-tool-${version}.jar --src /opt/tmp --dest oss://yang-hhht.cn-xxx.oss-dls.aliyuncs.com/tmp --preserveMeta
 ```
+
+### 17、使用--jobBatch
+在您的distcp任务写入OSS时，您可以通过--jobBatch来指定每个distcp job处理的文件数量，默认为10000。
+
+示例命令如下：
+
+```bash
+hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --dest oss://yang-hhht/hourly_table --jobBatch 50000
+```
