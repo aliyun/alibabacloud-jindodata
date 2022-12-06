@@ -87,7 +87,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /data/incoming/hourly_table --
 则只有路径中带有`test`的文件才会拷贝到OSS。
 
 ### 6、使用--parallelism
-parallelism 参数用来指定MR任务里的 mapreduce.job.maps 参数，该参数在EMR环境中默认为7，您可以根据集群的资源情况自定义 parallelism 的大小来控制 distcp 任务的并发度。
+parallelism 参数用来指定MR任务里的 mapreduce.job.maps 参数，您可以根据集群的资源情况自定义 parallelism 的大小来控制 distcp 任务的并发度。
 
 如从HDFS上/opt/tmp目录拷贝到OSS bucket，可以执行
 

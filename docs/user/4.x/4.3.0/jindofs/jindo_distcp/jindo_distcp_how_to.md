@@ -60,7 +60,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src /opt/tmp --dest oss://yang-hhh
 您可以通过指定dest路径来确定拷贝后的文件层次，如您需要将/opt/tmp下的文件拷贝到yang-hhht这个bucket下的tmp目录下，则可以使用上述语句来完成。此处和Hadoop的distcp行为有所不同，JindoDistCp会默认将src目录下的所有文件拷贝到您指定dest路径下，并不包括当前的根目录名称，您可以在dest中指定拷贝路径的根目录，如果不存在会自动创建。<br /><a name="L7ugZ"></a>
 
 ### 3、使用--parallelism
-parallelism 参数用来指定MR任务里的 mapreduce.job.maps 参数，该参数在EMR环境中默认为7，您可以根据集群的资源情况自定义 parallelism 的大小来控制 distcp 任务的并发度。
+parallelism 参数用来指定MR任务里的 mapreduce.job.maps 参数，您可以根据集群的资源情况自定义 parallelism 的大小来控制 distcp 任务的并发度。
 
 如从HDFS上/opt/tmp目录拷贝到OSS bucket，可以执行
 
