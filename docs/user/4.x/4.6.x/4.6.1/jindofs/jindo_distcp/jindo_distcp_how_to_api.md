@@ -116,7 +116,7 @@ public class DistcpExample {
 | void setDest(String dest)                                          | 必选     | 设置目标目录，支持的前缀有<br/>hdfs://<br/>oss://<br/>s3://<br/>cos://<br/>obs:// | -       | 4.3.0+ |
 | void setConf(Configuration conf)                                   | 必选     | 设置 Configuration | -       | 4.3.0+ |
 | void setMode(DistCpMode mode)                                      | 可选     | 设置DistCp模式，支持的模式有<br/>COPY（拷贝）<br/>DIFF（差异比较）<br/>UPADTE（增量拷贝） | DistCpMode.COPY | 4.3.0+ |
-| void setNumWorkers(int numWorkers)                                 | 可选     | 设置DistCp任务的并发度，对应MR任务中的 mapreduce.job.reduces | 10      | 4.3.0+ |
+| void setNumWorkers(int numWorkers)                                 | 可选     | 设置DistCp任务的并发度，对应MR任务中的 mapreduce.job.maps | 10      | 4.3.0+ |
 | void setBandWidthLimit(int bandWidthLimit)                         | 可选     | 设置单个节点的带宽限制，单位M | -1      | 4.3.0+ |
 | void setWorkTempDir(String workTempDir)                            | 可选     | 设置临时目录        | /tmp    | 4.3.0+ |
 | void setOutputCodec(String outputCodec)                            | 可选     | 设置压缩类型，支持编解码器有 gzip、gz、lzo、lzop、lzop、snappy | keep（不更改压缩类型） | 4.3.0+ |
