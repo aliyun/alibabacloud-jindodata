@@ -10,13 +10,14 @@ JindoShell CLI支持操作JindoFSx数据缓存、元数据缓存和统一命名
 * [元数据缓存命令]  
 * [清理缓存命令]
 * [统一命名空间命令] 
-* [其他命令]    
+* [其他命令]
+    
 
 ## 数据缓存命令
 
 数据缓存命令可以备份对应路径的数据至本集群的磁盘，以便于后续可以读取本地数据，无需读取OSS等后端上的数据。
 ```shell
-s
+jindo fsx -load -data <options> <path>
 ```
 |  **参数**  |  **描述**  |
 | --- | --- |
@@ -80,7 +81,7 @@ jindo fs -unmount <path>
 ```shell
 jindo fs -report
 ```
-输出信息如下:
+输出信息如下
 ```shell
 Namespace Address: 127.0.0.1:8101
 Rpc Port: 8101
