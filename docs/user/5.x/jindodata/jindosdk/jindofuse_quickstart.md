@@ -1,8 +1,8 @@
-# JindoFUSE 使用指南
+# JindoFuse 使用指南
 
 ## 概述
 
-OSS/OSS-HDFS 可以通过 JindoFUSE 提供 POSIX 支持，将 OSS/OSS-HDFS 上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作 OSS/OSS-HDFS 上的文件。
+OSS/OSS-HDFS 可以通过 JindoFuse 提供 POSIX 支持，将 OSS/OSS-HDFS 上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作 OSS/OSS-HDFS 上的文件。
 
 ## 环境准备
 
