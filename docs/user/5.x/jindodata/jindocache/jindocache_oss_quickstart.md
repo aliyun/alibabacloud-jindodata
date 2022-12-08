@@ -1,4 +1,4 @@
-# OSS 透明缓存加速配置指南
+# OSS/OSS-HDFS 透明缓存加速配置指南
 
 JindoFSx存储加速系统提供了透明缓存的使用方式，兼容原生OSS/OSS-HDFS存储方式，文件以对象的形式存储在OSS/OSS-HDFS上，每个文件根据实际访问情况会在本地进行缓存，提升访问OSS/OSS-HDFS的效率，同时兼容了原有OSS/OSS-HDFS文件形式，数据访问上能够与其他OSS/OSS-HDFS客户端完全兼容，作业访问OSS/OSS-HDFS的方式无需做任何修改。
 

@@ -10,6 +10,42 @@
     
     *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
         
+## 依赖准备
+
+* EMR-3.44.0及以上版本或EMR-5.10.0及以上版本，已默认安装所需依赖，可跳过本章节。
+
+* JindoSDK 4.5.0 及之前版本
+
+```bash
+# CentOS
+yum install -y fuse3 fuse3-devel
+# Debian
+apt install -y fuse3 libfuse3-dev
+```
+
+* JindoSDK 4.5.1 及以上版本，需依赖libfuse 3.7+，以安装fuse-3.11为例：
+```bash
+# build fuse required meson & ninja, for debian: apt install -y pkg-config meson ninja-build
+sudo yum install -y meson ninja-build
+
+# compile fuse required newer g++ (only CentOS)
+sudo yum install -y scl-utils
+sudo yum install -y alinux-release-experimentals
+sudo yum install -y devtoolset-8-gcc devtoolset-8-gdb devtoolset-8-binutils devtoolset-8-make devtoolset-8-gcc-c++
+sudo su -c "echo 'source /opt/rh/devtoolset-8/enable' > /etc/profile.d/g++.sh"
+source /opt/rh/devtoolset-8/enable
+sudo ln -s /opt/rh/devtoolset-8/root/bin/gcc /usr/local/bin/gcc
+sudo ln -s /opt/rh/devtoolset-8/root/bin/g++ /usr/local/bin/g++
+
+# compile & install libfuse
+wget https://github.com/libfuse/libfuse/releases/download/fuse-3.11.0/fuse-3.11.0.tar.xz
+xz -d fuse-3.11.0.tar.xz
+tar xf fuse-3.11.0.tar
+cd fuse-3.11.0/
+mkdir build; cd build
+meson ..
+sudo ninja install
+```
 
 ## 挂载 JindoFuse
 
@@ -86,8 +122,8 @@ umount <mount_point>
 
 ## 自动卸载 JindoFuse
 
-可以使用 `\-oauto\_unmount` 参数，自动卸载挂载点。
+可以使用 `-oauto_unmount` 参数，自动卸载挂载点。
 
 使用该参数后，可以支持 `killall -9 jindo-fuse` 发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
 
-更多命令及描述，详见[《Jindo CLI 参数说明》](../../jindodata/jindosdk/jindofuse_quickstart.md)
+更多命令及描述，详见[《JindoFUSE 使用指南》](../../jindodata/jindosdk/jindofuse_quickstart.md)

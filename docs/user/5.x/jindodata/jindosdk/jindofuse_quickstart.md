@@ -1,8 +1,8 @@
-# 通过 JindoFUSE 访问 OSS/OSS-HDFS
+# JindoFUSE 使用指南
 
 ## 概述
 
-OSS/OSS-HDFS 通过 JindoFuse 提供 POSIX 支持。JindoFuse 可以把 OSS 上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作 OSS 上的文件。
+OSS/OSS-HDFS 可以通过 JindoFUSE 提供 POSIX 支持，将 OSS/OSS-HDFS 上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作 OSS/OSS-HDFS 上的文件。
 
 ## 环境准备
 
@@ -173,24 +173,24 @@ umount <mount_point>
 
 |  参数名称  |  必选  |  版本  |  参数说明  |  使用范例  |
 | --- | --- | --- | --- | --- |
-|  uri  |  ✓  |  \>=4.3.0  |  配置需要映射的 oss 路径。路径可以是根目录，也可以是子目录。例如：oss://examplebucket/ 或 oss://examplebucket/subdir。  |  \-ouri=oss://examplebucket/  |
-|  f  |   |  \>=4.3.0  |  在前台启动进程。默认使用守护进程方式后台启动。使用该参数时，推荐开启终端日志。  |  \-f  |
-|  d  |   |  \>=4.3.0  |  使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。  |  \-d  |
-|  auto\_unmount  |   |  \>=4.3.0  |  fuse进程退出后自动umount挂载节点。  |  \-oauto\_unmount  |
-|  ro  |   |  \>=4.3.0  |  只读挂载，启用参数后不允许写操作。  |  \-oro  |
-|  direct\_io  |   |  \>=4.3.0  |  开启后，读写文件可以绕过page cache。  |  \-odirect\_io  |
-|  kernel\_cache  |   |  \>=4.3.0  |  开启后，利用内核缓存优化读性能。  |  \-okernel\_cache  |
-|  auto\_cache  |   |  \>=4.3.0  |  默认开启，与kernel_cache 二选一，与kernel_cache不同的是，如果文件大小或修改时间发生变化，缓存就会失效。  |   |
-|  entry\_timeout  |   |  \>=4.3.0  |  默认值，60。文件名读取缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-oentry\_timeout=60  |
-|  attr\_timeout  |   |  \>=4.3.0  |  默认值，60。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-oattr\_timeout=60  |
-|  negative\_timeout  |   |  \>=4.3.0  |  默认值，60。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-onegative\_timeout=0  |
-|  max\_idle\_threads  |   |  \>=4.3.0  |  默认值，10。处理内核回调的空闲线程池。  |  \-omax\_idle\_threads=10  |
-|  xengine  |   |  \>=4.3.0  |  打开缓存  |  \-oxengine  |
-|  pread  |   |  \>=4.5.1  |  默认使用顺序读。打开后，使用随机读代替顺序读，适用于随机读远多于顺序读的场景。  |  \-opread  |
-|  no\_symlink  |   |  \>=4.5.1  |  配置后，关闭symlink功能。  |  \-ono\_symlink  |
-|  no\_writeback  |   |  \>=4.5.1  |  配置后，关闭writeback功能。  |  \-ono\_writeback  |
-|  no\_flock  |   |  \>=4.5.1  |  配置后，关闭flock功能。  |  \-ono\_flock  |
-|  no\_xattr  |   |  \>=4.5.1  |  配置后，关闭xttar功能。  |  \-ono\_xattr  |
+|  uri  |  ✓  |  4.3.0+  |  配置需要映射的 oss 路径。路径可以是根目录，也可以是子目录。例如：oss://examplebucket/ 或 oss://examplebucket/subdir。  |  \-ouri=oss://examplebucket/  |
+|  f  |   |  4.3.0+  |  在前台启动进程。默认使用守护进程方式后台启动。使用该参数时，推荐开启终端日志。  |  \-f  |
+|  d  |   |  4.3.0+  |  使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。  |  \-d  |
+|  auto\_unmount  |   |  4.3.0+  |  fuse进程退出后自动umount挂载节点。  |  \-oauto\_unmount  |
+|  ro  |   |  4.3.0+  |  只读挂载，启用参数后不允许写操作。  |  \-oro  |
+|  direct\_io  |   |  4.3.0+  |  开启后，读写文件可以绕过page cache。  |  \-odirect\_io  |
+|  kernel\_cache  |   |  4.3.0+  |  开启后，利用内核缓存优化读性能。  |  \-okernel\_cache  |
+|  auto\_cache  |   |  4.3.0+  |  默认开启，与kernel_cache 二选一，与kernel_cache不同的是，如果文件大小或修改时间发生变化，缓存就会失效。  |   |
+|  entry\_timeout  |   |  4.3.0+  |  默认值，60。文件名读取缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-oentry\_timeout=60  |
+|  attr\_timeout  |   |  4.3.0+  |  默认值，60。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-oattr\_timeout=60  |
+|  negative\_timeout  |   |  4.3.0+  |  默认值，60。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-onegative\_timeout=0  |
+|  max\_idle\_threads  |   |  4.3.0+  |  默认值，10。处理内核回调的空闲线程池。  |  \-omax\_idle\_threads=10  |
+|  xengine  |   |  4.3.0+  |  打开缓存  |  \-oxengine  |
+|  pread  |   |  4.5.1+  |  默认使用顺序读。打开后，使用随机读代替顺序读，适用于随机读远多于顺序读的场景。  |  \-opread  |
+|  no\_symlink  |   |  4.5.1+  |  配置后，关闭symlink功能。  |  \-ono\_symlink  |
+|  no\_writeback  |   |  4.5.1+  |  配置后，关闭writeback功能。  |  \-ono\_writeback  |
+|  no\_flock  |   |  4.5.1+  |  配置后，关闭flock功能。  |  \-ono\_flock  |
+|  no\_xattr  |   |  4.5.1+  |  配置后，关闭xttar功能。  |  \-ono\_xattr  |
 
 ## 配置选项
 
