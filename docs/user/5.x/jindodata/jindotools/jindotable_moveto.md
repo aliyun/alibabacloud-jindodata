@@ -1,12 +1,18 @@
-# 使用 JindoTable 将 Hive 表和分区数据迁移到 OSS
+# 使用 JindoTable 将 Hive 表和分区数据迁移到 OSS/OSS-HDFS
 
 HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶颈。云厂商提供的对象存储可以作为 HDFS 的替代或补充，扩展云上 Hadoop 平台的存储能力。
-本工具用于把 Hive 数据根据分区键规则筛选，在 HDFS 和 OSS 之间转移分区。
+本工具用于把 Hive 数据根据分区键规则筛选，在 HDFS 和 OSS/OSS-HDFS 之间转移分区。
 
 ## 前提条件
 ### 已部署 JindoSDK
 
-E-MapReduce EMR-5.6.0/EMR-3.40.0 或以上版本集群在集群中已部署 JindoSDK。自建集群请参考 [JindoSDK + 阿里云 OSS 快速入门](/docs/user/4.x/4.6.x/4.6.2/oss/jindosdk_quickstart.md) 。
+*   EMR环境中，默认已安装 JindoSDK，可以直接使用。注意：
+
+    *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
+
+*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](../jindosdk/jindosdk_deployment.md)。
+
+    *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
 
 ### 已部署 Hadoop 与 Hive 环境
 
