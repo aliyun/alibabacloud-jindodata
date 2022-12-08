@@ -4,11 +4,11 @@
 
 *   EMR环境中，默认已安装 JindoSDK，可以直接使用。注意：
     
-    *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
+    *   访问 OSS-HDFS，需创建EMR-3.44.0及以上版本或EMR-5.10.0及以上版本的集群。
         
 *   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](../../jindodata/jindosdk/jindosdk_deployment.md)。
     
-    *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
+    *   访问 OSS-HDFS，需部署 JindoSDK 4.6.x 及以上版本。
         
 
 ## 通过 Jindo CLI 命令访问
