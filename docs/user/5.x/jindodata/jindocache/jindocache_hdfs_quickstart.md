@@ -6,14 +6,16 @@ Apache HDFS透明缓存加速可以利用计算集群的闲置存储资源对�
 
 * EMR 环境
 
-   已在E-MapReduce上创建EMR-3.40.0及后续版本，EMR-5.6.0及后续版本的集群，且勾选 **JINDODATA** 服务，具体操作请参见[创建集群](https://help.aliyun.com/document_detail/28088.htm#concept-olg-vq3-y2b)。
+   已在E-MapReduce上创建
+EMR-3.42.0及后续版本，EMR-5.6.0及后续版本的集群，且勾选 **JINDODATA** 服务，具体操作请参见[创建集群](https://help.aliyun.com/document_detail/28088.htm#concept-olg-vq3-y2b)。
 
 
 * 非 EMR 环境
 
    请参考 [JindoFSx 缓存加速系统使用指南 - 非EMR环境](docs/../../../../4.x/4.6.x/4.6.2/jindofsx/outline.md)
 
-**说明** 本文以EMR-3.40.0版本为例介绍。
+**说明** 本文以
+EMR-3.42.0版本为例介绍。
 
 
 ## 操作流程
