@@ -43,7 +43,7 @@ curl http://100.100.100.200/latest/meta-data/Ram/Security-credentials/AliyunECSI
 某些版本有已知免密问题，请查看[已知问题](../jindodata_known_issues.md)
 
 ### 方法一：使用固定 AK
-配置使用`SimpleCredentialsProvider`, 请参考 [配置 OSS/OSS-HDFS Credential Provider](jindosdk_credential_provider_oss.md)
+配置使用`SimpleCredentialsProvider`, 请参考 [配置 OSS/OSS-HDFS Credential Provider](jindosdk_credential_provider.md)
 
 ### 方法二：升级 JindoSDK 为最新版本
 

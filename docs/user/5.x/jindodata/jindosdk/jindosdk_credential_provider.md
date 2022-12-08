@@ -220,5 +220,5 @@ Secrets 协议免密服务地址格式为`secrets:///local_path_prefix`，常见
 
 ### JindoSDK 还支持不同的 OSS/OSS-HDFS bucket 配置不同的 Credential Provider
 
-详情参考[按 bucket 配置 OSS/OSS-HDFS Credential Provider](jindosdk_credential_provider_bucket_oss.md)。
+详情参考[按 bucket 配置 OSS/OSS-HDFS Credential Provider](jindosdk_credential_provider_bucket.md)。
 
