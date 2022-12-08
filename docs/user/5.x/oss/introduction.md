@@ -12,7 +12,7 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件
 
 在 EMR 环境中，已经默认部署 JindoSDK，您可以直接通过 JindoSDK 来访问 OSS/OSS-HDFS。
 
-在非 EMR 环境中，您也可以通过下载最新版本的 JindoSDK ，自行部署使用，部署方式参见 [《非 EMR 环境中部署 JindoSDK》](/docs/user/5.x/jindodata/jindo-sdk/jindosdk_deploy.md)。
+在非 EMR 环境中，您也可以通过下载最新版本的 JindoSDK ，自行部署使用，部署方式参见 [《非 EMR 环境中部署 JindoSDK》](/docs/user/5.x/jindodata/jindosdk/jindosdk_deploy.md)。
 
 ## 优点
 

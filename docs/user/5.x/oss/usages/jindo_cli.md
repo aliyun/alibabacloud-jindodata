@@ -6,7 +6,7 @@
     
     *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
         
-*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](/docs/user/5.x/jindodata/jindo-sdk/deployment.md)。
+*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](/docs/user/5.x/jindodata/jindosdk/deployment.md)。
     
     *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
         
@@ -73,4 +73,4 @@ jindo fs -get oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/exampleobject
 jindo fs -rm oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/destfolder/
 ```
 
-更多命令及描述，详见[《Jindo CLI 参数说明》](/docs/user/5.x/jindodata/jindo-sdk/jindo_cli_options.md)
+更多命令及描述，详见[《Jindo CLI 参数说明》](/docs/user/5.x/jindodata/jindosdk/jindo_cli_options.md)

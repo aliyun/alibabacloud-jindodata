@@ -25,7 +25,7 @@
 |  ~~fs.oss.read.readahead.buffer.size~~  |  ~~整型~~  |  ~~1048576~~  |  ~~预读 oss 的 buffer 大小~~  |  ~~4.3.0至4.5.0版本~~  |
 |  ~~fs.oss.read.readahead.buffer.count~~  |  ~~整型~~  |  ~~4~~  |  ~~同时预读 oss 的 buffer 个数~~  |  ~~4.3.0至4.5.0版本~~  |
 
-Credential Provider 相关配置，详见[《配置 OSS/OSS-HDFS Credential Provider》](/docs/user/5.x/jindodata/jindo-sdk/oss_credential_provider.md)
+Credential Provider 相关配置，详见[《配置 OSS/OSS-HDFS Credential Provider》](/docs/user/5.x/jindodata/jindosdk/oss_credential_provider.md)
 
 ## JindoCache
 

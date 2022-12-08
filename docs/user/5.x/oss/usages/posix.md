@@ -6,7 +6,7 @@
     
     *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
         
-*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](/docs/user/5.x/jindodata/jindo-sdk/deployment.md)。
+*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](/docs/user/5.x/jindodata/jindosdk/deployment.md)。
     
     *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
         
@@ -166,7 +166,7 @@ umount <mount_point>
 |  fs.oss.accessKeyId  |   |  访问 JindoFS 服务需要的 accessKeyId  |
 |  fs.oss.accessKeySecret  |   |  访问 JindoFS 服务需要的 accessKeySecret  |
 
-更多参数可见[《客户端常用配置》](/docs/user/5.x/jindodata/jindo-sdk/configuration.md)。
+更多参数可见[《客户端常用配置》](/docs/user/5.x/jindodata/jindosdk/configuration.md)。
 
 *   支持将 jindosdk 配置节参数与挂载选项一同在挂载时指定（挂载时指定参数的优先级高于配置文件），如:
     
