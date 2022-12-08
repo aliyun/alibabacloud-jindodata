@@ -1,8 +1,8 @@
 # EMR 集群 JindoSDK 升级流程（新版控制台）
 
-## 前提条件
+## 背景
 
-* 已创建E-MapReduce EMR-5.9.1/EMR-3.43.1 或以上版本的集群。
+在新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群中遇到[已知问题](./jindodata/jindodata_known_issues.md)或需要使用[新功能](./jindodata/jindodata_release_notes.md)。
 
 ## 准备软件包和升级脚本
 
