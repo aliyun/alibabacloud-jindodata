@@ -121,7 +121,7 @@ EMR-3.42.0版本为例介绍。
 
 ## 相关文档
 
-JindoSDK包含一些高级调优参数，配置方式以及配置项的详细信息，请参见[JindoSDK高级参数配置](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.3.0/jindofsx/configuration/jindosdk_configuration_list.md)。
+JindoSDK包含一些高级调优参数，配置方式以及配置项的详细信息，请参见[JindoSDK高级参数配置](../jindosdk/jindosdk_configuration.md)。
 
 ## 步骤三：磁盘空间水位控制
 
