@@ -38,7 +38,7 @@
 |  存储系统  |  根路径示例  |  描述  |
 | --- | --- | --- |
 |  OSS  |  oss://examplebucket.oss-cn-shanghai-internal.aliyuncs.com/  |  以在上海区域已创建了名为examplebucket的 OSS Bucket，并使用内网 endpoint 访问为例。 注：在 EMR 集群中未挂载公网的节点，默认不支持访问 OSS 公网 endpoint，即默认不支持跨区域访问。  |
-|  OSS-HDFS  |  oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/  |  以在上海区域已创建了名为examplebucket的 OSS-HDFS Bucket。 注：OSS-HDFS 目前只支持内网访问，即默认不支持跨区域访问。  |
+|  OSS-HDFS  |  oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/  |  以在上海区域已创建了名为examplebucket的 OSS-HDFS Bucket 为例。 注：OSS-HDFS 目前只支持内网访问，即默认不支持跨区域访问。  |
 
 访问 OSS 和 OSS-HDFS 的方式，除路径中的 endpoint 外，使用方式均相同。
 
