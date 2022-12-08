@@ -126,4 +126,6 @@ umount <mount_point>
 
 使用该参数后，可以支持 `killall -9 jindo-fuse` 发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
 
+## 附录
+
 更多命令及描述，详见[《JindoFUSE 使用指南》](../../jindodata/jindosdk/jindofuse_quickstart.md)
