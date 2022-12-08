@@ -125,7 +125,7 @@ OSS 提供了完整的数据权限管控体系，完整的OSS授权策略请参
 
 建议使用“完全控制”，避免出现以下问题：
 
-[《使用子账号访问 OSS 出现 AccessDenied 问题排查》](/docs/user/5.x/oss/issues/oss_access_denied.md)
+[《使用子账号访问 OSS 出现 AccessDenied 问题排查》](./issues/oss_access_denied.md)
 
 ## 授权访问 OSS-HDFS
 

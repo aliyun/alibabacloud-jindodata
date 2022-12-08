@@ -6,7 +6,7 @@
     
     *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
         
-*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](/docs/user/5.x/jindodata/jindosdk/deployment.md)。
+*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](../../jindodata/jindosdk/jindosdk_deployment.md)。
     
     *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
         
@@ -32,7 +32,7 @@ jindo-fuse <mount_point> -ouri=[<osspath>]
 
 `<oss_path>` 需替换为待映射的 OSS/OSS-HDFS 路径，路径可以为 Bucket 根目录或者子目录。如 oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/subdir/
 
-挂载 OSS 和 OSS-HDFS 路径的方式基本相同，仅路径中的 endpoint 略有不同。根路径示例可参见：[《OSS/OSS-HDFS 快速入门》](/docs/user/5.x/oss/quickstart.md)
+挂载 OSS 和 OSS-HDFS 路径的方式基本相同，仅路径中的 endpoint 略有不同。根路径示例可参见：[《OSS/OSS-HDFS 快速入门》](../oss_quickstart.md)
 
 *   确认挂载成功，jindo-fuse 进程存在，且启动参数与预期一致
     
@@ -166,7 +166,7 @@ umount <mount_point>
 |  fs.oss.accessKeyId  |   |  访问 JindoFS 服务需要的 accessKeyId  |
 |  fs.oss.accessKeySecret  |   |  访问 JindoFS 服务需要的 accessKeySecret  |
 
-更多参数可见[《客户端常用配置》](/docs/user/5.x/jindodata/jindosdk/configuration.md)。
+更多参数可见[《客户端常用配置》](../../jindodata/jindosdk/jindosdk_configuration.md)。
 
 *   支持将 jindosdk 配置节参数与挂载选项一同在挂载时指定（挂载时指定参数的优先级高于配置文件），如:
     

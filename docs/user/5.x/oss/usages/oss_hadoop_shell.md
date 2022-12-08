@@ -6,14 +6,14 @@
     
     *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
         
-*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](/docs/user/5.x/jindodata/jindosdk/deployment.md)。
+*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](../../jindodata/jindosdk/jindosdk_deployment.md)。
     
     *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
         
 
 ## 通过 Hadoop Shell 命令访问
 
-通过 hadoop 命令访问 OSS 和 OSS-HDFS 的方式基本相同，仅路径中的 endpoint 略有不同。根路径示例可参见：[《OSS/OSS-HDFS 快速入门》](/docs/user/5.x/oss/quickstart.md)
+通过 hadoop 命令访问 OSS 和 OSS-HDFS 的方式基本相同，仅路径中的 endpoint 略有不同。根路径示例可参见：[《OSS/OSS-HDFS 快速入门》](../oss_quickstart.md)
 
 *   上传文件
     
