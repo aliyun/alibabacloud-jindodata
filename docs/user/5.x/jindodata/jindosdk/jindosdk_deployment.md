@@ -20,8 +20,6 @@ tar zxvf jindosdk-4.6.2.tar.gz
 
 3.  配置环境变量。
     
-配置JINDOSDK\_HOME、JINDOSDK\_CONF\_DIR、LD\_LIBRARY\_PATH。
-        
 以安装包内容解压在/usr/lib/jindosdk-4.6.2目录为例：
 
 ```bash

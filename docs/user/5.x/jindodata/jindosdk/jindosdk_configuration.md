@@ -18,7 +18,7 @@
 |  fs.oss.read.readahead.max.buffer.count  |  整型  |  48  |  最大同时预读 oss 的 buffer 个数  |  4.5.1+ |
 |  fs.oss.read.buffer.size  |  整型  |  1048576  |  oss 读缓冲区大小（字节）  |  4.3.0+ |
 |  fs.oss.write.buffer.size  |  整型  |  1048576  |  oss 写缓冲区大小（字节）  |  4.3.0+ |
-|  fs.oss.flush.interval.millisecond  |  整型  |  \-1  |  oss 刷新缓冲区间隔（毫秒），小于 0 时不生效  |  4.3.0+  |
+|  fs.oss.flush.interval.millisecond  |  整型  |  -1  |  oss 刷新缓冲区间隔（毫秒），小于 0 时不生效  |  4.3.0+  |
 |  fs.oss.checksum.crc64.enable  |  布尔值  |  true  |  文件级别 crc64 完整性校验  |  4.6.0+  |
 |  fs.oss.checksum.md5.enable  |  布尔值  |  false  |  请求级别 md5 完整性校验  |  4.6.0+  |
 |  ~~fs.oss.download.queue.size~~  |  ~~整型~~  |  ~~5~~  |  ~~oss 并发下载任务队列大小~~  |  ~~4.3.0-4.5.0~~  |

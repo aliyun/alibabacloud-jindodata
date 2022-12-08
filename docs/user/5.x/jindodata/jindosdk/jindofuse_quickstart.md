@@ -126,7 +126,7 @@ umount <mount_point>
 
 ## 自动卸载 JindoFuse
 
-可以使用 `\-oauto\_unmount` 参数，自动卸载挂载点。
+可以使用 `-oauto_unmount` 参数，自动卸载挂载点。
 
 使用该参数后，可以支持 `killall -9 jindo-fuse` 发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
 
@@ -150,8 +150,8 @@ umount <mount_point>
 |  release()  |  关闭文件  |  ✅  |  ✅  |
 |  readdir()  |  读取目录  |  ✅  |  ✅  |
 |  create()  |  创建文件  |  ✅  |  ✅  |
-|  open() O\_APPEND  |  通过追加写的方式打开文件  |  ✅  |  ✅  |
-|  open() O\_TRUNC  |  通过覆盖写的方式打开文件  |  ✅  |  ✅  |
+|  open() O_APPEND  |  通过追加写的方式打开文件  |  ✅  |  ✅  |
+|  open() O_TRUNC  |  通过覆盖写的方式打开文件  |  ✅  |  ✅  |
 |  ftruncate()  |  对打开的文件进行截断  |  ❌  |  ✅  |
 |  truncate()  |  对未打开的文件进行截断，类似 truncate -s  |  ❌  |  ✅  |
 |  lseek()  |  指定打开文件中的读写位置。  |  ❌  |  ✅  |
@@ -173,24 +173,24 @@ umount <mount_point>
 
 |  参数名称  |  必选  |  版本  |  参数说明  |  使用范例  |
 | --- | --- | --- | --- | --- |
-|  uri  |  ✓  |  4.3.0+  |  配置需要映射的 oss 路径。路径可以是根目录，也可以是子目录。例如：oss://examplebucket/ 或 oss://examplebucket/subdir。  |  \-ouri=oss://examplebucket/  |
-|  f  |   |  4.3.0+  |  在前台启动进程。默认使用守护进程方式后台启动。使用该参数时，推荐开启终端日志。  |  \-f  |
-|  d  |   |  4.3.0+  |  使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。  |  \-d  |
-|  auto\_unmount  |   |  4.3.0+  |  fuse进程退出后自动umount挂载节点。  |  \-oauto\_unmount  |
-|  ro  |   |  4.3.0+  |  只读挂载，启用参数后不允许写操作。  |  \-oro  |
-|  direct\_io  |   |  4.3.0+  |  开启后，读写文件可以绕过page cache。  |  \-odirect\_io  |
-|  kernel\_cache  |   |  4.3.0+  |  开启后，利用内核缓存优化读性能。  |  \-okernel\_cache  |
-|  auto\_cache  |   |  4.3.0+  |  默认开启，与kernel_cache 二选一，与kernel_cache不同的是，如果文件大小或修改时间发生变化，缓存就会失效。  |   |
-|  entry\_timeout  |   |  4.3.0+  |  默认值，60。文件名读取缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-oentry\_timeout=60  |
-|  attr\_timeout  |   |  4.3.0+  |  默认值，60。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-oattr\_timeout=60  |
-|  negative\_timeout  |   |  4.3.0+  |  默认值，60。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。  |  \-onegative\_timeout=0  |
-|  max\_idle\_threads  |   |  4.3.0+  |  默认值，10。处理内核回调的空闲线程池。  |  \-omax\_idle\_threads=10  |
-|  xengine  |   |  4.3.0+  |  打开缓存  |  \-oxengine  |
-|  pread  |   |  4.5.1+  |  默认使用顺序读。打开后，使用随机读代替顺序读，适用于随机读远多于顺序读的场景。  |  \-opread  |
-|  no\_symlink  |   |  4.5.1+  |  配置后，关闭symlink功能。  |  \-ono\_symlink  |
-|  no\_writeback  |   |  4.5.1+  |  配置后，关闭writeback功能。  |  \-ono\_writeback  |
-|  no\_flock  |   |  4.5.1+  |  配置后，关闭flock功能。  |  \-ono\_flock  |
-|  no\_xattr  |   |  4.5.1+  |  配置后，关闭xttar功能。  |  \-ono\_xattr  |
+|  uri  |  ✓  |  4.3.0+  |  配置需要映射的 oss 路径。路径可以是根目录，也可以是子目录。例如：oss://examplebucket/ 或 oss://examplebucket/subdir。  |  -ouri=oss://examplebucket/  |
+|  f  |   |  4.3.0+  |  在前台启动进程。默认使用守护进程方式后台启动。使用该参数时，推荐开启终端日志。  |  -f  |
+|  d  |   |  4.3.0+  |  使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。  |  -d  |
+|  auto_unmount  |   |  4.3.0+  |  fuse进程退出后自动umount挂载节点。  |  -oauto_unmount  |
+|  ro  |   |  4.3.0+  |  只读挂载，启用参数后不允许写操作。  |  -oro  |
+|  direct_io  |   |  4.3.0+  |  开启后，读写文件可以绕过page cache。  |  -odirect_io  |
+|  kernel_cache  |   |  4.3.0+  |  开启后，利用内核缓存优化读性能。  |  -okernel_cache  |
+|  auto_cache  |   |  4.3.0+  |  默认开启，与kernel_cache 二选一，与kernel_cache不同的是，如果文件大小或修改时间发生变化，缓存就会失效。  |   |
+|  entry_timeout  |   |  4.3.0+  |  默认值，60。文件名读取缓存保留时间（秒），用于优化性能。0表示不缓存。  |  -oentry_timeout=60  |
+|  attr_timeout  |   |  4.3.0+  |  默认值，60。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。  |  -oattr_timeout=60  |
+|  negative_timeout  |   |  4.3.0+  |  默认值，60。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。  |  -onegative_timeout=0  |
+|  max_idle_threads  |   |  4.3.0+  |  默认值，10。处理内核回调的空闲线程池。  |  -omax_idle_threads=10  |
+|  xengine  |   |  4.3.0+  |  打开缓存  |  -oxengine  |
+|  pread  |   |  4.5.1+  |  默认使用顺序读。打开后，使用随机读代替顺序读，适用于随机读远多于顺序读的场景。  |  -opread  |
+|  no_symlink  |   |  4.5.1+  |  配置后，关闭symlink功能。  |  -ono_symlink  |
+|  no_writeback  |   |  4.5.1+  |  配置后，关闭writeback功能。  |  -ono_writeback  |
+|  no_flock  |   |  4.5.1+  |  配置后，关闭flock功能。  |  -ono_flock  |
+|  no_xattr  |   |  4.5.1+  |  配置后，关闭xttar功能。  |  -ono_xattr  |
 
 ## 配置选项
 
@@ -229,4 +229,4 @@ ls: /mnt/oss/: Input/output error
 
 下面展示的这个错误就来自 `jindosdk.log`，根据报错信息可见，这个错误是常见的鉴权问题。
 
-> EMMDD HH:mm:ss jindofs\_connectivity.cpp:13\] Please check your Endpoint/Bucket/RoleArn. Failed test connectivity, operation: mkdir, errMsg:  \[RequestId\]: 618B8183343EA53531C62B74 \[HostId\]: oss-cn-shanghai-internal.aliyuncs.com \[ErrorMessage\]: \[E1010\]HTTP/1.1 403 Forbidden ...
+> EMMDD HH:mm:ss jindofs_connectivity.cpp:13] Please check your Endpoint/Bucket/RoleArn. Failed test connectivity, operation: mkdir, errMsg:  [RequestId]: 618B8183343EA53531C62B74 [HostId]: oss-cn-shanghai-internal.aliyuncs.com [ErrorMessage]: [E1010]HTTP/1.1 403 Forbidden ...
