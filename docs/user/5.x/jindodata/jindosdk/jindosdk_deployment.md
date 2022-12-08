@@ -1,6 +1,6 @@
 # 在非 EMR 环境中部署 JindoSDK
 
-# 部署 JindoSDK
+## 部署 JindoSDK
 
 连接ECS实例。具体操作，请参见[连接ECS实例](https://help.aliyun.com/document_detail/163467.htm#section-fqu-flq-xvv)。
 
@@ -33,7 +33,7 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 
 **重要** 请将安装目录和环境变量部署到所有所需节点上。
 
-# Hadoop 配置文件
+## Hadoop 配置文件
 
 1.  配置JindoFS服务实现类及AccessKey。
     
@@ -82,7 +82,7 @@ vim /usr/local/hadoop/etc/hadoop/core-site.xml
 
 您还可以通过其他方式配置JindoFS服务Endpoint，且不同方式配置的Endpoint存在生效优先级。更多信息，请参见[附录一：配置Endpoint的其他方式](https://help.aliyun.com/document_detail/332830.html#section-rw3-w05-2ub)。
 
-# 非 Hadoop 配置文件
+## 非 Hadoop 配置文件
 
 ### 配置文件
 
