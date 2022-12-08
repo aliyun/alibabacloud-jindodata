@@ -40,15 +40,18 @@ curl http://100.100.100.200/latest/meta-data/Ram/Security-credentials/AliyunECSI
 使用 HDFS shell 访问 OSS/OSS-HDFS bucket, 若能正常访问，则确认免密正常。
 
 ## 3. 常驻服务每 5-6 个小时访问 OSS/OSS-HDFS 失败
-某些版本有已知免密问题，请查看已知问题：https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/faq.md
+某些版本有已知免密问题，请查看[已知问题](../jindodata_known_issues.md)
 
 ### 方法一：使用固定 AK
-参考 https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.1/jindofs/security/jindosdk_credential_provider_dls.md
+配置使用`SimpleCredentialsProvider`, 请参考 [配置 OSS/OSS-HDFS Credential Provider](jindosdk_credential_provider_oss.md)
 
-### 方法二：升级 JindoSDK 为最新版本,。
-旧版控制台升级，请参考：https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/emr_upgrade_jindosdk.md
-新版控制台升级，请参考：https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/emr_upgrade_jindosdk_emr-next.md
-E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，请参考：https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/emr_upgrade_smartdata.md
+### 方法二：升级 JindoSDK 为最新版本
+
+* 旧版控制台升级，请参考[EMR 集群 JindoSDK 升级流程](../../../4.x/4.6.x/emr_upgrade_jindosdk.md)
+
+* 新版控制台升级，请参考[EMR 集群 JindoSDK 升级流程](../../../4.x/4.6.x/emr_upgrade_jindosdk_emr-next.md)
+
+* E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，请参考[EMR 集群 JindoSDK 升级流程](../../../4.x/4.6.x/emr_upgrade_smartdata.md)
 
 ## 4. 访问 OSS/OSS-HDFS 路径中包含 AK 信息报错
 报错信息如下：
