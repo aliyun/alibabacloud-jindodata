@@ -2,6 +2,25 @@
 
 JindoShell CLI支持操作JindoFSx数据缓存、元数据缓存和统一命名空间等命令。
 
+## 前提条件
+* EMR 环境
+
+   已在E-MapReduce上创建EMR-3.40.0及后续版本，EMR-5.6.0及后续版本的集群，具体操作请参见[创建集群](https://help.aliyun.com/document_detail/28088.htm#concept-olg-vq3-y2b)。
+   
+   * 如果数据源为 OSS/OSS-HDFS/Apache HDFS/NAS  请先完成如下文档配置要求：
+    
+     [OSS/OSS-HDFS 透明缓存加速配置指南](./jindo_cache_oss_hdfs_tutorial.md)
+
+     [Apache HDFS 透明缓存加速配置指南](./jindo_cache_hdfs_tutorial.md)
+
+     [统一命名空间缓存加速配置指南](./jindo_cache_global_namespace_tutorial.md)
+
+* 非 EMR 环境
+
+   请参考 [JindoFSx 缓存加速系统使用指南 - 非EMR环境](docs/../../../../4.x/4.6.x/4.6.2/jindofsx/outline.md)
+
+**说明** 本文以EMR-3.40.0版本为例介绍。
+
 ## 背景信息
 
 本文为您介绍以下内容：
@@ -17,7 +36,7 @@ JindoShell CLI支持操作JindoFSx数据缓存、元数据缓存和统一命名
 
 数据缓存命令可以备份对应路径的数据至本集群的磁盘，以便于后续可以读取本地数据，无需读取OSS等后端上的数据。
 ```shell
-jindo fsx -load -data <options> <path>
+jindo fs -load -data <options> <path>
 ```
 |  **参数**  |  **描述**  |
 | --- | --- |

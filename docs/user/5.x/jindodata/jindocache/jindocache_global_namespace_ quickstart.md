@@ -5,15 +5,23 @@ JindoFSx 提供统一命名空间挂载功能，为应用程序提供统一命�
 ![image](https://alidocs.oss-accelerate.aliyuncs.com/res/YpLdn52Qe66Wqo83/img/aeb54bbe-ae15-4278-bbc4-67008d673eaf.png)
 
 ## 前提条件
+* EMR 环境
 
-*   如果数据源为 OSS/OSS-HDFS/Apache HDFS  请先完成如下文档配置要求：
+   已在E-MapReduce上创建EMR-3.40.0及后续版本，EMR-5.6.0及后续版本的集群，具体操作请参见[创建集群](https://help.aliyun.com/document_detail/28088.htm#concept-olg-vq3-y2b)。
 
-    [OSS/OSS-HDFS 透明缓存加速配置指南](./jindo_cache_oss_hdfs_tutorial.md)
+   *   如果数据源为 OSS/OSS-HDFS/Apache HDFS  请先完成如下文档配置要求：
 
-    [Apache HDFS 透明缓存加速配置指南](./jindo_cache_hdfs_tutorial.md)
+       [OSS/OSS-HDFS 透明缓存加速配置指南](./jindo_cache_oss_hdfs_tutorial.md)
 
-*   如果数据源是阿里云 NAS 则需要保证挂载在各个节点的相同路径下（NS 和 STS 服务所在节点）
-    
+       [Apache HDFS 透明缓存加速配置指南](./jindo_cache_hdfs_tutorial.md)
+
+   *   如果数据源是阿里云 NAS 则需要保证挂载在各个节点的相同路径下（NS 和 STS 服务所在节点）
+
+* 非 EMR 环境
+
+   请参考 [JindoFSx 缓存加速系统使用指南 - 非EMR环境](docs/../../../../4.x/4.6.x/4.6.2/jindofsx/outline.md)
+
+**说明** 本文以EMR-3.40.0版本为例介绍。
 
 ## 通过 jindo 命令挂载
 

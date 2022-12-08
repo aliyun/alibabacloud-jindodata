@@ -4,15 +4,23 @@ JindoFuse透明缓存加速可以利用计算集群的闲置存储资源进行�
 
 ## 前提条件
 
-已在E-MapReduce上创建EMR-3.40.0及后续版本，EMR-5.6.0及后续版本的集群，具体操作请参见[创建集群](https://help.aliyun.com/document_detail/343457.htm#task-2136630)。
+* EMR 环境
 
-如果数据源为 OSS/OSS-HDFS/Apache HDFS/NAS  请先完成如下文档配置要求：
+   已在E-MapReduce上创建EMR-3.40.0及后续版本，EMR-5.6.0及后续版本的集群，具体操作请参见[创建集群](https://help.aliyun.com/document_detail/28088.htm#concept-olg-vq3-y2b)。
+   
+   * 如果数据源为 OSS/OSS-HDFS/Apache HDFS/NAS  请先完成如下文档配置要求：
     
-[OSS/OSS-HDFS 透明缓存加速配置指南](./jindo_cache_oss_hdfs_tutorial.md)
+     [OSS/OSS-HDFS 透明缓存加速配置指南](./jindo_cache_oss_hdfs_tutorial.md)
 
-[Apache HDFS 透明缓存加速配置指南](./jindo_cache_hdfs_tutorial.md)
+     [Apache HDFS 透明缓存加速配置指南](./jindo_cache_hdfs_tutorial.md)
 
-[统一命名空间缓存加速配置指南](./jindo_cache_global_namespace_tutorial.md)
+     [统一命名空间缓存加速配置指南](./jindo_cache_global_namespace_tutorial.md)
+
+* 非 EMR 环境
+
+   请参考 [JindoFSx 缓存加速系统使用指南 - 非EMR环境](docs/../../../../4.x/4.6.x/4.6.2/jindofsx/outline.md)
+
+**说明** 本文以EMR-3.40.0版本为例介绍。
 
 ## 步骤一：配置客户端
 
