@@ -1,4 +1,4 @@
-# JindoSDK OSS Credential Provider 按 OSS bucket 配置使用说明
+# 按 bucket 配置 OSS/OSS-HDFS Credential Provider
 
 ## 按照 bucket 配置 Credential Provider
 
@@ -11,11 +11,11 @@
     </property>
 </configuration>
 ```
-说明 XXX 为 OSS bucket 名称。
+说明 XXX 为 OSS/OSS-HDFS bucket 名称。
 
 ## Credential Provider 类型
 
-### 1. TemporaryCredentialsProvider 适合使用有时效性的 AccessKey 和 SecurityToken 访问 OSS 的情况。
+### 1. TemporaryCredentialsProvider 适合使用有时效性的 AccessKey 和 SecurityToken 访问 OSS/OSS-HDFS 的情况。
 * 配置 Provider 类型：
 
 ```xml
@@ -27,26 +27,26 @@
 </configuration>
 ```
 
-* 配置 OSS AK：
+* 配置 OSS/OSS-HDFS AK：
 
 ```xml
 <configuration>
     <property>
         <name>fs.oss.bucket.XXX.accessKeyId</name>
-        <value>OSS bucket的AccessKey Id</value>
+        <value>OSS/OSS-HDFS bucket的AccessKey Id</value>
     </property>
     <property>
         <name>fs.oss.bucket.XXX.accessKeySecret</name>
-        <value>OSS bucket的AccessKey Secret</value>
+        <value>OSS/OSS-HDFS bucket的AccessKey Secret</value>
     </property>
     <property>
         <name>fs.oss.bucket.XXX.securityToken</name>
-        <value>OSS bucket的SecurityToken（临时安全令牌)</value>
+        <value>OSS/OSS-HDFS bucket的SecurityToken（临时安全令牌)</value>
     </property>
 </configuration>
 ```
 
-### 2. SimpleCredentialsProvider 适合使用长期有效的 AccessKey 访问 OSS 的情况。
+### 2. SimpleCredentialsProvider 适合使用长期有效的 AccessKey 访问 OSS/OSS-HDFS 的情况。
 * 配置Provider类型：
 
 ```xml
@@ -58,17 +58,17 @@
 </configuration>
 ```
 
-* 配置OSS AK：
+* 配置 OSS/OSS-HDFS AK：
 
 ```xml
 <configuration>
     <property>
         <name>fs.oss.bucket.XXX.accessKeyId</name>
-        <value>OSS bucket的AccessKey Id</value>
+        <value>OSS/OSS-HDFS bucket的AccessKey Id</value>
     </property>
     <property>
         <name>fs.oss.bucket.XXX.accessKeySecret</name>
-        <value>OSS bucket的AccessKey Secret</value>
+        <value>OSS/OSS-HDFS bucket的AccessKey Secret</value>
     </property>
 </configuration>
 ```
@@ -85,17 +85,17 @@
 </configuration>
 ```
 
-* 配置OSS AK，需要在环境变量中配置以下参数：
+* 配置 OSS/OSS-HDFS AK，需要在环境变量中配置以下参数：
 
 | 参数                                    | 参数说明             |
 | ------------------------------------------| ----------------- |
-| OSS_ACCESS_KEY_ID                      | OSS bucket的AccessKey Id |
-| OSS_ACCESS_KEY_SECRET                  | OSS bucket的AccessKey Secret |
-| OSS_SECURITY_TOKEN                     | OSS bucket的SecurityToken（临时安全令牌）。说明 仅配置有时效Token时需要。|
+| OSS_ACCESS_KEY_ID                      | OSS/OSS-HDFS bucket的AccessKey Id |
+| OSS_ACCESS_KEY_SECRET                  | OSS/OSS-HDFS bucket的AccessKey Secret |
+| OSS_SECURITY_TOKEN                     | OSS/OSS-HDFS bucket的SecurityToken（临时安全令牌）。说明 仅配置有时效Token时需要。|
 
 
 ### 4. CommonCredentialsProvider为通用配置。
-* 配置Provider类型：
+* 配置 Provider 类型：
 
 ```xml
 <configuration>
@@ -106,21 +106,21 @@
 </configuration>
 ```
 
-* 配置OSS AK：
+* 配置 OSS/OSS-HDFS AK：
 
 ```xml
 <configuration>
     <property>
         <name>jindo.common.accessKeyId</name>
-        <value>OSS bucket 的 AccessKey Id</value>
+        <value>OSS/OSS-HDFS bucket 的 AccessKey Id</value>
     </property>
     <property>
         <name>jindo.common.accessKeySecret</name>
-        <value>OSS bucket 的 AccessKey Secret</value>
+        <value>OSS/OSS-HDFS bucket 的 AccessKey Secret</value>
     </property>
     <property>
         <name>jindo.common.securityToken</name>
-        <value>OSS bucket 的 SecurityToken（临时安全令牌)。说明 仅配置有时效 Token 时需要。</value>
+        <value>OSS/OSS-HDFS bucket 的 SecurityToken（临时安全令牌)。说明 仅配置有时效 Token 时需要。</value>
     </property>
 </configuration>
 ```

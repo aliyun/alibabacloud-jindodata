@@ -1,7 +1,7 @@
-# JindoSDK OSS Credential Provider 配置
+# 配置 OSS/OSS-HDFS Credential Provider
 
 ## 基本配置方式
-您可以将 OSS 的`Access Key ID`、`Access Secret`、`Endpoint`预先配置在 Hadoop 的`core-site.xml`。EMR 集群在 Hadoop-Common 页面选择`配置` > `core-site.xml`。
+您可以将 OSS/OSS-HDFS 的`Access Key ID`、`Access Secret`、`Endpoint`预先配置在 Hadoop 的`core-site.xml`。EMR 集群在 Hadoop-Common 页面选择`配置` > `core-site.xml`。
 
 配置项如下：
 ```xml
@@ -13,11 +13,6 @@
     <property>
         <name>fs.oss.accessKeySecret</name>
         <value>xxx</value>
-    </property>
-    <property>
-        <name>fs.oss.endpoint</name>
-        <!-- 阿里云 ECS 环境下推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com -->
-        <value>oss-cn-xxx.aliyuncs.com</value>
     </property>
 </configuration>
 ```
@@ -32,7 +27,7 @@ hadoop credential <subcommand> [options]
 ```
 hadoop credential create fs.oss.accessKeyId -value AAA -provider jceks://file/root/oss.jceks
 hadoop credential create fs.oss.accessKeySecret -value BBB -provider jceks://file/root/oss.jceks
-hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.securityToken -value CCC -provider jceks://file/root/oss.jceks
 ```
 生成Credential文件后，您需要配置下面的参数来指定Provider的类型和位置。
 ```xml
@@ -44,7 +39,7 @@ hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file
     </property>
 </configuration>
 ```
-## 使用 JindoSDK OSS Credential Provider
+## 使用 JindoSDK OSS/OSS-HDFS Credential Provider
 默认会配置 SimpleCredentialsProvider，EnvironmentVariableCredentialsProvider，CommonCredentialsProvider 这三个Credential Provider, 按照先后顺序读取Credential直至读到有效的Credential。
 ```xml
 <configuration>
@@ -56,7 +51,7 @@ hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file
 </configuration>
 ```
 您可以根据情况，选择不同的Credential Provider，支持如下Provider：
-### 1. TemporaryCredentialsProvider 适合使用有时效性的 AccessKey 和 SecurityToken 访问 OSS 的情况。
+### 1. TemporaryCredentialsProvider 适合使用有时效性的 AccessKey 和 SecurityToken 访问 OSS/OSS-HDFS 的情况。
 * 配置Provider类型：
 
 ```xml
@@ -68,27 +63,27 @@ hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file
 </configuration>
 ```
 
-* 配置OSS AK：
+* 配置 OSS/OSS-HDFS AK：
 
 ```xml
 <configuration>
     <property>
         <name>fs.oss.accessKeyId</name>
-        <value>OSS的AccessKey Id</value>
+        <value>OSS/OSS-HDFS的AccessKey Id</value>
     </property>
     <property>
         <name>fs.oss.accessKeySecret</name>
-        <value>OSS的AccessKey Secret</value>
+        <value>OSS/OSS-HDFS的AccessKey Secret</value>
     </property>
     <property>
         <name>fs.oss.securityToken</name>
-        <value>OSS的SecurityToken（临时安全令牌)</value>
+        <value>OSS/OSS-HDFS的SecurityToken（临时安全令牌)</value>
     </property>
 </configuration>
 ```
 
-### 2. SimpleCredentialsProvider 适合使用长期有效的 AccessKey 访问 OSS 的情况。
-* 配置Provider类型：
+### 2. SimpleCredentialsProvider 适合使用长期有效的 AccessKey 访问 OSS/OSS-HDFS 的情况。
+* 配置 Provider 类型：
 
 ```xml
 <configuration>
@@ -99,22 +94,22 @@ hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file
 </configuration>
 ```
 
-* 配置OSS AK：
+* 配置 OSS/OSS-HDFS AK：
 
 ```xml
 <configuration>
     <property>
         <name>fs.oss.accessKeyId</name>
-        <value>OSS 的AccessKey Id</value>
+        <value>OSS/OSS-HDFS 的AccessKey Id</value>
     </property>
     <property>
         <name>fs.oss.accessKeySecret</name>
-        <value>OSS 的AccessKey Secret</value>
+        <value>OSS/OSS-HDFS 的AccessKey Secret</value>
     </property>
 </configuration>
 ```
 
-### 3. EnvironmentVariableCredentialsProvider在环境变量中获取AK。
+### 3. EnvironmentVariableCredentialsProvider 在环境变量中获取 AK。
 * 配置Provider类型：
 
 ```xml
@@ -126,13 +121,13 @@ hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file
 </configuration>
 ```
 
-* 配置OSS AK，需要在环境变量中配置以下参数：
+* 配置 OSS/OSS-HDFS AK，需要在环境变量中配置以下参数：
 
 | 参数                                    | 参数说明             |
 | ------------------------------------------| ----------------- |
-| OSS_ACCESS_KEY_ID                      | OSS 的 AccessKey Id |
-| OSS_ACCESS_KEY_SECRET                  | OSS 的 AccessKey Secret |
-| OSS_SECURITY_TOKEN                     | OSS 的 SecurityToken（临时安全令牌）。说明 仅配置有时效 Token 时需要。|
+| OSS_ACCESS_KEY_ID                      | OSS/OSS-HDFS 的 AccessKey Id |
+| OSS_ACCESS_KEY_SECRET                  | OSS/OSS-HDFS 的 AccessKey Secret |
+| OSS_SECURITY_TOKEN                     | OSS/OSS-HDFS 的 SecurityToken（临时安全令牌）。说明 仅配置有时效 Token 时需要。|
 
 
 ### 4. CommonCredentialsProvider 为通用配置。
@@ -147,21 +142,21 @@ hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file
 </configuration>
 ```
 
-* 配置OSS AK：
+* 配置 OSS/OSS-HDFS AK：
 
 ```xml
 <configuration>
     <property>
         <name>jindo.common.accessKeyId</name>
-        <value>OSS 的 AccessKey Id</value>
+        <value>OSS/OSS-HDFS 的 AccessKey Id</value>
     </property>
     <property>
         <name>jindo.common.accessKeySecret</name>
-        <value>OSS 的 AccessKey Secret</value>
+        <value>OSS/OSS-HDFS 的 AccessKey Secret</value>
     </property>
     <property>
         <name>jindo.common.securityToken</name>
-        <value>OSS 的SecurityToken（临时安全令牌)。说明 仅配置有时效 Token 时需要。</value>
+        <value>OSS/OSS-HDFS 的SecurityToken（临时安全令牌)。说明 仅配置有时效 Token 时需要。</value>
     </property>
 </configuration>
 ```
@@ -223,7 +218,7 @@ Secrets 协议免密服务地址格式为`secrets:///local_path_prefix`，常见
 `/secret/JindoOss/AccessKeySecret`
 `/secret/JindoOss/SecurityToken`
 
-### JindoSDK 还支持不同的 OSS bucket 配置不同的 Credential Provider
+### JindoSDK 还支持不同的 OSS/OSS-HDFS bucket 配置不同的 Credential Provider
 
-详情参考[JindoSDK Credential Provider 按 OSS bucket 配置使用说明](jindosdk_credential_provider_bucket_oss.md)。
+详情参考[按 bucket 配置 OSS/OSS-HDFS Credential Provider](jindosdk_credential_provider_bucket_oss.md)。
 
