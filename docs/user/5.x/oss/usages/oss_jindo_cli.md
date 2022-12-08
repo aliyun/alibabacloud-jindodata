@@ -73,4 +73,4 @@ jindo fs -get oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/exampleobject
 jindo fs -rm oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/destfolder/
 ```
 
-更多命令及描述，详见[《Jindo CLI 参数说明》](../../jindodata/jindosdk/jindo_cli_options.md)
+更多命令及描述，详见[《Jindo CLI 参数说明》](../../jindodata/jindosdk/jindosdk_cli_options.md)

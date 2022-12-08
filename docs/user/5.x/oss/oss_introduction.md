@@ -6,7 +6,7 @@
 
 OSS-HDFS服务（JindoFS服务）是一款云原生数据湖存储产品。基于统一的元数据管理能力，在完全兼容HDFS文件系统接口的同时，提供充分的POSIX能力支持，能更好地满足大数据和AI等领域的数据湖计算场景。详情请见 [OSS-HDFS服务概述](https://help.aliyun.com/document_detail/405089.html)。
 
-JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件，面向大数据和 AI 生态，为阿里云和业界主要数据湖存储系统提供全方位访问加速解决方案。JindoData 套件基于统一架构和内核实现，主要包括 JindoFS 存储系统（原 JindoFS Block 模式），JindoFSx 存储加速系统（原 JindoFS Cache 模式），JindoSDK 大数据万能 SDK 和全面兼容的生态工具（JindoFuse、JindoDistCp）、插件支持。详情请见 [《JindoData 概述》](./oss_introduction.md)。 
+JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件，面向大数据和 AI 生态，为阿里云和业界主要数据湖存储系统提供全方位访问加速解决方案。JindoData 套件基于统一架构和内核实现，主要包括 JindoFS 存储系统（原 JindoFS Block 模式），JindoFSx 存储加速系统（原 JindoFS Cache 模式），JindoSDK 大数据万能 SDK 和全面兼容的生态工具（JindoFuse、JindoDistCp）、插件支持。详情请见 [《JindoData 概述》](../jindodata/jindodata_introduction.md)。 
 
 ## 使用
 
