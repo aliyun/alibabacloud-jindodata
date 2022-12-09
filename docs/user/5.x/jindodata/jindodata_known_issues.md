@@ -4,7 +4,7 @@
 
 ### 4.6.2 版本
 
-1. JindoSDK 4.6.1 在 EMR 集群使用免密访问 OSS-HDFS 出现等待 Token 更新，导致部分作业卡住的问题，如需解决此问题，使用固定 AK 或者更新到 4.6.2 及以上版本，EMR集群升级可参考[EMR 集群 JindoSDK 升级流程](/docs/user/4.x/4.6.x/emr_upgrade_jindosdk_emr-next.md)；
+暂无
 
 ### 4.6.1 版本
 
@@ -74,7 +74,11 @@
 
 1. JINDOSDK 4.0.0 （EMR-3.39.0/EMR-5.5.0） 在大文件 SEEK 时存在溢出问题，会导致部分使用 SEEK 的任务出现读取 OSS 大文件失败。
 
-
-
+## 其他问题
+1. JindoSDK 暂不支持 OSS 上超大文件写入（大于80GB）。
+2. JindoSDK 暂不支持 OSS append 方式写入。
+3. JindoSDK 暂不支持 OSS 客户端加密。
+4. JindoSDK 暂不支持老版本 JindoFS Block 模式和 Cache 模式。
+5. 阿里云 OSS-HDFS 服务（JindoFS 服务）暂不支持老版本 JindoFS Block 模式系统升级。需要用户通过 JindoDistCp 迁移工具把数据从老系统迁移到新服务。
 
 
