@@ -150,7 +150,7 @@ umount <mount_point>
 |  release()  |  关闭文件  |  ✅  |  ✅  |
 |  readdir()  |  读取目录  |  ✅  |  ✅  |
 |  create()  |  创建文件  |  ✅  |  ✅  |
-|  open() O_APPEND  |  通过追加写的方式打开文件  |  ✅  |  ✅  |
+|  open() O_APPEND  |  通过追加写的方式打开文件  |  支持，但有[使用限制](https://help.aliyun.com/document_detail/31981.html)  |  ✅  |
 |  open() O_TRUNC  |  通过覆盖写的方式打开文件  |  ✅  |  ✅  |
 |  ftruncate()  |  对打开的文件进行截断  |  ❌  |  ✅  |
 |  truncate()  |  对未打开的文件进行截断，类似 truncate -s  |  ❌  |  ✅  |
