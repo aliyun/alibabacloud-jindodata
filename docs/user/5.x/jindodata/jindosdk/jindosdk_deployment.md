@@ -20,7 +20,7 @@ tar zxvf jindosdk-4.6.2.tar.gz
 
 3.  配置环境变量。
     
-以安装包内容解压在/usr/lib/jindosdk-4.6.2目录为例：
+以安装包内容解压在 /usr/lib/jindosdk-4.6.2 目录为例：
 
 ```bash
 export JINDOSDK_HOME=/usr/lib/jindosdk-4.6.2
@@ -73,14 +73,28 @@ vim /usr/local/hadoop/etc/hadoop/core-site.xml
 </configuration>
 ```
 
-4.  配置JindoFS服务Endpoint。
+4.  配置 OSS/OSS-HDFS 服务 Endpoint。
     
+访问 OSS/OSS-HDFS Bucket时需要配置 Endpoint。推荐访问路径格式为 oss://`<Bucket>`.`<Endpoint>`/`<Object>`，例如 oss://examplebucket.cn-hangzhou.oss-dls.aliyuncs.com/exampleobject.txt。配置完成后，JindoSDK会根据访问路径中的 Endpoint 访问对应的 OSS/OSS-HDFS 服务接口。
 
-使用JindoFS服务访问OSS Bucket时需要配置Endpoint。推荐访问路径格式为oss://<Bucket>.<Endpoint>/<Object>，例如oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/exampleobject.txt。配置完成后，JindoSDK会根据访问路径中的Endpoint访问对应的JindoFS服务接口。
+此外，您也可以通过以下方式配置默认 Endpoint，以简化访问路径格式为 oss://`<Bucket>`/`<Object>`，例如 oss://examplebucket/exampleobject.txt
+```xml
+<configuration>
+    <property>
+        <name>fs.oss.endpoint</name>
+        <value>xxx</value>
+    </property>
+</configuration>
+```
 
-您还可以通过其他方式配置JindoFS服务Endpoint，且不同方式配置的Endpoint存在生效优先级。更多信息，请参见[附录一：配置Endpoint的其他方式](https://help.aliyun.com/document_detail/332830.html#section-rw3-w05-2ub)。
+5.  更多配置方式。
+[配置 OSS/OSS-HDFS Credential Provider](./jindosdk_credential_provider.md)
+[按 bucket 配置 OSS/OSS-HDFS Credential Provider](./jindosdk_credential_provider_bucket.md)
+[访问 OSS/OSS-HDFS 时 AK 相关常见问题](./jindosdk_credential_provider_faq.md)
 
 ## 非 Hadoop 配置文件
+
+在使用 JindoFuse，Jindo CLI 等非 Hadoop 生态组件时，会访问环境变量`JINDOSDK_CONF_DIR`所在的目录读取配置文件。
 
 ### 配置文件
 
@@ -88,11 +102,11 @@ vim /usr/local/hadoop/etc/hadoop/core-site.xml
 
 ```ini
 [common]
-logger.dir = /tmp/fuse-log
+logger.dir = /tmp/jindosdk-log
 
 [jindosdk]
 # 已创建 OSS Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为 oss-cn-hangzhou.aliyuncs.com。
-# 已创建 OSS-HDFS Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为 oss-cn-hangzhou.aliyuncs.com。
+# 已创建 OSS-HDFS Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为 cn-hangzhou.oss-dls.aliyuncs.com。
 fs.oss.endpoint = <your_endpoint>
 # 用于访问OSS的AccessKey ID和AccessKey Secret。阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
 fs.oss.accessKeyId = <your_key_id>
@@ -101,15 +115,15 @@ fs.oss.accessKeySecret = <your_key_secret>
 
 #### 免密访问
 
-前提：使用的是阿里云 ECS，并且该机器已绑定过角色授权。 示例如下：
+前提：使用的是阿里云 ECS，并且该机器已绑定过[RAM角色授权](https://help.aliyun.com/document_detail/61175.html)。 示例如下：
 
 ```ini
 [common]
-logger.dir = /tmp/fuse-log
+logger.dir = /tmp/jindosdk-log
 
 [jindosdk]
 # 已创建 OSS Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为 oss-cn-hangzhou.aliyuncs.com。
-# 已创建 OSS-HDFS Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为 oss-cn-hangzhou.aliyuncs.com。
+# 已创建 OSS-HDFS Bucket 对应的 Endpoint。以华东1（杭州）为例，填写为 cn-hangzhou.oss-dls.aliyuncs.com。
 fs.oss.endpoint = <your_endpoint>
 fs.oss.provider.endpoint = ECS_ROLE
 fs.oss.provider.format = JSON
