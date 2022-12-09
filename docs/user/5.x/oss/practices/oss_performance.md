@@ -68,5 +68,5 @@ OSS会对账号级的总访问QPS做默认限制（账号级10,000/s），如果
 
 最新版本的 JindoSDK 提供了优化的自适应配置和预读算法，并定期更新以遵循新的最佳实践。例如，处理不同网络错误的重试，自适应的并发控制等。
 
-[4.x版本下载链接](../../../4.x/jindodata_download.md)
-[5.x版本下载链接](../../jindodata/jindodata_download.md)
+* [4.x版本下载链接](../../../4.x/jindodata_download.md)
+* [5.x版本下载链接](../../jindodata/jindodata_download.md)
