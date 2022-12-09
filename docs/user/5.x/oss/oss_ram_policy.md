@@ -99,7 +99,7 @@ OSS 提供了完整的数据权限管控体系，完整的OSS授权策略请参
             "oss:DeleteObject",
             "oss:AbortMultipartUpload",
             "oss:ListParts",
-            "oss:RestoreObject"
+            "oss:RestoreObject",
             "oss:ListObjectVersions",
             "oss:GetObjectVersion",
             "oss:DeleteObjectVersion",
@@ -129,4 +129,34 @@ OSS 提供了完整的数据权限管控体系，完整的OSS授权策略请参
 
 ## 授权访问 OSS-HDFS
 
-详情参见 [开通并授权访问 OSS-HDFS](https://help.aliyun.com/document_detail/419505.html)。
+```json
+{
+    "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": "oss:ListObjects",
+          "Resource": [
+            "acs:oss:*:*:*"
+          ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "oss:GetBucketInfo",                
+                "oss:PostDataLakeStorageFileOperation",
+                "oss:PostDataLakeStorageAdminOperation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "oss:*",
+            "Resource": [
+                "acs:oss:*:*:*/.dlsdata",
+                "acs:oss:*:*:*/.dlsdata*"
+            ]
+        }
+    ],
+    "Version": "1"
+}
+```
