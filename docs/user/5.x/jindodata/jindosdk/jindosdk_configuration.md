@@ -29,7 +29,12 @@ Credential Provider 相关配置，详见[《配置 OSS/OSS-HDFS Credential�
 
 ## JindoCache
 
-服务端常见配置，详见xxx
+| 配置项     |  类型 | 默认值 | Description  |
+| --- | --- | --- | --- |
+| fs.jindofsx.data.cache.enable | 布尔值  | true/false        | 是否打开数据缓存，默认为关闭      |
+| fs.jindofsx.meta.cache.enable | 布尔值  | true/false        | 是否打开元数据缓存，默认为关闭      |
+| fs.jindofsx.slicelet.cache.enable | 布尔值  | true/false        | 是否打开小文件缓存优化(写磁盘)，默认为关闭   |
+| fs.jindofsx.short.circuit.enable | 布尔值  | true/false        | 是否打开短路读，默认为打开     |
 
 ## JindoAuth
 
