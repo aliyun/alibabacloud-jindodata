@@ -10,11 +10,11 @@ JindoFuse透明缓存加速可以利用计算集群的闲置存储资源进行�
    
    * 如果数据源为 OSS/OSS-HDFS/Apache HDFS/NAS  请先完成如下文档配置要求：
     
-     [OSS/OSS-HDFS 透明缓存加速配置指南](./jindo_cache_oss_hdfs_tutorial.md)
+     [OSS/OSS-HDFS 透明缓存加速配置指南](./jindocache_oss_quickstart.md)
 
-     [Apache HDFS 透明缓存加速配置指南](./jindo_cache_hdfs_tutorial.md)
+     [Apache HDFS 透明缓存加速配置指南](./jindocache_hdfs_quickstart.md)
 
-     [统一命名空间缓存加速配置指南](./jindo_cache_global_namespace_tutorial.md)
+     [统一命名空间缓存加速配置指南](./jindocache_global_namespace_quickstart.md)
 
 * 非 EMR 环境
 

@@ -11,9 +11,9 @@ JindoFSx 提供统一命名空间挂载功能，为应用程序提供统一命�
 
    *   如果数据源为 OSS/OSS-HDFS/Apache HDFS  请先完成如下文档配置要求：
 
-       [OSS/OSS-HDFS 透明缓存加速配置指南](./jindo_cache_oss_hdfs_tutorial.md)
+       [OSS/OSS-HDFS 透明缓存加速配置指南](./jindocache_oss_quickstart.md)
 
-       [Apache HDFS 透明缓存加速配置指南](./jindo_cache_hdfs_tutorial.md)
+       [Apache HDFS 透明缓存加速配置指南](./jindocache_hdfs_quickstart.md)
 
    *   如果数据源是阿里云 NAS 则需要保证挂载在各个节点的相同路径下（NS 和 STS 服务所在节点）
 
