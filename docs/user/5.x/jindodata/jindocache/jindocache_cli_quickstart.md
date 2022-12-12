@@ -113,3 +113,5 @@ Used Disk Capacity: 5120.00MB
 Total MEM Capacity: 4096.00MB
 Used MEM Capacity: 0B
 ```
+
+完整 jindo cli 命令请参考[](../../jindodata/jindosdk/jindosdk_cli_options.md)
