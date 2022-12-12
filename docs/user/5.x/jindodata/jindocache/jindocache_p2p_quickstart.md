@@ -50,7 +50,7 @@ JindoFSx客户端P2P可以被视作一种本地缓存（LocalCache）。与原�
         | --- | --- | --- |
         |  服务端配置  |  jindofsx.p2p.tracker.thread.number  |  P2P 协调节点的处理线程数，通常设置为 1，如果客户端数量超过 1000 可以考虑更大的值。小于 1 则关闭 P2P 功能。  |
         | 服务端配置 |  jindofsx.p2p.file.prefix  |  使用P2P下载的前缀列表。当包含多个文件路径时，使用半角逗号（,）隔开，文件路径只有匹配到其中任一个前缀，才会以P2P方式下载。在应用层使用统一挂载路径进行下载时，此处仍应配置为真实的对象路径。 例如，oss://bucket1/data-dir1/,oss://bucket2/data-dir2/。  |
-        |  客户端配置  |  fs.jindofsx.p2p.cache.capacity.limit  |  P2P下载在客户端侧占用的内存缓存大小限制，单位为字节，默认为5 GB，最小值为1 GB。 例如，取值为 5 \* 1024 \* 1024 \* 1024。  |
+        |  客户端配置  |  fs.jindofsx.p2p.cache.capacity.limit  |  P2P下载在客户端侧占用的内存缓存大小限制，单位为字节，默认为5 GB，最小值为1 GB。 |
         | 客户端配置 |  fs.jindofsx.p2p.download.parallelism.per.file  |  P2P下载单个文件使用的并发数。例如，取值为5。  |
         | 客户端配置 |  fs.jindofsx.p2p.download.thread.pool.size  |  P2P下载使用的线程池总大小。例如，取值为5。  |
         
