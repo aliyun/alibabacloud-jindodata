@@ -48,38 +48,35 @@ JindoFSx存储加速系统提供了透明缓存的使用方式，兼容原生OSS
         
     2.  在**新增配置项**对话框中，新增以下配置项。
         
-
-新增配置项的具体操作，请参见[添加配置项](https://help.aliyun.com/document_detail/379879.htm#section-st3-dhw-qnx)。全局方式和按照Bucket方式配置可**任选其中一种**即可。
-
-*   全局方式配置（所有Bucket使用同一种方式）
+        新增配置项的具体操作，请参见[添加配置项](https://help.aliyun.com/document_detail/379879.htm#section-st3-dhw-qnx)。全局方式和按照Bucket方式配置可**任选其中一种**即可。
+        
+        *   全局方式配置（所有Bucket使用同一种方式）
+        
+        |  参数  |  描述  |
+        | --- | --- |
+        |  jindofsx.oss.accessKeyId  |  OSS/OSS-HDFS 的 AccessKey ID  |
+        |  jindofsx.oss.accessKeySecret  |  OSS/OSS-HDFS 的 AccessKey Secret  |
+        |  jindofsx.oss.endpoint  |  OSS/OSS-HDFS的Endpoint。如： <br/>OSS: oss-cn-\*\*\*-internal.aliyuncs.com<br/> OSS-HDFS:   cn-\*\*\*.oss-dls.aliyuncs.com  |
+        
+        *   按照Bucket配置
+        
+        |  参数  |  描述  |
+        | --- | --- |
+        |  jindofsx.oss.bucket.XXX.accessKeyId  |  XXX的Bucket的AccessKey ID  |
+        |  jindofsx.oss.bucket.XXX.accessKeySecret  |  XXX的Bucket的AccessKey Secret  |
+        |  jindofsx.oss.bucket.XXX.endpoint  |  XXX的Bucket的Endpoint。如：<br/> OSS: oss-cn-\*\*\*-internal.aliyuncs.com<br/> OSS-HDFS: cn-\*\*\*.oss-dls.aliyuncs.com  |
+        
+        **说明:** XXX为OSS/OSS-HDFS Bucket的名称。
     
-
-|  参数  |  描述  |
-| --- | --- |
-|  jindofsx.oss.accessKeyId  |  OSS/OSS-HDFS 的 AccessKey ID  |
-|  jindofsx.oss.accessKeySecret  |  OSS/OSS-HDFS 的 AccessKey Secret  |
-|  jindofsx.oss.endpoint  |  OSS/OSS-HDFS的Endpoint。如： <br/>OSS: oss-cn-\*\*\*-internal.aliyuncs.com<br/> OSS-HDFS:   cn-\*\*\*.oss-dls.aliyuncs.com  |
-
-*   按照Bucket配置
+    3.  单击**确定**。
     
-
-|  参数  |  描述  |
-| --- | --- |
-|  jindofsx.oss.bucket.XXX.accessKeyId  |  XXX的Bucket的AccessKey ID  |
-|  jindofsx.oss.bucket.XXX.accessKeySecret  |  XXX的Bucket的AccessKey Secret  |
-|  jindofsx.oss.bucket.XXX.endpoint  |  XXX的Bucket的Endpoint。如：<br/> OSS: oss-cn-\*\*\*-internal.aliyuncs.com<br/> OSS-HDFS: cn-\*\*\*.oss-dls.aliyuncs.com  |
-
-**说明:** XXX为OSS/OSS-HDFS Bucket的名称。
-
-1.  单击**确定**。
+3.  重启服务。
     
-2.  重启服务。
+    1.  在JindoData服务页面，选择右上角的**操作 > 重启All Components**。
     
-3.  在JindoData服务页面，选择右上角的**操作 > 重启All Components**。
+    2.  在**执行集群操作**对话框中，输入执行原因（其他参数保持默认），单击**确定**。
     
-4.  在**执行集群操作**对话框中，输入执行原因（其他参数保持默认），单击**确定**。
-    
-5.  在**确认**对话框中，单击**确定**。
+    3.  在**确认**对话框中，单击**确定**。
     
 
 ## 步骤二：配置JindoSDK
@@ -106,16 +103,15 @@ JindoFSx存储加速系统提供了透明缓存的使用方式，兼容原生OSS
         
 2.  修改以下配置项。
     
+    修改配置项的具体操作，请参见[修改组件参数](https://help.aliyun.com/document_detail/106171.htm#section-onk-ip0-00r)。
 
-修改配置项的具体操作，请参见[修改组件参数](https://help.aliyun.com/document_detail/106171.htm#section-onk-ip0-00r)。
-
-|  内容  |  参数  |  描述  |
-| --- | --- | --- |
-|  配置OSS实现类  |  fs.AbstractFileSystem.oss.impl  |  固定值为com.aliyun.jindodata.oss.OSS  |
-| 配置OSS实现类 |  fs.oss.impl  |  固定值为com.aliyun.jindodata.oss.JindoOssFileSystem  |
-|  配置xenging类型|  fs.xengine  |  固定值为jindofsx  |
-|  配置JindoFSx Namespace服务地址  |  fs.jindofsx.namespace.rpc.address  |  格式为${headerhost}:8101 <br/>例如，master-1-1:8101<br/> 说明: 如果使用高可用NameSpace，配置详情请参见[高可用JindoFSx Namespace配置和使用](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_raft_ns.md)  |
-|  启用缓存加速功能  |  fs.jindofsx.data.cache.enable  |  数据缓存开关：<br/> false（默认值）：禁用数据缓存。 <br/>true：启用数据缓存。<br/> 说明: 启用缓存会利用本地磁盘对访问的热数据块进行缓存，默认状态为false，即可以直接访问OSS/OSS-HDFS上的数据  |
+    |  内容  |  参数  |  描述  |
+    | --- | --- | --- |
+    |  配置OSS实现类  |  fs.AbstractFileSystem.oss.impl  |  固定值为com.aliyun.jindodata.oss.OSS  |
+    | 配置OSS实现类 |  fs.oss.impl  |  固定值为com.aliyun.jindodata.oss.JindoOssFileSystem  |
+    |  配置xenging类型|  fs.xengine  |  固定值为jindofsx  |
+    |  配置JindoFSx Namespace服务地址  |  fs.jindofsx.namespace.rpc.address  |  格式为${headerhost}:8101 <br/>例如，master-1-1:8101<br/> 说明: 如果使用高可用NameSpace，配置详情请参见[高可用JindoFSx Namespace配置和使用](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_raft_ns.md)  |
+    |  启用缓存加速功能  |  fs.jindofsx.data.cache.enable  |  数据缓存开关：<br/> false（默认值）：禁用数据缓存。 <br/>true：启用数据缓存。<br/> 说明: 启用缓存会利用本地磁盘对访问的热数据块进行缓存，默认状态为false，即可以直接访问OSS/OSS-HDFS上的数据  |
 
 3.  保存配置。
     
@@ -129,20 +125,18 @@ JindoFSx存储加速系统提供了透明缓存的使用方式，兼容原生OSS
         
     2.  在**新增配置项**对话框中，新增以下配置项。
         
-
-新增配置项的具体操作，请参见[添加组件参数](https://help.aliyun.com/document_detail/106171.htm#section-f5l-r4w-mm2)。
-
-|  内容  |  参数  |  描述  |
-| --- | --- | --- |
-| 配置AccesskeyID（必填）  |  fs.oss.accessKeyId  |  OSS/OSS-HDFS 的 AccessKeyID  |
-| 配置AccesskeySecret（必填）  |  fs.oss.accessKeySecret  |  OSS/OSS-HDFS 的 AccessKeySecret  |
-| 配置Endpoint（必填）  |  fs.oss.endpoint  |  OSS/OSS-HDFS 的 Endpoint。如：<br/> OSS: oss-cn-\*\*\*-internal.aliyuncs.com <br/>OSS-HDFS:  cn-\*\*\*.oss-dls.aliyuncs.com  |
-|  元缓存加速功能（可选）  |  fs.jindofsx.meta.cache.enable  |  元数据缓存开关： <br/>false（默认值）：禁用元数据缓存<br/> true：启用元数据缓存  |
-| 小文件缓存加速功能（可选） |  fs.jindofsx.slice.cache.enable  |  小文件缓存优化开关：<br/> false（默认值）：禁用小文件缓存 <br/>true：启用小文件缓存  |
-|  短路读功能（可选）|  fs.jindofsx.short.circuit.enable  |  短路读开关：<br/> true（默认值）：打开短路读开关 <br/>false：关闭短路读开关  |
-
-5.  单击**确定**。
-    
+        新增配置项的具体操作，请参见[添加组件参数](https://help.aliyun.com/document_detail/106171.htm#section-f5l-r4w-mm2)。
+        
+        |  内容  |  参数  |  描述  |
+        | --- | --- | --- |
+        | 配置AccesskeyID（必填）  |  fs.oss.accessKeyId  |  OSS/OSS-HDFS 的 AccessKeyID  |
+        | 配置AccesskeySecret（必填）  |  fs.oss.accessKeySecret  |  OSS/OSS-HDFS 的 AccessKeySecret  |
+        | 配置Endpoint（必填）  |  fs.oss.endpoint  |  OSS/OSS-HDFS 的 Endpoint。如：<br/> OSS: oss-cn-\*\*\*-internal.aliyuncs.com <br/>OSS-HDFS:  cn-\*\*\*.oss-dls.aliyuncs.com  |
+        |  元缓存加速功能（可选）  |  fs.jindofsx.meta.cache.enable  |  元数据缓存开关： <br/>false（默认值）：禁用元数据缓存<br/> true：启用元数据缓存  |
+        | 小文件缓存加速功能（可选） |  fs.jindofsx.slice.cache.enable  |  小文件缓存优化开关：<br/> false（默认值）：禁用小文件缓存 <br/>true：启用小文件缓存  |
+        |  短路读功能（可选）|  fs.jindofsx.short.circuit.enable  |  短路读开关：<br/> true（默认值）：打开短路读开关 <br/>false：关闭短路读开关  |
+        
+    3.  单击**确定**。
 
 ## 步骤三：磁盘空间水位控制
 
@@ -150,15 +144,14 @@ JindoFSx存储加速系统提供了透明缓存的使用方式，兼容原生OSS
 
 1.  修改磁盘水位配置。
     
-
-在JindoData服务**配置**页面的**服务配置**区域，单击**storage**页签，修改以下参数。![image](https://alidocs.oss-accelerate.aliyuncs.com/res/E8K4nyLyAWeYlLbj/img/d5e36678-8bdb-4e1a-94c6-ebb57b20ae40.png)
-
-|  参数  |  描述  |
-| --- | --- |
-|  storage.watermark.low.ratio  |  表示使用量的下水位比例，触发清理后会自动清理冷数据，将缓存数据目录占用空间清理到下水位。默认值：0.2  |
-|  storage.watermark.high.ratio  |  表示磁盘使用量的上水位比例，每块数据盘的缓存数据目录占用的磁盘空间到达上水位即会触发清理。默认值：0.4  |
-
-**说明** 修改该参数时，下水位必须小于上水位，设置合理的值即可。
+    在JindoData服务**配置**页面的**服务配置**区域，单击**storage**页签，修改以下参数。![image](https://alidocs.oss-accelerate.aliyuncs.com/res/E8K4nyLyAWeYlLbj/img/d5e36678-8bdb-4e1a-94c6-ebb57b20ae40.png)
+    
+    |  参数  |  描述  |
+    | --- | --- |
+    |  storage.watermark.low.ratio  |  表示使用量的下水位比例，触发清理后会自动清理冷数据，将缓存数据目录占用空间清理到下水位。默认值：0.2  |
+    |  storage.watermark.high.ratio  |  表示磁盘使用量的上水位比例，每块数据盘的缓存数据目录占用的磁盘空间到达上水位即会触发清理。默认值：0.4  |
+    
+    **说明** 修改该参数时，下水位必须小于上水位，设置合理的值即可。
 
 2.  保存配置。
     
