@@ -1,4 +1,4 @@
-# Jindo CLI 参数说明
+# Jindo CLI 使用指南
 
 ## 用法汇总
 
