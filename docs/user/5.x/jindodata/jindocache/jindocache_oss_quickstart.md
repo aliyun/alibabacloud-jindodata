@@ -103,7 +103,7 @@ JindoFSx存储加速系统提供了透明缓存的使用方式，兼容原生OSS
         
 2.  修改以下配置项。
     
-    修改配置项的具体操作，请参见[修改组件参数](https://help.aliyun.com/document_detail/106171.htm#section-onk-ip0-00r)。
+    修改配置项的具体操作，请参见[修改组件参数](https://help.aliyun.com/document_detail/106171.htm#section-onk-ip0-00r)。(必填)
 
     |  内容  |  参数  |  描述  |
     | --- | --- | --- |
@@ -112,31 +112,21 @@ JindoFSx存储加速系统提供了透明缓存的使用方式，兼容原生OSS
     |  配置xenging类型|  fs.xengine  |  固定值为jindofsx  |
     |  配置JindoFSx Namespace服务地址  |  fs.jindofsx.namespace.rpc.address  |  格式为${headerhost}:8101 <br/>例如，master-1-1:8101<br/> 说明: 如果使用高可用NameSpace，配置详情请参见[高可用JindoFSx Namespace配置和使用](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.1.0/jindofsx/deploy/deploy_raft_ns.md)  |
     |  启用缓存加速功能  |  fs.jindofsx.data.cache.enable  |  数据缓存开关：<br/> false（默认值）：禁用数据缓存。 <br/>true：启用数据缓存。<br/> 说明: 启用缓存会利用本地磁盘对访问的热数据块进行缓存，默认状态为false，即可以直接访问OSS/OSS-HDFS上的数据  |
+    | 配置AccesskeyID  |  fs.oss.accessKeyId  |  OSS/OSS-HDFS 的 AccessKeyID  |
+    | 配置AccesskeySecret  |  fs.oss.accessKeySecret  |  OSS/OSS-HDFS 的 AccessKeySecret  |
+    | 配置Endpoint  |  fs.oss.endpoint  |  OSS/OSS-HDFS 的 Endpoint。如：<br/> OSS: oss-cn-\*\*\*-internal.aliyuncs.com <br/>OSS-HDFS:  cn-\*\*\*.oss-dls.aliyuncs.com  |
 
+    其他可选参数（选填）：
+    |  内容  |  参数  |  描述  |
+    | --- | --- | --- |
+    |  元缓存加速功能（可选）  |  fs.jindofsx.meta.cache.enable  |  元数据缓存开关： <br/>false（默认值）：禁用元数据缓存<br/> true：启用元数据缓存  |
+    | 小文件缓存加速功能（可选） |  fs.jindofsx.slice.cache.enable  |  小文件缓存优化开关：<br/> false（默认值）：禁用小文件缓存 <br/>true：启用小文件缓存  |
+    |  短路读功能（可选）|  fs.jindofsx.short.circuit.enable  |  短路读开关：<br/> true（默认值）：打开短路读开关 <br/>false：关闭短路读开关  |
 3.  保存配置。
     
     1.  单击**服务配置**区域的**保存**。
         
     2.  在**确认修改**对话框中，输入执行原因，开启**自动更新配置**，单击**确定**。
-        
-4.  在**core-site**页签，新增配置项。
-    
-    1.  单击**服务配置**区域的**自定义配置**。
-        
-    2.  在**新增配置项**对话框中，新增以下配置项。
-        
-        新增配置项的具体操作，请参见[添加组件参数](https://help.aliyun.com/document_detail/106171.htm#section-f5l-r4w-mm2)。
-        
-        |  内容  |  参数  |  描述  |
-        | --- | --- | --- |
-        | 配置AccesskeyID（必填）  |  fs.oss.accessKeyId  |  OSS/OSS-HDFS 的 AccessKeyID  |
-        | 配置AccesskeySecret（必填）  |  fs.oss.accessKeySecret  |  OSS/OSS-HDFS 的 AccessKeySecret  |
-        | 配置Endpoint（必填）  |  fs.oss.endpoint  |  OSS/OSS-HDFS 的 Endpoint。如：<br/> OSS: oss-cn-\*\*\*-internal.aliyuncs.com <br/>OSS-HDFS:  cn-\*\*\*.oss-dls.aliyuncs.com  |
-        |  元缓存加速功能（可选）  |  fs.jindofsx.meta.cache.enable  |  元数据缓存开关： <br/>false（默认值）：禁用元数据缓存<br/> true：启用元数据缓存  |
-        | 小文件缓存加速功能（可选） |  fs.jindofsx.slice.cache.enable  |  小文件缓存优化开关：<br/> false（默认值）：禁用小文件缓存 <br/>true：启用小文件缓存  |
-        |  短路读功能（可选）|  fs.jindofsx.short.circuit.enable  |  短路读开关：<br/> true（默认值）：打开短路读开关 <br/>false：关闭短路读开关  |
-        
-    3.  单击**确定**。
 
 ## 步骤三：磁盘空间水位控制
 
@@ -149,7 +139,7 @@ JindoFSx存储加速系统提供了透明缓存的使用方式，兼容原生OSS
     |  参数  |  描述  |
     | --- | --- |
     |  storage.watermark.low.ratio  |  表示使用量的下水位比例，触发清理后会自动清理冷数据，将缓存数据目录占用空间清理到下水位。默认值：0.2  |
-    |  storage.watermark.high.ratio  |  表示磁盘使用量的上水位比例，每块数据盘的缓存数据目录占用的磁盘空间到达上水位即会触发清理。默认值：0.4  |
+    |  storage.watermark.high.ratio  |  表示磁盘使用量的上水位比例，每块数据盘的缓存数据目录占用的磁盘空间到达上水位即会触发清理。默认值：0.4，如果需要比较高的磁盘利用可以设置较大值。  |
     
     **说明** 修改该参数时，下水位必须小于上水位，设置合理的值即可。
 
