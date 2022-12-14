@@ -7,7 +7,7 @@
 JindoFS 支持 RootPolicy 规则，通过 RootPolicy 可以为 OSS-HDFS（JindoFS 服务）设置自定义前缀，这样用户原有的访问 `hdfs://` 前缀的作业，可以不经修改直接运行在 JindoFS 服务上。
 
 ## 1、 设置 RootPolicy
-我们提供了一组 Shell 命令，帮助用户向特定的bucket注册自定义地址。通过[SetRootPolicy命令](jindofs_dls_shell_howto.md#setrootpolicy_cmd)，可以为特定 bucket 注册自定义前缀的访问地址。如：
+我们提供了一组 Shell 命令，帮助用户向特定的bucket注册自定义地址。通过[SetRootPolicy命令](../../5.x/jindodata/jindosdk/jindosdk_cli_options.md)，可以为特定 bucket 注册自定义前缀的访问地址。如：
 
 ```shell
 jindo admin -setRootPolicy oss://<bucket_name>.<dls_endpoint>/ hdfs://<your_ns_name>/
