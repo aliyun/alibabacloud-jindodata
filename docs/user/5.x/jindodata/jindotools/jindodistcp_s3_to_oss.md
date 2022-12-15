@@ -5,29 +5,29 @@
 * 如您在使用过程中遇到问题可参考 [JindoDistCp 问题排查指南](jindodistcp_faq.md) 进行解决。
 
 ### 1、拷贝数据到阿里云 OSS/OSS-HDFS 上
-您可以使用如下命令将 HDFS 上的目录拷贝到 OSS/OSS-HDFS 上
+您可以使用如下命令将三方云对象存储上的目录拷贝到 OSS/OSS-HDFS 上
 ```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src /data --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/dir/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --parallelism 10
+hadoop jar jindo-distcp-tool-${version}.jar s3://example-s3-bucket/data --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/dir/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --parallelism 10
 ```
 
-| 参数 | 描述                                                    | 示例                                                                                                                                                                              |
-| --- |-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --src | HDFS 的源路径。                                            | /data                                                                                                                                                                           |
-| --dest | OSS/OSS-HDFS 的目标路径。                                   | oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/                                                                                                                                   |
-| --hadoopConf | 指定 OSS/OSS-HDFS 的 `Access Key ID`,`Access Key Secret` | *  配置 OSS/OSS-HDFS 的 AccessKeyId:</br>  --hadoopConf fs.oss.accessKeyId=yourkey</br>  * 配置 OSS/OSS-HDFS 的 AccessKeySecret:</br>  --hadoopConf fs.oss.accessKeySecret=yoursecret |
-| --parallelism | 任务并发大小，根据集群资源可调整。                                     | 10                                                                                                                                                                              |
+| 参数            | 描述                                                               | 示例                                                                                                                                                                              |
+|---------------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --src         | 三方云对象存储路径。                                                       | s3://example-s3-bucket/data/                                                                                                                                                                          |
+| --dest        | OSS/OSS-HDFS 的目标路径。                                              | oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/                                                                                                                                   |
+| --hadoopConf  | 指定 OSS/OSS-HDFS/S3/COS/OBS 的 `Access Key ID`,`Access Key Secret` | *  配置 OSS/OSS-HDFS 的 AccessKeyId:</br>  --hadoopConf fs.oss.accessKeyId=yourkey</br>  * 配置 OSS/OSS-HDFS 的 AccessKeySecret:</br>  --hadoopConf fs.oss.accessKeySecret=yoursecret |
+| --parallelism | 任务并发大小，根据集群资源可调整。                                                | 10                                                                                                                                                                              |
 
 ### 2、增量拷贝文件
 如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只Copy剩下未Copy成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
 ##### 使用 --update 命令，获得增量的文件列表
 ```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src /data --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/dir/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --update --parallelism 20
+hadoop jar jindo-distcp-tool-${version}.jar --src s3://example-s3-bucket/data --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/dir/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --update --parallelism 20
 ```
 
 ### 3、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src /data --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/dir/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf mapreduce.job.queuename=yarnQueue --bandWidth 100 --parallelism 10
+hadoop jar jindo-distcp-tool-${version}.jar --src s3://example-s3-bucket/data  --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/dir/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf mapreduce.job.queuename=yarnQueue --bandWidth 100 --parallelism 10
 ```
 * --hadoopConf mapreduce.job.queuename=yarnQueue：指定 YARN 队列的名称
 * --bandWidth：指定单机限流带宽的大小，单位 MB
