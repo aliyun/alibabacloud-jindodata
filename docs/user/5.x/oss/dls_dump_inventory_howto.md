@@ -4,7 +4,7 @@
 ## 介绍
 使用元数据导出功能，可以将当前 OSS-HDFS bucket 下的文件元数据清单导出到 OSS 上的，格式为 json 文件，方便用户对元数据进行统计分析    
 
-* 配置 jindo 命令行工具，配置对应 OSS-HDFS bucket 的访问密钥，参考 [jindo 命令行工具使用说明](jindo_util_intro.md) 
+* 配置 jindo 命令行工具，配置对应 OSS-HDFS bucket 的访问密钥，参考 [jindo 命令行工具使用说明](usages/oss_jindo_cli.md) 
 
 * 执行导出命令
 ```bash
@@ -22,7 +22,7 @@ FINISHED.
 该命令为阻塞命令，请耐心等待10秒钟~10分钟（根据元数据量大小），知道最后输出```FINISHED```表示导出成功。
 
 * 下载结果文件
-使用 [jindo 命令行工具](jindo_util_intro.md)（配置普通OSS的key非OSS-HDFS） 、或[ossutil](https://help.aliyun.com/document_detail/50452.html)、或使用Hadoop fs 命令、或在OSS控制台页面，下载结果文件。
+使用 [jindo 命令行工具](usages/oss_jindo_cli.md)（配置普通OSS的key非OSS-HDFS） 、或[ossutil](https://help.aliyun.com/document_detail/50452.html)、或使用Hadoop fs 命令、或在OSS控制台页面，下载结果文件。
 
 ```bash
 ossutil cp oss://<oss_bucket>/.dlsdata/.sysinfo/meta_analyze/inventory/1666584461201.2ce40fba-5704-45c4-8720-d92a891d5cfd ./
