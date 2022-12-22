@@ -33,7 +33,7 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 
 ## Hadoop 配置文件
 
-1.  配置JindoFS服务实现类及AccessKey。
+1.  配置 OSS/OSS-HDFS 实现类及AccessKey。
     
     执行以下命令，进入Hadoop的core-site.xml配置文件。
         
@@ -41,7 +41,7 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 vim /usr/local/hadoop/etc/hadoop/core-site.xml
 ```
 
-2.  将JindoSDK DLS实现类配置到Hadoop的core-site.xml中。
+2.  将 OSS/OSS-HDFS 实现类配置到Hadoop的core-site.xml中。
     
 ```xml
 <configuration>
@@ -57,7 +57,7 @@ vim /usr/local/hadoop/etc/hadoop/core-site.xml
 </configuration>
 ```
 
-3.  将已开启HDFS服务的Bucket对应的accessKeyId、accessKeySecret预先配置在Hadoop的core-site.xml中。
+3.  将 OSS/OSS-HDFS 的Bucket对应的accessKeyId、accessKeySecret预先配置在Hadoop的core-site.xml中。
     
 ```xml
 <configuration>
