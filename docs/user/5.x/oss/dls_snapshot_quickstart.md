@@ -94,7 +94,7 @@ hdfs dfs -deleteSnapshot oss://oss-dfs-test.<Endpoint>/TestSnapshot S100
 ## 关闭快照功能
 当我们需要关闭目录的快照功能的时候，我们同样需要使用 JindoSDK 的 shell 命令行。具体的关闭快照的格式为
 ```bash
-jindo admin -disallowSnapshot <path>
+jindo admin -disallowSnapshot -dlsUri <path>
 ```
 
 ## 查看两个快照之间的差异

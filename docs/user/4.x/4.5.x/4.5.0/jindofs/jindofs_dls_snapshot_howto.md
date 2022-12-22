@@ -1,6 +1,6 @@
 # 阿里云 OSS-HDFS 服务（JindoFS 服务）快照使用说明
 
-阿里云 OSS-HDFS 服务（JindoFS 服务）是OSS新推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过Jindo SDK 4.x 可以兼容访问 OSS-HDFS 服务。关于用户如何创建和使用 OSS-HDFS 服务的基本功能，请参考[链接](jindo_dls_quickstart.md)。
+阿里云 OSS-HDFS 服务（JindoFS 服务）是OSS新推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过 JindoSDK 4.x 可以兼容访问 OSS-HDFS 服务。关于用户如何创建和使用 OSS-HDFS 服务的基本功能，请参考[链接](jindo_dls_quickstart.md)。
 
  OSS-HDFS 服务的快照功能在使用上与HDFS的快照功能完全兼容。本文主要介绍在 OSS-HDFS 服务中使用快照功能的一些常见操作。
 为了方便下面命令的介绍，我们假设`oss://oss-dfs-test`这个Bucket已经开启 OSS-HDFS 服务。下面所有的例子都会针对这个Bucket进行操作。
