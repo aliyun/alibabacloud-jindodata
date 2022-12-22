@@ -93,7 +93,8 @@ ls /mnt/oss/
 2.  创建目录：
     
 ```bash
-mkdir /mnt/oss/dir1ls /mnt/oss/
+mkdir /mnt/oss/dir1
+ls /mnt/oss/
 ```
 
 3.  写入文件：
