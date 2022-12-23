@@ -2,7 +2,7 @@
 
 ## 背景
 
-在旧版管控平台中创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，遇到已知问题，或需要使用[新功能](./jindodata/jindodata_release_notes.md)。
+在旧版管控平台中创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，遇到已知问题，或需要使用[新功能](../jindodata/jindodata_release_notes.md)。
 
 ## 准备软件包和升级脚本
 
