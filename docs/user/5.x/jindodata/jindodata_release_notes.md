@@ -50,7 +50,7 @@ JindoData 4.6.2 版本是在4.6.1版本基础上做了大量的修复。
 - JindoSDK 支持OSS-HDFS TensorFlow Connector。
 
 # JindoData 4.5.2 版本说明
-JindoData 4.6.1 版本是在4.6.1版本基础上做了大量的修复。
+JindoData 4.5.2 版本是在4.5.1版本基础上做了大量的修复。
 
 # JindoData 4.5.1 版本说明
 ## 版本概要
