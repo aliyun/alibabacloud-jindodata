@@ -182,7 +182,7 @@ Found 2 items
   
 #### 对于弹性扩容场景，或者是要避免扩容后重启服务的情况
 
-可以使用 **执行范围** 为`组件安装前`, 同时配合可直连的 http 地址，`jindosdk-bootstrap-patches.tar.gz`会使用 wget 方式下载，具体步骤如下：
+可以使用 **执行范围** 为`组件安装前`, 同时配合可直连的 http 地址下载`jindosdk-bootstrap-patches.tar.gz`，`bootstrap_jindosdk.sh`会自动检测 URL 并使用 wget 方式下载，具体步骤如下：
   
 a. 如果使用 OSS 对象存储存放补丁包，需要开放`对应补丁包文件`的读权限（注意：不要开放bucket的权限，详见[Object ACL](https://help.aliyun.com/document_detail/100676.html)），验证资源是否可以下载：
 ````
