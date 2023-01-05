@@ -179,3 +179,22 @@ Found 2 items
 ### 确保加载到最新的修复
 * 如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
+  
+#### 对于弹性扩容场景，或者是需要避免重启服务的情况
+
+可以使用 **执行范围** 为`组件安装前`, 同时配合可直连的 http 地址，`jindosdk-bootstrap-patches.tar.gz`会使用 wget 方式下载，具体步骤如下：
+  
+a. 如果使用 OSS 对象存储存放补丁包，需要开放`对应补丁包文件`的读权限（注意：不要开放bucket的权限，详见[Object ACL](https://help.aliyun.com/document_detail/100676.html)），验证资源是否可以下载：
+````
+  wget http://<bucket-name>.<internal-endpoint>/path/to/patch/jindosdk-bootstrap-patches.tar.gz
+````
+  
+b. 在**添加引导操作**对话框中，填写配置项。
+| 参数             | 描述                                                         | 示例                                                         |
+| :--------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
+| **名称**         | 引导操作的名称。例如，升级JINDOSDK。                        | update_jindosdk                                              |
+| **脚本位置**     | 选择脚本所在OSS的位置。脚本路径格式必须为oss://**/*.sh格式。 | oss://<bucket-name>/path/to/patch/bootstrap_jindosdk.sh      |
+| **参数**         | 引导操作脚本的参数，指定脚本中所引用的变量的值。             | -bootstrap http://<bucket-name>.<internal-endpoint>/path/to/patch/jindosdk-bootstrap-patches.tar.gz |
+| **执行范围**     | 选择**集群**。                                               |                                                              |
+| **执行时间**     | 选择**组件安装前**。                                         |                                                              |
+| **执行失败策略** | 选择**继续执行**。                                           |                                                              |
