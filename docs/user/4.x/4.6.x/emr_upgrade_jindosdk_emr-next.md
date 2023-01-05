@@ -171,7 +171,7 @@ Found 2 items
 | :--------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
 | **名称**         | 引导操作的名称。例如，升级JINDOSDK。                        | update_jindosdk                                              |
 | **脚本位置**     | 选择脚本所在OSS的位置。脚本路径格式必须为oss://**/*.sh格式。 | oss://<bucket-name>/path/to/patch/bootstrap_jindosdk.sh      |
-| **参数**         | 引导操作脚本的参数，指定脚本中所引用的变量的值。             | -bootstrap oss://<bucket-name>/path/to/patch/jindosdk-bootstrap-patches.tar.gz |
+| **参数**         | 引导操作脚本的参数，指定脚本中所引用的变量的值。             | `-bootstrap oss://<bucket-name>/path/to/patch/jindosdk-bootstrap-patches.tar.gz` |
 | **执行范围**     | 选择**集群**。                                               |                                                              |
 | **执行时间**     | 选择**组件启动后**。                                         |                                                              |
 | **执行失败策略** | 选择**继续执行**。                                           |                                                              |
@@ -194,7 +194,7 @@ b. 在**添加引导操作**对话框中，填写配置项。
 | :--------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
 | **名称**         | 引导操作的名称。例如，升级JINDOSDK。                        | update_jindosdk                                              |
 | **脚本位置**     | 选择脚本所在OSS的位置。脚本路径格式必须为oss://**/*.sh格式。 | oss://<bucket-name>/path/to/patch/bootstrap_jindosdk.sh      |
-| **参数**         | 引导操作脚本的参数，指定脚本中所引用的变量的值。             | -bootstrap http://<bucket-name>.<internal-endpoint>/path/to/patch/jindosdk-bootstrap-patches.tar.gz |
+| **参数**         | 引导操作脚本的参数，指定脚本中所引用的变量的值。             | `-bootstrap http://<bucket-name>.<internal-endpoint>/path/to/patch/jindosdk-bootstrap-patches.tar.gz` |
 | **执行范围**     | 选择**集群**。                                               |                                                              |
 | **执行时间**     | 选择**组件安装前**。                                         |                                                              |
 | **执行失败策略** | 选择**继续执行**。                                           |                                                              |
