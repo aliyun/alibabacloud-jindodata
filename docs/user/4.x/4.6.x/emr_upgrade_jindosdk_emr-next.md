@@ -180,7 +180,7 @@ Found 2 items
 * 如果是新建集群，则需要重启YARN、Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 YARN、Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
   
-#### 对于弹性扩容场景，或者是需要避免重启服务的情况
+#### 对于弹性扩容场景，或者是要避免扩容后重启服务的情况
 
 可以使用 **执行范围** 为`组件安装前`, 同时配合可直连的 http 地址，`jindosdk-bootstrap-patches.tar.gz`会使用 wget 方式下载，具体步骤如下：
   
