@@ -19,7 +19,7 @@ JindoRuntime 默认日志打在容器 std 输出里面，可以使用阿里云 s
 
 您可以选择在 ack 控制台操作，或者直接操作集群 K8S 资源
 
-### ack 控制台操作
+### 3.1 ack 控制台操作
 
 您可以登陆 ack 控制台 > 工作负载
 * 有状态（master/worker）
@@ -37,9 +37,10 @@ JindoRuntime 默认日志打在容器 std 输出里面，可以使用阿里云 s
 其中日志库名称可自定义填写，该名称即为 sls 上日志库的名字，容器内日志路径为**stdout**
 
 * 点击右侧更新
+  
 <img src="../pic/jindo_fluid_sls_ack_4.png">
 
-### 直接操作 K8S 资源
+### 3.2、直接操作 K8S 资源
 * 以收集 fuse 日志为例，执行
 ```shell
 kubectl edit daemonset test-jindofs-fuse
@@ -63,7 +64,7 @@ kubectl edit statefulset test-jindofs-worker
 ```
 进行对应的编辑
 
-### 4、登陆阿里云 sls 日志服务查看相关日志情况
+## 4、登陆阿里云 sls 日志服务查看相关日志情况
 以 jindofuse 日志收集为例，日志库名称为 **jindo-fuse**,在sls上找到对应的日志库
 
 <img src="../pic/jindo_fluid_sls_ack_6.png">
