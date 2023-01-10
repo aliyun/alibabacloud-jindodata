@@ -35,7 +35,7 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 ## 用户文档
 #### 支持阿里云 OSS [用户文档](docs/user/4.x/4.6.x/4.6.1/oss/outline.md)
 #### 支持阿里云 OSS-HDFS 服务（JindoFS 服务) [用户文档](docs/user/4.x/4.6.x/4.6.2/jindofs/outline.md)
-#### 支持JindoFSx 存储加速系统 [用户文档](docs/user/4.x/4.6.x/4.6.1/jindofsx/outline.md)
+#### 支持JindoFSx 存储加速系统 [用户文档](docs/user/4.x/4.6.x/4.6.2/jindofsx/outline.md)
 #### 支持多云对象存储 [用户文档](docs/user/4.x/4.6.x/4.6.1/jindosdk/outline.md)
 #### 支持阿里云 OSS [用户文档](docs/user/3.x/outline.md) （3.x 版本）
 
