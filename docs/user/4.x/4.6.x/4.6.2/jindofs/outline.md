@@ -38,9 +38,6 @@
 #### Flume 组件
 * [Flume 使用 JindoSDK 写入阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.2/jindofs/flume/jindosdk_on_flume.md)
 
-#### Sqoop 组件
-* [Sqoop 使用 Kite SDK 读写阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.2/jindofs/sqoop/kitesdk_on_sqoop.md)
-
 ## AI 生态
 #### JindoFuse 使用
 * [使用 JindoFuse 访问阿里云 OSS-HDFS 服务（JindoFS 服务）](/docs/user/4.x/4.6.x/4.6.2/jindofs/jindo_fuse/jindo_fuse_on_dls.md)
