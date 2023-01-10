@@ -20,6 +20,7 @@ JindoRuntime 默认日志打在容器 std 输出里面，可以使用阿里云 s
 您可以选择在 ack 控制台操作，或者直接操作集群 K8S 资源
 
 ### 3.1 ack 控制台操作
+**本文以 JindoRuntime 名字为 test 进行举例** <br/>
 
 您可以登陆 ack 控制台 > 工作负载
 * 有状态（master/worker）
