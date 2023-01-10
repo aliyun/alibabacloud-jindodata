@@ -19,6 +19,7 @@
 * [数据预加载](jindo_fluid_dataload.md)
 * [监控及可观测功能](jindo_fluid_monitor_metric.md)
 * [问题诊断及处理](jindo_fluid_question.md)
+* [对接阿里云SLS日志服务](jindo_fluid_aliyun_sls_example.md)
 
 ## 最佳实践系列
 * [云原生 AI 在自动驾驶领域的应用探索与毫末智行落地实践](https://www.infoq.cn/article/YkTwXpZGaE86E29MdVo2)
