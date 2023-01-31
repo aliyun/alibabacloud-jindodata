@@ -13,3 +13,27 @@ Successfully list objects with prefix xxx/yyy/ in bucket xxx recursive 0 result 
 export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Xmx4096m"
 ```
 
+### 2. checksum 报错
+#### 现象
+如您在使用 JindoDistCp 的过程中，如遇到如下信息
+```
+Failed to get checksum store.
+```
+#### 解决办法
+OSS-HDFS 默认的 checksum 算法是 COMPOSITE_CRC，如果 HDFS 配置的 dfs.checksum.combine.mode 为 MD5MD5CRC，则需要变更 OSS-HDFS 的 fs.oss.checksum.combine.mode 配置为 MD5MD5CRC。
+```shell
+hadoop jar jindo-distcp-${version}.jar --src /data --dest oss://destBucket/ --hadoopConf fs.oss.checksum.combine.mode=MD5MD5CRC
+```
+
+### 3. OSS 拷贝到 OSS-HDFS 时报 verify checksum failed
+#### 现象
+如您在使用 JindoDistCp 的过程中，如遇到如下信息
+```
+Exception raised while copying data file, verify checksum failed
+```
+#### 解决办法
+如果 OSS 中的的文件不是通过 JindoDistCp 从 HDFS 迁移到 OSS的，则需要通过 --disableChecksum 跳过 checksum 检查。
+```shell
+hadoop jar jindo-distcp-${version}.jar --src oss://ossBucket/ --dest oss://dlsBucket/ --disableChecksum
+```
+
