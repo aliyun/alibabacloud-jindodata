@@ -1,7 +1,7 @@
 # JindoData 下载
 
 ## v4.6.4-beta1
-[jindosdk-4.6.3.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4-beta1/jindosdk-4.6.4-beta1.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+[jindosdk-4.6.4-beta1.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4-beta1/jindosdk-4.6.4-beta1.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
 
 ## v4.6.3
 [jindosdk-4.6.3.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.3/jindosdk-4.6.3.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
