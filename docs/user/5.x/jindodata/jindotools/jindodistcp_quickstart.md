@@ -257,7 +257,7 @@ jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-o
 | --- | --- | --- |
 |  4.3.0 及以上版本  |  支持  |  支持  |
 
-*   --ignore 指定有符合规则的文件。忽略数据迁移期间发生的异常，相关报错不会中断任务，并最终以 JindoCounter 的形式透出。（如果开启CMS的话，也会以指定方式进行通知。）
+*   --ignore 忽略数据迁移期间发生的异常，相关报错不会中断任务，并最终以 JindoCounter 的形式透出。（如果开启CMS的话，也会以指定方式进行通知。）
 
 示例命令如下：
 ```shell
