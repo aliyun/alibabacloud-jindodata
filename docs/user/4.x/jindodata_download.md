@@ -1,9 +1,29 @@
 # JindoData 下载
 
 ## v4.6.4
-[jindosdk-4.6.4.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindosdk-4.6.4.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+[jindosdk-4.6.4-linux.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindosdk-4.6.4-linux.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
 
-[jindofsx-4.6.4.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindofsx-4.6.4.tar.gz) ([安装说明](install_dependeny_jindodata.md))
+[jindosdk-4.6.4-linux-el7-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindosdk-4.6.4-linux-el7-aarch64.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+
+[jindosdk-4.6.4-linux-el6-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindosdk-4.6.4-linux-el6-x86_64.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+
+[jindosdk-4.6.4-linux-ubuntu22-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindosdk-4.6.4-linux-ubuntu22-x86_64.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+
+[jindosdk-4.6.4-macos-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindosdk-4.6.4-macos-10_14-x86_64.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+
+[jindosdk-4.6.4-macos-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindosdk-4.6.4-macos-10_14-aarch64.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+
+[jindofsx-4.6.4-linux.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindofsx-4.6.4-linux.tar.gz) ([安装说明](install_dependeny_jindodata.md))
+
+[jindofsx-4.6.4-linux-el7-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindofsx-4.6.4-linux-el7-aarch64.tar.gz) ([安装说明](install_dependeny_jindodata.md))
+
+[jindofsx-4.6.4-linux-el6-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindofsx-4.6.4-linux-el6-x86_64.tar.gz) ([安装说明](install_dependeny_jindodata.md))
+
+[jindofsx-4.6.4-linux-ubuntu22-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindofsx-4.6.4-linux-ubuntu22-x86_64.tar.gz) ([安装说明](install_dependeny_jindodata.md))
+
+[jindofsx-4.6.4-macos-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindofsx-4.6.4-macos-10_14-x86_64.tar.gz) ([安装说明](install_dependeny_jindodata.md))
+
+[jindofsx-4.6.4-macos-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindofsx-4.6.4-macos-10_14-aarch64.tar.gz) ([安装说明](install_dependeny_jindodata.md))
 
 ## v4.6.3
 [jindosdk-4.6.3.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.3/jindosdk-4.6.3.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
