@@ -10,8 +10,8 @@ JindoData 4.6.4 版本新增多平台支持。
 
 - Java 的多平台通过部署多个 jindo-core 实现多平台支持， `jindo-core` 默认支持主流 linux，如果需要其他平台支持，要额外引入对应平台的扩展包。
 
-例如：
-
+> 例如：
+>
 > 在主流 linux 上的 hadoop 集群部署 ，需要 `jindo-core-4.6.4.jar` 和 `jindo-sdk-4.6.4.jar` 到指定的classpath
 >
 > 在macos上运行和调试，需要 `jindo-core-4.6.4.jar` 和 `jindo-sdk-4.6.4.jar`，同时还需要 `jindo-core-macos-10_14-x86_64-4.6.4.jar`
