@@ -1,6 +1,6 @@
 # Hadoop 使用 JindoSDK 集成开发
 
-目前 JindoSDK 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统，Mac M1 系列也暂不支持）
+目前 JindoSDK 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统）
 
 在 maven pom.xml 中添加 JindoSDK 的依赖
 

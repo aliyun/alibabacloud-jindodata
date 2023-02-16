@@ -6,7 +6,7 @@
 
 ## 安装依赖包
 
-目前 JindoSDK/JindoDistCP 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统，Mac M1 系列也暂不支持）
+目前 JindoSDK/JindoDistCP 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统）
 
 以4.6.4版本为例，在 maven `pom.xml` 中添加 JindoDistCP 的依赖
 
