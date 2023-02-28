@@ -1,10 +1,10 @@
-# EMR 集群 JindoSDK 升级流程（新版控制台）
+# EMR 新版集群 JindoSDK 升级文档
 
-## 背景
+## 场景一： 升级已有新版集群
 
-在新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群中遇到[已知问题](../jindodata/jindodata_known_issues.md)或需要使用[新功能](../jindodata/jindodata_release_notes.md)。
+若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在使用过程中遇到了问题，具体查看 [已知问题](../jindodata/jindodata_known_issues.md)，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../jindodata/jindodata_release_notes.md), 可以根据下面的步骤完成 JindoSDK 升级。
 
-## 准备软件包和升级脚本
+### 1. 准备软件包和升级脚本
 
 登录EMR集群的Master节点，并将下载的patch包放在emr-user用户的HOME目录下，将patch包解压缩后，使用emr-user用户执行操作。
 
@@ -25,6 +25,12 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.4/jindosd
 ls -l
 ```
 
+**注意：** 如果下载的是 beta 版本，如 `jindosdk-4.6.4-beta1-linux.tar.gz`，需要按如下方式重命名。
+
+```bash
+mv jindosdk-4.6.4-beta1-linux.tar.gz jindosdk-4.6.4-linux.tar.gz
+```
+
 jindosdk-patches 内容示例如下：
 ```bash
 -rwxrwxr-x 1 emr-user emr-user       575 May 01 00:00 apply_all.sh
@@ -33,9 +39,9 @@ jindosdk-patches 内容示例如下：
 -rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-4.6.4-linux.tar.gz
 ```
 
-## 配置升级节点信息
+### 2. 配置升级节点信息
 
-编辑patch包下的hosts文件，添加集群所有节点的host name，如master-1-1或core-1-1，文件内容以行分割。
+编辑 patch 包下的 hosts 文件，添加集群所有节点的 hostname，如 master-1-1 或 core-1-1，文件内容以行分割。
 
 ```bash
 cd jindosdk-patches
@@ -55,15 +61,15 @@ core-1-2
 cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-output '.nodes[].hostname.alias[]' > hosts
 ```
 
-## 执行升级
+### 3. 执行升级
 
-通过apply_all.sh 脚本执行修复操作。
+通过 apply_all.sh 脚本执行修复操作。
 
 ```bash
 ./apply_all.sh $NEW_JINDOSDK_VERSION $OLD_JINDOSDK_VERSION
 ```
 
-如 
+以将新版集群中的 JindoSDK 从 4.5.1 版本升级到 4.6.4 版本为例:
 
 ```bash
 ./apply_all.sh 4.6.4 4.5.1
@@ -78,20 +84,20 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 ### DONE
 ```
 
-**说明** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
+**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
-## 升级后重启服务
+### 4. 升级后重启服务
 
-Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
+Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
 
-以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的`操作` > `重启 All Components`。
+以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的`更多操作` > `重启`。
 
 
-## 新建集群和扩容已有集群
+## 场景二: 新建集群和扩容已有集群
 
-新建EMR集群时在EMR控制台添加引导操作，或扩容已有集群时可以自动升级修复。具体操作步骤如下：
+若新建 EMR 集群或扩容已有集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。
 
-### 制作引导升级包
+### 1. 制作引导升级包
 
 下载的 jindosdk-patches.tar.gz ，jindosdk-4.6.4-linux.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
 
@@ -109,6 +115,12 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/
 ls -l
 ```
 
+**注意：** 如果下载的是 beta 版本，如 `jindosdk-4.6.4-beta1-linux.tar.gz`，需要按如下方式重命名。
+
+```bash
+mv jindosdk-4.6.4-beta1-linux.tar.gz jindosdk-4.6.4-linux.tar.gz
+```
+
 内容示例如下：
 
 ```bash
@@ -123,7 +135,7 @@ ls -l
 bash bootstrap_jindosdk.sh -gen $NEW_JINDOSDK_VERSION $OLD_JINDOSDK_VERSION
 ```
 
-如
+以将新版集群中的 JindoSDK 从 4.5.1 版本升级到 4.6.4 版本为例:
 
 ```bash
 bash bootstrap_jindosdk.sh -gen 4.6.4 4.5.1
@@ -137,13 +149,13 @@ Generated patch at /home/emr-user/jindo-patch/jindosdk-bootstrap-patches.tar.gz
 
 ```
 
-制作完成，得到patch包： `jindosdk-bootstrap-patches.tar.gz`。
+制作完成，得到 patch 包： `jindosdk-bootstrap-patches.tar.gz`。
 
-### 上传引导升级包
+### 2. 上传引导升级包
 
-将 patch包 和 bootstrap脚本上传到OSS上。
+将 patch包 和 bootstrap 脚本上传到 OSS 上。
 
-EMR 集群内可以通过 hadoop 命令上传，或者通过 oss 控制台、ossutil 或 OSS Browser 等工具。
+EMR 集群内可以通过 hadoop 命令上传，或者通过 OSS 控制台、ossutil 或 OSS Browser 等工具。
 
 ```bash
 hadoop dfs -mkdir -p oss://<bucket-name>/path/to/patch/
@@ -155,7 +167,7 @@ hadoop dfs -put bootstrap_jindosdk.sh oss://<bucket-name>/path/to/patch/
 hadoop dfs -ls oss://<bucket-name>/path/to/patch/
 ```
 
-​	可看到返回内容示例如下：
+可看到返回内容示例如下：
 
 ```
 Found 2 items
@@ -164,12 +176,11 @@ Found 2 items
 ```
 
 
-
 例如，上传到OSS的路径为`oss://<bucket-name>/path/to/jindosdk-bootstrap-patches.tar.gz`和`oss://<bucket-name>/path/to/bootstrap_jindosdk.sh`。
 
-### 在EMR控制台添加引导操作
+### 3. 在EMR控制台添加引导操作
 
-在EMR控制台添加引导操作，详细信息请参见[管理引导操作](https://help.aliyun.com/document_detail/398732.html).
+在 EMR 控制台添加引导操作，详细信息请参见[管理引导操作](https://help.aliyun.com/document_detail/398732.html).
 
 在**添加引导操作**对话框中，填写配置项。
 
@@ -182,6 +193,7 @@ Found 2 items
 | **执行时间**     | 选择**组件启动后**。                                         |                                                              |
 | **执行失败策略** | 选择**继续执行**。                                           |                                                              |
 
-### 确保加载到最新的修复
-* 如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
-* 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
+### 4. 确保加载到最新的修复
+
+* 如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
+* 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
