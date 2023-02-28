@@ -49,6 +49,12 @@ core-1-1
 core-1-2
 ```
 
+可尝试使用脚本获取全部节点信息，如果 `hosts` 获取失败，需要手动补全
+
+```bash
+cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-output '.nodes[].hostname.alias[]' > hosts
+```
+
 ## 执行升级
 
 通过apply_all.sh 脚本执行修复操作。
