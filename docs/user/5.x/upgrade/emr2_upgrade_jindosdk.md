@@ -15,7 +15,9 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/
 tar zxf jindosdk-patches.tar.gz
 ```
 
-下载 JindoSDK 软件包 jindosdk-{VERSION}-{PLATFORM}.tar.gz（以下以linux x86平台为例），放在解压后的目录。
+下载 JindoSDK 软件包 jindosdk-{VERSION}-{PLATFORM}.tar.gz，放在解压后的目录。
+
+以将新版集群中的 JindoSDK 升级到 4.6.4 版本，linux x86 平台为例:
 
 ```bash
 cd jindosdk-patches
@@ -99,7 +101,9 @@ Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重�
 
 ### 1. 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-4.6.4-linux.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
+下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
+
+以将新版集群中的 JindoSDK 升级到 4.6.4 版本，linux x86平台为例:
 
 ```bash
 mkdir jindo-patch
