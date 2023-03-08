@@ -4,6 +4,8 @@
 
 在集群上有开源版本 Flink 软件，版本不低于 1.10.1。
 
+注：Flink 1.16.0 及更高版本的可用性尚未得到验证。
+
 ## 为什么 Flink 需要使用 JindoSDK 访问 OSS
 
 若需要 Flink 保持 EXACTLY_ONCE 语义流式写入 Aliyun OSS，则需要使用 JindoSDK。
@@ -18,6 +20,8 @@ Apache Flink 是一种当前业界流行的开源大数据流式计算引擎，�
 * jindo-flink-${version}-full.jar
 
 该 jar 包含在 jindosdk-${version}.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))，解压缩后可在 plugins/flink/ 目录下找到。
+
+注：JindoSDK 目前提供多平台支持，当前支持的平台以及需要额外放置的资源，参考 [JindoData 4.6.4 版本说明](/docs/user/4.x/4.6.x/4.6.4/release-notes.md)
 
 ## 如何使用
 
