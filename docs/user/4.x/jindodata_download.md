@@ -2,7 +2,7 @@
 
 ## v4.6.5
 
-[jindosdk-4.6.4-linux.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.5/jindosdk-4.6.5-linux.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
+[jindosdk-4.6.5-linux.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.5/jindosdk-4.6.5-linux.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
 
 [jindosdk-4.6.5-linux-el7-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.5/jindosdk-4.6.5-linux-el7-aarch64.tar.gz) ([安装说明](install_dependeny_jindosdk.md))
 
