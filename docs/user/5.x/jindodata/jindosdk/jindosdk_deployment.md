@@ -6,25 +6,26 @@
 
 1.  下载并解压JindoSDK JAR包。
     
-执行以下命令，下载4.6.2版本JindoSDK JAR包。
+执行以下命令，下载4.6.5版本JindoSDK JAR包。
         
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.2/jindosdk-4.6.2.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/4.6.5/jindosdk-4.6.5-linux.tar.gz
 ```
 
 2.  执行以下命令，解压JindoSDK JAR包。
     
 ```bash
-tar zxvf jindosdk-4.6.2.tar.gz
+tar zxvf jindosdk-4.6.5-linux.tar.gz
 ```
 
 3.  配置环境变量。
     
-以安装包内容解压在 /usr/lib/jindosdk-4.6.2 目录为例：
+以安装包内容解压在 /usr/lib/jindosdk-4.6.5-linux 目录为例：
 
 ```bash
-export JINDOSDK_HOME=/usr/lib/jindosdk-4.6.2
+export JINDOSDK_HOME=/usr/lib/jindosdk-4.6.5-linux
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
+export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 ```

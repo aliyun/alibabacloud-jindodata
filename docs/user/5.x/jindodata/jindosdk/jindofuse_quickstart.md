@@ -18,6 +18,8 @@ OSS/OSS-HDFS 可以通过 JindoFuse 提供 POSIX 支持，将 OSS/OSS-HDFS 上�
 
 * EMR-3.44.0及以上版本或EMR-5.10.0及以上版本，已默认安装所需依赖，可跳过本章节。
 
+* JindoSDK 4.6.2及以上版本，在下载包中已默认安装所需依赖，可跳过本章节。
+
 * JindoSDK 4.5.0 及之前版本
 
 ```bash
