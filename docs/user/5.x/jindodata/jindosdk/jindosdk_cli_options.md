@@ -400,13 +400,15 @@ jindo fs -setfattr {-n name [-v value] | -x name} oss://<bucket>/<dir>
 ```
 适用范围：OSS-HDFS
 ### sync
-将本地文件上传到远程路径，可选参数：
+将本地路径、hdfs路径、oss路径或oss-hdfs路径到远程路径，使用update参数则会跳过目的路径中修改时间不晚于源路径中同名文件的文件。可选参数：
 | 参数    | Description  |
 | ---  | --- |
-| -update | 断点续传|
-| -thread | 使用多线程|
+| -update | 断点续传 |
 ```shell
-jindo fs -sync [-update] [-thread thread_num] <localsrc> oss://<bucket>/<dir>
+jindo fs -sync [-update] -thread thread_num <localsrc> oss://<bucket>/<dir>
+```
+```shell
+jindo fs -sync [-update] -thread thread_num oss://<bucket>/<dir> oss://<bucket>/<dir>
 ```
 适用范围：标准OSS、OSS-HDFS
 ### touchz
