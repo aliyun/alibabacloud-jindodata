@@ -16,15 +16,15 @@ sh sbin/stop-service.sh
 ```
 [jindofsx-namespace]# Namespace 配置
 namespace.backend.type = raft #设置namespace后端存储类型，支持 rocksdb 和 raft, 默认为 rocksdb。
-namespace.backend.raft.initial-conf = emr-header-1:8103:0,emr-header-2:8103:0,emr-header-3:8103:0 #部署raft实例的3个Namespace地址
+namespace.backend.raft.initial-conf = master-1-1:8103:0,master-1-2:8103:0,master-1-3:8103:0 #部署raft实例的3个Namespace地址
 ```
 
 ### 3. 配置 Namespace 地址
 因为 3 个 Master 节点组成 1 个 Raft 实例，需更新 `jindofsx-x.x.x/sbin/headers` 文件，添加 3 个 Namespace 所在节点列表，例如：
 ```
-emr-header-1
-emr-header-1
-emr-header-1
+master-1-1
+master-1-2
+master-1-3
 ```
 
 ### 4. 同步 jindofsx-x.x.x 文件夹
@@ -44,7 +44,7 @@ sh sbin/start-service.sh
     <property>
         <!-- Client端访问raft实例的3个Namespace地址 -->
         <name>fs.jindofsx.namespace.rpc.address</name>
-        <value>emr-header-1:8101,emr-header-2:8101,emr-header-3:8101</value>
+        <value>master-1-1:8101,master-1-2:8101,master-1-3:8101</value>
     </property>
 </configuration>
 ```
