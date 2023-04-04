@@ -17,7 +17,7 @@
 
 OSS 提供了完整的数据权限管控体系，完整的OSS授权策略请参见[RAM Policy概述](https://help.aliyun.com/document_detail/100680.htm#concept-y5r-5rm-2gb)。
 
-**注意** 请根据RAM用户需要使用的权限，谨慎定义权限策略。
+**注意** 请根据RAM用户需要使用的权限，谨慎定义权限策略。对于使用hive、spark的用户，无论是否开启多版本都需要配置`oss:ListObjectVersions`、`oss:DeleteObjectVersion`，我们对于一些常见的临时目录，比如"_temporary"、".staging"、".hive-staging"、"__magic" 会触发多版本操作。
 ```json
     {
       "Version": "1",
@@ -31,7 +31,9 @@ OSS 提供了完整的数据权限管控体系，完整的OSS授权策略请参
             "oss:DeleteObject",
             "oss:AbortMultipartUpload",
             "oss:ListParts",
-            "oss:RestoreObject"
+            "oss:RestoreObject",
+            "oss:ListObjectVersions",
+            "oss:DeleteObjectVersion"
           ],
           "Resource": [
             "acs:oss:*:*:<example-bucket>",
@@ -58,6 +60,8 @@ OSS 提供了完整的数据权限管控体系，完整的OSS授权策略请参
 ### 其他自定义场景示例
 
 只读访问 OSS：
+
+**注意** 请根据RAM用户需要使用的权限，谨慎定义权限策略。对于使用hive、spark的用户，无论是否开启多版本都需要配置`oss:ListObjectVersions`, 我们对于一些常见的临时目录，比如"_temporary"、".staging"、".hive-staging"、"__magic" 会触发多版本操作。
 ```json
     {
       "Version": "1",
@@ -67,7 +71,8 @@ OSS 提供了完整的数据权限管控体系，完整的OSS授权策略请参
             "oss:ListObjects",
             "oss:GetBucketInfo",
             "oss:GetObject",
-            "oss:RestoreObject"
+            "oss:RestoreObject",
+            "oss:ListObjectVersions"
           ],
           "Resource": [
             "acs:oss:*:*:<yourBucketName>",
