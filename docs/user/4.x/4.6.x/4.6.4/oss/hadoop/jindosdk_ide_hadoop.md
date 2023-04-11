@@ -41,7 +41,7 @@
         <!-- add jindo-hadoop-sdk -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
-            <artifactId>jindosdk</artifactId>
+            <artifactId>jindo-sdk</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
         
