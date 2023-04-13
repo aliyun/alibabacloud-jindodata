@@ -5,7 +5,7 @@ JindoData 4.6.5 版本修复若干问题。
 
 ## 修复介绍
 
-- 修复 isDirectory 正确抛出异常
-- 修复 Hadoop Config 并发修改问题
-- 添加 oss scheme service loader 指向 JindoFileSystem
-- 修复其他若干客户端体验问题
+- 添加 oss scheme 的 ServiceLoader 指向 JindoOssFileSystem
+- 优化 isDirectory() 异常逻辑，针对带 Path `*` 目录，isDirectory() 接口返回 false，替换原来返回`IllegalPath `异常
+- 优化 HadoopSDK 在部分场景下，会报出 Hadoop Config 并发修改异常`ConcurrentModificationException`
+- 优化临时目录异常或者出现坏盘时 JindoMagicCommitter 客户端写 OSS 的重试逻辑，最大程度保证作业写入成功
