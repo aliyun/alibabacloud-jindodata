@@ -376,7 +376,7 @@ jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-o
 
 *   --enableCMS 开启云监控告警功能，具体参见[《JindoDistcp使用CMS进行告警》](jindodistcp_how_to_cms.md)。
 
-### 20、 JindoDistCp Counters 说明
+## JindoDistCp Counters 说明
 | 任务计数器          | 说明                                        |
 |----------------| ------------------------------------------- |
 | COPY_FAILED    | copy失败的文件数  |
