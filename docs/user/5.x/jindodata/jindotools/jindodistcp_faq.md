@@ -37,3 +37,5 @@ Exception raised while copying data file, verify checksum failed
 hadoop jar jindo-distcp-${version}.jar --src oss://ossBucket/ --dest oss://dlsBucket/ --disableChecksum
 ```
 
+### 4. 执行 JindoDistCp 后，查看是否成功
+如果没有添加 --ignore 参数，执行过程中如果有问题会报错退出。如果没添加了--ignore 参数，查看 JindoDistCp Counters，如 COPY_FAILED，CHECKSUM_DIFF 等，详见 JindoDistCp Counters 说明。

@@ -375,3 +375,21 @@ jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-o
 |  4.5.1 及以上版本  |  支持  |  支持  |
 
 *   --enableCMS 开启云监控告警功能，具体参见[《JindoDistcp使用CMS进行告警》](jindodistcp_how_to_cms.md)。
+
+### 20、 JindoDistCp Counters 说明
+| 任务计数器          | 说明                                        |
+|----------------| ------------------------------------------- |
+| COPY_FAILED    | copy失败的文件数  |
+| CHECKSUM_DIFF  | checksum校验失败的文件数，并计入COPY_FAILED |
+| FILES_EXPECTED | 预期的copy文件数量   |
+| BYTES_EXPECTED | 预期的copy字节数 |
+| FILES_COPIED   | copy成功的文件数   |
+| BYTES_COPIED   | copy成功的字节数 |
+| FILES_SKIPPED  | update增量更新时跳过的文件数  |
+| BYTES_SKIPPED  | update增量更新时跳过的字节数  |
+| DIFF_FILES     | 不相同的文件数 |
+| SAME_FILES     | 经校验完全相同的文件数 |
+| DST_MISS       | 目标路径不存在的文件数，并计入DIFF_FILES |
+| LENGTH_DIFF    | 源文件和目标文件大小不一致的数量，并计入DIFF_FILES |
+| CHECKSUM_DIFF  | checksum校验失败的文件数，并计入DIFF_FILES |
+| DIFF_FAILED    | diff操作异常的文件数，具体报错参见job日志 |
