@@ -32,7 +32,8 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 
 * Hadoop3.x 环境
 
-[jindofs-sdk-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindofs-sdk-3.7.3.jar)<br />
+[jindo-flink-sink-3.7.3-1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindo-flink-sink-3.7.3-1.jar)<br />
+[jindofs-sdk-3.7.3-1.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindofs-sdk-3.7.3-1.jar)<br />
 [jindo-distcp-3.7.3.jar](https://smartdata-binary.oss-cn-shanghai.aliyuncs.com/release/3.7.3/hadoop3/jindo-distcp-3.7.3.jar)<br />
 
 # JindoSDK 早期版本
