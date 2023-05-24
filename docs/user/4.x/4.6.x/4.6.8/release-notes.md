@@ -5,6 +5,5 @@ JindoData 4.6.8 版本修复若干问题。
 
 ## 修复介绍
 
-- JindoFuse 支持优雅退出机制。
-- JinoFuse 优化日志输出。
-- 修复 JinoFuse 挂载 oss，打开文件不支持 O_APPEND ｜ O_TRUNC。
+- JindoFS 支持客户端设置回收站保留时间。
+- JindoFSx 支持通过通配符筛选缓存预热的文件列表。
