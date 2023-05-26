@@ -61,6 +61,27 @@ jindo fs -load -meta -s -R <path>
 jindo fs -load -meta -data -s -R <path>
 ```
 
+## 通过通配符匹配来指定缓存文件
+
+通过指定通配符来选择在具体的 path 下需要缓存的文件，类似白名单功能
+
+```
+jindo fs -load -meta -data -s -R -filter <wildcard> -dryrun <path>
+```
+
+| 参数 | 说明 |
+| --- | --- |
+| -filter | 表示具体的通配符，用来对path下的所有文件进行匹配。比如*.log,如果有多个通配符用,隔开,比如*.log,*.dat |
+| -dryrun| 表示单纯输出符合匹配的结果，不真正进行缓存，用于进行判断通配符是否正确|
+| -thread| 表示客户端对过滤出来的文件进行缓存的线程数，默认是10个|
+
+使用示例
+
+```
+jindo fs -load -meta -data -s -R -filter *.log oss://bucket/dir
+```
+
+
 ## 清理缓存命令
 uncache命令可以删除本地集群中的本地备份，只存储数据在OSS标准存储上，以便于后续读取OSS上的数据。
 ```
