@@ -17,6 +17,23 @@
 
 为此，我们提供了DataLoad CRD, 该CRD让你可通过简单的配置就能完成整个数据预加载过程，并对数据预加载的许多行为进行自定义控制。
 
+
+假设我们已经有如下一个name为`spark`的dataset：
+
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: spark
+spec:
+  mounts:
+    - mountPoint: oss://test-bucket/spark
+      name: sparkV1
+  accessModes:
+    - ReadWriteMany
+```
+接下来对这个dataset进行预热，请注意下文中的 `/sparkV1` 为 `mounts[].name` 的值，如果您的 `mounts[].path` 为 / , 那么下文中的 `/sparkV1` 可以直接改为 `/`
+
 ## 配置待创建的DataLoad对象
 
 
@@ -140,11 +157,11 @@ spec:
     namespace: default
   loadMetadata: true
   target:
-    - path: /spark/spark-2.4.7
-    - path: /spark/spark-3.0.1/pyspark-3.0.1.tar.gz
+    - path: /sparkV1/spark-2.4.7
+    - path: /sparkV1/spark-3.0.1/pyspark-3.0.1.tar.gz
 ```
 
-上述DataLoad仅会加载`/spark/spark-2.4.7`目录下的全部文件，以及`/spark/spark-3.0.1/pyspark-3.0.1.tar.gz`文件
+上述DataLoad仅会加载`/sparkV1/spark-2.4.7`目录下的全部文件，以及`/sparkV1/spark-3.0.1/pyspark-3.0.1.tar.gz`文件
 
 
 ### 设置数据加载时的缓存副本数量
@@ -161,14 +178,14 @@ spec:
     namespace: default
   loadMetadata: true
   target:
-    - path: /spark/spark-2.4.7
+    - path: /sparkV1/spark-2.4.7
       replicas: 1
-    - path: /spark/spark-3.0.1/pyspark-3.0.1.tar.gz
+    - path: /sparkV1/spark-3.0.1/pyspark-3.0.1.tar.gz
       replicas: 2
 ```
 
 
-上述DataLoad在进行数据加载时，对于`/spark/spark-2.4.7`目录下的文件仅会在分布式缓存引擎中保留**1份**数据缓存副本，而对于文件`/spark/spark-3.0.1/pyspark-3.0.1.tar.gz`，分布式缓存引擎将会保留**2份**缓存副本。
+上述DataLoad在进行数据加载时，对于`/sparkV1/spark-2.4.7`目录下的文件仅会在分布式缓存引擎中保留**1份**数据缓存副本，而对于文件`/sparkV1/spark-3.0.1/pyspark-3.0.1.tar.gz`，分布式缓存引擎将会保留**2份**缓存副本。
 
 ### 原子性缓存
 如您想保持缓存一致性和原子性，那么您可以使用如下 yaml 来完成这个功能
@@ -204,6 +221,47 @@ spec:
     loadMetadataOnly: "true"
 ```
 
+### 通过通配符进行缓存过滤
+
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  dataset:
+    name: spark
+    namespace: default
+  loadMetadata: true
+  target:
+    - path: /sparkV1/spark-2.4.7
+      replicas: 1
+  options:
+    filter: "*.tgz"
+    cacheThread: "2"
+    dryrun: "false"
+```
+
+### 使用列表文件进行缓存
+
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  dataset:
+    name: spark
+    namespace: default
+  loadMetadata: true
+  options:
+    accessKeyId: "xxx"
+    accessKeySecret: "xxx"
+    endpoint: "oss-cn-shanghai-internal.aliyuncs.com"
+    url: "oss://test-bucket/filelist"
+    dryrun: "false"
+```
+
 
 ## 缓存进度及LOG查看
 
@@ -224,5 +282,5 @@ kubectl logs spark-dataload
 
 
 ```shell
-$ kubectl delete -f .
+$ kubectl delete dataload spark-dataload
 ```

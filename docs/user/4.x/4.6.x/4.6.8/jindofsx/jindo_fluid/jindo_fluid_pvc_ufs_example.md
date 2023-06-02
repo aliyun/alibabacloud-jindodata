@@ -1,6 +1,6 @@
 # 加速PVC上数据
 
-使用 JindoRuntime 流程简单，在准备好基本 K8S 和 OSS 环境的条件下，您只需要耗费10分钟左右时间即可部署好需要的 JindoRuntime 环境，您可以按照下面的流程进行部署。
+使用 JindoRuntime 流程简单，在准备好基本 K8S 和 PVC 数据卷环境的条件下，您只需要耗费10分钟左右时间即可部署好需要的 JindoRuntime 环境，您可以按照下面的流程进行部署。
 
 ## 1、创建命名空间
 ```shell
@@ -106,24 +106,47 @@ pvc        511MiB       0.00B    180.00GiB              0.0%          Bound   1h
 ```shell
 kubectl get pv,pvc
 NAME                      CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM            STORAGECLASS   REASON   AGE
-persistentvolume/pvc   100Gi      RWX            Retain           Bound    default/hadoop                           58m
+persistentvolume/pvc   100Gi      ROX            Retain           Bound    default/hadoop                           58m
 
 NAME                           STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 persistentvolumeclaim/pvc   Bound    hadoop   100Gi      RWX                           58m
 ```
 
+## 6、数据预热
 
-## 6、环境清理
-
-- 删除应用和应用容器
-- 删除 JindoRuntime
-
-```shell
-kubectl delete jindoruntime pvc
+### 设置数据加载时的缓存副本数量
+可以进行数据预热提前将文件缓存到本地，假设需要加速该 pvc 下面的两个子目录 /data1 和 /data1 同时分别指定缓存副本数量，可以参考如下dataload.yaml：
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: test
+spec:
+  dataset:
+    name: pvc
+    namespace: default
+  loadMetadata: true
+  target:
+    - path: /data1/
+      replicas: 1
+    - path: /data2/
+      replicas: 2
 ```
 
-- 删除 dataset
+```
+kubectl create dataload.yaml
+```
+观察 dataload 状态
+```
+kubectl get dataload test
+```
 
+具体 dataload 的功能可参考 [数据预加载](jindo_fluid_dataload.md)
+
+## 7、环境清理
+
+- 删除应用和应用容器
+- 删除 JindoRuntime 和 dataset
 ```shell
 kubectl delete dataset pvc
 ```
