@@ -11,10 +11,10 @@
 |  fs.oss.timeout.millisecond  |  整型  |  30000  |  请求 OSS/OSS-HDFS 超时时间（毫秒）  |  4.3.0+ |
 |  fs.oss.connection.timeout.millisecond  |  整型  |  3000  |  连接 OSS/OSS-HDFS 超时时间（毫秒）  |  4.3.0+|
 |  fs.oss.max.connections.per.host  |  整型  |  100  |  连接 oss 的连接池对每个host的最大连接数（超过阈值外的连接会使用短连接）  |  4.3.0+ |
-|  fs.oss.upload.thread.concurrency  |  整型  |  5  |  单个文件 OSS/OSS-HDFS 并发上传线程数  |  4.3.0+ |
-|  fs.oss.upload.queue.size  |  整型  |  5  |  OSS/OSS-HDFS 并发上传任务队列大小  |  4.3.0+ |
-|  fs.oss.upload.max.pending.tasks.per.stream  |  整型  |  16  |  进程内 oss 最大并发上传任务数  |  4.3.0+ |
-|  fs.oss.download.thread.concurrency  |  整型  |  16  |  进程内 oss 最大并发下载任务数  |  4.3.0+ |
+|  fs.oss.upload.thread.concurrency  |  整型  |  MAX(cpu核数,16)  |  单个文件 OSS/OSS-HDFS 并发上传线程数  |  4.3.0+ |
+|  fs.oss.upload.queue.size  |  整型  |  MAX(cpu核数,16)  |  OSS/OSS-HDFS 并发上传任务队列大小  |  4.3.0+ |
+|  fs.oss.upload.max.pending.tasks.per.stream  |  整型  |  10  |  进程内 oss 最大并发上传任务数  |  4.3.0+ |
+|  fs.oss.download.thread.concurrency  |  整型  |  MAX(cpu核数,16)  |  进程内 oss 最大并发下载任务数  |  4.3.0+ |
 |  fs.oss.read.readahead.max.buffer.count  |  整型  |  48  |  最大同时预读 oss 的 buffer 个数  |  4.5.1+ |
 |  fs.oss.read.buffer.size  |  整型  |  1048576  |  oss 读缓冲区大小（字节）  |  4.3.0+ |
 |  fs.oss.write.buffer.size  |  整型  |  1048576  |  oss 写缓冲区大小（字节）  |  4.3.0+ |
