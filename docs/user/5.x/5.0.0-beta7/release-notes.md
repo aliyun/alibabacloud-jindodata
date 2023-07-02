@@ -10,3 +10,7 @@
 - JindoSDK 更新 [5.0.0-beta7 的 Maven 仓库](beta7-oss-maven.md)，JindoSDK 合并 jindo-mapreduce (JindoCommitterFactory等) 到 jindosdk
 - JindoSDK 新增若干修复，包含 flush 降频，优化 GC 回收，适配 OSS-HDFS 回收站等
 - 多平台支持主流 linux，包括 CentOS 6
+
+## 下载
+
+JindoData 5.0.0 beta7 [下载页面](jindodata_download.md)
