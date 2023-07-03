@@ -1,5 +1,3 @@
-# jindoauth\_emr-next
-
 # 阿里云 OSS 使用 Ranger 的鉴权方案（EMR 新版控制台）
 
 本文介绍在 E-MapReduce 新版控制台( EMR-5.6.0/EMR-3.40.0 及以上版本非 Kerberos 集群)配置阿里云 OSS 和 OSS-HDFS 服务使用 Ranger 的鉴权方案。
