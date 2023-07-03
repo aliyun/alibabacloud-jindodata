@@ -4,7 +4,13 @@
 
 ### 1. 下载 JindoAuth 包
 
-下载最新的 Release 包 jindoauth-x.x.x.tar.gz (\[下载页面\](/docs/user/5.x/jindodata\_download.md))。
+下载最新的 Release 包 jindoauth-x.x.x-linux.tar.gz （[下载页面](/docs/user/5.x/5.0.0-beta7/jindodata_download.md)）。
+
+**注意：** 如果下载的是 beta 版本，如 `jindosdk-5.0.0-beta7-linux.tar.gz`，需要按如下方式重命名。
+
+```bash
+mv jindosdk-5.0.0-beta7-linux.tar.gz jindosdk-5.0.0-linux.tar.gz
+```
 
 ### 2. 服务端配置
 
@@ -33,7 +39,7 @@
 
 |  参数  |  值  |  说明  |
 | --- | --- | --- |
-|  jindoauth.rpc.address  |  hostname:port  |  JindoAuth 服务地址  |
+|  jindoauth.rpc.port  | 默认为 8201 | JindoAuth 服务端口 |
 
 #### 2.2  AK 免密和 Token 管理
 
@@ -65,7 +71,9 @@
 
 #### 3.1 准备节点信息
 
-在后文，我们将通过执行一个简单的脚本命令将 JindoAuth 服务在整个集群上启动起来。为了使脚本执行成功，您需要将集群的节点信息记录下来。您可以将启动 JindoAuth 服务的节点记录在 nodes 文件中。每一行记录一个集群内的地址，例如，nodes 可以形似下文：
+在后文，我们将通过执行一个简单的脚本命令将 JindoAuth 服务在整个集群上启动起来。为了使脚本执行成功，您需要将部署 JindoAuth 服务的集群节点信息记录下来。
+
+您可以将启动 JindoAuth 服务的节点记录在 nodes 文件中。每一行记录一个集群内的地址，例如，nodes 可以形似下文：
 
     master-1-1
     master-1-2

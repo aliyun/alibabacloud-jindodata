@@ -13,7 +13,9 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态
 *   已创建 E-MapReduce EMR-5.9.1/EMR-3.43.1 或以上版本集群，并且选择了 Ranger 服务，若为 E-MapReduce EMR-5.11.0/EMR-3.45.0 或以上版本集群，则需要选择 Ranger 和 Ranger-plugin 服务。
     
 *   已部署 JindoAuth 服务。
-    
+
+*   已升级 JindoSDK 为 5.0.0-beta7 版本，升级请参考([JindoSDK 升级](/docs/user/5.x/upgrade/emr2_upgrade_jindosdk_beta.md))。
+
 *   若使用集群都是可信用户，则可不启用 Kerberos 认证。本文为非 Kerberos 集群的使用说明。
     
 
