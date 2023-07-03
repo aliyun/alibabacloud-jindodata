@@ -33,7 +33,7 @@
             <version>${jindodata.version}</version>
         </dependency>
               
-        <!-- add jindo-core-extended-jar for centos6 or el6 -->
+        <!-- (optional) add jindo-core-extended-jar for centos6 or el6 -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core-linux-el6-x86_64</artifactId>
@@ -90,7 +90,7 @@
             <version>${jindodata.version}</version>
         </dependency>
               
-        <!-- add jindo-core-extended-jar for centos6 or el6 -->
+        <!-- (optional) add jindo-core-extended-jar for centos6 or el6 -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core-linux-el6-x86_64</artifactId>
@@ -155,4 +155,30 @@
         </dependency>
     </dependencies>
 </project>
+```
+
+其他平台依赖
+
+```xml
+
+        <!-- add jindo-core-extended-jar for macos -->
+        <dependency>
+            <groupId>com.aliyun.jindodata</groupId>
+            <artifactId>jindo-core-macos-10_14-x86_64</artifactId>
+            <version>${jindodata.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aliyun.jindodata</groupId>
+            <artifactId>jindo-core-macos-10_14-aarch64</artifactId>
+            <version>${jindodata.version}</version>
+        </dependency>
+
+        <!-- add jindo-core-extended-jar for centos6 or el6 -->
+        <dependency>
+            <groupId>com.aliyun.jindodata</groupId>
+            <artifactId>jindo-core-linux-el6-x86_64</artifactId>
+            <version>${jindodata.version}</version>
+        </dependency>
+
 ```
