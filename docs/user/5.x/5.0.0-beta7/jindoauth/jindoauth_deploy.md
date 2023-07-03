@@ -1,5 +1,3 @@
-# jindoauth\_deploy
-
 # 部署 JindoAuth 服务
 
 ### 1. 下载 JindoAuth 包
