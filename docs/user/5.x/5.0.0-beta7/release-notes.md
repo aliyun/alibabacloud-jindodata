@@ -2,7 +2,7 @@
 
 ## 版本概要
 
-发布 JindoData 5.0.0-beta7 预览版本，提供 JindoSDK 和 JindoAuth 5.0.0 正式版的功能
+发布 JindoData 5.0.0-beta7 版本，提供 JindoSDK 和 JindoAuth 5.0.0 正式版的功能
 
 (注: 5.0.0-beta7 版本中的 beta，主要面向 JindoCache 模块，JindoCache 模块不在此次发布，其他模块已经具备正式生产使用条件)
 
