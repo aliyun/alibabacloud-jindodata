@@ -153,13 +153,13 @@ mv jindoauth-5.0.0-beta7-linux.tar.gz jindoauth-5.0.0-linux.tar.gz
 
 创建完成后如下，后续就可以在该Service下创建Policy。
 
-![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/WgZOZxxjDk58nLX8/img/6bbe0968-f5a6-4d81-9a08-cebea9345d31.png)
+![image.png](images/ranger1.png)
 
 #### b. Ranger 规则示例
 
 例：配置用户test拥有访问`oss://jindoauth-runjob-cn-shanghai/user/test`目录的访问权限为 ALL：
 
-![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/WgZOZxxjDk58nLX8/img/b2c86e9f-cdd4-40bd-a9eb-bbd45a4c3d62.png)
+![image.png](images/ranger2.png)
 
 ##### 说明：
 
