@@ -4,10 +4,10 @@
 
 下载最新的 Release 包 jindoauth-x.x.x-linux.tar.gz （[下载页面](/docs/user/5.x/5.0.0-beta7/jindodata_download.md)）。
 
-**注意：** 如果下载的是 beta 版本，如 `jindosdk-5.0.0-beta7-linux.tar.gz`，需要按如下方式重命名。
+**注意：** 如果下载的是 beta 版本，如 `jindoauth-5.0.0-beta7-linux.tar.gz`，需要按如下方式重命名。
 
 ```bash
-mv jindosdk-5.0.0-beta7-linux.tar.gz jindosdk-5.0.0-linux.tar.gz
+mv jindoauth-5.0.0-beta7-linux.tar.gz jindoauth-5.0.0-linux.tar.gz
 ```
 
 ### 2. 服务端配置
