@@ -22,7 +22,8 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 ## 发布版本
 
 #### JindoData 5.0.0，2023-07-17，[Release Note](docs/user/5.x/5.0.0/release-notes.md) <span style="color:red">*[NEW]*</span>
-#### JindoData 4.6.10，2023-06-30，[Release Note](docs/user/4.x/4.6.x/4.6.8/release-notes.md) <span style="color:red">*[NEW]*</span>
+#### JindoData 4.6.11，2023-07-24，[Release Note](docs/user/4.x/4.6.x/4.6.11/release-notes.md) <span style="color:red">*[NEW]*</span>
+#### JindoData 4.6.10，2023-06-30，[Release Note](docs/user/4.x/4.6.x/4.6.10/release-notes.md)
 #### JindoData 4.6.8，2023-05-23，[Release Note](docs/user/4.x/4.6.x/4.6.8/release-notes.md)
 #### JindoData 4.6.7，2023-04-30，[Release Note](docs/user/4.x/4.6.x/4.6.7/release-notes.md)
 #### JindoData 4.6.6，2023-04-02，[Release Note](docs/user/4.x/4.6.x/4.6.6/release-notes.md)
@@ -41,10 +42,10 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 #### JindoData 3.x 版本，[原阿里云 EMR SmartData](https://help.aliyun.com/document_detail/121090.html)
 
 ## 用户文档
-#### 支持阿里云 OSS [用户文档](docs/user/4.x/4.6.x/4.6.8/oss/outline.md)
-#### 支持阿里云 OSS-HDFS 服务（JindoFS 服务) [用户文档](docs/user/4.x/4.6.x/4.6.8/jindofs/outline.md)
-#### 支持JindoFSx 存储加速系统 [用户文档](docs/user/4.x/4.6.x/4.6.8/jindofsx/outline.md)
-#### 支持多云对象存储 [用户文档](docs/user/4.x/4.6.x/4.6.8/jindosdk/outline.md)
+#### 支持阿里云 OSS [用户文档](docs/user/4.x/4.6.x/4.6.11/oss/outline.md)
+#### 支持阿里云 OSS-HDFS 服务（JindoFS 服务) [用户文档](docs/user/4.x/4.6.x/4.6.11/jindofs/outline.md)
+#### 支持JindoFSx 存储加速系统 [用户文档](docs/user/4.x/4.6.x/4.6.11/jindofsx/outline.md)
+#### 支持多云对象存储 [用户文档](docs/user/4.x/4.6.x/4.6.11/jindosdk/outline.md)
 #### 支持阿里云 OSS [用户文档](docs/user/3.x/outline.md) （3.x 版本）
 
 ## JindoData 下载
