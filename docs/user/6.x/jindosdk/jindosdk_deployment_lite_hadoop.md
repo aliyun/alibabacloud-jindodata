@@ -2,8 +2,6 @@
 
 ## 部署 JindoSDK
 
-连接ECS实例。具体操作，请参见[连接ECS实例](https://help.aliyun.com/document_detail/163467.htm#section-fqu-flq-xvv)。
-
 1.  下载 JindoSDK JAR 包。
     
 执行以下命令，下载6.0.0版本JindoSDK JAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](/docs/user/6.x/jindosdk/jindosdk_deployment_multi_platform.md)
@@ -14,11 +12,11 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/j
 ```
 
 2.  安装 JindoSDK JAR 包
-解压下载的安装包，将安装包内的以下 jar 文件安装到 hadoop 的 classpath 下：
+将下载的 jar 文件安装到 hadoop 的 classpath 下：
 * jindo-core-x.x.x.jar
 * jindo-sdk-x.x.x.jar
 
-jindosdk-6.0.0 为例:
+以 jindosdk-6.0.0 为例:
 ```
 cp indo-core-6.0.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 cp indosdk-6.0.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
@@ -30,7 +28,7 @@ cp indosdk-6.0.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 
 1.  配置 OSS/OSS-HDFS 实现类及AccessKey。
     
-    执行以下命令，进入Hadoop的core-site.xml配置文件。
+执行以下命令，进入Hadoop的core-site.xml配置文件。
         
 ```bash
 vim <HADOOP_HOME>/etc/hadoop/core-site.xml

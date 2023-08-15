@@ -1,11 +1,6 @@
 # JindoData v6.0.0 下载
 
-## 安装部署
-[《在非 EMR 环境中完整安装部署 JindoSDK》](/docs/user/6.x/jindosdk/jindosdk_deployment.md)
-
-[《在 Hadoop 环境最简安装部署 JindoSDK》](/docs/user/6.x/jindosdk/jindosdk_deployment_lite_hadoop.md)
-
-[《在多平台环境安装部署 JindoSDK》](/docs/user/6.x/jindosdk/jindosdk_deployment_multi_platform.md)
+在多平台环境安装部署说明，参见 [文档链接](/docs/user/6.x/jindosdk/jindosdk_deployment_multi_platform.md)
 
 ## 下载链接
 

@@ -4,21 +4,11 @@
 
 OSS/OSS-HDFS 可以通过 JindoFuse 提供 POSIX 支持，将 OSS/OSS-HDFS 上的文件挂载到本地文件系统中，让您能够像操作本地文件系统一样操作 OSS/OSS-HDFS 上的文件。
 
-## 环境准备
+## 部署安装
 
-*   EMR环境中，默认已安装 JindoSDK。注意：
-    
-    *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
-        
-*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《非 EMR 环境中部署 JindoSDK》](../jindosdk/jindosdk_deployment.md)。
-    
-    *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz，[下载页面](/docs/user/6.x/6.0.0/jindodata_download.md)。
 
-## 依赖安装
-
-* EMR-3.44.0及以上版本或EMR-5.10.0及以上版本，已默认安装所需依赖，可跳过本章节。
-
-* JindoSDK 6.0.0及以上版本，在下载包中已默认安装所需依赖，可跳过本章节。
+安装部署 JindoSDK，参见 [文档链接](/docs/user/6.x/jindosdk/jindosdk_deployment_ai.md)
 
 ## 挂载 JindoFuse
 

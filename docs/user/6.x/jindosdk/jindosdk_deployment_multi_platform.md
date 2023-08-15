@@ -24,9 +24,9 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 如果希望安装完整的 JindoSDK，可以部署安装这类产出物，但该产出物一般较大。
 
-### lite产出物
+### lite 产出物
 
-如果希望在 Hadoop 中直接使用，可以使用此类产出物。
+如果希望在 Hadoop 环境中仅使用 JindoSDK 中的 hadoop sdk，可以使用此类产出物。
 
 使用Java SDK时，Linux X86平台需要依赖jindo-sdk-{版本号}.jar和jindo-core-{版本号}.jar，其他平台需要依赖jindo-sdk-{版本号}.jar和jindo-core-{平台}-{版本号}.jar。
 
@@ -47,7 +47,7 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 以下 6.0.0 版本为例。
 
-### 大多数 Linux x86 环境
+### Linux x86 环境示例
 
 1. 完整安装，以安装包内容解压在 /usr/lib/jindosdk-6.0.0-linux 目录为例：
 
@@ -70,7 +70,7 @@ cp jindo-core-6.0.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 cp jindosdk-6.0.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
-### 大多数 Linux arrch64 环境
+### Linux arrch64 环境示例
 
 1. 完整安装，以安装包内容解压在 /usr/lib/jindosdk-6.0.0-linux-el7-aarch64 目录为例：
 

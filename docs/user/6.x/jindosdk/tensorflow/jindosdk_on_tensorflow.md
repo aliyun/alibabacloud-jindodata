@@ -3,7 +3,10 @@
 Jindo Tensorflow Collector 支持使用 Tensoflow 原生 API 支持访问 OSS。
 
 ### 1. 下载 JindoSDK 包
+
 下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/6.x/6.0.0/jindodata_download.md))。
+
+部署方式，参见[部署文档](/docs/user/6.x/jindosdk/jindosdk_deployment_ai.md)
 
 ## 2. 修改配置
 
@@ -17,10 +20,7 @@ pip3 install tensorflow==2.8
 
 #### 2.2.1 JindoSDK 环境变量
 
-```
-export LD_LIBRARY_PATH="/path/to/jindosdk-x.x.x/lib/native":$LD_LIBRARY_PATH
-export JINDOSDK_CONF_DIR=/path/to/jindosdk-x.x.x/conf
-```
+确认 LD_LIBRARY_PATH 包含 /path/to/jindosdk-x.x.x/lib/native
 
 #### 2.2.2 依赖的 Tensorflow 环境变量
 
