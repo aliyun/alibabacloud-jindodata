@@ -18,7 +18,7 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 在 Aliyun EMR 中默认安装了完整产出物，安装路径为/opt/apps/JINDOSDK/jindosdk-current/。
 
-完整产出物是一个tar包，名称为jindosdk-x.y.z-<平台名称>.tar.gz
+完整产出物是一个tar包，名称为 `jindosdk-x.y.z-<平台名称>.tar.gz`。
 
 完整产出物包含 hadoop sdk，jindo-fuse, jindo-distcp, jindotable，jindo flink connector, jindocli 等工具，可以部署使用。也包含二次开发所需的so等依赖。
 
@@ -28,7 +28,7 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 如果希望在 Hadoop 环境中仅使用 JindoSDK 中的 hadoop sdk，可以使用此类产出物。
 
-使用Java SDK时，Linux X86平台需要依赖jindo-sdk-{版本号}.jar和jindo-core-{版本号}.jar，其他平台需要依赖jindo-sdk-{版本号}.jar和jindo-core-{平台}-{版本号}.jar。
+使用Java SDK时，Linux X86平台需要依赖 `jindo-sdk-x.y.z.jar` 和 `jindo-core-x.y.z.jar`，其他平台需要依赖 `jindo-sdk-x.y.z.jar` 和 `jindo-core-<平台名称>-x.y.z`.jar。
 
 安装方式的话，即可以通过maven在pom.xml中配置依赖，如[6.0.0-oss-maven](/docs/user/6.x/6.0.0/oss-maven.md)。也可以通过oss地址直接下载部署，如[6.0.0-download](/docs/user/6.x/6.0.0/jindodata_download.md)。
 
@@ -42,6 +42,13 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 |  jindosdk-x.y.z-linux-ubuntu22-x86_64.tar.gz |  支持 ubuntu22 x86 的完整产出物，兼容 glibc 2.34+ 版本  |
 |  jindosdk-x.y.z-macos-11_0-x86_64.tar.gz |  支持 macos x86 的完整产出物，兼容 macos 11.0 以上版本  |
 |  jindosdk-x.y.z-macos-11_0-aarch64.tar.gz |  支持 macos m1/m2 的完整产出物，兼容 macos 11.0 以上版本  |
+|  jindo-sdk-x.y.z.jar |  支持所有平台的 lite 产出物，纯 java 实现，不包含 native 实现  |
+|  jindo-core-x.y.z.jar |  支持大多数 linux x86 发行版的 lite 产出物，包含 native 实现，兼容 glibc 2.17+ 版本  |
+|  jindo-core-linux-el7-aarch64-x.y.z.jar |  支持大多数 linux aarch64 发行版的 lite 产出物，包含 native 实现，兼容 glibc 2.17+ 版本  |
+|  jindo-core-linux-el6-x86_64-x.y.z.jar |  支持 centos6 x86 的 lite 产出物，兼容 glibc 2.12+ 版本  |
+|  jindo-core-linux-ubuntu22-x86_64-x.y.z.jar |  支持 ubuntu22 x86 的 lite 产出物，兼容 glibc 2.34+ 版本  |
+|  jindo-core-macos-11_0-x86_64-x.y.z.jar |  支持 macos x86 的 lite 产出物，兼容 macos 11.0 以上版本  |
+|  jindo-core-macos-11_0-aarch64-x.y.z.jar |  支持 macos m1/m2 的 lite 产出物，兼容 macos 11.0 以上版本  |
 
 ## JindoSDK 部署示例
 
@@ -53,7 +60,7 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 ```bash
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.0.0/jindosdk-6.0.0-linux.tar.gz
-tar zxvf jindosdk-6.0.0-linux.tar.gz
+tar zxvf jindosdk-6.0.0-linux.tar.gz -C /usr/lib/
 export JINDOSDK_HOME=/usr/lib/jindosdk-6.0.0-linux
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
@@ -61,7 +68,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 ```
 
-2. lite安装，以安装包内容解压在 <HADOOP_HOME>/share/hadoop/hdfs/lib/ 目录为例：
+2. lite安装，以安装包内容下载到 <HADOOP_HOME>/share/hadoop/hdfs/lib/ 目录为例：
 
 ```bash
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.0.0/jindo-sdk-6.0.0.jar
@@ -76,7 +83,7 @@ cp jindosdk-6.0.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 
 ```bash
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/x.y.z/jindosdk-6.0.0-linux-el7-aarch64.tar.gz
-tar zxvf jindosdk-6.0.0-linux-el7-aarch64.tar.gz
+tar zxvf jindosdk-6.0.0-linux-el7-aarch64.tar.gz -C /usr/lib/
 export JINDOSDK_HOME=/usr/lib/jindosdk-6.0.0-linux-el7-aarch64
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
@@ -84,7 +91,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 ```
 
-2. lite安装，以安装包内容解压在 <HADOOP_HOME>/share/hadoop/hdfs/lib/ 目录为例：
+2. lite安装，以安装包内容下载到 <HADOOP_HOME>/share/hadoop/hdfs/lib/ 目录为例：
 
 ```bash
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.0.0/jindo-sdk-6.0.0.jar

@@ -35,7 +35,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
 
 配置文件位于 JINDOSDK_CONF_DIR 所在目录，配置文件的文件名为`jindosdk.cfg`，使用 INI 风格配置文件。
 
-### 配置文件
+### cfg 配置文件
 
 示例如下：
 

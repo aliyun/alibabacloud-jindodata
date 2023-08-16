@@ -12,9 +12,9 @@
 
 [jindosdk-6.0.0-linux-ubuntu22-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.0.0/jindosdk-6.0.0-linux-ubuntu22-x86_64.tar.gz)
 
-[jindosdk-6.0.0-macos-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.0.0/jindosdk-6.0.0-macos-11_0-x86_64.tar.gz)
+[jindosdk-6.0.0-macos-11_0-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.0.0/jindosdk-6.0.0-macos-11_0-x86_64.tar.gz)
 
-[jindosdk-6.0.0-macos-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.0.0/jindosdk-6.0.0-macos-11_0-aarch64.tar.gz)
+[jindosdk-6.0.0-macos-11_0-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.0.0/jindosdk-6.0.0-macos-11_0-aarch64.tar.gz)
 
 [jindo-core-6.0.0.jar](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.0.0/jindo-core-6.0.0.jar) 
 
