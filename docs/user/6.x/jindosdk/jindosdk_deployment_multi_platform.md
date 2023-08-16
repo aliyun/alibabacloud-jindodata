@@ -8,7 +8,7 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 暂不支持 Windows 操作系统。
 
-暂不支持未兼容 glibc 的 linux 发行版，如 musl。
+暂不支持未兼容 glibc 的 linux 发行版，如默认使用 musl 的发行版。
 
 ### 产出物
 
