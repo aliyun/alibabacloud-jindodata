@@ -37,7 +37,7 @@ xxx.sinks.oss_sink.threadsPoolSize = 30
 
 ```
 
-### OSS-HDFS 配置
+### OSS-HDFS 场景 core-sites.xml 配置
 
 推荐每次 Flush 的量在 32 MB以上，避免 Flush 过于频繁影响整体性能以及产生小块。
 
