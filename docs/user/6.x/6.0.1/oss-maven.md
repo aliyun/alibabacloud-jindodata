@@ -33,13 +33,6 @@
             <version>${jindodata.version}</version>
         </dependency>
               
-        <!-- (optional) add jindo-core-extended-jar for centos6 or el6 -->
-        <dependency>
-            <groupId>com.aliyun.jindodata</groupId>
-            <artifactId>jindo-core-linux-el6-x86_64</artifactId>
-            <version>${jindodata.version}</version>
-        </dependency>
-        
         <!-- add jindo-hadoop-sdk -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
@@ -89,14 +82,7 @@
             <artifactId>jindo-core</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
-              
-        <!-- (optional) add jindo-core-extended-jar for centos6 or el6 -->
-        <dependency>
-            <groupId>com.aliyun.jindodata</groupId>
-            <artifactId>jindo-core-linux-el6-x86_64</artifactId>
-            <version>${jindodata.version}</version>
-        </dependency>
-        
+
         <!-- add jindo-hadoop-sdk -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
@@ -178,6 +164,20 @@
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core-linux-el6-x86_64</artifactId>
+            <version>${jindodata.version}</version>
+        </dependency>
+
+        <!-- add jindo-core-extended-jar for ubuntu22 -->
+        <dependency>
+            <groupId>com.aliyun.jindodata</groupId>
+            <artifactId>jindo-core-linux-ubuntu22-x86_64</artifactId>
+            <version>${jindodata.version}</version>
+        </dependency>
+
+        <!-- add jindo-core-extended-jar for aliyun yitian/arm -->
+        <dependency>
+            <groupId>com.aliyun.jindodata</groupId>
+            <artifactId>jindo-core-el7-aarch64</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
 
