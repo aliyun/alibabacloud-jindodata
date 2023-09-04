@@ -56,13 +56,13 @@ core-1-2
 通过apply_all.sh 脚本执行修复操作。
 
 ```bash
-./apply_all.sh $JINDODATA_VERSION
+./apply_all.sh $NEW_JINDOSDK_VERSION $OLD_JINDOSDK_VERSION
 ```
 
 如
 
 ```bash
-./apply_all.sh 4.6.4-linux
+./apply_all.sh 4.6.5 4.5.1
 ```
 
 脚本执行完成后，返回如下提示信息。
