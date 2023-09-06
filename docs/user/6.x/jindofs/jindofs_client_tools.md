@@ -2,7 +2,9 @@
 
 ## 介绍
 
-JindoFS 命令行工具是访问 OSS-HDFS 的可执行程序，功能类似于 Hadoop shell 或者阿里云 OSS 提供的 ossutil。既支持常用的文件元数据和读写流操作，如创建目录、拷贝文件；也支持 OSS-HDFS 特有的方法，如清单导出等。采用了 Native 实现，目标是对 OSS-HDFS 提供高效易用的命令行支持。
+JindoFS 命令行工具是访问 OSS-HDFS 的可执行程序，功能类似于阿里云 OSS 提供的 ossutil。既支持常用的文件元数据和读写流操作，如创建目录、拷贝文件；也支持 OSS-HDFS 特有的方法，如清单导出等。采用了 Native 实现，目标是对 OSS-HDFS 提供高效易用的命令行支持。
+
+与 JindoSDK 提供的命令行工具相比，JindoFS 命令行工具不仅提供对标 Hdfs shell 的常用命令，还提供 OSS-HDFS 的特有方法。然而，JindoFS 命令行工具只支持 OSS-HDFS，主要作为 OSS-HDFS 的特有工具使用。JindoSDK 的命令行工具参见 [《Jindo CLI 使用指南》](../jindosdk/jindosdk_cli_options.md)
 
 ## 获取
 
