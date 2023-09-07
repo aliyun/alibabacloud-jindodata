@@ -20,7 +20,7 @@ hadoop jar jindo-distcp-tool-${version}.jar --src s3://srcS3Bucket/ --dest oss:/
 | --- | --- | --- |
 | --src | S3 的源路径。| s3://srcS3Bucket/ |
 | --dest | OSS 的目标路径。| oss://destOssBucket/ |
-| --hadoopConf | 指定 OSS 和 S3 `Access Key ID`,`Access Key Secret`,`Endpoint`|  *  配置 OSS 的 AccessKeyId:</br>  --hadoopConf fs.oss.accessKeyId=yourkey</br>  * 配置 OSS 的 AccessKeySecret:</br>  --hadoopConf fs.oss.accessKeySecret=yoursecret</br>  * 配置 OSS 的 Endpoint 信息:</br>  fs.oss.endpoint=oss-cn-xxx.aliyuncs.com </br> 配置 S3 的 AccessKeyId:</br>  --hadoopConf fs.s3.accessKeyId=yourkey</br>  * 配置 S3 的 AccessKeySecret:</br>  --hadoopConf fs.s3.accessKeySecret=yoursecret</br>  * 配置 S3 的 Endpoint 信息:</br>  fs.s3.endpoint=s3.xxx.amazonaws.com |
+| --hadoopConf | 指定 OSS 和 S3 `Access Key ID`,`Access Key Secret`,`Endpoint`|  *  配置 OSS 的 AccessKeyId:</br>  --hadoopConf fs.oss.accessKeyId=yourkey</br>  * 配置 OSS 的 AccessKeySecret:</br>  --hadoopConf fs.oss.accessKeySecret=yoursecret</br>  * 配置 OSS 的 Endpoint 信息:</br> --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com </br> 配置 S3 的 AccessKeyId:</br>  --hadoopConf fs.s3.accessKeyId=yourkey</br>  * 配置 S3 的 AccessKeySecret:</br>  --hadoopConf fs.s3.accessKeySecret=yoursecret</br>  * 配置 S3 的 Endpoint 信息:</br>  --hadoopConf fs.s3.endpoint=s3.xxx.amazonaws.com |
 | --parallelism | 任务并发大小，根据集群资源可调整。| 10 |
 
 ### 2、增量拷贝文件
@@ -36,7 +36,7 @@ hadoop jar jindo-distcp-tool-${version}.jar  --src s3://srcS3Bucket/ --dest oss:
 ### 2、YARN 队列及带宽选择
 如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
 ```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket/ --dest oss://destBucket/ \
+hadoop jar jindo-distcp-tool-${version}.jar  --src s3://srcS3Bucket/ --dest oss://destOssBucket/ \
     --hadoopConf fs.oss.accessKeyId=yourOsskey --hadoopConf fs.oss.accessKeySecret=yourOssSecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com \
     --hadoopConf fs.s3.accessKeyId=yourkey --hadoopConf fs.s3.accessKeySecret=yoursecret --hadoopConf fs.s3.endpoint=s3.xxx.amazonaws.com \
     --hadoopConf mapreduce.job.queuename=yarnQueue --bandWidth 100 --parallelism 10
