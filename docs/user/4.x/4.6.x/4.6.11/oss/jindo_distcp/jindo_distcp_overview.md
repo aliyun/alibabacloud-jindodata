@@ -14,6 +14,7 @@
 ## JindoDistCp 使用场景
 
 * [数据从 HDFS 迁移到 OSS 上](jindo_distcp_on_hdfs_to_oss.md)
+* [数据从 S3 迁移到 OSS 上](jindo_distcp_on_s3_to_oss.md)
 * [数据在 OSS 不同 bucket 之间迁移](jindo_distcp_on_oss_to_oss.md)
 
 ## JindoDistCp 问题排查指南
