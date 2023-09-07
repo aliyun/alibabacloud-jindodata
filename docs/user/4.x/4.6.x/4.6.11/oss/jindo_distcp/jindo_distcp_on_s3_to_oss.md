@@ -30,7 +30,8 @@ hadoop jar jindo-distcp-tool-${version}.jar --src s3://srcS3Bucket/ --dest oss:/
 hadoop jar jindo-distcp-tool-${version}.jar  --src s3://srcS3Bucket/ --dest oss://destOssBucket/ \
     --hadoopConf fs.oss.accessKeyId=yourOsskey --hadoopConf fs.oss.accessKeySecret=yourOssSecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com \
     --hadoopConf fs.s3.accessKeyId=yourkey --hadoopConf fs.s3.accessKeySecret=yoursecret --hadoopConf fs.s3.endpoint=s3.xxx.amazonaws.com \
-    --update --parallelism 20
+    --update \
+    --parallelism 20
 ```
 
 ### 2、YARN 队列及带宽选择
@@ -39,7 +40,9 @@ hadoop jar jindo-distcp-tool-${version}.jar  --src s3://srcS3Bucket/ --dest oss:
 hadoop jar jindo-distcp-tool-${version}.jar  --src s3://srcS3Bucket/ --dest oss://destOssBucket/ \
     --hadoopConf fs.oss.accessKeyId=yourOsskey --hadoopConf fs.oss.accessKeySecret=yourOssSecret --hadoopConf fs.oss.endpoint=oss-cn-xxx.aliyuncs.com \
     --hadoopConf fs.s3.accessKeyId=yourkey --hadoopConf fs.s3.accessKeySecret=yoursecret --hadoopConf fs.s3.endpoint=s3.xxx.amazonaws.com \
-    --hadoopConf mapreduce.job.queuename=yarnQueue --bandWidth 100 --parallelism 10
+    --hadoopConf mapreduce.job.queuename=yarnQueue \
+    --bandWidth 100 \
+    --parallelism 10
 ```
 * --hadoopConf mapreduce.job.queuename=yarnQueue：指定 YARN 队列的名称
 * --bandWidth：指定单机限流带宽的大小，单位 MB
