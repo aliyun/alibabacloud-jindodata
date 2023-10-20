@@ -44,6 +44,8 @@ jindofs admin
         [-deleteUserGroupsMapping -dlsUri <path> -user <value>]
         [-dumpMetaInfo -dlsUri <path>]
         [-dumpInventory <path>]
+        [-getJobProgress <jobId> -dlsUri <path>]
+        [-listJobs -dlsUri <path> [-stages <stages>] [-createTime <createTime>] [-type <type>]]
         [-listProxyUsers -dlsUri <path> [-maxKeys <value>] [-marker <value>]]
         [-listUserGroupsMappings -dlsUri <path> [-maxKeys <value>] [-marker <value>]]
         [-snapshotDiff -dlsUri <path> -fromSnapshot <value> -toSnapshot <value>]
@@ -54,7 +56,6 @@ jindofs admin
         [-getConfig -dlsUri <path> -name <keys>]
 jindofs fs
         [-help]
-        [-archive [-i] [-c] <path>]
         [-cat <path>]
         [-count [-h] <path>]
         [-cp [-f] <src> <dst>]
@@ -84,14 +85,12 @@ jindofs fs
         [-rmdir <path>]
         [-test -[defsz] <path>]
         [-renameSnapshot <snapshotDir> <oldName> <newName>]
-        [-restore [-days <value>] <path>]
         [-stat [format] <path>]
-        [-setStoragePolicy -path <path> -policy <policy>]
+        [-setStoragePolicy -path <path> -policy <policy> [-restoreDays <restoreDays>]]
         [-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
         [-setfattr {-n name [-v value] | -x name} <path>]
         [-touchz <path>]
         [-truncate [-w] <length> <path>]
-        [-unarchive [-i] [-a] <path>]
         [-unsetStoragePolicy -path <path>]
 ```
 
