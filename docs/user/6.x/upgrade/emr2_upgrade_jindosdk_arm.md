@@ -1,4 +1,4 @@
-# EMR 新版集群 JindoSDK 升级文档
+# EMR 新版集群 JindoSDK 升级文档（arm/倚天环境）
 
 ## 场景一： 升级已有新版集群
 
@@ -17,24 +17,22 @@ tar zxf jindosdk-patches.tar.gz
 
 下载 JindoSDK 软件包 jindosdk-{VERSION}-{PLATFORM}.tar.gz，放在解压后的目录。
 
-以将新版集群中的 JindoSDK 升级到 6.1.1 版本，linux x86 平台为例:
+以将新版集群中的 JindoSDK 升级到 6.1.1 版本，linux arm 平台为例:
 
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.1.1/jindosdk-6.1.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.1.1/jindosdk-6.1.1-linux-el7-aarch64.tar.gz
 
 ls -l
 ```
 
 jindosdk-patches 内容示例如下：
 ```bash
--rwxrwxr-x 1 emr-user emr-user      2439 May 01 00:00 apply_all.sh
--rwxrwxr-x 1 emr-user emr-user      7315 May 01 00:00 apply.sh
+-rwxrwxr-x 1 emr-user emr-user       575 May 01 00:00 apply_all.sh
+-rwxrwxr-x 1 emr-user emr-user      4047 May 01 00:00 apply.sh
 -rw-rw-r-- 1 emr-user emr-user        40 May 01 00:00 hosts
--rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.1.1-linux.tar.gz
--rwxrwxr-x 1 emr-user emr-user      1112 May 01 00:00 revert_all.sh
--rwxrwxr-x 1 emr-user emr-user      2042 May 01 00:00 revert.sh
+-rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.1.1-linux-el7-aarch64.tar.gz
 ```
 
 ### 2. 配置升级节点信息
