@@ -4,7 +4,7 @@ Jindo Tensorflow Collector 支持使用 Tensoflow 原生 API 支持访问 OSS。
 
 ### 1. 下载 JindoSDK 包
 
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/6.x/6.0.0/jindodata_download.md))。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/6.x/6.1.1/jindodata_download.md))。
 
 部署方式，参见[部署文档](/docs/user/6.x/jindosdk/jindosdk_deployment_ai.md)
 
