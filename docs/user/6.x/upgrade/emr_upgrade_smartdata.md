@@ -385,7 +385,7 @@ emr-worker-2
 **说明** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
 
-### 5. 回滚后重启服务
+### 4. 回滚后重启服务
 
 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全回滚。
 

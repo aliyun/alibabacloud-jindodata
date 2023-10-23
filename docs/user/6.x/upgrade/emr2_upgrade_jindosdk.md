@@ -295,9 +295,9 @@ Found 2 items
 * 如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 
-## 场景四： 回滚 JindoSDK 到集群初始版本
+## 场景四： 回滚 JindoSDK 到集群默认版本
 
-若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在升级过程中遇到了问题，需要回滚到集群初始JindoSDk版本
+若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在升级过程中遇到了问题，需要回滚到集群默认的JindoSDK版本
 
 ### 1. 准备回滚脚本
 

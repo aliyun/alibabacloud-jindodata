@@ -4,7 +4,8 @@
 
 在旧版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群中遇到[已知问题](../jindodata/jindodata_known_issues.md)或需要使用[新功能](../jindodata/jindodata_release_notes.md)。
 
-## 准备软件包和升级脚本
+## 场景一：升级已有集群
+### 1. 准备软件包和升级脚本
 
 登录EMR集群的Master节点，并将下载的patch包放在hadoop用户的HOME目录下，将patch包解压缩后，使用hadoop用户执行操作。
 
@@ -34,7 +35,7 @@ jindosdk-patches 内容示例如下：
 
 ```
 
-## 配置升级节点信息
+### 2. 配置升级节点信息
 
 编辑patch包下的hosts文件，添加集群所有节点的host name，如emr-header-1或emr-worker-1，文件内容以行分割。
 
@@ -50,7 +51,7 @@ emr-worker-1
 emr-worker-2
 ```
 
-## 执行升级
+### 3. 执行升级
 
 通过apply_all.sh 脚本执行修复操作。
 
@@ -74,18 +75,18 @@ emr-worker-2
 
 **说明** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
-## 升级后重启服务
+### 3. 升级后重启服务
 
 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
 
 以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的`操作` > `重启 All Components`。
 
 
-## 新建集群和扩容已有集群
+## 场景二： 新建集群和扩容已有集群
 
 新建EMR集群时在EMR控制台添加引导操作，或扩容已有集群时可以自动升级修复。具体操作步骤如下：
 
-### 制作引导升级包
+### 1. 制作引导升级包
 
 下载的 jindosdk-patches.tar.gz ，jindosdk-6.1.1-linux.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh),
 
@@ -129,7 +130,7 @@ Generated patch at /home/hadoop/jindo-patch/jindosdk-bootstrap-patches.tar.gz
 
 制作完成，得到patch包： `jindosdk-bootstrap-patches.tar.gz`。
 
-### 上传引导升级包
+### 2. 上传引导升级包
 
 将 patch包 和 bootstrap脚本上传到OSS上。
 
@@ -157,7 +158,7 @@ Found 2 items
 
 例如，上传到OSS的路径为`oss://<bucket-name>/path/to/jindosdk-bootstrap-patches.tar.gz`和`oss://<bucket-name>/path/to/bootstrap_jindosdk.sh`。
 
-### 在EMR控制台添加引导操作
+### 3. 在EMR控制台添加引导操作
 
 在EMR控制台添加引导操作，详细信息请参见[管理引导操作](https://help.aliyun.com/document_detail/28108.htm#concept-q52-vln-y2b).
 
@@ -172,6 +173,6 @@ Found 2 items
 | **执行时间**     | 选择**组件启动后**。                                         |                                                              |
 | **执行失败策略** | 选择**继续执行**。                                           |                                                              |
 
-### 确保加载到最新的修复
+### 4. 确保加载到最新的修复
 * 如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
