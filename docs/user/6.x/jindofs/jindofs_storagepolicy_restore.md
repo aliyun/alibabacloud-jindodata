@@ -60,7 +60,7 @@ jindofs fs -setStoragePolicy -path <path> -policy <policy> -restoreDays <restore
  * 可以用 `jindofs fs -checkStoragePolicy -path <path>` 查看临时解冻任务是否完成。
 
 临时解冻有下列注意事项：
- * 用 `CLOUD_AR` 或者 `CLOUD_COLD_AR` 的策略进行归档之后，必须间隔超过 `1` 天才可进行解冻。
+ * 用 `CLOUD_AR` 或者 `CLOUD_COLD_AR` 的策略进行归档之后，必须间隔超过 `2` 天才可进行解冻。
  * 临时解冻任务完成后，数据仍不能立刻可读。通常归档类型需要数分钟后可读，冷归档类型则需要数小时。
  * 临时解冻有天数限制，由 `<restoreDays>` 指定，超出则回到不可读状态。
  * 处于临时解冻状态时，仍可以再次进行解冻，但是间隔必须超过 `2` 天以上。
