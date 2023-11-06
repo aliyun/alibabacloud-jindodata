@@ -10,12 +10,17 @@
 
 目前，开源版本 Flink 对流式写入 OSS-HDFS 服务并不支持，更不能支持 “严格一次”（EXACTLY_ONCE）语义，如有该需求则需要使用 JindoSDK。
 
+注：Apache Flink 自 1.16 版本起原生提供了流式写入 Aliyun OSS 对象存储的支持，但不能支持写入 OSS-HDFS 服务。若配置过 Apache Flink 的自有实现，需移除，见下文。
+
 ## JindoSDK 配置
 
 需要在所有 Flink 节点进行配置。在每个节点 Flink 根目录下的 lib 文件夹，放置下列 .jar 文件：
 * jindo-flink-${version}-full.jar
 
 该 jar 包含在 jindosdk-${version}.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))，解压缩后可在 plugins/flink/ 目录下找到。
+
+另外，如果集群内存在 Apache Flink 提供的自带 Flink OSS Connector，需移除。移除方法为，从 Flink 集群的 lib 目录或 plugins/oss-fs-hadoop 移走如下 jar 包：
+* `flink-oss-fs-hadoop-${flink-version}.jar`
 
 注：JindoSDK 目前提供多平台支持，当前支持的平台以及需要额外放置的资源，参考 [JindoData 4.6.4 版本说明](/docs/user/4.x/4.6.x/4.6.4/release-notes.md)
 
