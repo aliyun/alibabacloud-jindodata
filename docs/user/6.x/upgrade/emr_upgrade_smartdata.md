@@ -90,14 +90,16 @@ c. 在**新增配置**项对话框中，添加配置项。
 
 **注： 仅测试了3.8.x版本，其他版本请谨慎使用。
 
-#### 4.2 修改 hive2/spark2 配置
+#### 4.2 修改 hive/spark 配置
 
-**注： 仅 EMR-3.x 版本需要更改，使用 EMR-5.x 版本的可以跳过本章节。
+a. 对应**组件(如HIVE)**服务的页面，单击**配置（如hive-site.xml）**页签。
+b. 在**配置（如hive-site.xml）**页面，在**配置搜索**中搜索**参数（如hive.exec.post.hooks）**。
+c. 如参数value存在需要删除的参数，修改后点击保存，并更新部署配置。不存在则跳过。
 
 | 组件        | 配置             	             | 参数                                       | 描述                                                                                                                                                                                                                                               |
 |-----------|------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| HIVE | hive-site.xml               | hive.exec.post.hooks                              | 删除com.aliyun.emr.table.hive.HivePostHook，固定值为com.aliyun.emr.meta.hive.hook.LineageLoggerHook                                                                                                                                                                                                  |
-| SPARK | spark-defaults.conf               | spark.sql.queryExecutionListeners           | 删除com.aliyun.emr.table.spark.SparkSQLQueryListener，固定值为com.aliyun.emr.meta.spark.listener.EMRQueryLogger                                                                                                                                                                                                                 |
+| HIVE | hive-site.xml               | hive.exec.post.hooks                              | 删除com.aliyun.emr.table.hive.HivePostHook(或com.aliyun.jindotable.hive.HivePostHook)，保留其余hook，如com.aliyun.emr.meta.hive.hook.LineageLoggerHook                                                                                                                                                                                                  |
+| SPARK | spark-defaults.conf               | spark.sql.queryExecutionListeners           | 删除com.aliyun.emr.table.spark.SparkSQLQueryListener(或com.aliyun.jindotable.spark.SparkSQLQueryListener)，保留其余hook，如com.aliyun.emr.meta.spark.listener.EMRQueryLogger                                                                                                                                                                                                                 |
 
 ### 5. 升级后重启服务
 
