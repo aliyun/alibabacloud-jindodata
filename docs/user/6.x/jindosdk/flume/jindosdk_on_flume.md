@@ -57,8 +57,8 @@ xxx.sinks.oss_sink.threadsPoolSize = 30
     </property>
 
     <property>
-        <!-- 当前文件写入达到该大小后，才触发一次真正的flush（0表示不根据写入大小来触发Flus），单位：字节-->
-        <name>fs.oss.hflush.buffer.size</name>
+        <!-- 当前文件写入达到该大小后，才触发一次真正的flush（0表示不根据写入大小来触发Flush），单位：字节-->
+        <name>fs.oss.hflush.interval.size</name>
         <value>0</value>
     </property>
 </configuration>
