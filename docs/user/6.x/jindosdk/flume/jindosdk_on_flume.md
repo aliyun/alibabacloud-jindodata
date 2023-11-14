@@ -64,5 +64,4 @@ xxx.sinks.oss_sink.threadsPoolSize = 30
 </configuration>
 ```
 
-
-
+ps: 如 `fs.oss.hflush.interval.count` 和 `fs.oss.hflush.interval.size` 均不为0，则两个条件均满足时才执行hflush。
