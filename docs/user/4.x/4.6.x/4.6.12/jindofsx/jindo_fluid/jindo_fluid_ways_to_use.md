@@ -372,6 +372,7 @@ spec:
   fuse:
     args:
       - -oro
+      - -ometrics_port=0
       - -okernel_cache
       - -oattr_timeout=7200
       - -oentry_timeout=7200
