@@ -14,6 +14,7 @@
     - [JindoFSx Fuse 客户端相关参数和使用](#jindofsx-fuse-客户端相关参数和使用)
     - [FuseOnly 使用方式](#fuseonly-使用方式)
     - [多挂载点](#多挂载点)
+    - [master元数据持久化](#master元数据持久化)
 
 ### 挂载点在根目录下
 默认使用 JindoRuntime 会在挂载点多一层 /jindo 的目录，如果想挂载在根目录下可以在 dataset 里进行参数指定
@@ -314,7 +315,7 @@ spec:
       fs.jindofsx.slicelet.cache.enable: "false"
       fs.jindofsx.short.circuit.enable: "false"
 ```
-以 kv 方式写在 `spec.fuse.properties` 里，按照需要填写即可
+以 kv 方式写在 `spec.fuse.properties` 里，按照需要填写即可。
 
 ### JindoFSx Fuse 客户端相关参数和使用
 | 参数名称         | 参数说明                                                     | 使用范例             |
@@ -351,7 +352,32 @@ spec:
       - -onegative_timeout=60
 ```
 
-以数组方式写在 `spec.fuse.properties` 里，按照需要填写即可
+以数组方式写在 `spec.fuse.args` 里，按照需要填写即可
+
+如单独配置客户端pread参数：
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: oss
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /var/lib/docker/jindo
+        quota: 200Gi
+        high: "0.9"
+        low: "0.8"
+  fuse:
+    args:
+      - -oro
+      - -okernel_cache
+      - -oattr_timeout=7200
+      - -oentry_timeout=7200
+      - -onegative_timeout=7200
+      - -opread
+```
 
 ### FuseOnly 使用方式
 如您想使用 FuseOnly 方式，可以使用如下配置方式
@@ -389,3 +415,35 @@ spec:
       name: hadoop
 ```
 在挂载 pvc 和 fuse 以及做 dataload 的时候，这两个数据源的方式将以 mounts.name 作为区分，比如 /spark 路径下访问 oss://test-bucket-1/dir1/ 下的文件，/hadoop 路径下访问 oss://test-bucket-2/dir2/ 下的文件内容
+
+### master元数据持久化
+如果想通过给master挂载volume的方式，让master的元数据持久化到指定的存储上，可以使用如下配置方式
+
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: oss
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /var/lib/docker/jindo
+        quota: 200Gi
+        high: "0.9"
+        low: "0.8"
+  volumes:
+    - name: nas
+      persistentVolumeClaim:
+        claimName: nas-test
+  master:
+    volumeMounts:
+      - name: nas
+        subPath: test
+        mountPath: /var/cache/
+    properties:
+      namespace.meta-dir: "/var/cache/"
+```
+
+该例子将元数据目录 `namespace.meta-dir` 指定到挂载的volume上，并进行持久化，注意挂载的vomlume必须就有读/写/删除权限，不可指定为只读
