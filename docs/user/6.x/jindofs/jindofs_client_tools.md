@@ -8,7 +8,7 @@ JindoFS 命令行工具是访问 OSS-HDFS 的可执行程序，功能类似于�
 
 ## 获取
 
-目前只提供了 Linux 版本的命令行工具，[下载链接](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.1.1/jindofs-sdk-6.1.1-linux.tar.gz)
+目前只提供了 Linux 版本的命令行工具，[下载链接](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.5/jindofs-sdk-6.2.5-linux.tar.gz)
 
 下载后解压缩，在 `bin/` 目录下即可找到命令行工具的二进制文件，文件名为 `jindofs`。
 
