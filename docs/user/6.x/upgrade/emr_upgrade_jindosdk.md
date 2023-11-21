@@ -21,7 +21,7 @@ tar zxf jindosdk-patches.tar.gz
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.1.1/jindosdk-6.1.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.1.2/jindosdk-6.1.2-linux.tar.gz
 
 ls -l
 ```
@@ -31,7 +31,7 @@ jindosdk-patches 内容示例如下：
 -rwxrwxr-x 1 hadoop hadoop      1263 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
 -rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.1.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.1.2-linux.tar.gz
 
 ```
 
@@ -62,7 +62,7 @@ emr-worker-2
 如
 
 ```bash
-./apply_all.sh 6.1.1
+./apply_all.sh 6.1.2
 ```
 
 脚本执行完成后，返回如下提示信息。
@@ -88,7 +88,7 @@ Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark �
 
 ### 1. 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-6.1.1-linux.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh),
+下载的 jindosdk-patches.tar.gz ，jindosdk-6.1.2-linux.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh),
 
 ```bash
 mkdir jindo-patch
@@ -97,7 +97,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.1.1/jindosdk-6.1.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.1.2/jindosdk-6.1.2-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -108,14 +108,14 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.1.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.1.2-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
 执行命令制作升级包
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 6.1.1
+bash bootstrap_jindosdk.sh -gen 6.1.2
 ```
 
 **参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。**
