@@ -58,7 +58,7 @@ jindofs fs -setStoragePolicy -path <path> -policy <policy> -restoreDays <restore
  * 如果数据原本为归档（`CLOUD_AR`），那么 `<policy>` 必须为 `CLOUD_AR_RESTORED`；如果原本为冷归档（`CLOUD_COLD_AR`），则 `<policy>` 必须为 `CLOUD_COLD_AR_RESTORED`。
  * `<restoreDays>` 指定解冻的天数。归档支持 `1 - 7` 天，冷归档支持 `1 - 365` 天。不指定则默认 `1` 天。
  * 可以用 `jindofs fs -checkStoragePolicy -path <path>` 查看临时解冻任务是否完成。
- * 数据从归档（`CLOUD_AR`）或者冷归档(`CLOUD_COLD_AR`) 恢复成低频（`CLOUD_IA`）或者标准 (`CLOUD_STD`) 存在限制，单次提交数据量不能超过5TB， 总体执行的数据量不能超过50TB
+ * 数据从归档（`CLOUD_AR`）或者冷归档(`CLOUD_COLD_AR`) 恢复成低频（`CLOUD_IA`）或者标准 (`CLOUD_STD`) 存在限制，单次提交数据量不能超过5TB， 同时处于执行状态的数据量不能超过50TB。
 
 临时解冻有下列注意事项：
  * 用 `CLOUD_AR` 或者 `CLOUD_COLD_AR` 的策略进行归档之后，必须间隔超过 `2` 天才可进行解冻。
