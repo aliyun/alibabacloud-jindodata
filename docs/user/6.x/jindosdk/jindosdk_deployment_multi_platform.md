@@ -77,7 +77,7 @@ cp jindo-core-6.1.2.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 cp jindosdk-6.1.2.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
-### Linux arrch64 环境示例
+### Linux aarch64 环境示例
 
 1. 完整安装，以安装包内容解压在 /usr/lib/jindosdk-6.1.2-linux-el7-aarch64 目录为例：
 
