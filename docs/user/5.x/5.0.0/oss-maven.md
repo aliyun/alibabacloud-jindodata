@@ -191,7 +191,7 @@
         <!-- add jindo-core-extended-jar for aliyun yitian/arm -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
-            <artifactId>jindo-core-el7-aarch64</artifactId>
+            <artifactId>jindo-core-linux-el7-aarch64</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
 
