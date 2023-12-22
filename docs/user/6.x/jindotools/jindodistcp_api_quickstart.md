@@ -2,13 +2,13 @@
 
 ## 下载 JindoSDK 包
 
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/6.x//6.1.2/jindodata_download.md))。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/6.x//6.2.0/jindodata_download.md))。
 
 ## 安装依赖包
 
 目前 JindoSDK/JindoDistCP 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统，Mac M1 系列也暂不支持）
 
-以6.1.2版本为例，在 maven `pom.xml` 中添加 JindoDistCP 的依赖
+以6.2.0版本为例，在 maven `pom.xml` 中添加 JindoDistCP 的依赖
 
 ```xml
 
@@ -21,7 +21,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.1.2</jindodata.version>
+        <jindodata.version>6.2.0</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
