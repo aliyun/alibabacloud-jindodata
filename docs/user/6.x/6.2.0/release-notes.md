@@ -21,7 +21,6 @@
   > - `fs.oss.memory.buffer.size.max.mb = 6144` 内存池总容量（单位：MB）
   > - `fs.oss.memory.buffer.size.watermark = 0.3` 内存池用于预读的容量比例
 - 修复 Hive 使用 LDAP + Kerberos + OSS-HDFS 时的认证问题
-- jindotable 支持 oss-hdfs 支持归档数据到冷归档
 
 ## 下载
 
