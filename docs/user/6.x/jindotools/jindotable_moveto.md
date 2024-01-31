@@ -56,6 +56,7 @@ jindotable -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>"
 | `-e/-explain`| 如果指定explain模式，不会触发实际操作，仅打印会同步的分区。 | 否 |
 | `-q/-queue <yarn queue` | 指定分布式拷贝的yarn队列。 | 否 |
 | `-w/-workingDir` | 指定分布式拷贝的工作临时目录。 | 否 |
+| `-iceberg` | 指定所迁移表为Iceberg。目前仅支持Iceberg整表迁移，需配合`-fullTable`使用。 | 否 |
 | `-l/-logDir <log directory>` | 本地日志目录，默认为`/tmp/<current user>/` | 否 |
 
 ## 使用示例
