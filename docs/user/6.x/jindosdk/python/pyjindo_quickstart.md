@@ -11,6 +11,8 @@
 1.  下载最新的 tar.gz 包 jindosdk-6.3.0.tar.gz，下载链接见 [下载页面](/docs/user/6.x/6.3.0/jindodata_download.md)。
     
 2.  部署 jindosdk-6.3.0.tar.gz，whl安装包位于完整产出物 \`jindosdk-x.x.x/lib/site-packages/\` 的子目录中。多平台部署说明参见 [部署文档](/docs/user/6.x/jindosdk/jindosdk_deployment_multi_platform.md)。
+
+3.  以`Python3.6`版本为例，请安装pyjindo-x.y.z-cp`36`-abi3-linux_x86_64.whl
     
 ```
     .
@@ -192,7 +194,7 @@ logger.cleaner.enable = true
 |  size()  |  int, 失败时抛出IOError  |  文件大小（仅可读时使用）  |
 |  tell()  |  int, 失败时抛出IOError  |  文件流位置  |
 |  flush()  |  无，失败时抛出IOError  |  刷新缓存  |
-|  write(data)  |  无，失败时抛出IOError  |  写数据，data为bytes类型，写写入buffer  |
+|  write(data)  |  无，失败时抛出IOError  |  写数据，data为bytes类型，为写入buffer  |
 |  read(nbytes)  |  bytes, 失败时抛出IOError  |  读数据，nbytes为int，为读取大小  |
 |  pread(nbytes, offset)  |  bytes, 失败时抛出IOError  |  随机读数据，nbytes为int，表读取大小；offset为int，表文件位移  |
 |  readall()  |  bytes, 失败时抛出IOError  |  读取整个文件  |
@@ -261,6 +263,7 @@ in_file.close()
 # 列出文件
 ls_file = fs.ls(root_path, detail=False)
 print("目录文件为%s." %(ls_file))
+assert file_path in fs.glob(root_path + "*")
 
 # 创建目录
 fs.mkdir(sub_dir)
