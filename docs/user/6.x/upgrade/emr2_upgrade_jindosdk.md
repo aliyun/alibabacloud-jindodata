@@ -17,12 +17,12 @@ tar zxf jindosdk-patches.tar.gz
 
 下载 JindoSDK 软件包 jindosdk-{VERSION}-{PLATFORM}.tar.gz，放在解压后的目录。
 
-以将新版集群中的 JindoSDK 升级到 6.2.0 版本，linux x86 平台为例:
+以将新版集群中的 JindoSDK 升级到 6.3.0 版本，linux x86 平台为例:
 
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.0/jindosdk-6.2.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.0/jindosdk-6.3.0-linux.tar.gz
 
 ls -l
 ```
@@ -32,7 +32,7 @@ jindosdk-patches 内容示例如下：
 -rwxrwxr-x 1 emr-user emr-user      2439 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 emr-user emr-user      7315 May 01 00:00 apply.sh
 -rw-rw-r-- 1 emr-user emr-user        40 May 01 00:00 hosts
--rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.2.0-linux.tar.gz
+-rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.3.0-linux.tar.gz
 -rwxrwxr-x 1 emr-user emr-user      1112 May 01 00:00 revert_all.sh
 -rwxrwxr-x 1 emr-user emr-user      2042 May 01 00:00 revert.sh
 ```
@@ -67,10 +67,10 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 ./apply_all.sh $NEW_JINDOSDK_VERSION
 ```
 
-以将新版集群中的 JindoSDK 升级到 6.2.0 版本为例:
+以将新版集群中的 JindoSDK 升级到 6.3.0 版本为例:
 
 ```bash
-./apply_all.sh 6.2.0
+./apply_all.sh 6.3.0
 ```
 
 脚本执行完成后，返回如下提示信息。
@@ -99,7 +99,7 @@ Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重�
 
 下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
 
-以将新版集群中的 JindoSDK 升级到 6.2.0 版本，linux x86平台为例:
+以将新版集群中的 JindoSDK 升级到 6.3.0 版本，linux x86平台为例:
 
 ```bash
 mkdir jindo-patch
@@ -108,7 +108,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.0/jindosdk-6.2.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.0/jindosdk-6.3.0-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
 
@@ -119,7 +119,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.2.0-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.0-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -129,10 +129,10 @@ ls -l
 bash bootstrap_jindosdk.sh -gen $NEW_JINDOSDK_VERSION
 ```
 
-以将新版集群中的 JindoSDK 升级到 6.2.0 版本为例:
+以将新版集群中的 JindoSDK 升级到 6.3.0 版本为例:
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 6.2.0
+bash bootstrap_jindosdk.sh -gen 6.3.0
 ```
 **参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。**
 
@@ -201,7 +201,7 @@ Found 2 items
 
 下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
 
-以将新版集群中的 JindoSDK 升级到 6.2.0 版本，linux x86平台为例:
+以将新版集群中的 JindoSDK 升级到 6.3.0 版本，linux x86平台为例:
 
 ```bash
 mkdir jindo-patch
@@ -210,7 +210,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.0/jindosdk-6.2.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.0/jindosdk-6.3.0-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
 
@@ -221,7 +221,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.2.0-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.0-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -231,10 +231,10 @@ ls -l
 bash bootstrap_jindosdk.sh -gen-full $NEW_JINDOSDK_VERSION
 ```
 
-以将新版集群中的 JindoSDK 升级到 6.2.0 版本为例:
+以将新版集群中的 JindoSDK 升级到 6.3.0 版本为例:
 
 ```bash
-bash bootstrap_jindosdk.sh -gen-full 6.2.0
+bash bootstrap_jindosdk.sh -gen-full 6.3.0
 ```
 **参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。**
 

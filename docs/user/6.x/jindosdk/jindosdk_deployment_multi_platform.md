@@ -30,7 +30,7 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 使用Java SDK时，Linux X86平台需要依赖 `jindo-sdk-x.y.z.jar` 和 `jindo-core-x.y.z.jar`，其他平台需要依赖 `jindo-sdk-x.y.z.jar` 和 `jindo-core-<平台名称>-x.y.z`.jar。
 
-安装方式的话，即可以通过maven在pom.xml中配置依赖，如[6.2.0-oss-maven](/docs/user/6.x/6.2.0/oss-maven.md)。也可以通过oss地址直接下载部署，如[6.2.0-download](/docs/user/6.x/6.2.0/jindodata_download.md)。
+安装方式的话，即可以通过maven在pom.xml中配置依赖，如[6.3.0-oss-maven](/docs/user/6.x/6.3.0/oss-maven.md)。也可以通过oss地址直接下载部署，如[6.3.0-download](/docs/user/6.x/6.3.0/jindodata_download.md)。
 
 ### 产物物平台说明表
 
@@ -52,16 +52,16 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 ## JindoSDK 部署示例
 
-以下 6.2.0 版本为例。
+以下 6.3.0 版本为例。
 
 ### Linux x86 环境示例
 
-1. 完整安装，以安装包内容解压在 /usr/lib/jindosdk-6.2.0-linux 目录为例：
+1. 完整安装，以安装包内容解压在 /usr/lib/jindosdk-6.3.0-linux 目录为例：
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.0/jindosdk-6.2.0-linux.tar.gz
-tar zxvf jindosdk-6.2.0-linux.tar.gz -C /usr/lib/
-export JINDOSDK_HOME=/usr/lib/jindosdk-6.2.0-linux
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.0/jindosdk-6.3.0-linux.tar.gz
+tar zxvf jindosdk-6.3.0-linux.tar.gz -C /usr/lib/
+export JINDOSDK_HOME=/usr/lib/jindosdk-6.3.0-linux
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
@@ -71,20 +71,20 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 2. lite安装，以安装包内容下载到 <HADOOP_HOME>/share/hadoop/hdfs/lib/ 目录为例：
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.2.0/jindo-sdk-6.2.0.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.2.0/jindo-core-6.2.0.jar
-cp jindo-core-6.2.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.2.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.3.0/jindo-sdk-6.3.0.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.3.0/jindo-core-6.3.0.jar
+cp jindo-core-6.3.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.3.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 ### Linux aarch64 环境示例
 
-1. 完整安装，以安装包内容解压在 /usr/lib/jindosdk-6.2.0-linux-el7-aarch64 目录为例：
+1. 完整安装，以安装包内容解压在 /usr/lib/jindosdk-6.3.0-linux-el7-aarch64 目录为例：
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/x.y.z/jindosdk-6.2.0-linux-el7-aarch64.tar.gz
-tar zxvf jindosdk-6.2.0-linux-el7-aarch64.tar.gz -C /usr/lib/
-export JINDOSDK_HOME=/usr/lib/jindosdk-6.2.0-linux-el7-aarch64
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/x.y.z/jindosdk-6.3.0-linux-el7-aarch64.tar.gz
+tar zxvf jindosdk-6.3.0-linux-el7-aarch64.tar.gz -C /usr/lib/
+export JINDOSDK_HOME=/usr/lib/jindosdk-6.3.0-linux-el7-aarch64
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
@@ -94,10 +94,10 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 2. lite安装，以安装包内容下载到 <HADOOP_HOME>/share/hadoop/hdfs/lib/ 目录为例：
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.2.0/jindo-sdk-6.2.0.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core-linux-el7-aarch64/6.2.0/jindo-core-linux-el7-aarch64-6.2.0.jar
-cp jindo-core-linux-el7-aarch64-6.2.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.2.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.3.0/jindo-sdk-6.3.0.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core-linux-el7-aarch64/6.3.0/jindo-core-linux-el7-aarch64-6.3.0.jar
+cp jindo-core-linux-el7-aarch64-6.3.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.3.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 # 附录
@@ -117,21 +117,47 @@ cp jindosdk-6.2.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 │   ├── core-site.xml.template
 │   ├── jindosdk.cfg.template
 │   └── log4j.properties.template
+├── include
+│   ├── jdo_api.h
+│   ├── jdo_common.h
+│   ├── jdo_content_summary.h
+│   ├── jdo_data_types.h
+│   ├── jdo_defines.h
+│   ├── jdo_error.h
+│   ├── jdo_file_status.h
+│   ├── jdo_list_dir_result.h
+│   ├── jdo_option_keys.h
+│   └── jdo_options.h
 ├── lib
 │   ├── jindo-core-x.y.z.jar
 │   ├── jindo-core-linux-el7-aarch64-x.y.z.jar
 │   ├── jindo-sdk-x.y.z.jar
-│   └── native
-│       ├── libfuse3.so.3
-│       ├── libjemalloc.so
-│       ├── libjindo-csdk.so
-│       ├── libjindo-tensorflow1.15.so
-│       ├── libjindo-tensorflow2.8.so
-│       └── libjindosdk.so
+│   ├── native
+│   │   ├── libfuse3.so.3
+│   │   ├── libjemalloc.so
+│   │   ├── libjindo-csdk.so
+│   │   ├── libjindo-tensorflow1.15.so
+│   │   ├── libjindo-tensorflow2.8.so
+│   │   ├── libjindosdk.so
+│   │   ├── libjindosdk_c.so -> libjindosdk_c.so.x
+│   │   ├── libjindosdk_c.so.x -> libjindosdk_c.so.x.y.z
+│   │   └── libjindosdk_c.so.x.y.z
+│   └── site-packages
+│       ├── pyjindo-x.y.z-cp310-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp311-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp312-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp36-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp37-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp38-abi3-linux_x86_64.whl
+│       └── pyjindo-x.y.z-cp39-abi3-linux_x86_64.whl
 ├── plugins
 │   └── flink
 │       ├── jindo-flink-x.y.z-full.jar
 │       └── jindo-flink-x.y.z.jar
+│   ├── spark2
+│   │   └── jindo-spark2-x.y.z.jar
+│   └── spark3
+│       └── jindo-spark3-x.y.z.jar
 ├── tools
 │   ├── jindo-dependence-shaded-x.y.z.jar
 │   ├── jindo-distcp-tool-x.y.z.jar
