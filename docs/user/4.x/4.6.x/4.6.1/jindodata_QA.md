@@ -10,6 +10,14 @@
 #### 解决办法
 升级 JindoSDK 到 4.x 版本。
 
+### 获取 OSS-HDFS du 结果不符合预期
+
+#### 现象
+使用4.6.0或4.6.1版本的JindoSDK访问OSS-HDFS，使用du/count命令, 发现du结果目录大小小于实际真实的大小。
+
+#### 解决办法
+core-site.xml 添加配置 `fs.oss.content.summary.servermode.enable=true`，或升级 JindoSDK 到 4.6.2 以上版本。
+
 ## OSS SDK 方式
 
 ### JindoSDK 访问 OSS 出现 CopyNotExecuted 问题排查
