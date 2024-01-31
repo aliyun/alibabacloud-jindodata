@@ -49,7 +49,7 @@ export HADOOP_CONF_DIR=/etc/taihao-apps/hadoop-conf
 
 1.  在阿里云EMR环境中默认存在以上配置，无需配置。
     
-2.  非EMR中配置方式参见：[《在非EMR集群中部署JindoSDK》](https://help.aliyun.com/zh/emr/emr-on-ecs/user-guide/deploy-jindosdk-in-an-environment-other-than-emr)。其中，HADOOP\_CONF\_DIR并必须，仅为兼容HADOOP环境中的配置。
+2.  非EMR中配置方式参见：[《在非EMR集群中部署JindoSDK》](https://help.aliyun.com/zh/emr/emr-on-ecs/user-guide/deploy-jindosdk-in-an-environment-other-than-emr)。其中，HADOOP\_CONF\_DIR不是必须，仅为兼容HADOOP环境中的配置。
     
 
 ### 安装 pyjindo
@@ -292,4 +292,4 @@ python3.8 ossfs_test.py
 删除文件后的pyjindotest目录下文件为[].
 ```
 
-更多接口说明参见 fssepc [官网文档](https://filesystem-spec.readthedocs.io/en/latest/api.html)。
+更多接口说明参见 fssepc [官网文档](https://filesystem-spec.readthedocs.io/en/latest/api.html#fsspec.spec.AbstractFileSystem)。
