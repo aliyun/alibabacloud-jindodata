@@ -1,7 +1,7 @@
 ### 问题描述
 用户调用解归档将数据从归档/冷归档恢复标准操作后，有时还是会出现解归档的文件不可读取情况，出现如下报错
 ```shell
-tail: Read from oss://<DLS_BUCKET>.<DLS_ENDPOINT>/<FILE> with error message: Caused by error 30005: IO error: IO error:  [RequestId]: 665A7XXXXXXXXXXX [HostId]: oss-cn-beijing-internal.aliyuncs.com [ErrorMessage]: [E1010]HTTP/1.1 403 Forbidden: <?xml version="1.0" encoding="UTF-8"?><Error>  <Code>InvalidObjectState</Code>  <Message>The operation is not valid for the object's state</Message>  <RequestId>65A7XXXXXXXXXXX</RequestId>  <HostId><DLS_BUCKET>.<DLS_ENDPOINT></HostId>  <ObjectName>.dlsdata/xxxxxxxx2242734</ObjectName></Error> [ErrorCode]: 1010 [RequestId]: 65A7XXXXXXXXXXX
+ Read from oss://<DLS_BUCKET>.<DLS_ENDPOINT>/<FILE> with error message: Caused by error 30005: IO error: IO error:  [RequestId]: XXXXXXXXXXXXXX [HostId]: <OSS_ENDPOINT> [ErrorMessage]: [E1010]HTTP/1.1 403 Forbidden: <?xml version="1.0" encoding="UTF-8"?><Error>  <Code>InvalidObjectState</Code>  <Message>The operation is not valid for the object's state</Message>  <RequestId>XXXXXXXXXXXXXXX</RequestId>  <HostId><DLS_BUCKET>.<OSS_ENDPOINT></HostId>  <ObjectName>.dlsdata/xxxxxxxxxxxx</ObjectName></Error> [ErrorCode]: 1010 [RequestId]: XXXXXXXXXXXXXXX
 ```
 
 ### 问题根因
