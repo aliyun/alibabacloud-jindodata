@@ -7,7 +7,7 @@
 ## 介绍
 
 - JindoSDK 更新 [6.1.0 的 Maven 仓库](oss-maven.md)
-- JindoSDK 支持 FileSystem close 后仍支持使用读写流进行读写。。
+- JindoSDK 支持 FileSystem close 后仍支持使用读写流进行读写。
 
 ## 下载
 

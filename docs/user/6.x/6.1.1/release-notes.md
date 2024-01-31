@@ -7,7 +7,7 @@
 ## 介绍
 
 - JindoSDK 更新 [6.1.1 的 Maven 仓库](oss-maven.md)
-- 支持通过配置 fs.oss.legacy.version 为 3.8，兼容 JindoSDK 3.8.x 配置，
+- 支持通过配置 fs.oss.legacy.version 为 3.8，兼容 JindoSDK 3.8.x 配置
 
 ## 下载
 
