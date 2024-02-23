@@ -32,8 +32,12 @@ jindosdk-patches 内容示例如下：
 -rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
 -rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
 -rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.0-linux.tar.gz
-
 ```
+
+> **注意**：如果从4.6.8以下版本升级到4.6.9以上或6.x版本时，由于 JindoCommitter 默认使用的作业临时路径发生变化，需要在升级前
+> 先设置 `fs.jdo.committer.allow.concurrent=false` （core-site.xml）
+> 或在 Spark 配置中设置 `spark.hadoop.fs.jdo.committer.allow.concurrent=false`，确保升级期间不会出现丢数据的情况。
+> 后续在包含GATEWAY节点的所有JindoSDK全部升级完成后，可以择机去掉该配置。
 
 ### 2. 配置升级节点信息
 
