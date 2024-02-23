@@ -4,7 +4,7 @@
 
 若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在使用过程中遇到了问题，具体查看 [已知问题](../jindodata/jindodata_known_issues.md)，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../jindodata/jindodata_release_notes.md), 可以根据下面的步骤完成 JindoSDK 升级。
 
-### 1. 准备软件包和升级脚本
+### 1. 准备软件包和升级脚本、配置
 
 登录EMR集群的Master节点，并将下载的patch包放在emr-user用户的HOME目录下，将patch包解压缩后，使用emr-user用户执行操作。
 
@@ -34,6 +34,11 @@ jindosdk-patches 内容示例如下：
 -rw-rw-r-- 1 emr-user emr-user        40 May 01 00:00 hosts
 -rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.3.0-linux-el7-aarch64.tar.gz
 ```
+
+> **注意**：如果从4.6.8以下版本升级到4.6.9以上或6.x版本时，由于 JindoCommitter 默认使用的作业临时路径发生变化，需要在升级前
+> 先设置 `fs.jdo.committer.allow.concurrent=false` （core-site.xml）
+> 或在 Spark 配置中设置 `spark.hadoop.fs.jdo.committer.allow.concurrent=false`，确保升级期间不会出现丢数据的情况。
+> 后续在包含GATEWAY节点的所有JindoSDK全部升级完成后，可以择机去掉该配置。
 
 ### 2. 配置升级节点信息
 
