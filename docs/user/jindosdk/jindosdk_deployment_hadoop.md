@@ -4,7 +4,7 @@
 
 1.  下载并解压 JindoSDK TAR 包。
     
-执行以下命令，下载6.3.0版本JindoSDK TAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](/docs/user/6.x/jindosdk/jindosdk_deployment_multi_platform.md)
+执行以下命令，下载6.3.0版本JindoSDK TAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_multi_platform.md)
         
 ```bash
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.0/jindosdk-6.3.0-linux.tar.gz

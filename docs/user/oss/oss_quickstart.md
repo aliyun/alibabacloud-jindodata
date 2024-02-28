@@ -28,7 +28,7 @@
         
         *   访问 OSS-HDFS，需创建 EMR-3.42.0 及以上版本或 EMR-5.8.0 及以上版本的集群。
         
-    *   在 非 EMR 环境中，您也可以通过下载最新版本的 JindoSDK ，自行部署使用，Hadoop 场景部署方式参见 [《在 Hadoop 环境中部署 JindoSDK》](/docs/user/6.x/jindosdk/jindosdk_deployment_hadoop.md), AI场景部署方式参见 [《在 AI 环境中部署 JindoSDK》](/docs/user/6.x/jindosdk/jindosdk_deployment_ai.md)。
+    *   在 非 EMR 环境中，您也可以通过下载最新版本的 JindoSDK ，自行部署使用，Hadoop 场景部署方式参见 [《在 Hadoop 环境中部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_hadoop.md), AI场景部署方式参见 [《在 AI 环境中部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_ai.md)。
         
         *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
             

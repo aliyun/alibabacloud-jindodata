@@ -6,9 +6,9 @@ OSS/OSS-HDFS 可以通过 JindoFuse 提供 POSIX 支持，将 OSS/OSS-HDFS 上�
 
 ## 部署安装
 
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz，[下载页面](/docs/user/6.x/6.3.0/jindodata_download.md)。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz，[下载页面](/docs/user/jindosdk/jindosdk_download.md)。
 
-安装部署 JindoSDK，参见 [文档链接](/docs/user/6.x/jindosdk/jindosdk_deployment_ai.md)
+安装部署 JindoSDK，参见 [文档链接](/docs/user/jindosdk/jindosdk_deployment_ai.md)
 
 ## 挂载 JindoFuse
 

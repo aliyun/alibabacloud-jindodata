@@ -2,7 +2,7 @@
 
 ## 背景
 
-在旧版管控平台中创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，遇到已知问题，或需要使用[新功能](../jindodata/jindodata_release_notes.md)。
+在旧版管控平台中创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../releases.md), 可以根据下面的步骤完成 JindoSDK 升级。
 
 ## 场景一：升级已有集群
 ### 1. 准备软件包和升级脚本

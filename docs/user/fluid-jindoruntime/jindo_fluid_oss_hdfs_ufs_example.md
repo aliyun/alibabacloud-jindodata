@@ -31,7 +31,7 @@ jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 
 
 ### 5.1 准备 OSS-HDFS 服务
-您需要开通阿里云对象存储服务(Object Storage Service，简称OSS)，按照使用文档进行bucket创建，并在创建时指定bucket为支持 OSS-HDFS 模式，访问链接 [https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md)
+您需要开通阿里云对象存储服务(Object Storage Service，简称OSS)，按照使用文档进行bucket创建，并在创建时指定bucket为支持 OSS-HDFS 模式，访问链接 [https://github.com../../tree/master/docsdocs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md](https://github.com../../tree/master/docsdocs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md)
 
 
 ### 5.2 准备测试样例数据
@@ -47,7 +47,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-3.1.1/spark-3.1.1-b
 
 - 上传本地文件到 OSS-HDFS 上
 
-您可以使用 [JindoSDK](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md#3-%E4%B8%8B%E8%BD%BD-jindosdk-%E5%8C%85)，按照使用说明将本地下载的文件上传到远程 OSS-HDFS 的bucket上。如您的bucket名字为 test-bucket 且使用 JindoSDK 作为客户端工具，可执行如下命令上传文件到 OSS-HDFS 上面。
+您可以使用 [JindoSDK](https://github.com../../tree/master/docsdocs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md#3-%E4%B8%8B%E8%BD%BD-jindosdk-%E5%8C%85)，按照使用说明将本地下载的文件上传到远程 OSS-HDFS 的bucket上。如您的bucket名字为 test-bucket 且使用 JindoSDK 作为客户端工具，可执行如下命令上传文件到 OSS-HDFS 上面。
 ```shell
 hadoop fs -put spark-2.4.7-bin-hadoop2.7.tgz oss://test-bucket/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz 
 hadoop fs -put spark-3.1.1-bin-hadoop3.2.tgz oss://test-bucket/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz

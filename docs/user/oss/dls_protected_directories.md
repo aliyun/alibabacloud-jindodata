@@ -5,7 +5,7 @@ JindoFS 目录保护功能当前可以通过命令行命令的方式进行操作
 JindoFS 目录保护功能，主要防止用户误删目录，被保护的目录只要该目录下存在目录或者文件，保护目录的删除以及重命名操作会报错，只有当被保护的目录下不存在任何目录或者文件，保护目录才会被允许删除或者重命名。
 
 ### JindoFS 命令行简介
-参见[JindoFS 命令行工具使用指南](/docs/user/6.x/jindofs/jindofs_client_tools.md)
+参见[JindoFS 命令行工具使用指南](/docs/user/jindofs/jindofs_client_tools.md)
 
 目录保护功能需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。
 ### 配置访问 AK

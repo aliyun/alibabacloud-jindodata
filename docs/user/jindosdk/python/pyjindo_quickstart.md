@@ -8,9 +8,9 @@
 
 ### 下载对应 Python 版本的 pyjindo 安装包
 
-1.  下载最新的 tar.gz 包 jindosdk-6.3.0.tar.gz，下载链接见 [下载页面](/docs/user/6.x/6.3.0/jindodata_download.md)。
+1.  下载最新的 tar.gz 包 jindosdk-6.3.0.tar.gz，下载链接见 [下载页面](/docs/user/jindosdk/jindosdk_download.md)。
     
-2.  部署 jindosdk-6.3.0.tar.gz，whl安装包位于完整产出物 \`jindosdk-x.x.x/lib/site-packages/\` 的子目录中。多平台部署说明参见 [部署文档](/docs/user/6.x/jindosdk/jindosdk_deployment_multi_platform.md)。
+2.  部署 jindosdk-6.3.0.tar.gz，whl安装包位于完整产出物 \`jindosdk-x.x.x/lib/site-packages/\` 的子目录中。多平台部署说明参见 [部署文档](/docs/user/jindosdk/jindosdk_deployment_multi_platform.md)。
     
 ```
     .
@@ -153,7 +153,7 @@ logger.cleaner.enable = true
 |  get(key, default='')  |  str  |  获取字符串类型配置  |
 |  contains(key)  |  bool  |  是否存在配置key  |
 
-配置说明参见：[客户端常用配置](/docs/user/6.x/jindosdk/jindosdk_configuration.md)
+配置说明参见：[客户端常用配置](/docs/user/jindosdk/jindosdk_configuration.md)
 
 ### FileType 枚举
 

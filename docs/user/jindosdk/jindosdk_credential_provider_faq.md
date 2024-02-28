@@ -47,11 +47,11 @@ curl http://100.100.100.200/latest/meta-data/Ram/Security-credentials/AliyunECSI
 
 ### 方法二：升级 JindoSDK 为最新版本
 
-* 旧版控制台升级，请参考[EMR 集群 JindoSDK 升级流程](/docs/user/6.x/upgrade/emr_upgrade_jindosdk.md)
+* 旧版控制台升级，请参考[EMR 集群 JindoSDK 升级流程](/docs/user/upgrade/emr_upgrade_jindosdk.md)
 
-* 新版控制台升级，请参考[EMR 集群 JindoSDK 升级流程](/docs/user/6.x/upgrade/emr_upgrade_jindosdk_emr-next.md)
+* 新版控制台升级，请参考[EMR 集群 JindoSDK 升级流程](/docs/user/upgrade/emr_upgrade_jindosdk_emr-next.md)
 
-* E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，请参考[EMR 集群 JindoSDK 升级流程](/docs/user/6.x/upgrade/emr_upgrade_smartdata.md)
+* E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，请参考[EMR 集群 JindoSDK 升级流程](/docs/user/upgrade/emr_upgrade_smartdata.md)
 
 ## 4. 访问 OSS/OSS-HDFS 路径中包含 AK 信息报错
 报错信息如下：

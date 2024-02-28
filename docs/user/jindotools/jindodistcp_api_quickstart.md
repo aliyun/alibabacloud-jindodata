@@ -2,7 +2,7 @@
 
 ## 下载 JindoSDK 包
 
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/6.x//6.3.0/jindodata_download.md))。
+下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/jindosdk/jindosdk_download.md))。
 
 ## 安装依赖包
 
