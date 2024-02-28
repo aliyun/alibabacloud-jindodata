@@ -10,7 +10,9 @@
 
 1.  下载最新的 tar.gz 包 jindosdk-x.y.z.tar.gz（x.y.z表版本号），下载链接见 [下载页面](/docs/user/jindosdk/jindosdk_download.md)。
     
-2.  部署 jindosdk-x.y.z.tar.gz，whl安装包位于完整产出物 \`jindosdk-x.y.z/lib/site-packages/\` 的子目录中。多平台部署说明参见 [部署文档](/docs/user/jindosdk/jindosdk_deployment_multi_platform.md)。
+2.  部署 jindosdk-6.3.2.tar.gz，whl安装包位于完整产出物 \`jindosdk-x.x.x/lib/site-packages/\` 的子目录中。多平台部署说明参见 [部署文档](/docs/user/6.x/jindosdk/jindosdk_deployment_multi_platform.md)。
+
+3.  以`Python3.6`版本为例，请安装pyjindo-x.y.z-cp`36`-abi3-linux_x86_64.whl
     
 ```
     .
@@ -49,8 +51,7 @@ export HADOOP_CONF_DIR=/etc/taihao-apps/hadoop-conf
 
 1.  在阿里云EMR环境中默认存在以上配置，无需配置。
     
-2.  非EMR中配置方式参见：[《在非EMR集群中部署JindoSDK》](https://help.aliyun.com/zh/emr/emr-on-ecs/user-guide/deploy-jindosdk-in-an-environment-other-than-emr)。其中，Hadoop配置文件及HADOOP\_CONF\_DIR并必须，仅为兼容HADOOP环境中的配置。
-    
+2.  非EMR中配置方式参见：[《在非EMR集群中部署JindoSDK》](https://help.aliyun.com/zh/emr/emr-on-ecs/user-guide/deploy-jindosdk-in-an-environment-other-than-emr)。其中，Hadoop配置文件及HADOOP\_CONF\_DIR不是必须，仅为兼容HADOOP环境中的配置。
 
 ### 安装 pyjindo
 
@@ -192,7 +193,7 @@ logger.cleaner.enable = true
 |  size()  |  int, 失败时抛出IOError  |  文件大小（仅可读时使用）  |
 |  tell()  |  int, 失败时抛出IOError  |  文件流位置  |
 |  flush()  |  无，失败时抛出IOError  |  刷新缓存  |
-|  write(data)  |  无，失败时抛出IOError  |  写数据，data为bytes类型，写写入buffer  |
+|  write(data)  |  无，失败时抛出IOError  |  写数据，data为bytes类型，为写入buffer  |
 |  read(nbytes)  |  bytes, 失败时抛出IOError  |  读数据，nbytes为int，为读取大小  |
 |  pread(nbytes, offset)  |  bytes, 失败时抛出IOError  |  随机读数据，nbytes为int，表读取大小；offset为int，表文件位移  |
 |  readall()  |  bytes, 失败时抛出IOError  |  读取整个文件  |
@@ -261,6 +262,7 @@ in_file.close()
 # 列出文件
 ls_file = fs.ls(root_path, detail=False)
 print("目录文件为%s." %(ls_file))
+assert file_path in fs.glob(root_path + "*")
 
 # 创建目录
 fs.mkdir(sub_dir)
@@ -292,4 +294,4 @@ python3.8 ossfs_test.py
 删除文件后的pyjindotest目录下文件为[].
 ```
 
-更多接口说明参见 fssepc [官网文档](https://filesystem-spec.readthedocs.io/en/latest/api.html)。
+更多接口说明参见 fssepc [官网文档](https://filesystem-spec.readthedocs.io/en/latest/api.html#fsspec.spec.AbstractFileSystem)。
