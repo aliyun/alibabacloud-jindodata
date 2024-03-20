@@ -10,6 +10,7 @@
 
 - JindoSDK 更新 [6.3.3 的 Maven 仓库](jindosdk/oss-maven.md)
 - 修复 JindoFuse 创建 symlink 逻辑，支持 csi plugin 场景使用
+- 支持通过设置的反向代理访问对象存储
 
 ## 6.3.2，2024-02-26
 
