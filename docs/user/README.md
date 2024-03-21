@@ -6,7 +6,7 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 
 ## 下载安装 JindoSDK
 
-JindoSDK 是访问 JindoData 组件的标准客户端，请参考 [JindoSDK 下载](jindosdk/jindodata_download.md) 和
+JindoSDK 是访问 JindoData 组件的标准客户端，请参考 [JindoSDK 下载](jindosdk/jindosdk_download.md) 和
 [JindoSDK 快速入门](jindosdk/jindosdk_quickstart.md) 进行安装和验证。
 
 关于多版本支持，请参考[JindoSDK 多版本支持](jindosdk/jindosdk_deployment_multi_platform.md)。
