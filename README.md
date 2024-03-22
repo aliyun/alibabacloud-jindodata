@@ -71,7 +71,7 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 
 ## JindoData 下载
 
-JindoData 6.x [下载页面](../../tree/master/docs/user/6.x/6.3.0/jindodata_download.md)<br/>
+JindoData 6.x [下载页面](../../tree/latest/docs/user/jindosdk/jindosdk_download.md)<br/>
 JindoData 5.x [下载页面](../../tree/master/docs/user/5.x/5.0.0/jindodata_download.md)<br/>
 JindoData 4.x [下载页面](../../tree/master/docs/user/4.x/jindodata_download.md)<br/>
 JindoData 3.x [下载页面](../../tree/master/docs/user/3.x/jindosdk_download.md)
