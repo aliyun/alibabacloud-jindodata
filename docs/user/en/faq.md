@@ -1,38 +1,37 @@
-# JindoData 常见问题
-## 常见问题
-- **JindoData 套件和阿里云 EMR 是什么关系？**
+FAQ about JindoData
+FAQ
 
-  JindoData 套件是阿里云开源大数据 JindoData 团队开发，面向开源生态和社区全面开放和提供，除了 EMR 产品默认集成，还支持阿里云上多种场景部署使用，包括 ECS 自建集群、ACK 云原生 Fluid 集成，甚至 IDC 集群环境。阿里云 EMR 产品针对多种场景提供的多种集群类型（DataLake、DataFlow、DataScience  和 OLAP）会默认集成所需要的 JindoData 相应组件，提供更加优化、易用的使用体验。
+- **What is the relationship between JindoData and Alibaba Cloud EMR? **
 
-- **JindoData 套件和 EMR SmartData 组件是什么关系？**
+JindoData is a suite developed by the big data JindoData team of Alibaba Cloud. JindoData is available for open source ecosystems and communities. JindoData is integrated with E-MapReduce (EMR) by default. JindoData can also be deployed in various scenarios in Alibaba Cloud, such as self-managed clusters that are deployed on Elastic Compute Service (ECS) instances, Fluid in the cloud-native AI suite of Container Service for Kubernetes (ACK), and data centers. Alibaba Cloud EMR provides various cluster types, such as DataLake, Dataflow, Data Science, and online analytical processing (OLAP). Different JindoData components are integrated into different types of EMR clusters by default to provide more optimized and easier-to-use experience. 
 
-  JindoData 套件前身就是阿里云 E-MapReduce 产品 SmartData 组件，是对 SmartData 的架构升级，更加模块化，面向社区生态系统更加开放和兼容。
+- **What is the relationship between JindoData and EMR SmartData? **
 
-- **JindoData 套件和 JindoFS 是什么关系？**
+JindoData is formerly known as SmartData of EMR developed by Alibaba Cloud. JindoData is upgraded based on the architecture of SmartData. JindoData is modularized and highly compatible with open source ecosystems and communities. 
 
-  JindoData 套件基于统一的架构和内核实现，不仅包括 JindoFS（存储系统），还包含 JindoFSx（缓存系统），JindoSDK 和生态工具、插件。
+- **What is the relationship between JindoData and JindoFS? **
 
-- **JindoData 套件和 Jindo 是什么关系？**
-  
-  Jindo 约等于 JindoData，是后者的简便叫法。
+JindoData is built on top of a unified architecture and kernel. JindoData provides the following components: JindoFS (the original JindoFS in block storage mode), JindoFSx (the original JindoFS in cache mode), and JindoSDK. JindoData also provides ecosystem tools and plug-ins. 
 
-- **JindoFS 和 OSS-HDFS 服务之间的关系**
+- **What is the relationship between JindoData and Jindo? **
 
-  OSS-HDFS 服务（有时也提 JindoFS 服务）是 JindoFS 存储系统在阿里云 OSS 上的服务化部署形态，和 OSS 对象存储产品深度融合，作为一种新的 bucket 类型，开箱即用。
+Jindo is short for JindoData. 
 
-- **JindoFS 服务化成为 OSS-HDFS 服务，为什么叫 HDFS？**
+- **What is the relationship between JindoFS and OSS-HDFS?**
 
-  JindoFS 存储系统二进制兼容 Apache HDFS，并且基本功能完全对齐，提供优化的 HDFS 使用体验，可实现 HDFS 自建集群平迁上云上阿里云 OSS。
+JindoFS is deployed as a service called OSS-HDFS in Alibaba Cloud. OSS-HDFS is deeply integrated with Object Storage Service (OSS). You can directly use OSS-HDFS without the need to deploy and manage JindoFS. 
 
+- **Why is JindoFS used as a service called OSS-HDFS? **
 
-## 历史版本已知问题
+JindoFS is binary compatible with Apache Hadoop Distributed File System (HDFS) and optimizes the user experience of HDFS and data migration. This way, data in self-managed HDFS clusters can be smoothly migrated to Alibaba Cloud OSS. 
+Known issues of JindoSDK in earlier versions
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.1/known-issues.md) in JindoSDK 4.6.1
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.0/known-issues.md) in JindoSDK 4.6.0
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.5.x/4.5.1/known-issues.md) in JindoSDK 4.5.1
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.5.x/4.5.0/known-issues.md) in JindoSDK 4.5.0
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.4.0/known-issues.md) in JindoSDK 4.4.0
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.3.0/known-issues.md) in JindoSDK 4.3.0
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.2.0/known-issues.md) in JindoSDK 4.2.0
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.1.0/known-issues.md) in JindoSDK 4.1.0
+#### [Known issues](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.0.0/known-issues.md) in JindoSDK 4.0.0
 
-#### JindoSDK 4.6.1 [已知问题](../../tree/master/docs/user/4.x/4.6.x/4.6.1/known-issues.md)
-#### JindoSDK 4.6.0 [已知问题](../../tree/master/docs/user/4.x/4.6.x/4.6.0/known-issues.md)
-#### JindoSDK 4.5.1 [已知问题](../../tree/master/docs/user/4.x/4.5.x/4.5.1/known-issues.md)
-#### JindoSDK 4.5.0 [已知问题](../../tree/master/docs/user/4.x/4.5.x/4.5.0/known-issues.md)
-#### JindoSDK 4.4.0 [已知问题](../../tree/master/docs/user/4.x/4.4.0/known-issues.md)
-#### JindoSDK 4.3.0 [已知问题](../../tree/master/docs/user/4.x/4.3.0/known-issues.md)
-#### JindoSDK 4.2.0 [已知问题](../../tree/master/docs/user/4.x/4.2.0/known-issues.md)
-#### JindoSDK 4.1.0 [已知问题](../../tree/master/docs/user/4.x/4.1.0/known-issues.md)
-#### JindoSDK 4.0.0 [已知问题](../../tree/master/docs/user/4.x/4.0.0/known-issues.md)

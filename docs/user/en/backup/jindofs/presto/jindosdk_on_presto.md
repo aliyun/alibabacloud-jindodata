@@ -1,81 +1,57 @@
-# Presto 使用 JindoSDK 查询 OSS-HDFS 服务上的数据
-
-Presto 是一个开源的分布式 SQL 查询引擎，适用于交互式分析查询。本文介绍如何配置 Presto 通过 JindoSDK 访问阿里云OSS数据湖存储。
-
-## 步骤
-
-### 1. 安装 jar 包
-
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))，解压后将sdk包安装到所有 Presto 节点。
-
-````
+Use JindoSDK with Presto to query data stored in OSS-HDFS
+Presto is an open source distributed SQL query engine. It is used to run interactive analytic queries. This topic describes how to use JindoSDK with Presto to access OSS-HDFS. 
+Procedure
+1. Install a required JAR package.
+[Download](https://github.com/aliyun/alibabacloud-jindodata/blob/latest/docs/user/en/jindosdk/jindosdk_download.md) the latest version of the jindosdk-x.x.x.tar.gz package, decompress the package, and then install the JAR files that are contained in the package to each node on which Presto is deployed. 
 cp jindosdk-x.x.x/lib/*.jar  $PRESTO_HOME/plugin/hive-hadoop2/
-````
-
-### 2. 配置 JindoSDK OSS 实现类
-将 JindoSDK OSS 实现类配置到所有 Presto 节点上的 Hadoop 的 `core-site.xml`中。
-```xml
+2. Configure the implementation class of OSS-HDFS.
+Configure the implementation class of OSS-HDFS in the core-site.xml configuration file of Hadoop on each node on which Presto is deployed. 
 <configuration>
-    <property>
-        <name>fs.AbstractFileSystem.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.OSS</value>
-    </property>
+<property>
+<name>fs.AbstractFileSystem.oss.impl</name>
+<value>com.aliyun.jindodata.oss.OSS</value>
+</property>
 
-    <property>
-        <name>fs.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
-    </property>
+<property>
+<name>fs.oss.impl</name>
+<value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
+</property>
 </configuration>
-```
-
-### 3. 配置 OSS Access Key
-将已开启 HDFS 服务的 Bucket 对应的`Access Key ID`、`Access Key Secret`、`Endpoint` 等预先配置在所有 Presto 节点上的 Hadoop 的 `core-site.xml` 中。
-```xml
+3. Specify an AccessKey pair that you want to use to access OSS-HDFS.
+Configure the AccessKey ID, AccessKey secret, and endpoint that are used to access the bucket for which OSS-HDFS is enabled in the core-site.xml configuration file of Hadoop on each node on which Presto is deployed in advance. 
 <configuration>
-    <property>
-        <name>fs.oss.accessKeyId</name>
-        <value>xxx</value>
-    </property>
+<property>
+<name>fs.oss.accessKeyId</name>
+<value>xxx</value>
+</property>
 
-    <property>
-        <name>fs.oss.accessKeySecret</name>
-        <value>xxx</value>
-    </property>
+<property>
+<name>fs.oss.accessKeySecret</name>
+<value>xxx</value>
+</property>
 </configuration>
-```
-JindoSDK 还支持更多的 OSS AccessKey 的配置方式，详情参考[JindoSDK Credential Provider 配置](../security/jindosdk_credential_provider.md)。
+JindoSDK also allows you to use other methods to configure an AccessKey pair. For more information, see [Configure credential providers in JindoSDK](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/security/jindosdk_credential_provider.md). 
+4. Configure an endpoint for OSS-HDFS.
+To access OSS-HDFS, you must configure an endpoint in the cn-xxx.oss-dls.aliyuncs.com format. The endpoint of OSS-HDFS is different from the endpoint that is used to access OSS. The endpoint that is used to access OSS is in the oss-cn-xxx.aliyuncs.com format. JindoSDK accesses OSS-HDFS or OSS based on the endpoint that you configure. 
+If you want to access OSS-HDFS, we recommend that you specify an access path in the oss://<Bucket>.<Endpoint>/<Object> format.
+Example: oss://dls-chenshi-test.cn-shanghai.oss-dls.aliyuncs.com/Test. 
+The preceding access path contains the endpoint of OSS-HDFS. JindoSDK accesses OSS-HDFS based on the endpoint in the access path. JindoSDK also allows you to use other methods to configure the endpoint that is used to access OSS-HDFS. For more information, see [Configure an endpoint to access OSS-HDFS](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/configuration/jindosdk_endpoint_configuration.md). 
+5. Restart all components of Presto for the configurations to take effect. 
+Example
+In the following example, a Hive catalog is used. You can use Presto to create a schema for OSS-HDFS and execute SQL statements to query data that is stored in OSS-HDFS. You must install and deploy JindoSDK in Hive because Presto depends on Hive Metastore. For more information, see [Use JindoSDK with Hive to process data stored in Alibaba Cloud OSS-HDFS (JindoFS)](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/hive/jindosdk_on_hive.md). 
 
-### 4. 配置 OSS-HDFS 服务 Endpoint
-访问 OSS Bucket 上 OSS-HDFS 服务需要配置 Endpoint（`cn-xxx.oss-dls.aliyuncs.com`），与 OSS 对象接口的 Endpoint（`oss-cn-xxx.aliyuncs.com`）不同。JindoSDK 会根据配置的 Endpoint 访问 OSS-HDFS 服务 或 OSS 对象接口。
+- Run the following command to log on to the Presto console:
 
-使用 OSS-HDFS 服务时，推荐访问路径格式为：`oss://<Bucket>.<Endpoint>/<Object>`
-
-如: `oss://dls-chenshi-test.cn-shanghai.oss-dls.aliyuncs.com/Test`。
-
-这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](../configuration/jindosdk_endpoint_configuration.md)。
-
-### 5. 重启 Presto 所有服务，使配置生效。
-
-## 使用示例
-以下以最常用的 Hive catalog 为例，使用 Presto 创建一个 OSS 上的 schema，并执行一些简单的 sql 示例。由于依赖 Hive Metastore，Hive 服务也需要安装部署 JindoSDK，请参考 [Hive 使用 JindoSDK 访问 OSS](../hive/jindosdk_on_hive.md)。
-
-* 执行命令，进入 Presto 控制台
-
-```bash
 presto --server <presto_server_address>:<presto_server_port> --catalog hive
-```
 
-* 创建并使用一个 location 位于 OSS 上的 schema
+- Execute the following statements to create and use a schema in OSS-HDFS:
 
-```sql
 create schema testDB with (location='oss://<Bucket>.<Endpoint>/<schema_dir>');
 use testDB;
-```
 
-* 创建table，执行sql测试验证
+- Execute the following statements to create a table and query data from the table:
 
-```sql
 create table tbl (key int, val int);
 insert into tbl values (1,666);
 select * from tbl;
-```
+

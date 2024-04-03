@@ -1,111 +1,60 @@
-# 阿里云 OSS-HDFS 服务（JindoFS 服务）快照使用说明
-*(从 4.0.0 开始支持)*
-
-阿里云 OSS-HDFS 服务（JindoFS 服务）是OSS新推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过Jindo SDK 4.x 可以兼容访问 OSS-HDFS 服务。关于用户如何创建和使用 OSS-HDFS 服务的基本功能，请参考[链接](jindo_dls_quickstart.md)。
-
- OSS-HDFS 服务的快照功能在使用上与HDFS的快照功能完全兼容。本文主要介绍在 OSS-HDFS 服务中使用快照功能的一些常见操作。
-为了方便下面命令的介绍，我们假设`oss://oss-dfs-test`这个Bucket已经开启 OSS-HDFS 服务。下面所有的例子都会针对这个Bucket进行操作。
-## 开启快照功能
-假设我们先在`oss://oss-dfs-test`下创建一个目录TestSnapshot。
-```bash
+Use the snapshot feature of Alibaba Cloud OSS-HDFS (JindoFS)
+(This topic applies to JindoSDK 4.0.0 or later.)
+OSS-HDFS (JindoFS) is a new storage service that is developed based on Object Storage Service (OSS). OSS-HDFS is compatible with Hadoop Distributed File System (HDFS) APIs and supports multi-level storage directories. You can use JindoSDK 4.X to access OSS-HDFS. For information about how to enable OSS-HDFS for a bucket and use the basic features of OSS-HDFS, see [Getting started with OSS-HDFS (JindoFS)](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md). 
+You can use the snapshot feature of OSS-HDFS in the same manner as the snapshot feature of HDFS. This topic describes the common operations that you can perform when you use the snapshot feature of OSS-HDFS. In the following sample commands, a bucket named oss-dfs-test is used, and OSS-HDFS is enabled for the bucket. 
+Enable the snapshot feature
+You can run the following command to create a directory named TestSnapshot in the oss-dfs-test bucket: 
 hdfs dfs -mkdir oss://oss-dfs-test.<Endpoint>/TestSnapshot
-```
-默认情况下，目录的快照功能是关闭的。需要开启和关闭目录的快照功能，需要使用Jindo SDK的shell命令行。具体的开启快照的格式为
-```bash
+By default, the snapshot feature is disabled for a directory. To enable and disable the snapshot feature for a directory, you must run JindoSDK Shell commands. To enable the snapshot feature for a directory, run the following JindoSDK Shell command:
 jindo admin -allowSnapshot -dlsUri <path>
-```
-如果我们要开启前面创建的TestSnapshot的快照功能。可以输入如下的命令：
-```bash
+For example, you can run the following command to enable the snapshot feature for the TestSnapshot directory:  
 jindo admin -allowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
-```
-## 创建快照
-在一个目录开启快照功能后，可以通过HDFS的shell命令。具体格式为：
-```bash
+Create a snapshot
+After you enable the snapshot feature for a directory, you can run the following HDFS Shell command to create a snapshot for the directory:  
 hdfs dfs -createSnapshot <path> [<snapshotName>]
-```
-例如上面例子的中的TestSnapshot，我们进行了一些目录和文件的操作。然后可以创建一个快照对此刻的快照的状态进行保存。假设我们命名快照名为S1。
-```bash
-#下面这些为创建测试的文件和目录
+For example, after you perform operations on the TestSnapshot directory and files in the directory, you can create a snapshot named S1 for the TestSnapshot directory to save the status of the directory.  
+# Run the following commands to create subdirectories and files in the TestSnapshot directory for testing:
 hdfs dfs -mkdir oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1
 hdfs dfs -mkdir oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir2
 hdfs dfs -touchz oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1/file1
 hdfs dfs -touchz oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir3/file2
 
-#通过HDFS的shell命令行工具执行以下命令创建快照，并将快照命名为S1：
+# Run the following command to create a snapshot named S1 for the TestSnapshot directory:
 hdfs dfs -createSnapshot oss://oss-dfs-test.<Endpoint>/TestSnapshot S1
-```
-## 访问快照中的目录和文件
-### 快照目录的格式
-为了区别于文件系统现有的目录和文件，访问快照中的文件和目录需要添加快照的信息来指出自己要访问的快照名。对于一个开启了快照的目录，我们要访问它下面某个快照的目录和文件，我们可以下面的格式来访问：
-
-```bash
+Access directories and files in a snapshot
+Format of a directory or file in a snapshot
+To distinguish original directories and files in a bucket from directories and files in a snapshot, you must specify the snapshot name to access directories and files in the snapshot. If the snapshot feature is enabled for a directory, and you want to access a directory or file in a snapshot of the directory, specify the path of the directory or file in the following format:
 <snapshotRoot>/.snapshot/<snapshotName>/<actual subPath>
-```
-
-其中snapshotRoot为快照的根目录，也就是开启快照命令中dlsUri参数制定的路径。snapshotName是之前创建的快照名。制定了快照名之后，之后的路径就是原来快照根目录（snapshotRoot）下要访问的路径。
-比如上面的例子TestSnapshot目录，我们如果要列出`oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1`下的文件。可以用常规的ls命令。
-```bash
+In the preceding path, the snapshotRoot parameter specifies the root directory of a snapshot. The root directory is the path specified by the dlsUri parameter in the command that is used to enable the snapshot feature. The snapshotName parameter specifies the name of the snapshot. The actual subPath parameter specifies the path of the directory or file to be accessed in the root directory of the snapshot. In this example, the root directory is TestSnapshot. If you want to query files in the oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1 directory, you can run the following Is command:  
 hdfs dfs -ls oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1
-```
-
-由于我们在TestSnapshot下开启的快照，并创建了快照S1。我们也可以通过下面的路径来列出快照S1下的目录和文件。
-```bash
+ In this example, you can also run the following command to query the directories and files in the S1 snapshot: 
 hdfs dfs -ls oss://oss-dfs-test.<Endpoint>/TestSnapshot/.snapshot/S1/dir1
-```
-其中.snapshot/S1 就是用来表明目录的快照的信息。
-
-### 利用快照恢复数据
-快照的一个常见作用是进行数据备份和恢复。利用快照可以对重要数据进行恢复，防止用户错误性的操作。只要根据上面讲的**快照目录的格式**就可以访问到只读副本中的数据，然后可以根据需求进行恢复操作。
-
-在上面的文件系统中，假设在后面的某次任务中误删了`oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1`
-```bash
+In the preceding command, .snapshot/S1 specifies the snapshot that you want to access. 
+Use a snapshot to restore data
+You can use snapshots to back up and restore data. If you accidentally delete important data, you can use a snapshot to restore the data. You can access data in a snapshot by using the path format described in the preceding section. Then, you can restore the data based on your business requirements. 
+For example, you accidentally delete the oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1 directory.
 hdfs dfs -rm -r oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1
-```
-由于我们已经对/TestSnapshot添加了快照S1。我们可以用如下的命令恢复数据。
-```bash
+You can run the following command to use the S1 snapshot that you created for the /TestSnapshot directory to restore the deleted directory: 
 hdfs dfs -cp oss://oss-dfs-test.<Endpoint>/TestSnapshot/.snapshot/S1/dir1 oss://oss-dfs-test.<Endpoint>/TestSnapshot
-```
-这个时候我们再访问/TestSnapshot/dir1，就会发现原来的误删的文件夹和文件都恢复了。
-```bash
+Then, you can run the following command to check whether the directory is restored: 
 hdfs dfs -ls oss://oss-dfs-test.<Endpoint>/TestSnapshot/dir1
-```
-
-## 重命名快照
-对于一个已经创建的快照，可以通过下面的命令进行重命名
-```bash
+Rename a snapshot
+You can run the following command to rename an existing snapshot:
 hdfs dfs -renameSnapshot <path> <oldName> <newName>
-```
-例如上面例子的中的TestSnapshot的快照S1，我们可以用下面的命令进行重命名为S100
-
-```bash
+For example, you can run the following command to rename the S1 snapshot to S100:
 hdfs dfs -renameSnapshot oss://oss-dfs-test.<Endpoint>/TestSnapshot S1 S100
-```
-
-## 删除快照
-当不需要快照的时候，可以运行下面的命令来删除制定的快照。
-```bash
+Delete a snapshot
+If you no longer require a snapshot, you can run the following command to delete the snapshot: 
 hdfs dfs -deleteSnapshot <path> <snapshotName>
-```
-在上面的例子中，我们可以运行下面的命令来删除之前创建并重命名的快照S100
-```bash
+For example, you can run the following command to delete the S100 snapshot that you obtained by creating and renaming the S1 snapshot:
 hdfs dfs -deleteSnapshot oss://oss-dfs-test.<Endpoint>/TestSnapshot S100
-```
-
-## 关闭快照功能
-当我们需要关闭目录的快照功能的时候，我们同样需要使用Jindo SDK的shell命令行。具体的关闭快照的格式为
-```bash
+Disable the snapshot feature
+To disable the snapshot feature for a directory, you must also run a JindoSDK Shell command. Command format:
 jindo admin -disallowSnapshot -dlsUri <path>
-```
-
-## 查看两个快照之间的差异
-可以通过下面当命令查看两个快照之间的差异
-```bash
+Compare snapshots
+To view the differences between two snapshots, run the following command:
 jindo dls -snapshotDiff -dlsUri <uri> -fromSnapshot <fromSnapshot> -toSnapshot <toSnapshot>
-```
-
-### 注意事项
-如果需要关闭目录的快照功能，首先要确保该目录下的所有快照已经被删除。删除快照的命令可以参考前面的删除快照命令。如果该目录下还存在快照，关闭快照功能会报错。
-对于我们前面的例子TestSnapshot，假设我们已经删除了所有快照。我们可以用下面的命令来关闭目录的快照功能。
-```bash
+Notes
+Make sure that all snapshots of a directory are deleted before you disable the snapshot feature for the directory. For more information about how to delete snapshots, see the "Delete a snapshot" section in this topic. If the directory still contains snapshots, an error occurs when you disable the snapshot feature for the directory. For example, you can run the following command to disable the snapshot feature for the TestSnapshot directory after all snapshots of the directory are deleted:  
 jindo admin -disallowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
-```
+

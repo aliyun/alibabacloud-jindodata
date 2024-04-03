@@ -1,199 +1,161 @@
-# JindoSDK OSS-HDFS 服务 Credential Provider 配置
-
-## 基本配置方式
-您可以将已开启阿里云 OSS-HDFS 服务的 Bucket 对应的 的`Access Key ID`、`Access Secret`、`Endpoint`预先配置在 Hadoop 的`core-site.xml`，配置项如下：
-```xml
+Basic configuration method
+You can configure the AccessKey ID, AccessKey secret, and endpoint of the bucket for which Alibaba Cloud OSS-HDFS is enabled in the core-site.xml configuration file of Hadoop in advance. The AccessKey ID, AccessKey secret, and endpoint are specified by the following configuration items:
 <configuration>
-    <property>
-        <name>fs.oss.accessKeyId</name>
-        <value>xxx</value>
-    </property>
-    <property>
-        <name>fs.oss.accessKeySecret</name>
-        <value>xxx</value>
-    </property>
-    <property>
-        <name>fs.oss.endpoint</name>
-        <value>cn-xxx.oss-dls.aliyuncs.com</value>
-    </property>
+<property>
+<name>fs.oss.accessKeyId</name>
+<value>xxx</value>
+</property>
+<property>
+<name>fs.oss.accessKeySecret</name>
+<value>xxx</value>
+</property>
+<property>
+<name>fs.oss.endpoint</name>
+<value>cn-xxx.oss-dls.aliyuncs.com</value>
+</property>
 </configuration>
-```
-## 使用 Hadoop Credential Providers 存储 AccessKey 信息
-上面的`fs.oss.accessKeyId`和`fs.oss.accessKeySecret`将会明文配置在`core-site.xml`中，可以将其以加密对方式存储至 Hadoop Credential Providers文件中。<br />
-使用Hadoop提供的命令，存储AccessKey和SecurityToken信息至Credential文件中。命令格式如下。
-
-```
+Use a Hadoop credential provider to store an AccessKey pair
+The values of the fs.oss.accessKeyId and fs.oss.accessKeySecret configuration items that you added are displayed in plaintext in the core-site.xml configuration file. You can encrypt and store the values of the configuration items in the credential file of a Hadoop credential provider. Use a command provided by Hadoop to store the AccessKey pair and security token in a credential file. Command syntax: 
 hadoop credential <subcommand> [options]
-```
-例如，存储AccessKey和Token信息至JECKS文件中，除了使用文件权限保护该文件外，您也可以指定密码加密存储信息，如果不指定密码则使用默认字符串加密。
-```
+For example, you can store the AccessKey pair and security token in a JCEKS file. You can protect the file by using file permissions or specify a password to encrypt the information that you want to store. If you do not specify a password, the default string is used for encryption. 
 hadoop credential create fs.oss.accessKeyId -value AAA -provider jceks://file/root/oss.jceks
 hadoop credential create fs.oss.accessKeySecret -value BBB -provider jceks://file/root/oss.jceks
 hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file/root/oss.jceks
-```
-生成Credential文件后，您需要配置下面的参数来指定Provider的类型和位置。
-```xml
+After a credential file is generated, you must configure the following parameter to specify the location of the credential provider: 
 <configuration>
-    <property>
-        <name>fs.oss.security.credential.provider.path</name>
-        <value>jceks://file/root/oss.jceks</value>
-        <description>配置存储AK的Credential文件。例如，jceks://file/${user.home}/oss.jceks为HOME下的oss.jceks文件</description>
-    </property>
+<property>
+<name>fs.oss.security.credential.provider.path</name>
+<value>jceks://file/root/oss.jceks</value>
+<description>The path that is used to store the credential file that stores the AccessKey pair. For example, you can set this parameter to jceks://file/${user.home}/oss.jceks, which indicates that the oss.jceks file is stored in the home directory.</description>
+</property>
 </configuration>
-```
-## 使用 JindoSDK OSS-HDFS 服务 Credential Provider
-默认会配置 SimpleCredentialsProvider，EnvironmentVariableCredentialsProvider，CommonCredentialsProvider 这三个Credential Provider, 按照先后顺序读取 Credential 直至读到有效的 Credential。
-```xml
+Use credential providers in JindoSDK to access OSS-HDFS
+By default, the following types of credential providers are configured: SimpleCredentialsProvider, EnvironmentVariableCredentialsProvider, and CommonCredentialsProvider. The system reads credential data from the credential providers in sequence until a valid credential is obtained. 
 <configuration>
-    <property>
-        <name>fs.oss.credentials.provider</name>
-        <value>com.aliyun.jindodata.oss.auth.SimpleCredentialsProvider,com.aliyun.jindodata.oss.auth.EnvironmentVariableCredentialsProvider,com.aliyun.jindodata.oss.auth.CommonCredentialsProvider</value>
-        <description>配置com.aliyun.jindodata.oss.auth.JindoCredentialsProvider，多个类时使用英文逗号（, ）隔开，按照先后顺序读取Credential直至读到有效的Credential。Provider详情请参见Credential Provider类型。</description>
-    </property>
+<property>
+<name>fs.oss.credentials.provider</name>
+<value>com.aliyun.jindodata.oss.auth.SimpleCredentialsProvider,com.aliyun.jindodata.oss.auth.EnvironmentVariableCredentialsProvider,com.aliyun.jindodata.oss.auth.CommonCredentialsProvider</value>
+<description>The types of com.aliyun.jindodata.oss.auth.JindoCredentialsProvider. Separate multiple credential providers with commas (,). The system reads credential data from the credential providers in sequence until a valid credential is obtained. For more information about credential providers, see the following descriptions. </description>
+</property>
 </configuration>
-```
-您可以根据情况，选择不同的 Credential Provider，支持如下Provider：
-### 1. TemporaryCredentialsProvider 适合使用有时效性的 AccessKey 和 SecurityToken 访问 OSS 的情况。
-* 配置 Provider 类型：
+You can select credential providers based on your business requirements. The following types of credential providers are supported:
+1. TemporaryCredentialsProvider: suitable for scenarios in which an AccessKey pair with a validity period and a security token with a validity period are used to access OSS-HDFS 
 
-```xml
+- Configure the credential provider.
+
 <configuration>
-    <property>
-        <name>fs.oss.credentials.provider</name>
-        <value>com.aliyun.jindodata.oss.auth.TemporaryCredentialsProvider</value>
-    </property>
+<property>
+<name>fs.oss.credentials.provider</name>
+<value>com.aliyun.jindodata.oss.auth.TemporaryCredentialsProvider</value>
+</property>
 </configuration>
-```
 
-* 配置 OSS-HDFS 服务 AK：
+- Configure the AccessKey pair and security token that are used to access OSS-HDFS.
 
-```xml
 <configuration>
-    <property>
-        <name>fs.oss.accessKeyId</name>
-        <value>OSS-HDFS 服务的 AccessKey Id</value>
-    </property>
-    <property>
-        <name>fs.oss.accessKeySecret</name>
-        <value>OSS-HDFS 服务的 AccessKey Secret</value>
-    </property>
-    <property>
-        <name>fs.oss.securityToken</name>
-        <value>OSS-HDFS 服务的 SecurityToken（临时安全令牌)</value>
-    </property>
+<property>
+<name>fs.oss.accessKeyId</name>
+<value>The AccessKey ID that is used to access OSS-HDFS.</value>
+</property>
+<property>
+<name>fs.oss.accessKeySecret</name>
+<value>The AccessKey secret that is used to access OSS-HDFS.</value>
+</property>
+<property>
+<name>fs.oss.securityToken</name>
+<value>The temporary security token that is used to access OSS-HDFS.</value>
+</property>
 </configuration>
-```
+2. SimpleCredentialsProvider: suitable for scenarios in which a permanently valid AccessKey pair is used to access OSS-HDFS 
 
-### 2. SimpleCredentialsProvider 适合使用长期有效的 AccessKey 访问 OSS 的情况。
-* 配置Provider类型：
+- Configure the credential provider.
 
-```xml
 <configuration>
-    <property>
-        <name>fs.oss.credentials.provider</name>
-        <value>com.aliyun.jindodata.oss.auth.SimpleCredentialsProvider</value>
-    </property>
+<property>
+<name>fs.oss.credentials.provider</name>
+<value>com.aliyun.jindodata.oss.auth.SimpleCredentialsProvider</value>
+</property>
 </configuration>
-```
 
-* 配置OSS AK：
+- Configure the AccessKey pair that is used to access OSS-HDFS.
 
-```xml
 <configuration>
-    <property>
-        <name>fs.oss.accessKeyId</name>
-        <value>OSS-HDFS 服务的 AccessKey Id</value>
-    </property>
-    <property>
-        <name>fs.oss.accessKeySecret</name>
-        <value>OSS-HDFS 服务的 AccessKey Secret</value>
-    </property>
+<property>
+<name>fs.oss.accessKeyId</name>
+<value>The AccessKey ID that is used to access OSS-HDFS.</value>
+</property>
+<property>
+<name>fs.oss.accessKeySecret</name>
+<value>The AccessKey secret that is used to access OSS-HDFS.</value>
+</property>
 </configuration>
-```
+3. EnvironmentVariableCredentialsProvider: suitable for scenarios in which an AccessKey pair is obtained from the environment variables 
 
-### 3. EnvironmentVariableCredentialsProvider在环境变量中获取AK。
-* 配置Provider类型：
+- Configure the credential provider.
 
-```xml
 <configuration>
-    <property>
-        <name>fs.oss.credentials.provider</name>
-        <value>com.aliyun.jindodata.oss.auth.EnvironmentVariableCredentialsProvider</value>
-    </property>
+<property>
+<name>fs.oss.credentials.provider</name>
+<value>com.aliyun.jindodata.oss.auth.EnvironmentVariableCredentialsProvider</value>
+</property>
 </configuration>
-```
 
-* 配置 OSS-HDFS 服务 AK，需要在环境变量中配置以下参数：
+- Configure the AccessKey pair and security token that are used to access OSS-HDFS. To configure such information, you must configure the parameters that are described in the following table in the environment variable file.
+| Parameter | Description |
+| --- | --- |
+| OSS_ACCESS_KEY_ID | The AccessKey ID that is used to access OSS-HDFS. |
+| OSS_ACCESS_KEY_SECRET | The AccessKey secret that is used to access OSS-HDFS. |
+| OSS_SECURITY_TOKEN | The temporary security token that is used to access OSS-HDFS. Note: This parameter is required only if you want to configure a token with a validity period.  |
 
-| 参数                                    | 参数说明             |
-| ------------------------------------------| ----------------- |
-| OSS_ACCESS_KEY_ID                      | OSS-HDFS 服务的 AccessKey Id |
-| OSS_ACCESS_KEY_SECRET                  | OSS-HDFS 服务的 AccessKey Secret |
-| OSS_SECURITY_TOKEN                     | OSS-HDFS 服务的 SecurityToken（临时安全令牌）。说明 仅配置有时效 Token 时需要。|
+4. CommonCredentialsProvider: suitable for common scenarios 
 
+- Configure the credential provider.
 
-### 4. CommonCredentialsProvider 为通用配置。
-* 配置 Provider 类型：
-
-```xml
 <configuration>
-    <property>
-        <name>fs.oss.credentials.provider</name>
-        <value>com.aliyun.jindodata.oss.auth.CommonCredentialsProvider</value>
-    </property>
+<property>
+<name>fs.oss.credentials.provider</name>
+<value>com.aliyun.jindodata.oss.auth.CommonCredentialsProvider</value>
+</property>
 </configuration>
-```
 
-* 配置 OSS-HDFS 服务 AK：
+- Configure the AccessKey pair and security token that are used to access OSS-HDFS.
 
-```xml
 <configuration>
-    <property>
-        <name>jindo.common.accessKeyId</name>
-        <value>OSS-HDFS 服务的 AccessKey Id</value>
-    </property>
-    <property>
-        <name>jindo.common.accessKeySecret</name>
-        <value>OSS-HDFS 服务的 AccessKey Secret</value>
-    </property>
-    <property>
-        <name>jindo.common.securityToken</name>
-        <value>OSS-HDFS 服务的 SecurityToken（临时安全令牌)。说明 仅配置有时效 Token 时需要。</value>
-    </property>
+<property>
+<name>jindo.common.accessKeyId</name>
+<value>The AccessKey ID that is used to access OSS-HDFS.</value>
+</property>
+<property>
+<name>jindo.common.accessKeySecret</name>
+<value>The AccessKey secret that is used to access OSS-HDFS.</value>
+</property>
+<property>
+<name>jindo.common.securityToken</name>
+<value>The temporary security token that is used to access OSS-HDFS. This parameter is required only if you want to configure a token with a validity period. </value>
+</property>
 </configuration>
-```
+5. CustomCredentialsProvider: suitable for accessing password-free services 
 
-### 5. CustomCredentialsProvider 对接定制的免密服务。
+- Configure the credential provider.
 
-* 配置 Provider 类型：
-
-```xml
 <configuration>
-    <property>
-        <name>fs.oss.credentials.provider</name>
-        <value>com.aliyun.jindodata.oss.auth.CustomCredentialsProvider</value>
-    </property>
+<property>
+<name>fs.oss.credentials.provider</name>
+<value>com.aliyun.jindodata.oss.auth.CustomCredentialsProvider</value>
+</property>
 </configuration>
-```
 
-* 配置免密服务地址
+- Configure the URL of a password-free service.
 
-```xml
 <configuration>
-    <property>
-        <name>aliyun.oss.provider.url</name>
-        <value>免密服务地址</value>
-    </property>
+<property>
+<name>aliyun.oss.provider.url</name>
+<value>The URL of a password-free service.</value>
+</property>
 </configuration>
-```
-
-`aliyun.oss.provider.url` 支持 http(s) 协议 和 secrets 协议：
-
-**a. http(s) 协议**
-
-http(s) 协议免密服务地址格式为`http://localhost:1234/sts`, http 免密协议要求返回结果为 Json 格式，如果您需要对接您的 http 免密服务，免密服务的设计参考 [《通过API使用实例RAM角色#临时授权Token》](https://help.aliyun.com/document_detail/61178.html#title-t3j-zsg-1fh)
-
-```
+You can set the aliyun.oss.provider.url parameter to the URL of a password-free service that can be accessed over the HTTP, HTTPS, or Secrets protocol.
+a. HTTP or HTTPS
+The URL of a password-free service that can be accessed over HTTP or HTTPS is in a format similar to http://localhost:1234/sts. The return value for the URL of a password-free service that is accessed over HTTP must be in the JSON format.
 {
 "AccessKeyId" : "XXXXXXXXX",
 "AccessKeySecret" : "XXXXXXXXX",
@@ -202,25 +164,12 @@ http(s) 协议免密服务地址格式为`http://localhost:1234/sts`, http 免�
 "LastUpdated" : "2020-10-31T23:20:01Z",
 "Code" : "Success"
 }
-```
-
-**b. Secrets 协议**
-
-Secrets 协议免密服务地址格式为`secrets:///local_path_prefix`，常见使用于 [k8s 场景](https://kubernetes.io/docs/concepts/configuration/secret/#consuming-secret-values-from-volumes ) ，
-
-其中`local_path_prefix`为路径前缀，如果`local_path_prefix`为`secrets:///secret/JindoOss`，则会在节点上查找如下 AccessKey 等文件
-
-`/secret/JindoOssAccessKeyId`
-`/secret/JindoOssAccessKeySecret`
-`/secret/JindoOssSecurityToken`
-
-如果`local_path_prefix`为`secrets:///secret/JindoOss/`，则会在节点上查找如下 AccessKey 等文件
-
-`/secret/JindoOss/AccessKeyId`
-`/secret/JindoOss/AccessKeySecret`
-`/secret/JindoOss/SecurityToken`
-
-### JindoSDK 还支持不同的 OSS-HDFS 服务 bucket 配置不同的 Credential Provider
-
-详情参考[JindoSDK OSS-HDFS 服务 Credential Provider 按 bucket 配置使用说明](jindosdk_credential_provider_bucket_dls.md)。
+b. Secrets
+The URL of a password-free service that can be accessed over the Secrets protocol is in the secrets:///local_path_prefix format. This URL format is commonly used in [Kubernetes scenarios](https://kubernetes.io/docs/concepts/configuration/secret/#consuming-secret-values-from-volumes). 
+local_path_prefix indicates the path prefix. If the URL is secrets:///secret/JindoOss, the system searches for the following files on the nodes of your EMR cluster:
+/secret/JindoOssAccessKeyId, /secret/JindoOssAccessKeySecret, and /secret/JindoOssSecurityToken
+If the URL is secrets:///secret/JindoOss/, the system searches for the following files on the nodes of your EMR cluster:
+/secret/JindoOss/AccessKeyId, /secret/JindoOss/AccessKeySecret, and /secret/JindoOss/SecurityToken
+JindoSDK allows you to configure different credential providers for different buckets for which OSS-HDFS is enabled.
+For more information, see [Configure a credential provider of OSS-HDFS by bucket](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/security/jindosdk_credential_provider_bucket_dls.md). 
 

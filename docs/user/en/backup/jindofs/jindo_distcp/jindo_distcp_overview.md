@@ -1,21 +1,21 @@
-# JindoDistCp 数据迁移
+Use Jindo DistCp to migrate data
+Environment requirements
 
-## 环境要求
-* JDK 1.8及以上
-* Hadoop 2.3+版本，请下载最新版的`jindo-distcp-tool-x.x.x.jar`，该 jar 包含在`jindosdk-${version}.tar.gz`内，解压缩后可在`tools/`目录下找到，[下载页面](/docs/user/4.x/jindodata_download.md) 。
-该版本基于 native 代码实现，支持功能较丰富
-(2.3 以前版本暂未测试，如有问题请 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindodata/issues/new) 向我们反馈)
+- JDK 1.8 or later
+- If you use Hadoop 2.3 or later, you must download the latest JAR package of Jindo DistCp. You can download the latest jindosdk-${version}.tar.gz package from the link provided in the [Download JindoData](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/jindodata_download.md) topic, decompress the downloaded package, and then find the jindo-distcp-tool-x.x.x.jar package in the /tools folder. Hadoop 2.3 or later is implemented based on native code and supports various features. Hadoop of a version earlier than 2.3 is not tested. If you have questions, [create an issue](https://github.com/aliyun/alibabacloud-jindodata/issues/new).
 
-## JindoDistCp 使用场景
+Use scenarios of Jindo DistCp
 
-* [数据从 HDFS 迁移到 OSS-HDFS 服务上](jindo_distcp_on_hdfs_to_dls.md)
-* [数据在 OSS-HDFS 服务不同 bucket 之间迁移](jindo_distcp_on_dls_to_dls.md)
+- [Migrate data from HDFS to OSS-HDFS](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_on_hdfs_to_dls.md)
+- [Migrate data between different buckets for which OSS-HDFS is enabled](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_on_dls_to_dls.md)
 
-## JindoDistCp 问题排查指南
-我们总结了一些在不同环境使用 JindoDistCp 用户可能会遇到的一些问题，您可以参照下文进行常见问题排查和解决
-* [JindoDistCp 问题排查指南](jindo_distcp_QA.md)
+FAQ about Jindo DistCp
+This topic provides answers to some frequently asked questions about Jindo DistCP.
 
-## JindoDistCp 系列文章
-* [《再出王牌：阿里云 JindoDistCp 全面开放使用，成为阿里云数据迁移利器》](https://developer.aliyun.com/article/767803)
+- [FAQ about Jindo DistCp](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-* [JindoDistCp 进行数据迁移的使用说明](jindo_distcp_how_to.md) (高效、稳定、安全的数据拷贝工具)
+References
+
+- [Overview of Jindo DistCp ](https://developer.aliyun.com/article/767803)
+- [Use Jindo DistCp to migrate data in an efficient, stable, and secure manner](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_how_to.md)
+

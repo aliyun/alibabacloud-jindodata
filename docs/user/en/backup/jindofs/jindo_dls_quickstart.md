@@ -1,159 +1,98 @@
-# 阿里云 OSS-HDFS 服务（JindoFS 服务）快速入门
+Getting started with Alibaba Cloud OSS-HDFS (JindoFS)
+OSS-HDFS is a new storage service that is developed by Alibaba Cloud. OSS-HDFS is compatible with Hadoop Distributed File System (HDFS) APIs and supports multi-level storage directories. JindoSDK allows Apache Hadoop-based computing and analysis applications, such as MapReduce, Hive, Spark, and Flink, to access OSS-HDFS. This topic describes how to modify the core-site.xml file in an existing Hadoop environment, Hadoop cluster, or Hadoop client to access OSS-HDFS. 
+1. Enable OSS-HDFS.
+For information about how to enable OSS-HDFS for a bucket, see [Enable OSS-HDFS and grant access permissions](https://help.aliyun.com/document_detail/419505.html).
+2. Obtain the endpoint of HDFS.
+To access OSS-HDFS, you must configure an endpoint in the cn-xxx.oss-dls.aliyuncs.com format. The endpoint of OSS-HDFS is different from the endpoint that is used to access OSS. The endpoint that is used to access OSS is in the oss-cn-xxx.aliyuncs.com format. JindoSDK accesses OSS-HDFS or OSS based on the endpoint that you configure. On the Overview page of your bucket in the OSS console, obtain the endpoint of HDFS. 
+![](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/8042/1711970094953-afcdb47c-48d5-425e-b9e1-65f10e90c2a5.png#)
+3. Download the JindoSDK package.
+[Download](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/jindodata_download.md) the latest version of the jindosdk-x.x.x.tar.gz package. 
+4. Install the JAR package.
+Decompress the downloaded JindoSDK JAR package and install the following JAR files that are contained in the package to the path specified by classpath of Hadoop:
 
-OSS-HDFS 服务是阿里云推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，JindoSDK 为 Apache Hadoop的计算分析应用（例如MapReduce、Hive、Spark、Flink等）提供了访问 OSS-HDFS 服务功能。在用户现有的 Hadoop 环境、Hadoop 集群或者 Hadoop 客户端，通过修改 core-site.xml，如何对接访问 OSS-HDFS 服务，可以快速查看本文档。
+- jindo-core-x.x.x.jar
+- jindo-sdk-x.x.x.jar
 
-### 1. 服务开通
-
-详情参考 [开通并授权访问 OSS-HDFS 服务](https://help.aliyun.com/document_detail/419505.html)
-
-### 2. 获取HDFS服务域名
-访问 OSS Bucket 上 OSS-HDFS 服务需要配置 Endpoint（`cn-xxx.oss-dls.aliyuncs.com`），与 OSS 对象接口的 Endpoint（`oss-cn-xxx.aliyuncs.com`）不同。JindoSDK 会根据配置的 Endpoint 访问 OSS-HDFS 服务 或 OSS 对象接口。
-在OSS管理控制台的概览页面，复制HDFS服务的域名。
-
-<img src="pic/dls_endpoint.png" width="800"/>
-
-### 3. 下载 JindoSDK 包
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))。
-
-### 4. 安装 jar 包
-解压下载的安装包，将安装包内的以下 jar 文件安装到 hadoop 的 classpath 下：
-* jindo-core-x.x.x.jar
-* jindo-sdk-x.x.x.jar
-
-jindosdk-4.6.12 为例:
-```
+Sample code for JindoSDK 4.6.12:
 cp jindosdk-4.6.12/lib/jindo-core-4.6.12.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 cp jindosdk-4.6.12/lib/jindo-sdk-4.6.12.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-```
-
-### <a name="basicconfig"></a>5. 配置 OSS-HDFS 服务实现类及 Access Key
-
-将 JindoSDK OSS 实现类配置到 Hadoop 的`core-site.xml`中。
-
-```xml
+5. Configure the implementation class of OSS-HDFS and an AccessKey pair used to access OSS-HDFS.
+Configure the implementation class of OSS in the core-site.xml file of Hadoop. 
 <configuration>
-    <property>
-        <name>fs.AbstractFileSystem.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.OSS</value>
-    </property>
+<property>
+<name>fs.AbstractFileSystem.oss.impl</name>
+<value>com.aliyun.jindodata.oss.OSS</value>
+</property>
 
-    <property>
-        <name>fs.oss.impl</name>
-        <value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
-    </property>
+<property>
+<name>fs.oss.impl</name>
+<value>com.aliyun.jindodata.oss.JindoOssFileSystem</value>
+</property>
 </configuration>
-```
-将已开启 HDFS 服务的 Bucket 对应的`Access Key ID`、`Access Key Secret`等预先配置在 Hadoop 的`core-site.xml`中。
-```xml
+Configure an AccessKey ID and AccessKey secret that are used to access the bucket for which OSS-HDFS is enabled in the core-site.xml configuration file of Hadoop in advance. 
 <configuration>
-    <property>
-        <name>fs.oss.accessKeyId</name>
-        <value>xxx</value>
-    </property>
+<property>
+<name>fs.oss.accessKeyId</name>
+<value>xxx</value>
+</property>
 
-    <property>
-        <name>fs.oss.accessKeySecret</name>
-        <value>xxx</value>
-    </property>
+<property>
+<name>fs.oss.accessKeySecret</name>
+<value>xxx</value>
+</property>
 </configuration>
-```
-JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 [JindoSDK Credential Provider 配置](security/jindosdk_credential_provider_dls.md)。
-
-# 基本操作示例
-OSS-HDFS 服务创建以及配置完成后，可以通过 hdfs dfs 命令进行相关文件/目录操作
-### 新建目录
-在 OSS-HDFS 服务上创建目录。
-</br>用例: `hdfs dfs -mkdir oss://<Bucket>.<Endpoint>/Test/subdir`
-
-```shell
+JindoSDK also allows you to use other methods to configure an AccessKey pair. For more information, see [Configure credential providers in JindoSDK](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/security/jindosdk_credential_provider_dls.md). 
+Basic operations
+After you enable and configure OSS-HDFS, you can run hdfs dfs commands to perform operations related to files or directories.
+Create a directory
+Create a directory in OSS-HDFS. Sample command: hdfs dfs -mkdir oss://<Bucket>.<Endpoint>/Test/subdir
 [root@emr-header-1 ~]# hdfs dfs -mkdir oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir
 [root@emr-header-1 ~]# hdfs dfs -ls oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test
 Found 1 items
 drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir
-
-```
-
-### 新建文件
-利用`hdfs dfs -put`命令上传本地文件到 OSS-HDFS 服务。
-</br>  用例：`hdfs dfs -put <localfile> oss://<Bucket>.<Endpoint>/Test`
-```shell
+Create a file
+Run the hdfs dfs -put command to upload an on-premises file to OSS-HDFS. Sample command: hdfs dfs -put <localfile> oss://<Bucket>.<Endpoint>/Test
 [root@emr-header-1 ~]# hdfs dfs -put /etc/hosts oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/
 [root@emr-header-1 ~]# hdfs dfs -ls oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test
 Found 2 items
 -rw-r-----   1 root supergroup       5824 2021-12-01 20:24 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/hosts
 drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir
-
-```
-### 查看文件或者目录信息
-在文件或者目录创建完之后，可以查看指定路径下的文件/目录信息。hdfs dfs 没有进入某个目录下的概念。在查看目录和文件的信息的时候需要给出文件/目录的绝对路径。
-</br>指令：ls
-</br>用例：`hdfs dfs -ls oss://<Bucket>.<Endpoint>/Test`
-```shell
+View information about a file or directory
+You can view the information about a file or a directory in a specific path after the file or directory is created. You cannot run this command to access a specific directory. You must specify the absolute path of the file or directory that you want to access. Command: lsSample command: hdfs dfs -ls oss://<Bucket>.<Endpoint>/Test
 [root@emr-header-1 ~]# hdfs dfs -ls oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test
 Found 2 items
 -rw-r-----   1 root supergroup       5824 2021-12-01 20:24 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/hosts
 drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir
-
-```
-
-### 查看文件或者目录的大小
-查看已有文件或者目录的大小
-</br>用例：`hdfs dfs -du oss://<Bucket>.<Endpoint>/Test`
-```shell
+View the size of a file or directory
+View the size of an existing file or directory.Sample command: hdfs dfs -du oss://<Bucket>.<Endpoint>/Test
 [root@emr-header-1 ~]# hdfs dfs -du oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test
 5824  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/hosts
 0     oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir
-
-```
-
-### 查看文件的内容
-有时候我们需要查看一下在 OSS-HDFS 服务文件的内容。hdfs dfs 命令支持我们将文件内容打印在屏幕上。（请注意，文件内容将会以纯文本形式打印出来，如果文件进行了特定格式的编码，请使用 HDFS 的 JavaAPI 将文件内容读取并进行相应的解码获取文件内容）
-</br>用例：`hdfs dfs -cat oss://<Bucket>.<Endpoint>/Test/helloworld.txt`
-
-```shell
+View the content of a file
+If you want to view the content of a file in OSS-HDFS, you can run the hdfs dfs command to allow the content of the file to be displayed on the screen. After you run the command, the content of the file that you want to view is displayed on the screen in plain text. If the content is encoded, use the HDFS API for Java to read and decode the content.Sample command: hdfs dfs -cat oss://<Bucket>.<Endpoint>/Test/helloworld.txt
 [root@emr-header-1 ~]# hdfs dfs -cat  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt
 hello world!
-```
-
-### 复制目录/文件
-有时候我们需要将 OSS-HDFS 服务的一个文件/目录拷贝到另一个位置，并且保持源文件和目录结构和内容不变。
-</br>用例：`hdfs dfs -cp oss://<Bucket>.<Endpoint>/Test/subdir oss://<Bucket>.<Endpoint>/TestTarget/sudir2`
-```shell
+Copy a file or directory
+If you want to copy a file or directory in OSS-HDFS without changing the structure and content of the file or directory, you can run the following command: Sample command: hdfs dfs -cp oss://<Bucket>.<Endpoint>/Test/subdir oss://<Bucket>.<Endpoint>/TestTarget/sudir2
 [root@emr-header-1 ~]# hdfs dfs -cp oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/TestTarget/subdir1
 [root@emr-header-1 ~]# hdfs dfs -ls  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/TestTarget/
 Found 1 items
 drwxr-x--x   - root supergroup          0 2021-12-01 20:37 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/TestTarget/subdir1
-
-```
-
-### 移动目录/文件
-在很多大数据处理的例子中，我们会将文件写入一个临时目录，然后将该目录移动到另一个位置作为最终结果。源文件和目录结构和内容不做保留。下面的命令可以完成这些操作。
-</br>用例：`hdfs dfs -mv oss://<Bucket>.<Endpoint>/Test/subdir oss://<Bucket>.<Endpoint>/Test/subdir1`
-
-```shell
+Move a file or a directory
+During big data processing, you may need to write files to a temporary directory and then move the directory to another position. If you want to move a directory and files in the directory without retaining the content and structure of the source files and directory, you can run the following command: hdfs dfs -mv oss://<Bucket>.<Endpoint>/Test/subdir oss://<Bucket>.<Endpoint>/Test/subdir1
 [root@emr-header-1 ~]# hdfs dfs -mv  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/subdir  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/newdir
 [root@emr-header-1 ~]# hdfs dfs -ls  oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test
 Found 3 items
 -rw-r-----   1 root supergroup         13 2021-12-01 20:33 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt
 -rw-r-----   1 root supergroup       5824 2021-12-01 20:24 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/hosts
 drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/newdir
-
-```
-
-### 下载文件到本地文件系统
-某些情况下，我们需要将 OSS-HDFS 服务上中的某些文件下载到本地，再进行处理或者查看内容。这个可以用下面的命令完成。
-</br>用例：`hdfs dfs -get oss://<Bucket>.<Endpoint>/Test/helloworld.txt <localpath>`
-```shell
+Download a file to the on-premises file system
+If you want to download specific files in OSS-HDFS to your on-premises machine for processing or viewing, you can run the following command: hdfs dfs -get oss://<Bucket>.<Endpoint>/Test/helloworld.txt <localpath>
 [root@emr-header-1 ~]# hdfs dfs -get oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt /tmp/
 [root@emr-header-1 ~]# ll /tmp/helloworld.txt
--rw-r----- 1 root root 13 12月  1 20:44 /tmp/helloworld.txt
-
-```
-
-### 删除目录/文件
-在很多情况下，我们在完成工作后，需要删除在 OSS-HDFS 服务上的某些临时文件或者废弃文件。这些可以通过下面的命令完成。
-</br>用例：`hdfs dfs -rm oss://<Bucket>.<Endpoint>/Test/helloworld.txt`
-```shell
+-rw-r----- 1 root root 13 December  1 20:44 /tmp/helloworld.txt
+Remove a file or directory
+If you no longer require a temporary or deprecated file in OSS-HDFS, you can run the following command: hdfs dfs -rm oss://<Bucket>.<Endpoint>/Test/helloworld.txt
 [root@emr-header-1 ~]# hdfs dfs -rm oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt
 21/12/01 20:46:44 INFO fs.TrashPolicyDefault: Moved: 'oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/helloworld.txt' to trash at: oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/user/root/.Trash/Current/Test/helloworld.txt
 
@@ -164,4 +103,3 @@ drwxr-x--x   - root supergroup          0 2021-12-01 20:19 oss://dls-chenshi-tes
 Found 1 items
 -rw-r-----   1 root supergroup       5824 2021-12-01 20:24 oss://dls-chenshi-test.cn-xxx.oss-dls.aliyuncs.com/Test/hosts
 
-```

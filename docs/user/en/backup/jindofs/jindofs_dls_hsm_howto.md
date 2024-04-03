@@ -1,114 +1,74 @@
-# 阿里云 OSS-HDFS 服务（JindoFS 服务）分层存储使用说明
-*(从 4.6.2 开始支持)*
-
-
-阿里云 OSS-HDFS 服务（JindoFS 服务）是 OSS 推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过 Jindo SDK 4.x 可以兼容访问 OSS-HDFS 服务。关于用户如何创建和使用 OSS-HDFS 服务的基本功能，请参考[链接](jindo_dls_quickstart.md)。
-
-本文主要介绍在 OSS-HDFS 服务中使用分层存储功能的一些常见操作。
-
-为了方便下面命令的介绍，我们假设`oss://oss-dfs-test`这个Bucket已经开启 OSS-HDFS 服务。下面所有的例子都会针对这个Bucket进行操作。
-
-## 分层存储简介
-
-数据湖存储的数据量常常会随着时间而不断增长，但在数据湖内的数据并非同样频繁访问。对于较老的数据，比如超过一年的数据，业务上可能几乎不再访问，但为保证合规、存档等目的，这些数据仍然需要存储以备不时之需。因此，分层存储的需求就出现了：对于较少访问的数据，选择较低成本的存储介质（通常会有更高的访问成本）进行存储，可以降低总存储成本。
-
-标准 OSS Bucket 支持多种分层存储类型，包括标准、低频、归档、冷归档四种，而 JindoFS 服务使用标准 OSS 作为数据块的存储后端，因此 JindoFS 分层存储功能即设置后端数据块在标准 OSS 上所使用的存储类型。
-
-## 使用分层存储
-
-在使用相关功能前，应确保 JindoSDK 已经正确配置，可以正常访问 JindoFS 服务。JindoFS 服务的分层存储功能与 HCFS API 兼容。相关 API 如下所示：
-
-```java
+Use the tiered storage feature of Alibaba Cloud OSS-HDFS (JindoFS)
+(This topic applies to JindoSDK 4.6.2 and later.)
+Alibaba Cloud OSS-HDFS (JindoFS) is a storage service released by Alibaba Cloud and is compatible with the Hadoop Distributed File System (HDFS) API. OSS-HDFS supports multi-level storage directories. You can use JindoSDK 4.X to access OSS-HDFS. For information about how to enable OSS-HDFS for a bucket and use the basic features of OSS-HDFS, see [Getting started with OSS-HDFS (JindoFS)](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md). 
+This topic describes the common operations that you can perform when you use the tiered storage feature of OSS-HDFS. 
+In the following sample commands, a bucket named oss-dfs-test in the oss:// directory is used, and OSS-HDFS is enabled for the bucket. 
+Overview of tiered storage
+The amount of data that is stored in a data lake continuously increases over time. However, not all data in the data lake is frequently accessed. You may no longer need to access old data, such as the data that is stored for more than one year, but you still need to keep the data stored in the data lake for compliance, archive, and other specific purposes. In this case, you can use the tiered storage feature to store data in different tiers to reduce the overall storage cost. You can select a low-cost storage medium to store infrequently accessed data. In most cases, the costs for accessing data that is stored in a low-cost storage medium are relatively high. 
+OSS provides the following storage classes for various data storage scenarios: Standard, Infrequent Access (IA), Archive, and Cold Archive. JindoFS uses OSS as the storage backend of data blocks. You can use the tiered storage feature of JindoFS to specify storage classes for data blocks that are stored in OSS. 
+Use tiered storage
+Before you use the tiered storage feature, make sure that JindoSDK is correctly configured, and you can access JindoFS. The tiered storage feature of JindoFS is compatible with Hadoop-compatible file system (HCFS) API operations. Related API operations:
 public abstract class FileSystem extends Configured implements Closeable {
-    // ......
+// ......
     public void setStoragePolicy(Path src, String policyName) throws IOException;
     public BlockStoragePolicySpi getStoragePolicy(Path src) throws IOException;
-    public Collection<? extends BlockStoragePolicySpi> getAllStoragePolicies() throws IOException;
+    public Collection<?extends BlockStoragePolicySpi> getAllStoragePolicies() throws IOException;
 }
-```
-
-JindoFS 也支持使用下列命令操作存储策略：
-
-```bash
+JindoFS also allows you to run the following commands to specify storage classes:
 jindo fs -listPolicies
 jindo fs -setStoragePolicy -path <path> -policy <policy>
 jindo fs -getStoragePolicy -path <path>
-```
-
-`getAllStoragePolicies()`接口和`listPolicies`命令返回当前支持的存储策略，目前支持的存储策略有 `CLOUD_STD`（标准存储）、 `CLOUD_IA`（低频存储）、 `CLOUD_AR`（归档）和 `CLOUD_COLD_AR`（冷归档）。
-
-`setStoragePolicy()`接口和`setStoragePolicy`命令可以为具体的路径设置存储策略，JindoFS 服务会在后台根据存储策略改变存储对象的存储级别。例如，要将 `oss://oss-dfs-test/dir1` 设置为归档类型，可以使用如下命令：
-
-```bash
+You can use the getAllStoragePolicies() method or the listPolicies command to obtain all available storage classes. The following storage classes are supported: CLOUD_STD (Standard), CLOUD_IA (IA), CLOUD_AR (Archive), and CLOUD_COLD_AR (Cold Archive). 
+You can use the setStoragePolicy() method or the setStoragePolicy command to specify storage classes for data stored in specific paths. JindoFS changes the storage levels of objects at the backend based on the specified storage class. For example, you can run the following command to specify the Archive storage class for data in the oss://oss-dfs-test/dir1 directory:
 jindo fs -setStoragePolicy -path oss://oss-dfs-test/dir1 -policy CLOUD_AR
-```
-
-注意文件或目录的默认存储策略为空，显示为`UNSPECIFIED`，当对象存储策略为`UNSPECIFIED`时，对象实际的存储策略将由最近的设置了存储策略的父节点决定。
-例如假设`oss://oss-dfs-test/dir2`的存储策略为`CLOUD_STD`，则`oss://oss-dfs-test/dir2/subdir2/subsubdir2`的存储策略也为`CLOUD_STD`，
-除非用户对`oss://oss-dfs-test/dir2/subdir2/`或`oss://oss-dfs-test/dir2/subdir2/subsubdir2`单独设置过存储策略。
-
-用户可以通过`getStoragePolicy()`接口和`getStoragePolicy`命令查询某一路径最终生效的存储策略，如：
-
-```bash
+Take note that the default storage class of an object or a directory is UNSPECIFIED, which indicates that no default storage class is specified. In this case, the storage class that is specified for a parent directory at the nearest level is used. For example, the CLOUD_STD storage class is specified for the oss://oss-dfs-test/dir2 directory. In this case, the CLOUD_STD storage class is also used for the oss://oss-dfs-test/dir2/subdir2/subsubdir2 directory if you do not specify a storage class for the oss://oss-dfs-test/dir2/subdir2/ or oss://oss-dfs-test/dir2/subdir2/subsubdir2 directory. 
+You can use the getStoragePolicy() method or the getStoragePolicy command to query the final storage class that takes effect for data in a specific path. Example:
 jindo fs -getStoragePolicy -path oss://oss-dfs-test/dir1/file1
-```
-
-如果最终生效的存储策略为`UNSPECIFIED`（即`getStoragePolicy()`接口返回`null`），则对象默认使用标准存储。
-
-## 目录嵌套
-
-目前 JindoFS <span style="color:red">**不支持嵌套策略**</span>, 例如对 `oss://oss-dfs-test/warehouse/dwd.db/dt=20220101` 使用了`CLOUD_AR`策略, 再对 `oss://oss-dfs-test/warehouse/dwd.db` 父目录使用`CLOUD_STD`策略, 是不会执行解归档操作的. 因此建议<span style="color:red">**只对之前设置过policy的目录修改policy, 不要再修改其上下级目录的policy.**</span>
-
-## 各种场景下 Policy 互转的例子
-```bash
-标准 转 低频IA
+If null is returned after the getStoragePolicy() method is called, the final storage class that takes effect for data in the specified path is UNSPECIFIED. In this case, the Standard storage class is used for the data in the path. 
+Directory nesting
+JindoFS **does not support nesting policies**. For example, the CLOUD_AR storage class is specified for the oss://oss-dfs-test/warehouse/dwd.db/dt=20220101 directory, and then the CLOUD_STD storage class is specified for the oss://oss-dfs-test/warehouse/dwd.db parent directory. In this case, you cannot unarchive and archive data. We recommend that **you modify only an existing storage class that is specified for a directory, but not modify the storage classes specified for the parent and child directories of the current directory.**
+Examples of switchover between storage classes in various storage scenarios
+Switchover from the Standard storage class to the IA storage class
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_IA
 
-标准 转 归档CLOUD_AR
+Switchover from the Standard storage class to the Archive storage class
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_AR
 
-标准 转 冷归档CLOUD_COLD_AR
+Switchover from the Standard storage class to the Cold Archive storage class
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_COLD_AR
 
-低频IA 转 归档CLOUD_AR
+Switchover from the IA storage class to the Archive storage class
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_AR
 
-低频IA 转 冷归档CLOUD_COLD_AR
+Switchover from the IA storage class to the Cold Archive storage class
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_COLD_AR
 
-低频IA 转 标准
+Switchover from the IA storage class to the Standard storage class
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
 
-归档 转 冷归档 
-不支持
+Switchover from the Archive storage class to the Cold Archive storage class
+Not supported
 
-冷归档 转 归档 
-不支持
+Switchover from the Cold Archive storage class to the Archive storage class
+Not supported
 
-归档 转 标准
+Switchover from the Archive storage class to the Standard storage class
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
 
-冷归档 转 标准
+Switchover from the Cold Archive storage class to the Standard storage class
 jindo fs -setStoragePolicy -path <path> -policy CLOUD_STD
-```
-
-## 设置OSS生命周期
-在使用分层存储功能将OSS-HDFS的数据进行归档的时候，需要依赖于OSS生命周期功能，通过下面命令
-```bash
+Configure an OSS lifecycle rule
+When you use the tiered storage feature to archive data that is stored in OSS-HDFS, you must use the OSS lifecycle rule feature.
 jindo fs -setStoragePolicy -path oss://oss-dfs-test/dir1 -policy CLOUD_AR
-```
-进行数据归档操作，该操作只会将对应目录下的数据进行Tag标记, Tag对应的键值对为transition-storage-class:Archive，需要设置生命周期进行数据的转换，设置按前缀匹配策略规则，前缀为.dlsdata, 具体归档的生命周期策略设置如下：
+You can run the preceding command to only add a tag to the data stored in a specific directory. The key-value pair of the tag is transition-storage-class:Archive. In this case, you must configure a lifecycle rule for data conversion. You can configure a rule of matching by the .dlsdata prefix. The following figure shows the settings of a lifecycle rule.
+![](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/8042/1711970140379-d1d16ea1-ac45-4261-9fcc-191ff4cd8956.png#)You can complete data archiving only after the lifecycle rule that you configured is executed. For more information about how to configure a lifecycle rule, see [Lifecycle rules based on the last modification time](https://help.aliyun.com/document_detail/31904.html).
+Precautions
 
-![生命周期设置](../pic/lifecycle.png)
+- If you want to use the Archive or Cold Archive storage class, you must first configure a lifecycle rule in the OSS console. Otherwise, the storage class of data blocks cannot be switched to the Archive or Cold Archive storage class. 
+- The storage status that you queried in JindoFS only indicates that JindoFS has distributed the data to corresponding data blocks that are stored in OSS based on the preset lifecycle rule, but does not indicate that the storage class of the data blocks is switched. 
+- Lifecycle management of data in OSS requires a long period of time. The objects for which the Archive or Cold Archive storage class is specified may finish archiving after a maximum of 24 hours. 
+- You cannot access the data whose storage class is Archive or Cold Archive. If you want to access such data, switch the storage class to Standard. The switchover requires a specific period of time. You can run the checkStoragePolicy command to query the status of a switchover. 
+- Additional fees are generated when you retrieve data whose storage class is Archive or Cold archive. We recommend that you do not specify the Archive or Cold Archive storage class for the data that you may occasionally access. 
+- If you rename an object across directories for which different storage classes are specified, a background task is automatically generated to ensure that the object you renamed meets the storage class requirements of the destination directory. 
+- The current version of JindoSDK does not allow you to create objects in a directory for which the IA, Archive, or Cold Archive storage class is specified. You can create and close an object in a directory for which the Standard storage class is specified. Then, rename the object to add the object to the directory for which the IA, Archive, or Cold Archive storage class is specified. 
 
- 上述生命周期策略设置完毕后，用户需要等待改OSS生命周期策略被调度执行才能完成数据的归档。如何设置生命周期可以参考[文档](https://help.aliyun.com/document_detail/31904.html)。
-
-### 注意事项
-
-* 如果需要使用归档/冷归档的存储策略，需要在 OSS 控制台上配置相应的生命周期策略，否则存储的数据块无法真正转为归档/冷归档类型。
-* 在 JindoFS 上查询到的存储状态仅表示 JindoFS 已按预设的生命周期策略下发到对应的 OSS 数据块，不表示数据块实际的存储类型已转变完成。
-* OSS 的生命周期管理运行周期较长，设置归档存储策略的对象可能需要最长24小时左右才会真正转为归档/冷归档类型。
-* 归档/冷归档类型的数据无法访问，需要转回标准存储方可访问。转回标准存储可能需要一定时间，可以通过`checkStoragePolicy`命令查询执行状态。
-* 取回归档/冷归档数据会产生一些额外费用，应当尽量避免将还需访问的数据转为归档/冷归档类型。
-* 对于存储策略不一致的目录间的文件 rename 操作，rename 的同时会自动生成相应的后台任务，使 rename 后的文件最终符合目标路径的存储策略。
-* 当前版本不支持在设置为低频/归档/冷归档存储策略的目录下创建文件。若要在低频/归档/冷归档的目录下添加文件，可以在标准目录下创建并关闭文件后，rename 到目标的低频/归档/冷归档目录。

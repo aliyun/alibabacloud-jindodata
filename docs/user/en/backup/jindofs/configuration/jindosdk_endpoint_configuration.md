@@ -1,34 +1,22 @@
-# 阿里云 OSS-HDFS 服务（JindoFS 服务）Endpoint 配置
-
-有三种方式可以指定 Endpoint，JindoSDK 会以下优先级查找 Endpoint：
-## 方式一： 在访问路径中指定 Endpoint。（推荐）
-
-访问 OSS-HDFS 服务时，推荐使用这种格式的访问路径`oss://<Bucket>.<Endpoint>/<Object>`, 如: `oss://dls-chenshi-test.cn-shanghai.oss-dls.aliyuncs.com/Test`。
-这种方式在访问路径中包含 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应接口。
-
-## 方式二： 配置 Bucket 级别的 Endpoint。
-
-如果使用`oss://<Bucket>/<Object>`这种访问路径，即访问路径中没有 Endpoint, JindoSDK 则会在配置中查找 Bucket 级别的 Endpoint。
-可在 Hadoop 的`core-site.xml`中配置 Bucket 级别的 Endpoint 指向 OSS-HDFS 服务的 Endpoint。
-```xml
+Configure an endpoint to access OSS-HDFS (JindoFS)
+You can use one of the following methods to configure an endpoint to access OSS-HDFS (JindoFS). By default, JindoSDK searches for an endpoint based on the following priorities:
+Method 1: (Recommended) Configure an endpoint in the access path  
+We recommend that you access OSS-HDFS by using an access path in the oss://<Bucket>.<Endpoint>/<Object> format. Example: oss://dls-chenshi-test.cn-shanghai.oss-dls.aliyuncs.com/Test. The access path contains the endpoint that you can use to access OSS-HDFS. JindoSDK accesses OSS-HDFS based on the endpoint in the path. 
+Method 2: Configure a bucket-level endpoint 
+If you use an access path in the oss://<Bucket>/<Object> format to access OSS-HDFS, JindoSDK searches for a bucket-level endpoint in the configurations. In this case, you can configure a bucket-level endpoint in the core-site.xml configuration file of Hadoop to point to OSS-HDFS. 
 <configuration>
-    <property>
-        <name>fs.oss.bucket.XXX.endpoint</name>
-        <value>cn-xxx.oss-dls.aliyuncs.com</value>
-    </property>
+<property>
+<name>fs.oss.bucket.XXX.endpoint</name>
+<value>cn-xxx.oss-dls.aliyuncs.com</value>
+</property>
 </configuration>
-```
-说明: XXX 为 OSS-HDFS 服务 Bucket 名称。
-
-## 方式三：配置全局默认 Endpoint。
-
-如果使用`oss://<Bucket>/<Object>`这种访问路径而且没有配置 Bucket 级别的 Endpoint，则会用全局 Endpoint 访问，如果要默认使用访问 OSS-HDFS 服务，则可用该方法。
-可在 Hadoop 的`core-site.xml`中配置全局默认 Endpoint。
-```xml
+Note: XXX indicates the name of the bucket for which OSS-HDFS is enabled. 
+Method 3: Configure a global endpoint 
+If you use an access path in the oss://<Bucket>/<Object> format to access OSS-HDFS and you do not configure a bucket-level endpoint, JindoSDK uses a global endpoint to access OSS-HDFS. If you want to access OSS-HDFS by default, you can use this method. You can configure a global endpoint in the core-site.xml configuration file of Hadoop. 
 <configuration>
-    <property>
-        <name>fs.oss.endpoint</name>
-        <value>cn-xxx.oss-dls.aliyuncs.com</value>
-    </property>
+<property>
+<name>fs.oss.endpoint</name>
+<value>cn-xxx.oss-dls.aliyuncs.com</value>
+</property>
 </configuration>
-```
+

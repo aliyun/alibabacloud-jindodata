@@ -1,35 +1,20 @@
-# 阿里云 OSS-HDFS 服务（JindoFS 服务）回收站使用说明
-*(从 4.5.1 开始支持)*
-
-
-## 介绍
-当从JindoFS删除文件时，文件不是立即被立即删除。被删除的文件被挪到了    
-```bash
+Use the trash feature of Alibaba Cloud OSS-HDFS (JindoFS)
+(This topic applies to JindoSDK 4.5.1 and later.)
+Overview
+When you delete a file from JindoFS, the file is not immediately deleted. Instead, the file is moved to the following directory:
 /user/<username>/.Trash/Current
-```
-目录下。当经过30分钟后，Current目录会被挪到    
- ```bash
+ After 30 minutes, the file is moved from the Current directory to the following directory:
 /user/<username>/.Trash/<timestamp>
-```
-也就是说某一时间段内被删除的文件，会被归类到一个带时间戳的目录下，表示是在这个时间内被删除的，相当于一次checkpoint。当经过**7天**后，这个<timestamp>目录将会被永远删除。因此在7天内，您有机会从.Trash目录下找到对应时刻被删除的文件，将其从.Trash挪出，从而恢复它。
-
-注意：这项功能，是由客户端和服务端配合，方能形成回收站的功能。服务端只负责维护 ```/user/<username>/.Trash``` 的定时清理，服务端的定时清理是默认开启的。客户端负责将待删除文件挪到.Trash目录下。
-
-## Hadoop FileSystem Shell 使用回收站功能
-```bash
+Files that are deleted within a specific period of time are moved to a directory that has a timestamp. The timestamp indicates the time when the files were deleted and functions as a checkpoint. The directory is permanently deleted after **seven days**. Within seven days after you delete a file, you can find the file in the .Trash directory based on the time when the file was deleted. Then, you can restore the file by moving the file out of the .Trash directory. 
+Take note that the trash feature depends on the cooperation between the client and the server. By default, the server periodically deletes files from the /user/<username>/.Trash directory. The client moves the files that you want to delete to the .Trash directory. 
+Use the trash feature in Hadoop FileSystem Shell
 hadoop fs -rm oss://bucket/a/b/c
-```
-客户端的Hadoop Shell命令默认不开启Trash功能，因此需要在core-site.xml里添加一条配置
-```xml
-  <property>
-    <name>fs.trash.interval</name>
-    <value>1440</value>
-  </property>
-```
-(该值只需大于0即可)   
-此时在客户端会自动将rm命令转换为一条 ```hadoop fs -mv oss://bucket/a/b/c /user/<username>/.Trash/Current/a/b/c```
-命令，因此，您不需要感知回收站功能的存在，服务端会负责清理。    
-如果您想立即删除该文件，释放空间，可以添加 ```-skipTrash``` 参数，此时将立即删除该文件。
+By default, the trash feature is not enabled for Hadoop FileSystem Shell on the client. To enable the trash feature, add the following configuration to the core-site.xml configuration file:
+<property>
+<name>fs.trash.interval</name>
+<value>1440</value>
+</property>
+The value must be greater than 0.Then, the client converts the preceding rm command to hadoop fs -mv oss://bucket/a/b/c /user/<username>/.Trash/Current/a/b/c. The trash feature works without your awareness. The server periodically clears files in the trash. If you want to immediately delete a file to free up storage space, add the -skipTrash parameter to the rm command. 
+Use the trash feature in Hadoop ecosystem components
+Components such as Hive, Spark, and Flink are not aware of the trash feature of JindoFS. When you run the delete command of the Hadoop-compatible file system (HCFS) to delete a file, the file is immediately deleted. JindoFS adopts a similar policy to open source Hadoop. To use the trash feature in Hadoop ecosystem components, you must explicitly run the rename command of FileSystem to move the file that you want to delete to the /user/<username>/.Trash/Current directory. The server periodically clears files from the trash.  
 
-## Hadoop 生态组件使用回收站功能
-Hive/Spark/Flink 等组件并不感知 JindoFS 回收站功能的存在，使用 FileSystem(HCFS) 的 delete 接口意味着立即删除。因此如果想要使用回收站功能，需要显式地调用 FileSystem 的 rename 接口，将目标文件手动挪到 ```/user/<username>/.Trash/Current``` 目录下，由 JindoFS 服务端负责定期删除。这一点上 JindoFS 采取了跟开源 Hadoop 相似的策略。

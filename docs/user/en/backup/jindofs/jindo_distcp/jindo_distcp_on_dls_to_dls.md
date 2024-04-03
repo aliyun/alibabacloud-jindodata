@@ -1,84 +1,65 @@
-# 数据在 OSS-HDFS 服务不同 bucket 之间迁移
+Migrate data between different buckets for which OSS-HDFS is enabled
+Usage notes
 
-### 使用前须知
-* 请参考 [JindoDistCp 介绍](jindo_distcp_overview.md) 文章内容进行环境适配和工具包下载
-* 如您在使用过程中遇到问题可参考 [JindoDistCp 问题排查指南](jindo_distcp_QA.md) 进行解决，也可 [新建 ISSUE](https://github.com/aliyun/alibabacloud-jindodata/issues/new) 向我们反馈
+- Make sure that the required environments are prepared and the related tools are downloaded. For more information, see [Jindo DistCp overview](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_overview.md).
+- If issues occur when you migrate data between buckets for which OSS-HDFS is enabled, refer to FAQ about [Jindo DistCp to resolve the issues. You can also ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[create an issue](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ to provide feedback.](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-### 1、拷贝数据到 OSS-HDFS 服务上
-您可以使用如下命令将 OSS-HDFS 服务上的目录拷贝到 OSS-HDFS 服务上。
+[1. Copy data to OSS-HDFS](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[You can run the following command to copy data between different buckets: ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-* 如果您的两个要拷贝的 bucket 都在同一个 region 下，且可用同一个 ossKey 和 ossSecret 进行读写，您可使用如下命令
+- [If the source and destination buckets reside in the same region and can be accessed by using the same AccessKey pair, you can run the following command to migrate data:](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.cn-xxx.oss-dls.aliyuncs.com/ --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --parallelism 10
-```
+[hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.cn-xxx.oss-dls.aliyuncs.com/ --dest oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --parallelism 10](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-| 参数 | 描述 | 示例 |
+| [Parameter](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [Description](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [Example](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) |
 | --- | --- | --- |
-| --src | OSS-HDFS 服务的源路径。| oss://srcBucket.cn-xxx.oss-dls.aliyuncs.com/ |
-| --dest | OSS-HDFS 服务的目标路径。| oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/ |
-| --hadoopConf | 指定 OSS-HDFS 服务的 `Access Key ID`,`Access Key Secret`|  *  配置 OSS-HDFS 服务的 AccessKeyId:</br>  --hadoopConf fs.oss.accessKeyId=yourkey</br>  * 配置 OSS-HDFS 服务的 AccessKeySecret:</br>  --hadoopConf fs.oss.accessKeySecret=yoursecret |
-| --parallelism | 任务并发大小，根据集群资源可调整。| 10 |
+| [--src](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [The source path of the OSS-HDFS service. ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [oss://srcBucket.cn-xxx.oss-dls.aliyuncs.com/](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) |
+| [--dest](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [The destination path of the OSS-HDFS service. ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [oss://destBucket.cn-xxx.oss-dls.aliyuncs.com/](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) |
+| [--hadoopConf](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [The ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[AccessKey ID](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ and ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[AccessKey secret](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ that are used to access OSS-HDFS.](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [* Specify an AccessKey ID that is used to access OSS-HDFS:--hadoopConf fs.oss.accessKeyId=yourkey* Specify an AccessKey secret that is used to access OSS-HDFS:--hadoopConf fs.oss.accessKeySecret=yoursecret](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) |
+| [--parallelism](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [The task parallelism. You can adjust the value of this parameter based on the cluster resources. ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [10](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) |
 
-* 如果您的 src 和 dest 的 bucket 不在同一个 region 或者不能使用同一个 ossKey 和 ossSecret 进行读写，那么您可以使用如下命令
+- [If the source and destination buckets reside in different regions or cannot be accessed by using the same AccessKey pair, you can run the following command to migrate data:](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcbucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.bucket.srcbucket.accessKeyId=yourkey --hadoopConf fs.oss.bucket.srcbucket.accessKeySecret=yoursecret --hadoopConf --hadoopConf fs.oss.bucket.destBucket.accessKeyId=yourkey --hadoopConf fs.oss.bucket.destBucket.accessKeySecret=yoursecret --parallelism 10
-```
-| 参数 | 描述 | 示例 |
+[hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcbucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.bucket.srcbucket.accessKeyId=yourkey --hadoopConf fs.oss.bucket.srcbucket.accessKeySecret=yoursecret --hadoopConf --hadoopConf fs.oss.bucket.destBucket.accessKeyId=yourkey --hadoopConf fs.oss.bucket.destBucket.accessKeySecret=yoursecret --parallelism 10](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+
+| [Parameter](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [Description](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [Example](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) |
 | --- | --- | --- |
-| --hadoopConf | 给 src 和 dest 的 bucket 指定不同`Access Key ID`,`Access Key Secret`| * 配置 XXX bucket 的 AccessKeyId:</br>  --hadoopConf fs.oss.bucket.XXX.accessKeyId=yourkey</br>  * 配置 OSS-HDFS 服务的 AccessKeySecret:</br>  --hadoopConf fs.oss.bucket.XXX.accessKeySecret=yoursecret |
+| [--hadoopConf](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [The ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[AccessKey IDs](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ and ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[AccessKey secrets](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ that are used to access the source and destination buckets.](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) | [* Specify an AccessKey ID that is used to access Bucket XXX:--hadoopConf fs.oss.bucket.XXX.accessKeyId=yourkey* Specify an AccessKey secret that is used to access Bucket XXX:--hadoopConf fs.oss.bucket.XXX.accessKeySecret=yoursecret](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md) |
 
-### 2、增量拷贝文件
-如果 Distcp 任务因为各种原因中间失败了，而此时您想进行断点续传，只 Copy 剩下未 Copy 成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 Distcp 任务完成后进行如下操作：
-##### 使用 --update 命令，获得增量的文件列表
-```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --update --parallelism 20
-```
+[2. Copy incremental files](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[If a Jindo DistCp job is interrupted, and some files fail to be copied to the destination directory, you can use the --update parameter to copy these files. If specific files are added to the source directory, you can also use the --update parameter to copy the incremental files to the destination directory.](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[ ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --update --parallelism 20](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[3. Specify a YARN queue and a bandwidth](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[You can run the following command to specify a YARN queue and a bandwidth for a Jindo DistCp job based on your business requirements:](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf mapreduce.job.queuename=yarnQueue --bandWidth 100 --parallelism 10](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-### 3、YARN 队列及带宽选择
-如您需要对 DistCp 作业使用的 YARN 队列和带宽进行限定，可用如下命令
-```shell
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret --hadoopConf mapreduce.job.queuename=yarnQueue --bandWidth 100 --parallelism 10
-```
-* --hadoopConf mapreduce.job.queuename=yarnQueue：指定 YARN 队列的名称
-* --bandWidth：指定单机限流带宽的大小，单位 MB
+- [-- hadoopConf mapreduce.job.queuename=yarnQueue: the name of the YARN queue.](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+- [-- bandWidth: the bandwidth of a single instance. Unit: MB.](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-### 4、免密及密钥固定存储
-通常您需要将 OSS-HDFS 服务的 AccessKey/AccessSecret 信息写在参数里，但是JindoDistCp可以将其预先写在 Hadoop 的`core-site.xml`文件里 ，以避免使用时多次填写的问题。
-```xml
-<configuration>
-    <property>
-        <name>fs.oss.accessKeyId</name>
-        <value>xxx</value>
-    </property>
+[4. Store data in password-free mode or by using an AccessKey pair](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[In most cases, you need to specify the AccessKey ID and AccessKey secret of OSS-HDFS in the corresponding parameters. JindoDistCp allows you to specify the AccessKey ID and AccessKey secret in the ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[core-site.xml](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ file of Hadoop. This way, you do not need to repeatedly specify the AccessKey ID and AccessKey secret. ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[<configuration>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[<property>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[<name>fs.oss.accessKeyId</name>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[<value>xxx</value>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[</property>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-    <property>
-        <name>fs.oss.accessKeySecret</name>
-        <value>xxx</value>
-    </property>
-</configuration>
-```
+[<property>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[<name>fs.oss.accessKeySecret</name>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[<value>xxx</value>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[</property>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[</configuration>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[5. Configure the endpoint of OSS-HDFS](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[To access OSS-HDFS, you must configure an endpoint in the ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[cn-xxx.oss-dls.aliyuncs.com](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ format. The endpoint of OSS-HDFS is different from the endpoint that is used to access OSS. The endpoint that is used to access OSS is in the ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[oss-cn-xxx-internal.aliyuncs.com](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ format. JindoSDK accesses OSS-HDFS or OSS based on the endpoint that you configure. ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[If you want to access OSS-HDFS, we recommend that you specify the access path in the ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[oss://<Bucket>.<Endpoint>/<Object>](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[ format.](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[Example: ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[oss://mydlsbucket.cn-shanghai.oss-dls.aliyuncs.com/Test](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[. ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[The preceding directory contains the endpoint of OSS-HDFS. JindoSDK accesses OSS-HDFS based on the endpoint in the directory. JindoSDK allows you to use other methods to configure the endpoint of OSS-HDFS. For more information, see ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[Configure an endpoint to access OSS-HDFS](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)[. ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[6. Save metadata information](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[Use the preserveMeta parameter to allow metadata to be migrated when you migrate data. The metadata includes Owner, Group, Permission, Atime, Mtime, Replication, BlockSize, XAttrs, and ACL. ](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --preserveMeta](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[7. Other features](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
+[For information about how to use Jindo DistCp to migrate data, refer to the following topic:](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 
-### 5、配置 OSS-HDFS 服务 Endpoint
-
-访问 OSS Bucket 上 OSS-HDFS 服务需要配置 Endpoint（`cn-xxx.oss-dls.aliyuncs.com`），与 OSS 对象接口的 Endpoint（`oss-cn-xxx-internal.aliyuncs.com`）不同。JindoSDK 会根据配置的 Endpoint 访问 OSS-HDFS 服务 或 OSS 对象接口。
-
-使用 OSS-HDFS 服务时，推荐访问路径格式为：`oss://<Bucket>.<Endpoint>/<Object>`
-
-如: `oss://mydlsbucket.cn-shanghai.oss-dls.aliyuncs.com/Test`。
-
-这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 JindoFS 接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 [OSS-HDFS 服务 Endpoint 配置](/docs/user/4.x/4.6.x/4.6.12/jindofs/configuration/jindosdk_endpoint_configuration.md)。
-
-### 6、保存元数据信息
-
-使用preserveMeta参数, 使得迁移数据的同时迁移包括 Owner, Group, Permission, Atime, Mtime, Replication, BlockSize, XAttrs, ACL 在内的元数据信息。
-
-```bash
-hadoop jar jindo-distcp-tool-${version}.jar --src oss://srcBucket.oss-cn-xxx.aliyuncs.com/ --dest oss://destBucket.oss-cn-xxx.aliyuncs.com/ --preserveMeta
-```
-
-### 7、其他功能
-如您需要其他使用其他功能，请参考
-* [JindoDistCp 进行数据迁移的使用说明](jindo_distcp_how_to.md)
+- [Usage notes of data migration by using Jindo DistCp](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_distcp/jindo_distcp_QA.md)
 

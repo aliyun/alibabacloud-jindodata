@@ -1,194 +1,131 @@
-# 阿里云 OSS-HDFS 服务（JindoFS 服务）Shell 命令使用说明
-*(从 4.5.0 开始支持)*
-
-
-
-## 设置 Hadoop Proxy User 命令
-
-### AddProxyUser 命令
-AddProxyUser 命令可以添加代理用户。
-```bash
+Use Shell commands in Alibaba Cloud OSS-HDFS (JindoFS)
+(This topic applies to JindoSDK 4.5.0 and later.)
+Use commands that are relevant to Hadoop proxy users
+AddProxyUser
+Adds a proxy user. 
 jindo admin -addProxyUser
-                 [-dlsUri <uri>]
-                 [-proxyUser <proxyUser>]
-                 [-users <user1,user2...>]|[-groups <group1,group2...>]
-                 [-hosts <host1,host2...>] 
-```
-在同一条命令中，参数 users 和 groups 不可同时使用，任选其一。 
-例：
-
-```bash
+[-dlsUri <uri>]
+[-proxyUser <proxyUser>]
+[-users <user1,user2...>]|[-groups <group1,group2...>]
+[-hosts <host1,host2...>]
+In a command, you can configure either the users or groups parameter. Example:
 jindo admin -addProxyUser
-                 -dlsUri oss://jindosdk-dls-unit-test/
-                 -proxyUser hive
-                 -groups group1,group2
-                 -hosts host1,host2
-```
-执行上述命令，用户 hive 可以代理属于 group1 或 group2 且从 host1 或 host2 发送请求的用户。
-### DeleteProxyUser 命令
-DeleteProxyUser 命令可以删除代理用户。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/
+-proxyUser hive
+-groups group1,group2
+-hosts host1,host2
+You can run the preceding command to specify the user hive as a proxy user for all users who belong to group1 or group2 and send requests from host1 or host2. 
+DeleteProxyUser
+Deletes a proxy user. 
 jindo admin -deleteProxyUser
-                [-dlsUri <uri>]
-                [-proxyUser <proxyUser>]
-```
-例：
-```bash
+[-dlsUri <uri>]
+[-proxyUser <proxyUser>]
+Example:
 jindo admin -deleteProxyUser
-                 -dlsUri oss://jindosdk-dls-unit-test/
-                 -proxyUser hive
-```
-执行上述命令，用户 hive 不可以代理任何用户。
-### ListProxyUsers 命令
-ListProxyUsers 可以查看所有的代理用户和代理信息。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/
+-proxyUser hive
+You can run the preceding command to delete a proxy user named hive. This way, hive cannot be used as a proxy user for any users. 
+ListProxyUsers
+Queries all proxy users and proxy information. 
 jindo admin -listProxyUsers
-                [-dlsUri <uri>]
-                [-maxKeys <maxKeys>]
-                [-marker <marker>]
-```
-maxKeys 指定查看的代理用户个数，marker 用来筛选名称中含有特殊标记的代理用户，这两项参数均可省略。
-例：
-
-```bash
+[-dlsUri <uri>]
+[-maxKeys <maxKeys>]
+[-marker <marker>]
+The -maxKeys option specifies the number of proxy users that you want to query. The -marker option filters proxy users whose names contain a specific string. The -maxKeys and-marker options are optional. Example:
 jindo admin -listProxyUsers
-                -dlsUri oss://jindosdk-dls-unit-test/
-                -maxKeys 10
-                -marker hive
-```
-执行上述命令，将优先显示 oss://jindosdk-dls-unit-test/ 下名称中带 hive 标记的10个代理用户信息。
-## 设置 User Groups Mapping 命令
-### AddUserGroupsMapping 命令
-AddUserGroupsMapping 命令映射用户和组的关系。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/
+-maxKeys 10
+-marker hive
+You can run the preceding command to query information about 10 proxy users whose names contain the hive string in the oss://jindosdk-dls-unit-test/ path. 
+Use commands that are relevant to user group mappings
+AddUserGroupsMapping
+Maps a user to user groups. 
 jindo admin -addUserGroupsMapping
-                [-dlsUri <uri>]
-                [-user <user>]
-                [-groups <group1,group2...>]
-```
-例：
-```bash
+[-dlsUri <uri>]
+[-user <user>]
+[-groups <group1,group2...>]
+Example:
 jindo admin -addUserGroupsMapping
-                -dlsUri oss://jindosdk-dls-unit-test/
-                -user user1
-                -groups group1,group2
-```
-执行上述命令，用户 user1 将属于 group1 或 group2。
-### DeleteUserGroupsMapping 命令
-DeleteUserGroupsMapping 命令可以删除用户和组的映射关系。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/
+-user user1
+-groups group1,group2
+You can run the preceding command to map user1 to group1 and group2. 
+DeleteUserGroupsMapping
+Unmaps a user from user groups. 
 jindo admin -deleteUserGroupsMapping
-                 [-dlsUri <uri>]
-                 [-user <user>]
-```
-例：
-```bash
+[-dlsUri <uri>]
+[-user <user>]
+Example:
 jindo admin -deleteUserGroupsMapping
-                -dlsUri oss://jindosdk-dls-unit-test/
-                -user user1
-```
-执行上述命令，将删除 user1 与对应组的映射关系。
-### ListUserGroupsMappings 命令
-ListUserGroupsMappings 可以查看所有的用户的组。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/
+-user user1
+You can run the preceding command to unmap user1 from user groups. 
+ListUserGroupsMappings
+Queries information about all user groups. 
 jindo admin -listUserGroupsMappings
-                [-dlsUri <dlsUri>]
-                [-maxKeys <maxKeys>]
-                [-marker <marker>]
-```
-maxKeys 指定查看的用户个数，marker 用来筛选名称中含有特殊标记的用户，这两项参数均可省略。
-例：
-```bash
+[-dlsUri <dlsUri>]
+[-maxKeys <maxKeys>]
+[-marker <marker>]
+The -maxKeys option specifies the number of users that you want to query. The -marker option filters users whose names contain a specific string. The -maxKeys and -marker options are optional. Example:
 jindo admin -listUserGroupsMappings
-                -dlsUri oss://jindosdk-dls-unit-test/
-                -maxKeys 10
-                -marker user1
-```
-执行上述命令，将优先显示 oss://jindosdk-dls-unit-test/ 下名称中带 user1 标记的10个用户的组信息。
-## 管理 Snapshot 命令
-### AllowSnapshot 命令
-AllowSnapshot 命令允许创建目录快照。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/
+-maxKeys 10
+-marker user1
+You can run the preceding command to query the group information of 10 users whose names contain the user1 string in the oss://jindosdk-dls-unit-test/ path. 
+Use commands that are relevant to snapshots
+AllowSnapshot
+Enables the snapshot feature for a directory. 
 jindo admin -allowSnapshot [-dlsUri <dlsSnapshotDir>]
-```
-例：
-```bash
+Example:
 jindo admin -allowSnapshot
-                -dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow
-```
-执行上面的命令后，将允许 oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow 目录创建快照。
-### DisallowSnapshot 命令
-DisallowSnapshot 命令可以禁止创建目录快照。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow
+You can run the preceding command to enable the snapshot feature for the oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow directory. 
+DisallowSnapshot
+Disables the snapshot feature for a directory. 
 jindo admin -disallowSnapshot [-dlsUri <dlsSnapshotDir>]
-```
-例：
-```bash
+Example:
 jindo admin -disallowSnapshot
-                -dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow
-```
-执行上面的命令后，将不允许 oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow 目录创建快照。
-### SnapshotDiff 命令
-SnapshotDiff 命令用来比较同一目录两份快照的不同。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow
+You can run the preceding command to disable the snapshot feature for the oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow directory. 
+SnapshotDiff
+Compares the differences between two snapshots in the same directory. 
 jindo admin -snapshotDiff
-                [-dlsUri <dlsSnapshotDir>]
-                [-fromSnapshot <fromSnapshot>]
-                [-toSnapshot <toSnapshot>]
-```
-例：
-```bash
+[-dlsUri <dlsSnapshotDir>]
+[-fromSnapshot <fromSnapshot>]
+[-toSnapshot <toSnapshot>]
+Example:
 jindo admin -snapshotDiff
-                -dlsUri oss://jindosdk-dls-unit-test/testSnapshotDir/
-                -fromSnapshot S1
-                -toSnapshot S2
-```
-S1 和 S1 是事先通过 HDFS 的 Shell 命令行工具为测试目录创建的两份快照。
-## 通过 AccessPolicy 命令实现路径改写
-### <a name="setrootpolicy_cmd"></a>SetRootPolicy 命令
-SetRootPolicy 命令允许为 bucket 设置任意前缀的访问路径。
-```bash
+-dlsUri oss://jindosdk-dls-unit-test/testSnapshotDir/
+-fromSnapshot S1
+-toSnapshot S2
+S1 and S2 are snapshots that are created for the test directory by using commands in the Shell CLI of Hadoop Distributed File System (HDFS). 
+Use commands that are relevant to RootPolicy
+SetRootPolicy
+Registers an access address that contains a custom prefix for a bucket. 
 jindo admin -setRootPolicy [<dlsRootPath>] [<accessRootPath>]
-```
-例：
-```bash
+Example:
 jindo admin -setRootPolicy oss://jindosdk-dls-unit-test/ hdfs://myufs/
-```
-执行上述命令后，支持使用 hdfs://myufs/ 访问 oss://jindosdk-dls-unit-test/。
-### <a name="unsetrootpolicy_cmd"></a>UnsetRootPolicy 命令
-UnsetRootPolicy 命令为 bucket 取消访问路径。
-```bash
+After you run the preceding command, you can access the oss://jindosdk-dls-unit-test/ directory by using hdfs://myufs/. 
+UnsetRootPolicy
+Deletes all registered access addresses that contain a custom prefix specified for a bucket. 
 jindo admin -unsetRootPolicy [<dlsRootPath>] [<accessRootPath>]
-```
-例：
-```bash
+Example:
 jindo admin -unsetRootPolicy oss://jindosdk-dls-unit-test/ hdfs://myufs/
-```
-执行上述命令后，不再支持用 hdfs://myufs/ 访问 oss://jindosdk-dls-unit-test/。
-
-### <a name="listaccesspolicies_cmd"></a>ListAccessPolicies 命令
-ListAccessPolicies 可查看当前 bucket 支持的所有访问路径。
-```bash
+After you run the preceding command, you can no longer access the oss://jindosdk-dls-unit-test/ directory by using hdfs://myufs/. 
+ListAccessPolicies
+Queries all registered access addresses that contain a custom prefix specified for a bucket. 
 jindo admin -listAccessPolicies [<dlsRootPath>]
-```
-例：
-```bash
+Example:
 jindo admin -listAccessPolicies oss://jindosdk-dls-unit-test/
-```
-执行上述命令，查看 oss://jindosdk-dls-unit-test/ 的所有访问路径。
-## 其他
-### DumpFile 命令
-DumpFile 命令可以查看文件的详细存储信息。
-```bash
+You can run the preceding command to query all access paths of the oss://jindosdk-dls-unit-test/ directory. 
+Use other commands
+DumpFile
+Queries detailed storage information of a file. 
 jindo admin -dumpFile [-dlsUri <dlsUri>]
-```
-例：
-```bash
+Example:
 jindo admin -dumpFile
-                -dlsUri oss://jindosdk-dls-unit-test/testDumpFile/dumpfile_simple_file
-```
-执行上述命令后，将显示类似如下结果：
-```
+-dlsUri oss://jindosdk-dls-unit-test/testDumpFile/dumpfile_simple_file
+After you run the preceding command, output similar to the following information is returned:
 =============Dump result=============
 File /testDumpFile/dumpfile_simple_file
 length: 11
@@ -208,4 +145,4 @@ type: CLOUD
 loc: .dlsdata
 underConstruction: 0
 isLastBlockComplete: 1
-```
+

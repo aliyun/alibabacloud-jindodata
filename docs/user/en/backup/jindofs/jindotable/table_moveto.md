@@ -1,102 +1,76 @@
-# 使用 JindoTable 将 Hive 表和分区数据迁移到 OSS-HDFS 服务（JindoFS 服务）
+Use JindoTable to migrate Hive tables and partitions to OSS-HDFS (JindoFS)
+Hadoop Distributed File System (HDFS) cannot be infinitely scaled out due to limits on the cluster size and scaling costs. As a result, capacity bottlenecks occur in HDFS. Object Storage Service (OSS)-HDFS serves as an alternative or supplement to HDFS to expand the storage capabilities of a Hadoop platform in the cloud. JindoTable allows you to filter Hive data based on the partition key and migrate partitions between HDFS and OSS-HDFS. 
+Prerequisites
+JindoSDK is deployed.
+For more information, see [Getting Started with Alibaba Cloud OSS-HDFS (JindoFS)](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md). 
+Hadoop and Hive are deployed.
 
-HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶颈。阿里云 OSS-HDFS 服务可以作为 HDFS 的替代或补充，扩展云上 Hadoop 平台的存储能力。
-本工具用于把 Hive 数据根据分区键规则筛选，在 HDFS 和 阿里云 OSS-HDFS 服务之间转移分区。
+- The hadoop classpath command can return a valid path.
+- The client environment variables $HIVE_HOME and $HIVE_CONF_DIR are correctly configured.
 
-## 前提条件
-### 已部署 JindoSDK
-
-关于如何部署 JindoSDK，请参考 [阿里云 OSS-HDFS 服务（JindoFS 服务）快速入门](/docs/user/4.x/4.6.x/4.6.12/jindofs/jindo_dls_quickstart.md) 。
-
-### 已部署 Hadoop 与 Hive 环境
-
-* 确保`hadoop classpath`能够返回合理结果
-
-* 确保客户端环境变量 $HIVE_HOME 与 $HIVE_CONF_DIR 正确配置
-
-## 配置 MoveTo 工具在 HDFS 下的锁目录：
-
-在 Hadoop 配置文件 `core-site.xml` 或 `hdfs-site.xml`（任一即可，在`$HADOOP_CONF_DIR`目录下）新增配置项：`jindotable.moveto.tablelock.base.dir`
-
-该配置的值应指向一个 HDFS 目录，目的是存放 MoveTo 工具在运行时自动创建的锁文件。需确保该目录只会被 MoveTo 工具访问，并且有访问权限。如果不配置，则使用缺省值 `hdfs:///tmp/jindotable-lock/`，无权限则报错。
-
-## 使用说明
-
-#### 获取帮助信息
-
-执行以下命令，获取帮助信息。
-
-```
+Specify an HDFS directory for the moveTo tool to store lock files
+Add the jindotable.moveto.tablelock.base.dir configuration item to the core-site.xml or hdfs-site.xml configuration file of Hadoop. The configuration files reside in the $HADOOP_CONF_DIR directory.
+The value of the configuration item must point to an HDFS directory. The directory is used to store the lock files that are automatically created when the moveTo tool is running. Make sure that only the moveTo tool has permissions to access the directory. If you do not configure the configuration item, the hdfs:///tmp/jindotable-lock/ directory is used. If the moveTo tool does not have the permissions to access the default directory, an error is reported. 
+Usage notes
+Obtain help information
+Run the following command to obtain help information about the moveTo tool: 
 jindotable -help moveTo
-```
-
-#### 参数说明
-
-```shell
+Parameters
 jindotable -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>" | -fullTable] [-b/-before <before days>] [-p/-parallel <parallelism>] [-s/-storagePolicy <OSS storage policy>] [-o/-overWrite] [-r/-removeSource] [-skipTrash] [-e/-explain] [-q/-queue <yarn queue>] [-w/-workingDir <working directory>][-l/-logDir <log directory>]
-```
 
-| 参数 | 描述 | 是否必选 |
-| :--- | :--- | :--- |
-| `-t <dbName.tableName>` | 要移动的表。 | 是|
-| `-d <destination path>` | 目标路径，为表级别的路径，分区路径会在这个路径下自动创建。 | 是 |
-| `-c "<condition>" / -fullTable` | 分区过滤条件表达式，支持基本运算符，不支持udf。 | 否 |
-| `-b/before <before days>` | 根据分区创建时间，创建时间超过给定天数的分区才进行移动。 | 否 |
-| `-p/-parallel <parallelism>` | 整个moveTo任务的最大task并发度，默认为1。 | 否 |
-| `-s/-storagePolicy <OSS storage policy>` | OSS-HDFS 服务不支持该参数 | 否 |
-| `-o/-overWrite` | 是否覆盖最终目录。分区级别覆盖，不会覆盖本次移动不涉及的分区。 | 否 |
-| `-r/-removeSource` | 是否在移动完成后删除源路径。 | 否 |
-| `-skipTrash` | 如果删除源路径，是否跳过Trash。 | 否 |
-| `-e/-explain`| 如果指定explain模式，不会触发实际操作，仅打印会同步的分区。 | 否 |
-| `-q/-queue <yarn queue` | 指定分布式拷贝的yarn队列。 | 否 |
-| `-w/-workingDir` | 指定分布式拷贝的工作临时目录。 | 否 |
-| `-l/-logDir <log directory>` | 本地日志目录，默认为`/tmp/<current user>/` | 否 |
+| Parameter | Description | Required |
+| --- | --- | --- |
+| -t <dbName.tableName> | The table that you want to migrate.  | Yes |
+| -d <destination path> | The destination directory to which you want to migrate the table. The directories of partitions are automatically created in this directory.  | Yes |
+| -c "<condition>" / -fullTable | The expression of the filter condition for partitions. Basic operators are supported. User-defined functions (UDFs) are not supported.  | No |
+| -b/before <before days> | The time condition for migrating partitions. Unit: days. Only the partitions that were created the specified number of days ago are migrated.  | No |
+| -p/-parallel <parallelism> | The maximum parallelism of the task that is run by using the moveTo tool. Default value: 1.  | No |
+| -s/-storagePolicy <OSS storage policy> | This parameter is unavailable for OSS-HDFS. | No |
+| -o/-overWrite | Specifies whether to overwrite data in the destination directories. Only data in the directories of migrated partitions are overwritten. The directories of partitions that are not migrated remain unchanged.  | No |
+| -r/-removeSource | Specifies whether to delete the source data after the migration is complete.  | No |
+| -skipTrash | Specifies whether to skip the data in the trash bin when the system deletes source data.  | No |
+| -e/-explain | Specifies whether to use the explain mode. In explain mode, the system displays the partitions to be migrated but does not migrate the partitions.  | No |
+| -q/-queue <yarn queue | The YARN queue for distributed copy.  | No |
+| -w/-workingDir | The temporary working directory for distributed copy.  | No |
+| -l/-logDir <log directory> | The on-premises log directory. Default value: /tmp/<current user>/. | No |
 
-## 使用示例
+Example
 
-1. 有一个 HDFS 上的 Hive 分区表，如下图所示：
+1. Create a Hive partitioned table in HDFS. The following figure shows information about the table.
 
-![image.png](pic/jindotable_moveto_dls_1.png)
+![](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/8042/1711970085265-bfc598fb-5e5b-49a8-b99c-a628e90d015b.png#)
 
-2. 想把 bbb 和 ccc 分区移动到 OSS-HDFS 服务，先用 explain 模式看看会移动的分区是否符合预期，参数为 -e 或 -explain：
+1. Before you migrate partitions to OSS-HDFS, add the -e or -explain parameter to the moveTo command to check whether the partitions meet your expectations. In this example, the bbb and ccc partitions need to be migrated.
 
-![image.png](pic/jindotable_moveto_dls_2.png)
+![](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/8042/1711970085554-906a6649-a25a-48db-a3be-942c556a2038.png#)
 
-3. 去掉参数 -e，真正移动分区：
+1. Remove the -e parameter and run the command to migrate the partitions.
 
-![image.png](pic/jindotable_moveto_dls_3.png)
+![](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/8042/1711970085978-2120ef6a-6cda-4327-abab-edc6c46de80f.png#)
 
-4. 执行完成后，检查数据，数据已经在 OSS-HDFS 服务：
+1. After you run the command, check whether the partitions exist in OSS-HDFS.
 
-![image.png](pic/jindotable_moveto_dls_4.png)
+![](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/8042/1711970086299-71a0d24a-cb56-4ec9-a6aa-6ae87f8ac4ed.png#)
 
-5. 再移回 HDFS，结果失败了，会显示失败原因，原来是目标目录非空，提示可以使用 -overWrite 清空目标目录：
+1. Migrate the partitions back to HDFS. The migration fails because the destination directories are not empty. You can add the -overWrite parameter to overwrite data in the destination directories.
 
-![image.png](pic/jindotable_moveto_dls_5.png)
+![](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/8042/1711970086564-a0b4a65f-bfd0-4de2-ab05-fd95afc99d2d.png#)
 
-6. 使用 -overWrite 强制覆盖：
+1. Add the -overWrite parameter to forcefully migrate the partitions by overwriting data in the destination directories.
 
-![image.png](pic/jindotable_moveto_dls_6.png)
+![](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/8042/1711970086893-7c693d21-54c3-4c63-acc2-8f7d5b9e0d85.png#)
+Exception handling
+To ensure data security and prevent dirty data, the jindotable -moveTo command automatically checks a destination directory to ensure that no other command is run to copy data to the same directory. If another command is run to copy data to the same directory, the moveTo command for migrating a table or partitions fails. In this case, you must manually stop the command that is run to copy data to the destination directory and clear the directory. Then, rerun the moveTo command. 
+For a non-partitioned table, the destination directory is the directory in which the table is stored. For a partitioned table, each partition is copied or moved to its own destination directory. You need to only clear the directories for partitions that you want to copy or move. 
+Causes
+If a moveTo command is unexpectedly aborted, manual intervention may be required. If a command is aborted, the copying process is not complete, and the source data and the metadata of the table remain unchanged. Therefore, the data is still in the safe state. Common causes that lead to unexpected command aborting:
 
-## 异常状态处理
+- The command process is killed by a user before the running of the command ends.
+- An exception such as memory overflow occurs. As a result, the command process is terminated.
 
-为了尽可能保证数据安全，防止污染，该命令会自动检查目的地目录，确保不存在另一命令向相同目录拷贝。
-如果无法排除，则该表或分区的拷贝命令将执行失败。
-此时，需要主动干预，确保没有另一命令正在执行拷贝之后，清理目的地目录，则可以重新执行该命令。
+If the copy fails and Conflicts found is displayed during the copying process of a table or partition, manual intervention is required. 
+Solutions
 
-对于非分区表的拷贝或迁移，目的地目录即为表级别目录；对于分区表，目的地目录为待拷贝或移动分区的分区级目录，
-只需对待拷贝的分区进行清理。
+- Make sure that no other commands, especially distributed copy commands such as DistCp or JindoDistCp, are run to copy data to the same directory.  
+- Delete the destination directories. For non-partitioned tables, delete the table-level directory. For partitioned tables, delete the partition-level directory that conflicts. Do not delete the source directory. 
 
-#### 出现原因
-
-如果该命令被异常中止，则可能出现需要主动干预的情况。此时拷贝还未完成，源数据与表的元信息均未改变，
-数据仍处于安全状态。常见的异常中止有两种情况：
-* 用户在命令尚未结束时，主动杀掉命令进程
-* 由于内存溢出等异常，进程异常中止
-
-如果拷贝表或分区时拷贝失败并显示 ``Conflicts found``，则属于异常状态，需主动干预。
-
-#### 处理方法
-
-* 确保没有另一命令向相同的目标路径拷贝数据。特别是，确保没有 DistCp/JindoDistCp 等分布式拷贝命令。
-* 删除目的地目录。对于非分区表，删除表一级目录。对于分区表，删除存在冲突的分区级目录。切勿删除源目录。

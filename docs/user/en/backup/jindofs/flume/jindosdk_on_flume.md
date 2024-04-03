@@ -1,30 +1,17 @@
-# Flume 使用 JindoSDK 写入阿里云 OSS-HDFS 服务（JindoFS 服务）
-
-## 环境要求
-
-在集群上已经部署 Flume，已部署 JindoSDK 4.0 以上版本。
-
-## 为什么 Flume 需要使用 JindoSDK 写入 OSS-HDFS 服务
-
-Flume 通过 flush() 调用保证事务性写入，通过 JindoSDK 写入 OSS-HDFS 服务，可以让 flush 后的数据立刻可见，保证数据不丢失。
-
-## SDK 配置
-
-需要在 Flume 节点进行配置。在每个节点 Flume 根目录下的 lib 文件夹，放置 JindoSDK。
-
-下载并解压最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/4.x/jindodata_download.md))
-
-````
+Use JindoSDK with Flume to write data to Alibaba Cloud OSS-HDFS (JindoFS)
+Environment requirements
+Make sure that Flume and JindoSDK of a version later than 4.0 are deployed in your cluster. 
+Why do I need to use JindoSDK with Flume to write data to OSS-HDFS?
+Flume calls the flush() method to implement transactional data writes and uses JindoSDK to write data to OSS-HDFS. This way, data can be queried immediately after it is flushed. This also helps prevent data loss. 
+JindoSDK configuration
+Configure JindoSDK on each node on which Flume is deployed.  
+[Download](https://github.com/aliyun/alibabacloud-jindodata/blob/latest/docs/user/en/jindosdk/jindosdk_download.md) the latest version of the jindosdk-x.x.x.tar.gz package, decompress the package, and then install the files after the decompression to the lib folder of the Flume root directory on each node.
 cp jindosdk-x.x.x/lib/*.jar  $FLUME_HOME/jars/
-````
-
-## Sink 配置示例
-
-```properties
-# 配置 OSS Sink
+Sample sink configuration
+# Configure an Object Storage Service (OSS) sink.
 xxx.sinks.oss_sink.hdfs.path = oss://${your_bucket}/flume_dir/%Y-%m-%d/%H
 
-# Sink参数，batchSize 需要设置大一些，推荐每次 Flush 的量在 32MB以上，否则会影响性能
+# Configure sink-related parameters. You must set the batchSize parameter to a large value. We recommend that you flush more than 32 MB of data each time. This helps prevent impacts on the overall performance.
 xxx.sinks.oss_sink.hdfs.batchSize = 100000
 
 ...
@@ -35,6 +22,4 @@ xxx.sinks.oss_sink.hdfs.filePrefix = your_topic
 xxx.sinks.oss_sink.rollSize = 3600
 xxx.sinks.oss_sink.threadsPoolSize = 30
 ...
-
-```
 

@@ -1,109 +1,92 @@
-# JindoSDK 高级参数配置
-
-## 缓存优化相关参数
-
-可根据情况将以下配置添加到 Hadoop 的`core-site.xml`中。
-```xml
+Configuration of JindoSDK advanced parameters
+JindoSDK configuration items
+You can add the following configuration items to the core-site.xml configuration file of Hadoop based on your business requirements: 
 <configuration>
+<property>
+<!-- The directory to which the client writes temporary files. If you want to configure multiple directories, separate the directories with commas (,). The client writes temporary files to the directories in turn. Read and write permissions must be granted in environments that involve multiple users. -->
+<name>fs.oss.tmp.data.dirs</name>
+<value>/tmp/</value>
+</property>
+<property>
+<!-- Specifies whether to enable automatic cleaning of temporary files. -->
+<name>fs.oss.tmp.data.cleaner.enable</name>
+<value>true</value>
+</property>
+<property>
+<!-- The number of retries on failed access to Object Storage Service (OSS). -->
+<name>fs.oss.retry.count</name>
+<value>5</value>
+</property>
 
-    <property>
-        <!-- xengine 开关 -->
-        <name>fs.xengine</name>
-        <value>jindofsx</value>
-    </property>
+<property>
+<!-- The timeout period to access OSS. Unit: milliseconds. -->
+<name>fs.oss.timeout.millisecond</name>
+<value>30000</value>
+</property>
 
-    <property>
-        <!-- 数据缓存开关 -->
-        <name>fs.jindofsx.data.cache.enable</name>
-        <value>false</value>
-    </property>
-  
-    <property>
-        <!-- 元数据缓存开关 -->
-        <name>fs.jindofsx.meta.cache.enable</name>
-        <value>false</value>
-    </property>
-  
-    <property>
-        <!-- 小文件缓存优化开关 -->
-        <name>fs.jindofsx.slice.cache.enable</name>
-        <value>false</value>
-    </property>
+<property>
+<!-- The timeout period to connect to OSS. Unit: milliseconds. -->
+<name>fs.oss.connection.timeout.millisecond</name>
+<value>3000</value>
+</property>
+<property>
+<!-- The number of concurrent threads that are used to upload a single object to OSS. -->
+<name>fs.oss.upload.thread.concurrency</name>
+<value>5</value>
+</property>
 
-    <property>
-        <!-- 内存缓存开关 -->
-        <name>fs.jindofsx.ram.cache.enable</name>
-        <value>false</value>
-    </property>
+<property>
+<!-- The number of concurrent tasks that are initiated to upload objects to OSS. -->
+<name>fs.oss.upload.queue.size</name>
+<value>5</value>
+</property>
 
-    <property>
-        <!-- 是否直接连接本地 storageservice -->
-        <name>fs.jindofsx.storage.connect.enable</name>
-        <value>true</value>
-    </property>
+<property>
+<!-- The maximum number of concurrent tasks that are initiated to upload objects to OSS in a process. -->
+<name>fs.oss.upload.max.pending.tasks.per.stream</name>
+<value>16</value>
+</property>
 
-    <property>
-        <!-- 短路读开关，在缓存结点与客户端在同一台机器上的时候可以直接读本地文件，要求打开本地 storageservice 连接 -->
-        <name>fs.jindofsx.short.circuit.enable</name>
-        <value>true</value>
-    </property>
-  
-</configuration>
-```
+<property>
+<!-- The number of concurrent tasks that are initiated to download objects from OSS. -->
+<name>fs.oss.download.queue.size</name>
+<value>5</value>
+</property>
 
-## RPC 优化相关参数
+<property>
+<!-- The maximum number of concurrent tasks that are initiated to download objects from OSS in a process. -->
+<name>fs.oss.download.thread.concurrency</name>
+<value>16</value>
+</property>
+<property>
+<!-- The size of the buffer that is used to prefetch data from OSS. -->
+<name>fs.oss.read.readahead.buffer.size</name>
+<value>1048576</value>
+</property>
+<property>
+<!-- The number of buffers that are used to prefetch data from OSS at the same time. -->
+<name>fs.oss.read.readahead.buffer.count</name>
+<value>4</value>
+</property>
 
-可根据情况将以下配置添加到 Hadoop 的`core-site.xml`中。
-```xml
-<configuration>
+<property>
+<!-- The interval at which data in a buffer is flushed before the data is written to OSS. Unit: milliseconds. If the value of this parameter is less than 0, this parameter does not take effect. -->
+<name>fs.oss.flush.interval.millisecond</name>
+<value>-1</value>
+</property>
 
-    <property>
-      	<!-- brpc线程池大小 -->
-        <name>fs.jindofsx.rpc.backup.threads</name>
-        <value>100</value>
-    </property>
+<property>
+<!-- Specifies whether to enable file-level data integrity check by using CRC-64. By default, this configuration item is set to true. -->
+<name>fs.oss.checksum.crc64.enable</name>
+<value>true</value>
+</property>
 
-    <property>
-      	<!-- 并发线程数量 -->
-        <name>fs.jindofsx.rpc.thread.concurrency</name>
-        <value>10</value>
-    </property>
-
-    <property>
-        <!-- 消息体大小 -->
-        <name>fs.jindofsx.rpc.body.size</name>
-        <value>256 * 1024 * 1024</value>
-    </property>
-
-    <property>
-      	<!-- 超时时间大小（毫秒）-->
-        <name>fs.jindofsx.rpc.timeout</name>
-        <value>12 * 60 * 60 * 1000</value>
-    </property>
-
-    <property>
-      	<!-- 消息队列大小 -->
-        <name>fs.jindofsx.rpc.max.unwritten.size</name>
-        <value>256 * 1024 * 1024</value>
-    </property>
-  
-</configuration>
-```
-
-## 缓存 Metrics 相关参数
-
-可根据情况将以下配置添加到 Hadoop 的`core-site.xml`中。
-```xml
-<configuration>
-
-    <property>
-        <!-- 客户端metrics开关 -->
-        <name>fs.jindofsx.client.metrics.enable</name>
-        <value>false</value>
-    </property>
+<property>
+<!--Specifies whether to enable request-level data integrity check by using MD5. By default, this configuration item is set to false. -->
+<name>fs.oss.checksum.md5.enable</name>
+<value>false</value>
+</property>
 
 </configuration>
-```
-
-【注：4.3.0 版本以上版本支持】
+Note: This topic is applicable to JindoSDK of a version later than 4.5.
 
