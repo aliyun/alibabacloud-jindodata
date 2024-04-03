@@ -1,0 +1,63 @@
+########## MKDOCS README ##########
+#
+# prepare:
+# brew install python3
+# pip3 install mkdocs mike mkdocs-bootswatch
+#
+# local demo：
+# 1. mkdocs serve -f mkdocs_en.yml
+# 2. check http://127.0.0.1:8000/
+#
+# deploy to Github:
+# 1. mkdocs build --config-file mkdocs_en.yml
+# 2. mkdocs gh-deploy
+# 3. check https://aliyun.github.io/alibabacloud-jindodata/
+#
+##########
+
+site_name: AlibabaCloud JindoData
+docs_dir: docs/user/en
+site_dir: site/en
+copyright: Copyright &copy; 2024 AlibabaCloud
+
+theme: united
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - toc:
+      permalink: §
+
+plugins:
+  - search
+  - mike:
+      version_selector: true
+      exclude_from_nav: ["images", "js", "css", "fonts", "img"]
+
+nav:
+  - Home: README.md
+  - Hadoop:
+      - QuickStart: jindosdk/jindosdk_quickstart.md
+      - Development: jindosdk/hadoop/jindosdk_ide_hadoop.md
+      - Flink: jindosdk/flink/jindosdk_on_flink.md
+      - Flume: jindosdk/flume/jindosdk_on_flume.md
+  - AI :
+      - JindoFuse: jindofuse/jindofuse_quickstart.md
+      - PyJindo: jindosdk/python/pyjindo_quickstart.md
+      - Tensorflow: jindosdk/tensorflow/jindosdk_on_tensorflow.md
+  - Tools:
+      - JindoDistcp:
+          - QuickStart: jindotools/jindodistcp_quickstart.md
+          - HDFS To OSS: jindotools/jindodistcp_hdfs_to_oss.md
+          - S3 To OSS: jindotools/jindodistcp_s3_to_oss.md
+          - FAQ: jindotools/jindodistcp_faq.md
+      - JindoTable:
+          - Hive To OSS: jindotools/jindotable_moveto.md
+  - Download:
+      - JindoSDK: jindosdk/jindosdk_download.md
+      - AliyunEMR:
+          - Older than EMR-5.5.0/EMR-3.39.0（Old EMR）: upgrade/emr_upgrade_smartdata.md
+          - Newer than EMR-5.6.0/EMR-3.40.0（Old EMR): upgrade/emr_upgrade_jindosdk.md
+          - Newer than EMR-5.6.0/EMR-3.40.0 With X86（EMR): upgrade/emr2_upgrade_jindosdk.md
+          - Newer than EMR-5.6.0/EMR-3.40.0 With ARM（EMR): upgrade/emr2_upgrade_jindosdk_arm.md

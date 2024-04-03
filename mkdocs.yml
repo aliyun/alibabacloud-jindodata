@@ -1,0 +1,92 @@
+########## MKDOCS 简易使用说明 ##########
+#
+# 环境安装:
+# brew install python3
+# pip3 install mkdocs mike mkdocs-bootswatch
+#
+# 本地预览：
+# 1. mkdocs serve
+# 2. 访问 http://127.0.0.1:8000/ 查看
+#
+# 发布至 Github:
+# 1. mkdocs gh-deploy
+# 2. 访问 https://aliyun.github.io/alibabacloud-jindodata/ 查看
+#
+##########
+
+site_name: AlibabaCloud JindoData
+docs_dir: docs/user/zh
+site_dir: site/zh
+copyright: Copyright &copy; 2024 AlibabaCloud
+
+theme: united
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - toc:
+      permalink: §
+
+plugins:
+  - search
+  - mike:
+      version_selector: true
+      exclude_from_nav: ["images", "js", "css", "fonts", "img"]
+
+nav:
+  - 首页: README.md
+  - Hadoop 生态:
+      - 快速入门: jindosdk/jindosdk_quickstart.md
+      - 安装部署: jindosdk/jindosdk_deployment_hadoop.md
+      - 开发和使用: jindosdk/hadoop/jindosdk_ide_hadoop.md
+      - HadoopShell: oss/usages/oss_hadoop_shell.md
+      - CredentialProvider:
+          - CredentialProvider 快速入门: jindosdk/jindo_credential_provider.md
+          - Bucket 级别配置 CredentialProvider: jindosdk/jindo_credential_provider_bucket.md
+          - CredentialProvider FAQ: jindosdk/jindo_credential_provider_faq.md
+      - Flink: jindosdk/flink/jindosdk_on_flink.md
+      - Flume: jindosdk/flume/jindosdk_on_flume.md
+  - AI 生态:
+      - 安装部署: jindosdk/jindosdk_deployment_ai.md
+      - JindoFuse:
+          - JindoFuse 快速入门: jindofuse/jindofuse_quickstart.md
+          - 用 POSIX 命令访问 OSS: oss/usages/oss_posix.md
+      - PyJindo: jindosdk/python/pyjindo_quickstart.md
+      - Tensorflow: jindosdk/tensorflow/jindosdk_on_tensorflow.md
+      - Fluid JindoRuntime: fluid-jindoruntime/jindo_fluid_overview.md
+  - 工具:
+      - JindoCli:
+          - JindoCli 快速入门: oss/usages/oss_jindo_cli.md
+          - JindoCli 参数: jindotools/jindosdk_cli_options.md
+      - JindoAuth:
+          - JindoAuth 快速入门: jindoauth/jindoauth_emr-next_kerberos.md
+      - JindoDistcp:
+          - JindoDistcp 快速入门: jindotools/jindodistcp_quickstart.md
+          - 开发和使用: jindotools/jindodistcp_api_quickstart.md
+          - 从 HDFS 迁移到 OSS 上: jindotools/jindodistcp_hdfs_to_oss.md
+          - 从 S3 迁移到 OSS 上: jindotools/jindodistcp_s3_to_oss.md
+          - 常见问题: jindotools/jindodistcp_faq.md
+      - JindoTable:
+          - 使用 JindoTable 将 Hive 数据分区归档和分层到OSS: jindotools/jindotable_moveto.md
+  - 下载安装:
+      - JindoSDK 下载: jindosdk/jindosdk_download.md
+      - 安装部署:
+          - Hadoop 环境完整部署: jindosdk/jindosdk_deployment_hadoop.md
+          - Hadoop 环境仅部署 Jar 包: jindosdk/jindosdk_deployment_hadoop.md
+          - AI 场景部署: jindosdk/jindosdk_deployment_ai.md
+          - 多平台部署: jindosdk/jindosdk_deployment_multi_platform.md
+      - 配置方式:
+          - 配置: jindosdk/jindosdk_configuration.md
+      - EMR 集群升级:
+          - EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）: upgrade/emr_upgrade_smartdata.md
+          - EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）: upgrade/emr_upgrade_jindosdk.md
+          - EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）: upgrade/emr2_upgrade_jindosdk.md
+          - EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）: upgrade/emr2_upgrade_jindosdk_arm.md
+  - 常见问题:
+      - OSS/OSS-HDFS:
+          - OSS/OSS-HDFS 介绍: oss/oss_introduction.md
+          - OSS/OSS-HDFS 快速入门: oss/oss_quickstart.md
+          - OSS/OSS-HDFS RAM 配置: oss/oss_ramamd
+      - FAQ: faq.md
+      - 历史版本: releases.md
