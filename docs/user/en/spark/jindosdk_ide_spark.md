@@ -1,10 +1,8 @@
-# Developing and Debugging Hadoop with JindoSDK in IDE
+# Spark 使用 JindoSDK 在 IDE 开发调试 
 
-JindoSDK currently supports mainstream Intel X86-based Linux and macOS environments, but not Windows.
+目前 JindoSDK 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统）
 
-To integrate JindoSDK into your project using Maven, follow these steps:
-
-1. Update your `pom.xml` file to include the necessary dependencies:
+在 maven pom.xml 中添加 JindoSDK 的依赖
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -29,23 +27,23 @@ To integrate JindoSDK into your project using Maven, follow these steps:
     </repositories>
 
     <dependencies>
-        <!-- Add jindo-core -->
+        <!-- add jindo-core -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
 
-        <!-- Add jindo-core extended jars for other platforms -->
+        <!-- add jindo-core-extended-jar if you need support other platform -->
 
-        <!-- Add jindo-hadoop-sdk -->
+        <!-- add jindo-hadoop-sdk -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-sdk</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
 
-        <!-- Add hadoop dependency -->
+        <!-- add hadoop dependency. -->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
@@ -55,40 +53,37 @@ To integrate JindoSDK into your project using Maven, follow these steps:
 </project>
 ```
 
-2. Now you can write Java code that uses JindoSDK. Here's a sample program:
-
+然后您可以编写Java程序使用SDK
 ```java
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FSDataInputStream;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
-
-import java.net.URI;
-
+import org.apache.spark.sql.SparkSession;
 public class TestJindoSDK {
-    public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        conf.set("fs.oss.impl", "com.aliyun.jindodata.oss.JindoOssFileSystem");
-        conf.set("fs.AbstractFileSystem.oss.impl", "com.aliyun.jindodata.oss.OSS");
-        // Set accessKey, secret, endpoint, etc.
-        FileSystem fs = FileSystem.get(URI.create("oss://<bucket>/"), conf);
-        FSDataInputStream in = fs.open(new Path("/uttest/file1"));
-        in.read();
-        in.close();
-    }
+  public static void main(String[] args) throws Exception {
+    SparkSession spark = SparkSession
+        .builder()
+        .config("spark.hadoop.fs.AbstractFileSystem.oss.impl", "com.aliyun.jindodata.oss.OSS")
+        .config("spark.hadoop.fs.oss.impl", "com.aliyun.jindodata.oss.JindoOssFileSystem")
+        .config("spark.hadoop.fs.oss.accessKeyId", "xxx")
+        .config("spark.hadoop.fs.oss.accessKeySecret", "xxx")
+        // set accessKey, secret, endpoint and so on.
+        .appName("TestJindoSDK")
+        .getOrCreate();
+    spark.read().parquet("oss://bucket.endpoint/xxx").count();
+    spark.stop();
+  }
 }
 ```
-Remember to replace `<bucket>` with your actual bucket name.
+<br />
 
-3. If you need support for other platforms, add their respective dependencies accordingly:
+
+其他平台依赖
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!-- ... -->
-
-    <dependencies>
+    <!-- ... --> 
+    
+    <dependencies> 
         <!-- add jindo-core-extended-jar for macos -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
@@ -123,8 +118,9 @@ Remember to replace `<bucket>` with your actual bucket name.
             <version>${jindodata.version}</version>
         </dependency>
 
-    </dependencies>
+        </dependencies>
 </project>
 ```
 
-After adding these dependencies, build your project and run the `TestJindoSDK` class within your IDE to interact with OSS using JindoSDK. Make sure you have valid credentials and endpoint configurations for accessing your OSS bucket.
+
+

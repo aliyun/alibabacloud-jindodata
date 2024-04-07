@@ -56,6 +56,12 @@ nav:
     - CredentialProvider:
       - CredentialProvider Quickstart: jindosdk/jindosdk_credential_provider.md
       - Bucket Level CredentialProvider: jindosdk/jindosdk_credential_provider_bucket.md
+    - Hive: jindosdk/hive/jindosdk_on_hive.md
+    - Spark:
+      - Spark Processing Data on OSS-HDFS: jindosdk/spark/jindosdk_on_spark.md
+      - Spark Development with JindoSDK in IDEs: jindosdk/spark/jindosdk_ide_spark.md
+    - Presto: jindosdk/presto/jindosdk_on_presto.md
+    - Hbase: jindosdk/hbase/jindosdk_on_hbase.md
     - Flink: jindosdk/flink/jindosdk_on_flink.md
     - Flume: jindosdk/flume/jindosdk_on_flume.md
   - AI:

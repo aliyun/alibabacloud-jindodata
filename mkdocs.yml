@@ -56,6 +56,12 @@ nav:
     - CredentialProvider:
       - CredentialProvider 快速入门: jindosdk/jindosdk_credential_provider.md
       - Bucket 级别配置 CredentialProvider: jindosdk/jindosdk_credential_provider_bucket.md
+    - Hive: jindosdk/hive/jindosdk_on_hive.md
+    - Spark:
+      - Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据: jindosdk/spark/jindosdk_on_spark.md
+      - Spark 使用 JindoSDK 在 IDE 开发调试: jindosdk/spark/jindosdk_ide_spark.md
+    - Presto: jindosdk/presto/jindosdk_on_presto.md
+    - Hbase: jindosdk/hbase/jindosdk_on_hbase.md
     - Flink: jindosdk/flink/jindosdk_on_flink.md
     - Flume: jindosdk/flume/jindosdk_on_flume.md
   - AI 生态:
