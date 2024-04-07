@@ -2,7 +2,7 @@
 
 JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件，面向大数据和 AI 生态，为阿里云和业界主要数据湖存储系统提供全方位访问加速解决方案。JindoData 套件基于统一架构和内核实现，主要包括 JindoFS 存储系统（原 JindoFS Block 模式），JindoCache 存储加速系统（原 JindoFS Cache 模式），JindoSDK 大数据万能 SDK 和全面兼容的生态工具（JindoFuse、JindoDistCp）、插件支持。
 
-![JindoData](../image/jindodata-arch.png)
+![JindoData](../../image/jindodata-arch.png)
 
 ## 下载安装 JindoSDK
 

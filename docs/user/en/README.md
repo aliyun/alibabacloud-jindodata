@@ -2,7 +2,7 @@
 
 JindoData is a self-developed data lake acceleration suite by Alibaba Cloud's Big Data team, targeting the big data and AI ecosystems. It provides comprehensive access acceleration solutions for major data lake storage systems on Alibaba Cloud and beyond. The JindoData suite consists of a unified architecture and kernel, including JindoFS (originally JindoFS Block mode), JindoCache storage accelerator (formerly JindoFS Cache mode), JindoSDK – a versatile big data SDK, along with fully-compatible ecosystem tools (such as JindoFuse, JindoDistCp) and plugin support.
 
-![](../image/jindodata-arch.png)
+![JindoData](../../image/jindodata-arch.png)
 
 ## Downloading and Installing JindoSDK
 
