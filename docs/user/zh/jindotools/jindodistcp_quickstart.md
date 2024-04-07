@@ -8,7 +8,7 @@ JindoDistCp 是阿里云数据湖存储团队开发的大规模集群内部和�
 
 *   JDK 1.8及以上
 
-*   Hadoop 2.3+ 版本，请下载最新版的 jindo-distcp-tool-x.x.x.jar，该 jar 包含在 jindosdk-${version}.tar.gz 内，解压缩后可在 tools/ 目录下找到，[下载页面](/docs/user/4.x/jindodata_download.md)。
+*   Hadoop 2.3+ 版本，请下载最新版的 jindo-distcp-tool-x.x.x.jar，该 jar 包含在 jindosdk-${version}.tar.gz 内，解压缩后可在 tools/ 目录下找到，[下载页面](../jindosdk/jindosdk_download.md)。
 
 注：E-MapReduce EMR-5.6.0/EMR-3.40.0 或以上版本集群在集群中已部署 JindoDistCp，可在 /opt/apps/JINDOSDK/jindosdk-current/tools 目录下找到 jindo-distcp-tool-x.x.x.jar。
 

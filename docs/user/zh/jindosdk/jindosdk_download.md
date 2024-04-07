@@ -1,6 +1,6 @@
 # JindoData v6.3.3 下载
 
-在多平台环境安装部署说明，参见 [文档链接](/docs/user/jindosdk/jindosdk_deployment_multi_platform.md)
+在多平台环境安装部署说明，参见 [文档链接](jindosdk_deployment_multi_platform.md)
 
 ## 下载链接
 

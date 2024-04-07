@@ -62,11 +62,10 @@ OSS会对账号级的总访问QPS做默认限制（账号级10,000/s），如果
 
 ### 对频繁访问的内容使用缓存加速
 
-如果您的应用程序需要支持同一地区大量访问同一静态文件的场景，可以使用 JindoData 缓存服务进行加速。JindoData 缓存服务将文件以块的形式分散存储在分布式缓存服务中，从而避免重复从 OSS/OSS-HDFS 反复拉取数据，有效减少访问时延，增加计算资源的利用率。[《OSS/OSS-HDFS 透明缓存加速配置指南》](../../jindodata/jindocache/jindo_cache_oss_hdfs_tutorial.md)
+如果您的应用程序需要支持同一地区大量访问同一静态文件的场景，可以使用 JindoCache 缓存服务进行加速。JindoCache 缓存服务将文件以块的形式分散存储在分布式缓存服务中，从而避免重复从 OSS/OSS-HDFS 反复拉取数据，有效减少访问时延，增加计算资源的利用率。
 
 ### 使用最新版本 JindoSDK
 
 最新版本的 JindoSDK 提供了优化的自适应配置和预读算法，并定期更新以遵循新的最佳实践。例如，处理不同网络错误的重试，自适应的并发控制等。
 
-* [4.x版本下载链接](../../../4.x/jindodata_download.md)
-* [5.x版本下载链接](../../jindodata/jindodata_download.md)
+* [下载链接](../../jindosdk/jindosdk_download.md)

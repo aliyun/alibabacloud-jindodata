@@ -10,7 +10,7 @@ HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶
 
     *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
 
-*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《在 Hadoop 环境中部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_hadoop.md)。
+*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《在 Hadoop 环境中部署 JindoSDK》](../jindosdk/jindosdk_deployment_hadoop.md)。
 
     *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
 

@@ -4,7 +4,7 @@
 
 1.  下载 JindoSDK JAR 包。
     
-执行以下命令，下载6.3.3版本JindoSDK JAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_multi_platform.md)
+执行以下命令，下载6.3.3版本JindoSDK JAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](jindosdk_deployment_multi_platform.md)
         
 ```bash
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.3.3/jindo-sdk-6.3.3.jar
