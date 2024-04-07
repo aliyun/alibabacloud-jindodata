@@ -1,16 +1,16 @@
-# 使用 pyjindo 访问阿里云 OSS-HDFS
+# 使用 PyJindo 访问阿里云 OSS-HDFS
 
 ## 背景
 
-本文指导如何使用 Python 的工具包 pyjindo 操作 OSS-HDFS。pyjindo 兼容 python3.6 以上版本。
+本文指导如何使用 Python 的工具包 PyJindo 操作 OSS-HDFS。PyJindo 兼容 python3.6 以上版本。
 
 ## 部署环境
 
-### 下载对应 Python 版本的 pyjindo 安装包
+### 下载对应 Python 版本的 PyJindo 安装包
 
 1.  下载最新的 tar.gz 包 jindosdk-x.y.z.tar.gz（x.y.z表版本号），下载链接见 [下载页面](../jindosdk_download.md)。
     
-2.  部署 jindosdk-6.3.3.tar.gz，whl安装包位于完整产出物 \`jindosdk-x.x.x/lib/site-packages/\` 的子目录中。多平台部署说明参见 [部署文档](../jindosdk_deployment_multi_platform.md)。
+2.  部署 jindosdk-6.3.3.tar.gz，whl安装包位于完整产出物 `jindosdk-x.x.x/lib/site-packages/` 的子目录中。多平台部署说明参见 [部署文档](../jindosdk_deployment_multi_platform.md)。
 
 3.  以`Python3.6`版本为例，请安装pyjindo-x.y.z-cp`36`-abi3-linux_x86_64.whl
     
@@ -53,7 +53,7 @@ export HADOOP_CONF_DIR=/etc/taihao-apps/hadoop-conf
     
 2.  非EMR中配置方式参见：[《在非EMR集群中部署JindoSDK》](https://help.aliyun.com/zh/emr/emr-on-ecs/user-guide/deploy-jindosdk-in-an-environment-other-than-emr)。其中，Hadoop配置文件及HADOOP\_CONF\_DIR不是必须，仅为兼容HADOOP环境中的配置。
 
-### 安装 pyjindo
+### 安装 PyJindo
 
 以 Python3.8 环境安装最新版本的 pyjindo-6.3.3 为例
 
@@ -167,19 +167,19 @@ logger.cleaner.enable = true
 
 ### FileInfo 类
 
-|  成员属性  |  返回值类型  |  描述  |
-| --- | --- | --- |
-|  type  |  FileType  |  文件类型  |
-|  is\_file  |  bool  |  是否为文件  |
-|  is\_dir  |  bool  |  是否为目录  |
-|  is\_symlink  |  bool  |  是否为软链  |
-|  path  |  bool  |  路径  |
-|  user  |  str  |  用户  |
-|  group  |  str  |  用户组  |
-|  size  |  int  |  文件大小  |
-|  perm  |  int  |  文件权限  |
-|  atime  |  datetime  |  文件最后访问时间  |
-|  mtime  |  datetime  |  文件最后修改时间  |
+|  成员属性  | 返回值类型    |  描述  |
+| --- |----------| --- |
+|  type  | FileType |  文件类型  |
+|  is\_file  | bool     |  是否为文件  |
+|  is\_dir  | bool     |  是否为目录  |
+|  is\_symlink  | bool     |  是否为软链  |
+|  path  | str      |  路径  |
+|  user  | str      |  用户  |
+|  group  | str      |  用户组  |
+|  size  | int      |  文件大小  |
+|  perm  | int      |  文件权限  |
+|  atime  | datetime |  文件最后访问时间  |
+|  mtime  | datetime |  文件最后修改时间  |
 
 ### FileStream 类
 

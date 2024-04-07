@@ -102,7 +102,7 @@ Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重�
 
 下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
 
-以将新版集群中的 JindoSDK 升级到 6.3.3 版本，linux x86平台为例:
+以将新版集群中的 JindoSDK 升级到 6.3.3 版本，linux aarch64平台为例:
 
 ```bash
 mkdir jindo-patch
@@ -204,7 +204,7 @@ Found 2 items
 
 下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh),
 
-以将新版集群中的 JindoSDK 升级到 6.3.3 版本，linux x86平台为例:
+以将新版集群中的 JindoSDK 升级到 6.3.3 版本，linux aarch64平台为例:
 
 ```bash
 mkdir jindo-patch

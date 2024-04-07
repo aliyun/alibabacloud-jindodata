@@ -40,7 +40,7 @@ nav:
     - OSS/OSS-HDFS 介绍: oss/oss_introduction.md
     - OSS/OSS-HDFS 快速入门: oss/oss_quickstart.md
     - OSS/OSS-HDFS RAM 配置: oss/oss_ram_policy.md
-    - OSS-HDFS:
+    - OSS-HDFS 功能介绍:
       - OSS-HDFS 回收站: oss/dls_trash_quickstart.md
       - OSS-HDFS 镜像: oss/dls_snapshot_quickstart.md
       - OSS-HDFS 路径改写: oss/dls_root_policy.md
@@ -65,7 +65,6 @@ nav:
       - 用 POSIX 命令访问 OSS/OSS-HDFS: oss/usages/oss_posix.md
     - Python: jindosdk/python/pyjindo_quickstart.md
     - Tensorflow: jindosdk/tensorflow/jindosdk_on_tensorflow.md
-    - Fluid JindoRuntime: fluid-jindoruntime/jindo_fluid_overview.md
   - Jindo 工具:
     - JindoCli:
       - JindoCli 快速入门: oss/usages/oss_jindo_cli.md
@@ -74,7 +73,7 @@ nav:
       - JindoAuth 快速入门: jindoauth/jindoauth_emr-next_kerberos.md
     - JindoDistcp:
       - JindoDistcp 快速入门: jindotools/jindodistcp_quickstart.md
-      - 开发和使用: jindotools/jindodistcp_api_quickstart.md
+      - 使用 JindoDistcp API 开发: jindotools/jindodistcp_api_quickstart.md
       - 从 HDFS 迁移到 OSS 上: jindotools/jindodistcp_hdfs_to_oss.md
       - 从 S3 迁移到 OSS 上: jindotools/jindodistcp_s3_to_oss.md
       - 常见问题: jindotools/jindodistcp_faq.md

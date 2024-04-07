@@ -37,27 +37,60 @@ plugins:
 
 nav:
   - Home: README.md
+  - Overview:
+    - OSS/OSS-HDFS Overview: oss/oss_introduction.md
+    - OSS/OSS-HDFS Quickstart: oss/oss_quickstart.md
+    - OSS/OSS-HDFS RAM: oss/oss_ram_policy.md
+    - OSS-HDFS Features:
+      - OSS-HDFS Trash: oss/dls_trash_quickstart.md
+      - OSS-HDFS Snapshot: oss/dls_snapshot_quickstart.md
+      - OSS-HDFS RootPolicy: oss/dls_root_policy.md
+      - OSS-HDFS Protected Directories: oss/dls_protected_directories.md
+      - OSS-HDFS Inventory: oss/dls_dump_inventory_howto.md
+      - OSS-HDFS Checksum: oss/dls_checksum.md
+      - OSS-HDFS Access Time: oss/dls_atime.md
   - Hadoop:
-      - QuickStart: jindosdk/jindosdk_quickstart.md
-      - Development: jindosdk/hadoop/jindosdk_ide_hadoop.md
-      - Flink: jindosdk/flink/jindosdk_on_flink.md
-      - Flume: jindosdk/flume/jindosdk_on_flume.md
-  - AI :
-      - JindoFuse: jindofuse/jindofuse_quickstart.md
-      - PyJindo: jindosdk/python/pyjindo_quickstart.md
-      - Tensorflow: jindosdk/tensorflow/jindosdk_on_tensorflow.md
-  - Tools:
-      - JindoDistcp:
-          - QuickStart: jindotools/jindodistcp_quickstart.md
-          - HDFS To OSS: jindotools/jindodistcp_hdfs_to_oss.md
-          - S3 To OSS: jindotools/jindodistcp_s3_to_oss.md
-          - FAQ: jindotools/jindodistcp_faq.md
-      - JindoTable:
-          - Hive To OSS: jindotools/jindotable_moveto.md
-  - Download:
-      - JindoSDK: jindosdk/jindosdk_download.md
-      - AliyunEMR:
-          - Older than EMR-5.5.0/EMR-3.39.0（Old EMR）: upgrade/emr_upgrade_smartdata.md
-          - Newer than EMR-5.6.0/EMR-3.40.0（Old EMR): upgrade/emr_upgrade_jindosdk.md
-          - Newer than EMR-5.6.0/EMR-3.40.0 With X86（EMR): upgrade/emr2_upgrade_jindosdk.md
-          - Newer than EMR-5.6.0/EMR-3.40.0 With ARM（EMR): upgrade/emr2_upgrade_jindosdk_arm.md
+    - Quickstart: jindosdk/jindosdk_quickstart.md
+    - Development: jindosdk/hadoop/jindosdk_ide_hadoop.md
+    - HadoopShell: oss/usages/oss_hadoop_shell.md
+    - CredentialProvider:
+      - CredentialProvider Quickstart: jindosdk/jindosdk_credential_provider.md
+      - Bucket Level CredentialProvider: jindosdk/jindosdk_credential_provider_bucket.md
+    - Flink: jindosdk/flink/jindosdk_on_flink.md
+    - Flume: jindosdk/flume/jindosdk_on_flume.md
+  - AI:
+    - QuickStart: jindosdk/jindosdk_deployment_ai.md
+    - Fuse:
+      - JindoFuse Quickstart: jindofuse/jindofuse_quickstart.md
+      - POSIX on OSS/OSS-HDFS: oss/usages/oss_posix.md
+    - Python: jindosdk/python/pyjindo_quickstart.md
+    - Tensorflow: jindosdk/tensorflow/jindosdk_on_tensorflow.md
+  - JindoTools:
+    - JindoCli:
+      - JindoCli Quickstart: oss/usages/oss_jindo_cli.md
+      - JindoCli Options: jindosdk/jindosdk_cli_options.md
+    - JindoAuth:
+      - JindoAuth Quickstart: jindoauth/jindoauth_emr-next_kerberos.md
+    - JindoDistcp:
+      - QuickStart: jindotools/jindodistcp_quickstart.md
+      - JindoDistcp API: jindotools/jindodistcp_api_quickstart.md
+      - HDFS To OSS: jindotools/jindodistcp_hdfs_to_oss.md
+      - S3 To OSS: jindotools/jindodistcp_s3_to_oss.md
+      - FAQ: jindotools/jindodistcp_faq.md
+    - JindoTable:
+      - Hive To OSS: jindotools/jindotable_moveto.md
+  - Installation:
+    - JindoSDK Download: jindosdk/jindosdk_download.md
+    - JindoSDK Deployment:
+      - Hadoop: jindosdk/jindosdk_deployment_hadoop.md
+      - Hadoop Jar: jindosdk/jindosdk_deployment_hadoop.md
+      - AI: jindosdk/jindosdk_deployment_ai.md
+      - Multi-Platform: jindosdk/jindosdk_deployment_multi_platform.md
+    - AliyunEMR:
+      - Older than EMR-5.5.0/EMR-3.39.0（Old EMR）: upgrade/emr_upgrade_smartdata.md
+      - Newer than EMR-5.6.0/EMR-3.40.0（Old EMR): upgrade/emr_upgrade_jindosdk.md
+      - Newer than EMR-5.6.0/EMR-3.40.0 With X86（EMR): upgrade/emr2_upgrade_jindosdk.md
+      - Newer than EMR-5.6.0/EMR-3.40.0 With ARM（EMR): upgrade/emr2_upgrade_jindosdk_arm.md
+  - FAQ:
+    - FAQ: faq.md
+    - ReleaseNote: releases.md

@@ -1,52 +1,71 @@
-# JindoData 使用文档
+# JindoData User Guide
 
-JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件，面向大数据和 AI 生态，为阿里云和业界主要数据湖存储系统提供全方位访问加速解决方案。JindoData 套件基于统一架构和内核实现，主要包括 JindoFS 存储系统（原 JindoFS Block 模式），JindoCache 存储加速系统（原 JindoFS Cache 模式），JindoSDK 大数据万能 SDK 和全面兼容的生态工具（JindoFuse、JindoDistCp）、插件支持。
+JindoData is a self-developed data lake acceleration suite by Alibaba Cloud's Big Data team, targeting the big data and AI ecosystems. It provides comprehensive access acceleration solutions for major data lake storage systems on Alibaba Cloud and beyond. The JindoData suite consists of a unified architecture and kernel, including JindoFS (originally JindoFS Block mode), JindoCache storage accelerator (formerly JindoFS Cache mode), JindoSDK – a versatile big data SDK, along with fully-compatible ecosystem tools (such as JindoFuse, JindoDistCp) and plugin support.
 
-![JindoData](../image/jindodata-arch.png)
+![](../image/jindodata-arch.png)
 
-## 下载安装 JindoSDK
+## Downloading and Installing JindoSDK
 
-JindoSDK 是访问 JindoData 组件的标准客户端，请参考 [JindoSDK 下载](jindosdk/jindosdk_download.md) 和
-[JindoSDK 快速入门](jindosdk/jindosdk_quickstart.md) 进行安装和验证。
+JindoSDK serves as the standard client for accessing JindoData components. To install and verify it, refer to [JindoSDK Download](jindosdk/jindosdk_download.md) and [JindoSDK Quick Start](jindosdk/jindosdk_quickstart.md). For multi-platform support, consult [JindoSDK Multi-Version Support](jindosdk/jindosdk_deployment_multi_platform.md).
 
-关于多版本支持，请参考[JindoSDK 多版本支持](jindosdk/jindosdk_deployment_multi_platform.md)。
+## Upgrading JindoSDK
 
-## 升级 JindoSDK
+As an actively updated client providing continuous updates with new features and performance improvements for Alibaba Cloud EMR data lakes, we recommend users stay up-to-date with the latest JindoSDK version for ongoing support and optimal experience. A convenient script is available to assist in upgrading JindoSDK across your cluster; please refer to the [JindoSDK Upgrade Documentation](upgrade/emr2_upgrade_jindosdk.md).
 
-JindoSDK 是活跃更新的客户端，持续为用户带来阿里云EMR数据湖的最新功能和最佳性能。
-因此我们推荐客户使用新版 JindoSDK，以获取持续支持和更好的使用体验。
-我们提供了便捷的脚本帮助用户升级集群里的 JindoSDK，请参考 [JindoSDK升级文档](upgrade/emr2_upgrade_jindosdk.md)。
+## Usage Scenarios
 
-## 分场景使用说明
+### Using JindoSDK in Hadoop Ecosystem
 
-[在 Hadoop 生态使用JindoSDK](jindosdk/jindosdk_deployment_hadoop.md)
+See [Using JindoSDK in Hadoop Ecosystem](jindosdk/jindosdk_deployment_hadoop.md)
 
-[在 AI 生态使用JindoSDK](jindosdk/jindosdk_deployment_ai.md)
+### Using JindoSDK in AI Ecosystem
 
-[Jindo Python SDK 使用](jindosdk/python/pyjindo_quickstart.md)
+See [Using JindoSDK in AI Ecosystem](jindosdk/jindosdk_deployment_ai.md)
 
-[Jindo TensorFlow Connector 使用](jindosdk/tensorflow/jindosdk_on_tensorflow.md)
+### Using Jindo Python SDK
 
-[JindoFuse 使用](jindofuse/jindofuse_quickstart.md)
+See [Jindo Python SDK Quick Start](jindosdk/python/pyjindo_quickstart.md)
 
-[Jindo Flink Sink 使用](jindosdk/flink/jindosdk_on_flink.md)
+### Using Jindo TensorFlow Connector
 
-[在 Fluid 中使用 JindoRuntime](fluid-jindoruntime/jindo_fluid_overview.md)
+See [Using JindoTensorFlowConnector](jindosdk/tensorflow/jindosdk_on_tensorflow.md)
 
-[JindoData 鉴权方案](jindoauth/jindoauth_emr-next_kerberos.md)
+### Using JindoFuse
 
-[数据拷贝工具 JindoDistCp](jindotools/jindodistcp_quickstart.md)
+See [JindoFuse Quick Start](jindofuse/jindofuse_quickstart.md)
 
-[数仓迁移工具 JindoTable MoveTo](jindotools/jindotable_moveto.md)
+### Using Jindo Flink Sink
 
-[数仓分层存储管理工具 JindoTable SetStorage](jindotools/jindotable_set_storage_class.md)
+See [Using Jindo Flink Sink](jindosdk/flink/jindosdk_on_flink.md)
 
-[OSS-HDFS服务（JindoFS）客户端工具](jindofs/jindofs_client_tools.md)
+### Using JindoRuntime with Fluid
 
-## 常见问题
+See [Overview of Using JindoRuntime with Fluid](fluid-jindoruntime/jindo_fluid_overview.md)
 
-请参见[JindoData 常见问题](faq.md)
+### Authentication Solutions for JindoData
 
-## 历史版本
+See [Authentication in JindoData](jindoauth/jindoauth_emr-next_kerberos.md)
 
-请参见[JindoSDK 版本记录](releases.md)。
+### Data Copy Tools - JindoDistCp
+
+See [Quick Start for JindoDistCp](jindotools/jindodistcp_quickstart.md)
+
+### Warehouse Migration Tool - JindoTable MoveTo
+
+See [Using JindoTable MoveTo](jindotools/jindotable_moveto.md)
+
+### Warehouse Tier Management Tool - JindoTable SetStorage
+
+See [Using JindoTable SetStorage Class](jindotools/jindotable_set_storage_class.md)
+
+### OSS-HDFS Service (JindoFS) Client Tools
+
+See [OSS-HDFS Service (JindoFS) Client Tools Overview](jindofs/jindofs_client_tools.md)
+
+## FAQs
+
+Refer to the [JindoData FAQs](faq.md)
+
+## Release History
+
+Check out the [JindoSDK Release Notes](releases.md) for version information.

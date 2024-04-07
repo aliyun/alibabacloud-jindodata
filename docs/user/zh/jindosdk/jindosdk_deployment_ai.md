@@ -1,6 +1,6 @@
 # AI 场景部署 JindoSDK
 
-在使用 JindoFuse，Jindo CLI 等非 Hadoop 生态组件时，会访问环境变量`JINDOSDK_CONF_DIR`所在的目录读取配置文件。
+在使用 JindoFuse，Jindo CLI，PyJindo 等非 Hadoop 生态组件时，会访问环境变量`JINDOSDK_CONF_DIR`所在的目录读取配置文件。
 
 ## 部署 JindoSDK
 

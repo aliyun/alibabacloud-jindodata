@@ -227,7 +227,7 @@ Found 2 items
 * 如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
 
-## 场景四：新建集群
+## 场景三：新建集群
 
 新建EMR集群时在EMR控制台添加引导操作。具体操作步骤如下：
 

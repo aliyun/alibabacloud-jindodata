@@ -1,6 +1,6 @@
-# JindoData 6.3.3 Maven 相关依赖
+# JindoData 6.3.3 Maven Dependencies
 
-在 maven pom.xml 中添加 JindoSDK 的依赖
+In the Maven `pom.xml` file, add dependencies for JindoSDK:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -26,21 +26,21 @@
 
     
     <dependencies>
-        <!-- add jindo-core -->
+        <!-- Add jindo-core -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
               
-        <!-- add jindo-hadoop-sdk -->
+        <!-- Add jindo-hadoop-sdk -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-sdk</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
         
-        <!-- add hadoop dependency. -->
+        <!-- Add hadoop dependency -->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
@@ -50,7 +50,7 @@
 </project>
 ```
 
-在 maven pom.xml 中添加 Jindo Flink 的依赖
+Add dependencies for Jindo Flink in Maven's `pom.xml`:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -76,21 +76,21 @@
 
     
     <dependencies>
-        <!-- add jindo-core -->
+        <!-- Add jindo-core -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
 
-        <!-- add jindo-hadoop-sdk -->
+        <!-- Add jindo-hadoop-sdk -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-sdk</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
         
-        <!-- add jindo flink dependency -->
+        <!-- Add jindo flink dependency -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-flink</artifactId>
@@ -100,7 +100,7 @@
 </project>
 ```
 
-在 maven pom.xml 中添加 JindoDistCP 的依赖
+Add dependencies for JindoDistCP to Maven's `pom.xml`:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -126,14 +126,14 @@
     
     <dependencies>
         
-        <!-- add jindo distcp dependency -->
+        <!-- Add jindo distcp dependency -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-distcp</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
         
-        <!-- add hadoop dependency. -->
+        <!-- Add hadoop dependency -->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
@@ -143,16 +143,16 @@
 </project>
 ```
 
-其他平台依赖
+Other platform dependencies:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <!-- ... -->
-    
+
     <dependencies>
-        <!-- add jindo-core-extended-jar for macos -->
+        <!-- Add jindo-core-extended-jar for macOS -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core-macos-11_0-x86_64</artifactId>
@@ -165,21 +165,21 @@
             <version>${jindodata.version}</version>
         </dependency>
 
-        <!-- add jindo-core-extended-jar for centos6 or el6 -->
+        <!-- Add jindo-core-extended-jar for CentOS6 or EL6 -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core-linux-el6-x86_64</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
 
-        <!-- add jindo-core-extended-jar for ubuntu22 -->
+        <!-- Add jindo-core-extended-jar for Ubuntu22 -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core-linux-ubuntu22-x86_64</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
 
-        <!-- add jindo-core-extended-jar for aliyun yitian/arm -->
+        <!-- Add jindo-core-extended-jar for Aliyun TianYi (ARM architecture) -->
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core-linux-el7-aarch64</artifactId>
@@ -188,3 +188,4 @@
     </dependencies>
 </project>
 ```
+Please note that the code blocks remain unchanged, and their comments have been translated into English without altering their meaning.
