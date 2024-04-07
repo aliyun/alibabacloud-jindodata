@@ -36,64 +36,64 @@ plugins:
 
 nav:
   - 首页: README.md
+  - 简介:
+    - OSS/OSS-HDFS 介绍: oss/oss_introduction.md
+    - OSS/OSS-HDFS 快速入门: oss/oss_quickstart.md
+    - OSS/OSS-HDFS RAM 配置: oss/oss_ram_policy.md
+    - OSS-HDFS:
+      - OSS-HDFS 回收站: oss/dls_trash_quickstart.md
+      - OSS-HDFS 镜像: oss/dls_snapshot_quickstart.md
+      - OSS-HDFS 路径改写: oss/dls_root_policy.md
+      - OSS-HDFS 受保护路径: oss/dls_protected_directories.md
+      - OSS-HDFS 清单: oss/dls_dump_inventory_howto.md
+      - OSS-HDFS 文件校验: oss/dls_checksum.md
+      - OSS-HDFS 文件访问时间戳: oss/dls_atime.md
   - Hadoop 生态:
-      - 快速入门: jindosdk/jindosdk_quickstart.md
-      - 安装部署: jindosdk/jindosdk_deployment_hadoop.md
-      - 开发和使用: jindosdk/hadoop/jindosdk_ide_hadoop.md
-      - HadoopShell: oss/usages/oss_hadoop_shell.md
-      - CredentialProvider:
-          - CredentialProvider 快速入门: jindosdk/jindosdk_credential_provider.md
-          - Bucket 级别配置 CredentialProvider: jindosdk/jindosdk_credential_provider_bucket.md
-      - Flink: jindosdk/flink/jindosdk_on_flink.md
-      - Flume: jindosdk/flume/jindosdk_on_flume.md
+    - 快速入门: jindosdk/jindosdk_quickstart.md
+    - 安装部署: jindosdk/jindosdk_deployment_hadoop.md
+    - 开发和使用: jindosdk/hadoop/jindosdk_ide_hadoop.md
+    - HadoopShell: oss/usages/oss_hadoop_shell.md
+    - CredentialProvider:
+      - CredentialProvider 快速入门: jindosdk/jindosdk_credential_provider.md
+      - Bucket 级别配置 CredentialProvider: jindosdk/jindosdk_credential_provider_bucket.md
+    - Flink: jindosdk/flink/jindosdk_on_flink.md
+    - Flume: jindosdk/flume/jindosdk_on_flume.md
   - AI 生态:
-      - 安装部署: jindosdk/jindosdk_deployment_ai.md
-      - JindoFuse:
-          - JindoFuse 快速入门: jindofuse/jindofuse_quickstart.md
-          - 用 POSIX 命令访问 OSS: oss/usages/oss_posix.md
-      - PyJindo: jindosdk/python/pyjindo_quickstart.md
-      - Tensorflow: jindosdk/tensorflow/jindosdk_on_tensorflow.md
-      - Fluid JindoRuntime: fluid-jindoruntime/jindo_fluid_overview.md
-  - 工具:
-      - JindoCli:
-          - JindoCli 快速入门: oss/usages/oss_jindo_cli.md
-          - JindoCli 参数: jindosdk/jindosdk_cli_options.md
-      - JindoAuth:
-          - JindoAuth 快速入门: jindoauth/jindoauth_emr-next_kerberos.md
-      - JindoDistcp:
-          - JindoDistcp 快速入门: jindotools/jindodistcp_quickstart.md
-          - 开发和使用: jindotools/jindodistcp_api_quickstart.md
-          - 从 HDFS 迁移到 OSS 上: jindotools/jindodistcp_hdfs_to_oss.md
-          - 从 S3 迁移到 OSS 上: jindotools/jindodistcp_s3_to_oss.md
-          - 常见问题: jindotools/jindodistcp_faq.md
-      - JindoTable:
-          - 使用 JindoTable 将 Hive 数据分区归档和分层到OSS: jindotools/jindotable_moveto.md
+    - 安装部署: jindosdk/jindosdk_deployment_ai.md
+    - Fuse:
+      - JindoFuse 快速入门: jindofuse/jindofuse_quickstart.md
+      - 用 POSIX 命令访问 OSS/OSS-HDFS: oss/usages/oss_posix.md
+    - Python: jindosdk/python/pyjindo_quickstart.md
+    - Tensorflow: jindosdk/tensorflow/jindosdk_on_tensorflow.md
+    - Fluid JindoRuntime: fluid-jindoruntime/jindo_fluid_overview.md
+  - Jindo 工具:
+    - JindoCli:
+      - JindoCli 快速入门: oss/usages/oss_jindo_cli.md
+      - JindoCli 参数: jindosdk/jindosdk_cli_options.md
+    - JindoAuth:
+      - JindoAuth 快速入门: jindoauth/jindoauth_emr-next_kerberos.md
+    - JindoDistcp:
+      - JindoDistcp 快速入门: jindotools/jindodistcp_quickstart.md
+      - 开发和使用: jindotools/jindodistcp_api_quickstart.md
+      - 从 HDFS 迁移到 OSS 上: jindotools/jindodistcp_hdfs_to_oss.md
+      - 从 S3 迁移到 OSS 上: jindotools/jindodistcp_s3_to_oss.md
+      - 常见问题: jindotools/jindodistcp_faq.md
+    - JindoTable:
+      - 使用 JindoTable 将 Hive 数据分区归档和分层到OSS: jindotools/jindotable_moveto.md
   - 下载安装:
-      - JindoSDK 下载: jindosdk/jindosdk_download.md
-      - 安装部署:
-          - Hadoop 环境完整部署: jindosdk/jindosdk_deployment_hadoop.md
-          - Hadoop 环境仅部署 Jar 包: jindosdk/jindosdk_deployment_hadoop.md
-          - AI 场景部署: jindosdk/jindosdk_deployment_ai.md
-          - 多平台部署: jindosdk/jindosdk_deployment_multi_platform.md
-      - 配置方式:
-          - 配置: jindosdk/jindosdk_configuration.md
-      - EMR 集群升级:
-          - EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）: upgrade/emr_upgrade_smartdata.md
-          - EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）: upgrade/emr_upgrade_jindosdk.md
-          - EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）: upgrade/emr2_upgrade_jindosdk.md
-          - EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）: upgrade/emr2_upgrade_jindosdk_arm.md
-  - 常见问题:
-      - OSS/OSS-HDFS:
-          - OSS/OSS-HDFS 介绍: oss/oss_introduction.md
-          - OSS/OSS-HDFS 快速入门: oss/oss_quickstart.md
-          - OSS/OSS-HDFS RAM 配置: oss/oss_ram_policy.md
-          - OSS-HDFS:
-              - OSS-HDFS 回收站: oss/dls_trash_quickstart.md
-              - OSS-HDFS 镜像: oss/dls_snapshot_quickstart.md
-              - OSS-HDFS 路径改写: oss/dls_root_policy.md
-              - OSS-HDFS 受保护路径: oss/dls_protected_directories.md
-              - OSS-HDFS 清单: oss/dls_dump_inventory_howto.md
-              - OSS-HDFS 文件校验: oss/dls_checksum.md
-              - OSS-HDFS 文件访问时间戳: oss/dls_atime.md
-      - FAQ: faq.md
-      - 历史版本: releases.md
+    - JindoSDK 下载: jindosdk/jindosdk_download.md
+    - 安装部署:
+      - Hadoop 环境完整部署: jindosdk/jindosdk_deployment_hadoop.md
+      - Hadoop 环境仅部署 Jar 包: jindosdk/jindosdk_deployment_hadoop.md
+      - AI 场景部署: jindosdk/jindosdk_deployment_ai.md
+      - 多平台部署: jindosdk/jindosdk_deployment_multi_platform.md
+    - 配置方式:
+      - 配置: jindosdk/jindosdk_configuration.md
+    - EMR 集群升级:
+      - EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）: upgrade/emr_upgrade_smartdata.md
+      - EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）: upgrade/emr_upgrade_jindosdk.md
+      - EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）: upgrade/emr2_upgrade_jindosdk.md
+      - EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）: upgrade/emr2_upgrade_jindosdk_arm.md
+  - FAQ:
+    - 常见问题: faq.md
+    - 历史版本: releases.md
