@@ -1,293 +1,293 @@
-# Use Shell commands in Alibaba Cloud OSS-HDFS (JindoFS)
+# Use Shell commands in Alibaba Cloud OSS-HDFS (JindoFS)
 
-(This topic applies to JindoSDK 4.5.0 and later.)
+(This topic applies to JindoSDK 4.5.0 and later.)
 
-Use commands that are relevant to Hadoop proxy users
+Use commands that are relevant to Hadoop proxy users
 
 AddProxyUser
 
-Adds a proxy user. 
+Adds a proxy user. 
 
-jindo admin -addProxyUser
+jindo admin -addProxyUser
 
-\[-dlsUri <uri\>\]
+\[-dlsUri <uri\>\]
 
-\[-proxyUser <proxyUser\>\]
+\[-proxyUser <proxyUser\>\]
 
-\[-users <user1,user2...\>\]|\[-groups <group1,group2...\>\]
+\[-users <user1,user2...\>\]|\[-groups <group1,group2...\>\]
 
-\[-hosts <host1,host2...\>\]
+\[-hosts <host1,host2...\>\]
 
-In a command, you can configure either the users or groups parameter. Example:
+In a command, you can configure either the users or groups parameter. Example:
 
-jindo admin -addProxyUser
+jindo admin -addProxyUser
 
-\-dlsUri oss://jindosdk-dls-unit-test/
+\-dlsUri oss://jindosdk-dls-unit-test/
 
-\-proxyUser hive
+\-proxyUser hive
 
-\-groups group1,group2
+\-groups group1,group2
 
-\-hosts host1,host2
+\-hosts host1,host2
 
-You can run the preceding command to specify the user hive as a proxy user for all users who belong to group1 or group2 and send requests from host1 or host2. 
+You can run the preceding command to specify the user hive as a proxy user for all users who belong to group1 or group2 and send requests from host1 or host2. 
 
 DeleteProxyUser
 
-Deletes a proxy user. 
+Deletes a proxy user. 
 
-jindo admin -deleteProxyUser
+jindo admin -deleteProxyUser
 
-\[-dlsUri <uri\>\]
+\[-dlsUri <uri\>\]
 
-\[-proxyUser <proxyUser\>\]
+\[-proxyUser <proxyUser\>\]
 
 Example:
 
-jindo admin -deleteProxyUser
+jindo admin -deleteProxyUser
 
-\-dlsUri oss://jindosdk-dls-unit-test/
+\-dlsUri oss://jindosdk-dls-unit-test/
 
-\-proxyUser hive
+\-proxyUser hive
 
-You can run the preceding command to delete a proxy user named hive. This way, hive cannot be used as a proxy user for any users. 
+You can run the preceding command to delete a proxy user named hive. This way, hive cannot be used as a proxy user for any users. 
 
 ListProxyUsers
 
-Queries all proxy users and proxy information. 
+Queries all proxy users and proxy information. 
 
-jindo admin -listProxyUsers
+jindo admin -listProxyUsers
 
-\[-dlsUri <uri\>\]
+\[-dlsUri <uri\>\]
 
-\[-maxKeys <maxKeys\>\]
+\[-maxKeys <maxKeys\>\]
 
-\[-marker <marker\>\]
+\[-marker <marker\>\]
 
-The -maxKeys option specifies the number of proxy users that you want to query. The -marker option filters proxy users whose names contain a specific string. The -maxKeys and-marker options are optional. Example:
+The -maxKeys option specifies the number of proxy users that you want to query. The -marker option filters proxy users whose names contain a specific string. The -maxKeys and-marker options are optional. Example:
 
-jindo admin -listProxyUsers
+jindo admin -listProxyUsers
 
-\-dlsUri oss://jindosdk-dls-unit-test/
+\-dlsUri oss://jindosdk-dls-unit-test/
 
-\-maxKeys 10
+\-maxKeys 10
 
-\-marker hive
+\-marker hive
 
-You can run the preceding command to query information about 10 proxy users whose names contain the hive string in the oss://jindosdk-dls-unit-test/ path. 
+You can run the preceding command to query information about 10 proxy users whose names contain the hive string in the oss://jindosdk-dls-unit-test/ path. 
 
-Use commands that are relevant to user group mappings
+Use commands that are relevant to user group mappings
 
 AddUserGroupsMapping
 
-Maps a user to user groups. 
+Maps a user to user groups. 
 
-jindo admin -addUserGroupsMapping
+jindo admin -addUserGroupsMapping
 
-\[-dlsUri <uri\>\]
+\[-dlsUri <uri\>\]
 
-\[-user <user\>\]
+\[-user <user\>\]
 
-\[-groups <group1,group2...\>\]
+\[-groups <group1,group2...\>\]
 
 Example:
 
-jindo admin -addUserGroupsMapping
+jindo admin -addUserGroupsMapping
 
-\-dlsUri oss://jindosdk-dls-unit-test/
+\-dlsUri oss://jindosdk-dls-unit-test/
 
-\-user user1
+\-user user1
 
-\-groups group1,group2
+\-groups group1,group2
 
-You can run the preceding command to map user1 to group1 and group2. 
+You can run the preceding command to map user1 to group1 and group2. 
 
 DeleteUserGroupsMapping
 
-Unmaps a user from user groups. 
+Unmaps a user from user groups. 
 
-jindo admin -deleteUserGroupsMapping
+jindo admin -deleteUserGroupsMapping
 
-\[-dlsUri <uri\>\]
+\[-dlsUri <uri\>\]
 
-\[-user <user\>\]
+\[-user <user\>\]
 
 Example:
 
-jindo admin -deleteUserGroupsMapping
+jindo admin -deleteUserGroupsMapping
 
-\-dlsUri oss://jindosdk-dls-unit-test/
+\-dlsUri oss://jindosdk-dls-unit-test/
 
-\-user user1
+\-user user1
 
-You can run the preceding command to unmap user1 from user groups. 
+You can run the preceding command to unmap user1 from user groups. 
 
 ListUserGroupsMappings
 
-Queries information about all user groups. 
+Queries information about all user groups. 
 
-jindo admin -listUserGroupsMappings
+jindo admin -listUserGroupsMappings
 
-\[-dlsUri <dlsUri\>\]
+\[-dlsUri <dlsUri\>\]
 
-\[-maxKeys <maxKeys\>\]
+\[-maxKeys <maxKeys\>\]
 
-\[-marker <marker\>\]
+\[-marker <marker\>\]
 
-The -maxKeys option specifies the number of users that you want to query. The -marker option filters users whose names contain a specific string. The -maxKeys and -marker options are optional. Example:
+The -maxKeys option specifies the number of users that you want to query. The -marker option filters users whose names contain a specific string. The -maxKeys and -marker options are optional. Example:
 
-jindo admin -listUserGroupsMappings
+jindo admin -listUserGroupsMappings
 
-\-dlsUri oss://jindosdk-dls-unit-test/
+\-dlsUri oss://jindosdk-dls-unit-test/
 
-\-maxKeys 10
+\-maxKeys 10
 
-\-marker user1
+\-marker user1
 
-You can run the preceding command to query the group information of 10 users whose names contain the user1 string in the oss://jindosdk-dls-unit-test/ path. 
+You can run the preceding command to query the group information of 10 users whose names contain the user1 string in the oss://jindosdk-dls-unit-test/ path. 
 
-Use commands that are relevant to snapshots
+Use commands that are relevant to snapshots
 
 AllowSnapshot
 
-Enables the snapshot feature for a directory. 
+Enables the snapshot feature for a directory. 
 
-jindo admin -allowSnapshot \[-dlsUri <dlsSnapshotDir\>\]
+jindo admin -allowSnapshot \[-dlsUri <dlsSnapshotDir\>\]
 
 Example:
 
-jindo admin -allowSnapshot
+jindo admin -allowSnapshot
 
-\-dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot\_allow
+\-dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot\_allow
 
-You can run the preceding command to enable the snapshot feature for the oss://jindosdk-dls-unit-test/testSnapshot/snapshot\_allow directory. 
+You can run the preceding command to enable the snapshot feature for the oss://jindosdk-dls-unit-test/testSnapshot/snapshot\_allow directory. 
 
 DisallowSnapshot
 
-Disables the snapshot feature for a directory. 
+Disables the snapshot feature for a directory. 
 
-jindo admin -disallowSnapshot \[-dlsUri <dlsSnapshotDir\>\]
+jindo admin -disallowSnapshot \[-dlsUri <dlsSnapshotDir\>\]
 
 Example:
 
-jindo admin -disallowSnapshot
+jindo admin -disallowSnapshot
 
-\-dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot\_allow
+\-dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot\_allow
 
-You can run the preceding command to disable the snapshot feature for the oss://jindosdk-dls-unit-test/testSnapshot/snapshot\_allow directory. 
+You can run the preceding command to disable the snapshot feature for the oss://jindosdk-dls-unit-test/testSnapshot/snapshot\_allow directory. 
 
 SnapshotDiff
 
-Compares the differences between two snapshots in the same directory. 
+Compares the differences between two snapshots in the same directory. 
 
-jindo admin -snapshotDiff
+jindo admin -snapshotDiff
 
-\[-dlsUri <dlsSnapshotDir\>\]
+\[-dlsUri <dlsSnapshotDir\>\]
 
-\[-fromSnapshot <fromSnapshot\>\]
+\[-fromSnapshot <fromSnapshot\>\]
 
-\[-toSnapshot <toSnapshot\>\]
+\[-toSnapshot <toSnapshot\>\]
 
 Example:
 
-jindo admin -snapshotDiff
+jindo admin -snapshotDiff
 
-\-dlsUri oss://jindosdk-dls-unit-test/testSnapshotDir/
+\-dlsUri oss://jindosdk-dls-unit-test/testSnapshotDir/
 
-\-fromSnapshot S1
+\-fromSnapshot S1
 
-\-toSnapshot S2
+\-toSnapshot S2
 
-S1 and S2 are snapshots that are created for the test directory by using commands in the Shell CLI of Hadoop Distributed File System (HDFS). 
+S1 and S2 are snapshots that are created for the test directory by using commands in the Shell CLI of Hadoop Distributed File System (HDFS). 
 
-Use commands that are relevant to RootPolicy
+Use commands that are relevant to RootPolicy
 
 SetRootPolicy
 
-Registers an access address that contains a custom prefix for a bucket. 
+Registers an access address that contains a custom prefix for a bucket. 
 
-jindo admin -setRootPolicy \[<dlsRootPath\>\] \[<accessRootPath\>\]
+jindo admin -setRootPolicy \[<dlsRootPath\>\] \[<accessRootPath\>\]
 
 Example:
 
-jindo admin -setRootPolicy oss://jindosdk-dls-unit-test/ hdfs://myufs/
+jindo admin -setRootPolicy oss://jindosdk-dls-unit-test/ hdfs://myufs/
 
-After you run the preceding command, you can access the oss://jindosdk-dls-unit-test/ directory by using hdfs://myufs/. 
+After you run the preceding command, you can access the oss://jindosdk-dls-unit-test/ directory by using hdfs://myufs/. 
 
 UnsetRootPolicy
 
-Deletes all registered access addresses that contain a custom prefix specified for a bucket. 
+Deletes all registered access addresses that contain a custom prefix specified for a bucket. 
 
-jindo admin -unsetRootPolicy \[<dlsRootPath\>\] \[<accessRootPath\>\]
+jindo admin -unsetRootPolicy \[<dlsRootPath\>\] \[<accessRootPath\>\]
 
 Example:
 
-jindo admin -unsetRootPolicy oss://jindosdk-dls-unit-test/ hdfs://myufs/
+jindo admin -unsetRootPolicy oss://jindosdk-dls-unit-test/ hdfs://myufs/
 
-After you run the preceding command, you can no longer access the oss://jindosdk-dls-unit-test/ directory by using hdfs://myufs/. 
+After you run the preceding command, you can no longer access the oss://jindosdk-dls-unit-test/ directory by using hdfs://myufs/. 
 
 ListAccessPolicies
 
-Queries all registered access addresses that contain a custom prefix specified for a bucket. 
+Queries all registered access addresses that contain a custom prefix specified for a bucket. 
 
-jindo admin -listAccessPolicies \[<dlsRootPath\>\]
+jindo admin -listAccessPolicies \[<dlsRootPath\>\]
 
 Example:
 
-jindo admin -listAccessPolicies oss://jindosdk-dls-unit-test/
+jindo admin -listAccessPolicies oss://jindosdk-dls-unit-test/
 
-You can run the preceding command to query all access paths of the oss://jindosdk-dls-unit-test/ directory. 
+You can run the preceding command to query all access paths of the oss://jindosdk-dls-unit-test/ directory. 
 
-Use other commands
+Use other commands
 
 DumpFile
 
-Queries detailed storage information of a file. 
+Queries detailed storage information of a file. 
 
-jindo admin -dumpFile \[-dlsUri <dlsUri\>\]
+jindo admin -dumpFile \[-dlsUri <dlsUri\>\]
 
 Example:
 
-jindo admin -dumpFile
+jindo admin -dumpFile
 
-\-dlsUri oss://jindosdk-dls-unit-test/testDumpFile/dumpfile\_simple\_file
+\-dlsUri oss://jindosdk-dls-unit-test/testDumpFile/dumpfile\_simple\_file
 
-After you run the preceding command, output similar to the following information is returned:
+After you run the preceding command, output similar to the following information is returned:
 
-\=============Dump result=============
+\=============Dump result=============
 
-File /testDumpFile/dumpfile\_simple\_file
+File /testDumpFile/dumpfile\_simple\_file
 
-length: 11
+length: 11
 
-blockSize: 33554432
+blockSize: 33554432
 
-modification time: 1657626266711
+modification time: 1657626266711
 
-access time: 1657626266481
+access time: 1657626266481
 
-permission: 420
+permission: 420
 
-owner: root
+owner: root
 
-group: supergroup
+group: supergroup
 
-file id: 4180702376518228901
+file id: 4180702376518228901
 
-\=============Block 0
+\=============Block 0
 
-block id: 8792388394945610760
+block id: 8792388394945610760
 
-offset: 0
+offset: 0
 
-numBytes: 11
+numBytes: 11
 
-gs: 1032
+gs: 1032
 
-type: CLOUD
+type: CLOUD
 
-loc: .dlsdata
+loc: .dlsdata
 
-underConstruction: 0
+underConstruction: 0
 
-isLastBlockComplete: 1
+isLastBlockComplete: 1

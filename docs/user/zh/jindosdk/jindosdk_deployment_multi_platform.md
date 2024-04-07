@@ -106,64 +106,64 @@ cp jindosdk-6.3.3.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 .
 ├── bin
-│   ├── fusermount3
-│   ├── jindo
-│   ├── jindo-fuse
-│   ├── jindobench
-│   ├── jindodiag
-│   ├── jindosync
-│   └── jindotable
+│   ├── fusermount3
+│   ├── jindo
+│   ├── jindo-fuse
+│   ├── jindobench
+│   ├── jindodiag
+│   ├── jindosync
+│   └── jindotable
 ├── conf
-│   ├── core-site.xml.template
-│   ├── jindosdk.cfg.template
-│   └── log4j.properties.template
+│   ├── core-site.xml.template
+│   ├── jindosdk.cfg.template
+│   └── log4j.properties.template
 ├── include
-│   ├── jdo_api.h
-│   ├── jdo_common.h
-│   ├── jdo_content_summary.h
-│   ├── jdo_data_types.h
-│   ├── jdo_defines.h
-│   ├── jdo_error.h
-│   ├── jdo_file_status.h
-│   ├── jdo_list_dir_result.h
-│   ├── jdo_option_keys.h
-│   └── jdo_options.h
+│   ├── jdo_api.h
+│   ├── jdo_common.h
+│   ├── jdo_content_summary.h
+│   ├── jdo_data_types.h
+│   ├── jdo_defines.h
+│   ├── jdo_error.h
+│   ├── jdo_file_status.h
+│   ├── jdo_list_dir_result.h
+│   ├── jdo_option_keys.h
+│   └── jdo_options.h
 ├── lib
-│   ├── jindo-core-x.y.z.jar
-│   ├── jindo-core-linux-el7-aarch64-x.y.z.jar
-│   ├── jindo-sdk-x.y.z.jar
-│   ├── native
-│   │   ├── libfuse3.so.3
-│   │   ├── libjemalloc.so
-│   │   ├── libjindo-csdk.so
-│   │   ├── libjindo-tensorflow1.15.so
-│   │   ├── libjindo-tensorflow2.8.so
-│   │   ├── libjindosdk.so
-│   │   ├── libjindosdk_c.so -> libjindosdk_c.so.x
-│   │   ├── libjindosdk_c.so.x -> libjindosdk_c.so.x.y.z
-│   │   └── libjindosdk_c.so.x.y.z
-│   └── site-packages
-│       ├── pyjindo-x.y.z-cp310-abi3-linux_x86_64.whl
-│       ├── pyjindo-x.y.z-cp311-abi3-linux_x86_64.whl
-│       ├── pyjindo-x.y.z-cp312-abi3-linux_x86_64.whl
-│       ├── pyjindo-x.y.z-cp36-abi3-linux_x86_64.whl
-│       ├── pyjindo-x.y.z-cp37-abi3-linux_x86_64.whl
-│       ├── pyjindo-x.y.z-cp38-abi3-linux_x86_64.whl
-│       └── pyjindo-x.y.z-cp39-abi3-linux_x86_64.whl
+│   ├── jindo-core-x.y.z.jar
+│   ├── jindo-core-linux-el7-aarch64-x.y.z.jar
+│   ├── jindo-sdk-x.y.z.jar
+│   ├── native
+│   │   ├── libfuse3.so.3
+│   │   ├── libjemalloc.so
+│   │   ├── libjindo-csdk.so
+│   │   ├── libjindo-tensorflow1.15.so
+│   │   ├── libjindo-tensorflow2.8.so
+│   │   ├── libjindosdk.so
+│   │   ├── libjindosdk_c.so -> libjindosdk_c.so.x
+│   │   ├── libjindosdk_c.so.x -> libjindosdk_c.so.x.y.z
+│   │   └── libjindosdk_c.so.x.y.z
+│   └── site-packages
+│       ├── pyjindo-x.y.z-cp310-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp311-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp312-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp36-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp37-abi3-linux_x86_64.whl
+│       ├── pyjindo-x.y.z-cp38-abi3-linux_x86_64.whl
+│       └── pyjindo-x.y.z-cp39-abi3-linux_x86_64.whl
 ├── plugins
-│   └── flink
-│       ├── jindo-flink-x.y.z-full.jar
-│       └── jindo-flink-x.y.z.jar
-│   ├── spark2
-│   │   └── jindo-spark2-x.y.z.jar
-│   └── spark3
-│       └── jindo-spark3-x.y.z.jar
+│   └── flink
+│       ├── jindo-flink-x.y.z-full.jar
+│       └── jindo-flink-x.y.z.jar
+│   ├── spark2
+│   │   └── jindo-spark2-x.y.z.jar
+│   └── spark3
+│       └── jindo-spark3-x.y.z.jar
 ├── tools
-│   ├── jindo-dependence-shaded-x.y.z.jar
-│   ├── jindo-distcp-tool-x.y.z.jar
-│   ├── jindo-distjob-tool-x.y.z.jar
-│   ├── jindotable-hive-tool-x.y.z.jar
-│   └── jindotable-shell-x.y.z.jar
+│   ├── jindo-dependence-shaded-x.y.z.jar
+│   ├── jindo-distcp-tool-x.y.z.jar
+│   ├── jindo-distjob-tool-x.y.z.jar
+│   ├── jindotable-hive-tool-x.y.z.jar
+│   └── jindotable-shell-x.y.z.jar
 └── versions
     ├── JINDOSDK_VERSION
     ├── JINDOTABLE_VERSION

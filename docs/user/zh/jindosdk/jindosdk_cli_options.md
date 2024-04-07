@@ -1,4 +1,4 @@
-# Jindo CLI 使用指南
+# Jindo CLI 使用指南
 
 ## 用法汇总
 
@@ -51,7 +51,7 @@
 		[-unsetStoragePolicy -path <path>]
 ```
 
-## FS 子命令
+## FS 子命令
 
 ### archive
 

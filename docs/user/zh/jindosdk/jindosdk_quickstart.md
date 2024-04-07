@@ -12,7 +12,7 @@ JindoSDK 全面兼容 Hadoop FileSystem 接口，提供了更好的兼容性和�
 
 下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz，[下载页面](/docs/user/jindosdk/jindosdk_download.md)。
 
-完整部署 JindoSDK，参见 [文档链接](/docs/user/jindosdk/jindosdk_deployment_hadoop.md)
+完整部署 JindoSDK，参见 [文档链接](/docs/user/jindosdk/jindosdk_deployment_hadoop.md)
 
 最简部署 JindoSDK，参见 [文档链接](/docs/user/jindosdk/jindosdk_deployment_lite_hadoop.md)
 
@@ -41,7 +41,7 @@ hadoop fs -rm oss://<bucket>/<path>
 
 <img src="/docs/user/4.x/4.0.0/oss/pic/jindofs_sdk_cmd.png#pic_center" />
 
-更多 Hadoop 命令参见 [《通过 Hadoop Shell 命令访问 OSS/OSS-HDFS》](/docs/user/oss/usages/oss_hadoop_shell.md)
+更多 Hadoop 命令参见 [《通过 Hadoop Shell 命令访问 OSS/OSS-HDFS》](/docs/user/oss/usages/oss_hadoop_shell.md)
 
 ### 3. 参数调优
 JindoSDK 包含一些高级调优参数，配置方式以及配置项参考文档 [JindoSDK 配置项列表](/docs/user/jindosdk/jindosdk_configuration.md)

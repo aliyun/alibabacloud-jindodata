@@ -1,14 +1,14 @@
-# Use JindoSDK for Hadoop development
+# Use JindoSDK for Hadoop development
 
-JindoSDK can be used for only a Linux or macOS operating system that uses the Intel X86 architecture. Windows operating systems are not supported.
+JindoSDK can be used for only a Linux or macOS operating system that uses the Intel X86 architecture. Windows operating systems are not supported.
 
-Add JindoSDK dependencies to the pom.xml file of the Maven project.
+Add JindoSDK dependencies to the pom.xml file of the Maven project.
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 <modelVersion>4.0.0</modelVersion>
 
@@ -28,7 +28,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/x
 
 <repositories>
 
-<!-- Add JindoData Maven Repository -->
+<!-- Add JindoData Maven Repository -->
 
 <repository>
 
@@ -42,7 +42,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/x
 
 <dependencies>
 
-<!-- add jindo-core -->
+<!-- add jindo-core -->
 
 <dependency>
 
@@ -54,9 +54,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/x
 
 </dependency>
 
-<!-- add jindo-core-extended-jar if you need support other platform -->
+<!-- add jindo-core-extended-jar if you need support other platform -->
 
-<!-- add jindo-hadoop-sdk -->
+<!-- add jindo-hadoop-sdk -->
 
 <dependency>
 
@@ -68,7 +68,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/x
 
 </dependency>
 
-<!-- add hadoop dependency. -->
+<!-- add hadoop dependency. -->
 
 <dependency>
 
@@ -84,33 +84,33 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/x
 
 </project>
 
-Compile Java programs to use JindoSDK.
+Compile Java programs to use JindoSDK.
 
-import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configuration;
 
-import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FSDataInputStream;
 
-import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.FileSystem;
 
-import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.Path;
 
-import java.net.URI;
+import java.net.URI;
 
-public class TestJindoSDK {
+public class TestJindoSDK {
 
-public static void main(String\[\] args) throws Exception {
+public static void main(String\[\] args) throws Exception {
 
-Configuration conf = new Configuration();
+Configuration conf = new Configuration();
 
-conf.set("fs.oss.impl", "com.aliyun.jindodata.oss.JindoOssFileSystem");
+conf.set("fs.oss.impl", "com.aliyun.jindodata.oss.JindoOssFileSystem");
 
-conf.set("fs.AbstractFileSystem.oss.impl", "com.aliyun.jindodata.oss.OSS");
+conf.set("fs.AbstractFileSystem.oss.impl", "com.aliyun.jindodata.oss.OSS");
 
-// set accessKey, secret, endpoint and so on.
+// set accessKey, secret, endpoint and so on.
 
-FileSystem fs = FileSystem.get(URI.create("oss://<Bucket>.<HDFS\_Endpoint>/"), conf);
+FileSystem fs = FileSystem.get(URI.create("oss://<Bucket>.<HDFS\_Endpoint>/"), conf);
 
-FSDataInputStream in = fs.open(new Path("/uttest/file1"));
+FSDataInputStream in = fs.open(new Path("/uttest/file1"));
 
 in.read();
 
@@ -120,9 +120,9 @@ in.close();
 
 }
 
-Dependencies required for other platforms
+Dependencies required for other platforms
 
-<!-- add jindo-core-extended-jar for centos6 or el6 -->
+<!-- add jindo-core-extended-jar for centos6 or el6 -->
 
 <dependency>
 
@@ -134,7 +134,7 @@ Dependencies required for other platforms
 
 </dependency>
 
-<!-- add jindo-core-extended-jar for ubuntu22 -->
+<!-- add jindo-core-extended-jar for ubuntu22 -->
 
 <dependency>
 
@@ -146,7 +146,7 @@ Dependencies required for other platforms
 
 </dependency>
 
-<!-- add jindo-core-extended-jar for aliyun yitian & alios (beta)-->
+<!-- add jindo-core-extended-jar for aliyun yitian & alios (beta)-->
 
 <dependency>
 

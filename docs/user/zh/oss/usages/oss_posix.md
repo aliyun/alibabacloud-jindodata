@@ -1,14 +1,14 @@
-# 通过 POSIX 访问 OSS/OSS-HDFS
+# 通过 POSIX 访问 OSS/OSS-HDFS
 
 ## 环境准备
 
-*   EMR环境中，默认已安装 JindoSDK，可以直接使用。注意：
+*   EMR环境中，默认已安装 JindoSDK，可以直接使用。注意：
     
-    *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
+    *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
         
-*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《在 Hadoop 环境中部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_hadoop.md)。
+*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《在 Hadoop 环境中部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_hadoop.md)。
     
-    *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
+    *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
         
 ## 依赖准备
 
@@ -47,28 +47,28 @@ meson ..
 sudo ninja install
 ```
 
-## 挂载 JindoFuse
+## 挂载 JindoFuse
 
-在完成对 JindoSDK 的配置后。
+在完成对 JindoSDK 的配置后。
 
-*   创建一个挂载点， 命令如下：
+*   创建一个挂载点， 命令如下：
 
 ```bash
 mkdir -p <mountpoint>
 ```
-*   挂载 Fuse, 命令如下：
+*   挂载 Fuse, 命令如下：
     
 ```bash
 jindo-fuse <mount_point> -ouri=[<osspath>]
 ```
 
-这个命令会启动一个后台的守护进程，将指定的 `<oss_path>` 挂载到本地文件系统的 `<mount_point>`。
+这个命令会启动一个后台的守护进程，将指定的 `<oss_path>` 挂载到本地文件系统的 `<mount_point>`。
 
-`<mount_point>` 需替换为一个本地路径。
+`<mount_point>` 需替换为一个本地路径。
 
-`<oss_path>` 需替换为待映射的 OSS/OSS-HDFS 路径，路径可以为 Bucket 根目录或者子目录。如 oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/subdir/
+`<oss_path>` 需替换为待映射的 OSS/OSS-HDFS 路径，路径可以为 Bucket 根目录或者子目录。如 oss://examplebucket.cn-shanghai.oss-dls.aliyuncs.com/subdir/
 
-挂载 OSS 和 OSS-HDFS 路径的方式基本相同，仅路径中的 endpoint 略有不同。根路径示例可参见：[《OSS/OSS-HDFS 快速入门》](../oss_quickstart.md)
+挂载 OSS 和 OSS-HDFS 路径的方式基本相同，仅路径中的 endpoint 略有不同。根路径示例可参见：[《OSS/OSS-HDFS 快速入门》](../oss_quickstart.md)
 
 *   确认挂载成功，jindo-fuse 进程存在，且启动参数与预期一致
     
@@ -76,9 +76,9 @@ jindo-fuse <mount_point> -ouri=[<osspath>]
 ps -ef | grep jindo-fuse
 ```
 
-## 访问 JindoFuse
+## 访问 JindoFuse
 
-如果将 JindoFS 服务挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
+如果将 JindoFS 服务挂载到了本地 /mnt/oss/，可以执行以下命令访问 JindoFuse。
 
 1.  列出/mnt/oss/下的所有目录：
     
@@ -104,7 +104,7 @@ echo "hello world" > /mnt/oss/dir1/hello.txt
 cat /mnt/oss/dir1/hello.txt
 ```
 
-显示`hello world`。
+显示`hello world`。
 
 5.  删除目录：
     
@@ -112,7 +112,7 @@ cat /mnt/oss/dir1/hello.txt
 rm -rf /mnt/oss/dir1/
 ```
 
-## 卸载 JindoFuse
+## 卸载 JindoFuse
 
 想卸载之前挂载的挂载点，可以使用如下命令：
 
@@ -120,12 +120,12 @@ rm -rf /mnt/oss/dir1/
 umount <mount_point>
 ```
 
-## 自动卸载 JindoFuse
+## 自动卸载 JindoFuse
 
-可以使用 `-oauto_unmount` 参数，自动卸载挂载点。
+可以使用 `-oauto_unmount` 参数，自动卸载挂载点。
 
-使用该参数后，可以支持 `killall -9 jindo-fuse` 发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
+使用该参数后，可以支持 `killall -9 jindo-fuse` 发送 SIGINT 给 jindo-fuse 进程，进程退出前会自动卸载挂载点。
 
 ## 附录
 
-更多命令及描述，详见[《JindoFUSE 使用指南》](../../jindodata/jindosdk/jindofuse_quickstart.md)
+更多命令及描述，详见[《JindoFUSE 使用指南》](../../jindodata/jindosdk/jindofuse_quickstart.md)

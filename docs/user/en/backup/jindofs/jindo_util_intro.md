@@ -1,312 +1,312 @@
-# Use Jindo commands
+# Use Jindo commands
 
-(This topic applies to JindoSDK 4.5.0 or later.)
+(This topic applies to JindoSDK 4.5.0 or later.)
 
-Download the Jindo CLI package (supported only in Linux environments)
+Download the Jindo CLI package (supported only in Linux environments)
 
-1. Download the [jindosdk-4.6.12.tar.gz](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/jindodata_download.md) package.
+1. Download the [jindosdk-4.6.12.tar.gz](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/jindodata_download.md) package.
 
-2. Decompress the package.
+2. Decompress the package.
 
-tar -zxvf jindosdk-4.6.12.tar.gz
+tar -zxvf jindosdk-4.6.12.tar.gz
 
-3. Find the binary file jindo-util in the /jindosdk-4.6.12/bin/ directory.
+3. Find the binary file jindo-util in the /jindosdk-4.6.12/bin/ directory.
 
-chmod 700 jindo-util
+chmod 700 jindo-util
 
-mv jindo-util jindo
+mv jindo-util jindo
 
-4. View all Jindo commands.
+4. View all Jindo commands.
 
-# ./jindo fs -help
+# ./jindo fs -help
 
 Usage:
 
-jindo fs
+jindo fs
 
-\[-appendToFile <localsrc\> ... <dst\>\]
+\[-appendToFile <localsrc\> ... <dst\>\]
 
-\[-archive \[-i\] \[-c\] <path\>\]
+\[-archive \[-i\] \[-c\] <path\>\]
 
-\[-cat <src\> ...\]
+\[-cat <src\> ...\]
 
-\[-count \[-p\] \[-r\] <path\> ...\]
+\[-count \[-p\] \[-r\] <path\> ...\]
 
-\[-cp \[-f\] <src\> ... <dst\>\]
+\[-cp \[-f\] <src\> ... <dst\>\]
 
-\[-checksum <src\> ...\]
+\[-checksum <src\> ...\]
 
-\[-chgrp \[-R\] GROUP PATH...\]
+\[-chgrp \[-R\] GROUP PATH...\]
 
-\[-chmod \[-R\] <MODE\[,MODE\]... | OCTALMODE\> PATH...\]
+\[-chmod \[-R\] <MODE\[,MODE\]... | OCTALMODE\> PATH...\]
 
-\[-chown \[-R\] \[OWNER\]\[:\[GROUP\]\] PATH...\]
+\[-chown \[-R\] \[OWNER\]\[:\[GROUP\]\] PATH...\]
 
-\[-copyFromLocal \[-f\] <localsrc\> ... <dst\>\]
+\[-copyFromLocal \[-f\] <localsrc\> ... <dst\>\]
 
-\[-copyToLocal \[-f\] <src\> ... <localdst\>\]
+\[-copyToLocal \[-f\] <src\> ... <localdst\>\]
 
-\[-createSnapshot <snapshotDir\> \[<snapshotName\>\]\]
+\[-createSnapshot <snapshotDir\> \[<snapshotName\>\]\]
 
-\[-checkStoragePolicy \-path <path\>\]
+\[-checkStoragePolicy \-path <path\>\]
 
-\[-deleteSnapshot <snapshotDir\> <snapshotName\>\]
+\[-deleteSnapshot <snapshotDir\> <snapshotName\>\]
 
-\[-du \[-s\] \[-p\] \[-r\] <path\> ...\]
+\[-du \[-s\] \[-p\] \[-r\] <path\> ...\]
 
-\[-decommission \-hosts <hosts\>\]
+\[-decommission \-hosts <hosts\>\]
 
 \[-formatCache\]
 
-\[-get \[-f\] <src\> ... <localdst\>\]
+\[-get \[-f\] <src\> ... <localdst\>\]
 
-\[-getfacl \[-R\] <path\>\]
+\[-getfacl \[-R\] <path\>\]
 
-\[-getfattr \[-R\] {-n name | \-d} <path\>\]
+\[-getfattr \[-R\] {-n name | \-d} <path\>\]
 
-\[-getStoragePolicy \-path <path\>\]
+\[-getStoragePolicy \-path <path\>\]
 
-\[-ls \[-R\] <path\>\]
+\[-ls \[-R\] <path\>\]
 
 \[-listPolicies\]
 
-\[-load \[-meta\] \[-data\] \[-s\] \[-m\] \[-R\] \[-replica value\] <path\>\]
+\[-load \[-meta\] \[-data\] \[-s\] \[-m\] \[-R\] \[-replica value\] <path\>\]
 
-\[-mkdir <path\>\]
+\[-mkdir <path\>\]
 
-\[-mv <src\> ... <dst\>\]
+\[-mv <src\> ... <dst\>\]
 
-\[-moveFromLocal <localsrc\> ... <dst\>\]
+\[-moveFromLocal <localsrc\> ... <dst\>\]
 
-\[-moveToLocal <src\> <localdst\>\]
+\[-moveToLocal <src\> <localdst\>\]
 
-\[-metaDiff <path\>\]
+\[-metaDiff <path\>\]
 
-\[-put \[-f\] <localsrc\> ... <dst\>\]
+\[-put \[-f\] <localsrc\> ... <dst\>\]
 
-\[-rm \[-f\] \[-r|-R\] <src\> ...\]
+\[-rm \[-f\] \[-r|-R\] <src\> ...\]
 
-\[-rmdir <src\> ...\]
+\[-rmdir <src\> ...\]
 
-\[-renameSnapshot <snapshotDir\> <oldName\> <newName\>\]
+\[-renameSnapshot <snapshotDir\> <oldName\> <newName\>\]
 
-\[-restore \[-days value\] <path\>\]
+\[-restore \[-days value\] <path\>\]
 
-\[-stat \[format\] <path\> ...\]
+\[-stat \[format\] <path\> ...\]
 
-\[-setStoragePolicy \-path <path\> -policy <policy\>\]
+\[-setStoragePolicy \-path <path\> -policy <policy\>\]
 
-\[-setfacl \[-R\] \[{-b|-k} {-m|-x <acl\_spec\>} <path\>\]|\[--set <acl\_spec\> <path\>\]\]
+\[-setfacl \[-R\] \[{-b|-k} {-m|-x <acl\_spec\>} <path\>\]|\[--set <acl\_spec\> <path\>\]\]
 
-\[-setfattr {-n name \[-v value\] | \-x name} <path\>\]
+\[-setfattr {-n name \[-v value\] | \-x name} <path\>\]
 
-\[-sync \[-update\] \[-thread thread\_num\] <localsrc\> <dst\>
+\[-sync \[-update\] \[-thread thread\_num\] <localsrc\> <dst\>
 
-\[-touchz <path\> ...\]
+\[-touchz <path\> ...\]
 
-\[-truncate \[-w\] <length\> <path\> ...\]
+\[-truncate \[-w\] <length\> <path\> ...\]
 
-\[-unarchive \[-i\] \[-a\] <path\>\]
+\[-unarchive \[-i\] \[-a\] <path\>\]
 
-\[-uncache <path\>\]
+\[-uncache <path\>\]
 
-\[-unsetStoragePolicy \-path <path\>\]
+\[-unsetStoragePolicy \-path <path\>\]
 
-jindo admin
+jindo admin
 
-\[-mount <mountpoint\> <path\>\]
+\[-mount <mountpoint\> <path\>\]
 
 \[-report\]
 
 \[-reportMetrics\]
 
-\[-umount <mountpoint\>\]
+\[-umount <mountpoint\>\]
 
-jindo admin
+jindo admin
 
-\[-addProxyUser \-dlsUri <path\> -proxyUser <value\> -users|-groups <value\> -hosts <value\>\]
+\[-addProxyUser \-dlsUri <path\> -proxyUser <value\> -users|-groups <value\> -hosts <value\>\]
 
-\[-allowSnapshot \-dlsUri <path\>\]
+\[-allowSnapshot \-dlsUri <path\>\]
 
-\[-addUserGroupsMapping \-dlsUri <path\> -user <value\> -groups <value\>\]
+\[-addUserGroupsMapping \-dlsUri <path\> -user <value\> -groups <value\>\]
 
-\[-disallowSnapshot \-dlsUri <path\>\]
+\[-disallowSnapshot \-dlsUri <path\>\]
 
-\[-deleteProxyUser \-dlsUri <path\> -proxyUser <value\>\]
+\[-deleteProxyUser \-dlsUri <path\> -proxyUser <value\>\]
 
-\[-deleteUserGroupsMapping \-dlsUri <path\> -user <value\>\]
+\[-deleteUserGroupsMapping \-dlsUri <path\> -user <value\>\]
 
-\[-dumpFile \-dlsUri <path\>\]
+\[-dumpFile \-dlsUri <path\>\]
 
-\[-dumpBlockFiles -in <path\> -out <path\>\]
+\[-dumpBlockFiles -in <path\> -out <path\>\]
 
-\[-listProxyUsers \-dlsUri <path\> \[-maxKeys <value\>\] \[-marker <value\>\]\]
+\[-listProxyUsers \-dlsUri <path\> \[-maxKeys <value\>\] \[-marker <value\>\]\]
 
-\[-listUserGroupsMappings \-dlsUri <path\> \[-maxKeys <value\>\] \[-marker <value\>\]\]
+\[-listUserGroupsMappings \-dlsUri <path\> \[-maxKeys <value\>\] \[-marker <value\>\]\]
 
-\[-snapshotDiff \-dlsUri <path\> -fromSnapshot <value\> -toSnapshot <value\>\]
+\[-snapshotDiff \-dlsUri <path\> -fromSnapshot <value\> -toSnapshot <value\>\]
 
-jindo benchmark
+jindo benchmark
 
-\[-io \-read \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-fileSize <value\>\] \[-memCheck\]\]
+\[-io \-read \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-fileSize <value\>\] \[-memCheck\]\]
 
-\[-io \-pread \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-fileSize <value\>\] \[-seekTimes <value\>\] \[-memCheck\]\]
+\[-io \-pread \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-fileSize <value\>\] \[-seekTimes <value\>\] \[-memCheck\]\]
 
-\[-io \-write \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-fileSize <value\>\] \[-memCheck\]\]
+\[-io \-write \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-fileSize <value\>\] \[-memCheck\]\]
 
-\[-meta -mkdir \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-memCheck\]\]
+\[-meta -mkdir \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-memCheck\]\]
 
-\[-meta -listDirectory \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-entryNum <value\>\] \[-memCheck\]\]
+\[-meta -listDirectory \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-entryNum <value\>\] \[-memCheck\]\]
 
-\[-meta \-getFileStatus \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-entryNum <value\>\] \[-memCheck\]\]
+\[-meta \-getFileStatus \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-entryNum <value\>\] \[-memCheck\]\]
 
-\[-meta \-renameFile \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-entryNum <value\>\] \[-memCheck\]\]
+\[-meta \-renameFile \-basePath <path\> \[-n <value\>\] \[-c <value\>\] \[-d <value\>\] \[-entryNum <value\>\] \[-memCheck\]\]
 
-Use Jindo commands to access OSS or OSS-HDFS
+Use Jindo commands to access OSS or OSS-HDFS
 
-Global configurations
+Global configurations
 
-1. Create a configuration file named jindosdk.cfg.
-
-\[common\]
-
-logger.dir = /tmp/jindo-util/
-
-logger.sync = false
-
-logger.consolelogger = false
-
-logger.level = 0
-
-logger.verbose = 0
-
-logger.cleaner.enable = true
-
-hadoopConf.enable = false
-
-\[jindosdk\]
-
-fs.oss.endpoint = <ENDPOINT\>      
-
-fs.oss.accessKeyId = <ACCESS\_KEYID\>   
-
-fs.oss.accessKeySecret = <ACCESS\_KEYSECRET\>                                        
-
-*   <ENDPOINT>: the endpoint of Object Storage Service (OSS) or OSS-HDFS.
-    
-*   <ACCESSKEY\_ID>: the AccessKey ID that is used to access OSS or OSS-HDFS.
-    
-*   <ACCESSKEY\_SECRET>: the AccessKey secret that is used to access OSS or OSS-HDFS.
-    
-
-2. Add an environment variable.
-
-export JINDOSDK\_CONF\_DIR=<JINDOSDK\_CFG\_DIR\>
-
-*   <JINDOSDK\_CFG\_DIR>: the absolute path of the jindosdk.cfg configuration file. Example: /etc/.
-    
-
-3. Run the following Jindo command to access OSS.
-
-./jindo fs -ls oss://<bucket\>/<dir\>
-
-Bucket-level configurations
-
-1. Create a configuration file named jindosdk.cfg.
+1. Create a configuration file named jindosdk.cfg.
 
 \[common\]
 
-logger.dir = /tmp/jindo-util/
+logger.dir = /tmp/jindo-util/
 
-logger.sync = false
+logger.sync = false
 
-logger.consolelogger = false
+logger.consolelogger = false
 
-logger.level = 0
+logger.level = 0
 
-logger.verbose = 0
+logger.verbose = 0
 
-logger.cleaner.enable = true
+logger.cleaner.enable = true
 
-hadoopConf.enable = false
+hadoopConf.enable = false
 
 \[jindosdk\]
 
-fs.oss.bucket.<BUCKET\>.accessKeyId =  <ACCESS\_KEYID\>   
+fs.oss.endpoint = <ENDPOINT\>      
 
-fs.oss.bucket.<BUCKET\>.accessKeySecret = <ACCESS\_KEYSECRET\>
+fs.oss.accessKeyId = <ACCESS\_KEYID\>   
 
-fs.oss.bucket.<BUCKET\>.endpoint = <ENDPOINT\>                                                      
+fs.oss.accessKeySecret = <ACCESS\_KEYSECRET\>                                        
 
-*   <ENDPOINT>: the endpoint of OSS or OSS-HDFS.
+*   <ENDPOINT>: the endpoint of Object Storage Service (OSS) or OSS-HDFS.
     
-*   <ACCESSKEY\_ID>: the AccessKey ID that is used to access OSS or OSS-HDFS.
+*   <ACCESSKEY\_ID>: the AccessKey ID that is used to access OSS or OSS-HDFS.
     
-*   <ACCESSKEY\_SECRET>: the AccessKey secret that is used to access OSS or OSS-HDFS.
-    
-
-2. Add an environment variable.
-
-export JINDOSDK\_CONF\_DIR=<JINDOSDK\_CFG\_DIR\>
-
-*   <JINDOSDK\_CFG\_DIR>: the absolute path of the jindosdk.cfg configuration file. Example: /etc/.
+*   <ACCESSKEY\_SECRET>: the AccessKey secret that is used to access OSS or OSS-HDFS.
     
 
-3. Run the following Jindo command to access OSS-HDFS:
+2. Add an environment variable.
 
-./jindo fs -ls oss://<bucket\>/<dir\>
+export JINDOSDK\_CONF\_DIR=<JINDOSDK\_CFG\_DIR\>
 
-Run jindo sync commands to synchronize data
+*   <JINDOSDK\_CFG\_DIR>: the absolute path of the jindosdk.cfg configuration file. Example: /etc/.
+    
 
-1. Create a configuration file named jindosdk.cfg.
+3. Run the following Jindo command to access OSS.
+
+./jindo fs -ls oss://<bucket\>/<dir\>
+
+Bucket-level configurations
+
+1. Create a configuration file named jindosdk.cfg.
 
 \[common\]
 
-logger.dir = /tmp/jindo-util/
+logger.dir = /tmp/jindo-util/
 
-logger.sync = false
+logger.sync = false
 
-logger.consolelogger = false
+logger.consolelogger = false
 
-logger.level = 0
+logger.level = 0
 
-logger.verbose = 0
+logger.verbose = 0
 
-logger.cleaner.enable = true
+logger.cleaner.enable = true
 
-hadoopConf.enable = false
+hadoopConf.enable = false
 
 \[jindosdk\]
 
-fs.oss.endpoint = <ENDPOINT\>      
+fs.oss.bucket.<BUCKET\>.accessKeyId =  <ACCESS\_KEYID\>   
 
-fs.oss.accessKeyId = <ACCESS\_KEYID\>   
+fs.oss.bucket.<BUCKET\>.accessKeySecret = <ACCESS\_KEYSECRET\>
 
-fs.oss.accessKeySecret = <ACCESS\_KEYSECRET\>                                        
+fs.oss.bucket.<BUCKET\>.endpoint = <ENDPOINT\>                                                      
 
-*   <ENDPOINT>: the endpoint of OSS or OSS-HDFS.
+*   <ENDPOINT>: the endpoint of OSS or OSS-HDFS.
     
-*   <ACCESSKEY\_ID>: the AccessKey ID that is used to access OSS or OSS-HDFS.
+*   <ACCESSKEY\_ID>: the AccessKey ID that is used to access OSS or OSS-HDFS.
     
-*   <ACCESSKEY\_SECRET>: the AccessKey secret that is used to access OSS or OSS-HDFS.
-    
-
-2. Add an environment variable.
-
-export JINDOSDK\_CONF\_DIR=<JINDOSDK\_CFG\_DIR\>
-
-*   <JINDOSDK\_CFG\_DIR>: the absolute path of the jindosdk.cfg configuration file. Example: /etc/.
+*   <ACCESSKEY\_SECRET>: the AccessKey secret that is used to access OSS or OSS-HDFS.
     
 
-3. Run the following Jindo command to transmit data:
+2. Add an environment variable.
 
-./jindo fs -sync -thread 10 /local/dir/ oss://<bucket\>/<dir\>
+export JINDOSDK\_CONF\_DIR=<JINDOSDK\_CFG\_DIR\>
 
-*   thread: the number of threads that you use.
+*   <JINDOSDK\_CFG\_DIR>: the absolute path of the jindosdk.cfg configuration file. Example: /etc/.
     
 
-4. Run the following command to enable resumable upload:
+3. Run the following Jindo command to access OSS-HDFS:
 
-./jindo fs -sync -update -thread 10 /local/dir/ oss://<bucket\>/<dir\>
+./jindo fs -ls oss://<bucket\>/<dir\>
 
-*   During resumable upload, the system first finds the files that failed to be uploaded. This may affect the performance of data transmission.
+Run jindo sync commands to synchronize data
+
+1. Create a configuration file named jindosdk.cfg.
+
+\[common\]
+
+logger.dir = /tmp/jindo-util/
+
+logger.sync = false
+
+logger.consolelogger = false
+
+logger.level = 0
+
+logger.verbose = 0
+
+logger.cleaner.enable = true
+
+hadoopConf.enable = false
+
+\[jindosdk\]
+
+fs.oss.endpoint = <ENDPOINT\>      
+
+fs.oss.accessKeyId = <ACCESS\_KEYID\>   
+
+fs.oss.accessKeySecret = <ACCESS\_KEYSECRET\>                                        
+
+*   <ENDPOINT>: the endpoint of OSS or OSS-HDFS.
+    
+*   <ACCESSKEY\_ID>: the AccessKey ID that is used to access OSS or OSS-HDFS.
+    
+*   <ACCESSKEY\_SECRET>: the AccessKey secret that is used to access OSS or OSS-HDFS.
+    
+
+2. Add an environment variable.
+
+export JINDOSDK\_CONF\_DIR=<JINDOSDK\_CFG\_DIR\>
+
+*   <JINDOSDK\_CFG\_DIR>: the absolute path of the jindosdk.cfg configuration file. Example: /etc/.
+    
+
+3. Run the following Jindo command to transmit data:
+
+./jindo fs -sync -thread 10 /local/dir/ oss://<bucket\>/<dir\>
+
+*   thread: the number of threads that you use.
+    
+
+4. Run the following command to enable resumable upload:
+
+./jindo fs -sync -update -thread 10 /local/dir/ oss://<bucket\>/<dir\>
+
+*   During resumable upload, the system first finds the files that failed to be uploaded. This may affect the performance of data transmission.

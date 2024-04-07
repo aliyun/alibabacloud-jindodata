@@ -16,7 +16,7 @@
 
 #### 现象
 出现报错
-java.io.IOException: ErrorCode : 25201 , ErrorMsg: OSS Op Error.  [ErrorMessage]: Error in xxxxxxxxxx/.hive-staging_hive_xxxxxxxxxxx/_tmp.-ext-10002/xxxxx to xxxxxxxxxx/.hive-staging_hive_xxxxxxxxxxx/_tmp.-ext-10002.moved/xxxx, err: CopyNotExcecuted;
+java.io.IOException: ErrorCode : 25201 , ErrorMsg: OSS Op Error.  [ErrorMessage]: Error in xxxxxxxxxx/.hive-staging_hive_xxxxxxxxxxx/_tmp.-ext-10002/xxxxx to xxxxxxxxxx/.hive-staging_hive_xxxxxxxxxxx/_tmp.-ext-10002.moved/xxxx, err: CopyNotExcecuted;
 
 #### 解决办法
 

@@ -1,18 +1,18 @@
-# AI 场景部署 JindoSDK
+# AI 场景部署 JindoSDK
 
 在使用 JindoFuse，Jindo CLI 等非 Hadoop 生态组件时，会访问环境变量`JINDOSDK_CONF_DIR`所在的目录读取配置文件。
 
-## 部署 JindoSDK
+## 部署 JindoSDK
 
-1.  下载并解压 JindoSDK TAR 包。
+1.  下载并解压 JindoSDK TAR 包。
     
-执行以下命令，下载6.3.3版本JindoSDK TAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_multi_platform.md)
+执行以下命令，下载6.3.3版本JindoSDK TAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](/docs/user/jindosdk/jindosdk_deployment_multi_platform.md)
         
 ```bash
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.3/jindosdk-6.3.3-linux.tar.gz
 ```
 
-2.  执行以下命令，解压 JindoSDK TAR 包。
+2.  执行以下命令，解压 JindoSDK TAR 包。
     
 ```bash
 tar zxvf jindosdk-6.3.3-linux.tar.gz
@@ -29,11 +29,11 @@ export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
 ```
 
-**重要** 请将安装目录和环境变量部署到所有所需节点上。
+**重要** 请将安装目录和环境变量部署到所有所需节点上。
 
 ## 修改配置
 
-配置文件位于 JINDOSDK_CONF_DIR 所在目录，配置文件的文件名为`jindosdk.cfg`，使用 INI 风格配置文件。
+配置文件位于 JINDOSDK_CONF_DIR 所在目录，配置文件的文件名为`jindosdk.cfg`，使用 INI 风格配置文件。
 
 ### cfg 配置文件
 
@@ -54,7 +54,7 @@ fs.oss.accessKeySecret = <your_key_secret>
 
 #### 免密访问
 
-前提：使用的是阿里云 ECS，并且该机器已绑定过[RAM角色授权](https://help.aliyun.com/document_detail/61175.html)。 示例如下：
+前提：使用的是阿里云 ECS，并且该机器已绑定过[RAM角色授权](https://help.aliyun.com/document_detail/61175.html)。 示例如下：
 
 ```ini
 [common]
