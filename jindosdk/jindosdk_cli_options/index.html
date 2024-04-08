@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>JindoCli 参数 - AlibabaCloud JindoData</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../oss/usages/oss_jindo_cli/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../jindoauth/jindoauth_emr-next_kerberos/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#jindo-cli" class="nav-link">Jindo CLI 使用指南</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">用法汇总</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#fs" class="nav-link">FS 子命令</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="jindo-cli">Jindo CLI 使用指南<a class="headerlink" href="#jindo-cli" title="Permanent link">§</a></h1>
+<h2 id="_1">用法汇总<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<pre><code class="language-shell">    Usage:
+    jindo fs
+        [-archive [-i] [-c] &lt;path&gt;]
+        [-cat &lt;src&gt; ...]
+        [-count [-h] &lt;path&gt; ...]
+        [-cp [-f] &lt;src&gt; ... &lt;dst&gt;]
+        [-checksum &lt;src&gt; ...]
+        [-chgrp [-R] GROUP PATH...]
+        [-chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; PATH...]
+        [-chown [-R] [OWNER][:[GROUP]] PATH...]
+        [-copyFromLocal [-f] &lt;localsrc&gt; ... &lt;dst&gt;]
+        [-copyToLocal [-f] &lt;src&gt; ... &lt;localdst&gt;]
+        [-createSnapshot &lt;snapshotDir&gt; [&lt;snapshotName&gt;]]
+        [-checkStoragePolicy -path &lt;path&gt;]
+        [-deleteSnapshot &lt;snapshotDir&gt; &lt;snapshotName&gt;]
+        [-du [-s] &lt;path&gt; ...]
+        [-decommission -hosts &lt;hosts&gt;]
+        [-formatCache]
+        [-get [-f] &lt;src&gt; ... &lt;localdst&gt;]
+        [-getfacl [-R] &lt;path&gt;]
+        [-getfattr [-R] {-n name | -d} &lt;path&gt;]
+        [-getStoragePolicy -path &lt;path&gt;]
+        [-ls [-R] &lt;path&gt;]
+        [-listPolicies]
+        [-load [-meta] [-data] [-s] [-m] [-R] [-replica value] &lt;path&gt;]
+        [-mkdir &lt;path&gt;]
+        [-mv &lt;src&gt; ... &lt;dst&gt;]
+        [-moveFromLocal &lt;localsrc&gt; ... &lt;dst&gt;]
+        [-moveToLocal &lt;src&gt; &lt;localdst&gt;]
+        [-metaDiff &lt;path&gt;]
+        [-put [-f] &lt;localsrc&gt; ... &lt;dst&gt;]
+        [-rm [-f] [-r|-R] &lt;src&gt; ...]
+        [-rmdir &lt;src&gt; ...]
+        [-test -[defsz] &lt;path&gt;]
+        [-renameSnapshot &lt;snapshotDir&gt; &lt;oldName&gt; &lt;newName&gt;]
+        [-restore [-days value] &lt;path&gt;]
+        [-stat [format] &lt;path&gt; ...]
+        [-setStoragePolicy -path &lt;path&gt; -policy &lt;policy&gt;]
+        [-setfacl [-R] [{-b|-k} {-m|-x &lt;acl_spec&gt;} &lt;path&gt;]|[--set &lt;acl_spec&gt; &lt;path&gt;]]
+        [-setfattr {-n name [-v value] | -x name} &lt;path&gt;]
+        [-sync [-update] [-thread thread_num] &lt;localsrc&gt; &lt;dst&gt;
+        [-touchz &lt;path&gt; ...]
+        [-truncate [-w] &lt;length&gt; &lt;path&gt; ...]
+        [-unarchive [-i] [-a] &lt;path&gt;]
+        [-uncache &lt;path&gt;]
+        [-unsetStoragePolicy -path &lt;path&gt;]
+</code></pre>
+<h2 id="fs">FS 子命令<a class="headerlink" href="#fs" title="Permanent link">§</a></h2>
+<h3 id="archive">archive<a class="headerlink" href="#archive" title="Permanent link">§</a></h3>
+<pre><code class="language-shell">jindo fs -archive oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>将 OSS 上文件设置为归档类型，可选参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>ia 低频</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>coldArchive 冷归档</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-shell">jindo fs -archive -i oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<pre><code class="language-shell">jindo fs -archive -c oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS</p>
+<h3 id="cat">cat<a class="headerlink" href="#cat" title="Permanent link">§</a></h3>
+<pre><code class="language-shell">jindo fs -cat oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>显示文本内容，无可选参数
+适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="count">count<a class="headerlink" href="#count" title="Permanent link">§</a></h3>
+<p>显示文件大小以及文件数量，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -h | 显示文件大小单位|</p>
+<pre><code class="language-shell">jindo fs -count -h oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="cp">cp<a class="headerlink" href="#cp" title="Permanent link">§</a></h3>
+<p>复制文件，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -f | 强制覆盖|</p>
+<pre><code class="language-shell">jindo fs -cp -f oss://&lt;bucket&gt;/&lt;sourcedir&gt; oss://&lt;bucket&gt;/&lt;targetdir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="checksum">checksum<a class="headerlink" href="#checksum" title="Permanent link">§</a></h3>
+<p>计算文件的CRC32 CheckSum大小</p>
+<pre><code class="language-shell">jindo fs -checksum oss://&lt;bucket&gt;/file
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="chgrp">chgrp<a class="headerlink" href="#chgrp" title="Permanent link">§</a></h3>
+<p>改变文件的所属群组</p>
+<pre><code class="language-shell">jindo fs -chgrp &lt;groupname&gt; oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="chmod">chmod<a class="headerlink" href="#chmod" title="Permanent link">§</a></h3>
+<p>改变文件的访问权限</p>
+<pre><code class="language-shell">jindo fs -chmod &lt;mode&gt; oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="chown">chown<a class="headerlink" href="#chown" title="Permanent link">§</a></h3>
+<p>改变文件的所有人</p>
+<pre><code class="language-shell">jindo fs -chown &lt;username&gt; oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="copyfromlocal">copyFromLocal<a class="headerlink" href="#copyfromlocal" title="Permanent link">§</a></h3>
+<p>从本地复制文件到oss，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -f | 强制覆盖|</p>
+<pre><code class="language-shell">jindo fs -copyFromLocal -f &lt;localdir&gt; oss://&lt;bucket&gt;/&lt;targetdir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="copytolocal">copyToLocal<a class="headerlink" href="#copytolocal" title="Permanent link">§</a></h3>
+<p>从oss复制文件到本地，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -f | 强制覆盖|</p>
+<pre><code class="language-shell">jindo fs -copyToLocal -f oss://&lt;bucket&gt;/&lt;targetdir&gt; &lt;localdir&gt; 
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="createsnapshot">createSnapshot<a class="headerlink" href="#createsnapshot" title="Permanent link">§</a></h3>
+<p>创建快照，使用前必须先允许快照功能</p>
+<pre><code class="language-shell">jindo fs -createSnapShot &lt;snapshotDir&gt; [&lt;snapshotName&gt;] 
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="checkstoragepolicy">checkStoragePolicy<a class="headerlink" href="#checkstoragepolicy" title="Permanent link">§</a></h3>
+<p>显示文件的存储策略</p>
+<pre><code class="language-shell">jindo fs -checkStoragePolicy -path oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="deletesnapshot">deleteSnapshot<a class="headerlink" href="#deletesnapshot" title="Permanent link">§</a></h3>
+<p>删除快照</p>
+<pre><code class="language-shell">jindo fs -deleteSnapshot oss://&lt;bucket&gt;/&lt;dir&gt; &lt;snapshotName&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="du">du<a class="headerlink" href="#du" title="Permanent link">§</a></h3>
+<p>显示目录中所有文件的大小
+可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -s | 求目标文件夹的总和|
+| -h | 标准单位显示|</p>
+<pre><code class="language-shell">jindo fs -du oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="get">get<a class="headerlink" href="#get" title="Permanent link">§</a></h3>
+<p>下载文件到本地，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -f | 强制覆盖|</p>
+<pre><code class="language-shell">jindo fs -get -f oss://&lt;bucket&gt;/&lt;dir&gt; &lt;localdst&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="getfacl">getfacl<a class="headerlink" href="#getfacl" title="Permanent link">§</a></h3>
+<p>显示文件或目录的访问控制列表，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -R | 递归显示|</p>
+<pre><code class="language-shell">jindo fs -getfacl -R oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="getfattr">getfattr<a class="headerlink" href="#getfattr" title="Permanent link">§</a></h3>
+<p>显示文件或者目录的扩展属性名称和值，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -R | 递归显示|
+| -n | 按名称显示|
+| -d | 显示所有|</p>
+<pre><code class="language-shell">jindo fs -getfattr [-R] {-n user.myAttr | -d} oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="getstoragepolicy">getStoragePolicy<a class="headerlink" href="#getstoragepolicy" title="Permanent link">§</a></h3>
+<p>显示存储策略</p>
+<pre><code class="language-shell">jindo fs -getStoragePolicy -path oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="ls">ls<a class="headerlink" href="#ls" title="Permanent link">§</a></h3>
+<p>列出目录下文件，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -R | 递归显示|</p>
+<pre><code class="language-shell">jindo fs -ls [-R] oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="listpolicies">listPolicies<a class="headerlink" href="#listpolicies" title="Permanent link">§</a></h3>
+<p>显示支持的存储策略</p>
+<pre><code class="language-shell">jindo fs -listPolicies
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="load">load<a class="headerlink" href="#load" title="Permanent link">§</a></h3>
+<p>数据缓存命令可以备份对应路径的数据至本集群的磁盘，以便于后续可以读取本地数据，无需读取OSS等后端上的数据，可选参数有。
+| 参数 | 说明 |
+| --- | --- |
+| -s | 表示缓存过程同步执行，打印进度和执行信息，推荐开启 |
+| -replica <num> | 缓存副本数量，默认缓存1个副本 |
+| -R | 递归缓存文件，当 path 是文件夹时开启 |</p>
+<pre><code class="language-shell">jindo fs -load [-meta] [-data] [-s] [-m] [-R] [-replica value] oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<h3 id="mkdir">mkdir<a class="headerlink" href="#mkdir" title="Permanent link">§</a></h3>
+<p>创建文件夹</p>
+<pre><code class="language-shell">jindo fs -mkdir oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="mv">mv<a class="headerlink" href="#mv" title="Permanent link">§</a></h3>
+<p>移动文件</p>
+<pre><code class="language-shell">jindo fs -mv oss://&lt;bucket&gt;/&lt;srcdir&gt; oss://&lt;bucket&gt;/&lt;dstdir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="movefromlocal">moveFromLocal<a class="headerlink" href="#movefromlocal" title="Permanent link">§</a></h3>
+<p>将文件从本地移动到远程路径上，，移动完成后会删除本地文件</p>
+<pre><code class="language-shell">jindo fs -moveFromLocal &lt;localsrc&gt; oss://&lt;bucket&gt;/&lt;dstdir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="movetolocal">moveToLocal<a class="headerlink" href="#movetolocal" title="Permanent link">§</a></h3>
+<p>将文件从远程路径上移动到本地，移动完成后会OSS上文件</p>
+<pre><code class="language-shell">jindo fs -moveToLocal oss://&lt;bucket&gt;/&lt;srcdir&gt;  &lt;localdst&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="metadiff">metaDiff<a class="headerlink" href="#metadiff" title="Permanent link">§</a></h3>
+<p>使用缓存加速系统后，显示本地元数据和远端的同步情况</p>
+<pre><code class="language-shell">jindo fs -metaDiff oss://&lt;bucket&gt;/&lt;srcdir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="put">put<a class="headerlink" href="#put" title="Permanent link">§</a></h3>
+<p>将本地文件复制到远程目录，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -f | 强制覆盖|</p>
+<pre><code class="language-shell">jindo fs -put -f &lt;localsrc&gt; oss://&lt;bucket&gt;/&lt;targetdir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="rm">rm<a class="headerlink" href="#rm" title="Permanent link">§</a></h3>
+<p>删除远程路径上的文件，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -f | 强制删除|
+| -r/-rmr/-R | 递归删除|</p>
+<pre><code class="language-shell">jindo fs -rm -f oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<pre><code class="language-shell">jindo fs -rm -R oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="rmdir">rmdir<a class="headerlink" href="#rmdir" title="Permanent link">§</a></h3>
+<p>删除文件夹</p>
+<pre><code class="language-shell">jindo fs -rmdir oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="test">test<a class="headerlink" href="#test" title="Permanent link">§</a></h3>
+<p>基本功能检测：
+| 参数    | Description  |
+| ---  | --- |
+| -d | 是否是文件夹|
+| -e | 是否存在路径|
+| -f | 是否是文件|
+| -s | 是否为空文件夹|
+| -z | 文件长度是否为0|</p>
+<pre><code class="language-shell">jindo fs -test -d oss://&lt;bucket&gt;/&lt;dir&gt;/file
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="renamesnapshot">renameSnapshot<a class="headerlink" href="#renamesnapshot" title="Permanent link">§</a></h3>
+<p>为快照重命名</p>
+<pre><code class="language-shell">jindo fs -renameSnapshot oss://&lt;bucket&gt;/&lt;dir&gt; &lt;oldName&gt; &lt;newName&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="restore">restore<a class="headerlink" href="#restore" title="Permanent link">§</a></h3>
+<p>将文件从归档状态恢复，冷归档文件和归档文件必须恢复后才能unarchive，必填参数：
+| 参数    | Description  |
+| ---  | --- |
+| -days | 解冻的时长|</p>
+<pre><code class="language-shell">jindo fs -restore -days value oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="stat">stat<a class="headerlink" href="#stat" title="Permanent link">§</a></h3>
+<p>显示文件状态</p>
+<pre><code class="language-shell">jindo fs -stat oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="setstoragepolicy">setStoragePolicy<a class="headerlink" href="#setstoragepolicy" title="Permanent link">§</a></h3>
+<p>设置存储策略</p>
+<pre><code class="language-shell">jindo fs -setStoragePolicy -path oss://&lt;bucket&gt;/&lt;dir&gt; -policy &lt;policy&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="setfacl">setfacl<a class="headerlink" href="#setfacl" title="Permanent link">§</a></h3>
+<p>设置文件访问策略，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -b | 删除所有访问策略|
+| -k | 删除默认访问策略|
+| -m | 按名称修改访问策略|
+| -x | 按名称删除访问策略|
+| -set | 设定访问策略| </p>
+<pre><code class="language-shell">jindo fs -setfacl -b oss://&lt;bucket&gt;/&lt;dir&gt; 
+</code></pre>
+<pre><code class="language-shell">jindo fs -setfacl -k oss://&lt;bucket&gt;/&lt;dir&gt; 
+</code></pre>
+<pre><code class="language-shell">jindo fs -setfacl -m user:&lt;username&gt;:&lt;acl&gt; oss://&lt;bucket&gt;/&lt;dir&gt; 
+</code></pre>
+<pre><code class="language-shell">jindo fs -setfacl -x user:&lt;username&gt; oss://&lt;bucket&gt;/&lt;dir&gt; 
+</code></pre>
+<pre><code class="language-shell">jindo fs -setfacl -set user::&lt;acl&gt; oss://&lt;bucket&gt;/&lt;dir&gt; 
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="setfattr">setfattr<a class="headerlink" href="#setfattr" title="Permanent link">§</a></h3>
+<p>设置文件或者目录的扩展属性名称和值，可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -n | 按名称设置|
+| -v | 设置属性值|
+| -x | 按名称删除|</p>
+<pre><code class="language-shell">jindo fs -setfattr {-n name [-v value] | -x name} oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="sync">sync<a class="headerlink" href="#sync" title="Permanent link">§</a></h3>
+<p>将本地路径、hdfs路径、oss路径或oss-hdfs路径到远程路径，使用update参数则会跳过目的路径中修改时间不晚于源路径中同名文件的文件。可选参数：
+| 参数    | Description  |
+| ---  | --- |
+| -update | 断点续传 |</p>
+<pre><code class="language-shell">jindo fs -sync [-update] -thread thread_num &lt;localsrc&gt; oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<pre><code class="language-shell">jindo fs -sync [-update] -thread thread_num oss://&lt;bucket&gt;/&lt;dir&gt; oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="touchz">touchz<a class="headerlink" href="#touchz" title="Permanent link">§</a></h3>
+<p>生成一个大小为0的文件</p>
+<pre><code class="language-shell">jindo fs -touchz oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="truncate">truncate<a class="headerlink" href="#truncate" title="Permanent link">§</a></h3>
+<p>将文件裁剪到指定大小</p>
+<pre><code class="language-shell">jindo fs -truncate &lt;length&gt; oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p>
+<h3 id="unarchive">unarchive<a class="headerlink" href="#unarchive" title="Permanent link">§</a></h3>
+<p>将文件恢复为标准文件，AR和COLD类型文件需要先restore</p>
+<pre><code class="language-shell">jindo fs -unarchive oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="uncache">uncache<a class="headerlink" href="#uncache" title="Permanent link">§</a></h3>
+<p>删除缓存系统的缓存文件</p>
+<pre><code class="language-shell">jindo fs -uncache oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：标准OSS、OSS-HDFS</p>
+<h3 id="unsetstoragepolicy">unsetStoragePolicy<a class="headerlink" href="#unsetstoragepolicy" title="Permanent link">§</a></h3>
+<p>取消存储策略</p>
+<pre><code class="language-shell">jindo fs -unsetStoragePolicy -path oss://&lt;bucket&gt;/&lt;dir&gt;
+</code></pre>
+<p>适用范围：OSS-HDFS</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

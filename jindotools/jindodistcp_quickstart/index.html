@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>JindoDistcp 快速入门 - AlibabaCloud JindoData</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../jindoauth/jindoauth_emr-next_kerberos/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../jindodistcp_api_quickstart/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#jindodistcp" class="nav-link">JindoDistCp 使用说明</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#jindodistcp_1" class="nav-link">JindoDistCp 介绍</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">环境要求</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">参数说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#jindodistcp-counters" class="nav-link">JindoDistCp Counters 说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="jindodistcp">JindoDistCp 使用说明<a class="headerlink" href="#jindodistcp" title="Permanent link">§</a></h1>
+<h2 id="jindodistcp_1">JindoDistCp 介绍<a class="headerlink" href="#jindodistcp_1" title="Permanent link">§</a></h2>
+<p>JindoDistCp 是阿里云数据湖存储团队开发的大规模集群内部和集群之间分布式文件拷贝的工具。其使用 MapReduce 实现文件分发，错误处理和恢复，把文件和目录的列表作为 MapReduce 任务的输入，每个任务会完成源列表中部分文件的拷贝。目前全量支持 HDFS/OSS-HDFS/OSS/S3 之间的的数据拷贝场景，提供多种个性化拷贝参数和多种拷贝策略。重点优化 HDFS 到 OSS-HDFS 的数据拷贝，通过定制化 CopyCommitter，实现 No-Rename 拷贝，并保证数据拷贝落地的一致性。功能全量对齐 S3 DistCp 和 HDFS DistCp，性能较 HDFS DistCp 有较大提升，致力于提供高效、稳定、安全的数据拷贝工具。</p>
+<h2 id="_1">环境要求<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<ul>
+<li>
+<p>JDK 1.8及以上</p>
+</li>
+<li>
+<p>Hadoop 2.3+ 版本，请下载最新版的 jindo-distcp-tool-x.x.x.jar，该 jar 包含在 jindosdk-${version}.tar.gz 内，解压缩后可在 tools/ 目录下找到，<a href="../../jindosdk/jindosdk_download/">下载页面</a>。</p>
+</li>
+</ul>
+<p>注：E-MapReduce EMR-5.6.0/EMR-3.40.0 或以上版本集群在集群中已部署 JindoDistCp，可在 /opt/apps/JINDOSDK/jindosdk-current/tools 目录下找到 jindo-distcp-tool-x.x.x.jar。</p>
+<h2 id="_2">参数说明<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<p>JindoDistCp 提供 jar 包形式使用，您可以使用 hadoop jar 命令配合一系列参数来完成迁移操作。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数类型</th>
+<th>说明</th>
+<th>默认值</th>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--src <srcDir></td>
+<td>必选</td>
+<td>设置源目录，支持的前缀有<br/>hdfs://<br/>oss://<br/>s3://<br/>cos://<br/>obs://</td>
+<td>-</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--dest <destDir></td>
+<td>必选</td>
+<td>设置目标目录，支持的前缀有<br/>hdfs://<br/>oss://<br/>s3://<br/>cos://<br/>obs://</td>
+<td>-</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--bandWidth <bandWidth></td>
+<td>可选</td>
+<td>设置单个节点的带宽限制，单位 M</td>
+<td>-1</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--codec <codec></td>
+<td>可选</td>
+<td>设置压缩类型，支持编解码器有 gzip、gz、lzo、lzop、lzop、snappy</td>
+<td>keep（不更改压缩类型）</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--policy <policy></td>
+<td>可选</td>
+<td>设置目标存储策略，支持 Standard、IA、Archive、ColdArchive</td>
+<td>Standard</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>--filters <filters></td>
+<td>可选</td>
+<td>设置包含过滤规则的文件</td>
+<td>-</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--srcPrefixesFile <prefixes></td>
+<td>可选</td>
+<td>设置包含符合规则的文件</td>
+<td>-</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--parallelism <parallelism></td>
+<td>可选</td>
+<td>设置DistCp任务的并发度，对应MR任务中的 mapreduce.job.maps</td>
+<td>10</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--jobBatch <jobBatch></td>
+<td>可选</td>
+<td>设置每个 distcp job 处理的文件数量</td>
+<td>10000</td>
+<td>4.5.1+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--taskBatch <taskBatch></td>
+<td>可选</td>
+<td>设置每个 distcp task 处理的文件数量</td>
+<td>1</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--tmp <tmpDir></td>
+<td>可选</td>
+<td>设置临时目录</td>
+<td>/tmp</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--hadoopConf <key=value></td>
+<td>可选</td>
+<td>设置 Configuration</td>
+<td>-</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--disableChecksum</td>
+<td>可选</td>
+<td>设置是否关闭 Checksum 检查</td>
+<td>false</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--deleteOnSuccess</td>
+<td>可选</td>
+<td>设置是否删除源文件，用于移动数据</td>
+<td>false</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--enableTransaction</td>
+<td>可选</td>
+<td>设置是否开启事务，以保证 Job 级别的原子性</td>
+<td>false</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--ignore</td>
+<td>可选</td>
+<td>设置是否忽略拷贝任务中抛出的异常，避免中断任务</td>
+<td>false</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--enableCMS</td>
+<td>可选</td>
+<td>是否开启监控告警</td>
+<td>false</td>
+<td>4.5.1+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--diff</td>
+<td>可选</td>
+<td>设置 DistCp 模式为 DIFF, 查看 src 和 dest 的文件差异</td>
+<td>DistCpMode.COPY</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--update</td>
+<td>可选</td>
+<td>设置 DistCp 模式为 UPDATE, 指定增量同步功能，跳过完全相同的文件和目录，直接将 src 中新增或发生改变的文件和目录同步到 dest 上</td>
+<td>DistCpMode.COPY</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--preserveMeta</td>
+<td>可选</td>
+<td>设置是否开启保存元数据信息</td>
+<td>false</td>
+<td>4.4.0+</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-src-dest">1、使用 --src 和 --dest (必选)<a class="headerlink" href="#1-src-dest" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>--src 表示指定源文件的路径。</p>
+</li>
+<li>
+<p>--dest 表示目标文件的路径。</p>
+</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell">hadoop jar jindo-distcp-tool-${version}.jar --src /data/hourly_table  --dest oss://example-oss-bucket/hourly_table
+</code></pre>
+<p>您可以通过指定 dest 路径来确定拷贝后的文件层次，如您需要将 /data/hourly_table 下的文件拷贝到 example-oss-bucket 这个 bucket 下的 hourly_table 目录下，则可以使用上述语句来完成。此处和 Hadoop 的 DistCp 行为有所不同，JindoDistCp 会默认将 src 目录下的所有文件拷贝到您指定 dest 路径下，并不包括当前的根目录名称，您可以在 dest 中指定拷贝路径的根目录，如果不存在会自动创建。</p>
+<p>注意：如需拷贝单个文件, dest 需指定为目录。</p>
+<pre><code class="language-shell">hadoop jar jindo-distcp-tool-${version}.jar --src /test.txt --dest oss://example-oss-bucket/tmp
+</code></pre>
+<h3 id="2-bandwidth">2、使用 --bandWidth<a class="headerlink" href="#2-bandwidth" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--bandWidth 表示本次distcp任务所用的单机带宽(以MB为单位)，避免单机占用过大带宽。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell">jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --bandWidth 6
+</code></pre>
+<h3 id="3-codec">3、使用 --codec<a class="headerlink" href="#3-codec" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<p>原始文件通常以未压缩的文本格式进入 OSS/OSS-HDFS。无论是存储成本还是对该数据进行分析，此格式都不甚理想。JindoDistCp 可以使用 --codec 选项帮助您在线高效地存储数据和压缩文件。</p>
+<ul>
+<li>
+<p>--codec 指定文件压缩编解码器。</p>
+<ul>
+<li>
+<p>支持 gzip、gz、lzo、lzop 和 snappy 关键字。</p>
+</li>
+<li>
+<p>none  保存为未压缩的文件。如果文件已压缩，则 JindoDistCp 会将其解压缩。</p>
+</li>
+<li>
+<p>keep(默认值) 不更改文件压缩形态，按原样复制。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>命令示例如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --codec gz
+</code></pre>
+<p>我们检查一下目标文件夹中的文件，这些文件现在已经用 gz 编解码器压缩了：</p>
+<pre><code>[root@emr-header-1 opt]# hdfs dfs -ls oss://example-oss-bucket/hourly_table/2017-02-01/03
+Found 6 items
+-rw-rw-rw-   1        938 2020-04-17 20:58 oss://example-oss-bucket/hourly_table/2017-02-01/03/000151.sst.gz
+-rw-rw-rw-   1       1956 2020-04-17 20:58 oss://example-oss-bucket/hourly_table/2017-02-01/03/1.log.gz
+-rw-rw-rw-   1       1956 2020-04-17 20:58 oss://example-oss-bucket/hourly_table/2017-02-01/03/2.log.gz
+-rw-rw-rw-   1       1956 2020-04-17 20:58 oss://example-oss-bucket/hourly_table/2017-02-01/03/OPTIONS-000109.gz
+-rw-rw-rw-   1        506 2020-04-17 20:58 oss://example-oss-bucket/hourly_table/2017-02-01/03/emp01.txt.gz
+-rw-rw-rw-   1        506 2020-04-17 20:58 oss://example-oss-bucket/hourly_table/2017-02-01/03/emp06.txt.gz
+</code></pre>
+<p>如您在开源Hadoop集群环境中使用lzo压缩功能，则您需要安装 gplcompression 的 native 库和hadoop-lzo包，如您缺少相关环境，建议使用其他压缩方式进行压缩。</p>
+<h3 id="4-filters">4、使用 --filters<a class="headerlink" href="#4-filters" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--filters 指定有过滤规则的文件。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --filters filter.txt
+</code></pre>
+<p>假设 filter.txt 的内容如下：</p>
+<pre><code>    .*test.*
+</code></pre>
+<p>则不会将路径中带有 test 字符的文件拷贝到OSS。</p>
+<h3 id="5-srcprefixesfile">5、使用 --srcPrefixesFile<a class="headerlink" href="#5-srcprefixesfile" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--srcPrefixesFile 指定有符合规则的文件。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --srcPrefixesFile prefixes.txt
+</code></pre>
+<p>假设 prefixes.txt 的内容如下：</p>
+<pre><code>    .*test.*
+</code></pre>
+<p>则只有路径中带有 test 字符的文件才会拷贝到OSS。</p>
+<h3 id="6-parallelism">6、使用 --parallelism<a class="headerlink" href="#6-parallelism" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--parallelism 指定MR任务里的 mapreduce.job.reduces 参数，该参数在EMR环境中默认为7，您可以根据集群的资源情况自定义 parallelism 的大小来控制 distcp 任务的并发度。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /opt/tmp --dest oss://example-oss-bucket/tmp --parallelism 20
+</code></pre>
+<h3 id="7-taskbatch">7、使用 --taskBatch<a class="headerlink" href="#7-taskbatch" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--taskBatch 指定每个 distcp task 处理的文件数量，默认为10。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --taskBatch 10
+</code></pre>
+<h3 id="8-tmp">8、使用 --tmp<a class="headerlink" href="#8-tmp" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--tmp 指定一个临时目录在hdfs上传存放临时数据，默认值为/tmp，即hdfs:///tmp/。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table  --tmp /tmp
+</code></pre>
+<h3 id="9-ossoss-hdfs-ak">9、配置访问 OSS/OSS-HDFS 的 AK<a class="headerlink" href="#9-ossoss-hdfs-ak" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<p>在 EMR 外或免密服务出现问题的情况下，您可以通过指定AK来获得访问 OSS/OSS-HDFS 服务的权限。您可以在命令中使用<code>--hadoopConf</code>选项来指定 AK。</p>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --hadoopConf fs.oss.accessKeyId=yourkey --hadoopConf fs.oss.accessKeySecret=yoursecret
+</code></pre>
+<p>您也可以将 OSS/OSS-HDFS 服务的 ak、secret 预先配置在 Hadoop 的 core-site.xml 文件里 ，避免每次使用时临时填写 ak。您可以在 E-MapReduce 控制台 Hadoop-Common 服务的 core-site.xml 页面配置。</p>
+<pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.accessKeyId&lt;/name&gt;
+        &lt;value&gt;xxx&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.accessKeySecret&lt;/name&gt;
+        &lt;value&gt;xxx&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="10-disablechecksum">10、使用 --disableChecksum<a class="headerlink" href="#10-disablechecksum" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--disableChecksum 关闭检查文件 checksum。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --disableChecksum
+</code></pre>
+<h3 id="11-deleteonsuccess">11、使用 --deleteOnSuccess<a class="headerlink" href="#11-deleteonsuccess" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--deleteOnSuccess 指定移动数据而不是复制数据。此选项类似于 mv 操作，首先复制文件，然后从源位置删除文件。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --deleteOnSuccess
+</code></pre>
+<h3 id="12-enabletransaction">12、使用 --enableTransaction<a class="headerlink" href="#12-enabletransaction" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--enableTransaction JindoDistCp 默认使用 Task 级别完整性，如您需要保证 Job 级别的完整性以及保证 Job 之间的事务支持，您可以使用该参数指定。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --enableTransaction
+</code></pre>
+<h3 id="13-ignore">13、使用 --ignore<a class="headerlink" href="#13-ignore" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--ignore 忽略数据迁移期间发生的异常，相关报错不会中断任务，并最终以 JindoCounter 的形式透出。（如果开启CMS的话，也会以指定方式进行通知。）</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --ignore
+</code></pre>
+<h3 id="14-diff">14、使用 --diff<a class="headerlink" href="#14-diff" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--diff 查看 src 和 dest 的文件差异。如果 src 的文件未能同步到 dest 上，则会在当前目录下生成一个包含文件内容差异的文件。如您的 JindoDistCp 任务包含压缩或者解压缩则 --diff 不能显示正确的文件差异，因为压缩或者解压缩会改变文件的大小。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --diff
+</code></pre>
+<p>如果文件有差异，则会在当前目录下生成一个包含文件内容差异的文件，并会提示如下信息：</p>
+<pre><code>        JindoCounter
+        DIFF_FILES=1
+</code></pre>
+<p>如果您的--dest为HDFS路径，现支持 <code>/path</code>，<code>hdfs://hostname:ip/path</code> ，<code>hdfs://headerIp:ip/path</code>的写法，暂不支持<code>hdfs:///path</code>，<code>hdfs:/path</code>和其他自定义写法。</p>
+<p>如果想查看文件元数据的差异，您可以使用 --diff --preserveMeta 命令：</p>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --diff --preserveMeta
+</code></pre>
+<p>如果文件元数据有差异，则会在当前目录下生成一个包含文件元数据差异的文件，并会提示如下信息：</p>
+<pre><code>        JindoCounter
+        META_FILE_DIFF=1
+</code></pre>
+<h3 id="15-update">15、使用 --update<a class="headerlink" href="#15-update" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--update 指定增量同步功能，跳过完全相同的文件和目录，直接将 src 中新增或发生改变的文件和目录同步到 dest 上。</li>
+</ul>
+<p>如果 JindoDistCp 任务因为各种原因中间失败了，而此时您想进行断点续传，只 Copy 剩下未 Copy 成功的文件。或者源端文件新增了部分文件，此时需要您在进行上一次 JindoDistCp 任务完成后进行指定该参数。</p>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --update
+</code></pre>
+<h3 id="16oss">16、使用冷归档/归档/低频写入OSS<a class="headerlink" href="#16oss" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.3.0 及以上版本</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--update 指定以冷归档、归档和低频的模式写入 OSS，进行数据存储。</li>
+</ul>
+<p>1）使用冷归档写入OSS（coldArchive）</p>
+<p>目前只在部分region可用，具体参见<a href="https://help.aliyun.com/document_detail/51374.html?utm_content=g_1000230851&amp;spm=5176.20966629.toubu.3.f2991ddcpxxvD1#title-o8q-tl3-j65">OSS存储类型介绍</a>，使用示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-bucket/hourly_table --policy coldArchive --parallelism 20
+</code></pre>
+<p>2）使用归档写入OSS（archive）</p>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-bucket/hourly_table --policy archive --parallelism 20
+</code></pre>
+<p>3）使用低频写入OSS（ia）</p>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-bucket/hourly_table --policy ia --parallelism 20
+</code></pre>
+<p>如您不指定则默认以 standard 标准模式写入，不进行冷归档、归档和低频操作。</p>
+<h3 id="17-preservemeta">17、使用 --preserveMeta<a class="headerlink" href="#17-preservemeta" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.4.0 及以上版本</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--preserveMeta 指定迁移数据的同时迁移包括 Owner, Group, Permission, Atime, Mtime, Replication, BlockSize, XAttrs, ACL 在内的元数据信息。</li>
+</ul>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --preserveMeta
+</code></pre>
+<h3 id="18-jobbatch">18、使用 --jobBatch<a class="headerlink" href="#18-jobbatch" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.5.1 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--jobBatch 在您的distcp任务写入OSS时，您可以通过--jobBatch来指定每个distcp job处理的文件数量，默认为10000。</li>
+</ul>
+<p>示例命令如下：</p>
+<pre><code class="language-shell"> jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-oss-bucket/hourly_table --jobBatch 50000
+</code></pre>
+<h3 id="19-enablecms">19、 使用 --enableCMS<a class="headerlink" href="#19-enablecms" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.5.1 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--enableCMS 开启云监控告警功能，具体参见<a href="../jindodistcp_how_to_cms/">《JindoDistcp使用CMS进行告警》</a>。</li>
+</ul>
+<h2 id="jindodistcp-counters">JindoDistCp Counters 说明<a class="headerlink" href="#jindodistcp-counters" title="Permanent link">§</a></h2>
+<table>
+<thead>
+<tr>
+<th>任务计数器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COPY_FAILED</td>
+<td>copy失败的文件数</td>
+</tr>
+<tr>
+<td>CHECKSUM_DIFF</td>
+<td>checksum校验失败的文件数，并计入COPY_FAILED</td>
+</tr>
+<tr>
+<td>FILES_EXPECTED</td>
+<td>预期的copy文件数量</td>
+</tr>
+<tr>
+<td>BYTES_EXPECTED</td>
+<td>预期的copy字节数</td>
+</tr>
+<tr>
+<td>FILES_COPIED</td>
+<td>copy成功的文件数</td>
+</tr>
+<tr>
+<td>BYTES_COPIED</td>
+<td>copy成功的字节数</td>
+</tr>
+<tr>
+<td>FILES_SKIPPED</td>
+<td>update增量更新时跳过的文件数</td>
+</tr>
+<tr>
+<td>BYTES_SKIPPED</td>
+<td>update增量更新时跳过的字节数</td>
+</tr>
+<tr>
+<td>DIFF_FILES</td>
+<td>不相同的文件数</td>
+</tr>
+<tr>
+<td>SAME_FILES</td>
+<td>经校验完全相同的文件数</td>
+</tr>
+<tr>
+<td>DST_MISS</td>
+<td>目标路径不存在的文件数，并计入DIFF_FILES</td>
+</tr>
+<tr>
+<td>LENGTH_DIFF</td>
+<td>源文件和目标文件大小不一致的数量，并计入DIFF_FILES</td>
+</tr>
+<tr>
+<td>CHECKSUM_DIFF</td>
+<td>checksum校验失败的文件数，并计入DIFF_FILES</td>
+</tr>
+<tr>
+<td>DIFF_FAILED</td>
+<td>diff操作异常的文件数，具体报错参见job日志</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

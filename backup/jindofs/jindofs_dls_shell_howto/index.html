@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>阿里云 OSS-HDFS 服务（JindoFS 服务）Shell 命令使用说明 - AlibabaCloud JindoData</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#oss-hdfs-jindofs-shell" class="nav-link">阿里云 OSS-HDFS 服务（JindoFS 服务）Shell 命令使用说明</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#hadoop-proxy-user" class="nav-link">设置 Hadoop Proxy User 命令</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#user-groups-mapping" class="nav-link">设置 User Groups Mapping 命令</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#snapshot" class="nav-link">管理 Snapshot 命令</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#accesspolicy" class="nav-link">通过 AccessPolicy 命令实现路径改写</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">其他</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="oss-hdfs-jindofs-shell">阿里云 OSS-HDFS 服务（JindoFS 服务）Shell 命令使用说明<a class="headerlink" href="#oss-hdfs-jindofs-shell" title="Permanent link">§</a></h1>
+<p><em>(从 4.5.0 开始支持)</em></p>
+<h2 id="hadoop-proxy-user">设置 Hadoop Proxy User 命令<a class="headerlink" href="#hadoop-proxy-user" title="Permanent link">§</a></h2>
+<h3 id="addproxyuser">AddProxyUser 命令<a class="headerlink" href="#addproxyuser" title="Permanent link">§</a></h3>
+<p>AddProxyUser 命令可以添加代理用户。</p>
+<pre><code class="language-bash">jindo admin -addProxyUser
+                 [-dlsUri &lt;uri&gt;]
+                 [-proxyUser &lt;proxyUser&gt;]
+                 [-users &lt;user1,user2...&gt;]|[-groups &lt;group1,group2...&gt;]
+                 [-hosts &lt;host1,host2...&gt;] 
+</code></pre>
+<p>在同一条命令中，参数 users 和 groups 不可同时使用，任选其一。 
+例：</p>
+<pre><code class="language-bash">jindo admin -addProxyUser
+                 -dlsUri oss://jindosdk-dls-unit-test/
+                 -proxyUser hive
+                 -groups group1,group2
+                 -hosts host1,host2
+</code></pre>
+<p>执行上述命令，用户 hive 可以代理属于 group1 或 group2 且从 host1 或 host2 发送请求的用户。</p>
+<h3 id="deleteproxyuser">DeleteProxyUser 命令<a class="headerlink" href="#deleteproxyuser" title="Permanent link">§</a></h3>
+<p>DeleteProxyUser 命令可以删除代理用户。</p>
+<pre><code class="language-bash">jindo admin -deleteProxyUser
+                [-dlsUri &lt;uri&gt;]
+                [-proxyUser &lt;proxyUser&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -deleteProxyUser
+                 -dlsUri oss://jindosdk-dls-unit-test/
+                 -proxyUser hive
+</code></pre>
+<p>执行上述命令，用户 hive 不可以代理任何用户。</p>
+<h3 id="listproxyusers">ListProxyUsers 命令<a class="headerlink" href="#listproxyusers" title="Permanent link">§</a></h3>
+<p>ListProxyUsers 可以查看所有的代理用户和代理信息。</p>
+<pre><code class="language-bash">jindo admin -listProxyUsers
+                [-dlsUri &lt;uri&gt;]
+                [-maxKeys &lt;maxKeys&gt;]
+                [-marker &lt;marker&gt;]
+</code></pre>
+<p>maxKeys 指定查看的代理用户个数，marker 用来筛选名称中含有特殊标记的代理用户，这两项参数均可省略。
+例：</p>
+<pre><code class="language-bash">jindo admin -listProxyUsers
+                -dlsUri oss://jindosdk-dls-unit-test/
+                -maxKeys 10
+                -marker hive
+</code></pre>
+<p>执行上述命令，将优先显示 oss://jindosdk-dls-unit-test/ 下名称中带 hive 标记的10个代理用户信息。</p>
+<h2 id="user-groups-mapping">设置 User Groups Mapping 命令<a class="headerlink" href="#user-groups-mapping" title="Permanent link">§</a></h2>
+<h3 id="addusergroupsmapping">AddUserGroupsMapping 命令<a class="headerlink" href="#addusergroupsmapping" title="Permanent link">§</a></h3>
+<p>AddUserGroupsMapping 命令映射用户和组的关系。</p>
+<pre><code class="language-bash">jindo admin -addUserGroupsMapping
+                [-dlsUri &lt;uri&gt;]
+                [-user &lt;user&gt;]
+                [-groups &lt;group1,group2...&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -addUserGroupsMapping
+                -dlsUri oss://jindosdk-dls-unit-test/
+                -user user1
+                -groups group1,group2
+</code></pre>
+<p>执行上述命令，用户 user1 将属于 group1 或 group2。</p>
+<h3 id="deleteusergroupsmapping">DeleteUserGroupsMapping 命令<a class="headerlink" href="#deleteusergroupsmapping" title="Permanent link">§</a></h3>
+<p>DeleteUserGroupsMapping 命令可以删除用户和组的映射关系。</p>
+<pre><code class="language-bash">jindo admin -deleteUserGroupsMapping
+                 [-dlsUri &lt;uri&gt;]
+                 [-user &lt;user&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -deleteUserGroupsMapping
+                -dlsUri oss://jindosdk-dls-unit-test/
+                -user user1
+</code></pre>
+<p>执行上述命令，将删除 user1 与对应组的映射关系。</p>
+<h3 id="listusergroupsmappings">ListUserGroupsMappings 命令<a class="headerlink" href="#listusergroupsmappings" title="Permanent link">§</a></h3>
+<p>ListUserGroupsMappings 可以查看所有的用户的组。</p>
+<pre><code class="language-bash">jindo admin -listUserGroupsMappings
+                [-dlsUri &lt;dlsUri&gt;]
+                [-maxKeys &lt;maxKeys&gt;]
+                [-marker &lt;marker&gt;]
+</code></pre>
+<p>maxKeys 指定查看的用户个数，marker 用来筛选名称中含有特殊标记的用户，这两项参数均可省略。
+例：</p>
+<pre><code class="language-bash">jindo admin -listUserGroupsMappings
+                -dlsUri oss://jindosdk-dls-unit-test/
+                -maxKeys 10
+                -marker user1
+</code></pre>
+<p>执行上述命令，将优先显示 oss://jindosdk-dls-unit-test/ 下名称中带 user1 标记的10个用户的组信息。</p>
+<h2 id="snapshot">管理 Snapshot 命令<a class="headerlink" href="#snapshot" title="Permanent link">§</a></h2>
+<h3 id="allowsnapshot">AllowSnapshot 命令<a class="headerlink" href="#allowsnapshot" title="Permanent link">§</a></h3>
+<p>AllowSnapshot 命令允许创建目录快照。</p>
+<pre><code class="language-bash">jindo admin -allowSnapshot [-dlsUri &lt;dlsSnapshotDir&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -allowSnapshot
+                -dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow
+</code></pre>
+<p>执行上面的命令后，将允许 oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow 目录创建快照。</p>
+<h3 id="disallowsnapshot">DisallowSnapshot 命令<a class="headerlink" href="#disallowsnapshot" title="Permanent link">§</a></h3>
+<p>DisallowSnapshot 命令可以禁止创建目录快照。</p>
+<pre><code class="language-bash">jindo admin -disallowSnapshot [-dlsUri &lt;dlsSnapshotDir&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -disallowSnapshot
+                -dlsUri oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow
+</code></pre>
+<p>执行上面的命令后，将不允许 oss://jindosdk-dls-unit-test/testSnapshot/snapshot_allow 目录创建快照。</p>
+<h3 id="snapshotdiff">SnapshotDiff 命令<a class="headerlink" href="#snapshotdiff" title="Permanent link">§</a></h3>
+<p>SnapshotDiff 命令用来比较同一目录两份快照的不同。</p>
+<pre><code class="language-bash">jindo admin -snapshotDiff
+                [-dlsUri &lt;dlsSnapshotDir&gt;]
+                [-fromSnapshot &lt;fromSnapshot&gt;]
+                [-toSnapshot &lt;toSnapshot&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -snapshotDiff
+                -dlsUri oss://jindosdk-dls-unit-test/testSnapshotDir/
+                -fromSnapshot S1
+                -toSnapshot S2
+</code></pre>
+<p>S1 和 S1 是事先通过 HDFS 的 Shell 命令行工具为测试目录创建的两份快照。</p>
+<h2 id="accesspolicy">通过 AccessPolicy 命令实现路径改写<a class="headerlink" href="#accesspolicy" title="Permanent link">§</a></h2>
+<h3 id="setrootpolicy"><a name="setrootpolicy_cmd"></a>SetRootPolicy 命令<a class="headerlink" href="#setrootpolicy" title="Permanent link">§</a></h3>
+<p>SetRootPolicy 命令允许为 bucket 设置任意前缀的访问路径。</p>
+<pre><code class="language-bash">jindo admin -setRootPolicy [&lt;dlsRootPath&gt;] [&lt;accessRootPath&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -setRootPolicy oss://jindosdk-dls-unit-test/ hdfs://myufs/
+</code></pre>
+<p>执行上述命令后，支持使用 hdfs://myufs/ 访问 oss://jindosdk-dls-unit-test/。</p>
+<h3 id="unsetrootpolicy"><a name="unsetrootpolicy_cmd"></a>UnsetRootPolicy 命令<a class="headerlink" href="#unsetrootpolicy" title="Permanent link">§</a></h3>
+<p>UnsetRootPolicy 命令为 bucket 取消访问路径。</p>
+<pre><code class="language-bash">jindo admin -unsetRootPolicy [&lt;dlsRootPath&gt;] [&lt;accessRootPath&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -unsetRootPolicy oss://jindosdk-dls-unit-test/ hdfs://myufs/
+</code></pre>
+<p>执行上述命令后，不再支持用 hdfs://myufs/ 访问 oss://jindosdk-dls-unit-test/。</p>
+<h3 id="listaccesspolicies"><a name="listaccesspolicies_cmd"></a>ListAccessPolicies 命令<a class="headerlink" href="#listaccesspolicies" title="Permanent link">§</a></h3>
+<p>ListAccessPolicies 可查看当前 bucket 支持的所有访问路径。</p>
+<pre><code class="language-bash">jindo admin -listAccessPolicies [&lt;dlsRootPath&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -listAccessPolicies oss://jindosdk-dls-unit-test/
+</code></pre>
+<p>执行上述命令，查看 oss://jindosdk-dls-unit-test/ 的所有访问路径。</p>
+<h2 id="_1">其他<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<h3 id="dumpfile">DumpFile 命令<a class="headerlink" href="#dumpfile" title="Permanent link">§</a></h3>
+<p>DumpFile 命令可以查看文件的详细存储信息。</p>
+<pre><code class="language-bash">jindo admin -dumpFile [-dlsUri &lt;dlsUri&gt;]
+</code></pre>
+<p>例：</p>
+<pre><code class="language-bash">jindo admin -dumpFile
+                -dlsUri oss://jindosdk-dls-unit-test/testDumpFile/dumpfile_simple_file
+</code></pre>
+<p>执行上述命令后，将显示类似如下结果：</p>
+<pre><code>=============Dump result=============
+File /testDumpFile/dumpfile_simple_file
+length: 11
+blockSize: 33554432
+modification time: 1657626266711
+access time: 1657626266481
+permission: 420
+owner: root
+group: supergroup
+file id: 4180702376518228901
+=============Block 0
+block id: 8792388394945610760
+offset: 0
+numBytes: 11
+gs: 1032
+type: CLOUD
+loc: .dlsdata
+underConstruction: 0
+isLastBlockComplete: 1
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+        <script src="../../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

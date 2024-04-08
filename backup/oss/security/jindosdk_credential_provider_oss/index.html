@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>JindoSDK OSS Credential Provider 配置 - AlibabaCloud JindoData</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#jindosdk-oss-credential-provider" class="nav-link">JindoSDK OSS Credential Provider 配置</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">基本配置方式</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#hadoop-credential-providers-accesskey" class="nav-link">使用 Hadoop Credential Providers 存储 AccessKey 信息</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#jindosdk-oss-credential-provider_1" class="nav-link">使用 JindoSDK OSS Credential Provider</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="jindosdk-oss-credential-provider">JindoSDK OSS Credential Provider 配置<a class="headerlink" href="#jindosdk-oss-credential-provider" title="Permanent link">§</a></h1>
+<h2 id="_1">基本配置方式<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<p>您可以将 OSS 的<code>Access Key ID</code>、<code>Access Secret</code>、<code>Endpoint</code>预先配置在 Hadoop 的<code>core-site.xml</code>，配置项如下：</p>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.accessKeyId&lt;/name&gt;
+        &lt;value&gt;xxx&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.accessKeySecret&lt;/name&gt;
+        &lt;value&gt;xxx&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.endpoint&lt;/name&gt;
+        &lt;!-- 阿里云 ECS 环境下推荐使用内网 OSS Endpoint，即 oss-cn-xxx-internal.aliyuncs.com --&gt;
+        &lt;value&gt;oss-cn-xxx.aliyuncs.com&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="hadoop-credential-providers-accesskey">使用 Hadoop Credential Providers 存储 AccessKey 信息<a class="headerlink" href="#hadoop-credential-providers-accesskey" title="Permanent link">§</a></h2>
+<p>上面的<code>fs.oss.accessKeyId</code>和<code>fs.oss.accessKeySecret</code>将会明文配置在<code>core-site.xml</code>中，可以将其以加密对方式存储至 Hadoop Credential Providers文件中。<br />
+使用Hadoop提供的命令，存储AccessKey和SecurityToken信息至Credential文件中。命令格式如下。</p>
+<pre><code>hadoop credential &lt;subcommand&gt; [options]
+</code></pre>
+<p>例如，存储AccessKey和Token信息至JECKS文件中，除了使用文件权限保护该文件外，您也可以指定密码加密存储信息，如果不指定密码则使用默认字符串加密。</p>
+<pre><code>hadoop credential create fs.oss.accessKeyId -value AAA -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.accessKeySecret -value BBB -provider jceks://file/root/oss.jceks
+hadoop credential create fs.oss.securityToken -value  CCC -provider jceks://file/root/oss.jceks
+</code></pre>
+<p>生成Credential文件后，您需要配置下面的参数来指定Provider的类型和位置。</p>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.security.credential.provider.path&lt;/name&gt;
+        &lt;value&gt;jceks://file/root/oss.jceks&lt;/value&gt;
+        &lt;description&gt;配置存储AK的Credential文件。例如，jceks://file/${user.home}/oss.jceks为HOME下的oss.jceks文件&lt;/description&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="jindosdk-oss-credential-provider_1">使用 JindoSDK OSS Credential Provider<a class="headerlink" href="#jindosdk-oss-credential-provider_1" title="Permanent link">§</a></h2>
+<p>默认会配置 SimpleCredentialsProvider，EnvironmentVariableCredentialsProvider，CommonCredentialsProvider 这三个Credential Provider, 按照先后顺序读取Credential直至读到有效的Credential。</p>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.credentials.provider&lt;/name&gt;
+        &lt;value&gt;com.aliyun.jindodata.oss.auth.SimpleCredentialsProvider,com.aliyun.jindodata.oss.auth.EnvironmentVariableCredentialsProvider,com.aliyun.jindodata.oss.auth.CommonCredentialsProvider&lt;/value&gt;
+        &lt;description&gt;配置com.aliyun.jindodata.oss.auth.JindoCredentialsProvider，多个类时使用英文逗号（, ）隔开，按照先后顺序读取Credential直至读到有效的Credential。Provider详情请参见Credential Provider类型。&lt;/description&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>您可以根据情况，选择不同的Credential Provider，支持如下Provider：</p>
+<h3 id="1-temporarycredentialsprovider-accesskey-securitytoken-oss">1. TemporaryCredentialsProvider 适合使用有时效性的 AccessKey 和 SecurityToken 访问 OSS 的情况。<a class="headerlink" href="#1-temporarycredentialsprovider-accesskey-securitytoken-oss" title="Permanent link">§</a></h3>
+<ul>
+<li>配置Provider类型：</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.credentials.provider&lt;/name&gt;
+        &lt;value&gt;com.aliyun.jindodata.oss.auth.TemporaryCredentialsProvider&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ul>
+<li>配置OSS AK：</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.accessKeyId&lt;/name&gt;
+        &lt;value&gt;OSS的AccessKey Id&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.accessKeySecret&lt;/name&gt;
+        &lt;value&gt;OSS的AccessKey Secret&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.securityToken&lt;/name&gt;
+        &lt;value&gt;OSS的SecurityToken（临时安全令牌)&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="2-simplecredentialsprovider-accesskey-oss">2. SimpleCredentialsProvider 适合使用长期有效的 AccessKey 访问 OSS 的情况。<a class="headerlink" href="#2-simplecredentialsprovider-accesskey-oss" title="Permanent link">§</a></h3>
+<ul>
+<li>配置Provider类型：</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.credentials.provider&lt;/name&gt;
+        &lt;value&gt;com.aliyun.jindodata.oss.auth.SimpleCredentialsProvider&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ul>
+<li>配置OSS AK：</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.accessKeyId&lt;/name&gt;
+        &lt;value&gt;OSS 的AccessKey Id&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.accessKeySecret&lt;/name&gt;
+        &lt;value&gt;OSS 的AccessKey Secret&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="3-environmentvariablecredentialsproviderak">3. EnvironmentVariableCredentialsProvider在环境变量中获取AK。<a class="headerlink" href="#3-environmentvariablecredentialsproviderak" title="Permanent link">§</a></h3>
+<ul>
+<li>配置Provider类型：</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.credentials.provider&lt;/name&gt;
+        &lt;value&gt;com.aliyun.jindodata.oss.auth.EnvironmentVariableCredentialsProvider&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ul>
+<li>配置OSS AK，需要在环境变量中配置以下参数：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OSS_ACCESS_KEY_ID</td>
+<td>OSS 的 AccessKey Id</td>
+</tr>
+<tr>
+<td>OSS_ACCESS_KEY_SECRET</td>
+<td>OSS 的 AccessKey Secret</td>
+</tr>
+<tr>
+<td>OSS_SECURITY_TOKEN</td>
+<td>OSS 的 SecurityToken（临时安全令牌）。说明 仅配置有时效 Token 时需要。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-commoncredentialsprovider">4. CommonCredentialsProvider 为通用配置。<a class="headerlink" href="#4-commoncredentialsprovider" title="Permanent link">§</a></h3>
+<ul>
+<li>配置Provider类型：</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.credentials.provider&lt;/name&gt;
+        &lt;value&gt;com.aliyun.jindodata.oss.auth.CommonCredentialsProvider&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ul>
+<li>配置OSS AK：</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;jindo.common.accessKeyId&lt;/name&gt;
+        &lt;value&gt;OSS 的 AccessKey Id&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;jindo.common.accessKeySecret&lt;/name&gt;
+        &lt;value&gt;OSS 的 AccessKey Secret&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;jindo.common.securityToken&lt;/name&gt;
+        &lt;value&gt;OSS 的SecurityToken（临时安全令牌)。说明 仅配置有时效 Token 时需要。&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="5-customcredentialsprovider">5. CustomCredentialsProvider 对接定制的免密服务。<a class="headerlink" href="#5-customcredentialsprovider" title="Permanent link">§</a></h3>
+<ul>
+<li>配置Provider类型：</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.oss.credentials.provider&lt;/name&gt;
+        &lt;value&gt;com.aliyun.jindodata.oss.auth.CustomCredentialsProvider&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ul>
+<li>配置免密服务地址</li>
+</ul>
+<pre><code class="language-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;aliyun.oss.provider.url&lt;/name&gt;
+        &lt;value&gt;免密服务地址&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p><code>aliyun.oss.provider.url</code> 支持 http(s) 协议 和 secrets 协议：</p>
+<p><strong>a. http(s) 协议</strong></p>
+<p>http(s) 协议免密服务地址格式为<code>http://localhost:1234/sts</code>, http 免密协议要求返回结果为 Json 格式，如果您需要对接您的 http 免密服务，免密服务的设计参考 <a href="https://help.aliyun.com/document_detail/61178.html#title-t3j-zsg-1fh">《通过API使用实例RAM角色#临时授权Token》</a></p>
+<pre><code>{
+&quot;AccessKeyId&quot; : &quot;XXXXXXXXX&quot;,
+&quot;AccessKeySecret&quot; : &quot;XXXXXXXXX&quot;,
+&quot;Expiration&quot; : &quot;2020-11-01T05:20:01Z&quot;,
+&quot;SecurityToken&quot; : &quot;XXXXXXXXX&quot;,
+&quot;LastUpdated&quot; : &quot;2020-10-31T23:20:01Z&quot;,
+&quot;Code&quot; : &quot;Success&quot;
+}
+</code></pre>
+<p><strong>b. Secrets 协议</strong></p>
+<p>Secrets 协议免密服务地址格式为<code>secrets:///local_path_prefix</code>，常见使用于 <a href="https://kubernetes.io/docs/concepts/configuration/secret/#consuming-secret-values-from-volumes">k8s 场景</a> ，</p>
+<p>其中<code>local_path_prefix</code>为路径前缀，如果<code>local_path_prefix</code>为<code>secrets:///secret/JindoOss</code>，则会在节点上查找如下 AccessKey 等文件</p>
+<p><code>/secret/JindoOssAccessKeyId</code>
+<code>/secret/JindoOssAccessKeySecret</code>
+<code>/secret/JindoOssSecurityToken</code></p>
+<p>如果<code>local_path_prefix</code>为<code>secrets:///secret/JindoOss/</code>，则会在节点上查找如下 AccessKey 等文件</p>
+<p><code>/secret/JindoOss/AccessKeyId</code>
+<code>/secret/JindoOss/AccessKeySecret</code>
+<code>/secret/JindoOss/SecurityToken</code></p>
+<h3 id="jindosdk-oss-bucket-credential-provider">JindoSDK 还支持不同的 OSS bucket 配置不同的 Credential Provider<a class="headerlink" href="#jindosdk-oss-bucket-credential-provider" title="Permanent link">§</a></h3>
+<p>详情参考<a href="../jindosdk_credential_provider_bucket_oss/">JindoSDK Credential Provider 按 OSS bucket 配置使用说明</a>。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+        <script src="../../../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

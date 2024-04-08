@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Python - AlibabaCloud JindoData</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../../oss/usages/oss_posix/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../tensorflow/jindosdk_on_tensorflow/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#pyjindo-oss-hdfs" class="nav-link">使用 PyJindo 访问阿里云 OSS-HDFS</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">背景</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">部署环境</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#api_1" class="nav-link">API 兼容性</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="pyjindo-oss-hdfs">使用 PyJindo 访问阿里云 OSS-HDFS<a class="headerlink" href="#pyjindo-oss-hdfs" title="Permanent link">§</a></h1>
+<h2 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<p>本文指导如何使用 Python 的工具包 PyJindo 操作 OSS-HDFS。PyJindo 兼容 python3.6 以上版本。</p>
+<h2 id="_2">部署环境<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<h3 id="python-pyjindo">下载对应 Python 版本的 PyJindo 安装包<a class="headerlink" href="#python-pyjindo" title="Permanent link">§</a></h3>
+<ol>
+<li>
+<p>下载最新的 tar.gz 包 jindosdk-x.y.z.tar.gz（x.y.z表版本号），下载链接见 <a href="../../jindosdk_download/">下载页面</a>。</p>
+</li>
+<li>
+<p>部署 jindosdk-6.3.3.tar.gz，whl安装包位于完整产出物 <code>jindosdk-x.x.x/lib/site-packages/</code> 的子目录中。多平台部署说明参见 <a href="../../jindosdk_deployment_multi_platform/">部署文档</a>。</p>
+</li>
+<li>
+<p>以<code>Python3.6</code>版本为例，请安装pyjindo-x.y.z-cp<code>36</code>-abi3-linux_x86_64.whl</p>
+</li>
+</ol>
+<pre><code>    .
+    ├── bin
+    │   ├── xxx
+    ├── conf
+    │   ├── xxx
+    ├── include
+    │   ├── xxx
+    ├── lib
+    │   ├── xxx
+    │   ├── native
+    │   │   ├── xxxx
+    │   └── site-packages
+    │       ├── pyjindo-x.y.z-cp310-abi3-linux_x86_64.whl
+    │       ├── pyjindo-x.y.z-cp311-abi3-linux_x86_64.whl
+    │       ├── pyjindo-x.y.z-cp312-abi3-linux_x86_64.whl
+    │       ├── pyjindo-x.y.z-cp36-abi3-linux_x86_64.whl
+    │       ├── pyjindo-x.y.z-cp37-abi3-linux_x86_64.whl
+    │       ├── pyjindo-x.y.z-cp38-abi3-linux_x86_64.whl
+    │       └── pyjindo-x.y.z-cp39-abi3-linux_x86_64.whl
+    ├── plugins
+    │   └── xxxx
+    ├── tools
+    │   ├── xxx
+    └── versions
+        ├── xxx
+</code></pre>
+<h3 id="_3">确认存在以下环境变量用以读取配置<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<pre><code class="language-bash">export JINDOSDK_CONF_DIR=/etc/taihao-apps/jindosdk-conf
+export HADOOP_CONF_DIR=/etc/taihao-apps/hadoop-conf
+</code></pre>
+<ol>
+<li>
+<p>在阿里云EMR环境中默认存在以上配置，无需配置。</p>
+</li>
+<li>
+<p>非EMR中配置方式参见：<a href="https://help.aliyun.com/zh/emr/emr-on-ecs/user-guide/deploy-jindosdk-in-an-environment-other-than-emr">《在非EMR集群中部署JindoSDK》</a>。其中，Hadoop配置文件及HADOOP_CONF_DIR不是必须，仅为兼容HADOOP环境中的配置。</p>
+</li>
+</ol>
+<h3 id="pyjindo">安装 PyJindo<a class="headerlink" href="#pyjindo" title="Permanent link">§</a></h3>
+<p>以 Python3.8 环境安装最新版本的 pyjindo-6.3.3 为例</p>
+<pre><code class="language-bash">python3.8 -m ensurepip
+python3.8 -m pip install pip --upgrade --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/
+python3.8 -m pip install pyjindo-6.3.3-cp38-abi3-linux_x86_64.whl
+</code></pre>
+<h3 id="python">编写 python 测试程序<a class="headerlink" href="#python" title="Permanent link">§</a></h3>
+<pre><code class="language-python">from pyjindo import fs
+
+bucket = &quot;jindosdk-yanbin-sh&quot;
+endpoint = bucket + &quot;.cn-shanghai.oss-dls.aliyuncs.com&quot;
+root_path = &quot;oss://&quot; + endpoint + &quot;/&quot;
+sub_dir = root_path + &quot;pyjindotest/&quot;
+file_path = root_path + &quot;hello.txt&quot;
+file_path2 = sub_dir + &quot;hello.txt&quot;
+config = fs.read_config()
+fs = fs.connect(root_path, &quot;root&quot;, config)
+# open（path, mode）模式 w,文件不存在创建一个文件
+out_file = fs.open(file_path,&quot;wb&quot;)
+out_file.write(str.encode(&quot;hello world, pyjindo&quot;)) #写
+out_file.close()
+
+in_file = fs.open(file_path, &quot;rb&quot;)
+data = in_file.read() # 读
+print(&quot;写入的数据为%s.&quot;%(data))
+in_file.close()
+
+# 列出文件
+ls_file = fs.listdir(root_path)
+print(&quot;目录文件为%s.&quot; %(ls_file))
+
+# 创建目录
+fs.mkdir(sub_dir)
+# 移动并重命名文件
+fs.rename(file_path, file_path2)
+# 列出文件
+mv_file = fs.listdir(sub_dir)
+print(&quot;移动后的目录文件为%s.&quot; %(mv_file))
+
+# 删除测试文件，重新列出文件
+fs.remove(file_path2)
+de_file = fs.listdir(sub_dir)
+print(&quot;删除文件后的pyjindotest目录下文件为%s.&quot; %(de_file))
+</code></pre>
+<h3 id="_4">执行测试<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<pre><code class="language-bash">python3.8 fs_test.py
+</code></pre>
+<h3 id="_5">执行结果<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
+<pre><code>写入的数据为b'hello world, pyjindo'.
+目录文件为[&lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/.sysinfo/': type=Directory&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/apps/': type=Directory&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/flume/': type=Directory&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/hbase/': type=Directory&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/hello.txt': type=File, size=20&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/pyarrowtest/': type=Directory&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/spark-history/': type=Directory&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/tmp/': type=Directory&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/user/': type=Directory&gt;, &lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/yarn/': type=Directory&gt;].
+移动后的目录文件为[&lt;FileInfo for 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/pyjindotest/hello.txt': type=File, size=20&gt;].
+删除文件后的pyjindotest目录下文件为[].
+</code></pre>
+<h3 id="_6">日志等级<a class="headerlink" href="#_6" title="Permanent link">§</a></h3>
+<p>调整JINDOSDK_CONF_DIR下的jindosdk.cfg配置，emr上对应/etc/taihao-apps/jindosdk-conf</p>
+<pre><code class="language-toml">[common]
+logger.dir = /var/log/emr/jindosdk
+logger.level = 2
+logger.verbose = 0
+logger.sync = false
+logger.jnilogger = true
+logger.consolelogger = false
+logger.cleaner.enable = true
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>logger.dir</td>
+<td>日志输出目录。</td>
+</tr>
+<tr>
+<td>logger.level</td>
+<td>推荐为2，level&lt;=1，表示WARN；level&gt;1，表示INFO。</td>
+</tr>
+<tr>
+<td>logger.verbose</td>
+<td>详细日志等级，范围为0-99，值越大日志越详细。</td>
+</tr>
+<tr>
+<td>logger.sync</td>
+<td>推荐为false。true表示同步输出日志。</td>
+</tr>
+<tr>
+<td>logger.jnilogger</td>
+<td>使用jni时生效，与pyjindo无关。</td>
+</tr>
+<tr>
+<td>logger.consolelogger</td>
+<td>终端输出时生效，与pyjindo无关。</td>
+</tr>
+<tr>
+<td>logger.cleaner.enable</td>
+<td>推荐为true，false表示关闭日志自动清理。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api">API 说明<a class="headerlink" href="#api" title="Permanent link">§</a></h3>
+<h3 id="config">Config 类<a class="headerlink" href="#config" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>成员函数</th>
+<th>返回值类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set(key, val)</td>
+<td>无</td>
+<td>设置字符串类型配置，key与val均为str</td>
+</tr>
+<tr>
+<td>get(key, default='')</td>
+<td>str</td>
+<td>获取字符串类型配置</td>
+</tr>
+<tr>
+<td>contains(key)</td>
+<td>bool</td>
+<td>是否存在配置key</td>
+</tr>
+</tbody>
+</table>
+<p>配置说明参见：<a href="../../jindosdk_configuration/">客户端常用配置</a></p>
+<h3 id="filetype">FileType 枚举<a class="headerlink" href="#filetype" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>枚举类型</th>
+<th>枚举值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unknown</td>
+<td>0</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Directory</td>
+<td>1</td>
+<td>目录</td>
+</tr>
+<tr>
+<td>File</td>
+<td>2</td>
+<td>文件</td>
+</tr>
+<tr>
+<td>Symlink</td>
+<td>3</td>
+<td>软链</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fileinfo">FileInfo 类<a class="headerlink" href="#fileinfo" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>成员属性</th>
+<th>返回值类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>FileType</td>
+<td>文件类型</td>
+</tr>
+<tr>
+<td>is_file</td>
+<td>bool</td>
+<td>是否为文件</td>
+</tr>
+<tr>
+<td>is_dir</td>
+<td>bool</td>
+<td>是否为目录</td>
+</tr>
+<tr>
+<td>is_symlink</td>
+<td>bool</td>
+<td>是否为软链</td>
+</tr>
+<tr>
+<td>path</td>
+<td>str</td>
+<td>路径</td>
+</tr>
+<tr>
+<td>user</td>
+<td>str</td>
+<td>用户</td>
+</tr>
+<tr>
+<td>group</td>
+<td>str</td>
+<td>用户组</td>
+</tr>
+<tr>
+<td>size</td>
+<td>int</td>
+<td>文件大小</td>
+</tr>
+<tr>
+<td>perm</td>
+<td>int</td>
+<td>文件权限</td>
+</tr>
+<tr>
+<td>atime</td>
+<td>datetime</td>
+<td>文件最后访问时间</td>
+</tr>
+<tr>
+<td>mtime</td>
+<td>datetime</td>
+<td>文件最后修改时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="filestream">FileStream 类<a class="headerlink" href="#filestream" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>成员函数</th>
+<th>返回值类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>readable()</td>
+<td>bool</td>
+<td>是否可读</td>
+</tr>
+<tr>
+<td>writable()</td>
+<td>bool</td>
+<td>是否可写</td>
+</tr>
+<tr>
+<td>seekable()</td>
+<td>bool</td>
+<td>是否可seek</td>
+</tr>
+<tr>
+<td>closed()</td>
+<td>bool</td>
+<td>是否已关闭</td>
+</tr>
+<tr>
+<td>close()</td>
+<td>无，失败时抛出IOError</td>
+<td>关闭文件</td>
+</tr>
+<tr>
+<td>size()</td>
+<td>int, 失败时抛出IOError</td>
+<td>文件大小（仅可读时使用）</td>
+</tr>
+<tr>
+<td>tell()</td>
+<td>int, 失败时抛出IOError</td>
+<td>文件流位置</td>
+</tr>
+<tr>
+<td>flush()</td>
+<td>无，失败时抛出IOError</td>
+<td>刷新缓存</td>
+</tr>
+<tr>
+<td>write(data)</td>
+<td>无，失败时抛出IOError</td>
+<td>写数据，data为bytes类型，为写入buffer</td>
+</tr>
+<tr>
+<td>read(nbytes)</td>
+<td>bytes, 失败时抛出IOError</td>
+<td>读数据，nbytes为int，为读取大小</td>
+</tr>
+<tr>
+<td>pread(nbytes, offset)</td>
+<td>bytes, 失败时抛出IOError</td>
+<td>随机读数据，nbytes为int，表读取大小；offset为int，表文件位移</td>
+</tr>
+<tr>
+<td>readall()</td>
+<td>bytes, 失败时抛出IOError</td>
+<td>读取整个文件</td>
+</tr>
+<tr>
+<td>download(stream_or_path, buffer_size)</td>
+<td>无, 失败时抛出IOError</td>
+<td>下载，读取当前文件，写入到本地路径或着目标流。stream_or_path可以是本地路径也可以文件流。</td>
+</tr>
+<tr>
+<td>upload(stream, buffer_size)</td>
+<td>无，失败时抛出IOError</td>
+<td>上传，读取stream流，写入当前文件。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="filesystem">FileSystem 类型<a class="headerlink" href="#filesystem" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>成员函数</th>
+<th>返回值类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mkdir(path, recursive)</td>
+<td>bool，失败时抛出IOError</td>
+<td>创建目录，recursive为bool，表是否递归创建父目录</td>
+</tr>
+<tr>
+<td>rename(src, dest)</td>
+<td>bool，失败时抛出IOError</td>
+<td>rename文件，把src路径移动到dest路径，src和dest路径为str</td>
+</tr>
+<tr>
+<td>get_file_info(path)</td>
+<td>FileInfo，失败时抛出IOError</td>
+<td>获取文件信息</td>
+</tr>
+<tr>
+<td>exists(path)</td>
+<td>bool，失败时抛出IOError</td>
+<td>文件是否存在</td>
+</tr>
+<tr>
+<td>listdir(path, recursive)</td>
+<td>FileInfo列表，失败时抛出IOError</td>
+<td>列举文件，recursive为bool，表是否递归</td>
+</tr>
+<tr>
+<td>chmod(path, perm)</td>
+<td>bool，失败时抛出IOError</td>
+<td>类似setPermission，perm为权限，如0o777</td>
+</tr>
+<tr>
+<td>chown(path, owner, group)</td>
+<td>bool，失败时抛出IOError</td>
+<td>类似setOwner，owner为str，表用户名，group为str，表用户组</td>
+</tr>
+<tr>
+<td>open(path, mode, buffer_size=None)</td>
+<td>FileStream，失败时抛出IOError</td>
+<td>打开文件，mode支持<code>rb</code>, <code>wb</code>。buffer_size默认为64k，为upload、download、copy_file时的buffer大小。</td>
+</tr>
+<tr>
+<td>download(path, stream_or_path, buffer_size=None)</td>
+<td>无, 失败时抛出IOError</td>
+<td>下载，读取远端path的文件，到本地路径或着目标流。stream_or_path可以是本地路径也可以文件流。buffer_size默认为64k，如配置中存在<code>fs.oss.read.buffer.size</code>，则以配置为准。</td>
+</tr>
+<tr>
+<td>upload(path, stream, buffer_size=None)</td>
+<td>无, 失败时抛出IOError</td>
+<td>上传stream流到远端path。buffer_size默认为64k，如配置中存在<code>fs.oss.write.buffer.size</code>，则以配置为准。</td>
+</tr>
+<tr>
+<td>copy_file(src, dest, buffer_size=None)</td>
+<td>无, 失败时抛出IOError</td>
+<td>拷贝文件，从src路径拷贝到dest路径。buffer_size默认为64k，如配置中存在<code>fs.oss.read.buffer.size</code>，则以配置为准。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fs">fs 模块<a class="headerlink" href="#fs" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>全局函数</th>
+<th>返回值类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read_config()</td>
+<td>Config</td>
+<td>读取配置 1.  检查环境变量JINDOSDK_CONF_DIR，如存在，则从$JINDOSDK_CONF_DIR/jindosdk.cfg中读取配置。      2.  检查环境变量HADOOP_CONF_DIR，如存在且jindosdk.cfg中未配置hadoopConf.enable为false，则从$HADOOP_CONF_DIR/core-sites.xml中读取配置。</td>
+</tr>
+<tr>
+<td>connect(uri, user, config)</td>
+<td>FileSystem，失败时抛出IOError</td>
+<td>初始化 FileSystem</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api_1">API 兼容性<a class="headerlink" href="#api_1" title="Permanent link">§</a></h2>
+<h3 id="ossfs-fsspec">ossfs 模块兼容 fsspec 接口<a class="headerlink" href="#ossfs-fsspec" title="Permanent link">§</a></h3>
+<p>pyjindo 同样兼容 fsspec 同步接口，但仅兼容 python3.7 以上版本。仅接口兼容，读取配置、日志等级等使用方式不变。</p>
+<h4 id="fsspec">使用前需要安装依赖 fsspec<a class="headerlink" href="#fsspec" title="Permanent link">§</a></h4>
+<p>以 Python3.8 环境安装 fssepc 为例</p>
+<pre><code class="language-bash">python3.8 -m pip install fsspec --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+<h4 id="python_1">编写 python 测试程序<a class="headerlink" href="#python_1" title="Permanent link">§</a></h4>
+<pre><code class="language-python">from pyjindo.ossfs import JindoOssFileSystem
+
+bucket = &quot;jindosdk-yanbin-sh&quot;
+endpoint = bucket + &quot;.cn-shanghai.oss-dls.aliyuncs.com&quot;
+root_path = &quot;oss://&quot; + endpoint + &quot;/&quot;
+sub_dir = root_path + &quot;pyjindotest/&quot;
+file_path = root_path + &quot;hello.txt&quot;
+file_path2 = sub_dir + &quot;hello.txt&quot;
+fs = JindoOssFileSystem(root_path)
+# open（path, mode）模式 w,文件不存在创建一个文件
+out_file = fs.open(file_path,&quot;wb&quot;)
+out_file.write(str.encode(&quot;hello world, pyjindo&quot;)) #写
+out_file.close()
+
+in_file = fs.open(file_path, &quot;rb&quot;)
+data = in_file.read() # 读
+print(&quot;写入的数据为%s.&quot;%(data))
+in_file.close()
+
+# 列出文件
+ls_file = fs.ls(root_path, detail=False)
+print(&quot;目录文件为%s.&quot; %(ls_file))
+assert file_path in fs.glob(root_path + &quot;*&quot;)
+
+# 创建目录
+fs.mkdir(sub_dir)
+# 移动并重命名文件
+fs.rename(file_path, file_path2)
+# 列出文件
+mv_file = fs.listdir(sub_dir, detail=False)
+print(&quot;移动后的目录文件为%s.&quot; %(mv_file))
+
+# 删除测试文件，重新列出文件
+fs.rm(file_path2)
+de_file = fs.ls(sub_dir)
+print(&quot;删除文件后的pyjindotest目录下文件为%s.&quot; %(de_file))
+</code></pre>
+<h3 id="_7">执行测试<a class="headerlink" href="#_7" title="Permanent link">§</a></h3>
+<pre><code class="language-bash">python3.8 ossfs_test.py
+</code></pre>
+<h3 id="_8">执行结果：<a class="headerlink" href="#_8" title="Permanent link">§</a></h3>
+<pre><code>写入的数据为b'hello world, pyjindo'.
+目录文件为['oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/.sysinfo/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/apps/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/flume/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/hbase/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/hello.txt', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/pyarrowtest/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/pyjindotest/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/spark-history/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/test/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/tmp/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/user/', 'oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/yarn/'].
+移动后的目录文件为['oss://jindosdk-yanbin-sh.cn-shanghai.oss-dls.aliyuncs.com/pyjindotest/hello.txt'].
+删除文件后的pyjindotest目录下文件为[].
+</code></pre>
+<p>更多接口说明参见 fssepc <a href="https://filesystem-spec.readthedocs.io/en/latest/api.html#fsspec.spec.AbstractFileSystem">官网文档</a>。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+        <script src="../../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

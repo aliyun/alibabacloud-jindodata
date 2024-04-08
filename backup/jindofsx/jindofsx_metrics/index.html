@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Jindofsx metrics - AlibabaCloud JindoData</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#prometheus-grafana-jindofsx" class="nav-link">基于 Prometheus + Grafana 搭建 JindoFSx 存储加速系统可视化指标观测平台</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="prometheus-grafana-jindofsx">基于 Prometheus + Grafana 搭建 JindoFSx 存储加速系统可视化指标观测平台<a class="headerlink" href="#prometheus-grafana-jindofsx" title="Permanent link">§</a></h2>
+<h3 id="_1">环境要求<a class="headerlink" href="#_1" title="Permanent link">§</a></h3>
+<ul>
+<li>
+<p>JindoFSx &gt;= 4.1.0</p>
+</li>
+<li>
+<p>Prometheus &gt;= 2.10</p>
+</li>
+<li>
+<p>Grafana &gt;= 7.3.7</p>
+</li>
+</ul>
+<h3 id="_2">前提条件：<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
+<ul>
+<li>已部署 JindoFSx 存储加速系统。</li>
+</ul>
+<p>关于如何部署 JindoFSx 存储加速系统，请参考 <a href="/docs/user/4.x/4.6.x/4.6.12/jindofsx/deploy/deploy_jindofsx.md">部署 JindoFSx 存储加速系统</a></p>
+<ul>
+<li>已部署 JindoSDK。</li>
+</ul>
+<p>关于如何部署 JindoSDK，请参考 <a href="/docs/user/4.x/4.6.x/4.6.12/jindofsx/deploy/deploy_jindosdk.md">部署 JindoSDK</a></p>
+<h3 id="metrics">以简单方式查看 metrics 指标<a class="headerlink" href="#metrics" title="Permanent link">§</a></h3>
+<p>在已经成功部署 JindoFSx 存储加速系统的前提下，找到服务 namesapce 所在节点的 ip(localhost) 和服务启动端口 port(8101)，您可以使用 curl/wget 等命令来获取对应的 metrics 输出结果。如</p>
+<pre><code>curl localhost:8101/jindo_metrics/prometheus
+</code></pre>
+<p>指标详细名称和含义请参考文章末尾</p>
+<h3 id="1prometheus">1、Prometheus 安装<a class="headerlink" href="#1prometheus" title="Permanent link">§</a></h3>
+<p>首先需要在环境里安装 Prometheus 和 Grafana 服务，下面以 centos7 环境为例
+* <a href="https://prometheus.io/">Prometheus 相关介绍</a>
+* <a href="https://grafana.com/">Grafana 相关介绍</a></p>
+<p>1、安装 Prometheus 服务</p>
+<pre><code class="language-bash">#下载安装包
+wget https://github.com/prometheus/prometheus/releases/download/v2.30.1/prometheus-2.30.1.linux-amd64.tar.gz
+#解压安装包
+tar -zxvf prometheus-2.30.1.linux-amd64.tar.gz 
+#重命名
+mv prometheus-2.30.1.linux-amd64 prometheus-server
+</code></pre>
+<p>2、修改解压安装包内的 <code>prometheus.yml</code> 文件，替换为</p>
+<pre><code class="language-yaml">global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    monitor: 'codelab-monitor'
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
+  - job_name: 'namespace-prometheus'
+    scrape_interval: 5s
+    metrics_path: /jindo_metrics/prometheus
+    static_configs:
+      - targets: ['&lt;ns Ip&gt;:&lt;ns Port&gt;'] # your ns Ip and ns port eg:localhost:8101
+</code></pre>
+<p>简单使用您只需填写<code>targets: ['&lt;ns Ip&gt;:&lt;ns Port&gt;']</code>即可：
+如 <code>targets: ['localhost:8101']</code>，保证网络和端口可访问</p>
+<p>3、启动 prometheus 服务</p>
+<pre><code class="language-bash">#安装目录下
+cd prometheus-server
+#后台启动server
+nohup ./prometheus &gt; myout.file 2&gt;&amp;1 &amp;
+</code></pre>
+<p>prometheus 默认启动在9090端口</p>
+<pre><code class="language-bash">$ netstat -ntlp | grep prometheus
+tcp        0      0 0.0.0.0:9090            0.0.0.0:*               LISTEN      17448/./prometheus
+</code></pre>
+<p>从浏览器打开<code>prometheus</code>UI界面</p>
+<p><img src="pic/prometheus_example.png"></p>
+<p>到此，prometheus 服务安装成功，接下来我们通过 Grafana 服务来对接 Prometheus 数据源进行 metrics 的展示工作</p>
+<h3 id="2grafana">2、Grafana 安装<a class="headerlink" href="#2grafana" title="Permanent link">§</a></h3>
+<p>1、下载安装 Grafana 服务</p>
+<pre><code class="language-bash"># 下载 grafana 7.3.7
+wget https://dl.grafana.com/enterprise/release/grafana-enterprise-7.3.7.linux-amd64.tar.gz
+# 解压
+tar -zxvf grafana-enterprise-7.3.7.linux-amd64.tar.gz
+</code></pre>
+<p>2、启动 grafana 服务 </p>
+<p>最小化启动 grafana 服务，其他选项可参考 grafana 官方文档</p>
+<pre><code class="language-bash">cd grafana-7.3.7/bin
+</code></pre>
+<pre><code class="language-bash"># ls -l
+总用量 85416
+-rwxr-xr-x 1 root root 25691632 1月  14 2021 grafana-cli
+-rw-r--r-- 1 root root       33 1月  14 2021 grafana-cli.md5
+-rwxr-xr-x 1 root root 61760192 1月  14 2021 grafana-server
+-rw-r--r-- 1 root root       33 1月  14 2021 grafana-server.md5
+</code></pre>
+<p>后台启动 grafana 服务</p>
+<pre><code class="language-bash">nohup ./grafana-server &gt; myout.file 2&gt;&amp;1 &amp;
+</code></pre>
+<p>打开 grafana UI 界面，默认 <code>3000</code> 端口</p>
+<pre><code class="language-bash">$ netstat -ntlp | grep grafana
+tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      27223/./grafan-ser 
+</code></pre>
+<p>如打开 <code>localhost:3000</code>，初始化用户名/密码：admin/admin，点击 login 登陆</p>
+<p><img src="pic/grafana-login.png"></p>
+<p>添加 prometheus 数据源</p>
+<p><img src="pic/grafana-1.png"></p>
+<p><img src="pic/grafana-2.png"></p>
+<p>填写 Prometheus 的 HTTP URL，进行 Save&amp;Test，测试通过即为添加成功</p>
+<p><img src="pic/grafana-3.png"></p>
+<p>添加 JindoFS cache 模式的 JSON 展示模版，<a href="http://smartdata-binary.oss-cn-shanghai.aliyuncs.com/fluid/370/Jindofsx-grafana-json">点击这里下载 JSON 文件</a>，下载到本地后，点击 <code>Upload JSON file</code></p>
+<p><img src="pic/grafana-5.png">
+<img src="pic/grafana-6.png">
+<img src="pic/grafana-7.png"></p>
+<p>点击 import 后即可看到 cache 模式的 UI</p>
+<p><img src="pic/common_grafana_playfront.png"></p>
+<h3 id="prometheus">Prometheus 指标预览(更新中)<a class="headerlink" href="#prometheus" title="Permanent link">§</a></h3>
+<p>下面对 JindoRuntime 当前收集的指标进行预览和描述，您可以基于已收集指标在 Grafana 中进行组合和图表展示，如您需要额外的基本 metrics 展示，请开 issue 联系我们</p>
+<pre><code class="language-yaml"># HELP jindofsx_ns_backend_read_bytes_time_total_window
+# TYPE jindofsx_ns_backend_read_bytes_time_total_window gauge
+jindofsx_ns_backend_read_bytes_time_total_window 20367553  #一分钟内底层读取总数据量大小所用时间大小，单位微秒
+# HELP jindofsx_ns_backend_read_bytes_total
+# TYPE jindofsx_ns_backend_read_bytes_total gauge
+jindofsx_ns_backend_read_bytes_total 166703347021 #总底层读取数据量大小，单位Byte
+# HELP jindofsx_ns_backend_read_bytes_total_window
+# TYPE jindofsx_ns_backend_read_bytes_total_window gauge
+jindofsx_ns_backend_read_bytes_total_window 1174671374 #一分钟内底层读取总数据量大小，单位Byte
+# HELP jindofsx_ns_backend_read_time_total
+# TYPE jindofsx_ns_backend_read_time_total gauge
+jindofsx_ns_backend_read_time_total 8717632094 #底层读取数据所用总时间大小，单位微秒
+# HELP jindofsx_ns_backend_readop_num_total
+# TYPE jindofsx_ns_backend_readop_num_total gauge
+jindofsx_ns_backend_readop_num_total 181951 #底层总读取数据次数，对应 JindoFS 中 Block 个数
+# HELP jindofsx_ns_local_read_bytes_time_total_window
+# TYPE jindofsx_ns_local_read_bytes_time_total_window gauge
+jindofsx_ns_local_read_bytes_time_total_window 0 #一分钟内短路读时间大小，单位微秒
+# HELP jindofsx_ns_local_read_bytes_total
+# TYPE jindofsx_ns_local_read_bytes_total gauge
+jindofsx_ns_local_read_bytes_total 0  #总短路读取数据量大小，单位Byte
+# HELP jindofsx_ns_local_read_bytes_total_window
+# TYPE jindofsx_ns_local_read_bytes_total_window gauge
+jindofsx_ns_local_read_bytes_total_window 0 #一分钟内短路读所用时间大小，单位微秒
+# HELP jindofsx_ns_local_read_time_total
+# TYPE jindofsx_ns_local_read_time_total gauge
+jindofsx_ns_local_read_time_total 0 #短路读取数据所用总时间大小，单位微秒
+# HELP jindofsx_ns_local_readop_num_total
+# TYPE jindofsx_ns_local_readop_num_total gauge
+jindofsx_ns_local_readop_num_total 0 #短路读总读取数据次数，对应 JindoFS 中 Block 个数
+# HELP jindofsx_ns_remote_read_bytes_time_total_window
+# TYPE jindofsx_ns_remote_read_bytes_time_total_window gauge
+jindofsx_ns_remote_read_bytes_time_total_window 73714663 #一分钟内远端读所用时间大小，单位微秒
+# HELP jindofsx_ns_remote_read_bytes_total
+# TYPE jindofsx_ns_remote_read_bytes_total gauge
+jindofsx_ns_remote_read_bytes_total 112108045498 #总远端读取数据量大小，单位Byte
+# HELP jindofsx_ns_remote_read_bytes_total_window
+# TYPE jindofsx_ns_remote_read_bytes_total_window gauge
+jindofsx_ns_remote_read_bytes_total_window 13380884043 #一分钟内远端读取总数据量大小，单位Byte
+# HELP jindofsx_ns_remote_read_time_total
+# TYPE jindofsx_ns_remote_read_time_total gauge
+jindofsx_ns_remote_read_time_total 765272359 #总远端读取时间，单位微秒
+# HELP jindofsx_ns_remote_readop_num_total
+# TYPE jindofsx_ns_remote_readop_num_total gauge
+jindofsx_ns_remote_readop_num_total 107314 #远端读总读取数据次数，对应 JindoFS 中 Block 个数
+# HELP jindofsx_ns_slicelet_read_bytes_time_total_window
+# TYPE jindofsx_ns_slicelet_read_bytes_time_total_window gauge
+jindofsx_ns_slicelet_read_bytes_time_total_window 0 #一分钟内小文件读所用时间大小，单位微秒
+# HELP jindofsx_ns_slicelet_read_bytes_total
+# TYPE jindofsx_ns_slicelet_read_bytes_total gauge
+jindofsx_ns_slicelet_read_bytes_total 0 #总小文件读取数据量大小，单位Byte
+# HELP jindofsx_ns_slicelet_read_bytes_total_window
+# TYPE jindofsx_ns_slicelet_read_bytes_total_window gauge
+jindofsx_ns_slicelet_read_bytes_total_window 0 #一分钟内小文件读取总数据量大小，单位Byte
+# HELP jindofsx_ns_slicelet_read_time_total
+# TYPE jindofsx_ns_slicelet_read_time_total gauge
+jindofsx_ns_slicelet_read_time_total 0 #小文件读取数据所用总时间大小，单位微秒
+# HELP jindofsx_ns_slicelet_readop_num_total
+# TYPE jindofsx_ns_slicelet_readop_num_total gauge
+jindofsx_ns_slicelet_readop_num_total 0 #小文件读总读取数据次数，对应 JindoFS 中 Block 个数
+# HELP jindofsx_ns_total_disk_cap
+# TYPE jindofsx_ns_total_disk_cap gauge
+jindofsx_ns_total_disk_cap 840739848192 #磁盘缓存总容量大小，单位Byte
+# HELP jindofsx_ns_total_mem_cap
+# TYPE jindofsx_ns_total_mem_cap gauge
+jindofsx_ns_total_mem_cap 0 #内存缓存总容量大小，单位Byte
+# HELP jindofsx_ns_total_stsnodes_num
+# TYPE jindofsx_ns_total_stsnodes_num gauge
+jindofsx_ns_total_stsnodes_num 3 #alive worker 节点的数量
+# HELP jindofsx_ns_total_used_disk_cap
+# TYPE jindofsx_ns_total_used_disk_cap gauge
+jindofsx_ns_total_used_disk_cap 153423446016 #已用磁盘缓存容量大小，单位Byte
+# HELP jindofsx_ns_total_used_mem_cap
+# TYPE jindofsx_ns_total_used_mem_cap gauge
+jindofsx_ns_total_used_mem_cap 0 #已用内存缓存容量大小，单位Byte
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+        <script src="../../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>阿里云 OSS-HDFS 服务（JindoFS 服务）分层存储使用说明 - AlibabaCloud JindoData</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#oss-hdfs-jindofs" class="nav-link">阿里云 OSS-HDFS 服务（JindoFS 服务）分层存储使用说明</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">分层存储简介</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">使用分层存储</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">目录嵌套</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#policy" class="nav-link">各种场景下 Policy 互转的例子</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#oss" class="nav-link">设置OSS生命周期</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="oss-hdfs-jindofs">阿里云 OSS-HDFS 服务（JindoFS 服务）分层存储使用说明<a class="headerlink" href="#oss-hdfs-jindofs" title="Permanent link">§</a></h1>
+<p><em>(从 4.6.2 开始支持)</em></p>
+<p>阿里云 OSS-HDFS 服务（JindoFS 服务）是 OSS 推出新的存储空间类型，兼容HDFS接口, 支持目录以及目录层级，通过 Jindo SDK 4.x 可以兼容访问 OSS-HDFS 服务。关于用户如何创建和使用 OSS-HDFS 服务的基本功能，请参考<a href="../jindo_dls_quickstart/">链接</a>。</p>
+<p>本文主要介绍在 OSS-HDFS 服务中使用分层存储功能的一些常见操作。</p>
+<p>为了方便下面命令的介绍，我们假设<code>oss://oss-dfs-test</code>这个Bucket已经开启 OSS-HDFS 服务。下面所有的例子都会针对这个Bucket进行操作。</p>
+<h2 id="_1">分层存储简介<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<p>数据湖存储的数据量常常会随着时间而不断增长，但在数据湖内的数据并非同样频繁访问。对于较老的数据，比如超过一年的数据，业务上可能几乎不再访问，但为保证合规、存档等目的，这些数据仍然需要存储以备不时之需。因此，分层存储的需求就出现了：对于较少访问的数据，选择较低成本的存储介质（通常会有更高的访问成本）进行存储，可以降低总存储成本。</p>
+<p>标准 OSS Bucket 支持多种分层存储类型，包括标准、低频、归档、冷归档四种，而 JindoFS 服务使用标准 OSS 作为数据块的存储后端，因此 JindoFS 分层存储功能即设置后端数据块在标准 OSS 上所使用的存储类型。</p>
+<h2 id="_2">使用分层存储<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<p>在使用相关功能前，应确保 JindoSDK 已经正确配置，可以正常访问 JindoFS 服务。JindoFS 服务的分层存储功能与 HCFS API 兼容。相关 API 如下所示：</p>
+<pre><code class="language-java">public abstract class FileSystem extends Configured implements Closeable {
+    // ......
+    public void setStoragePolicy(Path src, String policyName) throws IOException;
+    public BlockStoragePolicySpi getStoragePolicy(Path src) throws IOException;
+    public Collection&lt;? extends BlockStoragePolicySpi&gt; getAllStoragePolicies() throws IOException;
+}
+</code></pre>
+<p>JindoFS 也支持使用下列命令操作存储策略：</p>
+<pre><code class="language-bash">jindo fs -listPolicies
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy &lt;policy&gt;
+jindo fs -getStoragePolicy -path &lt;path&gt;
+</code></pre>
+<p><code>getAllStoragePolicies()</code>接口和<code>listPolicies</code>命令返回当前支持的存储策略，目前支持的存储策略有 <code>CLOUD_STD</code>（标准存储）、 <code>CLOUD_IA</code>（低频存储）、 <code>CLOUD_AR</code>（归档）和 <code>CLOUD_COLD_AR</code>（冷归档）。</p>
+<p><code>setStoragePolicy()</code>接口和<code>setStoragePolicy</code>命令可以为具体的路径设置存储策略，JindoFS 服务会在后台根据存储策略改变存储对象的存储级别。例如，要将 <code>oss://oss-dfs-test/dir1</code> 设置为归档类型，可以使用如下命令：</p>
+<pre><code class="language-bash">jindo fs -setStoragePolicy -path oss://oss-dfs-test/dir1 -policy CLOUD_AR
+</code></pre>
+<p>注意文件或目录的默认存储策略为空，显示为<code>UNSPECIFIED</code>，当对象存储策略为<code>UNSPECIFIED</code>时，对象实际的存储策略将由最近的设置了存储策略的父节点决定。
+例如假设<code>oss://oss-dfs-test/dir2</code>的存储策略为<code>CLOUD_STD</code>，则<code>oss://oss-dfs-test/dir2/subdir2/subsubdir2</code>的存储策略也为<code>CLOUD_STD</code>，
+除非用户对<code>oss://oss-dfs-test/dir2/subdir2/</code>或<code>oss://oss-dfs-test/dir2/subdir2/subsubdir2</code>单独设置过存储策略。</p>
+<p>用户可以通过<code>getStoragePolicy()</code>接口和<code>getStoragePolicy</code>命令查询某一路径最终生效的存储策略，如：</p>
+<pre><code class="language-bash">jindo fs -getStoragePolicy -path oss://oss-dfs-test/dir1/file1
+</code></pre>
+<p>如果最终生效的存储策略为<code>UNSPECIFIED</code>（即<code>getStoragePolicy()</code>接口返回<code>null</code>），则对象默认使用标准存储。</p>
+<h2 id="_3">目录嵌套<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<p>目前 JindoFS <span style="color:red"><strong>不支持嵌套策略</strong></span>, 例如对 <code>oss://oss-dfs-test/warehouse/dwd.db/dt=20220101</code> 使用了<code>CLOUD_AR</code>策略, 再对 <code>oss://oss-dfs-test/warehouse/dwd.db</code> 父目录使用<code>CLOUD_STD</code>策略, 是不会执行解归档操作的. 因此建议<span style="color:red"><strong>只对之前设置过policy的目录修改policy, 不要再修改其上下级目录的policy.</strong></span></p>
+<h2 id="policy">各种场景下 Policy 互转的例子<a class="headerlink" href="#policy" title="Permanent link">§</a></h2>
+<pre><code class="language-bash">标准 转 低频IA
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy CLOUD_IA
+
+标准 转 归档CLOUD_AR
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy CLOUD_AR
+
+标准 转 冷归档CLOUD_COLD_AR
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy CLOUD_COLD_AR
+
+低频IA 转 归档CLOUD_AR
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy CLOUD_AR
+
+低频IA 转 冷归档CLOUD_COLD_AR
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy CLOUD_COLD_AR
+
+低频IA 转 标准
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy CLOUD_STD
+
+归档 转 冷归档 
+不支持
+
+冷归档 转 归档 
+不支持
+
+归档 转 标准
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy CLOUD_STD
+
+冷归档 转 标准
+jindo fs -setStoragePolicy -path &lt;path&gt; -policy CLOUD_STD
+</code></pre>
+<h2 id="oss">设置OSS生命周期<a class="headerlink" href="#oss" title="Permanent link">§</a></h2>
+<p>在使用分层存储功能将OSS-HDFS的数据进行归档的时候，需要依赖于OSS生命周期功能，通过下面命令</p>
+<pre><code class="language-bash">jindo fs -setStoragePolicy -path oss://oss-dfs-test/dir1 -policy CLOUD_AR
+</code></pre>
+<p>进行数据归档操作，该操作只会将对应目录下的数据进行Tag标记, Tag对应的键值对为transition-storage-class:Archive，需要设置生命周期进行数据的转换，设置按前缀匹配策略规则，前缀为.dlsdata, 具体归档的生命周期策略设置如下：</p>
+<p><img alt="生命周期设置" src="../../pic/lifecycle.png" /></p>
+<p>上述生命周期策略设置完毕后，用户需要等待改OSS生命周期策略被调度执行才能完成数据的归档。如何设置生命周期可以参考<a href="https://help.aliyun.com/document_detail/31904.html">文档</a>。</p>
+<h3 id="_4">注意事项<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<ul>
+<li>如果需要使用归档/冷归档的存储策略，需要在 OSS 控制台上配置相应的生命周期策略，否则存储的数据块无法真正转为归档/冷归档类型。</li>
+<li>在 JindoFS 上查询到的存储状态仅表示 JindoFS 已按预设的生命周期策略下发到对应的 OSS 数据块，不表示数据块实际的存储类型已转变完成。</li>
+<li>OSS 的生命周期管理运行周期较长，设置归档存储策略的对象可能需要最长24小时左右才会真正转为归档/冷归档类型。</li>
+<li>归档/冷归档类型的数据无法访问，需要转回标准存储方可访问。转回标准存储可能需要一定时间，可以通过<code>checkStoragePolicy</code>命令查询执行状态。</li>
+<li>取回归档/冷归档数据会产生一些额外费用，应当尽量避免将还需访问的数据转为归档/冷归档类型。</li>
+<li>对于存储策略不一致的目录间的文件 rename 操作，rename 的同时会自动生成相应的后台任务，使 rename 后的文件最终符合目标路径的存储策略。</li>
+<li>当前版本不支持在设置为低频/归档/冷归档存储策略的目录下创建文件。若要在低频/归档/冷归档的目录下添加文件，可以在标准目录下创建并关闭文件后，rename 到目标的低频/归档/冷归档目录。</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+        <script src="../../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

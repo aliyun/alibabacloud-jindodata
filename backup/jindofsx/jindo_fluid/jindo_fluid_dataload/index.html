@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>数据预加载 - AlibabaCloud JindoData</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">数据预加载</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#dataload" class="nav-link">配置待创建的DataLoad对象</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#dataload_3" class="nav-link">DataLoad进阶配置</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#log" class="nav-link">缓存进度及LOG查看</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">数据预加载<a class="headerlink" href="#_1" title="Permanent link">§</a></h1>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%BE%85%E5%88%9B%E5%BB%BA%E7%9A%84dataload%E5%AF%B9%E8%B1%A1">配置待创建的DataLoad对象</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAdataload%E5%AF%B9%E8%B1%A1">创建DataLoad对象</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%88%9B%E5%BB%BA%E7%9A%84dataload%E5%AF%B9%E8%B1%A1%E7%8A%B6%E6%80%81">查看创建的DataLoad对象状态</a></li>
+<li><a href="#%E7%AD%89%E5%BE%85%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B%E5%AE%8C%E6%88%90">等待数据加载过程完成</a></li>
+<li><a href="#dataload%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE">DataLoad进阶配置</a></li>
+<li><a href="#%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%88%96%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%9B%86%E5%AD%90%E7%9B%AE%E5%BD%95%E8%BF%9B%E8%A1%8C%E5%8A%A0%E8%BD%BD">指定一个或多个数据集子目录进行加载</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E7%BC%93%E5%AD%98%E5%89%AF%E6%9C%AC%E6%95%B0%E9%87%8F">设置数据加载时的缓存副本数量</a></li>
+<li><a href="#%E5%8E%9F%E5%AD%90%E6%80%A7%E7%BC%93%E5%AD%98">原子性缓存</a></li>
+<li><a href="#%E5%8D%95%E7%8B%AC%E8%BF%9B%E8%A1%8C%E5%85%83%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98%E4%B8%8D%E5%81%9A%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98">单独进行元数据缓存，不做数据缓存</a></li>
+<li><a href="#%E7%BC%93%E5%AD%98%E8%BF%9B%E5%BA%A6%E5%8F%8Alog%E6%9F%A5%E7%9C%8B">缓存进度及LOG查看</a></li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E6%B8%85%E7%90%86">环境清理</a></li>
+</ul>
+<p>为了保证应用在访问数据时的性能，可以通过<strong>数据预加载</strong>提前将远程存储系统中的数据拉取到靠近计算结点的分布式缓存引擎中，使得消费该数据集的应用能够在首次运行时即可享受到缓存带来的加速效果。</p>
+<p>为此，我们提供了DataLoad CRD, 该CRD让你可通过简单的配置就能完成整个数据预加载过程，并对数据预加载的许多行为进行自定义控制。</p>
+<p>假设我们已经有如下一个name为<code>spark</code>的dataset：</p>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: spark
+spec:
+  mounts:
+    - mountPoint: oss://test-bucket/spark
+      name: sparkV1
+  accessModes:
+    - ReadWriteMany
+</code></pre>
+<p>接下来对这个dataset进行预热，请注意下文中的 <code>/sparkV1</code> 为 <code>mounts[].name</code> 的值，如果您的 <code>mounts[].path</code> 为 / , 那么下文中的 <code>/sparkV1</code> 可以直接改为 <code>/</code></p>
+<h2 id="dataload">配置待创建的DataLoad对象<a class="headerlink" href="#dataload" title="Permanent link">§</a></h2>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  loadMetadata: true
+  dataset:
+    name: spark
+    namespace: default
+</code></pre>
+<p><code>spec.dataset</code>指明了需要进行数据预加载的目标数据集，在该例子中，我们的数据预加载目标为<code>default</code>命名空间下名为<code>spark</code>的数据集，如果该配置与你所在的实际环境不符，请根据你的实际环境对其进行调整。</p>
+<h3 id="dataload_1">创建DataLoad对象<a class="headerlink" href="#dataload_1" title="Permanent link">§</a></h3>
+<pre><code class="language-yaml">kubectl create -f dataload.yaml
+</code></pre>
+<h3 id="dataload_2">查看创建的DataLoad对象状态<a class="headerlink" href="#dataload_2" title="Permanent link">§</a></h3>
+<pre><code class="language-yaml">kubectl get dataload spark-dataload
+</code></pre>
+<p>上述命令会得到类似以下结果：</p>
+<pre><code class="language-yaml">NAME             DATASET   PHASE     AGE
+spark-dataload   spark     Loading   2m13s
+</code></pre>
+<p>你也可以通过<code>kubectl describe</code>获取有关该DataLoad的更多详细信息：</p>
+<pre><code>kubectl describe dataload spark-dataload
+</code></pre>
+<p>得到以下结果：</p>
+<pre><code>Name:         spark-dataload
+Namespace:    default
+Labels:       &lt;none&gt;
+Annotations:  &lt;none&gt;
+API Version:  data.fluid.io/v1alpha1
+Kind:         DataLoad
+...
+Spec:
+  Dataset:
+    Name:       spark
+    Namespace:  default
+Status:
+  Conditions:
+  Phase:  Loading
+Events:
+  Type    Reason              Age   From      Message
+  ----    ------              ----  ----      -------
+  Normal  DataLoadJobStarted  80s   DataLoad  The DataLoad job spark-dataload-loader-job started
+</code></pre>
+<p>上述数据加载过程根据你所在的网络环境不同，可能会耗费数分钟</p>
+<h3 id="_2">等待数据加载过程完成<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
+<pre><code>kubectl get dataload spark-dataload
+</code></pre>
+<p>你会看到该DataLoad的<code>Phase</code>状态已经从<code>Loading</code>变为<code>Complete</code>，这表明整个数据加载过程已经完成</p>
+<pre><code>NAME             DATASET   PHASE      AGE
+spark-dataload   spark     Complete   5m17s
+</code></pre>
+<p>此时再次查看Dataset对象的缓存状态：</p>
+<pre><code>kubectl get dataset spark
+</code></pre>
+<p>可发现，远程存储系统中的全部数据均已成功缓存到分布式缓存引擎中</p>
+<pre><code>NAME    UFS TOTAL SIZE   CACHED    CACHE CAPACITY   CACHED PERCENTAGE   PHASE   AGE
+spark   1.92GiB          1.92GiB   4.00GiB          100.0%              Bound   7m41s
+</code></pre>
+<h2 id="dataload_3">DataLoad进阶配置<a class="headerlink" href="#dataload_3" title="Permanent link">§</a></h2>
+<h3 id="_3">指定一个或多个数据集子目录进行加载<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<p>进行数据加载时可以加载指定的子目录(或文件)，而不是整个数据集，例如：</p>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  dataset:
+    name: spark
+    namespace: default
+  loadMetadata: true
+  target:
+    - path: /sparkV1/spark-2.4.7
+    - path: /sparkV1/spark-3.0.1/pyspark-3.0.1.tar.gz
+</code></pre>
+<p>上述DataLoad仅会加载<code>/sparkV1/spark-2.4.7</code>目录下的全部文件，以及<code>/sparkV1/spark-3.0.1/pyspark-3.0.1.tar.gz</code>文件</p>
+<h3 id="_4">设置数据加载时的缓存副本数量<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<p>进行数据加载时,你也可以通过配置控制加载的数据副本数量，例如：</p>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  dataset:
+    name: spark
+    namespace: default
+  loadMetadata: true
+  target:
+    - path: /sparkV1/spark-2.4.7
+      replicas: 1
+    - path: /sparkV1/spark-3.0.1/pyspark-3.0.1.tar.gz
+      replicas: 2
+</code></pre>
+<p>上述DataLoad在进行数据加载时，对于<code>/sparkV1/spark-2.4.7</code>目录下的文件仅会在分布式缓存引擎中保留<strong>1份</strong>数据缓存副本，而对于文件<code>/sparkV1/spark-3.0.1/pyspark-3.0.1.tar.gz</code>，分布式缓存引擎将会保留<strong>2份</strong>缓存副本。</p>
+<h3 id="_5">原子性缓存<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
+<p>如您想保持缓存一致性和原子性，那么您可以使用如下 yaml 来完成这个功能</p>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  loadMetadata: true
+  dataset:
+    name: spark
+    namespace: default
+  options:
+    atomicCache: &quot;true&quot;
+</code></pre>
+<h3 id="_6">单独进行元数据缓存，不做数据缓存<a class="headerlink" href="#_6" title="Permanent link">§</a></h3>
+<p>在进行 dataload 预热时，默认是会做数据缓存，原数据缓存是可选，但如果您只想元数据缓存不想做数据缓存的话，您可以使用如下 yaml 打开只做元数据缓存的开关</p>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  loadMetadata: true
+  dataset:
+    name: spark
+    namespace: default
+  options:
+    loadMetadataOnly: &quot;true&quot;
+</code></pre>
+<h3 id="_7">通过通配符进行缓存过滤<a class="headerlink" href="#_7" title="Permanent link">§</a></h3>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  dataset:
+    name: spark
+    namespace: default
+  loadMetadata: true
+  target:
+    - path: /sparkV1/spark-2.4.7
+      replicas: 1
+  options:
+    filter: &quot;*.tgz&quot;
+    cacheThread: &quot;2&quot;
+    dryrun: &quot;false&quot;
+</code></pre>
+<h3 id="_8">使用列表文件进行缓存<a class="headerlink" href="#_8" title="Permanent link">§</a></h3>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: DataLoad
+metadata:
+  name: spark-dataload
+spec:
+  dataset:
+    name: spark
+    namespace: default
+  loadMetadata: true
+  options:
+    accessKeyId: &quot;xxx&quot;
+    accessKeySecret: &quot;xxx&quot;
+    endpoint: &quot;oss-cn-shanghai-internal.aliyuncs.com&quot;
+    url: &quot;oss://test-bucket/filelist&quot;
+    dryrun: &quot;false&quot;
+</code></pre>
+<h2 id="log">缓存进度及LOG查看<a class="headerlink" href="#log" title="Permanent link">§</a></h2>
+<pre><code class="language-shell">$ kubectl get dataload spark-dataload
+NAME             DATASET   PHASE     AGE
+spark-dataload   spark     Loading   2m13s
+</code></pre>
+<p>查看当前缓存的相关信息</p>
+<pre><code class="language-shell">kubectl logs spark-dataload
+</code></pre>
+<h3 id="_9">环境清理<a class="headerlink" href="#_9" title="Permanent link">§</a></h3>
+<pre><code class="language-shell">$ kubectl delete dataload spark-dataload
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+        <script src="../../../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

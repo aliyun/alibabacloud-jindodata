@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>EMR 集群中阿里云 OSS 使用 Ranger 的鉴权方案 - AlibabaCloud JindoData</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#emr-oss-ranger" class="nav-link">EMR 集群中阿里云 OSS 使用 Ranger 的鉴权方案</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">背景</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#oss" class="nav-link">访问 OSS 鉴权流程</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">前提条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#1-ranger-oss" class="nav-link">1. Ranger 启用 OSS。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2" class="nav-link">2. 部署客户端配置。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-jindofsx-namespace" class="nav-link">3. 重启 JindoFSx Namespace 服务。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-hiveserver2" class="nav-link">4. 重启HiveServer2。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5-principal" class="nav-link">5. 创建用户 Principal。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6-tgt" class="nav-link">6. 创建 TGT。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#7-ranger-webui-oss" class="nav-link">7. 在 Ranger WebUI 配置 OSS 权限</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#8-oss" class="nav-link">8. 访问OSS。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="emr-oss-ranger">EMR 集群中阿里云 OSS 使用 Ranger 的鉴权方案<a class="headerlink" href="#emr-oss-ranger" title="Permanent link">§</a></h1>
+<p>本文介绍在 EMR 集群配置阿里云 OSS 和 OSS-HDFS 服务使用 Ranger 的鉴权方案。</p>
+<h2 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<p>Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中的多个组件进行细粒度的权限访问控制。当用户将数据存放在阿里云 OSS 时，则是通过阿里云 RAM 产品创建或管理 RAM 用户，对RAM用户实现对 OSS 资源的访问控制。
+为维持大数据客户的使用习惯，通过 JindoFSx Namespace 接入 Ranger 的客户端，方便用户统一管理大数据组件权限。</p>
+<h2 id="oss">访问 OSS 鉴权流程<a class="headerlink" href="#oss" title="Permanent link">§</a></h2>
+<ul>
+<li>OSS 的访问密钥 AccessKey（AK）统一在 JindoFSx Namespace 中设置，避免用户在客户端配置明文密钥，建议只允许管理员操作和管理 JindoFSx Namespace 服务；</li>
+<li>JindoSDK 提供标准 Hadoop Filesystem 客户端，将访问 OSS 的请求会发送至 Namespace 服务；</li>
+<li>JindoFSx Namespace Service 负责集成 Ranger 客户端，周期性将权限策略从 Ranger 服务端同步到本地；</li>
+<li>Namespace 服务在收到 JindoSDK 的鉴权请求后进行细粒度的权限校验；</li>
+<li>通过权限校验后 JindoSDK 则可以使用 JindoFSx Namespace 服务颁发的临时 AK 访问 OSS。</li>
+</ul>
+<p><img src="../pic/jindofsx_oss_ranger_0.png" alt="title" width="700"/></p>
+<p>注：若 Namespace 部署的节点为阿里云 ECS 节点，可以通过配置安全组，限制访问 Namespace 的客户端。</p>
+<h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<ul>
+<li>已创建 E-MapReduce EMR-5.6.0/EMR-3.40.0 或以上版本集群，并且选择了 Ranger 服务。</li>
+<li>启用 Kerberos 认证满足认证需求。</li>
+<li>若使用集群都是可信用户，则可不启用 Kerberos 认证。</li>
+</ul>
+<p>注意：EMR 集群开启 Kerberos 后，将无法关闭 Kerberos 认证，请谨慎选择。开启 Kerberos 后，集群所有大数据组件的服务均需要经过 Kerberos 认证，大数据作业提交到集群会先经过身份认证。Kerberos 详情信息，请参见 <a href="https://help.aliyun.com/document_detail/89886.html">高安全类型集群</a></p>
+<h3 id="_3">创建高安全集群<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<p><img src="../pic/jindofsx_oss_ranger_1.png" width="800"/>
+  创建集群时，在软件配置页面的高级设置区域中，打开Kerberos集群模式开关。</p>
+<h2 id="1-ranger-oss">1. Ranger 启用 OSS。<a class="headerlink" href="#1-ranger-oss" title="Permanent link">§</a></h2>
+<p><img src="../pic/jindofsx_oss_ranger_2.png" width="800"/></p>
+<h2 id="2">2. 部署客户端配置。<a class="headerlink" href="#2" title="Permanent link">§</a></h2>
+<p>在 HDFS 服务页面，单击右上角的部署客户端配置。</p>
+<h2 id="3-jindofsx-namespace">3. 重启 JindoFSx Namespace 服务。<a class="headerlink" href="#3-jindofsx-namespace" title="Permanent link">§</a></h2>
+<p><img src="../pic/jindofsx_oss_ranger_4.png" width="800"/></p>
+<h2 id="4-hiveserver2">4. 重启HiveServer2。<a class="headerlink" href="#4-hiveserver2" title="Permanent link">§</a></h2>
+<p><img src="../pic/jindofsx_oss_ranger_5.png" width="800"/></p>
+<h2 id="5-principal">5. 创建用户 Principal。<a class="headerlink" href="#5-principal" title="Permanent link">§</a></h2>
+<h3 id="a-sshemr-header-1">a. 通过SSH方式连接集群的emr-header-1节点。<a class="headerlink" href="#a-sshemr-header-1" title="Permanent link">§</a></h3>
+<h3 id="b-kerberosadmin">b. 执行如下命令，进入Kerberos的admin工具。<a class="headerlink" href="#b-kerberosadmin" title="Permanent link">§</a></h3>
+<pre><code>sh /usr/lib/has-current/bin/admin-local.sh /etc/ecm/has-conf -k /etc/ecm/has-conf/admin.keytab
+</code></pre>
+<p>本示例密码设置为 123456。</p>
+<pre><code>addprinc -pw 123456 test
+</code></pre>
+<h5 id="tgtprincipalkeytab">说明: 需要记录用户名和密码，在创建TGT时会用到。如果您不想记录用户名和密码，则可以执行下一步，把Principal的用户名和密码导入到keytab文件中。<a class="headerlink" href="#tgtprincipalkeytab" title="Permanent link">§</a></h5>
+<h3 id="c-keytab">c. 可选：执行如下命令，生成keytab文件。<a class="headerlink" href="#c-keytab" title="Permanent link">§</a></h3>
+<pre><code>ktadd -k /root/test.keytab test
+</code></pre>
+<p>执行 quit 命令，可以退出 Kerberos 的 admin 工具。</p>
+<h2 id="6-tgt">6. 创建 TGT。<a class="headerlink" href="#6-tgt" title="Permanent link">§</a></h2>
+<p>创建 TGT 的机器，可以是任意一台需要访问 OSS 的机器。</p>
+<h3 id="a-root-test">a. 使用 root 用户执行以下命令，创建 test 用户。<a class="headerlink" href="#a-root-test" title="Permanent link">§</a></h3>
+<pre><code>useradd test
+</code></pre>
+<h3 id="b-test">b. 执行以下命令，切换为 test 用户。<a class="headerlink" href="#b-test" title="Permanent link">§</a></h3>
+<pre><code>su test
+</code></pre>
+<h3 id="c-tgt">c. 生成TGT。<a class="headerlink" href="#c-tgt" title="Permanent link">§</a></h3>
+<ul>
+<li>
+<p>方式一：使用用户名和密码方式，创建 TGT。
+  执行 kinit 命令，回车后输入 test 的密码 123456。</p>
+</li>
+<li>
+<p>方式二：使用 keytab 文件，创建 TGT。
+  在步骤 4 中的 test.keytab 文件，已经保存在 emr-header-1 机器的<code>/root/</code>目录下，需要使用 scp 命令拷贝到当前机器的<code>/home/test/</code>目录下。</p>
+</li>
+</ul>
+<pre><code>kinit -kt /home/test/test.keytab test
+</code></pre>
+<h3 id="d-tgt">d. 查看TGT。<a class="headerlink" href="#d-tgt" title="Permanent link">§</a></h3>
+<p>使用 klist 命令，如果出现如下信息，则说明TGT创建成功，即可以访问OSS了。</p>
+<pre><code>Ticket cache: FILE:/tmp/krb5cc_1012
+Default principal: test@EMR.23****.COM
+
+Valid starting       Expires              Service principal
+03/27/2022 23:20:44  03/28/2022 23:20:44  krbtgt/EMR.238075.COM@EMR.238075.COM
+renew until 03/28/2022 23:20:44
+</code></pre>
+<p>注意: 需要记录下回显信息 <code>EMR.23****.COM</code> 中的数字 <code>23****</code>，即为 cluster_id 的值，后面访问 OSS 时需要。</p>
+<h2 id="7-ranger-webui-oss">7. 在 Ranger WebUI 配置 OSS 权限<a class="headerlink" href="#7-ranger-webui-oss" title="Permanent link">§</a></h2>
+<p><img src="../pic/jindofsx_oss_ranger_6.png" width="800"/></p>
+<h3 id="ranger">Ranger 规则示例<a class="headerlink" href="#ranger" title="Permanent link">§</a></h3>
+<p>例：配置用户test拥有访问<code>oss://bucket-test-hangzhou/user/test</code>目录的所以权限的步骤：</p>
+<h4 id="a-test-ossbucket-test-hangzhouusertest-all">a. 配置 test 用户访问<code>oss://bucket-test-hangzhou/user/test</code>目录的访问权限为 ALL。<a class="headerlink" href="#a-test-ossbucket-test-hangzhouusertest-all" title="Permanent link">§</a></h4>
+<p><img src="../pic/jindofsx_oss_ranger_7.png" width="800"/></p>
+<h5 id="_4">说明：<a class="headerlink" href="#_4" title="Permanent link">§</a></h5>
+<ul>
+<li>规则配置页面中，配置的 path 没有<code>oss://</code>的前缀。</li>
+<li>recursive按钮不可关闭。</li>
+<li>路径末尾无需带正斜线（/）。</li>
+</ul>
+<h4 id="b-ossbucket-test-hangzhouuser-execute">b. 需要配置访问路径的父目录<code>oss://bucket-test-hangzhou/user</code>的权限为 Execute。<a class="headerlink" href="#b-ossbucket-test-hangzhouuser-execute" title="Permanent link">§</a></h4>
+<p><img src="../pic/jindofsx_oss_ranger_8.png" width="800"/></p>
+<h2 id="8-oss">8. 访问OSS。<a class="headerlink" href="#8-oss" title="Permanent link">§</a></h2>
+<p>若用户访问 Ranger 没有授权的路径，则会报如下错误：</p>
+<pre><code>org.apache.hadoop.security.AccessControlException: Permission denied: user=test, access=READ_EXECUTE, resourcePath=&quot;bucket-test-hangzhou/&quot;
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+        <script src="../../../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

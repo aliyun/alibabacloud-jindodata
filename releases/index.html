@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>历史版本 - AlibabaCloud JindoData</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../faq/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#jindosdk" class="nav-link">JindoSDK 版本记录</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#6332024-03-20" class="nav-link">6.3.3，2024-03-20</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6322024-02-26" class="nav-link">6.3.2，2024-02-26</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6312024-02-21" class="nav-link">6.3.1，2024-02-21</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6302024-01-31" class="nav-link">6.3.0，2024-01-31</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6162023-12-28" class="nav-link">6.1.6，2023-12-28</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6202023-12-22" class="nav-link">6.2.0，2023-12-22</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6152023-12-19" class="nav-link">6.1.5，2023-12-19</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6142023-12-14" class="nav-link">6.1.4，2023-12-14</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6132023-12-01" class="nav-link">6.1.3，2023-12-01</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6122023-11-21" class="nav-link">6.1.2，2023-11-21</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6112023-10-20" class="nav-link">6.1.1，2023-10-20</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6102023-09-28" class="nav-link">6.1.0，2023-09-28</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6012023-08-18" class="nav-link">6.0.1，2023-08-18</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6002023-08-15" class="nav-link">6.0.0，2023-08-15</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="jindosdk">JindoSDK 版本记录<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h1>
+<h2 id="6332024-03-20">6.3.3，2024-03-20<a class="headerlink" href="#6332024-03-20" title="Permanent link">§</a></h2>
+<h3 id="_1">版本概要<a class="headerlink" href="#_1" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.3.3 正式版的功能</p>
+<h3 id="_2">介绍<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.3.3 的 Maven 仓库</a></li>
+<li>修复 JindoFuse 创建 symlink 逻辑，支持 csi plugin 场景使用</li>
+<li>支持通过设置的反向代理访问对象存储</li>
+</ul>
+<h2 id="6322024-02-26">6.3.2，2024-02-26<a class="headerlink" href="#6322024-02-26" title="Permanent link">§</a></h2>
+<h3 id="_3">版本概要<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.3.2 正式版的功能</p>
+<h3 id="_4">介绍<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.3.2 的 Maven 仓库</a></li>
+<li>修复 JindoFuse 读取 symlink 逻辑，symlink target 改为相对路径以支持 csi plugin</li>
+<li>修复 JindoCache 对 fs.oss.signer.version 的支持</li>
+<li>修复 jindo CLI 参数 -version</li>
+</ul>
+<h2 id="6312024-02-21">6.3.1，2024-02-21<a class="headerlink" href="#6312024-02-21" title="Permanent link">§</a></h2>
+<h3 id="_5">版本概要<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.3.1 正式版的功能</p>
+<h3 id="_6">介绍<a class="headerlink" href="#_6" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.3.1 的 Maven 仓库</a></li>
+<li>修复在 OSS-HDFS 文件上进行反向 seek 导致预读失效的问题</li>
+<li>修复在由随机写产生的 OSS-HDFS 文件上 pread 预读错误的问题</li>
+<li>修复 getRealPath 接口</li>
+<li>Root Policy 路径改写支持根据子路径区分的一对多替换</li>
+</ul>
+<h2 id="6302024-01-31">6.3.0，2024-01-31<a class="headerlink" href="#6302024-01-31" title="Permanent link">§</a></h2>
+<h3 id="_7">版本概要<a class="headerlink" href="#_7" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.3.0 正式版的功能</p>
+<h3 id="_8">介绍<a class="headerlink" href="#_8" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.3.0 的 Maven 仓库</a></li>
+<li>支持使用 V4 签名访问 OSS/OSS-HDFS</li>
+<li>提供 Python SDK，支持访问 OSS 和 OSS-HDFS</li>
+<li>修复 Jindo 命令行删除 OSS-HDFS 目录时发起过多请求的问题</li>
+<li>JindoTable 分层存储工具支持归档数据直接转冷归档</li>
+<li>JindoTable MoveTo 工具支持 Iceberg 表整体迁移</li>
+<li>修复 JindoFuse 读取 symlink 失败</li>
+</ul>
+<h2 id="6162023-12-28">6.1.6，2023-12-28<a class="headerlink" href="#6162023-12-28" title="Permanent link">§</a></h2>
+<h3 id="_9">版本概要<a class="headerlink" href="#_9" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.1.6 正式版的功能</p>
+<h3 id="_10">介绍<a class="headerlink" href="#_10" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.1.6 的 Maven 仓库</a></li>
+<li>支持使用 V4 签名访问 OSS/OSS-HDFS</li>
+</ul>
+<h2 id="6202023-12-22">6.2.0，2023-12-22<a class="headerlink" href="#6202023-12-22" title="Permanent link">§</a></h2>
+<h3 id="_11">版本概要<a class="headerlink" href="#_11" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.2.0 正式版的功能</p>
+<h3 id="_12">介绍<a class="headerlink" href="#_12" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.2.0 的 Maven 仓库</a></li>
+<li>新增支持异步的 CSDK <code>libjindosdk_c.so</code>，老版本 <code>libjindo-csdk.so</code> 逐渐弃用。</li>
+<li>修复路径合法性检查，支持带 <code>*</code> 的路径</li>
+<li>优化 JindoFuse 访问 oss 时有非法名称的路径时的报错信息</li>
+<li>Jindo 命令行支持 OSS-HDFS setStoragePolicy 解冻相关策略</li>
+<li>采用新的预读算法，顺序读大文件的性能提高<blockquote>
+<p>新预读算法可配置参数如下
+- <code>fs.oss.read.readahead.prefetcher.version = default</code> 预读实现切换开关
+      &gt;   - 可选值：<code>legacy</code> 原预读算法, <code>default</code> 新预读算法
+- <code>fs.oss.read.readahead.prefetch.size.max = 268435456</code> 预读最大长度（单位：byte）</p>
+<p>新预读算法可能使用更多内存。若配置了新预读算法后发生性能下降，可能是由于内存池容量不足导致预读的块在被访问到之前就被提前逐出。为了避免该情况发生，可以考虑缩减最大预读长度，或允许预读使用更多内存。内存池配置相关参数如下
+- <code>fs.oss.memory.buffer.size.max.mb = 6144</code> 内存池总容量（单位：MB）
+- <code>fs.oss.memory.buffer.size.watermark = 0.3</code> 内存池用于预读的容量比例</p>
+</blockquote>
+</li>
+<li>修复 Hive 使用 LDAP + Kerberos + OSS-HDFS 时的认证问题</li>
+</ul>
+<h2 id="6152023-12-19">6.1.5，2023-12-19<a class="headerlink" href="#6152023-12-19" title="Permanent link">§</a></h2>
+<h3 id="_13">版本概要<a class="headerlink" href="#_13" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.1.5 正式版的功能</p>
+<h3 id="_14">介绍<a class="headerlink" href="#_14" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.1.5 的 Maven 仓库</a></li>
+<li>OSS-HDFS 读写 IO 优化</li>
+</ul>
+<h2 id="6142023-12-14">6.1.4，2023-12-14<a class="headerlink" href="#6142023-12-14" title="Permanent link">§</a></h2>
+<h3 id="_15">版本概要<a class="headerlink" href="#_15" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.1.4 正式版的功能</p>
+<h3 id="_16">介绍<a class="headerlink" href="#_16" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.1.4 的 Maven 仓库</a></li>
+<li>支持 HiveServer2 在 Kerberos &amp; LDAP 双认证场景下使用</li>
+<li>JindoSDK Java Jni 忽略 AddressSanitizer 误报</li>
+</ul>
+<h2 id="6132023-12-01">6.1.3，2023-12-01<a class="headerlink" href="#6132023-12-01" title="Permanent link">§</a></h2>
+<h3 id="_17">版本概要<a class="headerlink" href="#_17" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.1.3 正式版的功能</p>
+<h3 id="_18">介绍<a class="headerlink" href="#_18" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.1.3 的 Maven 仓库</a></li>
+<li>修复 <code>dls://</code> 前缀访问 jindofs 的若干问题。</li>
+</ul>
+<h2 id="6122023-11-21">6.1.2，2023-11-21<a class="headerlink" href="#6122023-11-21" title="Permanent link">§</a></h2>
+<h3 id="_19">版本概要<a class="headerlink" href="#_19" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.1.2 正式版的功能</p>
+<h3 id="_20">介绍<a class="headerlink" href="#_20" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.1.2 的 Maven 仓库</a></li>
+<li>通过配置 <code>fs.oss.list.type=2</code> 支持ListObjectV2，以避免访问开启了多版本bucket时的操作超时问题。</li>
+<li>支持使用 <code>dls://</code> 前缀访问 jindofs。</li>
+<li>修复读流 close 会卡住的问题。</li>
+<li>修复写流出现一次 write 失败后，后续 write 出现的 NPE 问题。</li>
+</ul>
+<h2 id="6112023-10-20">6.1.1，2023-10-20<a class="headerlink" href="#6112023-10-20" title="Permanent link">§</a></h2>
+<h3 id="_21">版本概要<a class="headerlink" href="#_21" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.1.1 正式版的功能</p>
+<h3 id="_22">介绍<a class="headerlink" href="#_22" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.1.1 的 Maven 仓库</a></li>
+<li>支持通过配置 fs.oss.legacy.version 为 3.8，兼容 JindoSDK 3.8.x 配置</li>
+</ul>
+<h2 id="6102023-09-28">6.1.0，2023-09-28<a class="headerlink" href="#6102023-09-28" title="Permanent link">§</a></h2>
+<h3 id="_23">版本概要<a class="headerlink" href="#_23" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.1.0 正式版的功能</p>
+<h3 id="_24">介绍<a class="headerlink" href="#_24" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.1.0 的 Maven 仓库</a></li>
+<li>JindoSDK 支持 FileSystem close 后仍支持使用读写流进行读写</li>
+</ul>
+<h2 id="6012023-08-18">6.0.1，2023-08-18<a class="headerlink" href="#6012023-08-18" title="Permanent link">§</a></h2>
+<h3 id="_25">版本概要<a class="headerlink" href="#_25" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.0.1 正式版的功能</p>
+<h3 id="_26">介绍<a class="headerlink" href="#_26" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.0.1 的 Maven 仓库</a></li>
+<li>JindoSDK 支持 isFileClosed 方法，用于判断访问 OSS-HDFS 的读写流是否已关闭。</li>
+<li>JindoSDK 对 flush 降频做了优化，在降频配置生效时，对第一次有数据的flush操作保证执行，防止flush出一个空文件。降频配置，可参考<a href="../jindosdk/flume/jindosdk_on_flume/">Flume 使用 JindoSDK 写入 OSS</a></li>
+</ul>
+<h2 id="6002023-08-15">6.0.0，2023-08-15<a class="headerlink" href="#6002023-08-15" title="Permanent link">§</a></h2>
+<h3 id="_27">版本概要<a class="headerlink" href="#_27" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.0.0 正式版的功能</p>
+<h3 id="_28">介绍<a class="headerlink" href="#_28" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.0.0 的 Maven 仓库</a>，JindoSDK 合并 jindo-mapreduce (JindoCommitterFactory等) 到 jindo-sdk</li>
+<li>JindoSDK 新增若干修复，包含 flush 降频，优化 GC 回收，适配 OSS-HDFS 回收站等</li>
+<li>多平台支持 MACOS 和 主流 linux 场景，其中 CentOS 6, Ubuntu22, 阿里云倚天机型(ARM)，MacOS (Intel/M1) 需要使用特定的扩展包</li>
+<li>升级 g++ 编译器到 10.4，使用 c++20 标准</li>
+<li>支持 <a href="https://github.com/alibaba/yalantinglibs">yalangtinglibs</a> 访问 OSS/OSS-HDFS</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+        <script src="../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

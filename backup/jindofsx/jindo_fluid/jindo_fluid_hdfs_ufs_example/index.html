@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>加速HDFS上数据 - AlibabaCloud JindoData</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">AlibabaCloud JindoData</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../oss/oss_introduction/" class="dropdown-item">OSS/OSS-HDFS 介绍</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/oss_quickstart/" class="dropdown-item">OSS/OSS-HDFS 快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/oss_ram_policy/" class="dropdown-item">OSS/OSS-HDFS RAM 配置</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">OSS-HDFS 功能介绍</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../oss/dls_trash_quickstart/" class="dropdown-item">OSS-HDFS 回收站</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_snapshot_quickstart/" class="dropdown-item">OSS-HDFS 镜像</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_root_policy/" class="dropdown-item">OSS-HDFS 路径改写</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_protected_directories/" class="dropdown-item">OSS-HDFS 受保护路径</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_dump_inventory_howto/" class="dropdown-item">OSS-HDFS 清单</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_checksum/" class="dropdown-item">OSS-HDFS 文件校验</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_quickstart/" class="dropdown-item">快速入门</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">开发和使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../../oss/usages/oss_hadoop_shell/" class="dropdown-item">HadoopShell</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CredentialProvider</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_credential_provider/" class="dropdown-item">CredentialProvider 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_credential_provider_bucket/" class="dropdown-item">Bucket 级别配置 CredentialProvider</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hive/jindosdk_on_hive/" class="dropdown-item">Hive</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Spark</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/spark/jindosdk_on_spark/" class="dropdown-item">Spark 使用 JindoSDK 处理阿里云 OSS-HDFS 服务（JindoFS 服务）上的数据</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/spark/jindosdk_ide_spark/" class="dropdown-item">Spark 使用 JindoSDK 在 IDE 开发调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/presto/jindosdk_on_presto/" class="dropdown-item">Presto</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/flink/jindosdk_on_flink/" class="dropdown-item">Flink</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/flume/jindosdk_on_flume/" class="dropdown-item">Flume</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">安装部署</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Fuse</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindofuse/jindofuse_quickstart/" class="dropdown-item">JindoFuse 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../oss/usages/oss_posix/" class="dropdown-item">用 POSIX 命令访问 OSS/OSS-HDFS</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../../../jindosdk/tensorflow/jindosdk_on_tensorflow/" class="dropdown-item">Tensorflow</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoCli</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../oss/usages/oss_jindo_cli/" class="dropdown-item">JindoCli 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_cli_options/" class="dropdown-item">JindoCli 参数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoAuth</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindoauth/jindoauth_emr-next_kerberos/" class="dropdown-item">JindoAuth 快速入门</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoDistcp</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_quickstart/" class="dropdown-item">JindoDistcp 快速入门</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_api_quickstart/" class="dropdown-item">使用 JindoDistcp API 开发</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_hdfs_to_oss/" class="dropdown-item">从 HDFS 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_s3_to_oss/" class="dropdown-item">从 S3 迁移到 OSS 上</a>
+</li>
+            
+<li>
+    <a href="../../../../jindotools/jindodistcp_faq/" class="dropdown-item">常见问题</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">JindoTable</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../jindosdk/jindosdk_download/" class="dropdown-item">JindoSDK 下载</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">安装部署</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境完整部署</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_ai/" class="dropdown-item">AI 场景部署</a>
+</li>
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_deployment_multi_platform/" class="dropdown-item">多平台部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">配置方式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../jindosdk/jindosdk_configuration/" class="dropdown-item">配置</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">EMR 集群升级</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../upgrade/emr_upgrade_smartdata/" class="dropdown-item">EMR-5.5.0/EMR-3.39.0 以前版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr2_upgrade_jindosdk/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）</a>
+</li>
+            
+<li>
+    <a href="../../../../upgrade/emr2_upgrade_jindosdk_arm/" class="dropdown-item">EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../faq/" class="dropdown-item">常见问题</a>
+</li>
+                                    
+<li>
+    <a href="../../../../releases/" class="dropdown-item">历史版本</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#hdfs" class="nav-link">加速HDFS上数据</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="hdfs">加速HDFS上数据<a class="headerlink" href="#hdfs" title="Permanent link">§</a></h1>
+<p>JindoFSx 提供了访问 HDFS 的能力，可以通过配置 HDFS 作为 JindoFSx 的后端存储，使 Fluid 通过 JindoFSx 来访问 HDFS 上的数据，同时 JindoFSx 也提供了对 HDFS 上的数据以及元数据的缓存加速功能。
+本文档展示了如何在 Fluid 中以声明式的方式完成 JindoFSx 部署，对接 HDFS 数据源。</p>
+<h4 id="_1">创建命名空间<a class="headerlink" href="#_1" title="Permanent link">§</a></h4>
+<pre><code class="language-shell">kubectl create ns fluid-system
+</code></pre>
+<h4 id="fluid"><a href="../jindo_fluid_download/">下载 Fluid 安装包</a><a class="headerlink" href="#fluid" title="Permanent link">§</a></h4>
+<h4 id="helm-fluid">使用 Helm 安装 Fluid<a class="headerlink" href="#helm-fluid" title="Permanent link">§</a></h4>
+<pre><code class="language-shell">helm install --set runtime.jindo.enabled=true fluid fluid-&lt;version&gt;.tgz
+</code></pre>
+<h4 id="fluid_1">查看 Fluid 的运行状态<a class="headerlink" href="#fluid_1" title="Permanent link">§</a></h4>
+<pre><code class="language-shell">$ kubectl get pod -n fluid-system
+NAME                                         READY   STATUS    RESTARTS   AGE
+csi-nodeplugin-fluid-2mfcr                   2/2     Running   0          108s
+csi-nodeplugin-fluid-l7lv6                   2/2     Running   0          108s
+dataset-controller-5465c4bbf9-5ds5p          1/1     Running   0          108s
+jindoruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
+</code></pre>
+<p>其中 csi-nodeplugin-fluid-xx 的数量应该与 K8S 集群中节点node的数量相同。</p>
+<h3 id="1-dataset-jindoruntime">1、创建 dataset 和 JindoRuntime<a class="headerlink" href="#1-dataset-jindoruntime" title="Permanent link">§</a></h3>
+<h4 id="11ha-hdfs-ha">1.1、HA 集群从 HDFS 配置文件中相关信息，非 HA 集群请略过此步骤<a class="headerlink" href="#11ha-hdfs-ha" title="Permanent link">§</a></h4>
+<p>从 HDFS 集群上找到 hdfs-site.xml 配置文件
+* 阿里云EMR集群在 /etc/ecm/hadoop-conf 路径下
+* CDH 集群可参考 <a href="https://community.cloudera.com/t5/Support-Questions/What-is-the-Path-of-hdfs-site-xml-core-xml/m-p/15180">What-is-the-Path-of-hdfs-site-xml-core-xml</a> </p>
+<p>需要将其中 rpc 的访问地址中域名的部分参数，修改成可访问的内网 IP 地址，例如：</p>
+<pre><code class="language-xml">&lt;property&gt;
+    &lt;name&gt;dfs.namenode.rpc-address.emr-cluster.nn1&lt;/name&gt;
+    &lt;value&gt;emr-header-1.cluster-xxx:8020&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;dfs.namenode.rpc-address.emr-cluster.nn2&lt;/name&gt;
+    &lt;value&gt;emr-header-2.cluster-xxx:8020&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<p>修改为</p>
+<pre><code class="language-xml">&lt;property&gt;
+    &lt;name&gt;dfs.namenode.rpc-address.emr-cluster.nn1&lt;/name&gt;
+    &lt;value&gt;192.168.0.1:8020&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;dfs.namenode.rpc-address.emr-cluster.nn2&lt;/name&gt;
+    &lt;value&gt;192.168.0.2:8020&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<p>从配置文件里我们可以拿到如下几个信息</p>
+<ul>
+<li>集群namespaceService名称：emr-cluster</li>
+<li>两个namenode名字：nn1 和 nn2</li>
+<li>两个namenode的访问地址：192.168.0.1:8020 和 192.168.0.2:8020 </li>
+</ul>
+<h4 id="12-dataset">1.2、创建 Dataset 资源对象<a class="headerlink" href="#12-dataset" title="Permanent link">§</a></h4>
+<p>首先创建一个名为 dataset.yaml 的文件，针对 HDFS 集群分为 HA 集群和非 HA 集群两种不同的情况。</p>
+<h4 id="ha">HA 集群<a class="headerlink" href="#ha" title="Permanent link">§</a></h4>
+<p>将1.1中拿到的几个信息放到 mounts.options 里面，user 代表用户权限</p>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: hdfs
+spec:
+  mounts:
+    - mountPoint: hdfs://emr-cluster/
+      name: hdfs
+      options:
+        fs.hdfs.emr-cluster.dfs.ha.namenodes = nn1,nn2
+        fs.hdfs.emr-cluster.dfs.namenode.rpc-address.nn1 = 192.168.0.1:8020
+        fs.hdfs.emr-cluster.dfs.namenode.rpc-address.nn2 = 192.168.0.2:8020
+        fs.hdfs.user = hadoop
+      path: /
+  accessModes:
+    - ReadOnlyMany
+</code></pre>
+<p>其中 <code>mountPoint</code> 为需要访问的 HDFS 路径（阿里云EMR集群默认名字为 emr-cluster，如下所示）
+- accessModes: 可选 ReadOnlyMany / ReadWriteMany，前者代表只读，后者代表可读写</p>
+<pre><code class="language-xml">&lt;property&gt;
+    &lt;name&gt;fs.defaultFS&lt;/name&gt;
+    &lt;value&gt;hdfs://emr-cluster&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<h4 id="ha_1">非 HA 集群<a class="headerlink" href="#ha_1" title="Permanent link">§</a></h4>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: hdfs
+spec:
+  mounts:
+    - mountPoint: hdfs://&lt;namenodeIP&gt;:&lt;port&gt;/
+      name: hdfs
+      path: /
+  accessModes:
+    - ReadOnlyMany
+</code></pre>
+<p>其中 <code>mountPoint</code> 为 HDFS 集群的 namenode 的 IP 地址和端口的组合</p>
+<ul>
+<li>accessModes: 可选 ReadOnlyMany / ReadWriteMany，前者代表只读，后者代表可读写</li>
+</ul>
+<h4 id="_2"><a class="headerlink" href="#_2" title="Permanent link">§</a></h4>
+<h4 id="13-dataset">1.3、创建 Dataset<a class="headerlink" href="#13-dataset" title="Permanent link">§</a></h4>
+<pre><code class="language-shell">$ kubectl create -f dataset.yaml
+</code></pre>
+<h4 id="14-jindoruntime">1.4 创建 JindoRuntime 资源对象<a class="headerlink" href="#14-jindoruntime" title="Permanent link">§</a></h4>
+<p>创建一个 JindoRuntime 对应的 JindoFSx 集群</p>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hdfs
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /mnt/disk1/
+        quota: 290Gi
+        high: &quot;0.9&quot;
+        low: &quot;0.2&quot;
+</code></pre>
+<p>多块盘多个quota请参考</p>
+<pre><code class="language-yaml">path: /mnt/disk1/,/mnt/disk2/,/mnt/disk3/
+quotaList: 290G,290G,290G
+</code></pre>
+<p>其中 path 和 quota 的数量应该相同。</p>
+<h4 id="15-jindoruntime">1.5、创建 JindoRuntime<a class="headerlink" href="#15-jindoruntime" title="Permanent link">§</a></h4>
+<p>执行 create 命令</p>
+<pre><code class="language-shell">$ kubectl create -f runtime.yaml
+</code></pre>
+<h4 id="dataset">查看 dataset 状态<a class="headerlink" href="#dataset" title="Permanent link">§</a></h4>
+<pre><code class="language-shell">$ kubectl get dataset hadoop
+NAME     UFS TOTAL SIZE   CACHED   CACHE CAPACITY   CACHED PERCENTAGE   PHASE   AGE
+hdfs     180.01GiB      0.00B      261.00GiB            0.0%          Bound   62m
+</code></pre>
+<h4 id="pvpvc">检查 PV，PVC 创建情况<a class="headerlink" href="#pvpvc" title="Permanent link">§</a></h4>
+<pre><code class="language-shell">$ kubectl get pv,pvc
+NAME                      CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM            STORAGECLASS   REASON   AGE
+persistentvolume/hdfs       100Gi      RWX            Retain           Bound    default/hadoop                           58m
+
+NAME                           STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+persistentvolumeclaim/hdfs      Bound    hadoop   100Gi      RWX                           58m
+</code></pre>
+<h4 id="jindoruntime">检查 jindoruntime 部署情况<a class="headerlink" href="#jindoruntime" title="Permanent link">§</a></h4>
+<pre><code class="language-shell">$ kubectl get jindoruntime hadoop
+NAME     MASTER PHASE   WORKER PHASE   FUSE PHASE   AGE
+hdfs     Ready           Ready                     62m
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2024 AlibabaCloud</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+        <script src="../../../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
