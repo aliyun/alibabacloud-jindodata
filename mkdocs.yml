@@ -71,6 +71,7 @@ nav:
       - 用 POSIX 命令访问 OSS/OSS-HDFS: oss/usages/oss_posix.md
     - Python: jindosdk/python/pyjindo_quickstart.md
     - Tensorflow: jindosdk/tensorflow/jindosdk_on_tensorflow.md
+    - Fluid JindoRuntime: fluid-jindoruntime/jindo_fluid_overview.md
   - Jindo 工具:
     - JindoCli:
       - JindoCli 快速入门: oss/usages/oss_jindo_cli.md
