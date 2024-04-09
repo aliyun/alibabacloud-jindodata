@@ -61,23 +61,6 @@ Usage:
 		[-unarchive [-i] [-a] <path>]
 		[-uncache <path>]
 		[-unsetStoragePolicy -path <path>]
-	jindo admin
-		[-mount <mountpoint> <path>]
-		[-report]
-		[-reportMetrics]
-		[-umount <mountpoint>]
-	jindo admin
-		[-addProxyUser -dlsUri <path> -proxyUser <value> -users|-groups <value> -hosts <value>] 
-		[-allowSnapshot -dlsUri <path>]
-		[-addUserGroupsMapping -dlsUri <path> -user <value> -groups <value>]
-		[-disallowSnapshot -dlsUri <path>]
-		[-deleteProxyUser -dlsUri <path> -proxyUser <value>]
-		[-deleteUserGroupsMapping -dlsUri <path> -user <value>]
-		[-dumpFile -dlsUri <path>]
-		[-dumpBlockFiles -in <path> -out <path>]
-		[-listProxyUsers -dlsUri <path> [-maxKeys <value>] [-marker <value>]]
-		[-listUserGroupsMappings -dlsUri <path> [-maxKeys <value>] [-marker <value>]]
-		[-snapshotDiff -dlsUri <path> -fromSnapshot <value> -toSnapshot <value>]
 	jindo benchmark
 		[-io -read -basePath <path> [-n <value>] [-c <value>] [-d <value>] [-fileSize <value>] [-memCheck]]
 		[-io -pread -basePath <path> [-n <value>] [-c <value>] [-d <value>] [-fileSize <value>] [-seekTimes <value>] [-memCheck]]

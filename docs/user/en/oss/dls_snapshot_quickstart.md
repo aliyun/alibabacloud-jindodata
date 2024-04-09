@@ -13,11 +13,11 @@ hdfs dfs -mkdir oss://oss-dfs-test.<Endpoint>/TestSnapshot
 ```
 Snapshots are disabled by default. To enable or disable snapshot capabilities for a directory, use the JindoSDK shell commands. To enable snapshots:
 ```bash
-jindo admin -allowSnapshot -dlsUri <path>
+./jindofs admin -allowSnapshot -dlsUri <path>
 ```
 To enable snapshots for TestSnapshot:
 ```bash
-jindo admin -allowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
+./jindofs admin -allowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
 ```
 
 ## Create Snapshots
@@ -88,17 +88,17 @@ hdfs dfs -deleteSnapshot oss://oss-dfs-test.<Endpoint>/TestSnapshot S100
 ## Disable Snapshot Functionality
 To disable snapshots for a directory:
 ```bash
-jindo admin -disallowSnapshot -dlsUri <path>
+./jindofs admin -disallowSnapshot -dlsUri <path>
 ```
 Disabling snapshots for TestSnapshot (assuming all snapshots have been deleted):
 ```bash
-jindo admin -disallowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
+./jindofs admin -disallowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
 ```
 
 ## Compare Snapshots
 View differences between two snapshots:
 ```bash
-jindo dls -snapshotDiff -dlsUri <uri> -fromSnapshot <fromSnapshot> -toSnapshot <toSnapshot>
+./jindofs admin -snapshotDiff -dlsUri <uri> -fromSnapshot <fromSnapshot> -toSnapshot <toSnapshot>
 ```
 
 ### Notes
@@ -107,6 +107,6 @@ When disabling the snapshot feature for a directory, make sure all snapshots und
 
 For our earlier example, TestSnapshot, assuming all snapshots have been removed, you can use the following command to disable the snapshot functionality for the directory:
 ```bash
-jindo admin -disallowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
+./jindofs admin -disallowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
 ```
 After executing this command, the TestSnapshot directory will no longer support creating new snapshots, and any previous snapshots will no longer be available for data recovery purposes. Be cautious with this step, as it may lead to irreversible data loss unless you have backed up the necessary data or snapshots elsewhere.

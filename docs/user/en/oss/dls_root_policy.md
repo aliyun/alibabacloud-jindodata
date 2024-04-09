@@ -9,7 +9,7 @@ JindoFS supports the RootPolicy rule, allowing users to set custom prefixes for 
 A set of shell commands is provided to register a custom address for a specific bucket. Use the [SetRootPolicy command](../jindofs/jindofs_client_tools.md) to register a custom prefix for a given bucket, as shown below:
 
 ```shell
-jindo admin -setRootPolicy oss://<bucket_name>/<dls_endpoint>/ hdfs://<your_ns_name>/
+./jindofs admin -setRootPolicy oss://<bucket_name>/<dls_endpoint>/ hdfs://<your_ns_name>/
 ```
 
 * `<bucket_name>`: The name of the OSS-HDFS service bucket. Currently, only root directories are supported.

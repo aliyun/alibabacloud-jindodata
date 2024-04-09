@@ -10,7 +10,7 @@ JindoFS 支持 RootPolicy 规则，通过 RootPolicy 可以为 OSS-HDFS（JindoF
 我们提供了一组 Shell 命令，帮助用户向特定的bucket注册自定义地址。通过[SetRootPolicy命令](../jindofs/jindofs_client_tools.md)，可以为特定 bucket 注册自定义前缀的访问地址。如：
 
 ```shell
-jindo admin -setRootPolicy oss://<bucket_name>.<dls_endpoint>/ hdfs://<your_ns_name>/
+./jindofs admin -setRootPolicy oss://<bucket_name>.<dls_endpoint>/ hdfs://<your_ns_name>/
 ```
 
 * <bucket_name>: OSS-HDFS 服务 bucket 的名字，当前版本仅支持根目录。
