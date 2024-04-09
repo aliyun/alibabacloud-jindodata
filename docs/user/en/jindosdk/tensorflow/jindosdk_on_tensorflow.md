@@ -1,6 +1,6 @@
-# Using Jindo TensorFlow Collector to Access OSS
+# Using Jindo TensorFlow Collector to Access OSS/OSS-HDFS
 
-Jindo TensorFlow Collector enables access to Alibaba Cloud Object Storage Service (OSS) using TensorFlow's native APIs.
+Jindo TensorFlow Collector enables access to Alibaba Cloud Object Storage Service (OSS) or  OSS-HDFS (JindoFS) using TensorFlow's native APIs.
 
 ## Step 1: Download the JindoSDK Package
 

@@ -1,4 +1,4 @@
-# Using PyJindo to Access Alibaba Cloud OSS-HDFS
+# Using PyJindo to Access Alibaba Cloud OSS/OSS-HDFS
 
 ## Background
 

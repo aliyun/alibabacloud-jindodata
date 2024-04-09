@@ -1,8 +1,8 @@
-# 使用 PyJindo 访问阿里云 OSS-HDFS
+# 使用 PyJindo 访问阿里云 OSS/OSS-HDFS
 
 ## 背景
 
-本文指导如何使用 Python 的工具包 PyJindo 操作 OSS-HDFS。PyJindo 兼容 python3.6 以上版本。
+本文指导如何使用 Python 的工具包 PyJindo 操作 OSS/OSS-HDFS。PyJindo 兼容 python3.6 以上版本。
 
 ## 部署环境
 

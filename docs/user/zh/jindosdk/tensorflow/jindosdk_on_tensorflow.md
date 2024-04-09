@@ -1,6 +1,6 @@
-# 使用 Jindo Tensorflow Collector 访问 OSS
+# 使用 Jindo Tensorflow Collector 访问 OSS/OSS-HDFS
 
-Jindo Tensorflow Collector 支持使用 Tensoflow 原生 API 支持访问 OSS。
+Jindo Tensorflow Collector 支持使用 Tensoflow 原生 API 支持访问 OSS/OSS-HDFS。
 
 ### 1. 下载 JindoSDK 包
 
