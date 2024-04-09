@@ -75,6 +75,8 @@ nav:
     - JindoCli:
       - JindoCli Quickstart: oss/usages/oss_jindo_cli.md
       - JindoCli Options: jindosdk/jindosdk_cli_options.md
+    - JindoFS Cli:
+      - JindoFS Cli Quickstart: jindofs/jindofs_client_tools.md
     - JindoAuth:
       - JindoAuth Quickstart: jindoauth/jindoauth_emr-next_kerberos.md
     - JindoDistcp:
