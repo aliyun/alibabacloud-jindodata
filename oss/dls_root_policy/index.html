@@ -401,7 +401,7 @@
 <p>JindoFS 支持 RootPolicy 规则，通过 RootPolicy 可以为 OSS-HDFS（JindoFS 服务）设置自定义前缀，这样用户原有的访问 <code>hdfs://</code> 前缀的作业，可以不经修改直接运行在 JindoFS 服务上。</p>
 <h2 id="1-rootpolicy">1、 设置 RootPolicy<a class="headerlink" href="#1-rootpolicy" title="Permanent link">§</a></h2>
 <p>我们提供了一组 Shell 命令，帮助用户向特定的bucket注册自定义地址。通过<a href="../../jindofs/jindofs_client_tools/">SetRootPolicy命令</a>，可以为特定 bucket 注册自定义前缀的访问地址。如：</p>
-<pre><code class="language-shell">jindo admin -setRootPolicy oss://&lt;bucket_name&gt;.&lt;dls_endpoint&gt;/ hdfs://&lt;your_ns_name&gt;/
+<pre><code class="language-shell">./jindofs admin -setRootPolicy oss://&lt;bucket_name&gt;.&lt;dls_endpoint&gt;/ hdfs://&lt;your_ns_name&gt;/
 </code></pre>
 <ul>
 <li><bucket_name>: OSS-HDFS 服务 bucket 的名字，当前版本仅支持根目录。</li>

@@ -434,23 +434,6 @@ Usage:
         [-unarchive [-i] [-a] &lt;path&gt;]
         [-uncache &lt;path&gt;]
         [-unsetStoragePolicy -path &lt;path&gt;]
-    jindo admin
-        [-mount &lt;mountpoint&gt; &lt;path&gt;]
-        [-report]
-        [-reportMetrics]
-        [-umount &lt;mountpoint&gt;]
-    jindo admin
-        [-addProxyUser -dlsUri &lt;path&gt; -proxyUser &lt;value&gt; -users|-groups &lt;value&gt; -hosts &lt;value&gt;] 
-        [-allowSnapshot -dlsUri &lt;path&gt;]
-        [-addUserGroupsMapping -dlsUri &lt;path&gt; -user &lt;value&gt; -groups &lt;value&gt;]
-        [-disallowSnapshot -dlsUri &lt;path&gt;]
-        [-deleteProxyUser -dlsUri &lt;path&gt; -proxyUser &lt;value&gt;]
-        [-deleteUserGroupsMapping -dlsUri &lt;path&gt; -user &lt;value&gt;]
-        [-dumpFile -dlsUri &lt;path&gt;]
-        [-dumpBlockFiles -in &lt;path&gt; -out &lt;path&gt;]
-        [-listProxyUsers -dlsUri &lt;path&gt; [-maxKeys &lt;value&gt;] [-marker &lt;value&gt;]]
-        [-listUserGroupsMappings -dlsUri &lt;path&gt; [-maxKeys &lt;value&gt;] [-marker &lt;value&gt;]]
-        [-snapshotDiff -dlsUri &lt;path&gt; -fromSnapshot &lt;value&gt; -toSnapshot &lt;value&gt;]
     jindo benchmark
         [-io -read -basePath &lt;path&gt; [-n &lt;value&gt;] [-c &lt;value&gt;] [-d &lt;value&gt;] [-fileSize &lt;value&gt;] [-memCheck]]
         [-io -pread -basePath &lt;path&gt; [-n &lt;value&gt;] [-c &lt;value&gt;] [-d &lt;value&gt;] [-fileSize &lt;value&gt;] [-seekTimes &lt;value&gt;] [-memCheck]]
