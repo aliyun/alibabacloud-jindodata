@@ -508,6 +508,27 @@
 <td>4.3.0+</td>
 </tr>
 <tr>
+<td>fs.oss.memory.buffer.size.max.mb</td>
+<td>整型</td>
+<td>6124</td>
+<td>内存池总容量（单位：MB）</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
+<td>fs.oss.memory.buffer.size.watermark</td>
+<td>浮点型</td>
+<td>0.3</td>
+<td>内存池用于预读的容量比例</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
+<td>fs.oss.blocklet.size.mb</td>
+<td>整型</td>
+<td>8</td>
+<td>oss 分块上传时的块大小（MB）由于分块数量最多为10000块，因此默认写入文件不能超过80GB。如果有个别文件超过80G，建议根据文件大小单独调大本配置，并同时调大请求 oss 的超时时间。如文件大小未知，或者远远超过80G（如超过160G），建议考虑使用 OSS-HDFS（无文件大小限制）</td>
+<td>4.5.2+</td>
+</tr>
+<tr>
 <td>fs.oss.checksum.crc64.enable</td>
 <td>布尔值</td>
 <td>true</td>
@@ -522,11 +543,25 @@
 <td>4.6.0+</td>
 </tr>
 <tr>
-<td>fs.oss.blocklet.size.mb</td>
+<td>fs.oss.read.readahead.prefetcher.version</td>
+<td>字符串</td>
+<td>default</td>
+<td>可选值：<code>legacy</code> 原预读算法, <code>default</code> 新预读算法。新预读算法可能使用更多内存。若配置了新预读算法后发生性能下降，可能是由于内存池容量不足导致预读的块在被访问到之前就被提前逐出。为了避免该情况发生，可以考虑缩减最大预读长度，或允许预读使用更多内存。</td>
+<td>6.2.0+</td>
+</tr>
+<tr>
+<td>fs.oss.read.readahead.prefetch.size.max</td>
 <td>整型</td>
-<td>8</td>
-<td>oss 分块上传时的块大小（MB）由于分块数量最多为10000块，因此默认写入文件不能超过80GB。如果有个别文件超过80G，建议根据文件大小单独调大本配置，并同时调大请求 oss 的超时时间。如文件大小未知，或者远远超过80G（如超过160G），建议考虑使用 OSS-HDFS（无文件大小限制）</td>
-<td>4.5.2+</td>
+<td>268435456</td>
+<td>预读最大长度（单位：byte）</td>
+<td>6.2.0+</td>
+</tr>
+<tr>
+<td>fs.oss.signer.version</td>
+<td>整型</td>
+<td>0</td>
+<td>签名算法版本，可选值[0，1，4]。推荐使用0，表示默认算法版本，6.3.0版本之后默认使用 V4 签名算法提高访问 OSS/OSS-HDFS，若特殊场景希望指定签名算法版本，请指定 1 或 4。</td>
+<td>6.3.0+</td>
 </tr>
 </tbody>
 </table>
