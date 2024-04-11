@@ -1,9 +1,9 @@
-# Common Client Configurations
+## Common Client Configurations
 
-## OSS/OSS-HDFS
+### OSS/OSS-HDFS
 
 | Configuration | Type | Default Value | Description | Since Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | -------------- | ----------- | ------- |
 | fs.oss.tmp.data.dirs | String | /tmp/ | Temporary file directory used during client writes, can specify multiple (comma-separated); requires read-write permission in a multi-user environment | 4.3.0+ |
 | fs.oss.tmp.data.cleaner.enable | Boolean | true | Enables automatic cleanup of temporary files | 4.3.0+ |
 | fs.oss.retry.count | Integer | 5 | Retry attempts when accessing OSS/OSS-HDFS fails | 4.3.0+ |
@@ -19,8 +19,13 @@
 | fs.oss.read.buffer.size | Integer | 1048576 | Read buffer size for OSS in bytes | 4.3.0+ |
 | fs.oss.write.buffer.size | Integer | 1048576 | Write buffer size for OSS in bytes | 4.3.0+ |
 | fs.oss.flush.interval.millisecond | Integer | -1 | Buffer flush interval in milliseconds (-1 to disable) | 4.3.0+ |
+| fs.oss.memory.buffer.size.max.mb | Integer | 6124 | Total memory pool capacity in MB. | 4.3.0+ |
+| fs.oss.memory.buffer.size.watermark | Float | 0.3 | Memory pool ratio used for pre-read. | 4.3.0+ |
+| fs.oss.blocklet.size.mb | Integer | 8 | Block size for chunked uploads to oss in MB (max 10,000 blocks, so max file size is 80GB by default). Increase this if needed for larger files and adjust timeouts accordingly. For files much larger than 80GB, consider using OSS-HDFS (no file size limit). | 4.5.2+ |
 | fs.oss.checksum.crc64.enable | Boolean | true | Enables file-level CRC64 integrity checks; may significantly impact write performance on OSS-HDFS | 4.6.0+ |
 | fs.oss.checksum.md5.enable | Boolean | false | Enables request-level MD5 integrity checks | 4.6.0+ |
-| fs.oss.blocklet.size.mb | Integer | 8 | Block size for chunked uploads to OSS in MB (max 10,000 blocks); default limits files to ~80GB | 4.5.2+ |
+| fs.oss.read.readahead.prefetcher.version | String | default | Options: `legacy` for old prefetch algorithm, `default` for new one. New algorithm might use more memory. If performance decreases after switching to the new algorithm, it could be due to insufficient memory pool causing pre-read blocks to be evicted before they're accessed. Adjust maximum pre-read length or allow more memory for pre-read to avoid this. | 6.2.0+ |
+| fs.oss.read.readahead.prefetch.size.max | Integer | 268435456 | Maximum pre-read length in bytes. | 6.2.0+ |
+| fs.oss.signer.version | Integer | 0 | Signature algorithm version, options [0, 1, 4]. Use 0 for the default algorithm, V4 signing is recommended for improved access to OSS/OSS-HDFS since 6.3.0. Specify 1 or 4 for specific scenarios. | 6.3.0+ |
 
-For credential provider-related configurations, please refer to [Configuring OSS/OSS-HDFS Credential Providers](./jindosdk_credential_provider.md).
+For credential provider-related configurations, refer to [Configuring OSS/OSS-HDFS Credential Providers](./jindosdk_credential_provider.md).
