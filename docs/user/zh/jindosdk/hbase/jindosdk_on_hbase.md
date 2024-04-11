@@ -9,10 +9,10 @@ HBase 是 Hadoop 生态中的实时数据库，有很高的写入性能。 OSS-H
 * jindo-core-x.x.x.jar
 * jindo-sdk-x.x.x.jar
 
-jindosdk-6.3.3 为例:
+jindosdk-6.3.4 为例:
 ```
-cp jindosdk-6.3.3/lib/jindo-core-6.3.3.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.3.3/lib/jindo-sdk-6.3.3.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.3.4/lib/jindo-core-6.3.4.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.3.4/lib/jindo-sdk-6.3.4.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 ## 3. 配置 OSS-HDFS 服务实现类及 Access Key

@@ -16,7 +16,7 @@ To integrate JindoSDK into your project using Maven, follow these steps:
     <version>1.0</version>
 
     <properties>
-        <jindodata.version>6.3.3</jindodata.version>
+        <jindodata.version>6.3.4</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
 

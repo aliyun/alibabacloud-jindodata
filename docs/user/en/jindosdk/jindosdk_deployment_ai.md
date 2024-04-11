@@ -6,22 +6,22 @@ When using JindoFuse, Jindo CLI, Pyjindo or other non-Hadoop ecosystem component
 
 1. Download and extract the JindoSDK TAR package.
 
-Execute the following command to download the v6.3.3 JindoSDK TAR package for most Linux x86 environments. For deployment on other platforms, refer to [Installing and Deploying JindoSDK on Multi-platform Environments](../jindosdk/jindosdk_deployment_multi_platform.md):
+Execute the following command to download the v6.3.4 JindoSDK TAR package for most Linux x86 environments. For deployment on other platforms, refer to [Installing and Deploying JindoSDK on Multi-platform Environments](../jindosdk/jindosdk_deployment_multi_platform.md):
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.3/jindosdk-6.3.3-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.4/jindosdk-6.3.4-linux.tar.gz
 ```
 
 2. Unzip the JindoSDK TAR package.
 ```bash
-tar zxvf jindosdk-6.3.3-linux.tar.gz
+tar zxvf jindosdk-6.3.4-linux.tar.gz
 ```
 
 3. Set environment variables.
 
-Assuming the extracted folder is `/usr/lib/jindosdk-6.3.3-linux`:
+Assuming the extracted folder is `/usr/lib/jindosdk-6.3.4-linux`:
 
 ```bash
-export JINDOSDK_HOME=/usr/lib/jindosdk-6.3.3-linux
+export JINDOSDK_HOME=/usr/lib/jindosdk-6.3.4-linux
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
