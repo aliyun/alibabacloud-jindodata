@@ -127,7 +127,7 @@ Events:                   <none>
 
 使用 `http://IP:NodePort` 的形式来发现 prometheus 服务
 
-![](../../../image/common_granafa_metric.png)
+![](pic/common_granafa_metric.png)
 
 
 导入完成后点击Save & Test 显示 Data source is working 即可
@@ -142,7 +142,7 @@ grafana 选择导入模板 Json 文件，点击此处下载[fluid-prometheus-gra
 
 在 DashBoards 中找到导入的模版视图
 
-![](../../../image/common_grafana_playfront.png)
+![](pic/common_grafana_playfront.png)
 
 注：fluid_runtime 对应Fluid runtime name; namespace 对应 Fluid runtime namespace
 
