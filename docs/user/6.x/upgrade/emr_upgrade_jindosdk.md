@@ -2,7 +2,7 @@
 
 ## 背景
 
-在旧版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群中遇到[已知问题](../jindodata/jindodata_known_issues.md)或需要使用[新功能](../jindodata/jindodata_release_notes.md)。
+在旧版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群，在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../6.3.4/release-notes.md), 可以根据下面的步骤完成 JindoSDK 升级。
 
 ## 场景一：升级已有集群
 ### 1. 准备软件包和升级脚本
@@ -21,7 +21,7 @@ tar zxf jindosdk-patches.tar.gz
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.2/jindosdk-6.3.2-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.4/jindosdk-6.3.4-linux.tar.gz
 
 ls -l
 ```
@@ -31,9 +31,13 @@ jindosdk-patches 内容示例如下：
 -rwxrwxr-x 1 hadoop hadoop      1263 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
 -rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.2-linux.tar.gz
-
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.4-linux.tar.gz
 ```
+
+> **注意**：如果从4.6.8以下版本升级到4.6.9以上或6.x版本时，由于 JindoCommitter 默认使用的作业临时路径发生变化，需要在升级前
+> 先设置 `fs.jdo.committer.allow.concurrent=false` （core-site.xml）
+> 或在 Spark 配置中设置 `spark.hadoop.fs.jdo.committer.allow.concurrent=false`，确保升级期间不会出现丢数据的情况。
+> 后续在包含GATEWAY节点的所有JindoSDK全部升级完成后，可以择机去掉该配置。
 
 ### 2. 配置升级节点信息
 
@@ -62,7 +66,7 @@ emr-worker-2
 如
 
 ```bash
-./apply_all.sh 6.3.2
+./apply_all.sh 6.3.4
 ```
 
 脚本执行完成后，返回如下提示信息。
@@ -88,7 +92,7 @@ Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark �
 
 ### 1. 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.2-linux.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh),
+下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.4-linux.tar.gz 和 [bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh),
 
 ```bash
 mkdir jindo-patch
@@ -97,7 +101,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.2/jindosdk-6.3.2-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.4/jindosdk-6.3.4-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -108,14 +112,14 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.2-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.4-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
 执行命令制作升级包
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 6.3.2
+bash bootstrap_jindosdk.sh -gen 6.3.4
 ```
 
 **参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。**

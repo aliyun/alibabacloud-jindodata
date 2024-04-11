@@ -23,12 +23,12 @@ Apache Flink 是一种当前业界流行的开源大数据流式计算引擎，�
 需要在所有 Flink 节点进行配置。在每个节点 Flink 根目录下的 lib 文件夹，放置 .jar 文件：
 * jindo-flink-${version}-full.jar
 
-该 jar 包含在 jindosdk-${version}.tar.gz ([下载页面](/docs/user/6.x/6.3.2/jindodata_download.md))，解压缩后可在 plugins/flink/ 目录下找到。
+该 jar 包含在 jindosdk-${version}.tar.gz ([下载页面](../jindosdk_download.md))，解压缩后可在 plugins/flink/ 目录下找到。
 
 另外，如果集群内存在 Apache Flink 提供的自带 Flink OSS Connector，需移除。移除方法为，从 Flink 集群的 lib 目录或 plugins/oss-fs-hadoop 移走如下 jar 包：
 * `flink-oss-fs-hadoop-${flink-version}.jar`
 
-注：JindoSDK 目前提供多平台支持，当前支持的平台以及需要额外放置的资源，参考 [在多平台环境安装部署 JindoSDK](/docs/user/6.x/jindosdk/jindosdk_deployment_multi_platform.md)
+注：JindoSDK 目前提供多平台支持，当前支持的平台以及需要额外放置的资源，参考 [在多平台环境安装部署 JindoSDK](../jindosdk_deployment_multi_platform.md)
 
 ## 如何使用
 

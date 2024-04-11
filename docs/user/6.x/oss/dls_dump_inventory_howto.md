@@ -4,11 +4,11 @@
 ## 介绍
 使用元数据导出功能，可以将当前 OSS-HDFS bucket 下的文件元数据清单导出到 OSS 上的，格式为 json 文件，方便用户对元数据进行统计分析    
 
-* 配置 jindo 命令行工具，配置对应 OSS-HDFS bucket 的访问密钥，参考 [jindo 命令行工具使用说明](usages/oss_jindo_cli.md) 
+* 配置 JindoFS 命令行工具，配置对应 OSS-HDFS bucket 的访问密钥，参考 [JindoFS 命令行工具使用说明](../jindofs/jindofs_client_tools.md) 
 
 * 执行导出命令
 ```bash
-jindo admin -dumpInventory oss://<hdfs_bucket>/
+./jindofs admin -dumpInventory oss://<hdfs_bucket>/
 ```
 
 此时可以观察到输出路径

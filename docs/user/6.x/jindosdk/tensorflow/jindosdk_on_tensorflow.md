@@ -1,12 +1,12 @@
-# 使用 Jindo Tensorflow Collector 访问 OSS
+# 使用 Jindo Tensorflow Collector 访问 OSS/OSS-HDFS
 
-Jindo Tensorflow Collector 支持使用 Tensoflow 原生 API 支持访问 OSS。
+Jindo Tensorflow Collector 支持使用 Tensoflow 原生 API 支持访问 OSS/OSS-HDFS。
 
 ### 1. 下载 JindoSDK 包
 
-下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/6.x/6.3.2/jindodata_download.md))。
+下载最新的 tar.gz 包 jindosdk-x.y.z.tar.gz（x.y.z表版本号）， ([下载页面](../jindosdk_download.md))。
 
-部署方式，参见[部署文档](/docs/user/6.x/jindosdk/jindosdk_deployment_ai.md)
+部署方式，参见[部署文档](../jindosdk_deployment_ai.md)
 
 ## 2. 修改配置
 
@@ -66,7 +66,7 @@ fs.oss.accessKeySecret = <your_key_secret>
 | fs.oss.accessKeyId     |                  | jindosdk | 访问 OSS-HDFS 服务需要的 accessKeyId                          |
 | fs.oss.accessKeySecret |                  | jindosdk | 访问 OSS-HDFS 服务需要的 accessKeySecret                      |
 
-更多 jindosdk 配置节参数可见[相关文档](../configuration/jindosdk_configuration_list_ini.md)。
+更多 jindosdk 配置节参数可见[相关文档](../jindosdk_configuration.md)。
 
 #### 2.3.2 免密访问
 前提：使用的是阿里云 ECS，并且该机器已绑定过角色授权。

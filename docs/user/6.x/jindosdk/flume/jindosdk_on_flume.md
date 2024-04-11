@@ -8,10 +8,10 @@
 
 需要在 Flume 节点进行配置。在每个节点 Flume 根目录下的 lib 文件夹，放置 JindoSDK。
 
-下载并解压最新的 tar.gz 包 jindosdk-x.x.x.tar.gz ([下载页面](/docs/user/6.x/6.3.2/jindodata_download.md))
+下载并解压最新的 tar.gz 包 jindosdk-x.y.z.tar.gz（x.y.z表版本号）， ([下载页面](../jindosdk_download.md))
 
 ````
-cp jindosdk-x.x.x/lib/*.jar  $FLUME_HOME/jars/
+cp jindosdk-x.y.z/lib/*.jar  $FLUME_HOME/jars/
 ````
 
 ## 配置

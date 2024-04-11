@@ -10,13 +10,13 @@ OSS-HDFS 服务的快照功能在使用上与 HDFS 的快照功能完全兼容�
 ```bash
 hdfs dfs -mkdir oss://oss-dfs-test.<Endpoint>/TestSnapshot
 ```
-默认情况下，目录的快照功能是关闭的。需要开启和关闭目录的快照功能，需要使用 JindoSDK 的 shell 命令行。具体的开启快照的格式为
+默认情况下，目录的快照功能是关闭的。需要开启和关闭目录的快照功能，需要使用 [jindofs 命令行工具](../jindofs/jindofs_client_tools.md) 。具体的开启快照的格式为
 ```bash
-jindo admin -allowSnapshot -dlsUri <path>
+./jindofs admin -allowSnapshot -dlsUri <path>
 ```
 如果我们要开启前面创建的 TestSnapshot 的快照功能。可以输入如下的命令：
 ```bash
-jindo admin -allowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
+./jindofs admin -allowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
 ```
 ## 创建快照
 在一个目录开启快照功能后，可以通过 HDFS 的 shell 命令。具体格式为：
@@ -94,18 +94,18 @@ hdfs dfs -deleteSnapshot oss://oss-dfs-test.<Endpoint>/TestSnapshot S100
 ## 关闭快照功能
 当我们需要关闭目录的快照功能的时候，我们同样需要使用 JindoSDK 的 shell 命令行。具体的关闭快照的格式为
 ```bash
-jindo admin -disallowSnapshot -dlsUri <path>
+./jindofs admin -disallowSnapshot -dlsUri <path>
 ```
 
 ## 查看两个快照之间的差异
 可以通过下面当命令查看两个快照之间的差异
 ```bash
-jindo dls -snapshotDiff -dlsUri <uri> -fromSnapshot <fromSnapshot> -toSnapshot <toSnapshot>
+./jindofs admin -snapshotDiff -dlsUri <uri> -fromSnapshot <fromSnapshot> -toSnapshot <toSnapshot>
 ```
 
 ### 注意事项
 如果需要关闭目录的快照功能，首先要确保该目录下的所有快照已经被删除。删除快照的命令可以参考前面的删除快照命令。如果该目录下还存在快照，关闭快照功能会报错。
 对于我们前面的例子 TestSnapshot，假设我们已经删除了所有快照。我们可以用下面的命令来关闭目录的快照功能。
 ```bash
-jindo admin -disallowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
+./jindofs admin -disallowSnapshot -dlsUri oss://oss-dfs-test.<Endpoint>/TestSnapshot
 ```

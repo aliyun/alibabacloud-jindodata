@@ -11,19 +11,19 @@ jindosdk 完整产出物在 tar 包中默认携带了 jemalloc：
 ```
 .
 ├── bin
-│   ├── ...
+│   ├── ...
 ├── conf
-│   ├── ...
+│   ├── ...
 ├── lib
-│   ├── jindo-core-6.3.2.jar
-│   ├── jindo-sdk-6.3.2.jar
-│   └── native
-│       ├── libjemalloc.so
-│       ├── ...
+│   ├── jindo-core-6.3.4.jar
+│   ├── jindo-sdk-6.3.4.jar
+│   └── native
+│       ├── libjemalloc.so
+│       ├── ...
 ├── plugins
-│   ├── ...
+│   ├── ...
 ├── tools
-│   ├── ...
+│   ├── ...
 └── versions
     └── JINDOSDK_VERSION
 ```
@@ -50,3 +50,11 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/memcheck/ji
 使用jemalloc不设置MALLOC_CONF，最终占用2929M
 
 使用jemalloc并设置MALLOC_CONF，最终占用2289M
+
+### 其他
+
+上面的配置适合内存紧张的场景，可能对性能有一定影响。当需要综合考虑内存占用与性能时，可以尝试以下配置：
+```
+LD_PRELOAD=/opt/apps/JINDOSDK/jindosdk-current/lib/native/libjemalloc.so
+MALLOC_CONF=percpu_arena:percpu,lg_tcache_max:12,dirty_decay_ms:5000,muzzy_decay_ms:5000
+```

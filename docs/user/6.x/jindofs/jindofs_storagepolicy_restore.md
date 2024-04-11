@@ -2,7 +2,7 @@
 
 ## 概述
 
-JindoFS 命令行工具是访问 OSS-HDFS 的可执行程序，支持常见文件元数据及读写操作，以及服务特有方法。更多介绍，以及工具的获取和配置方法，参见[JindoFS 命令行工具使用指南](/docs/user/6.x/jindofs/jindofs_client_tools.md)
+JindoFS 命令行工具是访问 OSS-HDFS 的可执行程序，支持常见文件元数据及读写操作，以及服务特有方法。更多介绍，以及工具的获取和配置方法，参见[JindoFS 命令行工具使用指南](./jindofs_client_tools.md)
 
 OSS-HDFS 服务的介绍，参见[OSS-HDFS服务概述](https://help.aliyun.com/document_detail/405089.htm)
 

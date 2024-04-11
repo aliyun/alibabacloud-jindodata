@@ -7,10 +7,10 @@
 JindoFS 支持 RootPolicy 规则，通过 RootPolicy 可以为 OSS-HDFS（JindoFS 服务）设置自定义前缀，这样用户原有的访问 `hdfs://` 前缀的作业，可以不经修改直接运行在 JindoFS 服务上。
 
 ## 1、 设置 RootPolicy
-我们提供了一组 Shell 命令，帮助用户向特定的bucket注册自定义地址。通过[SetRootPolicy命令](../../5.x/jindodata/jindosdk/jindosdk_cli_options.md)，可以为特定 bucket 注册自定义前缀的访问地址。如：
+我们提供了一组 Shell 命令，帮助用户向特定的bucket注册自定义地址。通过[SetRootPolicy命令](../jindofs/jindofs_client_tools.md)，可以为特定 bucket 注册自定义前缀的访问地址。如：
 
 ```shell
-jindo admin -setRootPolicy oss://<bucket_name>.<dls_endpoint>/ hdfs://<your_ns_name>/
+./jindofs admin -setRootPolicy oss://<bucket_name>.<dls_endpoint>/ hdfs://<your_ns_name>/
 ```
 
 * <bucket_name>: OSS-HDFS 服务 bucket 的名字，当前版本仅支持根目录。
@@ -64,13 +64,13 @@ hadoop fs -ls hdfs://<your_ns_name>/
 
 ## 4、其他功能
 ### 4.1 删除 RootPolicy 规则
-通过[UnsetRootPolicy命令](../../5.x/jindodata/jindosdk/jindosdk_cli_options.md)可以删除相应地址。
+通过[UnsetRootPolicy命令](../jindofs/jindofs_client_tools.md)可以删除相应地址。
 ```shell
-jindo admin -unsetRootPolicy oss://<bucket_name>.<dls_endpoint>/ hdfs://<your_ns_name>/
+./jindofs admin -unsetRootPolicy oss://<bucket_name>.<dls_endpoint>/ hdfs://<your_ns_name>/
 ```
 
 ### 4.2 列举所有 RootPolicy 规则
-使用[ListAccessPolicies命令](../../5.x/jindodata/jindosdk/jindosdk_cli_options.md)，可以列出特定 bucket 当前注册的所有前缀地址。
+使用[ListAccessPolicies命令](../jindofs/jindofs_client_tools.md)，可以列出特定 bucket 当前注册的所有前缀地址。
 ```shell
-jindo admin -listAccessPolicies oss://<bucket_name>.<dls_endpoint>/
+./jindofs admin -listAccessPolicies oss://<bucket_name>.<dls_endpoint>/
 ```

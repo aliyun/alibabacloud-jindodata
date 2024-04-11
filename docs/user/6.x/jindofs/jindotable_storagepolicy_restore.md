@@ -8,7 +8,7 @@ JindoTable 是基于 JindoSDK 的结构化数据治理工具，目标是在 “�
 
 ## 获取
 
-可以从 [JindoData 下载页面](/docs/user/6.x/6.1.2/jindodata_download.md) 获取 JindoTable 工具：
+可以从 [JindoData 下载页面](../6.3.3/jindodata_download.md) 获取 JindoTable 工具：
 1. 下载 `jindosdk-<version>-<platform>.tar.gz`，根据系统选择合适的 `<platform>`。
 2. 本文介绍的功能最低版本要求为 `<version>` 6.1.2。
 

@@ -10,7 +10,7 @@ HDFS 受限于集群规模和成本因素，无法无限扩展，容量存在瓶
 
     *   访问 OSS-HDFS，需创建EMR-3.42.0及以上版本或EMR-5.8.0及以上版本的集群。
 
-*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《在 Hadoop 环境中部署 JindoSDK》](/docs/user/6.x/jindosdk/jindosdk_deployment_hadoop.md)。
+*   非 EMR 环境，请先安装部署 JindoSDK。部署方式请参考 [《在 Hadoop 环境中部署 JindoSDK》](../jindosdk/jindosdk_deployment_hadoop.md)。
 
     *   访问 OSS-HDFS，需部署 JindoSDK 4.x 及以上版本。
 
@@ -56,7 +56,7 @@ jindotable -moveTo -t <dbName.tableName> -d <destination path> [-c "<condition>"
 | `-e/-explain`| 如果指定explain模式，不会触发实际操作，仅打印会同步的分区。 | 否 |
 | `-q/-queue <yarn queue` | 指定分布式拷贝的yarn队列。 | 否 |
 | `-w/-workingDir` | 指定分布式拷贝的工作临时目录。 | 否 |
-| `-iceberg` | 指定所迁移表为Iceberg。目前仅支持Iceberg整表迁移，需配合`-fullTable`使用。(6.3.2以上版本) | 否 |
+| `-iceberg` | 指定所迁移表为Iceberg。目前仅支持Iceberg整表迁移，需配合`-fullTable`使用。(6.3.0以上版本) | 否 |
 | `-l/-logDir <log directory>` | 本地日志目录，默认为`/tmp/<current user>/` | 否 |
 
 ## 使用示例

@@ -8,7 +8,7 @@
 出现以上情况大概率由于用户数据块过大，导致OSS数据块在转换存储类型时出现数据的拷贝超时，任务解归档最终出现失败。永久解归档存在解冻限制，推荐用户使用临时解冻功能，详细细节可以参考 [文档](../jindofs_storagepolicy_restore.md)。
 
 ### 修复流程
-出现这种情况用户如何进行数据修复，需要依赖JindoFsck命令来修复，JindoFsck 命令 [下载链接](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.2/jindofs-sdk-6.3.2-linux.tar.gz)， JindoFsck命令使用如下
+出现这种情况用户如何进行数据修复，需要依赖JindoFsck命令来修复，JindoFsck 命令 [下载链接](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.0/jindofs-sdk-6.3.0-linux.tar.gz)， JindoFsck命令使用如下
 ```shell
 [root@master-1-1(192.168.0.182) ~]# ./jindofsck
         jindofsck

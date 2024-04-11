@@ -2,7 +2,7 @@
 
 ## 背景
 
-在旧版管控平台中创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，遇到已知问题，或需要使用[新功能](../jindodata/jindodata_release_notes.md)。
+在旧版管控平台中创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../6.3.4/release-notes.md), 可以根据下面的步骤完成 JindoSDK 升级。
 
 ## 场景一：升级已有集群
 ### 1. 准备软件包和升级脚本
@@ -21,7 +21,7 @@ tar zxf jindosdk-patches.tar.gz
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.2/jindosdk-6.3.2-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.4/jindosdk-6.3.4-linux.tar.gz
 
 ls -l
 ```
@@ -31,7 +31,7 @@ jindosdk-patches 内容示例如下：
 -rwxrwxr-x 1 hadoop hadoop      1263 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
 -rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.2-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.4-linux.tar.gz
 -rwxrwxr-x 1 hadoop hadoop      1308 May 01 00:00 revert_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6326 May 01 00:00 revert.sh
 ```
@@ -63,7 +63,7 @@ emr-worker-2
 如
 
 ```bash
-./apply_all.sh 6.3.2
+./apply_all.sh 6.3.4
 ```
 
 脚本执行完成后，返回如下提示信息。
@@ -135,7 +135,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 
 ### 1. 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.2-linux.tar.gz 和 bootstrap_jindosdk.sh。
+下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.4-linux.tar.gz 和 bootstrap_jindosdk.sh。
 
 ```bash
 mkdir jindo-patch
@@ -144,7 +144,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.2/jindosdk-6.3.2-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.4/jindosdk-6.3.4-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -155,7 +155,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.2-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.4-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -168,7 +168,7 @@ bash bootstrap_jindosdk.sh -gen $JINDOSDK_VERSION
 如
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 6.3.2
+bash bootstrap_jindosdk.sh -gen 6.3.4
 ```
 **参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。**
 
@@ -227,13 +227,13 @@ Found 2 items
 * 如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。
 
-## 场景四：新建集群
+## 场景三：新建集群
 
 新建EMR集群时在EMR控制台添加引导操作。具体操作步骤如下：
 
 ### 1. 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.2-linux.tar.gz 和 bootstrap_jindosdk.sh。
+下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.4-linux.tar.gz 和 bootstrap_jindosdk.sh。
 
 ```bash
 mkdir jindo-patch
@@ -242,7 +242,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.2/jindosdk-6.3.2-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.4/jindosdk-6.3.4-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -253,7 +253,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.2-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.4-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -266,7 +266,7 @@ bash bootstrap_jindosdk.sh -gen-full $JINDOSDK_VERSION
 如
 
 ```bash
-bash bootstrap_jindosdk.sh -gen-full 6.3.2
+bash bootstrap_jindosdk.sh -gen-full 6.3.4
 ```
 **参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。**
 

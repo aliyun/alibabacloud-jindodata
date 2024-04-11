@@ -47,7 +47,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-3.1.1/spark-3.1.1-b
 
 - 上传本地文件到 OSS 上
 
-您可以使用 OSS 提供的客户端 [ossutil](https://helpcdn.aliyun.com/document_detail/50452.html) 或者阿里云EMR团队提供的 [JindoSDK](../../outline.md)，按照使用说明将本地下载的文件上传到远程 OSS 的bucket上。如您的bucket名字为 test-bucket 且使用 JindoSDK 作为客户端工具，可执行如下命令上传文件到 OSS 上面。
+您可以使用 OSS 提供的客户端 [ossutil](https://helpcdn.aliyun.com/document_detail/50452.html) 或者阿里云EMR团队提供的 [JindoSDK](../../jindosdk/jindosdk_quickstart.md)，按照使用说明将本地下载的文件上传到远程 OSS 的bucket上。如您的bucket名字为 test-bucket 且使用 JindoSDK 作为客户端工具，可执行如下命令上传文件到 OSS 上面。
 ```shell
 hadoop fs -put spark-2.4.7-bin-hadoop2.7.tgz oss://test-bucket/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz 
 hadoop fs -put spark-3.1.1-bin-hadoop3.2.tgz oss://test-bucket/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz

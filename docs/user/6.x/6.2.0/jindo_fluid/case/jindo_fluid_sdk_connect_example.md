@@ -40,5 +40,5 @@ hadoop fs -ls oss://<Bucket>/<Dir>
 
 ### 7. 权限管理
 
-* 自建集群，请参考 [阿里云 OSS 使用 Ranger 的鉴权方案](/docs/user/4.x/4.6.x/4.6.12/jindofsx/permission/jindofsx_ranger.md)
+* 自建集群，请参考 [阿里云 OSS 使用 Ranger 的鉴权方案](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/jindofsx/permission/jindofsx_ranger.md)
 * 阿里云 E-MapReduce 集群，请参考 [EMR 集群中阿里云 OSS 使用 Ranger 的鉴权方案](/docs/user/4.x/4.6.x/4.6.12/jindofsx/permission/jindofsx_ranger_emr.md)
