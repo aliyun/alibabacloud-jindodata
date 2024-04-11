@@ -395,7 +395,7 @@
 <p>JindoRuntime 默认日志打在容器 std 输出里面，可以使用阿里云 sls 日志收集服务将日志收集起来。</p>
 <h2 id="1ack-sls">1、ack 集群绑定 sls 服务<a class="headerlink" href="#1ack-sls" title="Permanent link">§</a></h2>
 <p>您可以在创建集群时绑定 sls 服务</p>
-<p><img src="../pic/jindo_fluid_sls_example_1.png"></p>
+<p><img src="./pic/jindo_fluid_sls_example_1.png"></p>
 <p>也可以在创建集群后绑定阿里云 sls 服务</p>
 <ul>
 <li>选择集群信息 &gt; 集群资源 &gt; 日志服务 Project</li>
@@ -408,25 +408,25 @@
 <p><strong>本文以 JindoRuntime 名字为 test 进行举例</strong> <br/></p>
 <p>您可以登陆 ack 控制台 &gt; 工作负载
 * 有状态（master/worker）
-<img src="../pic/jindo_fluid_sls_ack_1.png"></p>
+<img src="./pic/jindo_fluid_sls_ack_1.png"></p>
 <ul>
 <li>
 <p>守护进程集（fuse）
-<img src="../pic/jindo_fluid_sls_ack_2.png"></p>
+<img src="./pic/jindo_fluid_sls_ack_2.png"></p>
 </li>
 <li>
 <p>点击<strong>编辑</strong></p>
 </li>
 <li>
 <p>添加日志收集
-<img src="../pic/jindo_fluid_sls_ack_3.png"></p>
+<img src="./pic/jindo_fluid_sls_ack_3.png"></p>
 </li>
 </ul>
 <p>其中日志库名称可自定义填写，该名称即为 sls 上日志库的名字，容器内日志路径为<strong>stdout</strong></p>
 <ul>
 <li>点击右侧更新</li>
 </ul>
-<p><img src="../pic/jindo_fluid_sls_ack_4.png"></p>
+<p><img src="./pic/jindo_fluid_sls_ack_4.png"></p>
 <h3 id="32-k8s">3.2、直接操作 K8S 资源<a class="headerlink" href="#32-k8s" title="Permanent link">§</a></h3>
 <ul>
 <li>以收集 fuse 日志为例，执行</li>
@@ -434,7 +434,7 @@
 <pre><code class="language-shell">kubectl edit daemonset test-jindofs-fuse
 </code></pre>
 <p>修改 <strong>spec.env</strong>
-<img src="../pic/jindo_fluid_sls_ack_5.png">
+<img src="./pic/jindo_fluid_sls_ack_5.png">
 增加</p>
 <pre><code class="language-yaml">- name: aliyun_logs_jindo-fuse
   value: stdout
@@ -451,7 +451,7 @@ value 为固定值 stdout</p>
 <p>进行对应的编辑</p>
 <h2 id="4-sls">4、登陆阿里云 sls 日志服务查看相关日志情况<a class="headerlink" href="#4-sls" title="Permanent link">§</a></h2>
 <p>以 jindofuse 日志收集为例，日志库名称为 <strong>jindo-fuse</strong>,在sls上找到对应的日志库</p>
-<p><img src="../pic/jindo_fluid_sls_ack_6.png"></p></div>
+<p><img src="./pic/jindo_fluid_sls_ack_6.png"></p></div>
             </div>
         </div>
 
