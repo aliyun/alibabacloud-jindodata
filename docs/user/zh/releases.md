@@ -10,6 +10,7 @@
 
 - JindoSDK 更新 [6.1.7 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.7/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.7/jindodata_download.md)。
 - 修复若干问题
+- JindoSDK 支持 JindoCache + JindoAuth 访问 DLF。
 
 ## 6.3.4，2024-04-11
 
