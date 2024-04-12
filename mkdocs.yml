@@ -42,10 +42,10 @@ nav:
     - OSS/OSS-HDFS RAM 配置: oss/oss_ram_policy.md
     - OSS-HDFS 功能介绍:
       - OSS-HDFS 回收站: oss/dls_trash_quickstart.md
-      - OSS-HDFS 镜像: oss/dls_snapshot_quickstart.md
-      - OSS-HDFS 路径改写: oss/dls_root_policy.md
-      - OSS-HDFS 受保护路径: oss/dls_protected_directories.md
-      - OSS-HDFS 清单: oss/dls_dump_inventory_howto.md
+      - OSS-HDFS 快照: oss/dls_snapshot_quickstart.md
+      - OSS-HDFS 根路径改写: oss/dls_root_policy.md
+      - OSS-HDFS 受保护目录: oss/dls_protected_directories.md
+      - OSS-HDFS 清单导出: oss/dls_dump_inventory_howto.md
       - OSS-HDFS 文件校验: oss/dls_checksum.md
       - OSS-HDFS 文件访问时间戳: oss/dls_atime.md
   - Hadoop 生态:
