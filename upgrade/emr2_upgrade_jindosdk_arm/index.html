@@ -378,19 +378,19 @@
             
             <li class="nav-item" data-level="1"><a href="#emr-jindosdk-arm" class="nav-link">EMR 新版集群 JindoSDK 升级文档（arm/倚天环境）</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">场景一： 升级已有新版集群</a>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">场景一：升级已有新版集群</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">场景二: 扩容已有集群</a>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">场景二：扩容已有集群</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">场景三: 新建集群</a>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">场景三：新建集群</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#jindosdk" class="nav-link">场景四： 回滚 JindoSDK 到集群初始版本</a>
+            <li class="nav-item" data-level="2"><a href="#jindosdk" class="nav-link">场景四：回滚 JindoSDK 到集群初始版本</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -402,7 +402,7 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="emr-jindosdk-arm">EMR 新版集群 JindoSDK 升级文档（arm/倚天环境）<a class="headerlink" href="#emr-jindosdk-arm" title="Permanent link">§</a></h1>
-<h2 id="_1">场景一： 升级已有新版集群<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<h2 id="_1">场景一：升级已有新版集群<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <p>若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 <a href="../../releases/">版本说明</a>, 可以根据下面的步骤完成 JindoSDK 升级。</p>
 <h3 id="1">1. 准备软件包和升级脚本、配置<a class="headerlink" href="#1" title="Permanent link">§</a></h3>
 <p>登录EMR集群的Master节点，并将下载的patch包放在emr-user用户的HOME目录下，将patch包解压缩后，使用emr-user用户执行操作。</p>
@@ -461,7 +461,7 @@ core-1-2
 <h3 id="4">4. 升级后重启服务<a class="headerlink" href="#4" title="Permanent link">§</a></h3>
 <p>Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。</p>
 <p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>更多操作</code> &gt; <code>重启</code>。</p>
-<h2 id="_2">场景二: 扩容已有集群<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<h2 id="_2">场景二：扩容已有集群<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <p>若扩容已有集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。</p>
 <h3 id="1_1">1. 制作引导升级包<a class="headerlink" href="#1_1" title="Permanent link">§</a></h3>
 <p>下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 <a href="https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh">bootstrap_jindosdk.sh</a>,</p>
@@ -562,7 +562,7 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 <li>如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。</li>
 <li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。</li>
 </ul>
-<h2 id="_3">场景三: 新建集群<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<h2 id="_3">场景三：新建集群<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>若新建 EMR 集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。</p>
 <h3 id="1_2">1. 制作引导升级包<a class="headerlink" href="#1_2" title="Permanent link">§</a></h3>
 <p>下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 <a href="https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh">bootstrap_jindosdk.sh</a>,</p>
@@ -663,7 +663,7 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 <li>如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。</li>
 <li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。</li>
 </ul>
-<h2 id="jindosdk">场景四： 回滚 JindoSDK 到集群初始版本<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h2>
+<h2 id="jindosdk">场景四：回滚 JindoSDK 到集群初始版本<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h2>
 <p>若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在升级过程中遇到了问题，需要回滚到集群初始JindoSDk版本</p>
 <h3 id="1_3">1. 准备回滚脚本<a class="headerlink" href="#1_3" title="Permanent link">§</a></h3>
 <p>登录EMR集群的Master节点，并将下载的patch包放在emr-user用户的HOME目录下，将patch包解压缩后，使用emr-user用户执行操作。</p>
