@@ -7,3 +7,4 @@
 ## 介绍
 
 - JindoSDK 更新 [6.1.7 的 Maven 仓库](oss-maven.md)。
+- JindoSDK 支持 JindoCache + JindoAuth 访问 DLF。
