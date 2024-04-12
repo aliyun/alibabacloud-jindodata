@@ -11,7 +11,7 @@ JindoData 套件基于统一架构和内核实现，支持通过数据湖万能�
 JindoSDK 是访问 JindoData 组件的标准客户端，请参考 [JindoSDK 下载](jindosdk/jindosdk_download.md) 和
 [JindoSDK 快速入门](jindosdk/jindosdk_quickstart.md) 进行安装和验证。
 
-关于多版本支持，请参考[JindoSDK 多版本支持](jindosdk/jindosdk_deployment_multi_platform.md)。
+关于多平台支持，请参考[JindoSDK 多平台支持](jindosdk/jindosdk_deployment_multi_platform.md)。
 
 ## 升级 JindoSDK
 

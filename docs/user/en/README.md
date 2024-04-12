@@ -8,7 +8,7 @@ Built on a unified architecture and kernel, JindoData supports access through th
 
 ## Downloading and Installing JindoSDK
 
-JindoSDK serves as the standard client for accessing JindoData components. To install and verify it, refer to [JindoSDK Download](jindosdk/jindosdk_download.md) and [JindoSDK Quick Start](jindosdk/jindosdk_quickstart.md). For multi-platform support, consult [JindoSDK Multi-Version Support](jindosdk/jindosdk_deployment_multi_platform.md).
+JindoSDK serves as the standard client for accessing JindoData components. To install and verify it, refer to [JindoSDK Download](jindosdk/jindosdk_download.md) and [JindoSDK Quick Start](jindosdk/jindosdk_quickstart.md). For multi-platform support, consult [JindoSDK Multi-Platform Support](jindosdk/jindosdk_deployment_multi_platform.md).
 
 ## Upgrading JindoSDK
 
