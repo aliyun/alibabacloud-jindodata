@@ -86,7 +86,7 @@ Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark �
 以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的`操作` > `重启 All Components`。
 
 
-## 场景二： 新建集群和扩容已有集群
+## 场景二：新建集群和扩容已有集群
 
 新建EMR集群时在EMR控制台添加引导操作，或扩容已有集群时可以自动升级修复。具体操作步骤如下：
 

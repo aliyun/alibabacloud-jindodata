@@ -1,6 +1,6 @@
 # EMR 新版集群 JindoSDK 升级文档（arm/倚天环境）
 
-## 场景一： 升级已有新版集群
+## 场景一：升级已有新版集群
 
 若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../releases.md), 可以根据下面的步骤完成 JindoSDK 升级。
 
@@ -94,7 +94,7 @@ Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重�
 以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的`更多操作` > `重启`。
 
 
-## 场景二: 扩容已有集群
+## 场景二：扩容已有集群
 
 若扩容已有集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。
 
@@ -196,7 +196,7 @@ Found 2 items
 * 如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 
-## 场景三: 新建集群
+## 场景三：新建集群
 
 若新建 EMR 集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。
 
@@ -298,7 +298,7 @@ Found 2 items
 * 如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 
-## 场景四： 回滚 JindoSDK 到集群初始版本
+## 场景四：回滚 JindoSDK 到集群初始版本
 
 若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在升级过程中遇到了问题，需要回滚到集群初始JindoSDk版本
 
