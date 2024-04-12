@@ -1,5 +1,16 @@
 # JindoSDK 版本记录
 
+## 6.1.7，2024-04-12
+
+### 版本概要
+
+发布 JindoSDK 6.1.7 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.1.7 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.7/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.7/jindodata_download.md)。
+- 修复若干问题
+
 ## 6.3.4，2024-04-11
 
 ### 版本概要
@@ -8,7 +19,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.3.4 的 Maven 仓库](jindosdk/oss-maven.md)。
+- JindoSDK 更新 [6.3.4 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
 - JindoFuse 支持指定 metrics_ip、metrics_port 指定 promethues 监听 ip 和 端口。
 - 修复 JindoOssFileSystem 的 Delegation Token Renew 机制。
 - 修复 `fs.accessPolicies.discovery` 末尾不带 `/` 时，getTrashRoot 为空报错（仅影响 6.3.3 版本）。
@@ -22,7 +33,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.3.3 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.3.3 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.3/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.3/jindodata_download.md)
 - 修复 JindoFuse 创建 symlink 逻辑，支持 csi plugin 场景使用
 - 支持通过设置的反向代理访问对象存储
 
@@ -34,7 +45,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.3.2 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.3.2 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.2/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.2/jindodata_download.md)
 - 修复 JindoFuse 读取 symlink 逻辑，symlink target 改为相对路径以支持 csi plugin
 - 修复 JindoCache 对 fs.oss.signer.version 的支持
 - 修复 jindo CLI 参数 -version
@@ -47,7 +58,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.3.1 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.3.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.1/jindodata_download.md)
 - 修复在 OSS-HDFS 文件上进行反向 seek 导致预读失效的问题
 - 修复在由随机写产生的 OSS-HDFS 文件上 pread 预读错误的问题
 - 修复 getRealPath 接口
@@ -61,7 +72,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.3.0 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.3.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.0/jindodata_download.md)
 - 支持使用 V4 签名访问 OSS/OSS-HDFS
 - 提供 Python SDK，支持访问 OSS 和 OSS-HDFS
 - 修复 Jindo 命令行删除 OSS-HDFS 目录时发起过多请求的问题
@@ -77,7 +88,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.1.6 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.1.6 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.6/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.6/jindodata_download.md)
 - 支持使用 V4 签名访问 OSS/OSS-HDFS
 
 ## 6.2.0，2023-12-22
@@ -88,7 +99,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.2.0 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.2.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.2.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.2.0/jindodata_download.md)
 - 新增支持异步的 CSDK `libjindosdk_c.so`，老版本 `libjindo-csdk.so` 逐渐弃用。
 - 修复路径合法性检查，支持带 `*` 的路径
 - 优化 JindoFuse 访问 oss 时有非法名称的路径时的报错信息
@@ -112,7 +123,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.1.5 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.1.5 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.5/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.5/jindodata_download.md)
 - OSS-HDFS 读写 IO 优化
 
 ## 6.1.4，2023-12-14
@@ -123,7 +134,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.1.4 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.1.4 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.4/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.4/jindodata_download.md)
 - 支持 HiveServer2 在 Kerberos & LDAP 双认证场景下使用
 - JindoSDK Java Jni 忽略 AddressSanitizer 误报
 
@@ -135,7 +146,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.1.3 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.1.3 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.3/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.3/jindodata_download.md)
 - 修复 `dls://` 前缀访问 jindofs 的若干问题。
 
 ## 6.1.2，2023-11-21
@@ -146,7 +157,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.1.2 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.1.2 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.2/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.2/jindodata_download.md)
 - 通过配置 `fs.oss.list.type=2` 支持ListObjectV2，以避免访问开启了多版本bucket时的操作超时问题。
 - 支持使用 `dls://` 前缀访问 jindofs。
 - 修复读流 close 会卡住的问题。
@@ -160,7 +171,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.1.1 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.1.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.1/jindodata_download.md)
 - 支持通过配置 fs.oss.legacy.version 为 3.8，兼容 JindoSDK 3.8.x 配置
 
 ## 6.1.0，2023-09-28
@@ -171,7 +182,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.1.0 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.1.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.0/jindodata_download.md)
 - JindoSDK 支持 FileSystem close 后仍支持使用读写流进行读写
 
 ## 6.0.1，2023-08-18
@@ -182,7 +193,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.0.1 的 Maven 仓库](jindosdk/oss-maven.md)
+- JindoSDK 更新 [6.0.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.0.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.0.1/jindodata_download.md)
 - JindoSDK 支持 isFileClosed 方法，用于判断访问 OSS-HDFS 的读写流是否已关闭。
 - JindoSDK 对 flush 降频做了优化，在降频配置生效时，对第一次有数据的flush操作保证执行，防止flush出一个空文件。降频配置，可参考[Flume 使用 JindoSDK 写入 OSS](jindosdk/flume/jindosdk_on_flume.md)
 
@@ -194,7 +205,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.0.0 的 Maven 仓库](jindosdk/oss-maven.md)，JindoSDK 合并 jindo-mapreduce (JindoCommitterFactory等) 到 jindo-sdk
+- JindoSDK 更新 [6.0.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.0.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.0.0/jindodata_download.md)，JindoSDK 合并 jindo-mapreduce (JindoCommitterFactory等) 到 jindo-sdk
 - JindoSDK 新增若干修复，包含 flush 降频，优化 GC 回收，适配 OSS-HDFS 回收站等
 - 多平台支持 MACOS 和 主流 linux 场景，其中 CentOS 6, Ubuntu22, 阿里云倚天机型(ARM)，MacOS (Intel/M1) 需要使用特定的扩展包
 - 升级 g++ 编译器到 10.4，使用 c++20 标准
