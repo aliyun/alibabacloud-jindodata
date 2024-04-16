@@ -105,3 +105,5 @@ nav:
   - FAQ:
     - 常见问题: faq.md
     - 历史版本: releases.md
+    - 最佳实践:
+      - JindoSDk 通过 jemalloc 控制内存上涨最佳实践: jindosdk/jindosdk_memory_best_practice.md

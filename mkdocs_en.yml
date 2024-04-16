@@ -102,3 +102,5 @@ nav:
   - FAQ:
     - FAQ: faq.md
     - ReleaseNote: releases.md
+    - BestPractice:
+        - Memory Control: jindosdk/jindosdk_memory_best_practice.md
