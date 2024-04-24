@@ -2,7 +2,7 @@
 
 ## 背景
 
-在旧版管控平台中创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../6.3.4/release-notes.md), 可以根据下面的步骤完成 JindoSDK 升级。
+在旧版管控平台中创建E-MapReduce EMR-5.5.0/EMR-3.39.0 以前版本的集群，在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../releases.md), 可以根据下面的步骤完成 JindoSDK 升级。
 
 ## 场景一：升级已有集群
 ### 1. 准备软件包和升级脚本
@@ -69,12 +69,11 @@ emr-worker-2
 脚本执行完成后，返回如下提示信息。
 
 ```
+>>> updating ...  emr-header-1
 >>> updating ...  emr-worker-1
 >>> updating ...  emr-worker-2
 ### DONE
 ```
-
-**说明** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
 ### 4. 修改集群配置
 
@@ -101,13 +100,34 @@ c. 如参数value存在需要删除的参数，修改后点击保存，并更新
 | HIVE | hive-site.xml               | hive.exec.post.hooks                              | 删除com.aliyun.emr.table.hive.HivePostHook(或com.aliyun.jindotable.hive.HivePostHook)，保留其余hook，如com.aliyun.emr.meta.hive.hook.LineageLoggerHook                                                                                                                                                                                                  |
 | SPARK | spark-defaults.conf               | spark.sql.queryExecutionListeners           | 删除com.aliyun.emr.table.spark.SparkSQLQueryListener(或com.aliyun.jindotable.spark.SparkSQLQueryListener)，保留其余hook，如com.aliyun.emr.meta.spark.listener.EMRQueryLogger                                                                                                                                                                                                                 |
 
-### 5. 升级后重启服务
+### 5. 确认升级成功
+
+```bash
+ls -l /opt/apps/extra-jars/
+```
+
+以升级为 6.3.4 版本为例，返回示例如下：
+```bash
+drwxr-xr-x 2 root   root       4096 Apr 24 16:19 flink
+-rw-r--r-- 1 hadoop hadoop   189081 Apr 24 15:33 hadoop-lzo-0.4.21-SNAPSHOT.jar
+drwxr-xr-x 2 hadoop hadoop     4096 Apr 24 15:33 hive
+-rw-r--r-- 1 root   root   16264149 Apr 24 16:19 jindo-core-6.3.4.jar
+-rw-r--r-- 1 root   root   14429862 Apr 24 16:19 jindo-core-linux-el7-aarch64-6.3.4.jar
+-rw-r--r-- 1 root   root    4459297 Apr 24 16:19 jindo-sdk-6.3.4.jar
+-rw-r--r-- 1 hadoop hadoop  1438552 Apr 24 15:33 jindotable-common.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 16:19 spark
+drwxr-xr-x 2 root   root       4096 Apr 24 16:19 spark3
+```
+
+### 6. 升级后重启服务
+
+**说明** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
 
 以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的`操作` > `重启 All Components`。
 
-### 6. 日志等级调整
+### 7. 日志等级调整
 
 Hadoop命令，Spark作业日志等log4j日志可通过以下配置调整。以调整 hadoop 命令日志配置为例：
 
@@ -379,15 +399,33 @@ emr-worker-2
 脚本执行完成后，返回如下提示信息。
 
 ```
+>>> updating ...  emr-header-1
 >>> updating ...  emr-worker-1
 >>> updating ...  emr-worker-2
 ### DONE
 ```
 
+### 4. 确认回滚成功
+
+```bash
+ls -l /opt/apps/extra-jars/
+```
+
+以回滚为 3.7.2 版本为例，返回示例如下：
+```bash
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 flink
+-rw-r--r-- 1 hadoop hadoop   189081 Apr 24 15:33 hadoop-lzo-0.4.21-SNAPSHOT.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 hive
+-rw-r--r-- 1 root   root    1438552 Apr 24 16:22 jindotable-common.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 native
+-rw-r--r-- 1 root   root   29389473 Apr 24 16:22 smartdata-jindofs-3.7.2.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 spark
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 spark3
+```
+
+### 5. 回滚后重启服务
+
 **说明** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
-
-
-### 4. 回滚后重启服务
 
 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全回滚。
 

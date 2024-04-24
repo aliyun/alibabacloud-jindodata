@@ -1,8 +1,8 @@
 # EMR 新版集群 JindoSDK 升级文档
 
-## 场景一： 升级已有新版集群
+## 场景一：升级已有新版集群
 
-若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../6.3.4/release-notes.md), 可以根据下面的步骤完成 JindoSDK 升级。
+若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 [版本说明](../releases.md), 可以根据下面的步骤完成 JindoSDK 升级。
 
 ### 1. 准备软件包和升级脚本、配置
 
@@ -87,16 +87,31 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 ### DONE
 ```
 
-**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
+### 4. 确认升级成功
 
-### 4. 升级后重启服务
+```bash
+ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
+```
+
+以从集群默认版本 6.2.0 升级为 6.3.4 版本为例，返回示例如下：
+```bash
+lrwxrwxrwx 1 root root 64 Apr 12 11:08 jindo-core-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/jindo-core-6.3.4.jar
+lrwxrwxrwx 1 root root 82 Apr 12 11:08 jindo-core-linux-el7-aarch64-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/jindo-core-linux-el7-aarch64-6.3.4.jar
+lrwxrwxrwx 1 root root 63 Apr 12 11:08 jindo-sdk-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/jindo-sdk-6.3.4.jar
+lrwxrwxrwx 1 root root 50 Apr 12 11:08 native -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/native
+lrwxrwxrwx 1 root root 57 Apr 12 11:08 site-packages -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/site-packages
+```
+
+### 5. 升级后重启服务
+
+**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
 
 以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的`更多操作` > `重启`。
 
 
-## 场景二: 扩容已有集群
+## 场景二：扩容已有集群
 
 若扩容已有集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。
 
@@ -198,7 +213,7 @@ Found 2 items
 * 如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 
-## 场景三: 新建集群
+## 场景三：新建集群
 
 若新建 EMR 集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。
 
@@ -300,7 +315,7 @@ Found 2 items
 * 如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 * 如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。
 
-## 场景四： 回滚 JindoSDK 到集群默认版本
+## 场景四：回滚 JindoSDK 到集群默认版本
 
 若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在升级过程中遇到了问题，需要回滚到集群默认的JindoSDK版本
 
@@ -365,9 +380,23 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 ### DONE
 ```
 
-**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
+### 4. 确认回滚成功
 
-### 4. 升级后重启服务
+```bash
+ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
+```
+
+以回滚为 6.2.0 版本为例，返回示例如下：
+```bash
+-rw-r--r-- 1 root root  1253740 Apr 24 17:40 jindo-core-6.2.0.jar
+-rw-r--r-- 1 root root 13110547 Apr 24 17:40 jindo-core-linux-el7-aarch64-6.2.0.jar
+-rw-r--r-- 1 root root  4432227 Apr 24 17:40 jindo-sdk-6.2.0.jar
+drwxr-xr-x 2 root root     4096 Apr 24 17:40 native
+```
+
+### 5. 升级后重启服务
+
+**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
 
