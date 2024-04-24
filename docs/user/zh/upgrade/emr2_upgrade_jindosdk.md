@@ -87,9 +87,24 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 ### DONE
 ```
 
-**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
+### 4. 确认升级成功
 
-### 4. 升级后重启服务
+```bash
+ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
+```
+
+以从集群默认版本 6.2.0 升级为 6.3.4 版本为例，返回示例如下：
+```bash
+lrwxrwxrwx 1 root root 64 Apr 12 11:08 jindo-core-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/jindo-core-6.3.4.jar
+lrwxrwxrwx 1 root root 82 Apr 12 11:08 jindo-core-linux-el7-aarch64-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/jindo-core-linux-el7-aarch64-6.3.4.jar
+lrwxrwxrwx 1 root root 63 Apr 12 11:08 jindo-sdk-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/jindo-sdk-6.3.4.jar
+lrwxrwxrwx 1 root root 50 Apr 12 11:08 native -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/native
+lrwxrwxrwx 1 root root 57 Apr 12 11:08 site-packages -> /opt/apps/JINDOSDK/jindosdk-6.3.4-linux/lib/site-packages
+```
+
+### 5. 升级后重启服务
+
+**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
 
@@ -365,9 +380,23 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 ### DONE
 ```
 
-**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
+### 4. 确认回滚成功
 
-### 4. 升级后重启服务
+```bash
+ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
+```
+
+以回滚为 6.2.0 版本为例，返回示例如下：
+```bash
+-rw-r--r-- 1 root root  1253740 Apr 24 17:40 jindo-core-6.2.0.jar
+-rw-r--r-- 1 root root 13110547 Apr 24 17:40 jindo-core-linux-el7-aarch64-6.2.0.jar
+-rw-r--r-- 1 root root  4432227 Apr 24 17:40 jindo-sdk-6.2.0.jar
+drwxr-xr-x 2 root root     4096 Apr 24 17:40 native
+```
+
+### 5. 升级后重启服务
+
+**说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。
 
