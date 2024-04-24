@@ -467,11 +467,11 @@ emr-worker-2
 <pre><code class="language-bash">./apply_all.sh 6.3.4
 </code></pre>
 <p>脚本执行完成后，返回如下提示信息。</p>
-<pre><code>&gt;&gt;&gt; updating ...  emr-worker-1
+<pre><code>&gt;&gt;&gt; updating ...  emr-header-1
+&gt;&gt;&gt; updating ...  emr-worker-1
 &gt;&gt;&gt; updating ...  emr-worker-2
 ### DONE
 </code></pre>
-<p><strong>说明</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
 <h3 id="4">4. 修改集群配置<a class="headerlink" href="#4" title="Permanent link">§</a></h3>
 <h4 id="41-jindosdk-jindosdk-611">4.1 兼容 JindoSDK 老版本配置（升级到 JindoSDK-6.1.1版本及以上支持）<a class="headerlink" href="#41-jindosdk-jindosdk-611" title="Permanent link">§</a></h4>
 <p>a. 在SmartData服务的<strong>配置</strong>页面，单击<strong>smartdata-site</strong>页签。
@@ -520,10 +520,25 @@ c. 如参数value存在需要删除的参数，修改后点击保存，并更新
 </tr>
 </tbody>
 </table>
-<h3 id="5">5. 升级后重启服务<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
+<h3 id="5">5. 确认升级成功<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
+<pre><code class="language-bash">ls -l /opt/apps/extra-jars/
+</code></pre>
+<p>以升级为 6.3.4 版本为例，返回示例如下：</p>
+<pre><code class="language-bash">drwxr-xr-x 2 root   root       4096 Apr 24 16:19 flink
+-rw-r--r-- 1 hadoop hadoop   189081 Apr 24 15:33 hadoop-lzo-0.4.21-SNAPSHOT.jar
+drwxr-xr-x 2 hadoop hadoop     4096 Apr 24 15:33 hive
+-rw-r--r-- 1 root   root   16264149 Apr 24 16:19 jindo-core-6.3.4.jar
+-rw-r--r-- 1 root   root   14429862 Apr 24 16:19 jindo-core-linux-el7-aarch64-6.3.4.jar
+-rw-r--r-- 1 root   root    4459297 Apr 24 16:19 jindo-sdk-6.3.4.jar
+-rw-r--r-- 1 hadoop hadoop  1438552 Apr 24 15:33 jindotable-common.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 16:19 spark
+drwxr-xr-x 2 root   root       4096 Apr 24 16:19 spark3
+</code></pre>
+<h3 id="6">6. 升级后重启服务<a class="headerlink" href="#6" title="Permanent link">§</a></h3>
+<p><strong>说明</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
 <p>Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。</p>
 <p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>操作</code> &gt; <code>重启 All Components</code>。</p>
-<h3 id="6">6. 日志等级调整<a class="headerlink" href="#6" title="Permanent link">§</a></h3>
+<h3 id="7">7. 日志等级调整<a class="headerlink" href="#7" title="Permanent link">§</a></h3>
 <p>Hadoop命令，Spark作业日志等log4j日志可通过以下配置调整。以调整 hadoop 命令日志配置为例：</p>
 <pre><code>vim /etc/ecm/hadoop-conf/log4j.properties
 </code></pre>
@@ -766,12 +781,26 @@ emr-worker-2
 <pre><code class="language-bash">./revert_all.sh
 </code></pre>
 <p>脚本执行完成后，返回如下提示信息。</p>
-<pre><code>&gt;&gt;&gt; updating ...  emr-worker-1
+<pre><code>&gt;&gt;&gt; updating ...  emr-header-1
+&gt;&gt;&gt; updating ...  emr-worker-1
 &gt;&gt;&gt; updating ...  emr-worker-2
 ### DONE
 </code></pre>
+<h3 id="4_2">4. 确认回滚成功<a class="headerlink" href="#4_2" title="Permanent link">§</a></h3>
+<pre><code class="language-bash">ls -l /opt/apps/extra-jars/
+</code></pre>
+<p>以回滚为 3.7.2 版本为例，返回示例如下：</p>
+<pre><code class="language-bash">drwxr-xr-x 2 root   root       4096 Apr 24 16:22 flink
+-rw-r--r-- 1 hadoop hadoop   189081 Apr 24 15:33 hadoop-lzo-0.4.21-SNAPSHOT.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 hive
+-rw-r--r-- 1 root   root    1438552 Apr 24 16:22 jindotable-common.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 native
+-rw-r--r-- 1 root   root   29389473 Apr 24 16:22 smartdata-jindofs-3.7.2.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 spark
+drwxr-xr-x 2 root   root       4096 Apr 24 16:22 spark3
+</code></pre>
+<h3 id="5_1">5. 回滚后重启服务<a class="headerlink" href="#5_1" title="Permanent link">§</a></h3>
 <p><strong>说明</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
-<h3 id="4_2">4. 回滚后重启服务<a class="headerlink" href="#4_2" title="Permanent link">§</a></h3>
 <p>Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全回滚。</p>
 <p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>操作</code> &gt; <code>重启 All Components</code>。</p></div>
             </div>

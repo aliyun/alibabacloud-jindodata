@@ -396,7 +396,19 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">场景二：新建集群和扩容已有集群</a>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">场景二：扩容已有集群</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">场景三：新建集群</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#jindosdk" class="nav-link">场景四：回滚 JindoSDK 到集群初始版本</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3_2" class="nav-link">3. 执行回滚</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -455,18 +467,31 @@ emr-worker-2
 <pre><code class="language-bash">./apply_all.sh 6.3.4
 </code></pre>
 <p>脚本执行完成后，返回如下提示信息。</p>
-<pre><code>&gt;&gt;&gt; updating ...  emr-worker-1
+<pre><code>&gt;&gt;&gt; updating ...  emr-header-1
+&gt;&gt;&gt; updating ...  emr-worker-1
 &gt;&gt;&gt; updating ...  emr-worker-2
 ### DONE
 </code></pre>
+<h3 id="3_1">3. 确认升级成功<a class="headerlink" href="#3_1" title="Permanent link">§</a></h3>
+<pre><code class="language-bash">ls -l /opt/apps/extra-jars/
+</code></pre>
+<p>以升级为 6.3.4 版本为例，返回示例如下：</p>
+<pre><code class="language-bash">drwxr-xr-x 2 root   root       4096 Apr 24 15:49 flink
+-rw-r--r-- 1 hadoop hadoop   189081 Apr 24 15:20 hadoop-lzo-0.4.21-SNAPSHOT.jar
+-rw-r--r-- 1 root   root   16264149 Apr 24 15:49 jindo-core-6.3.4.jar
+-rw-r--r-- 1 root   root   14429862 Apr 24 15:49 jindo-core-linux-el7-aarch64-6.3.4.jar
+-rw-r--r-- 1 root   root    4459297 Apr 24 15:49 jindo-sdk-6.3.4.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 15:49 spark
+drwxr-xr-x 2 root   root       4096 Apr 24 15:49 spark3
+</code></pre>
+<h3 id="4">4. 升级后重启服务<a class="headerlink" href="#4" title="Permanent link">§</a></h3>
 <p><strong>说明</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
-<h3 id="3_1">3. 升级后重启服务<a class="headerlink" href="#3_1" title="Permanent link">§</a></h3>
 <p>Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。</p>
 <p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>操作</code> &gt; <code>重启 All Components</code>。</p>
-<h2 id="_3">场景二：新建集群和扩容已有集群<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
-<p>新建EMR集群时在EMR控制台添加引导操作，或扩容已有集群时可以自动升级修复。具体操作步骤如下：</p>
+<h2 id="_3">场景二：扩容已有集群<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
+<p>扩容已有集群时可以自动升级修复。具体操作步骤如下：</p>
 <h3 id="1_1">1. 制作引导升级包<a class="headerlink" href="#1_1" title="Permanent link">§</a></h3>
-<p>下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.4-linux.tar.gz 和 <a href="https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh">bootstrap_jindosdk.sh</a>,</p>
+<p>下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.4-linux.tar.gz 和 bootstrap_jindosdk.sh。</p>
 <pre><code class="language-bash">mkdir jindo-patch
 
 cd jindo-patch
@@ -485,6 +510,9 @@ ls -l
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 </code></pre>
 <p>执行命令制作升级包</p>
+<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen $JINDOSDK_VERSION
+</code></pre>
+<p>如</p>
 <pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen 6.3.4
 </code></pre>
 <p><strong>参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。</strong></p>
@@ -505,7 +533,7 @@ hadoop dfs -put bootstrap_jindosdk.sh oss://&lt;bucket-name&gt;/path/to/patch/
 
 hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </code></pre>
-<p>​   可看到返回内容示例如下：</p>
+<p>可看到返回内容示例如下：</p>
 <pre><code>Found 2 items
 -rw-rw-rw-   1       2634 2022-05-13 14:07 oss://&lt;bucket-name&gt;/.../bootstrap_jindosdk.sh
 -rw-rw-rw-   1  597342992 2022-05-13 13:41 oss://&lt;bucket-name&gt;/.../jindosdk-bootstrap-patches.tar.gz
@@ -555,11 +583,165 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 </tbody>
 </table>
-<h3 id="4">4. 确保加载到最新的修复<a class="headerlink" href="#4" title="Permanent link">§</a></h3>
+<h3 id="4_1">4. 确保加载到最新的修复<a class="headerlink" href="#4_1" title="Permanent link">§</a></h3>
 <ul>
 <li>如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
 <li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
-</ul></div>
+</ul>
+<h2 id="_4">场景三：新建集群<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
+<p>新建EMR集群时在EMR控制台添加引导操作。具体操作步骤如下：</p>
+<h3 id="1_2">1. 制作引导升级包<a class="headerlink" href="#1_2" title="Permanent link">§</a></h3>
+<p>下载的 jindosdk-patches.tar.gz ，jindosdk-6.3.4-linux.tar.gz 和 bootstrap_jindosdk.sh。</p>
+<pre><code class="language-bash">mkdir jindo-patch
+
+cd jindo-patch
+
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
+
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.3.4/jindosdk-6.3.4-linux.tar.gz
+
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
+
+ls -l
+</code></pre>
+<p>内容示例如下：</p>
+<pre><code class="language-bash">-rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.3.4-linux.tar.gz
+-rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
+</code></pre>
+<p>执行命令制作升级包</p>
+<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen-full $JINDOSDK_VERSION
+</code></pre>
+<p>如</p>
+<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen-full 6.3.4
+</code></pre>
+<p><strong>参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。</strong></p>
+<p>成功后可以看到如下：</p>
+<pre><code class="language-bash">
+Generated patch at /home/hadoop/jindo-patch/jindosdk-bootstrap-patches.tar.gz
+
+</code></pre>
+<p>制作完成，得到patch包： <code>jindosdk-bootstrap-patches.tar.gz</code>。</p>
+<h3 id="2_2">2. 上传引导升级包<a class="headerlink" href="#2_2" title="Permanent link">§</a></h3>
+<p>将 patch包 和 bootstrap脚本上传到OSS上。</p>
+<p>EMR 集群内可以通过 hadoop 命令上传，或者通过 oss 控制台、ossutil 或 OSS Browser 等工具。</p>
+<pre><code class="language-bash">hadoop dfs -mkdir -p oss://&lt;bucket-name&gt;/path/to/patch/
+
+cd /home/hadoop/jindo-patch/
+hadoop dfs -put jindosdk-bootstrap-patches.tar.gz oss://&lt;bucket-name&gt;/path/to/patch/
+hadoop dfs -put bootstrap_jindosdk.sh oss://&lt;bucket-name&gt;/path/to/patch/
+
+hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
+</code></pre>
+<p>可看到返回内容示例如下：</p>
+<pre><code>Found 2 items
+-rw-rw-rw-   1       2634 2022-05-13 14:07 oss://&lt;bucket-name&gt;/.../bootstrap_jindosdk.sh
+-rw-rw-rw-   1  597342992 2022-05-13 13:41 oss://&lt;bucket-name&gt;/.../jindosdk-bootstrap-patches.tar.gz
+</code></pre>
+<p>例如，上传到OSS的路径为<code>oss://&lt;bucket-name&gt;/path/to/jindosdk-bootstrap-patches.tar.gz</code>和<code>oss://&lt;bucket-name&gt;/path/to/bootstrap_jindosdk.sh</code>。</p>
+<h3 id="emr">在EMR控制台添加引导操作<a class="headerlink" href="#emr" title="Permanent link">§</a></h3>
+<p>在EMR控制台添加引导操作，详细信息请参见<a href="https://help.aliyun.com/document_detail/28108.htm#concept-q52-vln-y2b">管理引导操作</a>.</p>
+<p>在<strong>添加引导操作</strong>对话框中，填写配置项。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">参数</th>
+<th style="text-align: left;">描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>名称</strong></td>
+<td style="text-align: left;">引导操作的名称。例如，升级JINDOSDK。</td>
+<td>update_jindosdk</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>脚本位置</strong></td>
+<td style="text-align: left;">选择脚本所在OSS的位置。脚本路径格式必须为oss://*<em>/</em>.sh格式。</td>
+<td>oss://<bucket-name>/path/to/patch/bootstrap_jindosdk.sh</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>参数</strong></td>
+<td style="text-align: left;">引导操作脚本的参数，指定脚本中所引用的变量的值。</td>
+<td>-bootstrap oss://<bucket-name>/path/to/patch/jindosdk-bootstrap-patches.tar.gz</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>执行范围</strong></td>
+<td style="text-align: left;">选择<strong>集群</strong>。</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>执行时间</strong></td>
+<td style="text-align: left;">选择<strong>组件启动后</strong>。</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>执行失败策略</strong></td>
+<td style="text-align: left;">选择<strong>继续执行</strong>。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">确保加载到最新的修复<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
+<ul>
+<li>如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
+<li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
+</ul>
+<h2 id="jindosdk">场景四：回滚 JindoSDK 到集群初始版本<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h2>
+<h3 id="1_3">1. 准备回滚脚本<a class="headerlink" href="#1_3" title="Permanent link">§</a></h3>
+<p>登录EMR集群的Master节点，并将下载的patch包放在 hadoop 用户的HOME目录下，将patch包解压缩后，使用 hadoop 用户执行操作。</p>
+<pre><code class="language-bash">su - hadoop
+cd /home/hadoop/
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
+tar zxf jindosdk-patches.tar.gz
+cd jindosdk-patches
+ls -l
+</code></pre>
+<p>jindosdk-patches 内容示例如下：</p>
+<pre><code class="language-bash">-rwxrwxr-x 1 hadoop hadoop      1263 May 01 00:00 apply_all.sh
+-rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
+-rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
+-rwxrwxr-x 1 hadoop hadoop      1308 May 01 00:00 revert_all.sh
+-rwxrwxr-x 1 hadoop hadoop      6326 May 01 00:00 revert.sh
+</code></pre>
+<h3 id="2_3">2. 配置回滚节点信息<a class="headerlink" href="#2_3" title="Permanent link">§</a></h3>
+<p>编辑patch包下的hosts文件，添加集群所有节点的host name，如emr-header-1或emr-worker-1，文件内容以行分割。</p>
+<pre><code class="language-bash">cd jindosdk-patches
+vim hosts
+</code></pre>
+<p>hosts文件内容示例如下：</p>
+<pre><code class="language-bash">emr-header-1
+emr-worker-1
+emr-worker-2
+</code></pre>
+<h2 id="3_2">3. 执行回滚<a class="headerlink" href="#3_2" title="Permanent link">§</a></h2>
+<p>通过revert_all.sh 脚本执行修复操作。</p>
+<pre><code class="language-bash">./revert_all.sh
+</code></pre>
+<p>脚本执行完成后，返回如下提示信息。</p>
+<pre><code>&gt;&gt;&gt; updating ...  emr-header-1
+&gt;&gt;&gt; updating ...  emr-worker-1
+&gt;&gt;&gt; updating ...  emr-worker-2
+### DONE
+</code></pre>
+<h3 id="4_2">4. 确认回滚成功<a class="headerlink" href="#4_2" title="Permanent link">§</a></h3>
+<pre><code class="language-bash">ls -l /opt/apps/extra-jars/
+</code></pre>
+<p>以回滚为 4.3.0 版本为例，返回示例如下：</p>
+<pre><code class="language-bash">drwxr-xr-x 2 root   root       4096 Apr 24 17:37 flink
+-rw-r--r-- 1 hadoop hadoop   189081 Apr 24 17:21 hadoop-lzo-0.4.21-SNAPSHOT.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 17:37 hive
+-rw-r--r-- 1 root   root   85025668 Apr 24 17:36 jindo-core-4.3.0.jar
+-rw-r--r-- 1 root   root    3165000 Apr 24 17:36 jindo-sdk-4.3.0.jar
+drwxr-xr-x 2 root   root       4096 Apr 24 17:37 native
+drwxr-xr-x 2 root   root       4096 Apr 24 17:37 spark
+drwxr-xr-x 2 root   root       4096 Apr 24 17:37 spark3
+</code></pre>
+<h3 id="5">5. 回滚后重启服务<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
+<p><strong>说明</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
+<p>Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全回滚。</p>
+<p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>操作</code> &gt; <code>重启 All Components</code>。</p></div>
             </div>
         </div>
 
