@@ -396,10 +396,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3. 执行升级</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
             <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">场景二：扩容已有集群</a>
               <ul class="nav flex-column">
               </ul>
@@ -409,10 +405,6 @@
               </ul>
             </li>
             <li class="nav-item" data-level="2"><a href="#jindosdk" class="nav-link">场景四：回滚 JindoSDK 到集群初始版本</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#3_1" class="nav-link">3. 执行回滚</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -459,7 +451,7 @@ vim hosts
 emr-worker-1
 emr-worker-2
 </code></pre>
-<h2 id="3">3. 执行升级<a class="headerlink" href="#3" title="Permanent link">§</a></h2>
+<h3 id="3">3. 执行升级<a class="headerlink" href="#3" title="Permanent link">§</a></h3>
 <p>通过apply_all.sh 脚本执行修复操作。</p>
 <pre><code class="language-bash">./apply_all.sh $JINDOSDK_VERSION
 </code></pre>
@@ -776,7 +768,7 @@ vim hosts
 emr-worker-1
 emr-worker-2
 </code></pre>
-<h2 id="3_1">3. 执行回滚<a class="headerlink" href="#3_1" title="Permanent link">§</a></h2>
+<h3 id="3_1">3. 执行回滚<a class="headerlink" href="#3_1" title="Permanent link">§</a></h3>
 <p>通过revert_all.sh 脚本执行修复操作。</p>
 <pre><code class="language-bash">./revert_all.sh
 </code></pre>

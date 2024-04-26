@@ -408,10 +408,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#3_2" class="nav-link">3. 执行回滚</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -472,7 +468,7 @@ emr-worker-2
 &gt;&gt;&gt; updating ...  emr-worker-2
 ### DONE
 </code></pre>
-<h3 id="3_1">3. 确认升级成功<a class="headerlink" href="#3_1" title="Permanent link">§</a></h3>
+<h3 id="4">4. 确认升级成功<a class="headerlink" href="#4" title="Permanent link">§</a></h3>
 <pre><code class="language-bash">ls -l /opt/apps/extra-jars/
 </code></pre>
 <p>以升级为 6.3.4 版本为例，返回示例如下：</p>
@@ -484,7 +480,7 @@ emr-worker-2
 drwxr-xr-x 2 root   root       4096 Apr 24 15:49 spark
 drwxr-xr-x 2 root   root       4096 Apr 24 15:49 spark3
 </code></pre>
-<h3 id="4">4. 升级后重启服务<a class="headerlink" href="#4" title="Permanent link">§</a></h3>
+<h3 id="5">5. 升级后重启服务<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
 <p><strong>说明</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
 <p>Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。</p>
 <p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>操作</code> &gt; <code>重启 All Components</code>。</p>
@@ -715,7 +711,7 @@ vim hosts
 emr-worker-1
 emr-worker-2
 </code></pre>
-<h2 id="3_2">3. 执行回滚<a class="headerlink" href="#3_2" title="Permanent link">§</a></h2>
+<h3 id="3_1">3. 执行回滚<a class="headerlink" href="#3_1" title="Permanent link">§</a></h3>
 <p>通过revert_all.sh 脚本执行修复操作。</p>
 <pre><code class="language-bash">./revert_all.sh
 </code></pre>
@@ -738,7 +734,7 @@ drwxr-xr-x 2 root   root       4096 Apr 24 17:37 native
 drwxr-xr-x 2 root   root       4096 Apr 24 17:37 spark
 drwxr-xr-x 2 root   root       4096 Apr 24 17:37 spark3
 </code></pre>
-<h3 id="5">5. 回滚后重启服务<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
+<h3 id="5_1">5. 回滚后重启服务<a class="headerlink" href="#5_1" title="Permanent link">§</a></h3>
 <p><strong>说明</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
 <p>Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark 和 Zeppelin 等组件需要重启之后才能完全回滚。</p>
 <p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>操作</code> &gt; <code>重启 All Components</code>。</p></div>
