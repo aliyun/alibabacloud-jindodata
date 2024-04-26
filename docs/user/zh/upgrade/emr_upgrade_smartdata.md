@@ -52,7 +52,7 @@ emr-worker-1
 emr-worker-2
 ```
 
-## 3. 执行升级
+### 3. 执行升级
 
 通过apply_all.sh 脚本执行修复操作。
 
@@ -388,7 +388,7 @@ emr-worker-1
 emr-worker-2
 ```
 
-## 3. 执行回滚
+### 3. 执行回滚
 
 通过revert_all.sh 脚本执行修复操作。
 

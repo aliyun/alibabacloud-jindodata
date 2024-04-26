@@ -78,7 +78,7 @@ emr-worker-2
 ### DONE
 ```
 
-### 3. 确认升级成功
+### 4. 确认升级成功
 
 ```bash
 ls -l /opt/apps/extra-jars/
@@ -95,7 +95,7 @@ drwxr-xr-x 2 root   root       4096 Apr 24 15:49 spark
 drwxr-xr-x 2 root   root       4096 Apr 24 15:49 spark3
 ```
 
-### 4. 升级后重启服务
+### 5. 升级后重启服务
 
 **说明** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
@@ -342,7 +342,7 @@ emr-worker-1
 emr-worker-2
 ```
 
-## 3. 执行回滚
+### 3. 执行回滚
 
 通过revert_all.sh 脚本执行修复操作。
 
