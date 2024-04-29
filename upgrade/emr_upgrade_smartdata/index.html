@@ -441,6 +441,12 @@ ls -l
 -rwxrwxr-x 1 hadoop hadoop      1308 May 01 00:00 revert_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6326 May 01 00:00 revert.sh
 </code></pre>
+<blockquote>
+<p><strong>注意</strong>：如果从4.6.8以下版本升级到4.6.9以上或6.x版本时，由于 JindoCommitter 默认使用的作业临时路径发生变化，需要在升级前
+先设置 <code>fs.jdo.committer.allow.concurrent=false</code> （core-site.xml）
+或在 Spark 配置中设置 <code>spark.hadoop.fs.jdo.committer.allow.concurrent=false</code>，确保升级期间不会出现丢数据的情况。
+后续在包含GATEWAY节点的所有JindoSDK全部升级完成后，可以择机去掉该配置。</p>
+</blockquote>
 <h3 id="2">2. 配置升级节点信息<a class="headerlink" href="#2" title="Permanent link">§</a></h3>
 <p>编辑patch包下的hosts文件，添加集群所有节点的host name，如emr-header-1或emr-worker-1，文件内容以行分割。</p>
 <pre><code class="language-bash">cd jindosdk-patches

@@ -409,6 +409,8 @@
 <p>可以从 <a href="../../jindosdk/jindosdk_download/">JindoData 下载页面</a> 获取 JindoTable 工具：
 1. 下载 <code>jindosdk-&lt;version&gt;-&lt;platform&gt;.tar.gz</code>，根据系统选择合适的 <code>&lt;platform&gt;</code>。
 2. 本文介绍的功能最低版本要求为 <code>&lt;version&gt;</code> 6.1.2。</p>
+<p>注：
+ - JindoTable 工具对 OSS-HDFS 的临时解冻（<code>-once</code>）支持设置解冻参数（<code>-d/-restoreDays &lt;restore days&gt;</code>），版本要求不低于 6.3.5 或 6.4.0。若对该功能有需要，请使用不低于 6.3.5 或 6.4.0 的版本。</p>
 <h2 id="_3">基本用法<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>按照上面的步骤获取压缩包后，解压缩，便可在 <code>bin/</code> 目录下找到名为 <code>jindotable</code> 的脚本。执行脚本，即可使用 JindoTable 提供的各种命令。</p>
 <p>执行 <code>jindotable -usage</code> 可以显示工具支持的各种命令。</p>
@@ -487,7 +489,7 @@
 2. 成功执行 <code>-std/-ia/-archive/-coldArchive/-once</code> 指定的转换存储类型命令后，必须等待 <code>2</code> 天才可再次转换存储类型。 
 3. 标准和低频类型无法临时解冻（<code>-once</code>）。归档、冷归档，或者已经处于解冻状态时，可以解冻，但如上所述，间隔须超过 <code>2</code> 天。 
 4. 临时解冻命令返回后，数据仍不能立即可读，需要等待远端服务完成数据的解冻。对于归档数据，通常需要数分钟；对于冷归档数据，通常需要数小时。 
-5. 临时解冻有期限限制，通过 <code>-d/restoreDays &lt;restore days&gt;</code> 指定，不指定则默认 <code>1</code> 天，到期后数据将回到不可读状态。</p></div>
+5. 临时解冻有期限限制，通过 <code>-d/restoreDays &lt;restore days&gt;</code> 指定，不指定则默认 <code>1</code> 天，到期后数据将回到不可读状态。该功能要求版本不低于 6.3.5 或 6.4.0。</p></div>
             </div>
         </div>
 
