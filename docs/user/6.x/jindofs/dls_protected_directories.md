@@ -58,4 +58,4 @@ fs.protected.directories: /path/to/dir1,/path/to/dir2
 ```bash
 jindofs admin -putConfig -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/ -conf fs.protected.directories=
 ```
-上述命令删除了名为 <bucket>（endpoint 为 <oss-hdfs-endpoint>）的桶的所有保护目录，正式生效后（命令返回后 30 秒内），该桶将不再有任何目录受到保护。
+上述命令删除了名为 \<bucket\>（endpoint 为 \<oss-hdfs-endpoint\>）的桶的所有保护目录，正式生效后（命令返回后 30 秒内），该桶将不再有任何目录受到保护。

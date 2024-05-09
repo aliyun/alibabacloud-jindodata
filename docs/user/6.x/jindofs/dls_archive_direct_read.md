@@ -40,4 +40,4 @@ jindofs admin -putConfig -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/ -conf names
 ```bash
 jindofs admin -getConfig -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/ -name namespace.archive.directread.enable
 ```
-上述命令返回了名为 <bucket>（endpoint 为 <oss-hdfs-endpoint>）的桶的归档直读标签
+上述命令返回了名为 \<bucket\>（endpoint 为 \<oss-hdfs-endpoint\>）的桶的归档直读标签
