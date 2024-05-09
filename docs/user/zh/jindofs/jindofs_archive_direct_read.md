@@ -5,7 +5,7 @@ OSS-HDFS 归档直读当前可以通过命令行命令的方式进行操作。�
 用户需要读取归档类型的文件时候，通常需要通过解冻操作将归档文件解冻到可读取的状态，这种解冻操作可能比较耗时，OSS-HDFS 归档直读功能可以避免解冻操作，直接读取归档文件
 
 ### JindoFS 命令行简介
-参见[JindoFS 命令行工具使用指南](/docs/user/6.x/jindofs/jindofs_client_tools.md)
+参见[JindoFS 命令行工具使用指南](./jindofs_client_tools.md)
 
 归档直读功能需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。
 ### 配置访问 AK
