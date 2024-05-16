@@ -1,6 +1,6 @@
 # JindoSDK Release History
 
-## Version 6.4.0, April 11, 2024
+## Version 6.4.0, May 16, 2024
 
 ### Release Summary
 
@@ -9,6 +9,33 @@ This release introduces the official version of JindoSDK 6.4.0.
 ### Introduction
 
 - The [Maven repository for JindoSDK 6.4.0](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) has been updated.
+- JindoSDK now includes support for CallerContext functionality.
+- Introduces Write-through flushing, allowing data to be flushed immediately during write operations.
+- Concatenation issues have been resolved.
+- Support for accessing JindoCache using Remote Direct Memory Access (RDMA) has been added.
+- Reading performance from AppendObject objects has been significantly optimized.
+
+## Version 6.1.7, April 12, 2024
+
+### Release Summary
+
+This release introduces the official version of JindoSDK 6.1.7.
+
+### Introduction
+
+- The [Maven repository for JindoSDK 6.1.7](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.7/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.7/jindodata_download.md) has been updated.
+- Fixed several issues.
+- JindoSDK now supports accessing DLF with both JindoCache and JindoAuth integration.
+
+## Version 6.3.4, April 11, 2024
+
+### Release Summary
+
+This release introduces the official version of JindoSDK 6.4.0.
+
+### Introduction
+
+- The [Maven repository for JindoSDK 6.3.4](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.4/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.4/jindodata_download.md) has been updated.
 - JindoFuse now supports specifying `metrics_ip` and `metrics_port` to designate the Prometheus listening IP address and port.
 - A fix has been implemented for the Delegation Token Renew mechanism in JindoOssFileSystem.
 - An issue has been resolved where `fs.accessPolicies.discovery` without a trailing `/` caused an error with `getTrashRoot` being empty (affects only version 6.3.3).
