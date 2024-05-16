@@ -4,10 +4,10 @@
 
 1. Download the JindoSDK JAR packages.
 
-Execute the following commands to download the v6.3.4 JindoSDK JAR packages for most Linux x86 systems. For other platform deployments, refer to [Deploying JindoSDK on Multi-platform Environments](jindosdk_deployment_multi_platform.md):
+Execute the following commands to download the v6.4.0 JindoSDK JAR packages for most Linux x86 systems. For other platform deployments, refer to [Deploying JindoSDK on Multi-platform Environments](jindosdk_deployment_multi_platform.md):
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.3.4/jindo-sdk-6.3.4.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.3.4/jindo-core-6.3.4.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.4.0/jindo-sdk-6.4.0.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.4.0/jindo-core-6.4.0.jar
 ```
 
 2. Install the JindoSDK JAR packages.
@@ -15,8 +15,8 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/j
 Copy the downloaded JAR files into Hadoop's classpath, specifically the `lib` directory for HDFS:
 
 ```bash
-cp jindo-core-6.3.4.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindo-sdk-6.3.4.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindo-core-6.4.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindo-sdk-6.4.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 **Important**: Make sure to deploy these installation directories and configurations across all necessary nodes.
 

@@ -15,8 +15,8 @@ The full output of JindoSDK includes jemalloc within the tar archive:
 ├── conf
 │   ├── ...
 ├── lib
-│   ├── jindo-core-6.3.4.jar
-│   ├── jindo-sdk-6.3.4.jar
+│   ├── jindo-core-6.4.0.jar
+│   ├── jindo-sdk-6.4.0.jar
 │   └── native
 │       ├── libjemalloc.so
 │       ├── ...

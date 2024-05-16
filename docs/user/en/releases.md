@@ -1,14 +1,14 @@
 # JindoSDK Release History
 
-## Section 6.3.4, April 11, 2024
+## Version 6.4.0, April 11, 2024
 
 ### Release Summary
 
-This release introduces the official version of JindoSDK 6.3.4.
+This release introduces the official version of JindoSDK 6.4.0.
 
 ### Introduction
 
-- The [Maven repository for JindoSDK 6.3.4](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) has been updated.
+- The [Maven repository for JindoSDK 6.4.0](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) has been updated.
 - JindoFuse now supports specifying `metrics_ip` and `metrics_port` to designate the Prometheus listening IP address and port.
 - A fix has been implemented for the Delegation Token Renew mechanism in JindoOssFileSystem.
 - An issue has been resolved where `fs.accessPolicies.discovery` without a trailing `/` caused an error with `getTrashRoot` being empty (affects only version 6.3.3).
