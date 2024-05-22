@@ -237,7 +237,7 @@ jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-o
 
 | OSS | OSS-HDFS |
 | --- | --- |
-| v4.3.0 and above | v4.3.0 and above |
+| Not supported | v4.3.0 and above |
 
 * `--enableTransaction`: Enables transactional guarantees across tasks.
 

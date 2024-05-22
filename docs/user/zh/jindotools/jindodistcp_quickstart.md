@@ -242,7 +242,7 @@ jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-o
 
 |  版本  |  OSS  |  OSS-HDFS  |
 | --- | --- | --- |
-|  4.3.0 及以上版本  |  支持  |  支持  |
+|  4.3.0 及以上版本  |  不支持  |  支持  |
 
 *   --enableTransaction JindoDistCp 默认使用 Task 级别完整性，如您需要保证 Job 级别的完整性以及保证 Job 之间的事务支持，您可以使用该参数指定。
 
