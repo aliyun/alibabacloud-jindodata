@@ -58,7 +58,7 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 
 ### 4、执行升级
 
-通过 apply_all.sh 脚本执行修复操作。
+通过 upgrade.sh 脚本执行修复操作。
 
 ```bash
 bash upgrade.sh $NEW_jindocache_VERSION $PLATFORM
