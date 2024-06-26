@@ -2,9 +2,9 @@
 
 参见[JindoFS 命令行工具使用指南](./jindofs_client_tools.md)
 
-权限管理的开通需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。
+CallerContext的开通需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。
 ### 配置访问 AK
-权限管理需要配置连接 OSS-HDFS 所需的 AK 信息。有两种方法可以进行配置：
+CallerContext需要配置连接 OSS-HDFS 所需的 AK 信息。有两种方法可以进行配置：
 
 #### 配置文件（推荐）
 设置环境变量 JINDOSDK_CONF_DIR 指向某个目录，然后在目录下创建名为 jindofs.cfg 的文件，然后在文件里写入如下内容：
@@ -35,4 +35,4 @@ jindofs admin -putConfig -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/ -conf names
 ```bash
 jindofs admin -getConfig -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/ -name namespace.caller.context.enabled
 ```
-上述命令返回了名为 \<bucket\>（endpoint 为 \<oss-hdfs-endpoint\>）的桶的管理权限的标签
+上述命令返回了名为 \<bucket\>（endpoint 为 \<oss-hdfs-endpoint\>）的桶的CallerContext的标签
