@@ -1,5 +1,17 @@
 # JindoSDK Release History
 
+## Version 6.3.5, June 28, 2024
+
+### Release Summary
+
+Release of official version features for JindoSDK 6.3.5.
+
+### Introduction
+
+- The [Maven repository for JindoSDK 6.3.5](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.5/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.5/jindodata_download.md) has been updated.
+- Fix occasional issues with Signer V4 signature by replacing timestamp conversion functions localtime, gmtime with thread-safe versions localtime_r, gmtime_r.
+- Resolve sporadic crashes when accessing OSS-HDFS via `libjindosdk_c.so`, as well as retry failure problems.
+
 ## Version 6.4.0, May 16, 2024
 
 ### Release Summary
