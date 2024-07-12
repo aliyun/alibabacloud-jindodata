@@ -50,6 +50,8 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 |  jindo-core-macos-11_0-x86_64-x.y.z.jar |  支持 macos x86 的 lite 产出物，兼容 macos 11.0 以上版本  |
 |  jindo-core-macos-11_0-aarch64-x.y.z.jar |  支持 macos m1/m2 的 lite 产出物，兼容 macos 11.0 以上版本  |
 
+ps: 6.5.0 版本 tar 包中的 lite jar 默认使用 nextarch classifer，即 jindo-core-x.y.z-nextarch.jar、jindo-core-linux-el7-aarch64-x.y.z-nextarch.jar 。。
+
 ## JindoSDK 部署示例
 
 以下 6.5.0 版本为例。
