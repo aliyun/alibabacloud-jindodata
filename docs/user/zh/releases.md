@@ -1,5 +1,20 @@
 # JindoSDK 版本记录
 
+## 6.5.0，2024-07-12
+
+### 版本概要
+
+发布 JindoSDK 6.5.0 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.5.0 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 修复偶现 Signer V4 签名问题，将签名时间戳转换函数 localtime、gmtime 替换为 localtime_r、gmtime_r 避免并发问题。
+- 修复 libjindosdk_c.so 访问 OSS-HDFS 偶现 crash 问题，及重试失败问题。
+- jindo-core.jar nextarch classifer 支持新版内核。
+- 优化内存不足时的预读算法。
+- commiter 支持 setXAttr。
+
 ## 6.3.5，2024-06-28
 
 ### 版本概要
@@ -20,7 +35,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.4.0 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.4.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.4.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.4.0/jindodata_download.md)。
 - JindoSDK 支持 CallerContext。
 - JindoSDK 支持写时 flush。
 - 修复 concat 问题。
