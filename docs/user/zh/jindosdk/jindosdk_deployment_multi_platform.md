@@ -28,7 +28,7 @@ JindoSDK 目前支持大部分常见的 Linux 发行版，并支持 x86/aarch64 
 
 如果希望在 Hadoop 环境中仅使用 JindoSDK 中的 hadoop sdk，可以使用此类产出物。
 
-使用Java SDK时，Linux X86平台需要依赖 `jindo-sdk-x.y.z.jar` 和 `jindo-core-x.y.z.jar`，其他平台需要依赖 `jindo-sdk-x.y.z.jar` 和 `jindo-core-<平台名称>-x.y.z`.jar。
+使用Java SDK时，Linux X86平台需要依赖 `jindo-sdk-x.y.z.jar` 和 `jindo-core-x.y.z.jar`，其他平台需要依赖 `jindo-sdk-x.y.z.jar`、`jindo-core-x.y.z.jar` 和 `jindo-core-<平台名称>-x.y.z`.jar。
 
 安装方式的话，即可以通过maven在pom.xml中配置依赖，如[6.5.1-oss-maven](oss-maven.md)。也可以通过oss地址直接下载部署，如[6.5.1-download](jindosdk_download.md)。
 

@@ -28,7 +28,7 @@ To install the complete JindoSDK, use this type of output, but be aware that it 
 
 If you only need the Hadoop SDK from JindoSDK in your Hadoop environment, use the lite output.
 
-For Java SDK, on Linux x86, you'll require `jindo-sdk-x.y.z.jar` and `jindo-core-x.y.z.jar`. On other platforms, you'll need `jindo-sdk-x.y.z.jar` and `jindo-core-<platform-name>-x.y.z.jar`.
+For Java SDK, on Linux x86, you'll require `jindo-sdk-x.y.z.jar` and `jindo-core-x.y.z.jar`. On other platforms, you'll need `jindo-sdk-x.y.z.jar`、`jindo-core-x.y.z.jar` and `jindo-core-<platform-name>-x.y.z.jar`.
 
 Installation can be done through Maven by adding dependencies in `pom.xml` (refer to [6.5.1-OSS-Maven](oss-maven.md)) or directly downloading and deploying from OSS (see [6.5.1-Download](jindosdk_download.md)).
 
@@ -101,6 +101,7 @@ Suppose the downloaded JAR files are placed in `<HADOOP_HOME>/share/hadoop/hdfs/
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.5.1/jindo-sdk-6.5.1.jar
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core-linux-el7-aarch64/6.5.1/jindo-core-linux-el7-aarch64-6.5.1.jar
 cp jindo-core-linux-el7-aarch64-6.5.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindo-core-6.5.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 cp jindosdk-6.5.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
