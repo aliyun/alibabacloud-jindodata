@@ -36,7 +36,7 @@
 
 ### lite 产出物 (nextarch classifer)
 
-[jindo-core-6.5.1-nextarch.jar](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.5.1/jindo-core-6.5.-nextarch.jar)
+[jindo-core-6.5.1-nextarch.jar](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.5.1/jindo-core-6.5.1-nextarch.jar)
 
 [jindo-sdk-6.5.1-nextarch.jar](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.5.1/jindo-sdk-6.5.1-nextarch.jar)
 
