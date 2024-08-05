@@ -12,6 +12,7 @@ Release of official version features for JindoSDK 6.5.0.
 - Enhance compatibility of JindoSDK with interfaces below Hadoop 2.8.x versions, such as `CallerContext` and `FsServerDefaults`.
 - Optimize the performance of JindoCommitter.
 - Optimize the prefetch algorithm under conditions of low memory availability.
+- Optimize plugin load，`fs.jdo.plugin.dir` support multiple path，such as `/dir1,/dir2`.
 - Fix an issue where listing objects from storage might include itself when paths contain `//`.
 - Address security concerns in `jindo-dependence-shaded.jar`, removing dependencies on log4j and Apache Commons Text.
 - Resolve several issues encountered while running the [hadoop-compat-bench](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-compat-bench/src/site/markdown/HdfsCompatBench.md) with the nextarch classifier.
