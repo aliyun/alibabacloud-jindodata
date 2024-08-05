@@ -1,5 +1,21 @@
 # JindoSDK Release History
 
+## 6.5.1, August 5, 2024
+
+### Release Summary
+
+Release of official version features for JindoSDK 6.5.0.
+
+### Introduction
+
+- Update the [Maven repository for version 6.5.1](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Enhance compatibility of JindoSDK with interfaces below Hadoop 2.8.x versions, such as `CallerContext` and `FsServerDefaults`.
+- Optimize the performance of JindoCommitter.
+- Fix an issue where listing objects from storage might include itself when paths contain `//`.
+- Address security concerns in `jindo-dependence-shaded.jar`, removing dependencies on log4j and Apache Commons Text.
+- Resolve several issues encountered while running the [hadoop-compat-bench](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-compat-bench/src/site/markdown/HdfsCompatBench.md) with the nextarch classifier.
+- Fix problems related to support for RootPolicy by the nextarch classifier.
+
 ## Version 6.5.0, July 12, 2024
 
 ### Release Summary
@@ -8,7 +24,7 @@ Release of official version features for JindoSDK 6.5.0.
 
 ### Introduction
 
-- The [Maven repository for JindoSDK 6.5.0](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) has been updated.
+- The [Maven repository for JindoSDK 6.5.0](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.0/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.0/jindodata_download.md) has been updated.
 - Fix occasional issues with Signer V4 signature by replacing timestamp conversion functions localtime, gmtime with thread-safe versions localtime_r, gmtime_r.
 - Resolve sporadic crashes when accessing OSS-HDFS via `libjindosdk_c.so`, as well as retry failure problems.
 - Support for newer kernel versions in the `nextarch` classifier within the `jindo-core.jar` package.
