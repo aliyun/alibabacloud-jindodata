@@ -8,7 +8,7 @@ Release of official version features for JindoSDK 6.5.2.
 
 ### Introduction
 
-- Update the [Maven repository for version 6.5.1](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Update the [Maven repository for version 6.5.2](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
 - Fix getfacl command missing entries.
 
 ## 6.5.1, August 5, 2024

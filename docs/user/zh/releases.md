@@ -8,7 +8,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.5.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.5.2 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
 - 修复 getfacl 缺少 entries 问题。
 
 ## 6.5.1，2024-08-05
