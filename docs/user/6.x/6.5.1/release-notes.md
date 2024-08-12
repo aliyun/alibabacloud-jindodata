@@ -6,7 +6,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.5.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.5.1 的 Maven 仓库](oss-maven.md) 和 [下载地址](jindodata_download.md)。
 - 提升 JindoSDK 对于低于 Hadoop 2.8.x 版本接口的兼容性，如 `CallerContext` 及 `FsServerDefaults`。
 - 优化 JindoCommitter 性能。
 - 优化内存不足时的预读算法，回收不使用的内存。
