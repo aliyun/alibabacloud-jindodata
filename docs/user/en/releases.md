@@ -1,14 +1,25 @@
 # JindoSDK Release History
 
-## 6.5.1, August 5, 2024
+## 6.5.2, August 12, 2024
 
 ### Release Summary
 
-Release of official version features for JindoSDK 6.5.0.
+Release of official version features for JindoSDK 6.5.2.
 
 ### Introduction
 
 - Update the [Maven repository for version 6.5.1](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Fix getfacl command missing entries.
+
+## 6.5.1, August 5, 2024
+
+### Release Summary
+
+Release of official version features for JindoSDK 6.5.1.
+
+### Introduction
+
+- Update the [Maven repository for version 6.5.1](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.1/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.1/jindodata_download.md) for JindoSDK.
 - Enhance compatibility of JindoSDK with interfaces below Hadoop 2.8.x versions, such as `CallerContext` and `FsServerDefaults`.
 - Optimize the performance of JindoCommitter.
 - Optimize the prefetch algorithm under conditions of low memory availability.

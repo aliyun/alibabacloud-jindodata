@@ -18,12 +18,12 @@ tar zxf jindocache-patches.tar.gz
 
 下载 jindocache 软件包 jindocache-{VERSION}-{PLATFORM}.tar.gz，放在解压后的目录。
 
-以将新版集群中的 jindocache 升级到 6.5.1 版本，linux x86 平台为例:
+以将新版集群中的 jindocache 升级到 6.5.2 版本，linux x86 平台为例:
 
 ```bash
 cd jindocache-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.5.1/jindocache-6.5.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.5.2/jindocache-6.5.2-linux.tar.gz
 
 ls -l
 ```
@@ -64,16 +64,16 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 bash upgrade.sh $NEW_jindocache_VERSION $PLATFORM
 ```
 
-以将新版集群中的 jindocache 升级到 linux 平台 6.5.1 版本为例:
+以将新版集群中的 jindocache 升级到 linux 平台 6.5.2 版本为例:
 
 ```bash
-bash upgrade.sh 6.5.1 linux
+bash upgrade.sh 6.5.2 linux
 ```
 
 脚本执行完成后，返回如下提示信息。
 
 ```
-Start upgrade JindoCache Service to 6.5.1 with platform linux
+Start upgrade JindoCache Service to 6.5.2 with platform linux
 [1] 11:14:25 [SUCCESS] core-1-2
 [2] 11:14:26 [SUCCESS] core-1-1
 [3] 11:14:27 [SUCCESS] master-1-1
@@ -95,14 +95,14 @@ Start upgrade JindoCache Service to 6.5.1 with platform linux
 [1] 11:15:02 [SUCCESS] core-1-2
 [2] 11:15:02 [SUCCESS] core-1-1
 [3] 11:15:02 [SUCCESS] master-1-1
-Successfully upgrade JindoCache Service to 6.5.1 with platform linux, Please restart JindoCache Service
+Successfully upgrade JindoCache Service to 6.5.2 with platform linux, Please restart JindoCache Service
 ```
 
 ### 5、确认升级成功
 
 ```bash
 [root@master-1-1]# jindocache -version
-Version: 6.5.1
+Version: 6.5.2
 CommitId: ######
 ```
 
@@ -116,7 +116,7 @@ CommitId: ######
 Namespace Address: master-1-1:8101
 Rpc Port: 8101
 Started: Thu Jun  6 11:06:05 2024
-Version: 6.5.1
+Version: 6.5.2
 Live Nodes: 2
 Decommission Nodes: 0
 Total Disk Capacity: 625.519GB

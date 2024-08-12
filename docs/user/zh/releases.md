@@ -1,5 +1,16 @@
 # JindoSDK 版本记录
 
+## 6.5.2，2024-08-12
+
+### 版本概要
+
+发布 JindoSDK 6.5.2 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.5.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 修复 getfacl 缺少 entries 问题。
+
 ## 6.5.1，2024-08-05
 
 ### 版本概要
@@ -8,7 +19,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.5.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.5.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.1/jindodata_download.md)。
 - 提升 JindoSDK 对于低于 Hadoop 2.8.x 版本接口的兼容性，如 `CallerContext` 及 `FsServerDefaults`。
 - 优化 JindoCommitter 性能。
 - 优化内存不足时的预读算法，回收不使用的内存。
