@@ -1,5 +1,16 @@
 # JindoSDK Release History
 
+## 6.5.3，2024-08-15
+
+### Release Summary
+
+Release of official version features for JindoSDK 6.5.3.
+
+### Introduction
+
+- Update the [Maven repository for version 6.5.3](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- A fix has been implemented for the Delegation Token Renew mechanism in JindoOssFileSystem.
+
 ## 6.5.2, August 12, 2024
 
 ### Release Summary
@@ -8,7 +19,7 @@ Release of official version features for JindoSDK 6.5.2.
 
 ### Introduction
 
-- Update the [Maven repository for version 6.5.2](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Update the [Maven repository for version 6.5.2](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.2/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.2/jindodata_download.md) for JindoSDK.
 - Fix getfacl command missing entries.
 
 ## 6.5.1, August 5, 2024
