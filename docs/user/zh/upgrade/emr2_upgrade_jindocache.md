@@ -32,10 +32,10 @@ ls -l
 
 jindocache-patches 内容示例如下：
 ```bash
--rw-rw-r--  1 emr-user emr-user        29 6月   6 11:21 hosts
-drwxr-xr-x  7 root     root          4096 8月   8 16:19 jindocache-6.5.3-linux
--rw-r--r--  1 root     root     276406433 8月  12 14:32 jindocache-6.5.3-linux.tar.gz
--rwxr-xr-x  1 emr-user emr-user      1241 6月   6 11:18 upgrade.sh
+-rw-rw-r--  1 emr-user emr-user            29 6月   6 11:21 hosts
+drwxr-xr-x  7 emr-user emr-user          4096 8月   8 16:19 jindocache-6.5.3-linux
+-rw-r--r--  1 emr-user emr-user     276406433 8月  12 14:32 jindocache-6.5.3-linux.tar.gz
+-rwxr-xr-x  1 emr-user emr-user          1241 6月   6 11:18 upgrade.sh
 ```
 
 ### 3、配置升级节点信息
