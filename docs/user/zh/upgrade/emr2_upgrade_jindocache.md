@@ -16,7 +16,7 @@ wget http://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/j
 tar zxf jindocache-patches.tar.gz
 ```
 
-下载 jindocache 软件包 jindocache-{VERSION}-{PLATFORM}.tar.gz，放在解压后的目录。
+下载 jindocache 软件包 jindocache-{VERSION}-{PLATFORM}.tar.gz，解压后到 jindocache-patches目录下。
 
 以将新版集群中的 jindocache 升级到 6.5.3 版本，linux x86 平台为例:
 
@@ -25,13 +25,17 @@ cd jindocache-patches
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.5.3/jindocache-6.5.3-linux.tar.gz
 
+tar -zxvf jindocache-6.5.3-linux.tar.gz
+
 ls -l
 ```
 
 jindocache-patches 内容示例如下：
 ```bash
--rw-rw-r--   1 emr-user emr-user   29 6月   6 11:21 hosts
--rwxr-xr-x   1 emr-user emr-user 1241 6月   6 11:18 upgrade.sh
+-rw-rw-r--  1 emr-user emr-user        29 6月   6 11:21 hosts
+drwxr-xr-x  7 root     root          4096 8月   8 16:19 jindocache-6.5.3-linux
+-rw-r--r--  1 root     root     276406433 8月  12 14:32 jindocache-6.5.3-linux.tar.gz
+-rwxr-xr-x  1 emr-user emr-user      1241 6月   6 11:18 upgrade.sh
 ```
 
 ### 3、配置升级节点信息
