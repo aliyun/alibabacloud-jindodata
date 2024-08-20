@@ -192,7 +192,6 @@ EMR 集群内可以通过 hadoop 命令上传，或者通过 OSS 控制台、oss
 ```bash
 hadoop dfs -mkdir -p oss://<bucket-name>/path/to/patch/
 
-cd /home/hadoop/patch/
 hadoop dfs -put jindocache-bootstrap-patches.tar.gz oss://<bucket-name>/path/to/patch/
 hadoop dfs -put bootstrap_jindocache.sh oss://<bucket-name>/path/to/patch/
 
@@ -287,7 +286,6 @@ EMR 集群内可以通过 hadoop 命令上传，或者通过 OSS 控制台、oss
 ```bash
 hadoop dfs -mkdir -p oss://<bucket-name>/path/to/patch/
 
-cd /home/hadoop/patch/
 hadoop dfs -put jindocache-bootstrap-patches.tar.gz oss://<bucket-name>/path/to/patch/
 hadoop dfs -put bootstrap_jindocache.sh oss://<bucket-name>/path/to/patch/
 
