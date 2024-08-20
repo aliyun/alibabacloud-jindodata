@@ -1,5 +1,16 @@
 # JindoSDK 版本记录
 
+## 6.5.4，2024-08-20
+
+### 版本概要
+
+发布 JindoSDK 6.5.4 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.5.4 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 修复 JindoOssFileSystem 的 Delegation Token Renew 机制。
+
 ## 6.5.3，2024-08-15
 
 ### 版本概要
@@ -8,7 +19,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.5.3 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.5.3 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.3/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.3/jindodata_download.md)。
 - 修复 JindoOssFileSystem 的 Delegation Token Renew 机制。
 
 ## 6.5.2，2024-08-12
