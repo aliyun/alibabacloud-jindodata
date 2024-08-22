@@ -9,7 +9,7 @@
 ### 介绍
 
 - JindoSDK 更新 [6.5.4 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
-- 修复 JindoOssFileSystem 的 Delegation Token Renew 机制。
+- 优化 flink connector 依赖，对部分依赖进行 shade。
 
 ## 6.5.3，2024-08-15
 
