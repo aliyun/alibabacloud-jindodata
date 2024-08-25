@@ -1,5 +1,16 @@
 # JindoSDK Release History
 
+## 6.6.0，2024-08-25
+
+Release of official version features for JindoSDK 6.6.0.
+
+- Update the [Maven repository for version 6.6.0](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Enhanced IO performance in the nextarch classifier through coroutine-based asynchrony, enabling higher concurrency at identical configuration levels.
+- Added support for specifying individual IO timeout durations in the nextarch classifier.
+- Integrated metrics framework support into the nextarch classifier.
+- Resolved issues regarding JindoCache compatibility within the nextarch classifier.
+- Default implementation of jindo-fuse now utilizes the nextarch implement.
+
 ## 6.5.4，2024-08-20
 
 ### Release Summary
@@ -8,7 +19,7 @@ Release of official version features for JindoSDK 6.5.4.
 
 ### Introduction
 
-- Update the [Maven repository for version 6.5.4](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Update the [Maven repository for version 6.5.4](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.4/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.4/jindodata_download.md) for JindoSDK.
 - Optimize flink connector, shade some of the dependencies.
 
 ## 6.5.3，2024-08-15
