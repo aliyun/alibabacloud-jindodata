@@ -465,36 +465,36 @@
 <td>fs.oss.upload.thread.concurrency</td>
 <td>整型</td>
 <td>MAX(cpu核数,16)</td>
-<td>单个文件 OSS/OSS-HDFS 并发上传线程数</td>
-<td>4.3.0+</td>
+<td>进程内 OSS/OSS-HDFS 并发上传线程数</td>
+<td>4.3.0+(deprecated)</td>
 </tr>
 <tr>
 <td>fs.oss.upload.queue.size</td>
 <td>整型</td>
 <td>MAX(cpu核数,16)</td>
-<td>OSS/OSS-HDFS 并发上传任务队列大小</td>
-<td>4.3.0+</td>
+<td>进程内 OSS/OSS-HDFS 并发上传任务队列大小</td>
+<td>4.3.0+(deprecated)</td>
 </tr>
 <tr>
 <td>fs.oss.upload.max.pending.tasks.per.stream</td>
 <td>整型</td>
 <td>10</td>
-<td>进程内 oss 最大并发上传任务数</td>
-<td>4.3.0+</td>
+<td>单个文件 OSS/OSS-HDFS 最大并发上传任务数</td>
+<td>4.3.0+(deprecated)</td>
 </tr>
 <tr>
 <td>fs.oss.download.thread.concurrency</td>
 <td>整型</td>
 <td>MAX(cpu核数,16)</td>
-<td>进程内 oss 最大并发下载任务数</td>
-<td>4.3.0+</td>
+<td>进程内 OSS/OSS-HDFS 最大并发下载任务数</td>
+<td>4.3.0+(deprecated)</td>
 </tr>
 <tr>
 <td>fs.oss.read.readahead.max.buffer.count</td>
 <td>整型</td>
 <td>48</td>
 <td>最大同时预读 oss 的 buffer 个数</td>
-<td>4.5.1+</td>
+<td>4.5.1+(deprecated)</td>
 </tr>
 <tr>
 <td>fs.oss.read.buffer.size</td>
@@ -572,6 +572,62 @@
 <td>0</td>
 <td>签名算法版本，可选值[0，1，4]。推荐使用0，表示默认算法版本，6.3.0版本之后默认使用 V4 签名算法提高访问 OSS/OSS-HDFS，若特殊场景希望指定签名算法版本，请指定 1 或 4。</td>
 <td>6.3.0+</td>
+</tr>
+<tr>
+<td>fs.oss.io.timeout.millisecond</td>
+<td>整型</td>
+<td>MAX(cpu核数,16)</td>
+<td>请求 OSS/OSS-HDFS 超时时间（毫秒）</td>
+<td>6.6.0 nextarch+</td>
+</tr>
+<tr>
+<td>fs.oss.async.async.executor.number</td>
+<td>整型</td>
+<td>cpu核数</td>
+<td>进程内 OSS/OSS-HDFS 异步io线程数</td>
+<td>6.6.0 nextarch+</td>
+</tr>
+<tr>
+<td>fs.oss.upload.async.concurrency</td>
+<td>整型</td>
+<td>MAX(cpu核数,16)</td>
+<td>进程内 OSS/OSS-HDFS 异步上传并发数</td>
+<td>6.6.0 nextarch+</td>
+</tr>
+<tr>
+<td>fs.oss.download.async.concurrency</td>
+<td>整型</td>
+<td>MAX(cpu核数,16)</td>
+<td>进程内 OSS/OSS-HDFS 异步下载并发数</td>
+<td>6.6.0 nextarch+</td>
+</tr>
+<tr>
+<td>fs.jdo.metrics.metrics.level</td>
+<td>整型</td>
+<td>1</td>
+<td>mertrics 收集等级，0是不收集，1是静态metrics，2是包含 bucket 信息的动态 metrics，3包含所有 metrics</td>
+<td>6.6.0 nextarch+</td>
+</tr>
+<tr>
+<td>fs.jdo.metrics.file.enable</td>
+<td>整型</td>
+<td>false</td>
+<td>控制是否输出 metrics 到文件</td>
+<td>6.6.0 nextarch+</td>
+</tr>
+<tr>
+<td>fs.jdo.metrics.file.dir</td>
+<td>字符串</td>
+<td>/tmp/metrics</td>
+<td>输出 metrics 到文件的所在目录</td>
+<td>6.6.0 nextarch+</td>
+</tr>
+<tr>
+<td>fs.jdo.metrics.interval.sec</td>
+<td>整型</td>
+<td>15</td>
+<td>输出 metrics 到文件的间隔时间</td>
+<td>6.6.0 nextarch+</td>
 </tr>
 </tbody>
 </table>
