@@ -17,7 +17,7 @@
     - [master元数据持久化](#master元数据持久化)
 
 ### 挂载点在根目录下
-默认使用 JindoRuntime 会在挂载点多一层 /jindo 的目录，如果想挂载在根目录下可以在 dataset 里进行参数指定
+默认使用 JindoRuntime 会在挂载点多一层 /<mountPoint.name> 的目录，如果想挂载在根目录下可以在 dataset 里进行参数指定
 
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
