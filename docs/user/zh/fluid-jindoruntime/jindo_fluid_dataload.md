@@ -47,6 +47,8 @@ spec:
   dataset:
     name: spark
     namespace: default
+  target:
+    - path: /sparkV1/
 ```
 
 
