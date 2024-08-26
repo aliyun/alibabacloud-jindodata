@@ -413,6 +413,48 @@
 </thead>
 <tbody>
 <tr>
+<td>logger.dir</td>
+<td>字符串</td>
+<td>/tmp/bigboot-log</td>
+<td>日v志目录，不存在会创建</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
+<td>logger.sync</td>
+<td>布尔值</td>
+<td>false</td>
+<td>是否同步输出日志，false表示异步输出</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
+<td>logger.consolelogger</td>
+<td>布尔值</td>
+<td>false</td>
+<td>打印日志到终端</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
+<td>logger.level</td>
+<td>整型</td>
+<td>2</td>
+<td>输出大于等于该等级的日志，等级范围为0-6，分别表示：TRACE、DEBUG、INFO、WARN、ERROR、CRITICAL、OFF</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
+<td>logger.verbose</td>
+<td>整型</td>
+<td>0</td>
+<td>输出大于等于该等级的VERBOSE日志，等级范围为0-99，0表示不输出</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
+<td>logger.cleaner.enable</td>
+<td>布尔值</td>
+<td>false</td>
+<td>是否开启日志清理</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
 <td>fs.oss.tmp.data.dirs</td>
 <td>字符串</td>
 <td>/tmp/</td>
@@ -576,58 +618,65 @@
 <tr>
 <td>fs.oss.io.timeout.millisecond</td>
 <td>整型</td>
-<td>MAX(cpu核数,16)</td>
-<td>请求 OSS/OSS-HDFS 超时时间（毫秒）</td>
-<td>6.6.0 nextarch+</td>
+<td>90000</td>
+<td>请求 OSS/OSS-HDFS 读写操作超时时间（毫秒）</td>
+<td>6.6.0+ nextarch</td>
 </tr>
 <tr>
 <td>fs.oss.async.async.executor.number</td>
 <td>整型</td>
 <td>cpu核数</td>
 <td>进程内 OSS/OSS-HDFS 异步io线程数</td>
-<td>6.6.0 nextarch+</td>
+<td>6.6.0+ nextarch</td>
 </tr>
 <tr>
 <td>fs.oss.upload.async.concurrency</td>
 <td>整型</td>
 <td>MAX(cpu核数,16)</td>
 <td>进程内 OSS/OSS-HDFS 异步上传并发数</td>
-<td>6.6.0 nextarch+</td>
+<td>6.6.0+ nextarch</td>
 </tr>
 <tr>
 <td>fs.oss.download.async.concurrency</td>
 <td>整型</td>
 <td>MAX(cpu核数,16)</td>
 <td>进程内 OSS/OSS-HDFS 异步下载并发数</td>
-<td>6.6.0 nextarch+</td>
+<td>6.6.0+ nextarch</td>
 </tr>
 <tr>
 <td>fs.jdo.metrics.metrics.level</td>
 <td>整型</td>
 <td>1</td>
 <td>mertrics 收集等级，0是不收集，1是静态metrics，2是包含 bucket 信息的动态 metrics，3包含所有 metrics</td>
-<td>6.6.0 nextarch+</td>
+<td>6.6.0+ nextarch</td>
 </tr>
 <tr>
 <td>fs.jdo.metrics.file.enable</td>
-<td>整型</td>
+<td>布尔值</td>
 <td>false</td>
 <td>控制是否输出 metrics 到文件</td>
-<td>6.6.0 nextarch+</td>
+<td>6.6.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.jdo.metrics.file.clean.enable</td>
+<td>布尔值</td>
+<td>false</td>
+<td>控制是否自动清理输出 metrics 的文件</td>
+<td>6.6.0+ nextarch</td>
 </tr>
 <tr>
 <td>fs.jdo.metrics.file.dir</td>
 <td>字符串</td>
 <td>/tmp/metrics</td>
 <td>输出 metrics 到文件的所在目录</td>
-<td>6.6.0 nextarch+</td>
+<td>6.6.0+ nextarch</td>
 </tr>
 <tr>
 <td>fs.jdo.metrics.interval.sec</td>
 <td>整型</td>
 <td>15</td>
 <td>输出 metrics 到文件的间隔时间</td>
-<td>6.6.0 nextarch+</td>
+<td>6.6.0+ nextarch</td>
 </tr>
 </tbody>
 </table>
