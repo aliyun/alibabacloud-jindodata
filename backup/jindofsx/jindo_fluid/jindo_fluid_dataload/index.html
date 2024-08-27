@@ -436,6 +436,8 @@ spec:
   dataset:
     name: spark
     namespace: default
+  target:
+    - path: /sparkV1/
 </code></pre>
 <p><code>spec.dataset</code>指明了需要进行数据预加载的目标数据集，在该例子中，我们的数据预加载目标为<code>default</code>命名空间下名为<code>spark</code>的数据集，如果该配置与你所在的实际环境不符，请根据你的实际环境对其进行调整。</p>
 <h3 id="dataload_1">创建DataLoad对象<a class="headerlink" href="#dataload_1" title="Permanent link">§</a></h3>
