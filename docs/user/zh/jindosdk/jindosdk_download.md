@@ -34,7 +34,7 @@
 
 [jindo-core-macos-11_0-aarch64-6.6.1.jar](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core-macos-11_0-aarch64/6.6.1/jindo-core-macos-11_0-aarch64-6.6.1.jar)
 
-### lite 产出物 (nextarch classifer)
+### lite 产出物 (nextarch classifier)
 
 [jindo-core-6.6.1-nextarch.jar](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.6.1/jindo-core-6.6.1-nextarch.jar)
 

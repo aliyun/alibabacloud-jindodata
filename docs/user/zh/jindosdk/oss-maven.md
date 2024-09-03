@@ -138,7 +138,6 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>${hadoop.version}</version>
-            <classifier>nextarch</classifier>
         </dependency>
     </dependencies>
 </project>
