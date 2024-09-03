@@ -26,7 +26,8 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 
 ## 发布版本
 
-#### JindoData 6.6.0，2024-08-25，[Release Note](6.6.0/release-notes.md) <span style="color:red">*[NEW]*</span>
+#### JindoData 6.6.1，2024-09-03，[Release Note](6.6.1/release-notes.md) <span style="color:red">*[NEW]*</span>
+#### JindoData 6.6.0，2024-08-25，[Release Note](6.6.0/release-notes.md)
 #### JindoData 6.5.4，2024-08-20，[Release Note](6.5.4/release-notes.md)
 #### JindoData 6.5.3，2024-08-15，[Release Note](6.5.3/release-notes.md)
 #### JindoData 6.5.2，2024-08-12，[Release Note](6.5.2/release-notes.md)
