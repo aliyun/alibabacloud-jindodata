@@ -30,7 +30,7 @@ If you only need the Hadoop SDK from JindoSDK in your Hadoop environment, use th
 
 For Java SDK, on Linux x86, you'll require `jindo-sdk-x.y.z.jar` and `jindo-core-x.y.z.jar`. On other platforms, you'll need `jindo-sdk-x.y.z.jar`、`jindo-core-x.y.z.jar` and `jindo-core-<platform-name>-x.y.z.jar`.
 
-Installation can be done through Maven by adding dependencies in `pom.xml` (refer to [6.6.0-OSS-Maven](oss-maven.md)) or directly downloading and deploying from OSS (see [6.6.0-Download](jindosdk_download.md)).
+Installation can be done through Maven by adding dependencies in `pom.xml` (refer to [6.6.1-OSS-Maven](oss-maven.md)) or directly downloading and deploying from OSS (see [6.6.1-Download](jindosdk_download.md)).
 
 ## Output Platform Table
 
@@ -52,17 +52,17 @@ Installation can be done through Maven by adding dependencies in `pom.xml` (refe
 
 # JindoSDK Deployment Examples
 
-Let's take version 6.6.0 as an example.
+Let's take version 6.6.1 as an example.
 
 ## Linux x86 Example
 
 ### Full Installation
-Assuming the extracted folder is placed at `/usr/lib/jindosdk-6.6.0-linux`:
+Assuming the extracted folder is placed at `/usr/lib/jindosdk-6.6.1-linux`:
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.6.0/jindosdk-6.6.0-linux.tar.gz
-tar zxvf jindosdk-6.6.0-linux.tar.gz -C /usr/lib/
-export JINDOSDK_HOME=/usr/lib/jindosdk-6.6.0-linux
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.6.1/jindosdk-6.6.1-linux.tar.gz
+tar zxvf jindosdk-6.6.1-linux.tar.gz -C /usr/lib/
+export JINDOSDK_HOME=/usr/lib/jindosdk-6.6.1-linux
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
@@ -73,21 +73,21 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 Suppose the downloaded JAR files are placed in `<HADOOP_HOME>/share/hadoop/hdfs/lib/`:
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.6.0/jindo-sdk-6.6.0.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.6.0/jindo-core-6.6.0.jar
-cp jindo-core-6.6.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.6.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.6.1/jindo-sdk-6.6.1.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.6.1/jindo-core-6.6.1.jar
+cp jindo-core-6.6.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.6.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 ## Linux aarch64 Example
 
 ### Full Installation
-Assuming the extracted folder is placed at `/usr/lib/jindosdk-6.6.0-linux-el7-aarch64`:
+Assuming the extracted folder is placed at `/usr/lib/jindosdk-6.6.1-linux-el7-aarch64`:
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/x.y.z/jindosdk-6.6.0-linux-el7-aarch64.tar.gz
-tar zxvf jindosdk-6.6.0-linux-el7-aarch64.tar.gz -C /usr/lib/
-export JINDOSDK_HOME=/usr/lib/jindosdk-6.6.0-linux-el7-aarch64
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/x.y.z/jindosdk-6.6.1-linux-el7-aarch64.tar.gz
+tar zxvf jindosdk-6.6.1-linux-el7-aarch64.tar.gz -C /usr/lib/
+export JINDOSDK_HOME=/usr/lib/jindosdk-6.6.1-linux-el7-aarch64
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
@@ -98,11 +98,11 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 Suppose the downloaded JAR files are placed in `<HADOOP_HOME>/share/hadoop/hdfs/lib/`:
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.6.0/jindo-sdk-6.6.0.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core-linux-el7-aarch64/6.6.0/jindo-core-linux-el7-aarch64-6.6.0.jar
-cp jindo-core-linux-el7-aarch64-6.6.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindo-core-6.6.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.6.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.6.1/jindo-sdk-6.6.1.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core-linux-el7-aarch64/6.6.1/jindo-core-linux-el7-aarch64-6.6.1.jar
+cp jindo-core-linux-el7-aarch64-6.6.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindo-core-6.6.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.6.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 ## Appendix

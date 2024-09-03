@@ -1,10 +1,19 @@
 # JindoSDK Release History
 
+## 6.6.1，2024-09-03
+
+Release of official version features for JindoSDK 6.6.1.
+
+- Update the [Maven repository for version 6.6.1](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+  Optimized handling of SO file residues in the nextarch classifier when multiple classloaders load jindosdk, defaulting to unpacking files into the directory specified by `java.io.tmpdir`.
+  Fixed several issues related to accessing JindoCache within the nextarch classifier.
+  Further optimized support for metrics frameworks.
+
 ## 6.6.0，2024-08-25
 
 Release of official version features for JindoSDK 6.6.0.
 
-- Update the [Maven repository for version 6.6.0](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Update the [Maven repository for version 6.6.0](ttps://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/jindodata_download.md) for JindoSDK.
 - Enhanced IO performance in the nextarch classifier through coroutine-based asynchrony, enabling higher concurrency at identical configuration levels.
 - Added support for specifying individual IO timeout durations in the nextarch classifier.
 - Integrated metrics framework support into the nextarch classifier.

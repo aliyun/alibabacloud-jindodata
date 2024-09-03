@@ -1,5 +1,18 @@
 # JindoSDK 版本记录
 
+## 6.6.1，2024-09-03
+
+### 版本概要
+
+发布 JindoSDK 6.6.1 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.6.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- nextarch classifier 优化在多个 classloader 加载 jindosdk 时的 so 残留问题，并且在配置了 `java.io.tmpdir` 时，默认解压至配置目录下。
+- nextarch classifier 修复访问 JindoCache 的若干问题。
+- nextarch classifier 优化 metrics 框架。
+
 ## 6.6.0，2024-08-25
 
 ### 版本概要
@@ -8,7 +21,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.6.0 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.6.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/jindodata_download.md)。
 - nextarch classifier 优化 io 性能，使用协程异步化，相同配置下支持更高并发。
 - nextarch classifier 支持单独指定 io 超时时间。
 - nextarch classifier 支持 metrics 框架。
@@ -23,7 +36,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.5.4 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.4/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.3/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.4/jindodata_download.md)。
+- JindoSDK 更新 [6.5.4 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.4/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.4/jindodata_download.md)。
 - 优化 flink connector 依赖，对部分依赖进行 shade。
 
 ## 6.5.3，2024-08-15
