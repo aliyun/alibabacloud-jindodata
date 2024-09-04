@@ -2,6 +2,8 @@
 
 在多平台环境安装部署说明，参见 [文档链接](jindosdk_deployment_multi_platform.md)
 
+历史版本问题及发布说明，参见 [文档链接](../releases.md)
+
 ## 下载链接
 
 ### 完整产出物

@@ -2,6 +2,8 @@
 
 For multi-platform installation and deployment instructions, please refer to the [Documentation Link](jindosdk_deployment_multi_platform.md).
 
+For old version issues and release notes, please refer to the [Documentation Link](../releases.md).
+
 ## Download URLs
 
 ### Full Outputs
