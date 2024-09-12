@@ -525,7 +525,7 @@
 <h3 id="_6">介绍<a class="headerlink" href="#_6" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/oss-maven.md">6.6.0 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/jindodata_download.md">下载地址</a>。</li>
-<li>nextarch classifier 优化 io 性能，使用协程异步化，相同配置下支持更高并发。</li>
+<li>nextarch classifier 优化 io 性能，使用协程异步化，相同配置下支持更高并发。写场景使用 sendfile 实现零拷贝优化，节省内存，并提升性能。</li>
 <li>nextarch classifier 支持单独指定 io 超时时间。</li>
 <li>nextarch classifier 支持 metrics 框架。</li>
 <li>修复 nextarch classifier 对 JindoCache 支持问题。</li>
