@@ -22,7 +22,7 @@ Release of official version features for JindoSDK 6.6.1.
 Release of official version features for JindoSDK 6.6.0.
 
 - Update the [Maven repository for version 6.6.0](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/jindodata_download.md) for JindoSDK.
-- Enhanced IO performance in the nextarch classifier through coroutine-based asynchrony, enabling higher concurrency at identical configuration levels.
+- Enhanced IO performance in the nextarch classifier through coroutine-based asynchrony, enabling higher concurrency at identical configuration levels. For write scenarios, sendfile is used to achieve zero-copy optimization, which saves memory and improves performance.
 - Added support for specifying individual IO timeout durations in the nextarch classifier.
 - Integrated metrics framework support into the nextarch classifier.
 - Resolved issues regarding JindoCache compatibility within the nextarch classifier.
