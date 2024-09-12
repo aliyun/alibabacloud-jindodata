@@ -1,5 +1,17 @@
 # JindoSDK 版本记录
 
+## 6.6.2，2024-09-12
+
+### 版本概要
+
+发布 JindoSDK 6.6.2 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.6.2 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- nextarch classifier 访问 oss 支持深冷归档
+- nextarch classifier 修复 DLF 相关 CredentialProvider 使用 MagicCommitter 时的权限问题。
+
 ## 6.6.1，2024-09-03
 
 ### 版本概要
@@ -8,7 +20,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.6.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.6.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.2/jindodata_download.md)。
 - nextarch classifier 优化在多个 classloader 加载 jindosdk 时的 so 残留问题，并且在配置了 `java.io.tmpdir` 时，默认解压至配置目录下。
 - nextarch classifier 修复访问 JindoCache 的若干问题。
 - nextarch classifier 优化 metrics 框架。
