@@ -10,7 +10,7 @@ This guide demonstrates how to utilize the Python toolkit PyJindo to interact wi
 
 1. Download the latest tar.gz package named `jindosdk-x.y.z.tar.gz`, replacing x.y.z with the actual version from the [download page](../jindosdk_download.md).
 
-2. Deploy `jindosdk-6.6.2.tar.gz`. The whl installation packages are located in the subdirectory `jindosdk-x.x.x/lib/site-packages/` of the complete output artifact. For multi-platform deployment instructions, see the [deployment document](../jindosdk_deployment_multi_platform.md).
+2. Deploy `jindosdk-6.6.3.tar.gz`. The whl installation packages are located in the subdirectory `jindosdk-x.x.x/lib/site-packages/` of the complete output artifact. For multi-platform deployment instructions, see the [deployment document](../jindosdk_deployment_multi_platform.md).
 
 3. For a Python 3.6 setup, install `pyjindo-x.y.z-cp36-abi3-linux_x86_64.whl`.
 
@@ -55,12 +55,12 @@ export HADOOP_CONF_DIR=/etc/taihao-apps/hadoop-conf
 
 ### Installing PyJindo
 
-Here's how to install the latest version of PyJindo-6.6.2 for a Python 3.8 environment:
+Here's how to install the latest version of PyJindo-6.6.3 for a Python 3.8 environment:
 
 ```bash
 python3.8 -m ensurepip
 python3.8 -m pip install pip --upgrade --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/
-python3.8 -m pip install pyjindo-6.6.2-cp38-abi3-linux_x86_64.whl
+python3.8 -m pip install pyjindo-6.6.3-cp38-abi3-linux_x86_64.whl
 ```
 
 ### Writing a Python Test Program

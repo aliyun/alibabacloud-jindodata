@@ -1,10 +1,17 @@
 # JindoSDK Release History
 
+## 6.6.3，2024-09-14
+
+Release of official version features for JindoSDK 6.6.2.
+
+- Update the [Maven repository for version 6.6.3](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- The nextarch classifier fixes a rare issue where errors due to sendfile were not retried in write scenarios, leading to failures when closing files. 
+
 ## 6.6.2，2024-09-12
 
 Release of official version features for JindoSDK 6.6.2.
 
-- Update the [Maven repository for version 6.6.2](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Update the [Maven repository for version 6.6.2](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.1/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.1/jindodata_download.md) for JindoSDK.
 - The nextarch classifier now supports Deep Archive Storage when accessing OSS.
 - Fixed permission issues in the nextarch classifier related to using DLF-related CredentialProviders with MagicCommitter.
 
