@@ -6,24 +6,24 @@
 
 1.  下载并解压 JindoSDK TAR 包。
     
-执行以下命令，下载6.4.0版本JindoSDK TAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](../jindosdk/jindosdk_deployment_multi_platform.md)
+执行以下命令，下载6.7.0版本JindoSDK TAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](../jindosdk/jindosdk_deployment_multi_platform.md)
         
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.4.0/jindosdk-6.4.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.0/jindosdk-6.7.0-linux.tar.gz
 ```
 
 2.  执行以下命令，解压 JindoSDK TAR 包。
     
 ```bash
-tar zxvf jindosdk-6.4.0-linux.tar.gz
+tar zxvf jindosdk-6.7.0-linux.tar.gz
 ```
 
 3.  配置环境变量。
     
-以安装包内容解压在 /usr/lib/jindosdk-6.4.0-linux 目录为例：
+以安装包内容解压在 /usr/lib/jindosdk-6.7.0-linux 目录为例：
 
 ```bash
-export JINDOSDK_HOME=/usr/lib/jindosdk-6.4.0-linux
+export JINDOSDK_HOME=/usr/lib/jindosdk-6.7.0-linux
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
