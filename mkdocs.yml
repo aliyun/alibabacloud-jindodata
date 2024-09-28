@@ -92,7 +92,7 @@ nav:
     - JindoSDK 下载: jindosdk/jindosdk_download.md
     - 安装部署:
       - Hadoop 环境完整部署: jindosdk/jindosdk_deployment_hadoop.md
-      - Hadoop 环境仅部署 Jar 包: jindosdk/jindosdk_deployment_hadoop.md
+      - Hadoop 环境仅部署 Jar 包: jindosdk/jindosdk_deployment_lite_hadoop.md
       - AI 场景部署: jindosdk/jindosdk_deployment_ai.md
       - 多平台部署: jindosdk/jindosdk_deployment_multi_platform.md
     - 配置方式:

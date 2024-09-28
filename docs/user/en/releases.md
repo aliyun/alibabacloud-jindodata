@@ -1,10 +1,31 @@
 # JindoSDK Release History
 
+## 6.7.0，2024-09-29
+
+Release of official version features for JindoSDK 6.7.0.
+
+- Update the [Maven repository for version 6.7.0](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- The `nextarch classifier` now supports unified memory management with `fs.jdo.memory.pool.size.max.mb` to configure the maximum memory usage and provides real-time memory usage metrics.
+- The `nextarch classifier` now supports controlling IO buffer memory usage with `fs.jdo.memory.io.buffer.size.max.ratio`.
+- The `nextarch classifier` now supports the Golang SDK.
+- The `nextarch classifier` now supports for deep archive storage in OSS object storage.
+- The `nextarch classifier` optimized the `pread` interface for zero-copy memory operations.
+- The `nextarch classifier` improved `sendfile` usage for writing small files.
+- The `nextarch classifier` enhanced the metrics framework to output each metric to separate files for easier collection.
+- The `nextarch classifier` excluded log4j dependencies in the distjob framework.
+- The `nextarch classifier` optimized OSS-HDFS nnbench performance when `readAfterOpen` is set to false.
+- The `nextarch classifier` improved classloader loading mechanisms to resolve issues with residual shared objects when multiple classloaders load jindosdk, and decompresses files to the specified directory via `java.io.tmpdir`.
+- The `nextarch classifier` fixed OSS-HDFS StoragePolicy interfaces.
+- The `nextarch classifier` fixed the Mtime unit returned by ListDirectory in OSS object storage.
+- The `nextarch classifier` ensured that JindoCommitter does not throw exceptions during the Cleanup phase.
+- The `nextarch classifier` resolved permission issues with DLF-related CredentialProviders when using MagicCommitter.
+- The `nextarch classifier` fixed several issues with JindoCache.
+
 ## 6.6.3，2024-09-14
 
-Release of official version features for JindoSDK 6.6.2.
+Release of official version features for JindoSDK 6.6.3.
 
-- Update the [Maven repository for version 6.6.3](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Update the [Maven repository for version 6.6.3](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.3/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.3/jindodata_download.md) for JindoSDK.
 - The nextarch classifier fixes a rare issue where errors due to sendfile were not retried in write scenarios, leading to failures when closing files. 
 
 ## 6.6.2，2024-09-12
