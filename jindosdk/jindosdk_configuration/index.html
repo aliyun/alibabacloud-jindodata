@@ -281,7 +281,7 @@
 </li>
             
 <li>
-    <a href="../jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+    <a href="../jindosdk_deployment_lite_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
 </li>
             
 <li>
@@ -401,6 +401,7 @@
 
 <h1 id="_1">客户端常用配置<a class="headerlink" href="#_1" title="Permanent link">§</a></h1>
 <h2 id="ossoss-hdfs">OSS/OSS-HDFS<a class="headerlink" href="#ossoss-hdfs" title="Permanent link">§</a></h2>
+<h3 id="_2">日志配置项<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
 <table>
 <thead>
 <tr>
@@ -416,7 +417,7 @@
 <td>logger.dir</td>
 <td>字符串</td>
 <td>/tmp/bigboot-log</td>
-<td>日v志目录，不存在会创建</td>
+<td>日志目录，不存在会创建，logger.consolelogger 和 logger.jnilogger 均为 false 时生效。</td>
 <td>4.3.0+</td>
 </tr>
 <tr>
@@ -431,6 +432,13 @@
 <td>布尔值</td>
 <td>false</td>
 <td>打印日志到终端</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
+<td>logger.jnilogger</td>
+<td>布尔值</td>
+<td>false</td>
+<td>打印日志到log4j</td>
 <td>4.3.0+</td>
 </tr>
 <tr>
@@ -454,6 +462,20 @@
 <td>是否开启日志清理</td>
 <td>4.3.0+</td>
 </tr>
+</tbody>
+</table>
+<h3 id="io">I/O 相关配置项<a class="headerlink" href="#io" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>fs.oss.tmp.data.dirs</td>
 <td>字符串</td>
@@ -500,7 +522,7 @@
 <td>fs.oss.max.connections.per.host</td>
 <td>整型</td>
 <td>100</td>
-<td>连接 oss 的连接池对每个host的最大连接数（超过阈值外的连接会使用短连接）</td>
+<td>连接 OSS/OSS-HDFS 的连接池对每个host的最大连接数（超过阈值外的连接会使用短连接）</td>
 <td>4.3.0+</td>
 </tr>
 <tr>
@@ -535,49 +557,35 @@
 <td>fs.oss.read.readahead.max.buffer.count</td>
 <td>整型</td>
 <td>48</td>
-<td>最大同时预读 oss 的 buffer 个数</td>
-<td>4.5.1+</td>
+<td>最大同时预读 OSS/OSS-HDFS 的 buffer 个数</td>
+<td>4.3.0+(deprecated)</td>
 </tr>
 <tr>
 <td>fs.oss.read.buffer.size</td>
 <td>整型</td>
 <td>1048576</td>
-<td>oss 读缓冲区大小（字节）</td>
+<td>OSS/OSS-HDFS 读缓冲区大小（字节）</td>
 <td>4.3.0+</td>
 </tr>
 <tr>
 <td>fs.oss.write.buffer.size</td>
 <td>整型</td>
 <td>1048576</td>
-<td>oss 写缓冲区大小（字节）</td>
+<td>OSS/OSS-HDFS 写缓冲区大小（字节）</td>
 <td>4.3.0+</td>
 </tr>
 <tr>
 <td>fs.oss.flush.interval.millisecond</td>
 <td>整型</td>
 <td>-1</td>
-<td>oss 刷新缓冲区间隔（毫秒），小于 0 时不生效</td>
-<td>4.3.0+</td>
-</tr>
-<tr>
-<td>fs.oss.memory.buffer.size.max.mb</td>
-<td>整型</td>
-<td>6124</td>
-<td>内存池总容量（单位：MB）</td>
-<td>4.3.0+</td>
-</tr>
-<tr>
-<td>fs.oss.memory.buffer.size.watermark</td>
-<td>浮点型</td>
-<td>0.3</td>
-<td>内存池用于预读的容量比例</td>
+<td>OSS/OSS-HDFS 刷新缓冲区间隔（毫秒），小于 0 时不生效</td>
 <td>4.3.0+</td>
 </tr>
 <tr>
 <td>fs.oss.blocklet.size.mb</td>
 <td>整型</td>
 <td>8</td>
-<td>oss 分块上传时的块大小（MB）由于分块数量最多为10000块，因此默认写入文件不能超过80GB。如果有个别文件超过80G，建议根据文件大小单独调大本配置，并同时调大请求 oss 的超时时间。如文件大小未知，或者远远超过80G（如超过160G），建议考虑使用 OSS-HDFS（无文件大小限制）</td>
+<td>OSS 分块上传时的块大小（MB）由于分块数量最多为10000块，因此默认写入文件不能超过80GB。如果有个别文件超过80G，建议根据文件大小单独调大本配置，并同时调大请求 oss 的超时时间。如文件大小未知，或者远远超过80G（如超过160G），建议考虑使用 OSS-HDFS（无文件大小限制）</td>
 <td>4.5.2+</td>
 </tr>
 <tr>
@@ -643,6 +651,69 @@
 <td>进程内 OSS/OSS-HDFS 异步下载并发数</td>
 <td>6.6.0+ nextarch</td>
 </tr>
+<tr>
+<td>fs.oss.array.block.enable</td>
+<td>布尔值</td>
+<td>false</td>
+<td>默认关闭。打开后。客户端写入优先使用内存 buffer，单个buffer大小与 <code>fs.oss.blocklet.size.mb</code> 对齐，若内存不足，则写入磁盘。</td>
+<td>6.6.0+ nextarch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">内存相关配置项<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fs.oss.memory.buffer.size.max.mb</td>
+<td>整型</td>
+<td>6124</td>
+<td>内存池总容量（单位：MB）</td>
+<td>4.3.0+(deprecated)</td>
+</tr>
+<tr>
+<td>fs.oss.memory.buffer.size.watermark</td>
+<td>浮点型</td>
+<td>0.3</td>
+<td>内存池用于预读的容量比例</td>
+<td>4.3.0+(deprecated)</td>
+</tr>
+<tr>
+<td>fs.jdo.memory.pool.size.max.mb</td>
+<td>整型</td>
+<td>6124</td>
+<td>内存池总容量（单位：MB）</td>
+<td>6.7.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.jdo.memory.io.buffer.size.max.ratio</td>
+<td>浮点型</td>
+<td>0.8</td>
+<td>内存池最大用于IO buffer的容量比例</td>
+<td>6.7.0+ nextarch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="metrics">Metrics 相关配置项<a class="headerlink" href="#metrics" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>fs.jdo.metrics.level</td>
 <td>整型</td>

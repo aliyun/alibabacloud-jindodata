@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>在 Hadoop 环境最简安装部署 JindoSDK - AlibabaCloud JindoData</title>
+        <title>Hadoop 环境仅部署 Jar 包 - AlibabaCloud JindoData</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -264,7 +264,7 @@
   </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">下载安装 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -281,7 +281,7 @@
 </li>
             
 <li>
-    <a href="../jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+    <a href="./" class="dropdown-item active">Hadoop 环境仅部署 Jar 包</a>
 </li>
             
 <li>
@@ -358,6 +358,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../jindosdk_deployment_hadoop/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../jindosdk_deployment_ai/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -398,9 +408,9 @@
 <ol>
 <li>下载 JindoSDK JAR 包。</li>
 </ol>
-<p>执行以下命令，下载6.6.3版本JindoSDK JAR包。以大多数linux x86环境为例。其他平台部署参见<a href="../jindosdk_deployment_multi_platform/">《在多平台环境安装部署 JindoSDK》</a></p>
-<pre><code class="language-bash">wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.6.3/jindo-sdk-6.6.3.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.6.3/jindo-core-6.6.3.jar
+<p>执行以下命令，下载6.7.0版本JindoSDK JAR包。以大多数linux x86环境为例。其他平台部署参见<a href="../jindosdk_deployment_multi_platform/">《在多平台环境安装部署 JindoSDK》</a></p>
+<pre><code class="language-bash">wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.7.0/jindo-sdk-6.7.0.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.7.0/jindo-core-6.7.0.jar
 </code></pre>
 <ol>
 <li>安装 JindoSDK JAR 包
@@ -408,9 +418,9 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/j
 <li>jindo-core-x.x.x.jar</li>
 <li>jindo-sdk-x.x.x.jar</li>
 </ol>
-<p>以 jindosdk-6.6.3 为例:</p>
-<pre><code>cp jindo-core-6.6.3.jar &lt;HADOOP_HOME&gt;/share/hadoop/hdfs/lib/
-cp jindosdk-6.6.3.jar &lt;HADOOP_HOME&gt;/share/hadoop/hdfs/lib/
+<p>以 jindosdk-6.7.0 为例:</p>
+<pre><code>cp jindo-core-6.7.0.jar &lt;HADOOP_HOME&gt;/share/hadoop/hdfs/lib/
+cp jindosdk-6.7.0.jar &lt;HADOOP_HOME&gt;/share/hadoop/hdfs/lib/
 </code></pre>
 <p><strong>重要</strong> 请将安装目录和环境变量部署到所有所需节点上。</p>
 <h2 id="hadoop">Hadoop 配置文件<a class="headerlink" href="#hadoop" title="Permanent link">§</a></h2>

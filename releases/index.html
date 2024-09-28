@@ -281,7 +281,7 @@
 </li>
             
 <li>
-    <a href="../jindosdk/jindosdk_deployment_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
+    <a href="../jindosdk/jindosdk_deployment_lite_hadoop/" class="dropdown-item">Hadoop 环境仅部署 Jar 包</a>
 </li>
             
 <li>
@@ -388,6 +388,10 @@
             
             <li class="nav-item" data-level="1"><a href="#jindosdk" class="nav-link">JindoSDK 版本记录</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#6702024-09-28" class="nav-link">6.7.0，2024-09-28</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#6632024-09-14" class="nav-link">6.6.3，2024-09-14</a>
               <ul class="nav flex-column">
               </ul>
@@ -504,27 +508,49 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="jindosdk">JindoSDK 版本记录<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h1>
-<h2 id="6632024-09-14">6.6.3，2024-09-14<a class="headerlink" href="#6632024-09-14" title="Permanent link">§</a></h2>
+<h2 id="6702024-09-28">6.7.0，2024-09-28<a class="headerlink" href="#6702024-09-28" title="Permanent link">§</a></h2>
 <h3 id="_1">版本概要<a class="headerlink" href="#_1" title="Permanent link">§</a></h3>
-<p>发布 JindoSDK 6.6.3 正式版的功能</p>
+<p>发布 JindoSDK 6.7.0 正式版的功能</p>
 <h3 id="_2">介绍<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
 <ul>
-<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.6.3 的 Maven 仓库</a> 和 <a href="../jindosdk/jindosdk_download/">下载地址</a>。</li>
+<li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.7.0 的 Maven 仓库</a> 和 <a href="../jindosdk/jindosdk_download/">下载地址</a>。</li>
+<li>nextarch classifier 支持统一管理内存，使用 <code>fs.jdo.memory.pool.size.max.mb</code> 配置最大使用内存，并支持内存实时使用 metrics。</li>
+<li>nextarch classifier 支持 io buffer 内存使用控制，使用 <code>fs.jdo.memory.io.buffer.size.max.ratio</code> 配置最大使用内存池的比例。</li>
+<li>nextarch classifier 支持 golang sdk。</li>
+<li>nextarch classifier 优化 pread 接口，内存零拷贝。</li>
+<li>nextarch classifier 优化 sendfile 在写小文件场景的使用。</li>
+<li>nextarch classifier 优化 metrics 框架，支持每次输出到单独文件，方便采集。</li>
+<li>nextarch classifier 优化 distjob 框中，排除 log4j 相关依赖。</li>
+<li>nextarch classifier 优化 OSS-HDFS nnbench 在 readAfterOpen 为 false 时的性能。</li>
+<li>nextarch classifier 优化 classloader 加载，在多个 classloader 加载 jindosdk 时的 so 残留问题，并且在配置了 <code>java.io.tmpdir</code> 时，默认解压至配置目录下。</li>
+<li>nextarch classifier 修复 OSS-HDFS StoragePolicy 相关接口。</li>
+<li>nextarch classifier 修复 OSS 对象存储，ListDirectory 返回结果的 Mtime 单位。</li>
+<li>nextarch classifier 修复 OSS 对象存储，支持深冷归档。</li>
+<li>nextarch classifier 修复 JindoCommitter 在 Cleanup 阶段，不应抛出异常。</li>
+<li>nextarch classifier 修复 DLF 相关 CredentialProvider 使用 MagicCommitter 时的权限问题。</li>
+<li>nextarch classifier 修复 JindoCache 的若干问题。</li>
+</ul>
+<h2 id="6632024-09-14">6.6.3，2024-09-14<a class="headerlink" href="#6632024-09-14" title="Permanent link">§</a></h2>
+<h3 id="_3">版本概要<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<p>发布 JindoSDK 6.6.3 正式版的功能</p>
+<h3 id="_4">介绍<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<ul>
+<li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.3/oss-maven.md">6.6.3 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.3/jindodata_download.md">下载地址</a>。</li>
 <li>nextarch classifier 修复写场景小概率因 sendfile 出现错误未重试，导致文件 close 时报失败的情况。</li>
 </ul>
 <h2 id="6622024-09-12">6.6.2，2024-09-12<a class="headerlink" href="#6622024-09-12" title="Permanent link">§</a></h2>
-<h3 id="_3">版本概要<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<h3 id="_5">版本概要<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.6.2 正式版的功能</p>
-<h3 id="_4">介绍<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<h3 id="_6">介绍<a class="headerlink" href="#_6" title="Permanent link">§</a></h3>
 <ul>
-<li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.2/oss-maven.md">6.6.2 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.3/jindodata_download.md">下载地址</a>。</li>
-<li>nextarch classifier 访问 oss 支持深冷归档</li>
+<li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.2/oss-maven.md">6.6.2 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.2/jindodata_download.md">下载地址</a>。</li>
+<li>nextarch classifier 访问 OSS 支持深冷归档</li>
 <li>nextarch classifier 修复 DLF 相关 CredentialProvider 使用 MagicCommitter 时的权限问题。</li>
 </ul>
 <h2 id="6612024-09-03">6.6.1，2024-09-03<a class="headerlink" href="#6612024-09-03" title="Permanent link">§</a></h2>
-<h3 id="_5">版本概要<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
+<h3 id="_7">版本概要<a class="headerlink" href="#_7" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.6.1 正式版的功能</p>
-<h3 id="_6">介绍<a class="headerlink" href="#_6" title="Permanent link">§</a></h3>
+<h3 id="_8">介绍<a class="headerlink" href="#_8" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.1/oss-maven.md">6.6.1 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.2/jindodata_download.md">下载地址</a>。</li>
 <li>nextarch classifier 优化在多个 classloader 加载 jindosdk 时的 so 残留问题，并且在配置了 <code>java.io.tmpdir</code> 时，默认解压至配置目录下。</li>
@@ -532,9 +558,9 @@
 <li>nextarch classifier 优化 metrics 框架。</li>
 </ul>
 <h2 id="6602024-08-25">6.6.0，2024-08-25<a class="headerlink" href="#6602024-08-25" title="Permanent link">§</a></h2>
-<h3 id="_7">版本概要<a class="headerlink" href="#_7" title="Permanent link">§</a></h3>
+<h3 id="_9">版本概要<a class="headerlink" href="#_9" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.6.0 正式版的功能</p>
-<h3 id="_8">介绍<a class="headerlink" href="#_8" title="Permanent link">§</a></h3>
+<h3 id="_10">介绍<a class="headerlink" href="#_10" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/oss-maven.md">6.6.0 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.6.0/jindodata_download.md">下载地址</a>。</li>
 <li>nextarch classifier 优化 io 性能，使用协程异步化，相同配置下支持更高并发。写场景使用 sendfile 实现零拷贝优化，节省内存，并提升性能。</li>
@@ -544,33 +570,33 @@
 <li>jindo-fuse 默认改为使用 nextarch 实现。</li>
 </ul>
 <h2 id="6542024-08-20">6.5.4，2024-08-20<a class="headerlink" href="#6542024-08-20" title="Permanent link">§</a></h2>
-<h3 id="_9">版本概要<a class="headerlink" href="#_9" title="Permanent link">§</a></h3>
+<h3 id="_11">版本概要<a class="headerlink" href="#_11" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.5.4 正式版的功能</p>
-<h3 id="_10">介绍<a class="headerlink" href="#_10" title="Permanent link">§</a></h3>
+<h3 id="_12">介绍<a class="headerlink" href="#_12" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.4/oss-maven.md">6.5.4 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.4/jindodata_download.md">下载地址</a>。</li>
 <li>优化 flink connector 依赖，对部分依赖进行 shade。</li>
 </ul>
 <h2 id="6532024-08-15">6.5.3，2024-08-15<a class="headerlink" href="#6532024-08-15" title="Permanent link">§</a></h2>
-<h3 id="_11">版本概要<a class="headerlink" href="#_11" title="Permanent link">§</a></h3>
+<h3 id="_13">版本概要<a class="headerlink" href="#_13" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.5.3 正式版的功能</p>
-<h3 id="_12">介绍<a class="headerlink" href="#_12" title="Permanent link">§</a></h3>
+<h3 id="_14">介绍<a class="headerlink" href="#_14" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.3/oss-maven.md">6.5.3 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.3/jindodata_download.md">下载地址</a>。</li>
 <li>修复 JindoOssFileSystem 的 Delegation Token Renew 机制。</li>
 </ul>
 <h2 id="6522024-08-12">6.5.2，2024-08-12<a class="headerlink" href="#6522024-08-12" title="Permanent link">§</a></h2>
-<h3 id="_13">版本概要<a class="headerlink" href="#_13" title="Permanent link">§</a></h3>
+<h3 id="_15">版本概要<a class="headerlink" href="#_15" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.5.2 正式版的功能</p>
-<h3 id="_14">介绍<a class="headerlink" href="#_14" title="Permanent link">§</a></h3>
+<h3 id="_16">介绍<a class="headerlink" href="#_16" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.2/oss-maven.md">6.5.2 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.2/jindodata_download.md">下载地址</a>。</li>
 <li>修复 getfacl 缺少 entries 问题。</li>
 </ul>
 <h2 id="6512024-08-05">6.5.1，2024-08-05<a class="headerlink" href="#6512024-08-05" title="Permanent link">§</a></h2>
-<h3 id="_15">版本概要<a class="headerlink" href="#_15" title="Permanent link">§</a></h3>
+<h3 id="_17">版本概要<a class="headerlink" href="#_17" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.5.1 正式版的功能</p>
-<h3 id="_16">介绍<a class="headerlink" href="#_16" title="Permanent link">§</a></h3>
+<h3 id="_18">介绍<a class="headerlink" href="#_18" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.1/oss-maven.md">6.5.1 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.1/jindodata_download.md">下载地址</a>。</li>
 <li>提升 JindoSDK 对于低于 Hadoop 2.8.x 版本接口的兼容性，如 <code>CallerContext</code> 及 <code>FsServerDefaults</code>。</li>
@@ -583,9 +609,9 @@
 <li>修复 nextarch classifier 对 RootPolicy 支持问题。</li>
 </ul>
 <h2 id="6502024-07-12">6.5.0，2024-07-12<a class="headerlink" href="#6502024-07-12" title="Permanent link">§</a></h2>
-<h3 id="_17">版本概要<a class="headerlink" href="#_17" title="Permanent link">§</a></h3>
+<h3 id="_19">版本概要<a class="headerlink" href="#_19" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.5.0 正式版的功能</p>
-<h3 id="_18">介绍<a class="headerlink" href="#_18" title="Permanent link">§</a></h3>
+<h3 id="_20">介绍<a class="headerlink" href="#_20" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.0/oss-maven.md">6.5.0 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.0/jindodata_download.md">下载地址</a>。</li>
 <li>修复偶现 Signer V4 签名问题，将签名时间戳转换函数 localtime、gmtime 替换为 localtime_r、gmtime_r 避免并发问题。</li>
@@ -595,18 +621,18 @@
 <li>commiter 支持 setXAttr。</li>
 </ul>
 <h2 id="6352024-06-28">6.3.5，2024-06-28<a class="headerlink" href="#6352024-06-28" title="Permanent link">§</a></h2>
-<h3 id="_19">版本概要<a class="headerlink" href="#_19" title="Permanent link">§</a></h3>
+<h3 id="_21">版本概要<a class="headerlink" href="#_21" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.3.5 正式版的功能</p>
-<h3 id="_20">介绍<a class="headerlink" href="#_20" title="Permanent link">§</a></h3>
+<h3 id="_22">介绍<a class="headerlink" href="#_22" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.5/oss-maven.md">6.3.5 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.5/jindodata_download.md">下载地址</a>。</li>
 <li>修复偶现 Signer V4 签名问题，将签名时间戳转换函数 localtime、gmtime 替换为 localtime_r、gmtime_r 避免并发问题。</li>
 <li>修复 libjindosdk_c.so 访问 OSS-HDFS 偶现 crash 问题，及重试失败问题。</li>
 </ul>
 <h2 id="6402024-05-16">6.4.0，2024-05-16<a class="headerlink" href="#6402024-05-16" title="Permanent link">§</a></h2>
-<h3 id="_21">版本概要<a class="headerlink" href="#_21" title="Permanent link">§</a></h3>
+<h3 id="_23">版本概要<a class="headerlink" href="#_23" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.4.0 正式版的功能</p>
-<h3 id="_22">介绍<a class="headerlink" href="#_22" title="Permanent link">§</a></h3>
+<h3 id="_24">介绍<a class="headerlink" href="#_24" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.4.0/oss-maven.md">6.4.0 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.4.0/jindodata_download.md">下载地址</a>。</li>
 <li>JindoSDK 支持 CallerContext。</li>
@@ -616,18 +642,18 @@
 <li>优化了读 AppendObject 对象的性能。</li>
 </ul>
 <h2 id="6172024-04-12">6.1.7，2024-04-12<a class="headerlink" href="#6172024-04-12" title="Permanent link">§</a></h2>
-<h3 id="_23">版本概要<a class="headerlink" href="#_23" title="Permanent link">§</a></h3>
+<h3 id="_25">版本概要<a class="headerlink" href="#_25" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.1.7 正式版的功能</p>
-<h3 id="_24">介绍<a class="headerlink" href="#_24" title="Permanent link">§</a></h3>
+<h3 id="_26">介绍<a class="headerlink" href="#_26" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.7/oss-maven.md">6.1.7 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.7/jindodata_download.md">下载地址</a>。</li>
 <li>修复若干问题</li>
 <li>JindoSDK 支持 JindoCache + JindoAuth 访问 DLF。</li>
 </ul>
 <h2 id="6342024-04-11">6.3.4，2024-04-11<a class="headerlink" href="#6342024-04-11" title="Permanent link">§</a></h2>
-<h3 id="_25">版本概要<a class="headerlink" href="#_25" title="Permanent link">§</a></h3>
+<h3 id="_27">版本概要<a class="headerlink" href="#_27" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.3.4 正式版的功能</p>
-<h3 id="_26">介绍<a class="headerlink" href="#_26" title="Permanent link">§</a></h3>
+<h3 id="_28">介绍<a class="headerlink" href="#_28" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.3.4 的 Maven 仓库</a> 和 <a href="../jindosdk/jindosdk_download/">下载地址</a>。</li>
 <li>JindoFuse 支持指定 metrics_ip、metrics_port 指定 promethues 监听 ip 和 端口。</li>
@@ -636,18 +662,18 @@
 <li>修复 listStatusIterator 不支持 ListObjectV2。即配置 <code>fs.oss.list.type</code> 为 <code>2</code>，可能导致 listStatusIterator 死循环（默认配置不影响）。</li>
 </ul>
 <h2 id="6332024-03-20">6.3.3，2024-03-20<a class="headerlink" href="#6332024-03-20" title="Permanent link">§</a></h2>
-<h3 id="_27">版本概要<a class="headerlink" href="#_27" title="Permanent link">§</a></h3>
+<h3 id="_29">版本概要<a class="headerlink" href="#_29" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.3.3 正式版的功能</p>
-<h3 id="_28">介绍<a class="headerlink" href="#_28" title="Permanent link">§</a></h3>
+<h3 id="_30">介绍<a class="headerlink" href="#_30" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.3/oss-maven.md">6.3.3 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.3/jindodata_download.md">下载地址</a></li>
 <li>修复 JindoFuse 创建 symlink 逻辑，支持 csi plugin 场景使用</li>
 <li>支持通过设置的反向代理访问对象存储</li>
 </ul>
 <h2 id="6322024-02-26">6.3.2，2024-02-26<a class="headerlink" href="#6322024-02-26" title="Permanent link">§</a></h2>
-<h3 id="_29">版本概要<a class="headerlink" href="#_29" title="Permanent link">§</a></h3>
+<h3 id="_31">版本概要<a class="headerlink" href="#_31" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.3.2 正式版的功能</p>
-<h3 id="_30">介绍<a class="headerlink" href="#_30" title="Permanent link">§</a></h3>
+<h3 id="_32">介绍<a class="headerlink" href="#_32" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.2/oss-maven.md">6.3.2 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.2/jindodata_download.md">下载地址</a></li>
 <li>修复 JindoFuse 读取 symlink 逻辑，symlink target 改为相对路径以支持 csi plugin</li>
@@ -655,9 +681,9 @@
 <li>修复 jindo CLI 参数 -version</li>
 </ul>
 <h2 id="6312024-02-21">6.3.1，2024-02-21<a class="headerlink" href="#6312024-02-21" title="Permanent link">§</a></h2>
-<h3 id="_31">版本概要<a class="headerlink" href="#_31" title="Permanent link">§</a></h3>
+<h3 id="_33">版本概要<a class="headerlink" href="#_33" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.3.1 正式版的功能</p>
-<h3 id="_32">介绍<a class="headerlink" href="#_32" title="Permanent link">§</a></h3>
+<h3 id="_34">介绍<a class="headerlink" href="#_34" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.1/oss-maven.md">6.3.1 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.1/jindodata_download.md">下载地址</a></li>
 <li>修复在 OSS-HDFS 文件上进行反向 seek 导致预读失效的问题</li>
@@ -666,9 +692,9 @@
 <li>Root Policy 路径改写支持根据子路径区分的一对多替换</li>
 </ul>
 <h2 id="6302024-01-31">6.3.0，2024-01-31<a class="headerlink" href="#6302024-01-31" title="Permanent link">§</a></h2>
-<h3 id="_33">版本概要<a class="headerlink" href="#_33" title="Permanent link">§</a></h3>
+<h3 id="_35">版本概要<a class="headerlink" href="#_35" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.3.0 正式版的功能</p>
-<h3 id="_34">介绍<a class="headerlink" href="#_34" title="Permanent link">§</a></h3>
+<h3 id="_36">介绍<a class="headerlink" href="#_36" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.0/oss-maven.md">6.3.0 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.3.0/jindodata_download.md">下载地址</a></li>
 <li>支持使用 V4 签名访问 OSS/OSS-HDFS</li>
@@ -679,17 +705,17 @@
 <li>修复 JindoFuse 读取 symlink 失败</li>
 </ul>
 <h2 id="6162023-12-28">6.1.6，2023-12-28<a class="headerlink" href="#6162023-12-28" title="Permanent link">§</a></h2>
-<h3 id="_35">版本概要<a class="headerlink" href="#_35" title="Permanent link">§</a></h3>
+<h3 id="_37">版本概要<a class="headerlink" href="#_37" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.1.6 正式版的功能</p>
-<h3 id="_36">介绍<a class="headerlink" href="#_36" title="Permanent link">§</a></h3>
+<h3 id="_38">介绍<a class="headerlink" href="#_38" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.6/oss-maven.md">6.1.6 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.6/jindodata_download.md">下载地址</a></li>
 <li>支持使用 V4 签名访问 OSS/OSS-HDFS</li>
 </ul>
 <h2 id="6202023-12-22">6.2.0，2023-12-22<a class="headerlink" href="#6202023-12-22" title="Permanent link">§</a></h2>
-<h3 id="_37">版本概要<a class="headerlink" href="#_37" title="Permanent link">§</a></h3>
+<h3 id="_39">版本概要<a class="headerlink" href="#_39" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.2.0 正式版的功能</p>
-<h3 id="_38">介绍<a class="headerlink" href="#_38" title="Permanent link">§</a></h3>
+<h3 id="_40">介绍<a class="headerlink" href="#_40" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.2.0/oss-maven.md">6.2.0 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.2.0/jindodata_download.md">下载地址</a></li>
 <li>新增支持异步的 CSDK <code>libjindosdk_c.so</code>，老版本 <code>libjindo-csdk.so</code> 逐渐弃用。</li>
@@ -709,34 +735,34 @@
 <li>修复 Hive 使用 LDAP + Kerberos + OSS-HDFS 时的认证问题</li>
 </ul>
 <h2 id="6152023-12-19">6.1.5，2023-12-19<a class="headerlink" href="#6152023-12-19" title="Permanent link">§</a></h2>
-<h3 id="_39">版本概要<a class="headerlink" href="#_39" title="Permanent link">§</a></h3>
+<h3 id="_41">版本概要<a class="headerlink" href="#_41" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.1.5 正式版的功能</p>
-<h3 id="_40">介绍<a class="headerlink" href="#_40" title="Permanent link">§</a></h3>
+<h3 id="_42">介绍<a class="headerlink" href="#_42" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.5/oss-maven.md">6.1.5 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.5/jindodata_download.md">下载地址</a></li>
 <li>OSS-HDFS 读写 IO 优化</li>
 </ul>
 <h2 id="6142023-12-14">6.1.4，2023-12-14<a class="headerlink" href="#6142023-12-14" title="Permanent link">§</a></h2>
-<h3 id="_41">版本概要<a class="headerlink" href="#_41" title="Permanent link">§</a></h3>
+<h3 id="_43">版本概要<a class="headerlink" href="#_43" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.1.4 正式版的功能</p>
-<h3 id="_42">介绍<a class="headerlink" href="#_42" title="Permanent link">§</a></h3>
+<h3 id="_44">介绍<a class="headerlink" href="#_44" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.4/oss-maven.md">6.1.4 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.4/jindodata_download.md">下载地址</a></li>
 <li>支持 HiveServer2 在 Kerberos &amp; LDAP 双认证场景下使用</li>
 <li>JindoSDK Java Jni 忽略 AddressSanitizer 误报</li>
 </ul>
 <h2 id="6132023-12-01">6.1.3，2023-12-01<a class="headerlink" href="#6132023-12-01" title="Permanent link">§</a></h2>
-<h3 id="_43">版本概要<a class="headerlink" href="#_43" title="Permanent link">§</a></h3>
+<h3 id="_45">版本概要<a class="headerlink" href="#_45" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.1.3 正式版的功能</p>
-<h3 id="_44">介绍<a class="headerlink" href="#_44" title="Permanent link">§</a></h3>
+<h3 id="_46">介绍<a class="headerlink" href="#_46" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.3/oss-maven.md">6.1.3 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.3/jindodata_download.md">下载地址</a></li>
 <li>修复 <code>dls://</code> 前缀访问 jindofs 的若干问题。</li>
 </ul>
 <h2 id="6122023-11-21">6.1.2，2023-11-21<a class="headerlink" href="#6122023-11-21" title="Permanent link">§</a></h2>
-<h3 id="_45">版本概要<a class="headerlink" href="#_45" title="Permanent link">§</a></h3>
+<h3 id="_47">版本概要<a class="headerlink" href="#_47" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.1.2 正式版的功能</p>
-<h3 id="_46">介绍<a class="headerlink" href="#_46" title="Permanent link">§</a></h3>
+<h3 id="_48">介绍<a class="headerlink" href="#_48" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.2/oss-maven.md">6.1.2 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.2/jindodata_download.md">下载地址</a></li>
 <li>通过配置 <code>fs.oss.list.type=2</code> 支持ListObjectV2，以避免访问开启了多版本bucket时的操作超时问题。</li>
@@ -745,34 +771,34 @@
 <li>修复写流出现一次 write 失败后，后续 write 出现的 NPE 问题。</li>
 </ul>
 <h2 id="6112023-10-20">6.1.1，2023-10-20<a class="headerlink" href="#6112023-10-20" title="Permanent link">§</a></h2>
-<h3 id="_47">版本概要<a class="headerlink" href="#_47" title="Permanent link">§</a></h3>
+<h3 id="_49">版本概要<a class="headerlink" href="#_49" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.1.1 正式版的功能</p>
-<h3 id="_48">介绍<a class="headerlink" href="#_48" title="Permanent link">§</a></h3>
+<h3 id="_50">介绍<a class="headerlink" href="#_50" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.1/oss-maven.md">6.1.1 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.1/jindodata_download.md">下载地址</a></li>
 <li>支持通过配置 fs.oss.legacy.version 为 3.8，兼容 JindoSDK 3.8.x 配置</li>
 </ul>
 <h2 id="6102023-09-28">6.1.0，2023-09-28<a class="headerlink" href="#6102023-09-28" title="Permanent link">§</a></h2>
-<h3 id="_49">版本概要<a class="headerlink" href="#_49" title="Permanent link">§</a></h3>
+<h3 id="_51">版本概要<a class="headerlink" href="#_51" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.1.0 正式版的功能</p>
-<h3 id="_50">介绍<a class="headerlink" href="#_50" title="Permanent link">§</a></h3>
+<h3 id="_52">介绍<a class="headerlink" href="#_52" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.0/oss-maven.md">6.1.0 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.1.0/jindodata_download.md">下载地址</a></li>
 <li>JindoSDK 支持 FileSystem close 后仍支持使用读写流进行读写</li>
 </ul>
 <h2 id="6012023-08-18">6.0.1，2023-08-18<a class="headerlink" href="#6012023-08-18" title="Permanent link">§</a></h2>
-<h3 id="_51">版本概要<a class="headerlink" href="#_51" title="Permanent link">§</a></h3>
+<h3 id="_53">版本概要<a class="headerlink" href="#_53" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.0.1 正式版的功能</p>
-<h3 id="_52">介绍<a class="headerlink" href="#_52" title="Permanent link">§</a></h3>
+<h3 id="_54">介绍<a class="headerlink" href="#_54" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.0.1/oss-maven.md">6.0.1 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.0.1/jindodata_download.md">下载地址</a></li>
 <li>JindoSDK 支持 isFileClosed 方法，用于判断访问 OSS-HDFS 的读写流是否已关闭。</li>
 <li>JindoSDK 对 flush 降频做了优化，在降频配置生效时，对第一次有数据的flush操作保证执行，防止flush出一个空文件。降频配置，可参考<a href="../jindosdk/flume/jindosdk_on_flume/">Flume 使用 JindoSDK 写入 OSS</a></li>
 </ul>
 <h2 id="6002023-08-15">6.0.0，2023-08-15<a class="headerlink" href="#6002023-08-15" title="Permanent link">§</a></h2>
-<h3 id="_53">版本概要<a class="headerlink" href="#_53" title="Permanent link">§</a></h3>
+<h3 id="_55">版本概要<a class="headerlink" href="#_55" title="Permanent link">§</a></h3>
 <p>发布 JindoSDK 6.0.0 正式版的功能</p>
-<h3 id="_54">介绍<a class="headerlink" href="#_54" title="Permanent link">§</a></h3>
+<h3 id="_56">介绍<a class="headerlink" href="#_56" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.0.0/oss-maven.md">6.0.0 的 Maven 仓库</a> 和 <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.0.0/jindodata_download.md">下载地址</a>，JindoSDK 合并 jindo-mapreduce (JindoCommitterFactory等) 到 jindo-sdk</li>
 <li>JindoSDK 新增若干修复，包含 flush 降频，优化 GC 回收，适配 OSS-HDFS 回收站等</li>
