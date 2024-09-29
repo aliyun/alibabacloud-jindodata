@@ -53,13 +53,15 @@
 | fs.jdo.memory.io.buffer.size.max.ratio |  浮点型 | 0.8 | 内存池最大用于IO buffer的容量比例 | 6.7.0+ nextarch    |
 
 ### Metrics 相关配置项
-| 配置项                                        |  类型  | 默认值              | 说明                                                                                                                                                     | 版本                 |
-|--------------------------------------------| --- |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| fs.jdo.metrics.level                       |  整型  | 1                | mertrics 收集等级，0是不收集，1是静态metrics，2是包含 bucket 信息的动态 metrics，3包含所有 metrics                                                                                | 6.6.0+ nextarch    |
-| fs.jdo.metrics.file.enable                 |  布尔值 | false            | 控制是否输出 metrics 到文件                                                                                                                                     | 6.6.0+ nextarch    |
-| fs.jdo.metrics.file.clean.enable           |  布尔值 | false            | 控制是否自动清理输出 metrics 的文件                                                                                                                                 | 6.6.0+ nextarch    |
-| fs.jdo.metrics.file.dir                    |  字符串 | /tmp/metrics     | 输出 metrics 到文件的所在目录                                                                                                                                    | 6.6.0+ nextarch    |
-| fs.jdo.metrics.interval.sec                |  整型  | 15               | 输出 metrics 到文件的间隔时间                                                                                                                                    | 6.6.0+ nextarch    |
+| 配置项                                   |  类型  | 默认值          | 说明                                                                                      | 版本              |
+|---------------------------------------| --- |--------------|-----------------------------------------------------------------------------------------|-----------------|
+| fs.jdo.metrics.level                  |  整型  | 1            | mertrics 收集等级，0是不收集，1是静态metrics，2是包含 bucket 信息的动态 metrics，3包含所有 metrics                 | 6.6.0+ nextarch |
+| fs.jdo.metrics.file.enable            |  布尔值 | false        | 控制是否输出 metrics 到文件                                                                      | 6.6.0+ nextarch |
+| fs.jdo.metrics.file.dir               |  字符串 | /tmp/metrics | 输出 metrics 到文件的所在目录                                                                     | 6.6.0+ nextarch |
+| fs.jdo.metrics.file.pid.append.enable |  布尔值 | false        | 控制输出 metrics 到文件的方式，true 代表以 pid 作为子目录，目录层级为(file_dir)/pid/jindosdk_(timestamp).metrics | 6.7.0+ nextarch |
+| fs.jdo.metrics.file.number            |  整型 | 16           | 控制单个目录下最大文件的个数                                                                          | 6.6.0+ nextarch |
+| fs.jdo.metrics.interval.sec           |  整型  | 15           | 输出 metrics 到文件的间隔时间，单位秒                                                                 | 6.6.0+ nextarch |
+| fs.jdo.metrics.file.clean.enable      |  布尔值 | false        | 控制是否自动清理输出 metrics 的文件, true 代表打开清理，默认24h清理一次                                           | 6.6.0+ nextarch |
 
 
 Credential Provider 相关配置，详见[《配置 OSS/OSS-HDFS Credential Provider》](./jindosdk_credential_provider.md)
