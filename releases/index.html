@@ -516,16 +516,15 @@
 <li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.7.0 的 Maven 仓库</a> 和 <a href="../jindosdk/jindosdk_download/">下载地址</a>。</li>
 <li>nextarch classifier 支持统一管理内存，使用 <code>fs.jdo.memory.pool.size.max.mb</code> 配置最大使用内存，并支持内存实时使用 metrics。</li>
 <li>nextarch classifier 支持 io buffer 内存使用控制，使用 <code>fs.jdo.memory.io.buffer.size.max.ratio</code> 配置最大使用内存池的比例。</li>
-<li>nextarch classifier 支持 golang sdk。</li>
+<li>nextarch classifier 支持 Golang SDK。</li>
+<li>nextarch classifier 支持 OSS 对象存储深冷归档。</li>
 <li>nextarch classifier 优化 pread 接口，内存零拷贝。</li>
 <li>nextarch classifier 优化 sendfile 在写小文件场景的使用。</li>
 <li>nextarch classifier 优化 metrics 框架，支持每次输出到单独文件，方便采集。</li>
 <li>nextarch classifier 优化 distjob 框中，排除 log4j 相关依赖。</li>
-<li>nextarch classifier 优化 OSS-HDFS nnbench 在 readAfterOpen 为 false 时的性能。</li>
 <li>nextarch classifier 优化 classloader 加载，在多个 classloader 加载 jindosdk 时的 so 残留问题，并且在配置了 <code>java.io.tmpdir</code> 时，默认解压至配置目录下。</li>
 <li>nextarch classifier 修复 OSS-HDFS StoragePolicy 相关接口。</li>
 <li>nextarch classifier 修复 OSS 对象存储，ListDirectory 返回结果的 Mtime 单位。</li>
-<li>nextarch classifier 修复 OSS 对象存储，支持深冷归档。</li>
 <li>nextarch classifier 修复 JindoCommitter 在 Cleanup 阶段，不应抛出异常。</li>
 <li>nextarch classifier 修复 DLF 相关 CredentialProvider 使用 MagicCommitter 时的权限问题。</li>
 <li>nextarch classifier 修复 JindoCache 的若干问题。</li>
