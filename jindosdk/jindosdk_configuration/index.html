@@ -729,13 +729,6 @@
 <td>6.6.0+ nextarch</td>
 </tr>
 <tr>
-<td>fs.jdo.metrics.file.clean.enable</td>
-<td>布尔值</td>
-<td>false</td>
-<td>控制是否自动清理输出 metrics 的文件</td>
-<td>6.6.0+ nextarch</td>
-</tr>
-<tr>
 <td>fs.jdo.metrics.file.dir</td>
 <td>字符串</td>
 <td>/tmp/metrics</td>
@@ -743,10 +736,31 @@
 <td>6.6.0+ nextarch</td>
 </tr>
 <tr>
+<td>fs.jdo.metrics.file.pid.append.enable</td>
+<td>布尔值</td>
+<td>false</td>
+<td>控制输出 metrics 到文件的方式，true 代表以 pid 作为子目录，目录层级为(file_dir)/pid/jindosdk_(timestamp).metrics</td>
+<td>6.7.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.jdo.metrics.file.number</td>
+<td>整型</td>
+<td>16</td>
+<td>控制单个目录下最大文件的个数</td>
+<td>6.6.0+ nextarch</td>
+</tr>
+<tr>
 <td>fs.jdo.metrics.interval.sec</td>
 <td>整型</td>
 <td>15</td>
-<td>输出 metrics 到文件的间隔时间</td>
+<td>输出 metrics 到文件的间隔时间，单位秒</td>
+<td>6.6.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.jdo.metrics.file.clean.enable</td>
+<td>布尔值</td>
+<td>false</td>
+<td>控制是否自动清理输出 metrics 的文件, true 代表打开清理，默认24h清理一次</td>
 <td>6.6.0+ nextarch</td>
 </tr>
 </tbody>
