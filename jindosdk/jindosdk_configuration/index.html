@@ -655,8 +655,8 @@
 <td>fs.oss.array.block.enable</td>
 <td>布尔值</td>
 <td>false</td>
-<td>默认关闭。打开后。客户端写入优先使用内存 buffer，单个buffer大小与 <code>fs.oss.blocklet.size.mb</code> 对齐，若内存不足，则写入磁盘。</td>
-<td>6.6.0+ nextarch</td>
+<td>默认关闭。打开后。客户端写入优先使用内存 buffer，单个buffer大小与 <code>fs.oss.blocklet.size.mb</code> 对齐，若内存不足，则写入磁盘。不建议在写大文件（&gt;8M）场景使用，可能会造成内存不足。</td>
+<td>6.7.0+ nextarch</td>
 </tr>
 </tbody>
 </table>
