@@ -28,7 +28,7 @@
 | fs.oss.upload.queue.size                   |  整型  | MAX(cpu核数,16)    | 进程内 OSS/OSS-HDFS 并发上传任务队列大小                                                                                                                          | 4.3.0+(deprecated) |
 | fs.oss.upload.max.pending.tasks.per.stream |  整型  | 10               | 单个文件 OSS/OSS-HDFS 最大并发上传任务数                                                                                                                          | 4.3.0+(deprecated) |
 | fs.oss.download.thread.concurrency         |  整型  | MAX(cpu核数,16)    | 进程内 OSS/OSS-HDFS 最大并发下载任务数                                                                                                                           | 4.3.0+(deprecated) |
-| fs.oss.read.readahead.max.buffer.count     |  整型  | 48               | 最大同时预读 OSS/OSS-HDFS 的 buffer 个数                                                                                                                      | 4.3.0+(deprecated)             |
+| fs.oss.read.readahead.max.buffer.count     |  整型  | 48               | 最大同时预读 OSS/OSS-HDFS 的 buffer 个数                                                                                                                      | 4.3.0+(deprecated) |
 | fs.oss.read.buffer.size                    |  整型  | 1048576          | OSS/OSS-HDFS 读缓冲区大小（字节）                                                                                                                              | 4.3.0+             |
 | fs.oss.write.buffer.size                   |  整型  | 1048576          | OSS/OSS-HDFS 写缓冲区大小（字节）                                                                                                                              | 4.3.0+             |
 | fs.oss.flush.interval.millisecond          |  整型  | -1               | OSS/OSS-HDFS 刷新缓冲区间隔（毫秒），小于 0 时不生效                                                                                                                   | 4.3.0+             |
@@ -42,7 +42,7 @@
 | fs.oss.async.executor.number               |  整型  | cpu核数            | 进程内 OSS/OSS-HDFS 异步io线程数                                                                                                                             | 6.6.0+ nextarch    |
 | fs.oss.upload.async.concurrency            |  整型  | MAX(cpu核数,16)    | 进程内 OSS/OSS-HDFS 异步上传并发数                                                                                                                             | 6.6.0+ nextarch    |
 | fs.oss.download.async.concurrency          |  整型  | MAX(cpu核数,16)    | 进程内 OSS/OSS-HDFS 异步下载并发数                                                                                                                             | 6.6.0+ nextarch    |
-| fs.oss.array.block.enable                  |  布尔值  | false    | 默认关闭。打开后。客户端写入优先使用内存 buffer，单个buffer大小与 `fs.oss.blocklet.size.mb` 对齐，若内存不足，则写入磁盘。                                                                    | 6.6.0+ nextarch    |
+| fs.oss.array.block.enable                  |  布尔值  | false    | 默认关闭。打开后。客户端写入优先使用内存 buffer，单个buffer大小与 `fs.oss.blocklet.size.mb` 对齐，若内存不足，则写入磁盘。不建议在写大文件（>8M）场景使用，可能会造成内存不足。          | 6.7.0+ nextarch    |
 
 ### 内存相关配置项
 | 配置项                                 |  类型  | 默认值 | 说明                    | 版本                 |
