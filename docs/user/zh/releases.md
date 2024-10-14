@@ -1,5 +1,19 @@
 # JindoSDK 版本记录
 
+## 6.7.1，2024-10-14
+
+### 版本概要
+
+发布 JindoSDK 6.7.1 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.7.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- nextarch classifier 优化默认并发下的写性能。
+- nextarch classifier 修复 hudi 读写 log 时，对 AlreadyBeingCreatedException 异常处理。
+- nextarch classifier 修复 JindoCommitter 访问 OSS-HDFS 未清理 task 残留的临时目录。
+- jindo-fuse 修复在 s3 scheme 上追加写的支持。
+
 ## 6.7.0，2024-09-29
 
 ### 版本概要
@@ -8,7 +22,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.7.0 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.7.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.0/jindodata_download.md)。
 - nextarch classifier 支持统一管理内存，使用 `fs.jdo.memory.pool.size.max.mb` 配置最大使用内存，并支持内存实时使用 metrics。
 - nextarch classifier 支持 io buffer 内存使用控制，使用 `fs.jdo.memory.io.buffer.size.max.ratio` 配置最大使用内存池的比例。
 - nextarch classifier 支持 Golang SDK。

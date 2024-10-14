@@ -1,10 +1,20 @@
 # JindoSDK Release History
 
+## 6.7.1，2024-10-14
+
+Release of official version features for JindoSDK 6.7.1.
+
+- Update the [Maven repository for version 6.7.1](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- The `nextarch classifier` optimizes write performance under default concurrency.
+- The `nextarch classifier` fixes the handling of `AlreadyBeingCreatedException` when reading and writing Hudi logs.
+- The `nextarch classifier` fixes an issue with `JindoCommitter` where it fails to clean up temporary directories left by tasks when accessing OSS-HDFS.
+- `jindo-fuse` fixes support for append writes on S3 scheme.
+
 ## 6.7.0，2024-09-29
 
 Release of official version features for JindoSDK 6.7.0.
 
-- Update the [Maven repository for version 6.7.0](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Update the [Maven repository for version 6.7.0](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.0/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.0/jindodata_download.md) for JindoSDK.
 - The `nextarch classifier` now supports unified memory management with `fs.jdo.memory.pool.size.max.mb` to configure the maximum memory usage and provides real-time memory usage metrics.
 - The `nextarch classifier` now supports controlling IO buffer memory usage with `fs.jdo.memory.io.buffer.size.max.ratio`.
 - The `nextarch classifier` now supports the Golang SDK.

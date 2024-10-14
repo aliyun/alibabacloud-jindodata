@@ -22,7 +22,7 @@ Download the JindoSDK software package `jindosdk-{VERSION}-{PLATFORM}.tar.gz`, p
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.0/jindosdk-6.7.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.1/jindosdk-6.7.1-linux.tar.gz
 
 ls -l
 ```
@@ -33,7 +33,7 @@ Your `jindosdk-patches` folder should display:
 -rwxrwxr-x 1 hadoop hadoop      1263 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
 -rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.0-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.1-linux.tar.gz
 ```
 
 > **Caution**: When upgrading from versions below 4.6.8 to 4.6.9 or higher, or to version 6.x, first set `fs.jdo.committer.allow.concurrent=false` in `core-site.xml`
@@ -68,7 +68,7 @@ Execute the `apply_all.sh` script to initiate the upgrade process.
 For example:
 
 ```bash
-./apply_all.sh 6.7.0
+./apply_all.sh 6.7.1
 ```
 
 Upon successful completion, you'll see the following output:
@@ -102,7 +102,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.0/jindosdk-6.7.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.1/jindosdk-6.7.1-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -113,14 +113,14 @@ Your `jindo-patch` folder should contain:
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.0-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.1-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
 Create the upgrade package by executing this command:
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 6.7.0
+bash bootstrap_jindosdk.sh -gen 6.7.1
 ```
 **Explanation of parameters: `-gen` generates a lite upgrade package, `-gen-full` indicates generating a full upgrade package.**
 

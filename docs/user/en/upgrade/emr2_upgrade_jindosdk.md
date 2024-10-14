@@ -15,7 +15,7 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/
 tar zxf jindosdk-patches.tar.gz
 ```
 
-Download the JindoSDK software package `jindosdk-{VERSION}-{PLATFORM}.tar.gz`, replacing `{VERSION}` and `{PLATFORM}` appropriately (for example, `6.7.0` for version and `linux` for platform).
+Download the JindoSDK software package `jindosdk-{VERSION}-{PLATFORM}.tar.gz`, replacing `{VERSION}` and `{PLATFORM}` appropriately (for example, `6.7.1` for version and `linux` for platform).
 
 ```bash
 cd jindosdk-patches
@@ -67,10 +67,10 @@ Execute the `apply_all.sh` script to carry out the upgrade.
 ./apply_all.sh {NEW_JINDOSDK_VERSION}
 ```
 
-For instance, to upgrade to version `6.7.0`, run:
+For instance, to upgrade to version `6.7.1`, run:
 
 ```bash
-./apply_all.sh 6.7.0
+./apply_all.sh 6.7.1
 ```
 
 Upon completion, you will see output like:
@@ -98,13 +98,13 @@ To use the new JindoSDK version when expanding an existing cluster, add a bootst
 
 Download `jindosdk-patches.tar.gz`, `jindosdk-{VERSION}-{PLATFORM}.tar.gz`, and `[bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh)`.
 
-For example, upgrading to version `6.7.0` on Linux x86:
+For example, upgrading to version `6.7.1` on Linux x86:
 
 ```bash
 mkdir jindo-patch
 cd jindo-patch
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.0/jindosdk-6.7.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.1/jindosdk-6.7.1-linux.tar.gz
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
 ls -l
 ```
@@ -115,10 +115,10 @@ Generate the upgrade package next:
 bash bootstrap_jindosdk.sh -gen-full {NEW_JINDOSDK_VERSION}
 ```
 
-For version `6.7.0`, run:
+For version `6.7.1`, run:
 
 ```bash
-bash bootstrap_jindosdk.sh -gen-full 6.7.0
+bash bootstrap_jindosdk.sh -gen-full 6.7.1
 ```
 
 A generated patch will be located at `/home/emr-user/jindo-patch/jindosdk-bootstrap-patches.tar.gz`.
@@ -164,7 +164,7 @@ If you're creating a new EMR cluster and want to use the latest JindoSDK, you ca
 
 Download `jindosdk-patches.tar.gz`, `jindosdk-{VERSION}-{PLATFORM}.tar.gz`, and `[bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh)`.
 
-For example, to upgrade the new cluster's JindoSDK to version `6.7.0` on Linux x86:
+For example, to upgrade the new cluster's JindoSDK to version `6.7.1` on Linux x86:
 
 ```bash
 mkdir jindo-patch
@@ -173,7 +173,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.0/jindosdk-6.7.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.1/jindosdk-6.7.1-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
 
@@ -184,7 +184,7 @@ The contents should look like this:
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.0-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.1-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -194,10 +194,10 @@ Execute the command to create the upgrade package:
 bash bootstrap_jindosdk.sh -gen-full $NEW_JINDOSDK_VERSION
 ```
 
-For upgrading to version `6.7.0`, run:
+For upgrading to version `6.7.1`, run:
 
 ```bash
-bash bootstrap_jindosdk.sh -gen-full 6.7.0
+bash bootstrap_jindosdk.sh -gen-full 6.7.1
 ```
 **Explanation of parameters: `-gen` generates a lite upgrade package, while `-gen-full` generates a full upgrade package.**
 

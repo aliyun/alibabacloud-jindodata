@@ -22,7 +22,7 @@ Download the JindoSDK software package `jindosdk-{VERSION}-{PLATFORM}.tar.gz` (a
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.0/jindosdk-6.7.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.1/jindosdk-6.7.1-linux.tar.gz
 
 ls -l
 ```
@@ -33,7 +33,7 @@ Your `jindosdk-patches` folder should show:
 -rwxrwxr-x 1 hadoop hadoop      1263 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
 -rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.0-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.1-linux.tar.gz
 -rwxrwxr-x 1 hadoop hadoop      1308 May 01 00:00 revert_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6326 May 01 00:00 revert.sh
 ```
@@ -66,7 +66,7 @@ Execute the `apply_all.sh` script to initiate the upgrade process.
 For example:
 
 ```bash
-./apply_all.sh 6.7.0
+./apply_all.sh 6.7.1
 ```
 
 Upon successful completion, you'll see this output:
@@ -132,7 +132,7 @@ To perform an auto-upgrade and repair during cluster expansion, follow these ste
 
 ### Step 1: Create a Bootstrap Upgrade Package
 
-Download `jindosdk-patches.tar.gz`, `jindosdk-6.7.0-linux.tar.gz`, and `[bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh)`.
+Download `jindosdk-patches.tar.gz`, `jindosdk-6.7.1-linux.tar.gz`, and `[bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh)`.
 
 ```bash
 mkdir jindo-patch
@@ -141,7 +141,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.0/jindosdk-6.7.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.1/jindosdk-6.7.1-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -152,7 +152,7 @@ Content example:
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.0-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.1-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -165,7 +165,7 @@ bash bootstrap_jindosdk.sh -gen $JINDOSDK_VERSION
 For example:
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 6.7.0
+bash bootstrap_jindosdk.sh -gen 6.7.1
 ```
 **Explanation of parameters: `-gen` generates a lite upgrade package, `-gen-full` indicates generating a full upgrade package.**
 
@@ -219,7 +219,7 @@ When creating a new E-MapReduce (EMR) cluster, you can add a bootstrap action in
 
 ### Step 1: Create a Bootstrap Upgrade Package
 
-Download the `jindosdk-patches.tar.gz`, `jindosdk-6.7.0-linux.tar.gz`, and `[bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh)` files.
+Download the `jindosdk-patches.tar.gz`, `jindosdk-6.7.1-linux.tar.gz`, and `[bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh)` files.
 
 ```bash
 mkdir jindo-patch
@@ -228,7 +228,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.0/jindosdk-6.7.0-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.1/jindosdk-6.7.1-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -239,7 +239,7 @@ The contents will appear as:
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.0-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.1-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -252,7 +252,7 @@ bash bootstrap_jindosdk.sh -gen-full $JINDOSDK_VERSION
 For example,
 
 ```bash
-bash bootstrap_jindosdk.sh -gen-full 6.7.0
+bash bootstrap_jindosdk.sh -gen-full 6.7.1
 ```
 **Explanation of parameters:** `-gen` generates a lite upgrade package, while `-gen-full` indicates generating a full upgrade package.
 
