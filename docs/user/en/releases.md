@@ -1,13 +1,13 @@
 # JindoSDK Release History
 
-## 6.7.1，2024-10-14
+## 6.7.1，2024-10-15
 
 Release of official version features for JindoSDK 6.7.1.
 
 - Update the [Maven repository for version 6.7.1](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
 - The `nextarch classifier` optimizes write performance under default concurrency.
 - The `nextarch classifier` fixes the handling of `AlreadyBeingCreatedException` when reading and writing Hudi logs.
-- The `nextarch classifier` fixes an issue with `JindoCommitter` where it fails to clean up temporary directories left by tasks when accessing OSS-HDFS.
+- fixes an issue with `JindoCommitter` where it fails to clean up temporary directories left by tasks when accessing OSS-HDFS.
 - `jindo-fuse` fixes support for append writes on S3 scheme.
 
 ## 6.7.0，2024-09-29
