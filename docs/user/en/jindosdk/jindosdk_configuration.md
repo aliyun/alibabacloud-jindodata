@@ -14,6 +14,12 @@
 | `logger.verbose`                          | Integer    | `0`                 | Output VERBOSE logs greater than or equal to this level; range is 0-99, where 0 means no output.                                                                | 4.3.0+                 |
 | `logger.cleaner.enable`                   | Boolean    | `false`             | Whether to enable log cleaning.                                                                                                                                  | 4.3.0+                 |
 
+#### Setting log4j.properties For Java SDK
+```
+log4j.logger.com.aliyun.jindodata=INFO
+log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
+```
+
 #### I/O Related Configuration Items
 
 | Configuration Item                        | Type       | Default Value       | Description                                                                                                                                                   | Version                 |
