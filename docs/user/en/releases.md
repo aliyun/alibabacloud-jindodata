@@ -1,5 +1,15 @@
 # JindoSDK Release History
 
+## 6.7.2，2024-10-21
+
+Release of official version features for JindoSDK 6.7.2.
+
+- Updated the [Maven Repository for version 6.7.2](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- The `nextarch classifier` has been optimized for metrics statistics.
+- The `nextarch classifier` has fixed the issue of small blocks appearing after flush in the OSS-HDFS write scenario.
+- The `nextarch classifier` has fixed the occasional crash caused by the background metrics thread.
+- Pyjindo has fixed the `invalid pointer` issue in the 6.7.x version. For versions 6.7.0 and 6.7.1, the issue can be bypassed by setting the environment variable `JINDO_STAT_MEMORY=0`.
+
 ## 6.7.1，2024-10-15
 
 Release of official version features for JindoSDK 6.7.1.

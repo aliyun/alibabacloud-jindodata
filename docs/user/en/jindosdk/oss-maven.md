@@ -1,4 +1,4 @@
-# JindoData 6.7.1 Maven Dependencies
+# JindoData 6.7.2 Maven Dependencies
 
 In the Maven `pom.xml` file, add dependencies for JindoSDK:
 
@@ -12,7 +12,7 @@ In the Maven `pom.xml` file, add dependencies for JindoSDK:
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.7.1</jindodata.version>
+        <jindodata.version>6.7.2</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -62,7 +62,7 @@ Add dependencies for Jindo Flink in Maven's `pom.xml`:
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.7.1</jindodata.version>
+        <jindodata.version>6.7.2</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -112,7 +112,7 @@ Add dependencies for JindoDistCP to Maven's `pom.xml`:
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.7.1</jindodata.version>
+        <jindodata.version>6.7.2</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     

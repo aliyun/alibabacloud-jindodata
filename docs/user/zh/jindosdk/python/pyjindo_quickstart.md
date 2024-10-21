@@ -55,12 +55,12 @@ export HADOOP_CONF_DIR=/etc/taihao-apps/hadoop-conf
 
 ### 安装 PyJindo
 
-以 Python3.8 环境安装最新版本的 pyjindo-6.7.1 为例
+以 Python3.8 环境安装最新版本的 pyjindo-6.7.2 为例
 
 ```bash
 python3.8 -m ensurepip
 python3.8 -m pip install pip --upgrade --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/
-python3.8 -m pip install pyjindo-6.7.1-cp38-abi3-linux_x86_64.whl
+python3.8 -m pip install pyjindo-6.7.2-cp38-abi3-linux_x86_64.whl
 ```
 
 ### 编写 python 测试程序
