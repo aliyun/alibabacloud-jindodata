@@ -22,7 +22,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.7.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.1/oss-maven.md) 和 [下载地址]((https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.1/jindodata_download.md)。
+- JindoSDK 更新 [6.7.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.1/jindodata_download.md)。
 - nextarch classifier 优化默认并发下的写性能。
 - nextarch classifier 修复 hudi 读写 log 时，对 AlreadyBeingCreatedException 异常处理。
 - 修复 JindoCommitter 访问 OSS-HDFS 未清理 task 残留的临时目录。
