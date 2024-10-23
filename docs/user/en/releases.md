@@ -1,5 +1,17 @@
 # JindoSDK Release History
 
+## 6.4.1，2024-10-23
+
+Release of official version features for JindoSDK 6.4.1.
+
+- Updated the [Maven Repository for version 6.4.1](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.4.1/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.4.1/jindodata_download.md) for JindoSDK.
+- Fix occasional issues with Signer V4 signature by replacing timestamp conversion functions localtime, gmtime with thread-safe versions localtime_r, gmtime_r.
+- The `nextarch classifier` fixes the handling of `AlreadyBeingCreatedException` when reading and writing Hudi logs.
+- A fix has been implemented for the Delegation Token Renew mechanism in JindoOssFileSystem.
+- Fixes an issue with `JindoCommitter` where it fails to clean up temporary directories left by tasks when accessing OSS-HDFS.
+- Enhance compatibility of JindoSDK with interfaces below Hadoop 2.8.x versions, such as `CallerContext` and `FsServerDefaults`.
+- Improved classloader loading mechanisms to resolve issues with residual shared objects when multiple classloaders load jindosdk, and decompresses files to the specified directory via `java.io.tmpdir`.
+
 ## 6.7.2，2024-10-21
 
 Release of official version features for JindoSDK 6.7.2.
@@ -14,7 +26,7 @@ Release of official version features for JindoSDK 6.7.2.
 
 Release of official version features for JindoSDK 6.7.1.
 
-- Update the [Maven repository for version 6.7.1](jindosdk/oss-maven.md) and the [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Update the [Maven repository for version 6.7.1](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.1/oss-maven.md) and the [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.1/jindodata_download.md) for JindoSDK.
 - The `nextarch classifier` optimizes write performance under default concurrency.
 - The `nextarch classifier` fixes the handling of `AlreadyBeingCreatedException` when reading and writing Hudi logs.
 - fixes an issue with `JindoCommitter` where it fails to clean up temporary directories left by tasks when accessing OSS-HDFS.
