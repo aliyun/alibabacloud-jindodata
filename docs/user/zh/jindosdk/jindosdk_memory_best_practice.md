@@ -6,7 +6,7 @@ jindosdk hadoop sdk 使用 jni 调用 native 实现，因此 jvm 相关 gc 参�
 
 ### 部属方法
 
-jindosdk 完整产出物在 tar 包中默认携带了 jemalloc：
+jindosdk 4.6.8 及以上版本完整产出物在 tar 包中默认携带了 jemalloc：
 
 ```
 .
