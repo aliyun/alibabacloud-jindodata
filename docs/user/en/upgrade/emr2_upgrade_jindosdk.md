@@ -152,7 +152,39 @@ Fill in configuration fields as follows:
 | **Execution Time**   | Choose **After Component Startup**                            |                                                           |
 | **Failure Strategy** | Select **Continue Execution**                                 |                                                           |
 
-#### Step 4: Ensure Latest Fixes Are Loaded
+### Step 4: Modify Cluster Configuration
+
+#### 4.1 Compatibility with Older Versions of EMR Ranger Component
+
+**Notice**: If EMR Ranger is enabled and you are upgrading JindoSDK from EMR-3.51.1/EMR-5.17.1 or earlier versions to versions between 6.5.0 and 6.7.2, there may be compatibility issues. It is recommended to upgrade to version 6.7.3 or above and modify the cluster configuration as follows:
+
+a. Go to the **Configuration** page of the HADOOP-COMMON service and click on the **core-site.xml** tab.
+
+b. On the **core-site.xml** page, search for the configuration item name.
+
+c. Modify the configuration item.
+
+| Parameter           | Description                                                                                         |
+|---------------------|-----------------------------------------------------------------------------------------------------|
+| `fs.jdo.plugin.dir` | Configure this to the plugins directory to `/opt/apps/JINDOSDK/jindosdk-current/plugins`. |
+
+These steps will help you ensure compatibility and proper configuration when upgrading JindoSDK in your cluster. If you encounter any issues, please refer to the documentation or contact support for further assistance.
+
+#### Step 5: Ensure Latest Fixes Are Loaded
+
+```bash
+ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
+```
+
+```bash
+lrwxrwxrwx 1 root root 64 Apr 12 11:08 jindo-core-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.7.3-linux/lib/jindo-core-6.7.3.jar
+lrwxrwxrwx 1 root root 82 Apr 12 11:08 jindo-core-linux-el7-aarch64-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.7.3-linux/lib/jindo-core-linux-el7-aarch64-6.7.3.jar
+lrwxrwxrwx 1 root root 63 Apr 12 11:08 jindo-sdk-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.7.3-linux/lib/jindo-sdk-6.7.3.jar
+lrwxrwxrwx 1 root root 50 Apr 12 11:08 native -> /opt/apps/JINDOSDK/jindosdk-6.7.3-linux/lib/native
+lrwxrwxrwx 1 root root 57 Apr 12 11:08 site-packages -> /opt/apps/JINDOSDK/jindosdk-6.7.3-linux/lib/site-packages
+```
+
+#### Step 5: Restart Services After Upgrade
 
 For freshly created clusters, restart Hive, Presto, Impala, Flink, Ranger, Spark, and Zeppelin services. For expanded nodes, only restart these services on the added nodes.
 
