@@ -87,7 +87,23 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 ### DONE
 ```
 
-### 4. 确认升级成功
+### 4. 修改集群配置
+
+#### 4.1 兼容老版本 EMR Ranger 组件
+
+**注意**：如果开启了 EMR Ranger，且从 EMR-3.51.1/EMR-5.17.1 及之前版本升级 JindoSDK 到 [6.5.0, 6.7.2] 版本区间时有兼容性问题，建议升级到 6.7.3 及以上版本, 并按以下方式修改集群配置。
+
+a. 在 HADOOP-COMMON 服务的**配置**页面，单击**core-sites.xml**页签。
+
+b. 在**core-sites.xml**页面，搜索**配置项名称**。
+
+c. 修改配置项。
+
+| 参数                  | 描述                                                                                                                                          |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| fs.jdo.plugin.dir | 把加载 plugin 的目录指向新版 JindoSDK 下的 plugin 路径，即把 `/opt/apps/RANGER/jindoauth-current/plugins` 修改为 `/opt/apps/JINDOSDK/jindosdk-current/plugins`。 |
+
+### 5. 确认升级成功
 
 ```bash
 ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
@@ -102,7 +118,7 @@ lrwxrwxrwx 1 root root 50 Apr 12 11:08 native -> /opt/apps/JINDOSDK/jindosdk-6.7
 lrwxrwxrwx 1 root root 57 Apr 12 11:08 site-packages -> /opt/apps/JINDOSDK/jindosdk-6.7.3-linux/lib/site-packages
 ```
 
-### 5. 升级后重启服务
+### 6. 升级后重启服务
 
 **说明:** 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。
 
