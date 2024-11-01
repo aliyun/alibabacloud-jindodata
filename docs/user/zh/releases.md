@@ -1,5 +1,19 @@
 # JindoSDK 版本记录
 
+## 6.7.3，2024-11-01
+
+### 版本概要
+
+发布 JindoSDK 6.7.3 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.7.3 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 打包时带入 jindoauth plugin，升级 jindosdk 后需将 `fs.jdo.plugin.dir` 指向 jindosdk plugins 目录。
+- nextarch classifier 修复 hudi 读写 log 时，对 AlreadyBeingCreatedException 异常处理。
+- nextarch classifier 修复在使用 http 请求更新 STS 时，偶现卡住问题。
+- nextarch classifier 修复开启 Ranger 后持续写入一个 OSS-HDFS 文件超过 1 小时后，文件无法继续写入的问题。
+
 ## 6.4.1，2024-10-23
 
 ### 版本概要
@@ -25,7 +39,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.7.2 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.7.2 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.2/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.2/jindodata_download.md)。
 - nextarch classifier 优化 metrics 统计信息。
 - nextarch classifier 修复在写 OSS-HDFS 场景 flush 后出现小块的问题。
 - nextarch classifier 修复后台 metrics 线程引发的偶现 crash 问题。
@@ -41,7 +55,6 @@
 
 - JindoSDK 更新 [6.7.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.1/jindodata_download.md)。
 - nextarch classifier 优化默认并发下的写性能。
-- nextarch classifier 修复 hudi 读写 log 时，对 AlreadyBeingCreatedException 异常处理。
 - 修复 JindoCommitter 访问 OSS-HDFS 未清理 task 残留的临时目录。
 - jindo-fuse 修复在 s3 scheme 上追加写的支持。
 

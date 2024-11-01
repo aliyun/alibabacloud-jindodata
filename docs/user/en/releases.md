@@ -1,5 +1,15 @@
 # JindoSDK Release History
 
+## 6.7.3，2024-11-01
+
+Release of official version features for JindoSDK 6.7.3.
+
+- Updated the [Maven Repository for version 6.7.3](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- The jindoauth plugin was included during packaging; after upgrading JindoSDK, ensure that `fs.jdo.plugin.dir` points to the jindosdk plugins directory.
+- The nextarch classifier fixed the handling of `AlreadyBeingCreatedException` exceptions when reading and writing logs in Hudi.
+- The nextarch classifier fixed an occasional hang issue when using HTTP requests to update STS.
+- The nextarch classifier fixed a problem where a file could no longer be written to after continuous writes exceeding one hour on OSS-HDFS when Ranger was enabled.
+
 ## 6.4.1，2024-10-23
 
 Release of official version features for JindoSDK 6.4.1.
@@ -16,7 +26,7 @@ Release of official version features for JindoSDK 6.4.1.
 
 Release of official version features for JindoSDK 6.7.2.
 
-- Updated the [Maven Repository for version 6.7.2](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Updated the [Maven Repository for version 6.7.2](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.2/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.2/jindodata_download.md) for JindoSDK.
 - The `nextarch classifier` has been optimized for metrics statistics.
 - The `nextarch classifier` has fixed the issue of small blocks appearing after flush in the OSS-HDFS write scenario.
 - The `nextarch classifier` has fixed the occasional crash caused by the background metrics thread.
