@@ -91,7 +91,7 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 
 #### 4.1 兼容老版本 EMR Ranger 组件
 
-**注意**：如果开启了 EMR Ranger，且从 EMR-3.51.1/EMR-5.17.1 及之前版本升级 JindoSDK 到 [6.5.0, 6.7.2] 版本区间时有兼容性问题，建议升级到 6.7.3 及以上版本, 并按以下方式修改集群配置。
+**注意**：如果开启了 EMR Ranger，且从 EMR-3.51.2/EMR-5.17.2 及之前版本升级 JindoSDK 到 [6.5.0, 6.7.2] 版本区间时有兼容性问题，建议升级到 6.7.3 及以上版本, 并按以下方式修改集群配置。
 
 a. 在 HADOOP-COMMON 服务的**配置**页面，单击**core-sites.xml**页签。
 
