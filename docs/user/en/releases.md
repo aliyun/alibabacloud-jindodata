@@ -1,10 +1,21 @@
 # JindoSDK Release History
 
+## 6.7.4，2024-11-08
+
+Release of official version features for JindoSDK 6.7.4.
+
+- Updated the [Maven Repository for version 6.7.4](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Fixed the issue with the dependency order of pthread hooks encountered while fixing the libjindosdk_c.so dynamic library.
+- Added new configuration `oss.serializer.read.auto.compatible=true` to FlinkConnector to address compatibility issues when recovering checkpoints written in 3.x versions to 4.x/6.x versions.
+- Fixed additional dependency issues introduced by `AlreadyBeingCreatedException` in the nextarch classifier.
+- Resolved the issue where JindoCommitter failed to recognize paths containing special characters in the nextarch classifier.
+- Fixed the issue where some RDMA parameters were not taking effect when accessing JindoCache in RDMA mode.
+
 ## 6.7.3，2024-11-01
 
 Release of official version features for JindoSDK 6.7.3.
 
-- Updated the [Maven Repository for version 6.7.3](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Updated the [Maven Repository for version 6.7.3](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.3/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.3/jindodata_download.md) for JindoSDK.
 - The jindoauth plugin was included during packaging; after upgrading JindoSDK, ensure that `fs.jdo.plugin.dir` points to the jindosdk plugins directory.
 - The nextarch classifier fixed the handling of `AlreadyBeingCreatedException` exceptions when reading and writing logs in Hudi.
 - The nextarch classifier fixed an occasional hang issue when using HTTP requests to update STS.

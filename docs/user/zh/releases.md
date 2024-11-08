@@ -1,5 +1,20 @@
 # JindoSDK 版本记录
 
+## 6.7.4，2024-11-08
+
+### 版本概要
+
+发布 JindoSDK 6.7.4 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.7.4 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 修复 libjindosdk_c.so 动态库时遇到的 pthread hook 依赖顺序问题。
+- FlinkConnector 新增配置 `oss.serializer.read.auto.compatible=true`，修复从 3.x 版本写的 checkpoint recover 到 4.x/6.x 版本实现时遇到的兼容性问题。
+- nextarch classifier 修复 AlreadyBeingCreatedException 引入的额外依赖问题。
+- nextarch classifier 修复 JindoCommitter 访问含特殊字符路径时无法识别的问题。
+- 修复访问 JindoCache RDMA 模式，部分 RDMA 参数未生效的问题。
+
 ## 6.7.3，2024-11-01
 
 ### 版本概要
@@ -8,7 +23,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.7.3 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.7.3 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.3/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.3/jindodata_download.md)。
 - 打包时带入 jindoauth plugin，支持升级 JindoSDK 后仍兼容老版本 EMR-Ranger，具体参见[升级文档](https://aliyun.github.io/alibabacloud-jindodata/upgrade/emr2_upgrade_jindosdk/#41-emr-ranger)。
 - nextarch classifier 修复 hudi 读写 log 时，对 AlreadyBeingCreatedException 异常处理。
 - nextarch classifier 修复在使用 http 请求更新 STS 时，偶现卡住问题。

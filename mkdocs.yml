@@ -102,8 +102,10 @@ nav:
       - EMR-5.6.0/EMR-3.40.0 及以上版本（旧版控制台）: upgrade/emr_upgrade_jindosdk.md
       - EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）: upgrade/emr2_upgrade_jindosdk.md
       - EMR-5.6.0/EMR-3.40.0 及以上arm版本（新版控制台）: upgrade/emr2_upgrade_jindosdk_arm.md
+    - EMR 集群升级 JindoData:
+      - EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）: upgrade/emr2_upgrade_jindofsx.md
     - EMR 集群升级 JindoCache:
-        - EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）: upgrade/emr2_upgrade_jindocache.md
+      - EMR-5.6.0/EMR-3.40.0 及以上x86版本（新版控制台）: upgrade/emr2_upgrade_jindocache.md
   - FAQ:
     - 常见问题: faq.md
     - 历史版本: releases.md
