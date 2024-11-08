@@ -15,8 +15,8 @@ jindosdk 完整产出物在 tar 包中默认携带了 jemalloc：
 ├── conf
 │   ├── ...
 ├── lib
-│   ├── jindo-core-6.7.3.jar
-│   ├── jindo-sdk-6.7.3.jar
+│   ├── jindo-core-6.7.4.jar
+│   ├── jindo-sdk-6.7.4.jar
 │   └── native
 │       ├── libjemalloc.so
 │       ├── ...
