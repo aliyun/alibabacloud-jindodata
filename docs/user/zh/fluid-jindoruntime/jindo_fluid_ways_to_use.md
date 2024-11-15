@@ -2,6 +2,7 @@
 - 使用列表
     - [挂载点在根目录下](#挂载点在根目录下)
     - [Secret 加密 AK 参数](#secret-加密-ak-参数)
+    - [使用阿里云STS_TOKEN](#使用阿里云ststoken)
     - [Raft 3 master 模式](#raft-3-master-模式)
     - [使用 Placement 部署多个 runtime](#使用-placement-部署多个-runtime)
     - [使用 NoseSelector 部署节点](#使用-noseselector-部署节点)
@@ -71,7 +72,7 @@ spec:
             key: fs.oss.accessKeySecret
 ```
 
-### 使用阿里云STS_TOKEN
+### 使用阿里云 STS_TOKEN
 ```yaml
 apiVersion: v1
 kind: Secret
