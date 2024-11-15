@@ -410,6 +410,7 @@
 <li>使用列表<ul>
 <li><a href="#挂载点在根目录下">挂载点在根目录下</a></li>
 <li><a href="#secret-加密-ak-参数">Secret 加密 AK 参数</a></li>
+<li><a href="#使用阿里云ststoken">使用阿里云STS_TOKEN</a></li>
 <li><a href="#raft-3-master-模式">Raft 3 master 模式</a></li>
 <li><a href="#使用-placement-部署多个-runtime">使用 Placement 部署多个 runtime</a></li>
 <li><a href="#使用-noseselector-部署节点">使用 NoseSelector 部署节点</a></li>
@@ -475,6 +476,33 @@ spec:
             name: mysecret
             key: fs.oss.accessKeySecret
 </code></pre>
+<h3 id="sts_token">使用阿里云 STS_TOKEN<a class="headerlink" href="#sts_token" title="Permanent link">§</a></h3>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+stringData:
+  AccessKeyId: &lt;AccessKeyId&gt;
+  AccessKeySecret:  &lt;AccessKeySecret&gt;
+  SecurityToken: &lt;SecurityToken&gt;
+</code></pre>
+<p>在 runtime 里使用 secret</p>
+<pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hadoop
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /mnt/disk1
+        quota: 10Gi
+        high: &quot;0.9&quot;
+        low: &quot;0.8&quot;
+  secret: mysecret
+</code></pre>
+<p>通过 <code>runtime.spec.secret</code> 来绑定临时生成的Token，可以通过更新 Secret 来刷新 Token 文件</p>
 <h3 id="raft-3-master">Raft 3 master 模式<a class="headerlink" href="#raft-3-master" title="Permanent link">§</a></h3>
 <p>JindoRuntime 模式启动一个 master，可以通过使用 master.replicas 来启动 3 个 master 进行 HA 转换。</p>
 <pre><code class="language-yaml">apiVersion: data.fluid.io/v1alpha1
