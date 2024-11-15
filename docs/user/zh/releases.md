@@ -1,5 +1,19 @@
 # JindoSDK 版本记录
 
+## 6.7.5，2024-11-15
+
+### 版本概要
+
+发布 JindoSDK 6.7.5 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.7.5 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- nextarch classifier 修复 ECS 免密场景，偶现的 STS Token 失效更新时卡死的问题。
+- nextarch classifier 支持 JindoCommitter 打开 root policy 配置。
+- nextarch classifier 优化 metrics append 到文件时，目录不存在时自动创建。
+- nextarch classifier 增加部分 metrics 指标。
+
 ## 6.7.4，2024-11-08
 
 ### 版本概要
@@ -8,7 +22,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.7.4 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.7.4 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.4/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.4/jindodata_download.md)。
 - 修复 libjindosdk_c.so 动态库时遇到的 pthread hook 依赖顺序问题。
 - FlinkConnector 新增配置 `oss.serializer.read.auto.compatible=true`，修复从 3.x 版本写的 checkpoint recover 到 4.x/6.x 版本实现时遇到的兼容性问题。
 - nextarch classifier 修复 AlreadyBeingCreatedException 引入的额外依赖问题。
