@@ -71,6 +71,37 @@ spec:
             key: fs.oss.accessKeySecret
 ```
 
+### 使用阿里云STS_TOKEN
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+stringData:
+  AccessKeyId: <AccessKeyId>
+  AccessKeySecret:  <AccessKeySecret>
+  SecurityToken: <SecurityToken>
+```
+在 runtime 里使用 secret
+```yaml
+apiVersion: data.fluid.io/v1alpha1
+kind: JindoRuntime
+metadata:
+  name: hadoop
+spec:
+  replicas: 1
+  tieredstore:
+    levels:
+      - mediumtype: SSD
+        path: /mnt/disk1
+        quota: 10Gi
+        high: "0.9"
+        low: "0.8"
+  secret: mysecret
+```
+
+通过 `runtime.spec.secret` 来绑定临时生成的Token，可以通过更新 Secret 来刷新 Token 文件
+
 ### Raft 3 master 模式
 JindoRuntime 模式启动一个 master，可以通过使用 master.replicas 来启动 3 个 master 进行 HA 转换。
 ```yaml
