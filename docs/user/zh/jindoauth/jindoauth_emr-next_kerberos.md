@@ -37,13 +37,13 @@ Apache Ranger 提供集中式的权限管理框架，可以对 Hadoop 生态中�
 
 ## 5. 权限配置示例。
 Ranger启用OSS后，已默认添加好了OSS Service。
-<img src="images/ranger_oss_1.png" width="800"/>
+![ranger-oss-entrance.png](images/ranger_oss_1.png)
 
 例：配置用户test拥有访问`oss://jindoauth-runjob-cn-shanghai/user/test`目录的所以权限的步骤：
 
 #### 配置 test 用户访问`oss://jindoauth-runjob-cn-shanghai/user/test`目录的访问权限为 ALL。
 
-<img src="images/ranger_oss_2.png" width="800"/>
+![ranger-oss-policy.png](images/ranger_oss_2.png)
 
 ##### 说明：
 
