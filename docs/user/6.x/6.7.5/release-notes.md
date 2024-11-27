@@ -7,7 +7,5 @@
 ### 介绍
 
 - JindoSDK 更新 [6.7.5 的 Maven 仓库](oss-maven.md) 和 [下载地址](jindodata_download.md)。
-- nextarch classifier 修复 ECS 免密场景，偶现的 STS Token 失效更新时卡死的问题。
-- nextarch classifier 支持 JindoCommitter 打开 root policy 配置。
-- nextarch classifier 优化 metrics append 到文件时，目录不存在时自动创建。
-- nextarch classifier 增加部分 metrics 指标。
+- nextarch classifier 优化访问 OSS-HDFS 时，频繁 Close-To-Append 或者 Flush 产生大量小块的问题。
+- jindo-fuse 支持访问 DLF Volume。
