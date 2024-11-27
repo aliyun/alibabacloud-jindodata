@@ -1,10 +1,32 @@
 # JindoSDK Release History
 
+## 6.7.6, 2024-11-27
+
+Released features of the official version JindoSDK 6.7.6.
+
+- JindoSDK has updated the [Maven repository for 6.7.6](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- The nextarch classifier has optimized access to OSS-HDFS by reducing the frequent generation of small blocks due to Close-To-Append or Flush operations.
+- jindo-fuse now supports accessing DLF Volume.
+
+## 6.7.5, 2024-11-15
+
+# ## Version Summary
+
+Released features of the official version JindoSDK 6.7.5.
+
+# ## Introduction
+
+- JindoSDK has updated the [Maven repository for 6.7.5](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.5/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.5/jindodata_download.md).
+- The nextarch classifier fixed an issue where the STS token occasionally fails to update during ECS passwordless scenarios.
+- The nextarch classifier now supports enabling the root policy configuration for JindoCommitter.
+- The nextarch classifier optimizes the process of appending metrics to files by automatically creating directories if they do not exist.
+- Additional metrics indicators have been added to the nextarch classifier.
+
 ## 6.7.4，2024-11-08
 
 Release of official version features for JindoSDK 6.7.4.
 
-- Updated the [Maven Repository for version 6.7.4](jindosdk/oss-maven.md) and [Download Url](jindosdk/jindosdk_download.md) for JindoSDK.
+- Updated the [Maven Repository for version 6.7.4](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.4/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.4/jindodata_download.md) for JindoSDK.
 - Fixed the issue with the dependency order of pthread hooks encountered while fixing the libjindosdk_c.so dynamic library.
 - Added new configuration `oss.serializer.read.auto.compatible=true` to FlinkConnector to address compatibility issues when recovering checkpoints written in 3.x versions to 4.x/6.x versions.
 - Fixed additional dependency issues introduced by `AlreadyBeingCreatedException` in the nextarch classifier.

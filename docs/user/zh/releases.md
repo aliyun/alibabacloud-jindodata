@@ -1,5 +1,17 @@
 # JindoSDK 版本记录
 
+## 6.7.6，2024-11-27
+
+### 版本概要
+
+发布 JindoSDK 6.7.6 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.7.6 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- nextarch classifier 优化访问 OSS-HDFS 时，频繁 Close-To-Append 或者 Flush 产生大量小块的问题。
+- jindo-fuse 支持访问 DLF Volume。
+
 ## 6.7.5，2024-11-15
 
 ### 版本概要
@@ -8,7 +20,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.7.5 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.7.5 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.5/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.5/jindodata_download.md)。
 - nextarch classifier 修复 ECS 免密场景，偶现的 STS Token 失效更新时卡死的问题。
 - nextarch classifier 支持 JindoCommitter 打开 root policy 配置。
 - nextarch classifier 优化 metrics append 到文件时，目录不存在时自动创建。
