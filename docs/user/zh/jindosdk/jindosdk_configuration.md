@@ -49,6 +49,8 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 | fs.oss.upload.async.concurrency            |  整型  | MAX(cpu核数,16)    | 进程内 OSS/OSS-HDFS 异步上传并发数                                                                                                                             | 6.6.0+ nextarch    |
 | fs.oss.download.async.concurrency          |  整型  | MAX(cpu核数,16)    | 进程内 OSS/OSS-HDFS 异步下载并发数                                                                                                                             | 6.6.0+ nextarch    |
 | fs.oss.array.block.enable                  |  布尔值  | false    | 默认关闭。打开后。客户端写入优先使用内存 buffer，单个buffer大小与 `fs.oss.blocklet.size.mb` 对齐，若内存不足，则写入磁盘。不建议在写大文件（>8M）场景使用，可能会造成内存不足。          | 6.7.0+ nextarch    |
+| fs.oss.append.threshold.size               |  整型  |  1048576         | 默认为0。客户端append写入时会检查最后一个block是否小于`fs.oss.append.threshold.size`。若小于，则从最后一个block末尾追加写；否则新建一个block开始写。若上一个block是虚拟块，则新建块。    | 6.7.6+ nextarch    |
+| fs.oss.flush.merge.threshold.size               |  整型  |  1048576         | 默认为1048576。打开后，flush时虚拟块会合并小于`fs.oss.flush.merge.threshold.size`的slice。 | 6.7.6+ nextarch    |
 
 ### 内存相关配置项
 | 配置项                                 |  类型  | 默认值 | 说明                    | 版本                 |
