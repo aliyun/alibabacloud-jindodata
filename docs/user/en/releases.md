@@ -5,7 +5,7 @@
 Released features of the official version JindoSDK 6.7.6.
 
 - JindoSDK has updated the [Maven repository for 6.7.6](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
-- The nextarch classifier has optimized access to OSS-HDFS by reducing the frequent generation of small blocks due to Close-To-Append or Flush operations.
+- The nextarch classifier has added configurations `fs.oss.append.threshold.size` and `fs.oss.flush.merge.threshold.size` to optimize the issue of frequent Close-To-Append or Flush generating a large number of small blocks. Details of these configurations can be found in [Common Client Configuration](jindosdk/jindosdk_configuration.md).
 - jindo-fuse now supports accessing DLF Volume.
 
 ## 6.7.5, 2024-11-15

@@ -9,7 +9,7 @@
 ### 介绍
 
 - JindoSDK 更新 [6.7.6 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
-- nextarch classifier 优化访问 OSS-HDFS 时，频繁 Close-To-Append 或者 Flush 产生大量小块的问题。
+- nextarch classifier 新增配置 `fs.oss.append.threshold.size` 和 `fs.oss.flush.merge.threshold.size`，优化频繁 Close-To-Append 或者 Flush 产生大量小块的问题，配置描述详见 [客户端常用配置](jindosdk/jindosdk_configuration.md)。
 - jindo-fuse 支持访问 DLF Volume。
 
 ## 6.7.5，2024-11-15
