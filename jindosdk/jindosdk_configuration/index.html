@@ -682,6 +682,20 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>默认关闭。打开后。客户端写入优先使用内存 buffer，单个buffer大小与 <code>fs.oss.blocklet.size.mb</code> 对齐，若内存不足，则写入磁盘。不建议在写大文件（&gt;8M）场景使用，可能会造成内存不足。</td>
 <td>6.7.0+ nextarch</td>
 </tr>
+<tr>
+<td>fs.oss.append.threshold.size</td>
+<td>整型</td>
+<td>0</td>
+<td>客户端append写入时会检查最后一个block是否小于<code>fs.oss.append.threshold.size</code>。若小于，则从最后一个block末尾追加写；否则新建一个block开始写。若上一个block是虚拟块，则新建块。</td>
+<td>6.7.6+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.flush.merge.threshold.size</td>
+<td>整型</td>
+<td>1048576</td>
+<td>打开后，flush时虚拟块会合并小于<code>fs.oss.flush.merge.threshold.size</code>的slice。</td>
+<td>6.7.6+ nextarch</td>
+</tr>
 </tbody>
 </table>
 <h3 id="_3">内存相关配置项<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>

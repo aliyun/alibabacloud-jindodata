@@ -562,7 +562,7 @@
 <h3 id="_2">介绍<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
 <ul>
 <li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.7.6 的 Maven 仓库</a> 和 <a href="../jindosdk/jindosdk_download/">下载地址</a>。</li>
-<li>nextarch classifier 优化访问 OSS-HDFS 时，频繁 Close-To-Append 或者 Flush 产生大量小块的问题。</li>
+<li>nextarch classifier 新增配置 <code>fs.oss.append.threshold.size</code> 和 <code>fs.oss.flush.merge.threshold.size</code>，频繁 Close-To-Append 或者 Flush 产生大量小块的问题，配置描述详见 <a href="../jindosdk/jindosdk_configuration/">客户端常用配置</a>。</li>
 <li>jindo-fuse 支持访问 DLF Volume。</li>
 </ul>
 <h2 id="6752024-11-15">6.7.5，2024-11-15<a class="headerlink" href="#6752024-11-15" title="Permanent link">§</a></h2>
