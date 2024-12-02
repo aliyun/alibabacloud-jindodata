@@ -220,7 +220,7 @@ Found 2 items
 | **脚本位置**     | 选择脚本所在OSS的位置。脚本路径格式必须为oss://**/*.sh格式。 | oss://<bucket-name>/path/to/patch/bootstrap_jindocache.sh      |
 | **参数**         | 引导操作脚本的参数，指定脚本中所引用的变量的值。             | -bootstrap oss://<bucket-name>/path/to/patch/jindocache-bootstrap-patches.tar.gz |
 | **执行范围**     | 选择**集群**。                                               |                                                              |
-| **执行时间**     | 选择**组件启动后**。                                         |                                                              |
+| **执行时间**     | 选择**组件启动前**。                                         |                                                              |
 | **执行失败策略** | 选择**继续执行**。                                           |                                                              |
 
 ## 场景三：新建集群
@@ -315,5 +315,5 @@ Found 2 items
 | **脚本位置**     | 选择脚本所在OSS的位置。脚本路径格式必须为oss://**/*.sh格式。 | oss://<bucket-name>/path/to/patch/bootstrap_jindocache.sh      |
 | **参数**         | 引导操作脚本的参数，指定脚本中所引用的变量的值。             | -bootstrap oss://<bucket-name>/path/to/patch/jindocache-bootstrap-patches.tar.gz |
 | **执行范围**     | 选择**集群**。                                               |                                                              |
-| **执行时间**     | 选择**组件启动后**。                                         |                                                              |
+| **执行时间**     | 选择**组件启动前**。                                         |                                                              |
 | **执行失败策略** | 选择**继续执行**。                                           |                                                              |

@@ -173,14 +173,14 @@ Refer to [Managing Bootstrap Actions](https://help.aliyun.com/document_detail/39
 
 Fill in configuration fields as follows:
 
-| Parameter           | Description                                                  | Example                                                   |
-|---------------------|--------------------------------------------------------------|-----------------------------------------------------------|
-| **Name**            | Name of the bootstrap action, e.g., Update JINDOSDK          | update_jindosdk                                              |
-| **Script Location** | Specify the location of the script in OSS. Format must be oss://**/*.sh | oss://{BUCKET_NAME}/path/to/patch/bootstrap_jindosdk.sh      |
+| Parameter           | Description                                                                                    | Example                                                   |
+|---------------------|------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| **Name**            | Name of the bootstrap action, e.g., Update JINDOSDK                                            | update_jindosdk                                              |
+| **Script Location** | Specify the location of the script in OSS. Format must be oss://**/*.sh                        | oss://{BUCKET_NAME}/path/to/patch/bootstrap_jindosdk.sh      |
 | **Arguments**       | Parameters for the bootstrap action script, specifying values for variables used in the script | -bootstrap oss://{BUCKET_NAME}/path/to/patch/jindosdk-bootstrap-patches.tar.gz |
-| **Execution Scope** | Select **Cluster**                                           |                                                            |
-| **Execution Time**   | Choose **After Component Startup**                            |                                                            |
-| **Failure Strategy** | Select **Continue Execution**                                 |                                                            |
+| **Execution Scope** | Select **Cluster**                                                                             |                                                            |
+| **Execution Time**   | Choose **Before Component Startup**                                                            |                                                            |
+| **Failure Strategy** | Select **Continue Execution**                                                                  |                                                            |
 
 ### Step 4: Ensure Latest Fixes Are Loaded
 
@@ -262,14 +262,14 @@ Refer to [Managing Bootstrap Actions](https://help.aliyun.com/document_detail/39
 
 Fill in configuration fields as follows:
 
-| Parameter           | Description                                                  | Example                                                   |
-|---------------------|--------------------------------------------------------------|-----------------------------------------------------------|
-| **Name**            | Name of the bootstrap action, e.g., Update JINDOSDK          | update_jindosdk                                              |
-| **Script Location** | Specify the location of the script in OSS. Format must be oss://**/*.sh | oss://{BUCKET_NAME}/path/to/patch/bootstrap_jindosdk.sh      |
+| Parameter           | Description                                                                                    | Example                                                   |
+|---------------------|------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| **Name**            | Name of the bootstrap action, e.g., Update JINDOSDK                                            | update_jindosdk                                              |
+| **Script Location** | Specify the location of the script in OSS. Format must be oss://**/*.sh                        | oss://{BUCKET_NAME}/path/to/patch/bootstrap_jindosdk.sh      |
 | **Arguments**       | Parameters for the bootstrap action script, specifying values for variables used in the script | -bootstrap oss://{BUCKET_NAME}/path/to/patch/jindosdk-bootstrap-patches.tar.gz |
-| **Execution Scope** | Select **Cluster**                                           |                                                            |
-| **Execution Time**   | Choose **After Component Startup**                            |                                                            |
-| **Failure Strategy** | Select **Continue Execution**                                 |                                                            |
+| **Execution Scope** | Select **Cluster**                                                                             |                                                            |
+| **Execution Time**   | Choose **Before Component Startup**                                                            |                                                            |
+| **Failure Strategy** | Select **Continue Execution**                                                                  |                                                            |
 
 ### Step 4: Ensure Latest Fixes Are Loaded
 

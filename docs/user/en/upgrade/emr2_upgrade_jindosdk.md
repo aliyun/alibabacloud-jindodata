@@ -143,14 +143,14 @@ Refer to [Managing Bootstrap Actions](https://help.aliyun.com/document_detail/39
 
 Fill in configuration fields as follows:
 
-| Parameter           | Description                                                  | Example                                                   |
-|---------------------|--------------------------------------------------------------|-----------------------------------------------------------|
-| **Name**            | Name of the bootstrap action, e.g., Update JINDOSDK          | update_jindosdk                                          |
-| **Script Location** | Specify the location of the script in OSS. Format must be oss://**/*.sh | oss://{BUCKET_NAME}/path/to/patch/bootstrap_jindosdk.sh |
+| Parameter           | Description                                                                                    | Example                                                   |
+|---------------------|------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| **Name**            | Name of the bootstrap action, e.g., Update JINDOSDK                                            | update_jindosdk                                          |
+| **Script Location** | Specify the location of the script in OSS. Format must be oss://**/*.sh                        | oss://{BUCKET_NAME}/path/to/patch/bootstrap_jindosdk.sh |
 | **Arguments**       | Parameters for the bootstrap action script, specifying values for variables used in the script | -bootstrap oss://{BUCKET_NAME}/path/to/patch/jindosdk-bootstrap-patches.tar.gz |
-| **Execution Scope** | Select **Cluster**                                           |                                                           |
-| **Execution Time**   | Choose **After Component Startup**                            |                                                           |
-| **Failure Strategy** | Select **Continue Execution**                                 |                                                           |
+| **Execution Scope** | Select **Cluster**                                                                             |                                                           |
+| **Execution Time**   | Choose **Before Component Startup**                                                            |                                                           |
+| **Failure Strategy** | Select **Continue Execution**                                                                  |                                                           |
 
 ### Step 4: Modify Cluster Configuration
 
@@ -271,21 +271,14 @@ Refer to [Managing Bootstrap Actions](https://help.aliyun.com/document_detail/39
 
 Fill in the configuration fields as follows:
 
-| Parameter           | Description                                                  | Example                                                   |
-|---------------------|--------------------------------------------------------------|-----------------------------------------------------------|
-| **Name**            | Name of the bootstrap action, e.g., Update JINDOSDK          | update_jindosdk                                          |
-| **Script Location** | Specify the location of the script in OSS. Format must be oss://**/*.sh | oss://{BUCKET_NAME}/path/to/patch/bootstrap_jindosdk.sh      |
+| Parameter           | Description                                                                                    | Example                                                   |
+|---------------------|------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| **Name**            | Name of the bootstrap action, e.g., Update JINDOSDK                                            | update_jindosdk                                          |
+| **Script Location** | Specify the location of the script in OSS. Format must be oss://**/*.sh                        | oss://{BUCKET_NAME}/path/to/patch/bootstrap_jindosdk.sh      |
 | **Arguments**       | Parameters for the bootstrap action script, specifying values for variables used in the script | -bootstrap oss://{BUCKET_NAME}/path/to/patch/jindosdk-bootstrap-patches.tar.gz |
-| **Execution Scope** | Select **Cluster**                                           |                                                           |
-| **Execution Time**   | Choose **After Component Startup**                            |                                                           |
-| **Failure Strategy** | Select **Continue Execution**                                 |                                                           |
-
-### 4. Ensure Latest Fixes Are Loaded
-
-* For a newly created cluster, restart components like Hive, Presto, Impala, Flink, Ranger, Spark, and Zeppelin.
-* For newly added nodes during expansion, restart these components on the respective nodes.
-
-Please note that these steps ensure that your new cluster or expanded nodes start with the latest JindoSDK version and any necessary fixes applied.
+| **Execution Scope** | Select **Cluster**                                                                             |                                                           |
+| **Execution Time**   | Choose **Before Component Startup**                                                            |                                                           |
+| **Failure Strategy** | Select **Continue Execution**                                                                  |                                                           |
 
 ## Scenario Four: Rolling Back to the Default JindoSDK Version in an Existing Cluster
 
