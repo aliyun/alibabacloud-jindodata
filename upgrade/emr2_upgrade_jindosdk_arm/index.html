@@ -497,10 +497,6 @@ lrwxrwxrwx 1 root root 63 Apr 12 11:08 jindo-sdk-6.2.0.jar -&gt; /opt/apps/JINDO
 lrwxrwxrwx 1 root root 50 Apr 12 11:08 native -&gt; /opt/apps/JINDOSDK/jindosdk-6.7.6-linux/lib/native
 lrwxrwxrwx 1 root root 57 Apr 12 11:08 site-packages -&gt; /opt/apps/JINDOSDK/jindosdk-6.7.6-linux/lib/site-packages
 </code></pre>
-<h3 id="5">5. 升级后重启服务<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
-<p><strong>说明:</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
-<p>Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。</p>
-<p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>更多操作</code> &gt; <code>重启</code>。</p>
 <h2 id="_2">场景二：扩容已有集群<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <p>若扩容已有集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。</p>
 <h3 id="1_1">1. 制作引导升级包<a class="headerlink" href="#1_1" title="Permanent link">§</a></h3>
@@ -587,7 +583,7 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 <tr>
 <td style="text-align: left;"><strong>执行时间</strong></td>
-<td style="text-align: left;">选择<strong>组件启动后</strong>。</td>
+<td style="text-align: left;">选择<strong>组件启动前</strong>。</td>
 <td></td>
 </tr>
 <tr>
@@ -597,11 +593,6 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 </tbody>
 </table>
-<h3 id="4_1">4. 确保加载到最新的修复<a class="headerlink" href="#4_1" title="Permanent link">§</a></h3>
-<ul>
-<li>如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。</li>
-<li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。</li>
-</ul>
 <h2 id="_3">场景三：新建集群<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>若新建 EMR 集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。</p>
 <h3 id="1_2">1. 制作引导升级包<a class="headerlink" href="#1_2" title="Permanent link">§</a></h3>
@@ -688,7 +679,7 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 <tr>
 <td style="text-align: left;"><strong>执行时间</strong></td>
-<td style="text-align: left;">选择<strong>组件启动后</strong>。</td>
+<td style="text-align: left;">选择<strong>组件启动前</strong>。</td>
 <td></td>
 </tr>
 <tr>
@@ -698,11 +689,6 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 </tbody>
 </table>
-<h3 id="4_2">4. 确保加载到最新的修复<a class="headerlink" href="#4_2" title="Permanent link">§</a></h3>
-<ul>
-<li>如果是新建集群，则需要重启 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。</li>
-<li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件。</li>
-</ul>
 <h2 id="jindosdk">场景四：回滚 JindoSDK 到集群初始版本<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h2>
 <p>若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在升级过程中遇到了问题，需要回滚到集群初始JindoSDk版本</p>
 <h3 id="1_3">1. 准备回滚脚本<a class="headerlink" href="#1_3" title="Permanent link">§</a></h3>
@@ -744,7 +730,7 @@ core-1-2
 &gt;&gt;&gt; updating ...  core-1-2
 ### DONE
 </code></pre>
-<h3 id="4_3">4. 确认回滚成功<a class="headerlink" href="#4_3" title="Permanent link">§</a></h3>
+<h3 id="4_1">4. 确认回滚成功<a class="headerlink" href="#4_1" title="Permanent link">§</a></h3>
 <pre><code class="language-bash">ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
 </code></pre>
 <p>以回滚为 6.2.0 版本为例，返回示例如下：</p>
@@ -753,7 +739,7 @@ core-1-2
 -rw-r--r-- 1 root root  4432227 Apr 24 17:40 jindo-sdk-6.2.0.jar
 drwxr-xr-x 2 root root     4096 Apr 24 17:40 native
 </code></pre>
-<h3 id="5_1">5. 升级后重启服务<a class="headerlink" href="#5_1" title="Permanent link">§</a></h3>
+<h3 id="5">5. 回滚后重启服务<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
 <p><strong>说明:</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
 <p>Hive、Presto、Impala、Flink、Ranger、Spark 和 Zeppelin 等组件需要重启之后才能完全升级。</p>
 <p>以Hive组件为例，在EMR集群的Hive服务页面，选择右上角的<code>更多操作</code> &gt; <code>重启</code>。</p></div>

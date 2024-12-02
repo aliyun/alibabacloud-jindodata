@@ -589,7 +589,7 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 <tr>
 <td style="text-align: left;"><strong>执行时间</strong></td>
-<td style="text-align: left;">选择<strong>组件启动后</strong>。</td>
+<td style="text-align: left;">选择<strong>组件启动前</strong>。</td>
 <td></td>
 </tr>
 <tr>
@@ -599,11 +599,6 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 </tbody>
 </table>
-<h3 id="4_1">4. 确保加载到最新的修复<a class="headerlink" href="#4_1" title="Permanent link">§</a></h3>
-<ul>
-<li>如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
-<li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
-</ul>
 <h2 id="_4">场景三：新建集群<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
 <p>新建EMR集群时在EMR控制台添加引导操作。具体操作步骤如下：</p>
 <h3 id="1_2">1. 制作引导升级包<a class="headerlink" href="#1_2" title="Permanent link">§</a></h3>
@@ -689,7 +684,7 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 <tr>
 <td style="text-align: left;"><strong>执行时间</strong></td>
-<td style="text-align: left;">选择<strong>组件启动后</strong>。</td>
+<td style="text-align: left;">选择<strong>组件启动前</strong>。</td>
 <td></td>
 </tr>
 <tr>
@@ -699,11 +694,6 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 </tbody>
 </table>
-<h3 id="_5">确保加载到最新的修复<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
-<ul>
-<li>如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
-<li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
-</ul>
 <h2 id="jindosdk">场景四：回滚 JindoSDK 到集群初始版本<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h2>
 <h3 id="1_3">1. 准备回滚脚本<a class="headerlink" href="#1_3" title="Permanent link">§</a></h3>
 <p>登录EMR集群的Master节点，并将下载的patch包放在 hadoop 用户的HOME目录下，将patch包解压缩后，使用 hadoop 用户执行操作。</p>
@@ -741,7 +731,7 @@ emr-worker-2
 &gt;&gt;&gt; updating ...  emr-worker-2
 ### DONE
 </code></pre>
-<h3 id="4_2">4. 确认回滚成功<a class="headerlink" href="#4_2" title="Permanent link">§</a></h3>
+<h3 id="4_1">4. 确认回滚成功<a class="headerlink" href="#4_1" title="Permanent link">§</a></h3>
 <pre><code class="language-bash">ls -l /opt/apps/extra-jars/
 </code></pre>
 <p>以回滚为 4.3.0 版本为例，返回示例如下：</p>

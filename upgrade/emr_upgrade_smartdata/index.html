@@ -652,7 +652,7 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 <tr>
 <td style="text-align: left;"><strong>执行时间</strong></td>
-<td style="text-align: left;">选择<strong>组件启动后</strong>。</td>
+<td style="text-align: left;">选择<strong>组件启动前</strong>。</td>
 <td></td>
 </tr>
 <tr>
@@ -752,7 +752,7 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 <tr>
 <td style="text-align: left;"><strong>执行时间</strong></td>
-<td style="text-align: left;">选择<strong>组件启动后</strong>。</td>
+<td style="text-align: left;">选择<strong>组件启动前</strong>。</td>
 <td></td>
 </tr>
 <tr>
@@ -762,11 +762,6 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 </tbody>
 </table>
-<h3 id="_5">确保加载到最新的修复<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
-<ul>
-<li>如果是新建集群，则需要重启Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
-<li>如果是扩容新节点，则需要重启对应节点上的 Hive、Presto、Impala、Druid、Flink、Solr、Ranger、Storm、Oozie、Spark和Zeppelin等组件。</li>
-</ul>
 <h2 id="jindosdk">场景四：回滚 JindoSDK 到集群初始版本<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h2>
 <h3 id="1_3">1. 准备回滚脚本<a class="headerlink" href="#1_3" title="Permanent link">§</a></h3>
 <p>登录EMR集群的Master节点，并将下载的patch包放在 hadoop 用户的HOME目录下，将patch包解压缩后，使用 hadoop 用户执行操作。</p>
