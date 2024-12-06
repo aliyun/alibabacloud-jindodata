@@ -9,7 +9,7 @@
 ### 介绍
 
 - JindoSDK 更新 [6.5.5 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.5/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.5/jindodata_download.md)。
-- nextarch classifier 新增配置 fs.oss.append.threshold.size 和 fs.oss.flush.merge.threshold.size，优化频繁 Close-To-Append 或者 Flush 产生大量小块的问题，配置描述详见 客户端常用配置。
+- nextarch classifier 新增配置 `fs.oss.append.threshold.size` 和 `fs.oss.flush.merge.threshold.size`，优化频繁 Close-To-Append 或者 Flush 产生大量小块的问题，配置描述详见 [客户端常用配置](jindosdk/jindosdk_configuration.md)。
 - nextarch classifier 修复开启 Ranger 后持续写入一个 OSS-HDFS 文件超过 1 小时后，文件无法继续写入的问题。
 - nextarch classifier 修复 AlreadyBeingCreatedException 引入的额外依赖问题。
 - nextarch classifier 修复 hudi 读写 log 时，对 AlreadyBeingCreatedException 异常处理。
