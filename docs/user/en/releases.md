@@ -1,5 +1,22 @@
 # JindoSDK Release History
 
+## 6.5.5, 2024-12-06
+
+Released features of the official version JindoSDK 6.5.5.
+
+- JindoSDK has updated the [Maven repository for 6.5.5](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.5/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.5/jindodata_download.md).
+- The nextarch classifier has added configurations `fs.oss.append.threshold.size` and `fs.oss.flush.merge.threshold.size` to optimize issues with frequent Close-To-Append or Flush generating numerous small blocks; see [Client Common Configurations](jindosdk/jindosdk_configuration.md) for details.
+- Fixed an issue where continuous writing to an OSS-HDFS file for over one hour after enabling Ranger results in the file being unable to continue writing.
+- Resolved additional dependency issues introduced by `AlreadyBeingCreatedException`.
+- Improved handling of `AlreadyBeingCreatedException` when reading/writing logs with Hudi.
+- Fixed an issue where flushing in an OSS-HDFS write scenario resulted in small block problems.
+- Added support for opening the root policy configuration for JindoCommitter.
+- Fixed an issue where JindoCommitter could not recognize paths containing special characters.
+- Addressed occasional freezing during STS Token renewal in ECS passwordless scenarios.
+- Fixed an issue where JindoCommitter did not clean up temporary directories left by uncompleted tasks when accessing OSS-HDFS.
+- Corrected the unit of `Mtime` returned by `ListDirectory` in OSS object storage.
+- Optimized classloader loading to resolve leftover `.so` issues when multiple classloaders load JindoSDK, and defaults to extracting to the configured directory when `java.io.tmpdir` is set.
+
 ## 6.7.6, 2024-11-27
 
 Released features of the official version JindoSDK 6.7.6.
@@ -10,11 +27,7 @@ Released features of the official version JindoSDK 6.7.6.
 
 ## 6.7.5, 2024-11-15
 
-# ## Version Summary
-
 Released features of the official version JindoSDK 6.7.5.
-
-# ## Introduction
 
 - JindoSDK has updated the [Maven repository for 6.7.5](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.5/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.5/jindodata_download.md).
 - The nextarch classifier fixed an issue where the STS token occasionally fails to update during ECS passwordless scenarios.
