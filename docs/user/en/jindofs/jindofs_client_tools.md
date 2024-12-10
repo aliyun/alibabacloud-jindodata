@@ -8,7 +8,7 @@ Compared to the JindoSDK command-line tool, JindoFS not only offers commands com
 
 ### Acquisition
 
-Currently, only a Linux version of the command-line tool is available. You can download it from the [link](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.5/jindofs-sdk-6.2.5-linux.tar.gz). After downloading and extracting the archive, you'll find the binary file named `jindofs` in the `bin/` directory.
+Currently, only a Linux version of the command-line tool is available. You can download it from the [link](./jindofs_cli_download.md). After downloading and extracting the archive, you'll find the binary file named `jindofs` in the `bin/` directory.
 
 ### Configuration
 
