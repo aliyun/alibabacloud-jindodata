@@ -440,7 +440,7 @@
 <p>JindoFS 命令行工具是访问 OSS-HDFS 的可执行程序，功能类似于阿里云 OSS 提供的 ossutil。既支持常用的文件元数据和读写流操作，如创建目录、拷贝文件；也支持 OSS-HDFS 特有的方法，如清单导出等。采用了 Native 实现，目标是对 OSS-HDFS 提供高效易用的命令行支持。</p>
 <p>与 JindoSDK 提供的命令行工具相比，JindoFS 命令行工具不仅提供对标 Hdfs shell 的常用命令，还提供 OSS-HDFS 的特有方法。然而，JindoFS 命令行工具只支持 OSS-HDFS，主要作为 OSS-HDFS 的特有工具使用。JindoSDK 的命令行工具参见 <a href="../../jindosdk/jindosdk_cli_options/">《Jindo CLI 使用指南》</a></p>
 <h2 id="_2">获取<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
-<p>目前只提供了 Linux 版本的命令行工具，<a href="https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.5/jindofs-sdk-6.2.5-linux.tar.gz">下载链接</a></p>
+<p>目前只提供了 Linux 版本的命令行工具，<a href="../jindofs_cli_download/">下载链接</a></p>
 <p>下载后解压缩，在 <code>bin/</code> 目录下即可找到命令行工具的二进制文件，文件名为 <code>jindofs</code>。</p>
 <h2 id="_3">配置<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>JindoFS 命令行工具使用 <code>JINDOSDK_CONF_DIR</code> 为环境变量。使该变量指向一个本地目录，在目录下放置配置文件 <code>jindofs.cfg</code>，便可以为命令行工具提供配置参数。<code>jindofs.cfg</code> 的内容示例如下：</p>
