@@ -20,6 +20,7 @@
 - nextarch classifier 修复 JindoCommitter 访问 OSS-HDFS 未清理 task 残留的临时目录。
 - nextarch classifier 修复 OSS 对象存储，ListDirectory 返回结果的 Mtime 单位。
 - nextarch classifier 优化 classloader 加载，在多个 classloader 加载 jindosdk 时的 so 残留问题，并且在配置了 `java.io.tmpdir` 时，默认解压至配置目录下。
+- nextarch classifier 优化 distjob 框中，排除 log4j 相关依赖。
 
 ## 6.7.6，2024-11-27
 
