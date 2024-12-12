@@ -19,12 +19,30 @@ For HCFS usage, refer to the [JindoSDK Quick Start](../jindosdk/jindosdk_quickst
 
 ## Availability
 
-The JindoFS Java SDK is currently limited to the Linux x86 platform. Download it from the [link](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.5/jindofs-sdk-6.2.5-linux.tar.gz).
-- Note: For MacOS, Ubuntu, or other architectures, contact the JindoFS team for support.
+The JindoFS Java SDK is released alongside the JindoSDK, as seen on the [download page](/docs/user/en/jindosdk/jindosdk_download.md)
 
-After extraction, you'll find the SDK resources in the `lib/` folder:
-- `jindofs-core-${version}.jar`
-- `jindofs-sdk-${version}.jar`
+After downloading, extract the files, and you'll find the resources for the JindoFS Java SDK in the `tools/` directory:
+ - `jindofs-core-${jindofs-javasdk-version}.jar`
+ - `jindofs-sdk-${jindofs-javasdk-version}.jar`
+
+Note: The version number of the JindoFS Java SDK, which is represented by the `${jindofs-javasdk-version}`
+in the `jar` files above, may not match the version number of the JindoSDK.
+This is because the JindoFS Java SDK uses a separate versioning system, so the versions can inherently differ.
+Always use the resources from the same version of JindoSDK,
+without worrying about the internal version number of the JindoFS Java SDK.
+
+The JindoFS Java SDK also offers multi-platform support.
+You can download the appropriate platform version of JindoSDK from the aforementioned download page,
+and find the JindoFS Java SDK in the `tools/` directory.
+In this case, the JindoFS Java SDK resources in the tools directory might include:
+ - `jindofs-core-${jindofs-javasdk-version}.jar`
+ - `jindofs-core-${platform}-${jindofs-javasdk-version}.jar`
+ - `jindofs-sdk-${jindofs-javasdk-version}.jar`
+
+Here, `${platform}` represents the applicable system environment, such as `linux-ubuntu22-x86_64`, etc.
+When using the SDK, you need to include all three `jar` files mentioned above.
+For information on the system environments supported by JindoSDK, refer to
+[Deploying JindoSDK on Multiple Platforms](../jindosdk/jindosdk_deployment_multi_platform.md)
 
 ## Maven Dependency
 
@@ -36,16 +54,26 @@ Add the following dependencies to your `pom.xml`:
     <dependency>
         <groupId>com.aliyun.jindodata.jindofs</groupId>
         <artifactId>jindofs-core</artifactId>
-        <version>${version}</version>
+        <version>${jindofs-javasdk-version}</version>
     </dependency>
     <dependency>
         <groupId>com.aliyun.jindodata.jindofs</groupId>
         <artifactId>jindofs-sdk</artifactId>
-        <version>${version}</version>
+        <version>${jindofs-javasdk-version}</version>
     </dependency>
 </dependencies>
 ```
-Replace `${version}` with the actual version number.
+Replace `${jindofs-javasdk-version}` with the actual JindoFS Java SDK version number.
+
+Note: If your system environment requires additional multi-platform support, you need to add the following dependencies:
+```xml
+    <dependency>
+        <groupId>com.aliyun.jindodata.jindofs</groupId>
+        <artifactId>jindofs-core-${platform}</artifactId>
+        <version>${jindofs-javasdk-version}</version>
+    </dependency>
+```
+Here, `${platform}` should be replaced with the actual name of the `jar` file you obtained.
 
 ## Usage
 
