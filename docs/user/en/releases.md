@@ -1,5 +1,17 @@
 # JindoSDK Release History
 
+## 6.5.6, 2024-12-12
+
+Released features of the official version JindoSDK 6.5.6.
+
+# ## Introduction
+
+- JindoSDK has updated the [Maven repository for 6.5.6](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.6/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.6/jindodata_download.md).
+- The nextarch classifier fixed an issue where JindoCommitter did not clean up temporary directories left by incomplete tasks when accessing OSS-HDFS.
+- The nextarch classifier resolved permission issues related to using the DLF-related CredentialProvider with MagicCommitter.
+- The nextarch classifier addressed several issues with JindoCache.
+- By default, jindo-fuse now uses the nextarch implementation and supports accessing DLF Volume.
+
 ## 6.5.5, 2024-12-06
 
 Released features of the official version JindoSDK 6.5.5.
