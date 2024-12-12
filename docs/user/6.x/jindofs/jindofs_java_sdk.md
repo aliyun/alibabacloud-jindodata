@@ -19,13 +19,24 @@ JindoSDK 同样提供了访问 OSS-HDFS 服务的 Java API。与之相比，Jind
 
 ## 获取
 
-JindoFS Java SDK 的使用有平台限制，目前只提供了 Linux x86 平台的版本，[下载链接](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.5/jindofs-sdk-6.2.5-linux.tar.gz)
+JindoFS Java SDK 随着 JindoSDK 一同发布，见 [下载页面](/docs/user/6.x/6.3.0/jindodata_download.md)
 
- - 注：如果希望在 MacOS、Ubuntu、或者 Arch 架构下使用 JindoFS Java SDK，请联系 JindoFS 团队提供支持。
+下载后解压缩，在 `tools/` 目录下即可找到 JindoFS Java SDK 的资源：
+ - `jindofs-core-${jindofs-javasdk-version}.jar`
+ - `jindofs-sdk-${jindofs-javasdk-version}.jar`
 
-下载后解压缩，在 `lib/` 目录下即可找到 JindoFS Java SDK 的资源：
- - `jindofs-core-${version}.jar`
- - `jindofs-sdk-${version}.jar`
+注意：JindoFS Java SDK 的版本号，即上述 `jar` 文件中的 `${jindofs-javasdk-version}` 部分，与 JindoSDK 的版本号可能并不相同，
+这是因为 JindoFS Java SDK 使用了单独的版本号管理，因此两者的版本原本就是可以不一致的。请始终使用同一个 JindoSDK 版本当中的资源，
+无需关心其内部的 JindoFS Java SDK 的版本号。
+
+JindoFS Java SDK 同样提供了多平台支持，您可以在上述下载页面下载对应平台的 JindoSDK，并在 `tools/` 目录下找到 JindoFS Java SDK。
+此时，`tools` 目录下的 JindoFS Java SDK 资源可能是：
+ - `jindofs-core-${jindofs-javasdk-version}.jar`
+ - `jindofs-core-${platform}-${jindofs-javasdk-version}.jar`
+ - `jindofs-sdk-${jindofs-javasdk-version}.jar`
+
+其中，`${platform}` 代表了适用的系统环境，例如 `linux-ubuntu22-x86_64` 等。使用时，需要同时引入上述三个 `jar` 文件。关于 JindoSDK 支持的系统环境，可参考
+[《在多平台环境安装部署 JindoSDK》](../jindosdk/jindosdk_deployment_multi_platform.md)
 
 ## Maven
 
@@ -38,16 +49,26 @@ Maven 依赖写作：
     <dependency>
         <groupId>com.aliyun.jindodata.jindofs</groupId>
         <artifactId>jindofs-core</artifactId>
-        <version>${version}</version>
+        <version>${jindofs-javasdk-version}</version>
     </dependency>
     <dependency>
         <groupId>com.aliyun.jindodata.jindofs</groupId>
         <artifactId>jindofs-sdk</artifactId>
-        <version>${version}</version>
+        <version>${jindofs-javasdk-version}</version>
     </dependency>
 </dependencies>
 ```
-其中 `${version}` 根据实际的版本号填写。
+其中 `${jindofs-javasdk-version}` 根据 JindoFS Java SDK 实际的版本号填写。
+
+注：若您的系统环境需要添加多平台支持，则需要额外增加下列依赖：
+```xml
+    <dependency>
+        <groupId>com.aliyun.jindodata.jindofs</groupId>
+        <artifactId>jindofs-core-${platform}</artifactId>
+        <version>${jindofs-javasdk-version}</version>
+    </dependency>
+```
+其中 `${platform}` 根据您实际获得的 `jar` 文件名称填写。
 
 ## 使用
 
