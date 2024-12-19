@@ -687,14 +687,14 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>整型</td>
 <td>0</td>
 <td>客户端 append 写入 OSS-HDFS 时会检查最后一个 block 是否小于<code>fs.oss.append.threshold.size</code>。若小于，则从最后一个 block 末尾追加写；否则新建一个 block 开始写。若上一个 block 是虚拟块，则新建块。</td>
-<td>6.7.6+ nextarch</td>
+<td>6.5.6+ nextarch</td>
 </tr>
 <tr>
 <td>fs.oss.flush.merge.threshold.size</td>
 <td>整型</td>
 <td>1048576</td>
 <td>打开后，OSS-HDFS 执行 flush 时虚拟块会合并小于<code>fs.oss.flush.merge.threshold.size</code>的 slice。</td>
-<td>6.7.6+ nextarch</td>
+<td>6.5.6+ nextarch</td>
 </tr>
 </tbody>
 </table>

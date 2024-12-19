@@ -445,13 +445,20 @@
 3. JindoFS Java SDK 提供了一些 OSS-HDFS 特有的接口，这些接口可能是 JindoSDK 未提供的，例如清单导出等。</p>
 <p>如果希望使用 HCFS 的文件系统，请参考 <a href="../../jindosdk/jindosdk_quickstart/">《Hadoop 环境使用 JindoSDK 快速入门》</a>，对 Hadoop 生态 HCFS 的介绍请参阅 Apache Hadoop 文档。</p>
 <h2 id="_2">获取<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
-<p>JindoFS Java SDK 的使用有平台限制，目前只提供了 Linux x86 平台的版本，<a href="https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.2.5/jindofs-sdk-6.2.5-linux.tar.gz">下载链接</a></p>
-<ul>
-<li>注：如果希望在 MacOS、Ubuntu、或者 Arch 架构下使用 JindoFS Java SDK，请联系 JindoFS 团队提供支持。</li>
-</ul>
-<p>下载后解压缩，在 <code>lib/</code> 目录下即可找到 JindoFS Java SDK 的资源：
- - <code>jindofs-core-${version}.jar</code>
- - <code>jindofs-sdk-${version}.jar</code></p>
+<p>JindoFS Java SDK 随着 JindoSDK 一同发布，见 <a href="/docs/user/zh/jindosdk/jindosdk_download.md">下载页面</a></p>
+<p>下载后解压缩，在 <code>tools/</code> 目录下即可找到 JindoFS Java SDK 的资源：
+ - <code>jindofs-core-${jindofs-javasdk-version}.jar</code>
+ - <code>jindofs-sdk-${jindofs-javasdk-version}.jar</code></p>
+<p>注意：JindoFS Java SDK 的版本号，即上述 <code>jar</code> 文件中的 <code>${jindofs-javasdk-version}</code> 部分，与 JindoSDK 的版本号可能并不相同，
+这是因为 JindoFS Java SDK 使用了单独的版本号管理，因此两者的版本原本就是可以不一致的。请始终使用同一个 JindoSDK 版本当中的资源，
+无需关心其内部的 JindoFS Java SDK 的版本号。</p>
+<p>JindoFS Java SDK 同样提供了多平台支持，您可以在上述下载页面下载对应平台的 JindoSDK，并在 <code>tools/</code> 目录下找到 JindoFS Java SDK。
+此时，<code>tools</code> 目录下的 JindoFS Java SDK 资源可能是：
+ - <code>jindofs-core-${jindofs-javasdk-version}.jar</code>
+ - <code>jindofs-core-${platform}-${jindofs-javasdk-version}.jar</code>
+ - <code>jindofs-sdk-${jindofs-javasdk-version}.jar</code></p>
+<p>其中，<code>${platform}</code> 代表了适用的系统环境，例如 <code>linux-ubuntu22-x86_64</code> 等。使用时，需要同时引入上述三个 <code>jar</code> 文件。关于 JindoSDK 支持的系统环境，可参考
+<a href="../../jindosdk/jindosdk_deployment_multi_platform/">《在多平台环境安装部署 JindoSDK》</a></p>
 <h2 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">§</a></h2>
 <p>目前暂未提供可以公共访问的 Maven 仓库。您可以本地依赖这两个 <code>jar</code> 文件，或者将它们放置在一个您方便访问的 Maven 仓库中。</p>
 <p>Maven 依赖写作：</p>
@@ -459,16 +466,24 @@
     &lt;dependency&gt;
         &lt;groupId&gt;com.aliyun.jindodata.jindofs&lt;/groupId&gt;
         &lt;artifactId&gt;jindofs-core&lt;/artifactId&gt;
-        &lt;version&gt;${version}&lt;/version&gt;
+        &lt;version&gt;${jindofs-javasdk-version}&lt;/version&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;com.aliyun.jindodata.jindofs&lt;/groupId&gt;
         &lt;artifactId&gt;jindofs-sdk&lt;/artifactId&gt;
-        &lt;version&gt;${version}&lt;/version&gt;
+        &lt;version&gt;${jindofs-javasdk-version}&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
-<p>其中 <code>${version}</code> 根据实际的版本号填写。</p>
+<p>其中 <code>${jindofs-javasdk-version}</code> 根据 JindoFS Java SDK 实际的版本号填写。</p>
+<p>注：若您的系统环境需要添加多平台支持，则需要额外增加下列依赖：</p>
+<pre><code class="language-xml">    &lt;dependency&gt;
+        &lt;groupId&gt;com.aliyun.jindodata.jindofs&lt;/groupId&gt;
+        &lt;artifactId&gt;jindofs-core-${platform}&lt;/artifactId&gt;
+        &lt;version&gt;${jindofs-javasdk-version}&lt;/version&gt;
+    &lt;/dependency&gt;
+</code></pre>
+<p>其中 <code>${platform}</code> 根据您实际获得的 <code>jar</code> 文件名称填写。</p>
 <h2 id="_3">使用<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>JindoFS Java SDK 提供了 <code>JfsFileSystem</code> 的接口，以及一个 <code>JfsFileSystemImpl</code> 的实现。客户端初始化的方式为：</p>
 <pre><code>JfsFileSystem fs = new JfsFileSystemImpl();
