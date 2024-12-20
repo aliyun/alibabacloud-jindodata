@@ -21,7 +21,7 @@ tar zxf jindosdk-patches.tar.gz
 ```bash
 cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.5.6/jindosdk-6.5.6-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.7/jindosdk-6.7.7-linux.tar.gz
 
 ls -l
 ```
@@ -31,7 +31,7 @@ jindosdk-patches 内容示例如下：
 -rwxrwxr-x 1 hadoop hadoop      1263 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
 -rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.5.6-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.7-linux.tar.gz
 -rwxrwxr-x 1 hadoop hadoop      1308 May 01 00:00 revert_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6326 May 01 00:00 revert.sh
 ```
@@ -68,7 +68,7 @@ emr-worker-2
 如
 
 ```bash
-./apply_all.sh 6.5.6
+./apply_all.sh 6.7.7
 ```
 
 脚本执行完成后，返回如下提示信息。
@@ -111,14 +111,14 @@ c. 如参数value存在需要删除的参数，修改后点击保存，并更新
 ls -l /opt/apps/extra-jars/
 ```
 
-以升级为 6.5.6 版本为例，返回示例如下：
+以升级为 6.7.7 版本为例，返回示例如下：
 ```bash
 drwxr-xr-x 2 root   root       4096 Apr 24 16:19 flink
 -rw-r--r-- 1 hadoop hadoop   189081 Apr 24 15:33 hadoop-lzo-0.4.21-SNAPSHOT.jar
 drwxr-xr-x 2 hadoop hadoop     4096 Apr 24 15:33 hive
--rw-r--r-- 1 root   root   16264149 Apr 24 16:19 jindo-core-6.5.6.jar
--rw-r--r-- 1 root   root   14429862 Apr 24 16:19 jindo-core-linux-el7-aarch64-6.5.6.jar
--rw-r--r-- 1 root   root    4459297 Apr 24 16:19 jindo-sdk-6.5.6.jar
+-rw-r--r-- 1 root   root   16264149 Apr 24 16:19 jindo-core-6.7.7.jar
+-rw-r--r-- 1 root   root   14429862 Apr 24 16:19 jindo-core-linux-el7-aarch64-6.7.7.jar
+-rw-r--r-- 1 root   root    4459297 Apr 24 16:19 jindo-sdk-6.7.7.jar
 -rw-r--r-- 1 hadoop hadoop  1438552 Apr 24 15:33 jindotable-common.jar
 drwxr-xr-x 2 root   root       4096 Apr 24 16:19 spark
 drwxr-xr-x 2 root   root       4096 Apr 24 16:19 spark3
@@ -160,7 +160,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 
 ### 1. 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-6.5.6-linux.tar.gz 和 bootstrap_jindosdk.sh。
+下载的 jindosdk-patches.tar.gz ，jindosdk-6.7.7-linux.tar.gz 和 bootstrap_jindosdk.sh。
 
 ```bash
 mkdir jindo-patch
@@ -169,7 +169,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.5.6/jindosdk-6.5.6-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.7/jindosdk-6.7.7-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -180,7 +180,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.5.6-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.7-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -193,7 +193,7 @@ bash bootstrap_jindosdk.sh -gen $JINDOSDK_VERSION
 如
 
 ```bash
-bash bootstrap_jindosdk.sh -gen 6.5.6
+bash bootstrap_jindosdk.sh -gen 6.7.7
 ```
 **参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。**
 
@@ -258,7 +258,7 @@ Found 2 items
 
 ### 1. 制作引导升级包
 
-下载的 jindosdk-patches.tar.gz ，jindosdk-6.5.6-linux.tar.gz 和 bootstrap_jindosdk.sh。
+下载的 jindosdk-patches.tar.gz ，jindosdk-6.7.7-linux.tar.gz 和 bootstrap_jindosdk.sh。
 
 ```bash
 mkdir jindo-patch
@@ -267,7 +267,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.5.6/jindosdk-6.5.6-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.7.7/jindosdk-6.7.7-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -278,7 +278,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.5.6-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.7.7-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 ```
 
@@ -291,7 +291,7 @@ bash bootstrap_jindosdk.sh -gen-full $JINDOSDK_VERSION
 如
 
 ```bash
-bash bootstrap_jindosdk.sh -gen-full 6.5.6
+bash bootstrap_jindosdk.sh -gen-full 6.7.7
 ```
 **参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。**
 

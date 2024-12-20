@@ -1,5 +1,16 @@
 # JindoSDK 版本记录
 
+## 6.7.7，2024-12-20
+
+### 版本概要
+
+发布 JindoSDK 6.7.7 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.7.7 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- nextarch classifer 修复 V4 签名缺陷。
+
 ## 6.5.6，2024-12-12
 
 ### 版本概要
@@ -44,7 +55,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.7.6 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.7.6 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.6/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.6/jindodata_download.md)。
 - nextarch classifier 新增配置 `fs.oss.append.threshold.size` 和 `fs.oss.flush.merge.threshold.size`，优化频繁 Close-To-Append 或者 Flush 产生大量小块的问题，配置描述详见 [客户端常用配置](jindosdk/jindosdk_configuration.md)。
 - jindo-fuse 支持访问 DLF Volume。
 

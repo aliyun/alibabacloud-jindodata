@@ -1,10 +1,15 @@
 # JindoSDK Release History
 
+## 6.7.7, 2024-12-20
+
+Released features of the official version JindoSDK 6.7.7.
+
+- JindoSDK has updated the [Maven repository for 6.7.7](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- The nextarch classifier fixed a V4 signature issue.
+
 ## 6.5.6, 2024-12-12
 
 Released features of the official version JindoSDK 6.5.6.
-
-# ## Introduction
 
 - JindoSDK has updated the [Maven repository for 6.5.6](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.6/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.6/jindodata_download.md).
 - The nextarch classifier fixed an issue where JindoCommitter did not clean up temporary directories left by incomplete tasks when accessing OSS-HDFS.
@@ -33,7 +38,7 @@ Released features of the official version JindoSDK 6.5.5.
 
 Released features of the official version JindoSDK 6.7.6.
 
-- JindoSDK has updated the [Maven repository for 6.7.6](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- JindoSDK has updated the [Maven repository for 6.7.6](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.6/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.6/jindodata_download.md).
 - The nextarch classifier has added configurations `fs.oss.append.threshold.size` and `fs.oss.flush.merge.threshold.size` to optimize the issue of frequent Close-To-Append or Flush generating a large number of small blocks. Details of these configurations can be found in [Common Client Configuration](jindosdk/jindosdk_configuration.md).
 - jindo-fuse now supports accessing DLF Volume.
 
