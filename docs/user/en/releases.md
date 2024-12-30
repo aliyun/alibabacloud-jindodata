@@ -1,5 +1,16 @@
 # JindoSDK Release History
 
+## 6.7.8, 2024-12-30
+
+Released features of the official version JindoSDK 6.7.8.
+
+- JindoSDK has updated the [Maven repository for 6.7.8](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Upgraded yalantinglibs to [0.3.8.1](https://github.com/alibaba/yalantinglibs/tree/0.3.8.1).
+- The nextarch classifier optimized high CPU load issues with Timed Buffer.
+- The nextarch classifier has optimized the deletion strategy when accessing OSS, introducing the new configuration `fs.oss.delete.quiet.enable`, which defaults to false and uses simple mode deletion. For details on simple mode, see the OSS documentation [《Deleting Multiple Files Using DeleteMultipleObjects》](https://help.aliyun.com/zh/oss/developer-reference/deletemultipleobjects).
+- The nextarch classifier fixed an issue where the legacy pre-read algorithm could not be set.
+- The nextarch classifier resolved a potential stack overflow issue when using the S3 protocol with `fs.s3.upload.sendfile.enable=true` enabled.
+
 ## 6.7.7, 2024-12-20
 
 Released features of the official version JindoSDK 6.7.7.

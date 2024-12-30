@@ -8,7 +8,7 @@ Download the latest tar.gz package named `jindosdk-x.x.x.tar.gz` from the [downl
 
 JindoSDK/JindoDistCP currently supports mainstream Intel X86-based Linux and Mac systems (Windows and Mac M1 series are not supported).
 
-As an example for version 6.7.7, add JindoDistCP as a dependency in your Maven `pom.xml`:
+As an example for version 6.7.8, add JindoDistCP as a dependency in your Maven `pom.xml`:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -20,7 +20,7 @@ As an example for version 6.7.7, add JindoDistCP as a dependency in your Maven `
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.7.7</jindodata.version>
+        <jindodata.version>6.7.8</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     

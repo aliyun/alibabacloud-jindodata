@@ -1,5 +1,20 @@
 # JindoSDK 版本记录
 
+## 6.7.8，2024-12-30
+
+### 版本概要
+
+发布 JindoSDK 6.7.8 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.7.8 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 升级 yalantinglibs 到 [0.3.8.1](https://github.com/alibaba/yalantinglibs/tree/0.3.8.1)
+- nextarch classifer 优化了 Timed Buffer CPU 负载高的问题。
+- nextarch classifer 优化了访问 OSS 时的删除策略，新增配置 `fs.oss.delete.quiet.enable`，默认为false，使用简单模式删除。简单模式说明，详见 OSS 文档[《调用 DeleteMultipleObjects 删除多个文件》](https://help.aliyun.com/zh/oss/developer-reference/deletemultipleobjects)。
+- nextarch classifer 修复了无法设置 legacy 预读算法的问题。
+- nextarch classifer 修复了使用 S3 协议时，打开 `fs.s3.upload.sendfile.enable=true` 后可能引发爆栈的问题。
+
 ## 6.7.7，2024-12-20
 
 ### 版本概要
@@ -8,7 +23,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.7.7 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.7.7 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.7/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.7/jindodata_download.md)。
 - nextarch classifer 修复 V4 签名缺陷。
 
 ## 6.5.6，2024-12-12
@@ -82,6 +97,7 @@
 ### 介绍
 
 - JindoSDK 更新 [6.7.4 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.4/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.4/jindodata_download.md)。
+- 升级 brpc 到 [1.11.0](https://github.com/apache/brpc/releases/tag/1.11.0)
 - 修复 libjindosdk_c.so 动态库时遇到的 pthread hook 依赖顺序问题。
 - FlinkConnector 新增配置 `oss.serializer.read.auto.compatible=true`，修复从 3.x 版本写的 checkpoint recover 到 4.x/6.x 版本实现时遇到的兼容性问题。
 - nextarch classifier 修复 AlreadyBeingCreatedException 引入的额外依赖问题。
