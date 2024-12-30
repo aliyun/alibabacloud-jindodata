@@ -580,6 +580,7 @@
 <li>JindoSDK 更新 <a href="../jindosdk/oss-maven/">6.7.8 的 Maven 仓库</a> 和 <a href="../jindosdk/jindosdk_download/">下载地址</a>。</li>
 <li>升级 yalantinglibs 到 <a href="https://github.com/alibaba/yalantinglibs/tree/0.3.8.1">0.3.8.1</a></li>
 <li>nextarch classifer 优化了 Timed Buffer CPU 负载高的问题。</li>
+<li>nextarch classifer 优化了访问 OSS 时的删除策略，新增配置 <code>fs.oss.delete.quiet.enable</code>，默认为false，使用简单模式删除。简单模式说明，详见 OSS 文档<a href="https://help.aliyun.com/zh/oss/developer-reference/deletemultipleobjects">《调用 DeleteMultipleObjects 删除多个文件》</a>。</li>
 <li>nextarch classifer 修复了无法设置 legacy 预读算法的问题。</li>
 <li>nextarch classifer 修复了使用 S3 协议时，打开 <code>fs.s3.upload.sendfile.enable=true</code> 后可能引发爆栈的问题。</li>
 </ul>
