@@ -10,6 +10,8 @@ JindoData 是阿里云开源大数据团队自研的数据湖存储加速套件�
 
 ## 使用
 
+请勿在开启过版本控制的 OSS/OSS-HDFS bucket 上使用 JindoSDK，可能会造成稳定性/性能问题。详见 [《JindoSDK访问OSS出现Reached timeout问题》](https://help.aliyun.com/zh/emr/emr-on-ecs/user-guide/fix-the-reached-timeout-error-that-occurs-when-i-use-jindosdk-to-access-oss?spm=a2c4g.11186623.help-menu-28066.d_2_1_7_4_5.4db628e5g6ofAI) 及 [《OSS-HDFS服务使用前须知》](https://help.aliyun.com/zh/oss/user-guide/notice-before-using-oss-hdfs-service)
+
 在 EMR 环境中，已经默认部署 JindoSDK，您可以直接通过 JindoSDK 来访问 OSS/OSS-HDFS。
 
 在 非 EMR 环境中，您也可以通过下载最新版本的 JindoSDK ，自行部署使用，Hadoop 场景部署方式参见 [《在 Hadoop 环境中部署 JindoSDK》](../jindosdk/jindosdk_deployment_hadoop.md), AI场景部署方式参见 [《在 AI 环境中部署 JindoSDK》](../jindosdk/jindosdk_deployment_ai.md)。
