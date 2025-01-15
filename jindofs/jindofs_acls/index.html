@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Jindofs acls - AlibabaCloud JindoData</title>
+        <title>OSS-HDFS 权限管理 - AlibabaCloud JindoData</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -34,7 +34,7 @@
                             <li class="navitem">
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">简介 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -80,6 +80,26 @@
             
 <li>
     <a href="../../oss/dls_atime/" class="dropdown-item">OSS-HDFS 文件访问时间戳</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">OSS-HDFS 权限管理</a>
+</li>
+            
+<li>
+    <a href="../jindofs_archive_direct_read/" class="dropdown-item">OSS-HDFS 归档直读</a>
+</li>
+            
+<li>
+    <a href="../jindofs_storagepolicy_restore/" class="dropdown-item">OSS-HDFS 存储冷热分层</a>
+</li>
+            
+<li>
+    <a href="../jindofs_callerContext/" class="dropdown-item">OSS-HDFS 审计日志支持 CallerContext</a>
+</li>
+            
+<li>
+    <a href="../jindofs_protected_directories/" class="dropdown-item">OSS-HDFS 目录保护</a>
 </li>
     </ul>
   </li>
@@ -378,6 +398,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../oss/dls_atime/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../jindofs_archive_direct_read/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -396,28 +426,49 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            
-            
-            
-            
+            <li class="nav-item" data-level="1"><a href="#oss-hdfs" class="nav-link">OSS-HDFS 权限管理</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">背景</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">开通权限管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ak" class="nav-link">配置访问 AK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">打开权限管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">查看权限管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h3 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">§</a></h3>
+<h1 id="oss-hdfs">OSS-HDFS 权限管理<a class="headerlink" href="#oss-hdfs" title="Permanent link">§</a></h1>
+<h2 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <p>OSS-HDFS 实现了一个POSIX系统类似的文件和目录权限模型，每个目录和文件都存在owner、group、others 三类权限，目录和文件对于不同的用户以及用户组有着不同的权限。文件或目录的权限就是它的模式（mode）。OSS-HDFS采用了Unix表示和显示模式的习惯，包括使用八进制数来表示权限。</p>
 <p>当用户访问OSS-HDFS的文件或者目录，OSS-HDFS会对其进行权限检查，检查流程如下：
 - 访问用户与文件/目录owner一致，检查owner的权限
 - 访问用户关联的组名在组名列表中出现，检查group对应访问权限
 - 否则检查others 对应的访问权限
 如果权限检查失败，则客户操作会失败</p>
-<h3 id="_2">开通权限管理<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
+<h2 id="_2">开通权限管理<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <p>参见<a href="../jindofs_client_tools/">JindoFS 命令行工具使用指南</a></p>
 <p>权限管理的开通需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。</p>
-<h3 id="ak">配置访问 AK<a class="headerlink" href="#ak" title="Permanent link">§</a></h3>
+<h2 id="ak">配置访问 AK<a class="headerlink" href="#ak" title="Permanent link">§</a></h2>
 <p>权限管理需要配置连接 OSS-HDFS 所需的 AK 信息。有两种方法可以进行配置：</p>
-<h4 id="_3">配置文件（推荐）<a class="headerlink" href="#_3" title="Permanent link">§</a></h4>
+<h3 id="_3">配置文件（推荐）<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
 <p>设置环境变量 JINDOSDK_CONF_DIR 指向某个目录，然后在目录下创建名为 jindofs.cfg 的文件，然后在文件里写入如下内容：</p>
 <pre><code class="language-yaml">[client]
 fs.oss.accessKeyId = &lt;key&gt;                               # 对所有 Bucket 生效的默认 AK key
@@ -425,18 +476,18 @@ fs.oss.accessKeySecret = &lt;secret&gt;                   # 对所有 Bucket 生
 fs.oss.bucket.&lt;bucket&gt;.accessKeyId = &lt;key&gt;  # 仅对某 Bucket 生效的 AK key，优先级高于默认
 fs.oss.bucket.&lt;bucket&gt;.accessKeySecret = &lt;secret&gt;  # 仅对某 Bucket 生效的 AK secret
 </code></pre>
-<h4 id="-extraconf">--extraConf<a class="headerlink" href="#-extraconf" title="Permanent link">§</a></h4>
+<h3 id="-extraconf">--extraConf<a class="headerlink" href="#-extraconf" title="Permanent link">§</a></h3>
 <p>命令行工具的所有指令均可通过 --extraConf 选项提供配置参数，效果等同于配置文件，例如：</p>
 <pre><code class="language-bash">jindofs admin -getConfig -dlsUri &lt;path&gt; -name &lt;keys&gt;          \
               --extraConf fs.oss.accessKeyId=&lt;AK key&gt;         \
               --extraConf fs.oss.accessKeySecret=&lt;AK secret&gt;
 </code></pre>
 <p>将给命令提供额外的 AK key 与 AK secret 配置。</p>
-<h3 id="_4">打开权限管理<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<h2 id="_4">打开权限管理<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
 <p>命令：</p>
 <pre><code class="language-bash">jindofs admin -putConfig -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/ -conf namespace.permissions.enabled=true
 </code></pre>
-<h3 id="_5">查看权限管理<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
+<h2 id="_5">查看权限管理<a class="headerlink" href="#_5" title="Permanent link">§</a></h2>
 <p>命令：</p>
 <pre><code class="language-bash">jindofs admin -getConfig -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/ -name namespace.permissions.enabled
 </code></pre>
