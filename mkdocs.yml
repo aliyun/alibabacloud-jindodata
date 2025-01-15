@@ -48,6 +48,11 @@ nav:
       - OSS-HDFS 清单导出: oss/dls_dump_inventory_howto.md
       - OSS-HDFS 文件校验: oss/dls_checksum.md
       - OSS-HDFS 文件访问时间戳: oss/dls_atime.md
+      - OSS-HDFS 权限管理: jindofs/jindofs_acls.md
+      - OSS-HDFS 归档直读: jindofs/jindofs_archive_direct_read.md
+      - OSS-HDFS 存储冷热分层: jindofs/jindofs_storagepolicy_restore.md
+      - OSS-HDFS 审计日志支持 CallerContext: jindofs/jindofs_callerContext.md
+      - OSS-HDFS 目录保护: jindofs/jindofs_protected_directories.md
   - Hadoop 生态:
     - 快速入门: jindosdk/jindosdk_quickstart.md
     - 安装部署: jindosdk/jindosdk_deployment_hadoop.md
