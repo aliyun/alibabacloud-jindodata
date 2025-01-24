@@ -1,10 +1,25 @@
 # JindoSDK Release History
 
+## 6.8.0, 2025-01-24
+
+- Updated JindoSDK [Maven repository for version 6.8.0](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Optimized nextarch classifier to reduce OSS-HDFS request numbers, decreasing metadata requests by 17% in read scenarios.
+- Improved the frequency at which Java TimedBuffer retrieves timestamps to lower CPU usage.
+- Optimized the size of JindoMagicCommitter PendingSet.
+- Enhanced pre-fetching algorithm with new configurations to control whether fully-read prefetch memory should be immediately cleared.
+- Added several metrics that can be accessed through Java interfaces.
+- Introduced logging-related configurations to support persistent log instances.
+- Fixed support for fs.jdo prefix configuration in oss-hdfs.
+- When nextarch classifier sets XAttr on OSS, it defaults x-oss-metadata-directive to REPLACE.
+- Resolved compatibility issues when accessing jindocache server.
+- Optimized JindoFuse to reduce metadata request numbers in OSS access scenarios, supporting metadata requests at intervals defined by attr_timeout.
+- Fixed time window issues in jindo-fuse metrics.
+
 ## 6.7.8, 2024-12-30
 
 Released features of the official version JindoSDK 6.7.8.
 
-- JindoSDK has updated the [Maven repository for 6.7.8](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- JindoSDK has updated the [Maven repository for 6.7.8](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.8/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.8/jindodata_download.md).
 - Upgraded yalantinglibs to [0.3.8.1](https://github.com/alibaba/yalantinglibs/tree/0.3.8.1).
 - The nextarch classifier optimized high CPU load issues with Timed Buffer.
 - The nextarch classifier has optimized the deletion strategy when accessing OSS, introducing the new configuration `fs.oss.delete.quiet.enable`, which defaults to false and uses simple mode deletion. For details on simple mode, see the OSS documentation [《Deleting Multiple Files Using DeleteMultipleObjects》](https://help.aliyun.com/zh/oss/developer-reference/deletemultipleobjects).
@@ -15,7 +30,7 @@ Released features of the official version JindoSDK 6.7.8.
 
 Released features of the official version JindoSDK 6.7.7.
 
-- JindoSDK has updated the [Maven repository for 6.7.7](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- JindoSDK has updated the [Maven repository for 6.7.7](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.7/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.7.7/jindodata_download.md).
 - The nextarch classifier fixed a V4 signature issue.
 
 ## 6.5.6, 2024-12-12
