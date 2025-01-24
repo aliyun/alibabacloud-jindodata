@@ -502,6 +502,13 @@
 <td>是否开启日志清理</td>
 <td>4.3.0+</td>
 </tr>
+<tr>
+<td>logger.single.instance.enable</td>
+<td>布尔值</td>
+<td>false</td>
+<td>是否开启日志单实例，仅适用与常驻进程场景，多 classloader 场景不建议开启。</td>
+<td>6.7.8+</td>
+</tr>
 </tbody>
 </table>
 <h4 id="java-sdk-log4jproperties">Java SDK 设置 log4j.properties<a class="headerlink" href="#java-sdk-log4jproperties" title="Permanent link">§</a></h4>
@@ -715,6 +722,13 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>1048576</td>
 <td>打开后，OSS-HDFS 执行 flush 时虚拟块会合并小于<code>fs.oss.flush.merge.threshold.size</code>的 slice。</td>
 <td>6.7.8+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.read.readahead.clean.fully.accessed.block.enable</td>
+<td>布尔值</td>
+<td>true</td>
+<td>打开后，预读算法会立即清除完全读取的预读内存。</td>
+<td>6.8.0+ nextarch</td>
 </tr>
 </tbody>
 </table>
