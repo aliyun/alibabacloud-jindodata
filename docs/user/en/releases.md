@@ -1,8 +1,20 @@
 # JindoSDK Release History
 
+## 6.8.1, 2025-02-25
+
+- Updated JindoSDK [Maven repository for version 6.8.1](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Upgraded yalantinglibs to [lts1.0.1](https://github.com/alibaba/yalantinglibs/tree/lts1.0.1).
+- The nextarch classifier will be published as the default version number in the OSS Maven repository.
+- Fixed support for summary metrics in JindoSDK.
+- Fixed misaligned pre-read blocks during caching and failed caching issues in JindoCache.
+- Fixed client-side metric collection issues related to reads in JindoCache.
+- Supported OSS-HDFS UGI information in JindoCache.
+- Supported client timeout fallback in JindoCache.
+- Optimized metadata cache usage in JindoFuse, expected to reduce memory consumption by 50% in large volumes of small files scenarios.
+
 ## 6.8.0, 2025-01-24
 
-- Updated JindoSDK [Maven repository for version 6.8.0](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Updated JindoSDK [Maven repository for version 6.8.0](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.0/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.0/jindodata_download.md).
 - Optimized nextarch classifier to reduce OSS-HDFS request numbers, decreasing metadata requests by 17% in read scenarios.
 - Improved the frequency at which Java TimedBuffer retrieves timestamps to lower CPU usage.
 - Optimized the size of JindoMagicCommitter PendingSet.

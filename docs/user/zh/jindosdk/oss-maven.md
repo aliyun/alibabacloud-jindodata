@@ -1,4 +1,4 @@
-# JindoData 6.8.0 Maven 相关依赖
+# JindoData 6.8.1 Maven 相关依赖
 
 在 maven pom.xml 中添加 JindoSDK 的依赖
 
@@ -12,7 +12,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.8.0</jindodata.version>
+        <jindodata.version>6.8.1</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -62,7 +62,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.8.0</jindodata.version>
+        <jindodata.version>6.8.1</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -112,7 +112,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.8.0</jindodata.version>
+        <jindodata.version>6.8.1</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
