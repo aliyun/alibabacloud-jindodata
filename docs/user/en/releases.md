@@ -1,6 +1,6 @@
 # JindoSDK Release History
 
-## 6.8.1, 2025-02-25
+## 6.8.1, 2025-02-28
 
 - Updated JindoSDK [Maven repository for version 6.8.1](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
 - Upgraded yalantinglibs to [lts1.0.1](https://github.com/alibaba/yalantinglibs/tree/lts1.0.1).
