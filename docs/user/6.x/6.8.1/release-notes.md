@@ -1,4 +1,4 @@
-# 6.8.1，2025-02-28
+# 6.8.1，2025-03-06
 
 ## 版本概要
 
@@ -7,9 +7,10 @@
 ### 介绍
 
 - JindoSDK 更新 [6.8.1 的 Maven 仓库](oss-maven.md) 和 [下载地址](jindodata_download.md)。
-- 升级 yalantinglibs 到 [lts1.0.1](https://github.com/alibaba/yalantinglibs/tree/lts1.0.1)
+- 升级 yalantinglibs 到 [lts1.0.2](https://github.com/alibaba/yalantinglibs/tree/lts1.0.2)
 - nextarch classifier 在 oss maven 仓库中将作为默认版本号发布。
 - JindoSDK 修复对 summary metrics 的支持。
+- JindoSDK 修复对 `fs.oss.upload.async.concurrency` 和 `fs.oss.upload.thread.concurrency` 的支持。
 - JindoCache 修复读时落缓存预读块不对齐，落缓存失败问题。
 - JindoCache 修复客户端读相关metrics收集问题。
 - JindoCache 支持OSS-HDFS UGI信息。
