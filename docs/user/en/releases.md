@@ -1,11 +1,12 @@
 # JindoSDK Release History
 
-## 6.8.1, 2025-02-28
+## 6.8.1, 2025-03-06
 
 - Updated JindoSDK [Maven repository for version 6.8.1](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
-- Upgraded yalantinglibs to [lts1.0.1](https://github.com/alibaba/yalantinglibs/tree/lts1.0.1).
+- Upgraded yalantinglibs to [lts1.0.2](https://github.com/alibaba/yalantinglibs/tree/lts1.0.2).
 - The nextarch classifier will be published as the default version number in the OSS Maven repository.
 - Fixed support for summary metrics in JindoSDK.
+- Fixed support for `fs.oss.upload.async.concurrency` and `fs.oss.upload.thread.concurrency` in JindoSDK.
 - Fixed misaligned pre-read blocks during caching and failed caching issues in JindoCache.
 - Fixed client-side metric collection issues related to reads in JindoCache.
 - Supported OSS-HDFS UGI information in JindoCache.
