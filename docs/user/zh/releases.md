@@ -12,7 +12,7 @@
 - 升级 yalantinglibs 到 [lts1.0.2](https://github.com/alibaba/yalantinglibs/tree/lts1.0.2)
 - nextarch classifier 在 oss maven 仓库中将作为默认版本号发布。
 - JindoSDK 修复对 summary metrics 的支持。
-- JindoSDK 修复对 `fs.oss.upload.async.concurrency` 和 `fs.oss.upload.thread.concurrency` 的支持。
+- JindoSDK 修复对 `fs.oss.upload.async.concurrency` 和 `fs.oss.upload.thread.concurrency` 的支持。 (该问题在 6.7.1 版本引入，可能在写较大文件时，并发过大，导致占用过多链接资源，引发 `Connection timed out`)。
 - JindoCache 修复读时落缓存预读块不对齐，落缓存失败问题。
 - JindoCache 修复客户端读相关metrics收集问题。
 - JindoCache 支持OSS-HDFS UGI信息。
