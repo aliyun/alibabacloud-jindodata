@@ -610,6 +610,7 @@
 <li>nextarch classifier 在 oss maven 仓库中将作为默认版本号发布。</li>
 <li>JindoSDK 修复对 summary metrics 的支持。</li>
 <li>JindoSDK 修复对 <code>fs.oss.upload.async.concurrency</code> 和 <code>fs.oss.upload.thread.concurrency</code> 的支持。</li>
+<li>该问题在 6.7.1 版本引入，可能在写较大文件时，并发过大，导致占用过多链接资源，引发 <code>Connection timed out</code>。</li>
 <li>JindoCache 修复读时落缓存预读块不对齐，落缓存失败问题。</li>
 <li>JindoCache 修复客户端读相关metrics收集问题。</li>
 <li>JindoCache 支持OSS-HDFS UGI信息。</li>
