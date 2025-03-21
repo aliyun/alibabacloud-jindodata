@@ -6,6 +6,9 @@
 
 ### 1. 准备软件包和升级脚本、配置
 
+首先，需要确定升级使用的JindoSDK版本。通常来说，如果是JindoSDK直接访问OSS/OSS-HDFS，只需确认本地的hadoop依赖版本是否特殊，比如低于2.7。
+而如果已经在使用JindoCache/JindoAuth/JindoFSx等半托管服务，建议先咨询阿里云EMR技术支持，了解JindoSDK的版本兼容性。
+
 登录EMR集群的Master节点，并将下载的patch包放在emr-user用户的HOME目录下，将patch包解压缩后，使用emr-user用户执行操作。
 
 ```bash
@@ -320,6 +323,14 @@ Found 2 items
 | **执行范围**     | 选择**集群**。                              |                                                              |
 | **执行时间**     | 选择**组件启动前**。                           |                                                              |
 | **执行失败策略** | 选择**继续执行**。                            |                                                              |
+
+### 4. 升级使用EMR Cli创建的gateway节点
+
+对于阿里云EMR集群的GATEWAY节点组，上述步骤已经可以覆盖。对于使用EMR Cli创建的gateway节点，需要手动运行升级脚本进行升级，同时需要自行确保弹性节点初始化时，提前使用脚本进行升级。
+
+### 5. 升级 TRINO/PRESTO/IMPALA 等服务使用 JindoSDK
+
+对于EMR-3.53.0/5.19.0（不含）之前的版本，TRINO/PRESTO/IMPALA等组件使用的JindoSDK不会在上述步骤中同时升级，需要用户手动将TRINO/PRESTO的plugins路径中的JindoSDK的jar包进行手动替换，并重启TRINO服务。
 
 ## 场景四：回滚 JindoSDK 到集群默认版本
 

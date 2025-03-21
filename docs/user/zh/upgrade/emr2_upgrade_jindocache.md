@@ -1,9 +1,14 @@
 # EMR 新版集群 JindoCache 升级文档
+
 ## 场景一：升级已有新版集群
 
 若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在使用过程中遇到了问题，或者需要使用 JindoCache 的新功能, 可以根据下面的步骤完成 JindoCache 升级。
 
 ### 1、停止已有的 JindoCache 集群
+
+在升级JindoCache集群前，请先配置JindoSDK直连访问OSS/OSS-HDFS，并重启相关服务确保配置生效，以避免服务升级过程对业务的影响。
+在确定升级的JindoCache版本时，也需要先咨询阿里云EMR技术支持，明确JindoSDK与JindoCache版本之间的兼容性。
+
 在EMR集群的 JindoCache 服务页面，选择右上角的`更多操作` > `停止`。
 
 ### 2、准备软件包和升级脚本、配置
