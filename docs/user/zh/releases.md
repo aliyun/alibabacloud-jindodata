@@ -1,5 +1,21 @@
 # JindoSDK 版本记录
 
+## 6.8.2，2025-03-24
+
+### 版本概要
+
+发布 JindoSDK 6.8.2 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.8.2 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 修复错误信息不准确的问题，正确返回请求超时 `Request timeout` 而不是 `Connection timed out`。
+- JindoSDK 修复 append-close 优化打开时，异常关闭可能导致报错的问题。即 `fs.oss.append.threshold.size` 不为 `0` 时，可能导致 close 后再次 append 失败（默认配置不影响）。
+- JindoSDK 修复 listStatusIterator 不支持 ListObjectV2。即配置 `fs.oss.list.type` 为 `2`，可能导致 listStatusIterator 死循环（默认配置不影响）。
+- JindoSDK 修复访问 JindoCache 时偶现的 hang on 问题。
+- JindoSDK 优化对 IO 请求超时配置的兼容性，默认为 `fs.oss.io.timeout.millisecond` 与 `fs.oss.timeout.millisecond` 两者的最大值。
+- JindoSDK 新增配置 `fs.oss.read.use-pread` 以及 `fs.oss.pread.cache.enable`，以优化湖表场景读性能。
+
 ## 6.8.1，2025-03-06
 
 ### 版本概要
@@ -8,7 +24,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.8.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.8.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.1/jindodata_download.md)。
 - 升级 yalantinglibs 到 [lts1.0.2](https://github.com/alibaba/yalantinglibs/tree/lts1.0.2)
 - nextarch classifier 在 oss maven 仓库中将作为默认版本号发布。
 - JindoSDK 修复对 summary metrics 的支持。
@@ -394,7 +410,7 @@
 - JindoFuse 支持指定 metrics_ip、metrics_port 指定 promethues 监听 ip 和 端口。
 - 修复 JindoOssFileSystem 的 Delegation Token Renew 机制。
 - 修复 `fs.accessPolicies.discovery` 末尾不带 `/` 时，getTrashRoot 为空报错（仅影响 6.3.3 版本）。
-- 修复 listStatusIterator 不支持 ListObjectV2。即配置 `fs.oss.list.type` 为 `2`，可能导致 listStatusIterator 死循环（默认配置不影响）。
+- 修复 listLocatedStatus 不支持 ListObjectV2。即配置 `fs.oss.list.type` 为 `2`，可能导致 listLocatedStatus 死循环（默认配置不影响）。
 
 ## 6.3.3，2024-03-20
 

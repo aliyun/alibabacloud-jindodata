@@ -13,11 +13,11 @@ Unzip the downloaded package and copy the following jar files to the Hadoop clas
 * `jindo-core-x.x.x.jar`
 * `jindo-sdk-x.x.x.jar`
 
-For example, with jindosdk-6.8.1:
+For example, with jindosdk-6.8.2:
 
 ```bash
-cp jindosdk-6.8.1/lib/jindo-core-6.8.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.8.1/lib/jindo-sdk-6.8.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.8.2/lib/jindo-core-6.8.2.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.8.2/lib/jindo-sdk-6.8.2.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 ## 3. Configure the OSS-HDFS Service Implementation and Access Key

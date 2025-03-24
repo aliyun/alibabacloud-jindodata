@@ -24,14 +24,14 @@ tar zxf jindocache-patches.tar.gz
 
 下载 jindocache 软件包 jindocache-{VERSION}-{PLATFORM}.tar.gz，解压后到 jindocache-patches目录下。
 
-以将新版集群中的 jindocache 升级到 6.8.1 版本，linux x86 平台为例:
+以将新版集群中的 jindocache 升级到 6.8.2 版本，linux x86 平台为例:
 
 ```bash
 cd jindocache-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.1/jindocache-6.8.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.2/jindocache-6.8.2-linux.tar.gz
 
-tar -zxvf jindocache-6.8.1-linux.tar.gz
+tar -zxvf jindocache-6.8.2-linux.tar.gz
 
 ls -l
 ```
@@ -39,8 +39,8 @@ ls -l
 jindocache-patches 内容示例如下：
 ```bash
 -rw-rw-r--  1 emr-user emr-user            29 6月   6 11:21 hosts
-drwxr-xr-x  7 emr-user emr-user          4096 8月   8 16:19 jindocache-6.8.1-linux
--rw-r--r--  1 emr-user emr-user     276406433 8月  12 14:32 jindocache-6.8.1-linux.tar.gz
+drwxr-xr-x  7 emr-user emr-user          4096 8月   8 16:19 jindocache-6.8.2-linux
+-rw-r--r--  1 emr-user emr-user     276406433 8月  12 14:32 jindocache-6.8.2-linux.tar.gz
 -rwxr-xr-x  1 emr-user emr-user          1241 6月   6 11:18 upgrade.sh
 ```
 
@@ -74,16 +74,16 @@ cat  /usr/local/taihao-executor-all/data/cache/.cluster_context | jq --raw-outpu
 bash upgrade.sh $NEW_jindocache_VERSION $PLATFORM
 ```
 
-以将新版集群中的 jindocache 升级到 linux 平台 6.8.1 版本为例:
+以将新版集群中的 jindocache 升级到 linux 平台 6.8.2 版本为例:
 
 ```bash
-bash upgrade.sh 6.8.1 linux
+bash upgrade.sh 6.8.2 linux
 ```
 
 脚本执行完成后，返回如下提示信息。
 
 ```
-Start upgrade JindoCache Service to 6.8.1 with platform linux
+Start upgrade JindoCache Service to 6.8.2 with platform linux
 [1] 11:14:25 [SUCCESS] core-1-2
 [2] 11:14:26 [SUCCESS] core-1-1
 [3] 11:14:27 [SUCCESS] master-1-1
@@ -105,14 +105,14 @@ Start upgrade JindoCache Service to 6.8.1 with platform linux
 [1] 11:15:02 [SUCCESS] core-1-2
 [2] 11:15:02 [SUCCESS] core-1-1
 [3] 11:15:02 [SUCCESS] master-1-1
-Successfully upgrade JindoCache Service to 6.8.1 with platform linux, Please restart JindoCache Service
+Successfully upgrade JindoCache Service to 6.8.2 with platform linux, Please restart JindoCache Service
 ```
 
 ### 5、确认升级成功
 
 ```bash
 [root@master-1-1]# jindocache -version
-Version: 6.8.1
+Version: 6.8.2
 CommitId: ######
 ```
 
@@ -126,7 +126,7 @@ CommitId: ######
 Namespace Address: master-1-1:8101
 Rpc Port: 8101
 Started: Thu Jun  6 11:06:05 2024
-Version: 6.8.1
+Version: 6.8.2
 Live Nodes: 2
 Decommission Nodes: 0
 Total Disk Capacity: 625.519GB
@@ -142,7 +142,7 @@ Used MEM Capacity: 0B
 
 下载的 jindocache-patches.tar.gz, jindocache-{VERSION}-{PLATFORM}.tar.gz 和 [bootstrap_jindocache.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindocache.sh),
 
-以将新版集群中的 jindocache 升级到 6.8.1 版本，linux x86平台为例:
+以将新版集群中的 jindocache 升级到 6.8.2 版本，linux x86平台为例:
 
 ```bash
 mkdir jindo-patch
@@ -151,7 +151,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindocache-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.1/jindocache-6.8.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.2/jindocache-6.8.2-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindocache.sh
 
@@ -162,7 +162,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindocache.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindocache-6.8.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindocache-6.8.2-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindocache-patches.tar.gz
 ```
 
@@ -172,10 +172,10 @@ ls -l
 bash bootstrap_jindocache.sh -gen $NEW_JINDOCACHE_VERSION
 ```
 
-以将新版集群中的 jindocache 升级到 6.8.1 版本为例:
+以将新版集群中的 jindocache 升级到 6.8.2 版本为例:
 
 ```bash
-bash bootstrap_jindocache.sh -gen 6.8.1
+bash bootstrap_jindocache.sh -gen 6.8.2
 ```
 
 成功后可以看到如下：
@@ -236,7 +236,7 @@ Found 2 items
 
 下载的 jindocache-patches.tar.gz ，jindocache-{VERSION}-{PLATFORM}.tar.gz 和 [bootstrap_jindocache.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindocache.sh),
 
-以将新版集群中的 jindocache 升级到 6.8.1 版本，linux x86平台为例:
+以将新版集群中的 jindocache 升级到 6.8.2 版本，linux x86平台为例:
 
 ```bash
 mkdir jindo-patch
@@ -245,7 +245,7 @@ cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindocache-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.1/jindocache-6.8.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.2/jindocache-6.8.2-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindocache.sh
 
@@ -256,7 +256,7 @@ ls -l
 
 ```bash
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindocache.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindocache-6.8.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindocache-6.8.2-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindocache-patches.tar.gz
 ```
 
@@ -266,10 +266,10 @@ ls -l
 bash bootstrap_jindocache.sh -gen $NEW_JINDOCACHE_VERSION
 ```
 
-以将新版集群中的 Jindocache 升级到 6.8.1 版本为例:
+以将新版集群中的 Jindocache 升级到 6.8.2 版本为例:
 
 ```bash
-bash bootstrap_jindocache.sh -gen 6.8.1
+bash bootstrap_jindocache.sh -gen 6.8.2
 ```
 
 成功后可以看到如下：

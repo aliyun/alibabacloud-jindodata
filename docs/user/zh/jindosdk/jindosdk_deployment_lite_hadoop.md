@@ -4,11 +4,11 @@
 
 1.  下载 JindoSDK JAR 包。
     
-执行以下命令，下载6.8.1版本JindoSDK JAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](jindosdk_deployment_multi_platform.md)
+执行以下命令，下载6.8.2版本JindoSDK JAR包。以大多数linux x86环境为例。其他平台部署参见[《在多平台环境安装部署 JindoSDK》](jindosdk_deployment_multi_platform.md)
         
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.8.1/jindo-sdk-6.8.1.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.8.1/jindo-core-6.8.1.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.8.2/jindo-sdk-6.8.2.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.8.2/jindo-core-6.8.2.jar
 ```
 
 2.  安装 JindoSDK JAR 包
@@ -16,10 +16,10 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/j
 * jindo-core-x.x.x.jar
 * jindo-sdk-x.x.x.jar
 
-以 jindosdk-6.8.1 为例:
+以 jindosdk-6.8.2 为例:
 ```
-cp jindo-core-6.8.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.8.1.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindo-core-6.8.2.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.8.2.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 **重要** 请将安装目录和环境变量部署到所有所需节点上。

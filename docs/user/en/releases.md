@@ -1,8 +1,18 @@
 # JindoSDK Release History
 
+## 6.8.2, 2025-03-24
+
+- Updated JindoSDK [Maven repository for version 6.8.2](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- JindoSDK fixes the issue of inaccurate error messages, correctly returning `Request timeout` instead of `Connection timed out`.
+- JindoSDK fixes the problem that may occur when the append-close optimization is enabled, where abnormal closure could lead to errors. Specifically, if `fs.oss.append.threshold.size` is not `0`, it might fail to append after closing (default configuration is unaffected).
+- JindoSDK fixes the issue where listStatusIterator does not support ListObjectV2. Configuring `fs.oss.list.type` to `2` could cause a listStatusIterator infinite loop (default configuration is unaffected).
+- JindoSDK fixes an occasional hang-on problem when accessing JindoCache.
+- JindoSDK optimizes the compatibility of IO request timeout configurations, defaulting to the maximum value between `fs.oss.io.timeout.millisecond` and `fs.oss.timeout.millisecond`.
+- JindoSDK adds configurations `fs.oss.read.use-pread` and `fs.oss.pread.cache.enable` to optimize read performance in data lake table scenarios.
+
 ## 6.8.1, 2025-03-06
 
-- Updated JindoSDK [Maven repository for version 6.8.1](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Updated JindoSDK [Maven repository for version 6.8.1](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.1/oss-maven.md) and [download link](ttps://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.1/jindodata_download.md).
 - Upgraded yalantinglibs to [lts1.0.2](https://github.com/alibaba/yalantinglibs/tree/lts1.0.2).
 - The nextarch classifier will be published as the default version number in the OSS Maven repository.
 - Fixed support for summary metrics in JindoSDK.
@@ -317,7 +327,7 @@ This release introduces the official version of JindoSDK 6.4.0.
 - JindoFuse now supports specifying `metrics_ip` and `metrics_port` to designate the Prometheus listening IP address and port.
 - A fix has been implemented for the Delegation Token Renew mechanism in JindoOssFileSystem.
 - An issue has been resolved where `fs.accessPolicies.discovery` without a trailing `/` caused an error with `getTrashRoot` being empty (affects only version 6.3.3).
-- A bug has been fixed where `listStatusIterator` did not support ListObjectV2 when `fs.oss.list.type` was set to `2`, which could lead to a infinite loop (default configuration is unaffected).
+- A bug has been fixed where `listLocatedStatus` did not support ListObjectV2 when `fs.oss.list.type` was set to `2`, which could lead to a infinite loop (default configuration is unaffected).
 
 ## Version 6.3.3 - March 20, 2024
 
