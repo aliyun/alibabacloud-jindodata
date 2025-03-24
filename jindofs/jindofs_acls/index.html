@@ -463,6 +463,7 @@
 - 访问用户关联的组名在组名列表中出现，检查group对应访问权限
 - 否则检查others 对应的访问权限
 如果权限检查失败，则客户操作会失败</p>
+<p>注意： 单个路径最多支持32条记录，超过该限制，则不能设置</p>
 <h2 id="_2">开通权限管理<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
 <p>参见<a href="../jindofs_client_tools/">JindoFS 命令行工具使用指南</a></p>
 <p>权限管理的开通需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。</p>

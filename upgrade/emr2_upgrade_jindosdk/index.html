@@ -455,6 +455,8 @@
 <h2 id="_1">场景一：升级已有新版集群<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <p>若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在使用过程中遇到了问题，或者需要使用 JindoSDK 的新功能，具体查看 <a href="../../releases/">版本说明</a>, 可以根据下面的步骤完成 JindoSDK 升级。</p>
 <h3 id="1">1. 准备软件包和升级脚本、配置<a class="headerlink" href="#1" title="Permanent link">§</a></h3>
+<p>首先，需要确定升级使用的JindoSDK版本。通常来说，如果是JindoSDK直接访问OSS/OSS-HDFS，只需确认本地的hadoop依赖版本是否特殊，比如低于2.7。
+而如果已经在使用JindoCache/JindoAuth/JindoFSx等半托管服务，建议先咨询阿里云EMR技术支持，了解JindoSDK的版本兼容性。</p>
 <p>登录EMR集群的Master节点，并将下载的patch包放在emr-user用户的HOME目录下，将patch包解压缩后，使用emr-user用户执行操作。</p>
 <pre><code class="language-bash">su - emr-user
 cd /home/emr-user/
@@ -462,10 +464,10 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/
 tar zxf jindosdk-patches.tar.gz
 </code></pre>
 <p>下载 JindoSDK 软件包 jindosdk-{VERSION}-{PLATFORM}.tar.gz，放在解压后的目录。</p>
-<p>以将新版集群中的 JindoSDK 升级到 6.8.1 版本，linux x86 平台为例:</p>
+<p>以将新版集群中的 JindoSDK 升级到 6.8.2 版本，linux x86 平台为例:</p>
 <pre><code class="language-bash">cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.1/jindosdk-6.8.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.2/jindosdk-6.8.2-linux.tar.gz
 
 ls -l
 </code></pre>
@@ -473,7 +475,7 @@ ls -l
 <pre><code class="language-bash">-rwxrwxr-x 1 emr-user emr-user      2439 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 emr-user emr-user      7315 May 01 00:00 apply.sh
 -rw-rw-r-- 1 emr-user emr-user        40 May 01 00:00 hosts
--rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.8.1-linux.tar.gz
+-rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.8.2-linux.tar.gz
 -rwxrwxr-x 1 emr-user emr-user      1112 May 01 00:00 revert_all.sh
 -rwxrwxr-x 1 emr-user emr-user      2042 May 01 00:00 revert.sh
 </code></pre>
@@ -500,8 +502,8 @@ core-1-2
 <p>通过 apply_all.sh 脚本执行修复操作。</p>
 <pre><code class="language-bash">./apply_all.sh $NEW_JINDOSDK_VERSION
 </code></pre>
-<p>以将新版集群中的 JindoSDK 升级到 6.8.1 版本为例:</p>
-<pre><code class="language-bash">./apply_all.sh 6.8.1
+<p>以将新版集群中的 JindoSDK 升级到 6.8.2 版本为例:</p>
+<pre><code class="language-bash">./apply_all.sh 6.8.2
 </code></pre>
 <p>脚本执行完成后，返回如下提示信息。</p>
 <pre><code>&gt;&gt;&gt; updating ...  master-1-1
@@ -532,12 +534,12 @@ core-1-2
 <h3 id="5">5. 确认升级成功<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
 <pre><code class="language-bash">ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
 </code></pre>
-<p>以从集群默认版本 6.2.0 升级为 6.8.1 版本为例，返回示例如下：</p>
-<pre><code class="language-bash">lrwxrwxrwx 1 root root 64 Apr 12 11:08 jindo-core-6.2.0.jar -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.1-linux/lib/jindo-core-6.8.1.jar
-lrwxrwxrwx 1 root root 82 Apr 12 11:08 jindo-core-linux-el7-aarch64-6.2.0.jar -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.1-linux/lib/jindo-core-linux-el7-aarch64-6.8.1.jar
-lrwxrwxrwx 1 root root 63 Apr 12 11:08 jindo-sdk-6.2.0.jar -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.1-linux/lib/jindo-sdk-6.8.1.jar
-lrwxrwxrwx 1 root root 50 Apr 12 11:08 native -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.1-linux/lib/native
-lrwxrwxrwx 1 root root 57 Apr 12 11:08 site-packages -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.1-linux/lib/site-packages
+<p>以从集群默认版本 6.2.0 升级为 6.8.2 版本为例，返回示例如下：</p>
+<pre><code class="language-bash">lrwxrwxrwx 1 root root 64 Apr 12 11:08 jindo-core-6.2.0.jar -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.2-linux/lib/jindo-core-6.8.2.jar
+lrwxrwxrwx 1 root root 82 Apr 12 11:08 jindo-core-linux-el7-aarch64-6.2.0.jar -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.2-linux/lib/jindo-core-linux-el7-aarch64-6.8.2.jar
+lrwxrwxrwx 1 root root 63 Apr 12 11:08 jindo-sdk-6.2.0.jar -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.2-linux/lib/jindo-sdk-6.8.2.jar
+lrwxrwxrwx 1 root root 50 Apr 12 11:08 native -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.2-linux/lib/native
+lrwxrwxrwx 1 root root 57 Apr 12 11:08 site-packages -&gt; /opt/apps/JINDOSDK/jindosdk-6.8.2-linux/lib/site-packages
 </code></pre>
 <h3 id="6">6. 升级后重启服务<a class="headerlink" href="#6" title="Permanent link">§</a></h3>
 <p><strong>说明:</strong> 对于已经在运行的YARN作业（Application，例如，Spark Streaming或Flink作业），需要停止作业后，批量滚动重启YARN NodeManager。</p>
@@ -547,14 +549,14 @@ lrwxrwxrwx 1 root root 57 Apr 12 11:08 site-packages -&gt; /opt/apps/JINDOSDK/ji
 <p>若扩容已有集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。</p>
 <h3 id="1_1">1. 制作引导升级包<a class="headerlink" href="#1_1" title="Permanent link">§</a></h3>
 <p>下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 <a href="https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh">bootstrap_jindosdk.sh</a>,</p>
-<p>以将新版集群中的 JindoSDK 升级到 6.8.1 版本，linux x86平台为例:</p>
+<p>以将新版集群中的 JindoSDK 升级到 6.8.2 版本，linux x86平台为例:</p>
 <pre><code class="language-bash">mkdir jindo-patch
 
 cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.1/jindosdk-6.8.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.2/jindosdk-6.8.2-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
 
@@ -562,14 +564,14 @@ ls -l
 </code></pre>
 <p>内容示例如下：</p>
 <pre><code class="language-bash">-rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.8.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.8.2-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 </code></pre>
 <p>执行命令制作升级包</p>
 <pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen $NEW_JINDOSDK_VERSION
 </code></pre>
-<p>以将新版集群中的 JindoSDK 升级到 6.8.1 版本为例:</p>
-<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen 6.8.1
+<p>以将新版集群中的 JindoSDK 升级到 6.8.2 版本为例:</p>
+<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen 6.8.2
 </code></pre>
 <p><strong>参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。</strong></p>
 <p>成功后可以看到如下：</p>
@@ -643,14 +645,14 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 <p>若新建 EMR 集群时需要使用新版 JindoSDK, 可以通过在EMR控制台添加引导操作，完成新建集群或扩容已有集群时自动升级修复。具体参照如下操作步骤完成 JindoSDK 升级。</p>
 <h3 id="1_2">1. 制作引导升级包<a class="headerlink" href="#1_2" title="Permanent link">§</a></h3>
 <p>下载的 jindosdk-patches.tar.gz ，jindosdk-{VERSION}-{PLATFORM}.tar.gz 和 <a href="https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh">bootstrap_jindosdk.sh</a>,</p>
-<p>以将新版集群中的 JindoSDK 升级到 6.8.1 版本，linux x86平台为例:</p>
+<p>以将新版集群中的 JindoSDK 升级到 6.8.2 版本，linux x86平台为例:</p>
 <pre><code class="language-bash">mkdir jindo-patch
 
 cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.1/jindosdk-6.8.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.2/jindosdk-6.8.2-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
 
@@ -658,14 +660,14 @@ ls -l
 </code></pre>
 <p>内容示例如下：</p>
 <pre><code class="language-bash">-rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.8.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.8.2-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 </code></pre>
 <p>执行命令制作升级包</p>
 <pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen-full $NEW_JINDOSDK_VERSION
 </code></pre>
-<p>以将新版集群中的 JindoSDK 升级到 6.8.1 版本为例:</p>
-<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen-full 6.8.1
+<p>以将新版集群中的 JindoSDK 升级到 6.8.2 版本为例:</p>
+<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen-full 6.8.2
 </code></pre>
 <p><strong>参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。</strong></p>
 <p>成功后可以看到如下：</p>
@@ -735,6 +737,10 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 </tr>
 </tbody>
 </table>
+<h3 id="4-emr-cligateway">4. 升级使用EMR Cli创建的gateway节点<a class="headerlink" href="#4-emr-cligateway" title="Permanent link">§</a></h3>
+<p>对于阿里云EMR集群的GATEWAY节点组，上述步骤已经可以覆盖。对于使用EMR Cli创建的gateway节点，需要手动运行升级脚本进行升级，同时需要自行确保弹性节点初始化时，提前使用脚本进行升级。</p>
+<h3 id="5-trinoprestoimpala-jindosdk">5. 升级 TRINO/PRESTO/IMPALA 等服务使用 JindoSDK<a class="headerlink" href="#5-trinoprestoimpala-jindosdk" title="Permanent link">§</a></h3>
+<p>对于EMR-3.53.0/5.19.0（不含）之前的版本，TRINO/PRESTO/IMPALA等组件使用的JindoSDK不会在上述步骤中同时升级，需要用户手动将TRINO/PRESTO的plugins路径中的JindoSDK的jar包进行手动替换，并重启TRINO服务。</p>
 <h2 id="jindosdk">场景四：回滚 JindoSDK 到集群默认版本<a class="headerlink" href="#jindosdk" title="Permanent link">§</a></h2>
 <p>若已有新版管控平台创建的 E-MapReduce EMR-5.6.0/EMR-3.40.0 及以上版本集群。在升级过程中遇到了问题，需要回滚到集群默认的JindoSDK版本</p>
 <h3 id="1_3">1. 准备回滚脚本<a class="headerlink" href="#1_3" title="Permanent link">§</a></h3>

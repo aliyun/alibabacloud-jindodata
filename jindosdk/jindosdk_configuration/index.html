@@ -730,6 +730,20 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>打开后，预读算法会立即清除完全读取的预读内存。</td>
 <td>6.8.0+ nextarch</td>
 </tr>
+<tr>
+<td>fs.oss.read.use-pread</td>
+<td>布尔值</td>
+<td>false</td>
+<td>打开后，读接口默认使用 pread 实现。</td>
+<td>6.8.2+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.pread.cache.enable</td>
+<td>布尔值</td>
+<td>false</td>
+<td>打开后，pread 接口支持缓存，否则为零拷贝实现。</td>
+<td>6.8.2+ nextarch</td>
+</tr>
 </tbody>
 </table>
 <h3 id="_3">内存相关配置项<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
