@@ -1,12 +1,12 @@
 ### 背景
-OSS-HDFS 支持目录配额功能，包含目录容量配额以及数量配额功能，用户可以对OSS-HDFS 设置/清理容量配额以及数量配额，用来限制目录容量使用和目录下的文件/目录数量，避免单个目录过大。
+OSS-HDFS 支持目录配额功能，包含目录容量配额以及数量配额功能，用户可以对OSS-HDFS 设置/清理容量配额以及数量配额，用来限制目录容量使用和目录下的文件/目录数量，避免单个目录过大。当前只支持设置目录的容量总量以及路径总量，不支持基于存储类型来设置目录的配额。
 ### 开通目录配额功能
 
 参见[JindoFS 命令行工具使用指南](./jindofs_client_tools.md)
 
-权限管理的开通需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。
+目录配额功能的开通需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。
 ### 配置访问 AK
-权限管理需要配置连接 OSS-HDFS 所需的 AK 信息。有两种方法可以进行配置：
+目录配额功能的开通需要配置连接 OSS-HDFS 所需的 AK 信息。有两种方法可以进行配置：
 
 #### 配置文件（推荐）
 设置环境变量 JINDOSDK_CONF_DIR 指向某个目录，然后在目录下创建名为 jindofs.cfg 的文件，然后在文件里写入如下内容：
@@ -68,9 +68,9 @@ jindofs admin -clearQuota -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path>
 
 清楚目录容量配额命令：
 ```bash
-jindofs admin -setSpaceQuota -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path>
+jindofs admin -clearSpaceQuota -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path>
 ```
 
-配额注意事项：
+目录配额注意事项：
 
-* 当前目录配额的限制不是硬限制，主要由于目录配额的使用量统计具有一定延时，正常情况下10分钟之内统计最新目录配额使用量，因此存在目录的使用量超过设置的配额。
+* 当前目录配额的限制不是硬限制，主要由于目录配额的容量以及数量的使用量统计具有不是实时统计的，使用统计的时间跟目录的大小/配额目录数量存在一定的关系，如果目录较大或者支持配额目录过多，统计的使用量可能是存在小时级别的偏差。
