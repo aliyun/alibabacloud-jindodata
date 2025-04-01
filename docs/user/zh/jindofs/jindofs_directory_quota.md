@@ -1,5 +1,5 @@
 ### 背景
-OSS-HDFS 支持目录配额功能，包含目录容量配额以及数量配额功能，用户可以对OSS-HDFS 设置/清理容量配额以及数量配额，用来限制目录容量使用和目录下的文件/目录数量，避免单个目录过大。当前只支持设置目录的容量总量以及路径总量，不支持基于存储类型来设置目录的配额。
+OSS-HDFS 支持目录配额功能，包含目录容量配额以及数量配额功能，用户可以对OSS-HDFS 设置/清理容量配额以及数量配额，用来限制目录容量使用和目录下的文件/目录数量，避免单个目录过大。当前只支持设置目录的容量总量以及目录/文件总量，不支持基于存储类型来设置目录的配额。
 ### 开通目录配额功能
 
 参见[JindoFS 命令行工具使用指南](./jindofs_client_tools.md)
@@ -48,12 +48,12 @@ jindofs fs -count -q -v -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path>
 
 ### 设置目录配额
 
-设置目录数量配额命令：
+设置目录数量(目录/文件总数为1000)配额命令：
 ```bash
 jindofs admin -setQuota -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path> -q 1000
 ```
 
-设置目录容量配额命令：
+设置目录容量配额（容量总和为1000字节）命令：
 ```bash
 jindofs admin -setSpaceQuota -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path> -q 1000
 ```
