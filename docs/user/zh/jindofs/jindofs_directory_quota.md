@@ -66,7 +66,7 @@ jindofs admin -setSpaceQuota -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path> -
 jindofs admin -clearQuota -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path>
 ```
 
-清楚目录容量配额命令：
+清除目录容量配额命令：
 ```bash
 jindofs admin -clearSpaceQuota -dlsUri oss://<bucket>.<oss-hdfs-endpoint>/<path>
 ```
