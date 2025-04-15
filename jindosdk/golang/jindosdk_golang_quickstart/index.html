@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Hbase - AlibabaCloud JindoData</title>
+        <title>Golang - AlibabaCloud JindoData</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -105,7 +105,7 @@
   </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hadoop 生态 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -162,7 +162,7 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Hbase</a>
+    <a href="../../hbase/jindosdk_on_hbase/" class="dropdown-item">Hbase</a>
 </li>
                                     
 <li>
@@ -209,7 +209,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -296,7 +296,7 @@
 </li>
             
 <li>
-    <a href="../../golang/jindosdk_golang_quickstart/" class="dropdown-item">Golang</a>
+    <a href="./" class="dropdown-item active">Golang</a>
 </li>
     </ul>
   </li>
@@ -417,12 +417,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../presto/jindosdk_on_presto/" class="nav-link">
+                                <a rel="prev" href="../../python/pyjindo_quickstart/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../flink/jindosdk_on_flink/" class="nav-link">
+                                <a rel="next" href="../../jindosdk_download/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -444,25 +444,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#hbase-oss-hdfs-jindofs" class="nav-link">HBase 使用阿里云 OSS-HDFS 服务（JindoFS 服务）作为底层存储</a>
+            <li class="nav-item" data-level="1"><a href="#jindo-golang-sdk-ossoss-hdfs" class="nav-link">使用 Jindo Golang SDK 访问阿里云 OSS/OSS-HDFS</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#1-jindosdk" class="nav-link">1. 下载 JindoSDK 包</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#2-jar" class="nav-link">2. 安装 jar 包</a>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">背景</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#3-oss-hdfs-access-key" class="nav-link">3. 配置 OSS-HDFS 服务实现类及 Access Key</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#4-oss-hdfs-endpoint" class="nav-link">4. 配置 OSS-HDFS 服务 Endpoint</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#5-hbase" class="nav-link">5. 指定 HBase 的存储路径</a>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">部署环境</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -473,77 +461,272 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="hbase-oss-hdfs-jindofs">HBase 使用阿里云 OSS-HDFS 服务（JindoFS 服务）作为底层存储<a class="headerlink" href="#hbase-oss-hdfs-jindofs" title="Permanent link">§</a></h1>
-<p>HBase 是 Hadoop 生态中的实时数据库，有很高的写入性能。 OSS-HDFS 服务是阿里云推出新的存储空间类型，兼容 HDFS 接口, JindoSDK 支持 HBase 使用 OSS-HDFS 服务作为底层存储及 WAL 文件的存储实现存算分离，相对于本地HDFS存储，使用更加灵活，减少运维成本。</p>
-<h2 id="1-jindosdk">1. 下载 JindoSDK 包<a class="headerlink" href="#1-jindosdk" title="Permanent link">§</a></h2>
-<p>下载最新的 tar.gz 包 jindosdk-x.x.x.tar.gz (<a href="../../jindosdk_download/">下载页面</a>)。</p>
-<h2 id="2-jar">2. 安装 jar 包<a class="headerlink" href="#2-jar" title="Permanent link">§</a></h2>
-<p>解压下载的安装包，将安装包内的以下 jar 文件安装到 hadoop 的 classpath 下：
-* jindo-core-x.x.x.jar
-* jindo-sdk-x.x.x.jar</p>
-<p>jindosdk-6.8.3 为例:</p>
-<pre><code>cp jindosdk-6.8.3/lib/jindo-core-6.8.3.jar &lt;HADOOP_HOME&gt;/share/hadoop/hdfs/lib/
-cp jindosdk-6.8.3/lib/jindo-sdk-6.8.3.jar &lt;HADOOP_HOME&gt;/share/hadoop/hdfs/lib/
-</code></pre>
-<h2 id="3-oss-hdfs-access-key">3. 配置 OSS-HDFS 服务实现类及 Access Key<a class="headerlink" href="#3-oss-hdfs-access-key" title="Permanent link">§</a></h2>
-<p>将 JindoSDK OSS 实现类配置到 Hadoop 的<code>core-site.xml</code>中。</p>
-<pre><code class="language-xml">&lt;configuration&gt;
-    &lt;property&gt;
-        &lt;name&gt;fs.AbstractFileSystem.oss.impl&lt;/name&gt;
-        &lt;value&gt;com.aliyun.jindodata.oss.OSS&lt;/value&gt;
-    &lt;/property&gt;
+<h1 id="jindo-golang-sdk-ossoss-hdfs">使用 Jindo Golang SDK 访问阿里云 OSS/OSS-HDFS<a class="headerlink" href="#jindo-golang-sdk-ossoss-hdfs" title="Permanent link">§</a></h1>
+<h2 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
+<p>本文指导如何使用 Jindo Golang SDK 操作 OSS/OSS-HDFS。</p>
+<h2 id="_2">部署环境<a class="headerlink" href="#_2" title="Permanent link">§</a></h2>
+<h3 id="golang-sdk-demo">下载 Golang SDK Demo<a class="headerlink" href="#golang-sdk-demo" title="Permanent link">§</a></h3>
+<ol>
+<li>
+<p>下载 jindo-gosdk-demo <a href="http://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.3/jindo-gosdk-demo.tar.gz">下载链接</a>。</p>
+</li>
+<li>
+<p>本 Demo 以 Golang 1.20 版本 在 Linux 平台使用为例，多平台使用可参考<a href="../../jindosdk_deployment_multi_platform/">多平台部署文档</a> 自行替换 <code>jindo/libjindosdk_go.so</code></p>
+</li>
+</ol>
+<pre><code>.
+├── Gopkg.lock
+├── Gopkg.toml
+├── README.md
+├── go.mod
+├── jindo
+│   ├── jindo_const.go
+│   ├── jindo_error.go
+│   ├── jindo_filesystem.go
+│   ├── jindo_reader.go
+│   ├── jindo_util.go
+│   ├── jindo_wrapper.go
+│   ├── jindo_writer.go
+│   └── libjindosdk_go.so
+└── main.go
 
-    &lt;property&gt;
-        &lt;name&gt;fs.oss.impl&lt;/name&gt;
-        &lt;value&gt;com.aliyun.jindodata.oss.JindoOssFileSystem&lt;/value&gt;
-    &lt;/property&gt;
-&lt;/configuration&gt;
+2 directories, 13 files
 </code></pre>
-<p>将已开启 OSS-HDFS 服务的 Bucket 对应的<code>Access Key ID</code>、<code>Access Key Secret</code>等预先配置在 Hadoop 的<code>core-site.xml</code>中。</p>
-<pre><code class="language-xml">&lt;configuration&gt;
-    &lt;property&gt;
-        &lt;name&gt;fs.oss.accessKeyId&lt;/name&gt;
-        &lt;value&gt;xxx&lt;/value&gt;
-    &lt;/property&gt;
+<h3 id="golang-demo">Golang Demo 程序<a class="headerlink" href="#golang-demo" title="Permanent link">§</a></h3>
+<p><strong>注意</strong>：需替换 endpoint、accessKeyId、accessKeySecret、user、bucket等参数。</p>
+<pre><code class="language-golang">package main
 
-    &lt;property&gt;
-        &lt;name&gt;fs.oss.accessKeySecret&lt;/name&gt;
-        &lt;value&gt;xxx&lt;/value&gt;
-    &lt;/property&gt;
-&lt;/configuration&gt;
+import (
+    &quot;bytes&quot;
+    &quot;fmt&quot;
+    &quot;jindo-gosdk-demo/jindo&quot;
+    &quot;strings&quot;
+    &quot;time&quot;
+)
+
+func main() {
+    option := map[string]string{
+        jindo.JdoOptLoggerDir:            &quot;/tmp/&quot;,
+        jindo.JdoOptLoggerAppender:       &quot;file&quot;,
+        jindo.JdoOptLoggerLevel:          &quot;2&quot;,
+        jindo.JdoOptLoggerVerbose:        &quot;0&quot;,
+        jindo.JdoOptLoggerSync:           &quot;true&quot;,
+        jindo.JdoOptLoggerProgram:        &quot;jindo-gosdk-demo&quot;,
+        jindo.JdoOptOssEndpoint:          &quot;&lt;your oss/oss-hdfs endpoint&gt;&quot;,
+        jindo.JdoOptOssSecondLevelDomain: &quot;true&quot;,
+        jindo.JdoOptOssDataLakeStorage:   &quot;true&quot;,
+        jindo.JdoOptOssAccessKeyId:       &quot;&lt;your access key id&gt;&quot;,
+        jindo.JdoOptOssAccessKeySecret:   &quot;&lt;your access key secret&gt;&quot;,
+    }
+    user := &quot;&lt;your user name&gt;&quot;
+    bucket := &quot;&lt;your oss/oss-hdfs bucket name&gt;&quot;
+    rootPath := &quot;oss://&quot; + bucket + &quot;/&quot;
+    testDir := rootPath + &quot;test-go-example/&quot;
+
+    // init sdk
+    fs := jindo.NewJdoFileSystem()
+    if err := fs.Init(rootPath, user, option); err != nil {
+        panic(err.Message)
+    }
+    defer fs.Free()
+
+    // clean testDir
+    _ = fs.Remove(testDir, true)
+
+    // mkdir testDir
+    if err := fs.Mkdir(testDir, false); err != nil {
+        fmt.Printf(&quot;failed to mkdir, %d: %s\n&quot;, err.Code, err.Message)
+    } else {
+        fmt.Printf(&quot;success to mkdir\n&quot;)
+    }
+
+    // write 10 files (each size 10MB) under testDir
+    data := strings.Repeat(&quot;abcd&quot;, 1024*1024*10)
+    current := time.Now().Unix()
+    for idx := 0; idx &lt; 10; idx++ {
+        path := fmt.Sprintf(testDir+&quot;test_%d_%d&quot;, current, idx)
+        writer, err := fs.OpenWriter(path, 1024*1024)
+        if err != nil {
+            panic(err.Message)
+        }
+        start := time.Now().Unix()
+        if cnt, err := writer.Write(bytes.NewReader([]byte(data))); err != nil {
+            panic(err.Message)
+        } else if err := writer.Flush(); err != nil {
+            panic(err.Message)
+        } else {
+            writer.Free()
+            fmt.Printf(&quot;success to write %d: %d, takes: %d sec\n&quot;, idx, cnt, time.Now().Unix()-start)
+        }
+    }
+
+    // chmod 777 to testDir
+    err := fs.SetPermission(testDir, 0777)
+    if err != nil {
+        panic(err.Message)
+    }
+
+    // chown testDir to testuser &amp; testgroup
+    err = fs.SetOwner(testDir, &quot;testuser&quot;, &quot;testgroup&quot;)
+    if err != nil {
+        panic(err.Message)
+    }
+
+    // getFileInfo of testDir
+    fileInfo, err := fs.GetFileInfo(testDir)
+    if err != nil {
+        panic(err.Message)
+    }
+    if !fileInfo.IsDir() {
+        panic(testDir + &quot; should be dir&quot;)
+    }
+    fmt.Printf(&quot;success to getInfo %s, user %s, group %s, Length %d, Mtime %d, Atime %d\n&quot;,
+        fileInfo.Name, fileInfo.User, fileInfo.Group, fileInfo.Length, fileInfo.MTimeMilliSec, fileInfo.ATimeMilliSec)
+
+    // read 10 files (each size 10MB) under testDir
+    for idx := 0; idx &lt; 10; idx++ {
+        path := fmt.Sprintf(testDir+&quot;test_%d_%d&quot;, current, idx)
+        fileInfo, err := fs.GetFileInfo(path)
+        if err != nil {
+            panic(err.Message)
+        }
+        if !fileInfo.IsFile() {
+            panic(path + &quot; should be file&quot;)
+        }
+        fmt.Printf(&quot;success to getInfo %s, user %s, group %s, Length %d, Mtime %d, Atime %d\n&quot;,
+            fileInfo.Name, fileInfo.User, fileInfo.Group, fileInfo.Length, fileInfo.MTimeMilliSec, fileInfo.ATimeMilliSec)
+    }
+
+    // listDir non-recursive
+    listResult, err := fs.ListDir(testDir, false)
+    if err != nil {
+        panic(err.Message)
+    }
+    if listResult == nil || len(listResult.Infos) != 10 {
+        panic(&quot;listResult of &quot; + testDir + &quot; should be 10&quot;)
+    }
+    for idx := 0; idx &lt; 10; idx++ {
+        fileInfo := listResult.Infos[idx]
+        fmt.Printf(&quot;success to listResult of %d, name %s, user %s, group %s, Length %d, Mtime %d, Atime %d\n&quot;,
+            idx, fileInfo.Name, fileInfo.User, fileInfo.Group, fileInfo.Length, fileInfo.MTimeMilliSec, fileInfo.ATimeMilliSec)
+    }
+
+    // listDir iterative
+    marker := &quot;&quot;
+    for idx := 0; idx &lt; 10; idx++ {
+        listResult, err := fs.ListDirIterative(testDir, false, 1, marker)
+        if err != nil {
+            panic(err.Message)
+        }
+        if listResult == nil || len(listResult.Infos) != 1 {
+            panic(&quot;listResult of &quot; + testDir + &quot; should be 11&quot;)
+        }
+        fileInfo := listResult.Infos[0]
+        fmt.Printf(&quot;success to listResult of %d, name %s, user %s, group %s, Length %d, Mtime %d, Atime %d\n&quot;,
+            idx, fileInfo.Name, fileInfo.User, fileInfo.Group, fileInfo.Length, fileInfo.MTimeMilliSec, fileInfo.ATimeMilliSec)
+        marker = listResult.NextMarker
+    }
+
+    // getContentSummary
+    contentSummary, err := fs.GetContentSummary(testDir, false)
+    if err != nil {
+        panic(err.Message)
+    }
+    fmt.Printf(&quot;success to getContentSummary oss://jindosdk-gosdk-demo-bucket/test-gosdk-nextarch/, FileSize %d, FileCount %d, DirCount %d\n&quot;,
+        contentSummary.FileSize, contentSummary.FileCount, contentSummary.DirCount)
+
+    // read 10 files (each size 10MB) written under testDir
+    for idx := 0; idx &lt; 10; idx++ {
+        path := fmt.Sprintf(testDir+&quot;test_%d_%d&quot;, current, idx)
+        reader, err := fs.OpenReader(path, 1024*1024)
+        if err != nil {
+            panic(err.Message)
+        }
+        start := time.Now().Unix()
+        buffer := make([]byte, 1024*1024*4*10)
+        if cnt, err := reader.Read(bytes.NewBuffer(buffer)); err != nil {
+            panic(err.Message)
+        } else {
+            reader.Free()
+            fmt.Printf(&quot;success to read %d: %d, takes: %d sec\n&quot;, idx, cnt, time.Now().Unix()-start)
+        }
+    }
+
+    // remove testDir
+    if err := fs.Remove(testDir, true); err != nil {
+        fmt.Printf(&quot;failed to remove, %d: %s\n&quot;, err.Code, err.Message)
+    } else {
+        fmt.Printf(&quot;success to remove\n&quot;)
+    }
+}
 </code></pre>
-<p>JindoSDK 还支持更多的 AccessKey 的配置方式，详情参考 <a href="../../jindosdk_credential_provider/">JindoSDK OSS-HDFS 服务 Credential Provider 配置</a>。</p>
-<h2 id="4-oss-hdfs-endpoint">4. 配置 OSS-HDFS 服务 Endpoint<a class="headerlink" href="#4-oss-hdfs-endpoint" title="Permanent link">§</a></h2>
-<p>访问 OSS/OSS-HDFS Bucket时需要配置 Endpoint。推荐访问路径格式为 oss://<code>&lt;Bucket&gt;</code>.<code>&lt;Endpoint&gt;</code>/<code>&lt;Object&gt;</code>，例如 oss://examplebucket.cn-hangzhou.oss-dls.aliyuncs.com/exampleobject.txt。配置完成后，JindoSDK会根据访问路径中的 Endpoint 访问对应的 OSS/OSS-HDFS 服务接口。</p>
-<p>此外，您也可以通过以下方式配置默认 Endpoint，以简化访问路径格式为 oss://<code>&lt;Bucket&gt;</code>/<code>&lt;Object&gt;</code>，例如 oss://examplebucket/exampleobject.txt</p>
-<pre><code class="language-xml">&lt;configuration&gt;
-    &lt;property&gt;
-        &lt;name&gt;fs.oss.endpoint&lt;/name&gt;
-        &lt;value&gt;xxx&lt;/value&gt;
-    &lt;/property&gt;
-&lt;/configuration&gt;
+<h3 id="_3">编译测试<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<pre><code class="language-bash">cd jindo-gosdk-demo
+go build
+LD_LIBRARY_PATH=./jindo ./jindo-gosdk-demo
 </code></pre>
-<p>这种方式在访问路径中包含 OSS-HDFS 服务的 Endpoint，JindoSDK 会根据路径中的 Endpoint 访问对应的 OSS-HDFS 服务接口。 JindoSDK 还支持更多的 Endpoint 配置方式，详情参考 <a href="../../jindosdk_endpoint_configuration/">OSS-HDFS 服务 Endpoint 配置</a>。</p>
-<h2 id="5-hbase">5. 指定 HBase 的存储路径<a class="headerlink" href="#5-hbase" title="Permanent link">§</a></h2>
-<p>需要修改<code>hbase-site</code>配置文件中的参数<code>hbase.rootdir</code>和<code>hbase.wal.dir</code>的值为 OSS-HDFS 服务地址，指定 HBase 的存储路径和 WAL 文件的存储路径。如果要释放集群，需要先 Disable table，确保 WAL 文件已经完全更新到 HFile。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hbase.rootdir</td>
-<td>指定 HBase 的 ROOT 存储目录到 OSS-HDFS 服务。参数值为<code>oss://bucket.endpoint/hbase-root-dir</code></td>
-</tr>
-<tr>
-<td>hbase.wal.dir</td>
-<td>指定 HBase 的 WAL 存储目录到 OSS-HDFS 服务。 参数值为<code>oss://bucket.endpoint/hbase</code></td>
-</tr>
-</tbody>
-</table></div>
+<h3 id="_4">执行结果<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<pre><code>success to mkdir
+success to write 0: 41943040, takes: 1 sec
+success to write 1: 41943040, takes: 2 sec
+success to write 2: 41943040, takes: 2 sec
+success to write 3: 41943040, takes: 1 sec
+success to write 4: 41943040, takes: 2 sec
+success to write 5: 41943040, takes: 2 sec
+success to write 6: 41943040, takes: 1 sec
+success to write 7: 41943040, takes: 2 sec
+success to write 8: 41943040, takes: 2 sec
+success to write 9: 41943040, takes: 1 sec
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example, user testuser, group testuser, Length 0, Mtime 1744686630369, Atime 0
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_0, user warlock, group warlock, Length 41943040, Mtime 1744686616545, Atime 1744686615728
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_1, user warlock, group warlock, Length 41943040, Mtime 1744686618285, Atime 1744686616580
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_2, user warlock, group warlock, Length 41943040, Mtime 1744686620061, Atime 1744686618288
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_3, user warlock, group warlock, Length 41943040, Mtime 1744686621733, Atime 1744686620064
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_4, user warlock, group warlock, Length 41943040, Mtime 1744686623446, Atime 1744686621737
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_5, user warlock, group warlock, Length 41943040, Mtime 1744686625144, Atime 1744686623450
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_6, user warlock, group warlock, Length 41943040, Mtime 1744686626853, Atime 1744686625148
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_7, user warlock, group warlock, Length 41943040, Mtime 1744686628758, Atime 1744686626857
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_8, user warlock, group warlock, Length 41943040, Mtime 1744686630366, Atime 1744686628761
+success to getInfo oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_9, user warlock, group warlock, Length 41943040, Mtime 1744686631976, Atime 1744686630369
+success to listResult of 0, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_0, user warlock, group warlock, Length 41943040, Mtime 1744686616545, Atime 1744686615728
+success to listResult of 1, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_1, user warlock, group warlock, Length 41943040, Mtime 1744686618285, Atime 1744686616580
+success to listResult of 2, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_2, user warlock, group warlock, Length 41943040, Mtime 1744686620061, Atime 1744686618288
+success to listResult of 3, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_3, user warlock, group warlock, Length 41943040, Mtime 1744686621733, Atime 1744686620064
+success to listResult of 4, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_4, user warlock, group warlock, Length 41943040, Mtime 1744686623446, Atime 1744686621737
+success to listResult of 5, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_5, user warlock, group warlock, Length 41943040, Mtime 1744686625144, Atime 1744686623450
+success to listResult of 6, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_6, user warlock, group warlock, Length 41943040, Mtime 1744686626853, Atime 1744686625148
+success to listResult of 7, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_7, user warlock, group warlock, Length 41943040, Mtime 1744686628758, Atime 1744686626857
+success to listResult of 8, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_8, user warlock, group warlock, Length 41943040, Mtime 1744686630366, Atime 1744686628761
+success to listResult of 9, name oss://jindosdk-gosdk-demo-bucket/test-go-example/test_1744686615_9, user warlock, group warlock, Length 41943040, Mtime 1744686631976, Atime 1744686630369
+success to getContentSummary oss://jindosdk-gosdk-demo-bucket/test-gosdk-nextarch/, FileSize 419430400, FileCount 10, DirCount 1
+success to read 0: 41943040, takes: 0 sec
+success to read 1: 41943040, takes: 2 sec
+success to read 2: 41943040, takes: 2 sec
+success to read 3: 41943040, takes: 2 sec
+success to read 4: 41943040, takes: 1 sec
+success to read 5: 41943040, takes: 2 sec
+success to read 6: 41943040, takes: 2 sec
+success to read 7: 41943040, takes: 1 sec
+success to read 8: 41943040, takes: 2 sec
+success to read 9: 41943040, takes: 2 sec
+success to remove
+</code></pre>
+<h3 id="_5">内存占用优化<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
+<p>如果发现常驻服务，内存缓慢上升。大概率是因为 Jindo Golang SDK 的核心实现使用了 cgo，而默认的 glibc 内存分配器在并发情况下存在大量脏页未及时回收，因此建议使用 jemalloc 或者 tcmalloc 来优化内存占用。</p>
+<h4 id="1">使用方式1<a class="headerlink" href="#1" title="Permanent link">§</a></h4>
+<p>使用方式如下，编译/部署环境中要提前安装tcmalloc、jemalloc。以tcmalloc为例。</p>
+<pre><code class="language-shell">yum install gperftools gperftools-devel
+</code></pre>
+<p>修改 <code>jindo/jindo_wrapper.go</code> 中的 LDFLAGS这里带上 -ltcmalloc，如：</p>
+<pre><code class="language-golang">#cgo LDFLAGS: -L${SRCDIR}/ -ljindosdk_go -ltcmalloc
+</code></pre>
+<p>重新编译运行</p>
+<h4 id="2">使用方式2<a class="headerlink" href="#2" title="Permanent link">§</a></h4>
+<p>用LD_PRELOAD的方式，直接运行即可。以 jemalloc 为例，在启动前带上 LD_PRELOAD 及 MALLOC_CONF 两个环境变量。如：</p>
+<pre><code class="language-shell">export LD_PRELOAD=/opt/apps/JINDOSDK/jindosdk-current/lib/native/libjemalloc.so
+export MALLOC_CONF=percpu_arena:percpu,lg_tcache_max:12,dirty_decay_ms:5000,muzzy_decay_ms:5000 
+LD_LIBRARY_PATH=./jindo ./jindo-gosdk-demo
+</code></pre></div>
             </div>
         </div>
 

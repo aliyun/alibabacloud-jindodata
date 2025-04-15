@@ -282,6 +282,24 @@
 </li>
     </ul>
   </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">多语言开发</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../jindosdk/hadoop/jindosdk_ide_hadoop/" class="dropdown-item">Java</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk/python/pyjindo_quickstart/" class="dropdown-item">Python</a>
+</li>
+            
+<li>
+    <a href="../../jindosdk/golang/jindosdk_golang_quickstart/" class="dropdown-item">Golang</a>
+</li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -423,19 +441,25 @@
             
             
             
+            
+            
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
 <h3 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">§</a></h3>
-<p>OSS-HDFS 支持目录配额功能，包含目录容量配额以及数量配额功能，用户可以对OSS-HDFS 设置/清理容量配额以及数量配额，用来限制目录容量使用和目录下的文件/目录数量，避免单个目录过大。</p>
-<h3 id="_2">开通目录配额功能<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
+<p>OSS-HDFS 支持目录配额功能，包含目录容量配额以及数量配额功能，用户可以对OSS-HDFS 设置/清理容量配额以及数量配额，用来限制目录容量使用和目录下的文件/目录数量，避免单个目录过大。当前只支持设置目录的容量总量以及目录/文件总量，不支持基于存储类型来设置目录的配额。</p>
+<h3 id="_2">数量配额<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
+<p>数量配额是指当前目录下文件和目录总数的上限，超过这个限制，创建文件或者目录会失败。</p>
+<h3 id="_3">容量配额<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<p>容量配额是指目录下使用空间总和的上限，如果创建文件时超过容量配额，创建文件会失败。</p>
+<h3 id="_4">开通目录配额功能<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
 <p>参见<a href="../jindofs_client_tools/">JindoFS 命令行工具使用指南</a></p>
-<p>权限管理的开通需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。</p>
+<p>目录配额功能的开通需要用到的是 -putConfig 与 -getConfig 命令，具体用法将在下文介绍。</p>
 <h3 id="ak">配置访问 AK<a class="headerlink" href="#ak" title="Permanent link">§</a></h3>
-<p>权限管理需要配置连接 OSS-HDFS 所需的 AK 信息。有两种方法可以进行配置：</p>
-<h4 id="_3">配置文件（推荐）<a class="headerlink" href="#_3" title="Permanent link">§</a></h4>
+<p>目录配额功能的开通需要配置连接 OSS-HDFS 所需的 AK 信息。有两种方法可以进行配置：</p>
+<h4 id="_5">配置文件（推荐）<a class="headerlink" href="#_5" title="Permanent link">§</a></h4>
 <p>设置环境变量 JINDOSDK_CONF_DIR 指向某个目录，然后在目录下创建名为 jindofs.cfg 的文件，然后在文件里写入如下内容：</p>
 <pre><code class="language-yaml">[client]
 fs.oss.accessKeyId = &lt;key&gt;                               # 对所有 Bucket 生效的默认 AK key
@@ -450,36 +474,36 @@ fs.oss.bucket.&lt;bucket&gt;.accessKeySecret = &lt;secret&gt;  # 仅对某 Bucke
               --extraConf fs.oss.accessKeySecret=&lt;AK secret&gt;
 </code></pre>
 <p>将给命令提供额外的 AK key 与 AK secret 配置。</p>
-<h3 id="_4">打开目录配额功能<a class="headerlink" href="#_4" title="Permanent link">§</a></h3>
+<h3 id="_6">打开目录配额功能<a class="headerlink" href="#_6" title="Permanent link">§</a></h3>
 <p>命令：</p>
 <pre><code class="language-bash">jindofs admin -putConfig -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/ -conf namespace.directory.quota.enable=true
 </code></pre>
-<h3 id="_5">查看目录配额功能<a class="headerlink" href="#_5" title="Permanent link">§</a></h3>
+<h3 id="_7">查看目录配额功能<a class="headerlink" href="#_7" title="Permanent link">§</a></h3>
 <p>命令：</p>
 <pre><code class="language-bash">jindofs admin -getConfig -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/ -name namespace.directory.quota.enable
 </code></pre>
 <p>上述命令返回了名为 \&lt;bucket&gt;（endpoint 为 \&lt;oss-hdfs-endpoint&gt;）的桶的目录配额过的标签</p>
-<h3 id="_6">查看目录配额<a class="headerlink" href="#_6" title="Permanent link">§</a></h3>
+<h3 id="_8">查看目录配额<a class="headerlink" href="#_8" title="Permanent link">§</a></h3>
 <p>命令：</p>
 <pre><code class="language-bash">jindofs fs -count -q -v -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/&lt;path&gt;
 </code></pre>
-<h3 id="_7">设置目录配额<a class="headerlink" href="#_7" title="Permanent link">§</a></h3>
-<p>设置目录数量配额命令：</p>
+<h3 id="_9">设置目录配额<a class="headerlink" href="#_9" title="Permanent link">§</a></h3>
+<p>设置目录数量(目录/文件总数为1000)配额命令：</p>
 <pre><code class="language-bash">jindofs admin -setQuota -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/&lt;path&gt; -q 1000
 </code></pre>
-<p>设置目录容量配额命令：</p>
+<p>设置目录容量配额（容量总和为1000字节）命令：</p>
 <pre><code class="language-bash">jindofs admin -setSpaceQuota -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/&lt;path&gt; -q 1000
 </code></pre>
-<h3 id="_8">清除目录配额<a class="headerlink" href="#_8" title="Permanent link">§</a></h3>
+<h3 id="_10">清除目录配额<a class="headerlink" href="#_10" title="Permanent link">§</a></h3>
 <p>清除目录数量配额命令：</p>
 <pre><code class="language-bash">jindofs admin -clearQuota -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/&lt;path&gt;
 </code></pre>
-<p>清楚目录容量配额命令：</p>
-<pre><code class="language-bash">jindofs admin -setSpaceQuota -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/&lt;path&gt;
+<p>清除目录容量配额命令：</p>
+<pre><code class="language-bash">jindofs admin -clearSpaceQuota -dlsUri oss://&lt;bucket&gt;.&lt;oss-hdfs-endpoint&gt;/&lt;path&gt;
 </code></pre>
-<p>配额注意事项：</p>
+<p>目录配额注意事项：</p>
 <ul>
-<li>当前目录配额的限制不是硬限制，主要由于目录配额的使用量统计具有一定延时，正常情况下10分钟之内统计最新目录配额使用量，因此存在目录的使用量超过设置的配额。</li>
+<li>当前目录配额的限制不是硬限制，主要由于目录配额的容量以及数量的使用量统计不是实时统计的, 具有一定的延时, 因此会存在目录的容量或者目录下文件和目录的数量超过配额限制的情况。 统计使用量的时间点跟目录的大小/配额目录数量存在一定的关系，如果目录较大或者支持配额目录过多，目录配额统计的使用量可能是存在小时级别的偏差。</li>
 </ul></div>
             </div>
         </div>

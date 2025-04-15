@@ -174,7 +174,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">AI 生态 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -197,7 +197,7 @@
   </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Python</a>
+    <a href="./" class="dropdown-item">Python</a>
 </li>
                                     
 <li>
@@ -209,7 +209,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jindo 工具 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -279,6 +279,24 @@
             
 <li>
     <a href="../../../jindotools/jindotable_moveto/" class="dropdown-item">使用 JindoTable 将 Hive 数据分区归档和分层到OSS</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">多语言开发</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../hadoop/jindosdk_ide_hadoop/" class="dropdown-item">Java</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">Python</a>
+</li>
+            
+<li>
+    <a href="../../golang/jindosdk_golang_quickstart/" class="dropdown-item">Golang</a>
 </li>
     </ul>
   </li>
@@ -399,12 +417,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../../oss/usages/oss_posix/" class="nav-link">
+                                <a rel="prev" href="../../hadoop/jindosdk_ide_hadoop/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../tensorflow/jindosdk_on_tensorflow/" class="nav-link">
+                                <a rel="next" href="../../golang/jindosdk_golang_quickstart/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -502,10 +520,10 @@ export HADOOP_CONF_DIR=/etc/taihao-apps/hadoop-conf
 </li>
 </ol>
 <h3 id="pyjindo">安装 PyJindo<a class="headerlink" href="#pyjindo" title="Permanent link">§</a></h3>
-<p>以 Python3.8 环境安装最新版本的 pyjindo-6.8.2 为例</p>
+<p>以 Python3.8 环境安装最新版本的 pyjindo-6.8.3 为例</p>
 <pre><code class="language-bash">python3.8 -m ensurepip
 python3.8 -m pip install pip --upgrade --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/
-python3.8 -m pip install pyjindo-6.8.2-cp38-abi3-linux_x86_64.whl
+python3.8 -m pip install pyjindo-6.8.3-cp38-abi3-linux_x86_64.whl
 </code></pre>
 <h3 id="python">编写 python 测试程序<a class="headerlink" href="#python" title="Permanent link">§</a></h3>
 <pre><code class="language-python">from pyjindo import fs
