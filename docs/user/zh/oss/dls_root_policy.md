@@ -41,11 +41,17 @@ JindoFS 支持 RootPolicy 规则，通过 RootPolicy 可以为 OSS-HDFS（JindoF
     </property>
     <property>
         <name>fs.AbstractFileSystem.hdfs.impl</name>
-        <value>com.aliyun.jindodata.hdfs.HDFS</value>
+        <!-- 请根据查看的 hadoop 版本，选择 fs.AbstractFileSystem.hdfs.impl -->
+        <!-- hadoop 2.x 使用 com.aliyun.jindodata.hdfs.v28.HDFS -->
+        <!-- hadoop 3.x 使用 com.aliyun.jindodata.hdfs.v3.HDFS -->
+        <value>com.aliyun.jindodata.hdfs.v3.HDFS</value>
     </property>
     <property>
         <name>fs.hdfs.impl</name>
-        <value>com.aliyun.jindodata.hdfs.JindoHdfsFileSystem</value>
+        <!-- 请根据查看的 hadoop 版本，选择 fs.hdfs.impl -->
+        <!-- hadoop 2.x 使用 com.aliyun.jindodata.hdfs.v28.JindoDistributedFileSystem -->
+        <!-- hadoop 3.x 使用 com.aliyun.jindodata.hdfs.v3.JindoDistributedFileSystem -->
+        <value>com.aliyun.jindodata.hdfs.v3.JindoDistributedFileSystem</value>
     </property>
 </configuration>
 ```
