@@ -512,7 +512,10 @@
     &lt;/property&gt;
     &lt;property&gt;
         &lt;name&gt;fs.hdfs.impl&lt;/name&gt;
-        &lt;value&gt;com.aliyun.jindodata.hdfs.JindoHdfsFileSystem&lt;/value&gt;
+        &lt;!-- 请根据查看的 hadoop 版本，选择 fs.hdfs.impl --&gt;
+        &lt;!-- hadoop 2.x 使用 com.aliyun.jindodata.hdfs.v28.JindoDistributedFileSystem --&gt;
+        &lt;!-- hadoop 3.x 使用 com.aliyun.jindodata.hdfs.v3.JindoDistributedFileSystem --&gt;
+        &lt;value&gt;com.aliyun.jindodata.hdfs.v3.JindoDistributedFileSystem&lt;/value&gt;
     &lt;/property&gt;
 &lt;/configuration&gt;
 </code></pre>
