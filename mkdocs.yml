@@ -93,6 +93,10 @@ nav:
       - 常见问题: jindotools/jindodistcp_faq.md
     - JindoTable:
       - 使用 JindoTable 将 Hive 数据分区归档和分层到OSS: jindotools/jindotable_moveto.md
+    - 多语言开发:
+      - Java: jindosdk/hadoop/jindosdk_ide_hadoop.md
+      - Python: jindosdk/python/pyjindo_quickstart.md
+      - Golang: jindosdk/golang/jindosdk_golang_quickstart.md
   - 下载安装:
     - JindoSDK 下载: jindosdk/jindosdk_download.md
     - 安装部署:

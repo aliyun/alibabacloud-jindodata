@@ -1,5 +1,19 @@
 # JindoSDK 版本记录
 
+## 6.8.3，2025-04-15
+
+### 版本概要
+
+发布 JindoSDK 6.8.3 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.8.3 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 新增配置 `fs.oss.list.fallback.iterative`，为 `true` 时，支持 listStatus 对大目录自动 fallback 到迭代访问。
+- JindoSDK 新增 [Golang SDK 文档](jindosdk/golang/jindosdk_golang_quickstart.md)，并支持迭代 list 接口。
+- JindoSDK 访问 OSS 支持 authorization 插件。
+- JindoFS CLI 优化 binary 大小。
+
 ## 6.8.2，2025-03-24
 
 ### 版本概要
@@ -8,7 +22,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.8.2 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.8.2 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.2/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.2/jindodata_download.md)。
 - JindoSDK 修复错误信息不准确的问题，正确返回请求超时 `Request timeout` 而不是 `Connection timed out`。
 - JindoSDK 修复 append-close 优化打开时，异常关闭可能导致报错的问题。即 `fs.oss.append.threshold.size` 不为 `0` 时，可能导致 close 后再次 append 失败（默认配置不影响）。
 - JindoSDK 修复 listStatusIterator 不支持 ListObjectV2。即配置 `fs.oss.list.type` 为 `2`，可能导致 listStatusIterator 死循环（默认配置不影响）。

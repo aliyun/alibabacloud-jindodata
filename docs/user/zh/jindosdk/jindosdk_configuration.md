@@ -55,6 +55,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 | fs.oss.read.readahead.clean.fully.accessed.block.enable              |  布尔值  | true          | 打开后，预读算法会立即清除完全读取的预读内存。                                                                                                                              | 6.8.0+ nextarch    |
 | fs.oss.read.use-pread              |  布尔值  | false          | 打开后，读接口默认使用 pread 实现。                                                                                                                                | 6.8.2+ nextarch    |
 | fs.oss.pread.cache.enable              |  布尔值  | false          | 打开后，pread 接口支持缓存，否则为零拷贝实现。                                                                                                                           | 6.8.2+ nextarch    |
+| fs.oss.list.fallback.iterative              |  布尔值  | false          | 打开后，listStatus 对于大目录 list 自动 fallback 到迭代实现。                                                                                                            | 6.8.3+ nextarch    |
 
 ### 内存相关配置项
 | 配置项                                    |  类型  | 默认值 | 说明                    | 版本                 |
