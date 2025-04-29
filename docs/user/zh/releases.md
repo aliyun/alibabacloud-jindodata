@@ -1,5 +1,22 @@
 # JindoSDK 版本记录
 
+## 6.8.5，2025-04-29
+
+### 版本概要
+
+发布 JindoSDK 6.8.5 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.8.5 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 修复接入 ranger 使用 root policy 访问 OSS-HDFS。 
+- 支持使用 auth method 访问 OSS-HDFS。
+- JindoFS Cli 支持 recoverLease 命令。
+- JindoCache 修复高并发初始化客户端可能导致的死锁。
+- JindoFuse 支持 getattr 并发控制。
+- JindoFuse 修复写时 rename。
+- JindoFuse 修复对非法文件名的判断。
+
 ## 6.8.3，2025-04-15
 
 ### 版本概要
@@ -8,7 +25,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.8.3 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.8.3 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.3/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.3/jindodata_download.md)。
 - JindoSDK 新增配置 `fs.oss.list.fallback.iterative`，为 `true` 时，支持 listStatus 对大目录自动 fallback 到迭代访问。
 - JindoSDK 新增 [Golang SDK 文档](jindosdk/golang/jindosdk_golang_quickstart.md)，并支持迭代 list 接口。
 - JindoSDK 访问 OSS 支持 authorization 插件。

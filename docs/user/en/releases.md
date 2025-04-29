@@ -1,5 +1,24 @@
 # JindoSDK Release History
 
+Here is the English translation of the provided text:
+
+## 6.8.5, 2025-04-29
+
+- Updated JindoSDK [Maven repository for version 6.8.5](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Fixed issue where using Ranger with root policy to access OSS-HDFS.
+- Supported authentication methods for accessing OSS-HDFS.
+- Fixed potential deadlock caused by high concurrency initialization of clients in JindoCache.
+- Added concurrent control for getattr in JindoFuse.
+- Fixed incorrect judgment of illegal filenames in JindoFuse.
+- Fixed rename_while_write issue in JindoFuse.
+
+## 6.8.3, 2025-04-15
+- Updated JindoSDK [Maven repository for version 6.8.3](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.3/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.3/jindodata_download.md).
+- Added configuration `fs.oss.list.fallback.iterative`, set to `true` to automatically fall back to iterative access for large directories in listStatus.
+- Added Golang SDK documentation, supporting iterative list interface.
+- Supported authorization plugins for accessing OSS in JindoSDK.
+- Optimized binary size of JindoFS CLI.
+
 ## 6.8.2, 2025-03-24
 
 - Updated JindoSDK [Maven repository for version 6.8.2](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).

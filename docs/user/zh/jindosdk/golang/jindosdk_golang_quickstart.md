@@ -8,7 +8,7 @@
 
 ### 下载 Golang SDK Demo
 
-1. 下载 jindo-gosdk-demo [下载链接](http://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.3/jindo-gosdk-demo.tar.gz)。
+1. 下载 jindo-gosdk-demo [下载链接](http://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.5/jindo-gosdk-demo.tar.gz)。
 
 2. 本 Demo 以 Golang 1.20 版本 在 Linux 平台使用为例，多平台使用可参考[多平台部署文档](../jindosdk_deployment_multi_platform.md) 自行替换 `jindo/libjindosdk_go.so`
     
