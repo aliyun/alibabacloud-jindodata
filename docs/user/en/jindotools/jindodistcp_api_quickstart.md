@@ -8,7 +8,7 @@ Download the latest tar.gz package named `jindosdk-x.x.x.tar.gz` from the [downl
 
 JindoSDK/JindoDistCP currently supports mainstream Intel X86-based Linux and Mac systems (Windows and Mac M1 series are not supported).
 
-As an example for version 6.8.5, add JindoDistCP as a dependency in your Maven `pom.xml`:
+As an example for version 6.9.0, add JindoDistCP as a dependency in your Maven `pom.xml`:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -20,7 +20,7 @@ As an example for version 6.8.5, add JindoDistCP as a dependency in your Maven `
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.8.5</jindodata.version>
+        <jindodata.version>6.9.0</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -129,6 +129,8 @@ Refer to the detailed description in the [Using Jindo DistCp](jindodistcp_quicks
 | void setIgnoreFailures(boolean ignoreFailures) | Optional | Ignore exceptions during copy operations, preventing job interruption                                | False         | 4.3.0+       |
 | void setEnableCMS(boolean enableCMS)   | Optional | Enable monitoring alerts                                                                         | false         | 4.3.0+       |
 | void setEnablePreserveMetaStatus(boolean enablePreserveMetaStatus) | Optional | Preserve metadata status if true                                                                 | false         | 4.4.0+       |
+| void setSyncSourceDeleteOnDest(boolean syncSourceDeleteOnDest)      | Optional       | Sets whether to synchronize deletion operations from the source subdirectories to the destination | false | 6.9.0+             |
+
 
 ## Response Parameters
 

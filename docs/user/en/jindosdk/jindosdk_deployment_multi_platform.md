@@ -30,7 +30,7 @@ If you only need the Hadoop SDK from JindoSDK in your Hadoop environment, use th
 
 For Java SDK, on Linux x86, you'll require `jindo-sdk-x.y.z.jar` and `jindo-core-x.y.z.jar`. On other platforms, you'll need `jindo-sdk-x.y.z.jar`、`jindo-core-x.y.z.jar` and `jindo-core-<platform-name>-x.y.z.jar`.
 
-Installation can be done through Maven by adding dependencies in `pom.xml` (refer to [6.8.3-OSS-Maven](oss-maven.md)) or directly downloading and deploying from OSS (see [6.8.3-Download](jindosdk_download.md)).
+Installation can be done through Maven by adding dependencies in `pom.xml` (refer to [6.9.0-OSS-Maven](oss-maven.md)) or directly downloading and deploying from OSS (see [6.9.0-Download](jindosdk_download.md)).
 
 ## Output Platform Table
 
@@ -52,17 +52,17 @@ Installation can be done through Maven by adding dependencies in `pom.xml` (refe
 
 # JindoSDK Deployment Examples
 
-Let's take version 6.8.3 as an example.
+Let's take version 6.9.0 as an example.
 
 ## Linux x86 Example
 
 ### Full Installation
-Assuming the extracted folder is placed at `/usr/lib/jindosdk-6.8.3-linux`:
+Assuming the extracted folder is placed at `/usr/lib/jindosdk-6.9.0-linux`:
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.8.3/jindosdk-6.8.3-linux.tar.gz
-tar zxvf jindosdk-6.8.3-linux.tar.gz -C /usr/lib/
-export JINDOSDK_HOME=/usr/lib/jindosdk-6.8.3-linux
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.9.0/jindosdk-6.9.0-linux.tar.gz
+tar zxvf jindosdk-6.9.0-linux.tar.gz -C /usr/lib/
+export JINDOSDK_HOME=/usr/lib/jindosdk-6.9.0-linux
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
@@ -73,21 +73,21 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 Suppose the downloaded JAR files are placed in `<HADOOP_HOME>/share/hadoop/hdfs/lib/`:
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.8.3/jindo-sdk-6.8.3.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.8.3/jindo-core-6.8.3.jar
-cp jindo-core-6.8.3.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.8.3.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.9.0/jindo-sdk-6.9.0.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core/6.9.0/jindo-core-6.9.0.jar
+cp jindo-core-6.9.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.9.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 ## Linux aarch64 Example
 
 ### Full Installation
-Assuming the extracted folder is placed at `/usr/lib/jindosdk-6.8.3-linux-el7-aarch64`:
+Assuming the extracted folder is placed at `/usr/lib/jindosdk-6.9.0-linux-el7-aarch64`:
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/x.y.z/jindosdk-6.8.3-linux-el7-aarch64.tar.gz
-tar zxvf jindosdk-6.8.3-linux-el7-aarch64.tar.gz -C /usr/lib/
-export JINDOSDK_HOME=/usr/lib/jindosdk-6.8.3-linux-el7-aarch64
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/x.y.z/jindosdk-6.9.0-linux-el7-aarch64.tar.gz
+tar zxvf jindosdk-6.9.0-linux-el7-aarch64.tar.gz -C /usr/lib/
+export JINDOSDK_HOME=/usr/lib/jindosdk-6.9.0-linux-el7-aarch64
 export JINDOSDK_CONF_DIR=${JINDOSDK_HOME}/conf
 export PATH=${PATH}:${JINDOSDK_HOME}/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${JINDOSDK_HOME}/lib/native
@@ -98,11 +98,11 @@ export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:${JINDOSDK_HOME}/lib/*
 Suppose the downloaded JAR files are placed in `<HADOOP_HOME>/share/hadoop/hdfs/lib/`:
 
 ```bash
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.8.3/jindo-sdk-6.8.3.jar
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core-linux-el7-aarch64/6.8.3/jindo-core-linux-el7-aarch64-6.8.3.jar
-cp jindo-core-linux-el7-aarch64-6.8.3.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindo-core-6.8.3.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
-cp jindosdk-6.8.3.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-sdk/6.9.0/jindo-sdk-6.9.0.jar
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/mvn-repo/com/aliyun/jindodata/jindo-core-linux-el7-aarch64/6.9.0/jindo-core-linux-el7-aarch64-6.9.0.jar
+cp jindo-core-linux-el7-aarch64-6.9.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindo-core-6.9.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
+cp jindosdk-6.9.0.jar <HADOOP_HOME>/share/hadoop/hdfs/lib/
 ```
 
 ## Appendix
@@ -118,6 +118,7 @@ Here's a directory structure representation for a full output (version numbers r
 │   ├── jindo-fuse
 │   ├── jindobench
 │   ├── jindodiag
+│   ├── jindofs
 │   ├── jindosync
 │   └── jindotable
 ├── conf
@@ -125,20 +126,37 @@ Here's a directory structure representation for a full output (version numbers r
 │   ├── jindosdk.cfg.template
 │   └── log4j.properties.template
 ├── include
+│   ├── jdo_acl_entry.h
+│   ├── jdo_acl_entry_list.h
+│   ├── jdo_acl_status.h
 │   ├── jdo_api.h
 │   ├── jdo_common.h
+│   ├── jdo_concat_source.h
+│   ├── jdo_concat_source_list.h
 │   ├── jdo_content_summary.h
 │   ├── jdo_data_types.h
 │   ├── jdo_defines.h
 │   ├── jdo_error.h
+│   ├── jdo_file_buffers.h
+│   ├── jdo_file_checksum.h
+│   ├── jdo_file_meta_info.h
 │   ├── jdo_file_status.h
+│   ├── jdo_file_status_with_corrupt_check.h
+│   ├── jdo_finalize_reply_result.h
+│   ├── jdo_get_listing_corrupt_file_blocks_result.h
 │   ├── jdo_list_dir_result.h
+│   ├── jdo_lock_info.h
+│   ├── jdo_login_user.h
+│   ├── jdo_longs.h
 │   ├── jdo_option_keys.h
-│   └── jdo_options.h
+│   ├── jdo_options.h
+│   ├── jdo_store_type.h
+│   ├── jdo_xattr.h
+│   └── jdo_xattr_list.h
 ├── lib
-│   ├── jindo-core-x.y.z.jar
-│   ├── jindo-core-linux-el7-aarch64-x.y.z.jar
-│   ├── jindo-sdk-x.y.z.jar
+│   ├── jindo-core-x.y.z-nextarch.jar
+│   ├── jindo-core-linux-el7-aarch64-x.y.z-nextarch.jar
+│   ├── jindo-sdk-x.y.z-nextarch.jar
 │   ├── native
 │   │   ├── libfuse3.so.3
 │   │   ├── libjemalloc.so
@@ -158,6 +176,7 @@ Here's a directory structure representation for a full output (version numbers r
 │       ├── pyjindo-x.y.z-cp38-abi3-linux_x86_64.whl
 │       └── pyjindo-x.y.z-cp39-abi3-linux_x86_64.whl
 ├── plugins
+│   └── libjindo-auth-client-plugin-nextarch.so
 │   └── flink
 │       ├── jindo-flink-x.y.z-full.jar
 │       └── jindo-flink-x.y.z.jar
@@ -169,12 +188,17 @@ Here's a directory structure representation for a full output (version numbers r
 │   ├── jindo-dependence-shaded-x.y.z.jar
 │   ├── jindo-distcp-tool-x.y.z.jar
 │   ├── jindo-distjob-tool-x.y.z.jar
+│   ├── jindofs-core-x.y.z.jar
+│   ├── jindofs-core-linux-el7-aarch64-x.y.z.jar
+│   ├── jindofs-sdk-x.y.z.jar
 │   ├── jindotable-hive-tool-x.y.z.jar
 │   └── jindotable-shell-x.y.z.jar
 └── versions
+    ├── JINDOAUTH_VERSION
+    ├── JINDOCACHE_VERSION
+    ├── JINDO_CONNECTORS_VERSION
     ├── JINDOSDK_VERSION
-    ├── JINDOTABLE_VERSION
-    └── JINDO_CONNECTORS_VERSION
+    └── JINDOTABLE_VERSION
 
-9 directories, 29 files
+12 directories, 75 files
 ```

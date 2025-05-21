@@ -13,7 +13,7 @@ JindoDistCp is a large-scale cluster internal and inter-cluster file copy utilit
 
 JindoDistCp provides a jar package for usage, which can be run with `hadoop jar` command along with several parameters for migration operations.
 
-| Parameter                         | Type     | Description                                                                                   | Default Value | Version Support | OSS | OSS-HDFS |
+| Parameter                        | Type     | Description                                                                                   | Default Value | Version Support | OSS | OSS-HDFS |
 |----------------------------------|----------|-----------------------------------------------------------------------------------------------|---------------|-----------------|-----|----------|
 | `--src <srcDir>`                 | Required | Source directory, accepts prefixes: hdfs://, oss://, s3://, cos://, obs://                  | N/A           | >=4.3.0         | Yes | Yes      |
 | `--dest <destDir>`               | Required | Destination directory, accepts prefixes: hdfs://, oss://, s3://, cos://, obs://              | N/A           | >=4.3.0         | Yes | Yes      |
@@ -35,6 +35,7 @@ JindoDistCp provides a jar package for usage, which can be run with `hadoop jar`
 | `--update`                       | Optional | Perform incremental sync, skipping identical files and directories                               | N/A           | >=4.3.0         | Yes | Yes      |
 | `--preserveMeta`                 | Optional | Preserve metadata (Owner, Group, Permission, Atime, Mtime, Replication, BlockSize, XAttrs, ACL)| N/A (OSS unsupported) | >=4.4.0         | N/A  | Yes      |
 | `--enableCMS`                    | Optional | Enable Cloud Monitoring Service (CMS) alerts                                                   | false         | >=4.5.1         | Yes | Yes      |
+| `--syncSourceDelete`             | Optional | Sets whether to synchronize deletion operations from the source subdirectories to the destination    | false           | >=6.9.0=        |  Yes  |  Yes  |
 
 ## Examples:
 # Examples:
@@ -361,6 +362,16 @@ jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-o
 * `--enableCMS`: Enables Cloud Monitoring Service (CMS) alerts.
 
 For more information on using CMS with JindoDistCp, refer to the [JindoDistCp CMS Alert Guide](jindodistcp_how_to_cms.md).
+
+## 20\. Using `--syncSourceDelete`
+
+### Supported Versions:
+
+| OSS              | OSS-HDFS         |
+|------------------|------------------|
+| v6.9.0 and above | v6.9.0 and above |
+
+*   `--syncSourceDelete` synchronizes file deletion operations in the source subdirectories and multi-level subdirectories. For example, if `--src` is specified as `/data`, then `/data/hourly_table` is a subdirectory.
 
 ## JindoDistCp Counters Explanation
 

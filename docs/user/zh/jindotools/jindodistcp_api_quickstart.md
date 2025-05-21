@@ -8,7 +8,7 @@
 
 目前 JindoSDK/JindoDistCP 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统，Mac M1 系列也暂不支持）
 
-以6.8.5版本为例，在 maven `pom.xml` 中添加 JindoDistCP 的依赖
+以6.9.0版本为例，在 maven `pom.xml` 中添加 JindoDistCP 的依赖
 
 ```xml
 
@@ -21,7 +21,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.8.5</jindodata.version>
+        <jindodata.version>6.9.0</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -131,6 +131,7 @@ public class DistcpExample {
 | void setIgnoreFailures(boolean ignoreFailures)                     | 可选     | 设置是否忽略拷贝任务中抛出的异常，避免中断任务                                              | False   | 4.3.0+ |
 | void setEnableCMS(boolean enableCMS)                               | 可选     | 是否开启监控告警                                                             | false   | 4.3.0+ |
 | void setEnablePreserveMetaStatus(boolean enablePreserveMetaStatus) | 可选     | 设置是否开启保存元数据信息                                                        | false   | 4.4.0+ |
+| void setSyncSourceDeleteOnDest(boolean syncSourceDeleteOnDest)     | 可选     | 设置是否开启同步源端子目录下的删除操作                                                    | false   | 6.9.0+ |
 
 ## 响应参数
 

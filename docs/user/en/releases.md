@@ -1,10 +1,22 @@
 # JindoSDK Release History
 
-Here is the English translation of the provided text:
+## 6.9.0, 2025-05-21
+
+- Updated JindoSDK [Maven repository for version 6.9.0](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Support for the [openFile()](https://issues.apache.org/jira/browse/HADOOP-15229) interface, allowing specification of read policy (requires Hadoop 3.3.0+).
+- Support for [Vectored IO](https://issues.apache.org/jira/browse/HADOOP-18103) interface (requires Hadoop 3.3.6+).
+- Optimization of lake table format pre-read strategy, enhancing performance by up to 30% in heavy I/O read scenarios.
+- Optimization of OSS-HDFS append merging strategy, supporting ComposedBlock.
+- Optimization of OSS-HDFS InputStream locking.
+- Enhancement of the OSS thawing interface, enabling the setting of OSS thaw priority.
+- Resolution of occasional deadlocks during high-concurrency writes to OSS/OSS-HDFS close operations.
+- Fixed several issues in JindoDistcp and added support for `--syncSourceDelete`. For details, see [JindoDistCp User Guide](jindotools/jindodistcp_quickstart.md).
+- Fixes for several issues in JindoCache.
+- Implementation of JindoFS CLI using nextarch.
 
 ## 6.8.5, 2025-04-29
 
-- Updated JindoSDK [Maven repository for version 6.8.5](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Updated JindoSDK [Maven repository for version 6.8.5](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.5/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.5/jindodata_download.md).
 - Fixed issue where using Ranger with root policy to access OSS-HDFS.
 - Supported authentication methods for accessing OSS-HDFS.
 - Fixed potential deadlock caused by high concurrency initialization of clients in JindoCache.

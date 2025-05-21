@@ -15,28 +15,30 @@ JindoDistCp 是阿里云数据湖存储团队开发的大规模集群内部和�
 ## 参数说明
 JindoDistCp 提供 jar 包形式使用，您可以使用 hadoop jar 命令配合一系列参数来完成迁移操作。
 
-| 参数                         | 参数类型 | 说明                                                                           | 默认值             | 版本     |  OSS  |  OSS-HDFS  |
-|------------------------------| -------- |------------------------------------------------------------------------------|-----------------|--------| --- | --- |
-| --src <srcDir>               | 必选     | 设置源目录，支持的前缀有<br/>hdfs://<br/>oss://<br/>s3://<br/>cos://<br/>obs://          | -               | 4.3.0+ |  支持  |  支持  |
-| --dest <destDir>             | 必选     | 设置目标目录，支持的前缀有<br/>hdfs://<br/>oss://<br/>s3://<br/>cos://<br/>obs://         | -               | 4.3.0+ |  支持  |  支持  |
-| --bandWidth <bandWidth>      | 可选     | 设置单个节点的带宽限制，单位 M                                                             | -1              | 4.3.0+ |  支持  |  支持  |
-| --codec <codec>              | 可选     | 设置压缩类型，支持编解码器有 gzip、gz、lzo、lzop、lzop、snappy                                  | keep（不更改压缩类型）   | 4.3.0+ |  支持  |  支持  |
-| --policy <policy>            | 可选     | 设置目标存储策略，支持 Standard、IA、Archive、ColdArchive                                  | Standard        | 4.3.0+ |  支持  |  不支持  |
-| --filters <filters>          | 可选     | 设置包含过滤规则的文件                                                                  | -               | 4.3.0+ |  支持  |  支持  |
-| --srcPrefixesFile <prefixes> | 可选     | 设置包含符合规则的文件                                                                  | -               | 4.3.0+ |  支持  |  支持  |
-| --parallelism <parallelism>  | 可选     | 设置DistCp任务的并发度，对应MR任务中的 mapreduce.job.maps                                   | 10              | 4.3.0+ |  支持  |  支持  |
-| --jobBatch <jobBatch>        | 可选     | 设置每个 distcp job 处理的文件数量                                                      | 10000           | 4.5.1+ |  支持  |  支持  |
-| --taskBatch <taskBatch>      | 可选     | 设置每个 distcp task 处理的文件数量                                                     | 1               | 4.3.0+ |  支持  |  支持  |
-| --tmp <tmpDir>               | 可选     | 设置临时目录                                                                       | /tmp            | 4.3.0+ |  支持  |  支持  |
-| --hadoopConf <key=value>     | 可选     | 设置 Configuration                                                             | -               | 4.3.0+ |  支持  |  支持  |
-| --disableChecksum            | 可选     | 设置是否关闭 Checksum 检查                                                           | false           | 4.3.0+ |  支持  |  支持  |
-| --deleteOnSuccess            | 可选     | 设置是否删除源文件，用于移动数据                                                             | false           | 4.3.0+ |  支持  |  支持  |
-| --enableTransaction          | 可选     | 设置是否开启事务，以保证 Job 级别的原子性                                                      | false           | 4.3.0+ |  支持  |  支持  |
-| --ignore                     | 可选     | 设置是否忽略拷贝任务中抛出的异常，避免中断任务                                                      | false           | 4.3.0+ |  支持  |  支持  |
-| --enableCMS                  | 可选     | 是否开启监控告警                                                                     | false           | 4.5.1+ |  支持  |  支持  |
-| --diff                       | 可选     | 设置 DistCp 模式为 DIFF, 查看 src 和 dest 的文件差异                                      | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
-| --update                     | 可选     | 设置 DistCp 模式为 UPDATE, 指定增量同步功能，跳过完全相同的文件和目录，直接将 src 中新增或发生改变的文件和目录同步到 dest 上 | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
-| --preserveMeta               | 可选     | 设置是否开启保存元数据信息                                                                | false           | 4.4.0+ |  不支持  |  支持  |
+| 参数                           | 参数类型 | 说明                                                                                      | 默认值             | 版本     |  OSS  |  OSS-HDFS  |
+|------------------------------| -------- |-----------------------------------------------------------------------------------------|-----------------|--------| --- | --- |
+| --src <srcDir>               | 必选     | 设置源目录，支持的前缀有<br/>hdfs://<br/>oss://<br/>s3://<br/>cos://<br/>obs://                     | -               | 4.3.0+ |  支持  |  支持  |
+| --dest <destDir>             | 必选     | 设置目标目录，支持的前缀有<br/>hdfs://<br/>oss://<br/>s3://<br/>cos://<br/>obs://                    | -               | 4.3.0+ |  支持  |  支持  |
+| --bandWidth <bandWidth>      | 可选     | 设置单个节点的带宽限制，单位 M                                                                        | -1              | 4.3.0+ |  支持  |  支持  |
+| --codec <codec>              | 可选     | 设置压缩类型，支持编解码器有 gzip、gz、lzo、lzop、lzop、snappy                                             | keep（不更改压缩类型）   | 4.3.0+ |  支持  |  支持  |
+| --policy <policy>            | 可选     | 设置目标存储策略，支持 Standard、IA、Archive、ColdArchive                                             | Standard        | 4.3.0+ |  支持  |  不支持  |
+| --filters <filters>          | 可选     | 设置包含过滤规则的文件                                                                             | -               | 4.3.0+ |  支持  |  支持  |
+| --srcPrefixesFile <prefixes> | 可选     | 设置包含符合规则的文件                                                                             | -               | 4.3.0+ |  支持  |  支持  |
+| --parallelism <parallelism>  | 可选     | 设置DistCp任务的并发度，对应MR任务中的 mapreduce.job.maps                                              | 10              | 4.3.0+ |  支持  |  支持  |
+| --jobBatch <jobBatch>        | 可选     | 设置每个 distcp job 处理的文件数量                                                                 | 10000           | 4.5.1+ |  支持  |  支持  |
+| --taskBatch <taskBatch>      | 可选     | 设置每个 distcp task 处理的文件数量                                                                | 1               | 4.3.0+ |  支持  |  支持  |
+| --tmp <tmpDir>               | 可选     | 设置临时目录                                                                                  | /tmp            | 4.3.0+ |  支持  |  支持  |
+| --hadoopConf <key=value>     | 可选     | 设置 Configuration                                                                        | -               | 4.3.0+ |  支持  |  支持  |
+| --disableChecksum            | 可选     | 设置是否关闭 Checksum 检查                                                                      | false           | 4.3.0+ |  支持  |  支持  |
+| --deleteOnSuccess            | 可选     | 设置是否删除源文件，用于移动数据                                                                        | false           | 4.3.0+ |  支持  |  支持  |
+| --enableTransaction          | 可选     | 设置是否开启事务，以保证 Job 级别的原子性                                                                 | false           | 4.3.0+ |  支持  |  支持  |
+| --ignore                     | 可选     | 设置是否忽略拷贝任务中抛出的异常，避免中断任务                                                                 | false           | 4.3.0+ |  支持  |  支持  |
+| --enableCMS                  | 可选     | 是否开启监控告警                                                                                | false           | 4.5.1+ |  支持  |  支持  |
+| --diff                       | 可选     | 设置 DistCp 模式为 DistCpMode.DIFF , 查看 src 和 dest 的文件差异                                     | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
+| --update                     | 可选     | 设置 DistCp 模式为 DistCpMode.UPDATE, 指定增量同步功能，跳过完全相同的文件和目录，直接将 src 中新增或发生改变的文件和目录同步到 dest 上 | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
+| --overwrite                  | 可选     | 设置 DistCp 模式为 DistCpMode.OVERWRITE, 直接将 src 中文件和目录覆盖同步到 dest 上                          | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
+| --preserveMeta               | 可选     | 设置是否开启保存元数据信息                                                                           | false           | 4.4.0+ |  不支持  |  支持  |
+| --syncSourceDelete           | 可选     | 设置是否开启设置是否开启同步源端子目录下的删除操作                                                                           | false           | 6.9.0+ |  支持  |  支持  |
 
 ### 1、使用 --src 和 --dest (必选)
 
@@ -375,6 +377,14 @@ jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-o
 |  4.5.1 及以上版本  |  支持  |  支持  |
 
 *   --enableCMS 开启云监控告警功能，具体参见[《JindoDistcp使用CMS进行告警》](jindodistcp_how_to_cms.md)。
+
+### 20、 使用 --syncSourceDelete
+
+| 版本          |  OSS  |  OSS-HDFS  |
+|-------------| --- | --- |
+| 6.9.0 及以上版本 |  支持  |  支持  |
+
+*   --syncSourceDelete 将同步源端子目录及多级子目录（如--src指定为 /data，则 /data/hourly_table 为子目录）中的文件删除操作。
 
 ## JindoDistCp Counters 说明
 | 任务计数器          | 说明                                        |

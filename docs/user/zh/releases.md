@@ -1,5 +1,25 @@
 # JindoSDK 版本记录
 
+## 6.9.0，2025-05-21
+
+### 版本概要
+
+发布 JindoSDK 6.9.0 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.9.0 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 支持 [openFile()](https://issues.apache.org/jira/browse/HADOOP-15229) 接口，支持指定 read policy（需 Hadoop 3.3.0+）。
+- 支持 [Vectored IO](https://issues.apache.org/jira/browse/HADOOP-18103) 接口（需 Hadoop 3.3.6+）。 
+- 优化湖表格式预读策略，重 IO 读场景提升 30%。
+- 优化 OSS-HDFS append 合并策略，支持 ComposedBlock。 
+- 优化 OSS-HDFS InputStream 锁。
+- 优化 OSS 解冻接口，支持设置 OSS 解冻优先级。
+- 修复高并发写 OSS/OSS-HDFS close 偶现死锁问题。
+- 修复 JindoDistcp 若干问题，支持 `--syncSourceDelete`，详见[JindoDistCp 使用说明](jindotools/jindodistcp_quickstart.md)。
+- 修复 JindoCache 若干问题。
+- JindoFS CLI 使用 nextarch 实现。
+
 ## 6.8.5，2025-04-29
 
 ### 版本概要
@@ -8,7 +28,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.8.5 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.8.5 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.5/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.8.5/jindodata_download.md)。
 - 修复接入 ranger 使用 root policy 访问 OSS-HDFS。 
 - 支持使用 auth method 访问 OSS-HDFS。
 - JindoFS Cli 支持 recoverLease 命令。
