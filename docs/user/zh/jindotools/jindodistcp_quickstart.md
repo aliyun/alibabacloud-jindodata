@@ -38,7 +38,7 @@ JindoDistCp 提供 jar 包形式使用，您可以使用 hadoop jar 命令配合
 | --update                     | 可选     | 设置 DistCp 模式为 DistCpMode.UPDATE, 指定增量同步功能，跳过完全相同的文件和目录，直接将 src 中新增或发生改变的文件和目录同步到 dest 上 | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
 | --overwrite                  | 可选     | 设置 DistCp 模式为 DistCpMode.OVERWRITE, 直接将 src 中文件和目录覆盖同步到 dest 上                          | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
 | --preserveMeta               | 可选     | 设置是否开启保存元数据信息                                                                           | false           | 4.4.0+ |  不支持  |  支持  |
-| --syncSourceDelete           | 可选     | 设置是否开启设置是否开启同步源端子目录下的删除操作                                                                           | false           | 6.9.0+ |  支持  |  支持  |
+| --syncSourceDelete           | 可选     | 设置是否开启同步源端子目录下的删除操作                                                                           | false           | 6.9.0+ |  支持  |  支持  |
 
 ### 1、使用 --src 和 --dest (必选)
 
