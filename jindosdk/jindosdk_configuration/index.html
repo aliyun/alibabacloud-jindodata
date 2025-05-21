@@ -769,6 +769,20 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>打开后，listStatus 对于大目录 list 自动 fallback 到迭代实现。</td>
 <td>6.8.3+ nextarch</td>
 </tr>
+<tr>
+<td>fs.oss.vectored.read.min.seek.size</td>
+<td>整型</td>
+<td>16384</td>
+<td>OSS/OSS-HDFS 在 readVectored 操作期间，对多个 FileRange 合并的最小合理寻址范围（字节）。</td>
+<td>6.9.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.vectored.read.max.merged.size</td>
+<td>整型</td>
+<td>2097152</td>
+<td>OSS/OSS-HDFS 在 readVectored 操作期间，对多个 FileRange 合并的最大长度（字节），为 0 时不合并。</td>
+<td>6.9.0+ nextarch</td>
+</tr>
 </tbody>
 </table>
 <h3 id="_3">内存相关配置项<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
