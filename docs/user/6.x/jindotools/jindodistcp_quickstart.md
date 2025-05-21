@@ -37,6 +37,7 @@ JindoDistCp 提供 jar 包形式使用，您可以使用 hadoop jar 命令配合
 | --diff                       | 可选     | 设置 DistCp 模式为 DIFF, 查看 src 和 dest 的文件差异                                      | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
 | --update                     | 可选     | 设置 DistCp 模式为 UPDATE, 指定增量同步功能，跳过完全相同的文件和目录，直接将 src 中新增或发生改变的文件和目录同步到 dest 上 | DistCpMode.COPY | 4.3.0+ |  支持  |  支持  |
 | --preserveMeta               | 可选     | 设置是否开启保存元数据信息                                                                | false           | 4.4.0+ |  不支持  |  支持  |
+| --syncSourceDelete           | 可选     | 设置是否开启设置是否开启同步源端子目录下的删除操作                                                                           | false           | 6.9.0+ |  支持  |  支持  |
 
 ### 1、使用 --src 和 --dest (必选)
 
@@ -375,6 +376,14 @@ jindo-distcp-tool-${version}.jar --src /data/hourly_table --dest oss://example-o
 |  4.5.1 及以上版本  |  支持  |  支持  |
 
 *   --enableCMS 开启云监控告警功能，具体参见[《JindoDistcp使用CMS进行告警》](jindodistcp_how_to_cms.md)。
+
+### 20、 使用 --syncSourceDelete
+
+| 版本          |  OSS  |  OSS-HDFS  |
+|-------------| --- | --- |
+| 6.9.0 及以上版本 |  支持  |  支持  |
+
+*   --syncSourceDelete 将同步源端子目录及多级子目录（如--src指定为 /data，则 /data/hourly_table 为子目录）中的文件删除操作。
 
 ## JindoDistCp Counters 说明
 | 任务计数器          | 说明                                        |

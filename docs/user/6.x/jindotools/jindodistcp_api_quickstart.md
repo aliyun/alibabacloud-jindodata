@@ -131,6 +131,7 @@ public class DistcpExample {
 | void setIgnoreFailures(boolean ignoreFailures)                     | 可选     | 设置是否忽略拷贝任务中抛出的异常，避免中断任务                                              | False   | 4.3.0+ |
 | void setEnableCMS(boolean enableCMS)                               | 可选     | 是否开启监控告警                                                             | false   | 4.3.0+ |
 | void setEnablePreserveMetaStatus(boolean enablePreserveMetaStatus) | 可选     | 设置是否开启保存元数据信息                                                        | false   | 4.4.0+ |
+| void setSyncSourceDeleteOnDest(boolean syncSourceDeleteOnDest)     | 可选     | 设置是否开启同步源端子目录下的删除操作                                                    | false   | 6.9.0+ |
 
 ## 响应参数
 
