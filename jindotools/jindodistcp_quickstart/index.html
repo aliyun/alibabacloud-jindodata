@@ -653,7 +653,7 @@
 <tr>
 <td>--diff</td>
 <td>可选</td>
-<td>设置 DistCp 模式为 DIFF, 查看 src 和 dest 的文件差异</td>
+<td>设置 DistCp 模式为 DistCpMode.DIFF , 查看 src 和 dest 的文件差异</td>
 <td>DistCpMode.COPY</td>
 <td>4.3.0+</td>
 <td>支持</td>
@@ -662,7 +662,16 @@
 <tr>
 <td>--update</td>
 <td>可选</td>
-<td>设置 DistCp 模式为 UPDATE, 指定增量同步功能，跳过完全相同的文件和目录，直接将 src 中新增或发生改变的文件和目录同步到 dest 上</td>
+<td>设置 DistCp 模式为 DistCpMode.UPDATE, 指定增量同步功能，跳过完全相同的文件和目录，直接将 src 中新增或发生改变的文件和目录同步到 dest 上</td>
+<td>DistCpMode.COPY</td>
+<td>4.3.0+</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--overwrite</td>
+<td>可选</td>
+<td>设置 DistCp 模式为 DistCpMode.OVERWRITE, 直接将 src 中文件和目录覆盖同步到 dest 上</td>
 <td>DistCpMode.COPY</td>
 <td>4.3.0+</td>
 <td>支持</td>
@@ -675,6 +684,15 @@
 <td>false</td>
 <td>4.4.0+</td>
 <td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>--syncSourceDelete</td>
+<td>可选</td>
+<td>设置是否开启设置是否开启同步源端子目录下的删除操作</td>
+<td>false</td>
+<td>6.9.0+</td>
+<td>支持</td>
 <td>支持</td>
 </tr>
 </tbody>
@@ -1188,6 +1206,26 @@ Found 6 items
 </table>
 <ul>
 <li>--enableCMS 开启云监控告警功能，具体参见<a href="../jindodistcp_how_to_cms/">《JindoDistcp使用CMS进行告警》</a>。</li>
+</ul>
+<h3 id="20-syncsourcedelete">20、 使用 --syncSourceDelete<a class="headerlink" href="#20-syncsourcedelete" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>OSS</th>
+<th>OSS-HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6.9.0 及以上版本</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>--syncSourceDelete 将同步源端子目录及多级子目录（如--src指定为 /data，则 /data/hourly_table 为子目录）中的文件删除操作。</li>
 </ul>
 <h2 id="jindodistcp-counters">JindoDistCp Counters 说明<a class="headerlink" href="#jindodistcp-counters" title="Permanent link">§</a></h2>
 <table>
