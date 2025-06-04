@@ -56,6 +56,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 | fs.oss.read.use-pread              |  布尔值  | false          | 打开后，读接口默认使用 pread 实现。                                                                                                                                | 6.8.2+ nextarch    |
 | fs.oss.pread.cache.enable              |  布尔值  | false          | 打开后，pread 接口支持缓存，否则为零拷贝实现。                                                                                                                           | 6.8.2+ nextarch    |
 | fs.oss.list.fallback.iterative	              |  布尔值  | false          | 打开后，listStatus 对于大目录 list 自动 fallback 到迭代实现。                                                                                                                           | 6.8.3+ nextarch    |
+| fs.oss.read.profile.enable                              |  布尔值  | true          | OSS/OSS-HDFS 在读取湖表格式文件时，默认开启针对湖表文件优化的预读算法。                                                                                                           | 6.9.0+ nextarch    |
 | fs.oss.vectored.read.min.seek.size                      |  整型  | 16384          | OSS/OSS-HDFS 在 readVectored 操作期间，对多个 FileRange 合并的最小合理寻址范围（字节）。                                                                                      | 6.9.0+ nextarch    |
 | fs.oss.vectored.read.max.merged.size                    |  整型  | 2097152          | OSS/OSS-HDFS 在 readVectored 操作期间，对多个 FileRange 合并的最大长度（字节），为 0 时不合并。                                                                                 | 6.9.0+ nextarch    |
 
