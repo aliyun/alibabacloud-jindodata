@@ -1,5 +1,18 @@
 # JindoSDK 版本记录
 
+## 6.9.1，2025-06-04
+
+### 版本概要
+
+发布 JindoSDK 6.9.1 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.9.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 修复湖表格式预读策略，修复了`fs.oss.read.profile.enable=true`时在部分场景有性能回退的问题。
+- JindoFuse 修复 OSS 场景多次 Append/Flush 不支持 2G 以上文件的问题。
+- JindoSDK 优化 JindoInputStream 日志，可以指定 `log4j.logger.com.aliyun.jindodata.common.JindoInputStream` 等级以减少 readVectored 场景日志数量。
+
 ## 6.9.0，2025-05-21
 
 ### 版本概要
@@ -8,10 +21,10 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.9.0 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.9.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.9.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.9.0/jindodata_download.md)。
 - 支持 [openFile()](https://issues.apache.org/jira/browse/HADOOP-15229) 接口，支持指定 read policy（需 Hadoop 3.3.0+）。
 - 支持 [Vectored IO](https://issues.apache.org/jira/browse/HADOOP-18103) 接口（需 Hadoop 3.3.6+）。 
-- 优化湖表格式预读策略，重 IO 读场景提升 30%。
+- 优化湖表格式预读策略，重 IO 读场景提升 30%（可以配置`fs.oss.read.profile.enable=false`关闭，回退老版本行为）。
 - 优化 OSS-HDFS append 合并策略，支持 ComposedBlock。 
 - 优化 OSS-HDFS InputStream 锁。
 - 优化 OSS 解冻接口，支持设置 OSS 解冻优先级。
