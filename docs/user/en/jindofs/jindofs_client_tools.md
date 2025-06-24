@@ -40,7 +40,7 @@ jindofs admin
         [-deleteProxyUser -dlsUri <path> -proxyUser <value>]
         [-deleteUserGroupsMapping -dlsUri <path> -user <value>]
         [-dumpMetaInfo -dlsUri <path>]
-        [-dumpInventory <path>]
+        [-dumpInventory <dlsUri> [-field <field1> -field <field2> ...]]
         [-getJobProgress <jobId> -dlsUri <path>]
         [-listJobs -dlsUri <path> [-stages <stages>] [-createTime <createTime>] [-type <type>]]
         [-listProxyUsers -dlsUri <path> [-maxKeys <value>] [-marker <value>]]

@@ -37,3 +37,26 @@ Here's an example of what the result might look like:
 {"id":6246684106789500071,"path":"/dls-1000326249/benchmark/n1/490747449","type":"directory","size":0,"user":"hadoop","group":"supergroup","atime":0,"mtime":1660895613953,"permission":511,"state":0}
 ```
 Each entry represents a file or directory with its associated metadata properties such as ID, path, type, size, owner, group, access and modification times, permissions, and state.
+
+
+### Advanced Instructions
+
+#### 1. Specify metadata output fields\(Supported since v6.9.1\)
+
+This function is used to specify the required file information fields. By default, all fields are output.
+
+Usage：
+```bash
+## -field field : Specify metadata field
+## path is a must field. You must specify another one or more fields.
+./jindofs admin -dumpInventory oss://<hdfs_bucket>/ -field path -field mtime
+```
+
+Here's an example of what the result might look like:
+```json
+{"path":"/","mtime":1666581702933}
+{"path":"/dls-1000326249","mtime":1660889124590}
+{"path":"/dls-1000326249/benchmark","mtime":1660889124590}
+{"path":"/dls-1000326249/benchmark/n1","mtime":1660889124590}
+{"path":"/dls-1000326249/benchmark/n1/490747449","mtime":1660895613953}
+```
