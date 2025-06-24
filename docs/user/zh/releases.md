@@ -418,6 +418,7 @@
 
 - JindoSDK 更新 [6.5.0 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.0/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.0/jindodata_download.md)。
 - 修复偶现 Signer V4 签名问题，将签名时间戳转换函数 localtime、gmtime 替换为 localtime_r、gmtime_r 避免并发问题。
+- 修复偶现预读算法 hang on 问题，避免预读单例模块多次初始化（影响 6.2.0+ 版本）
 - 修复 libjindosdk_c.so 访问 OSS-HDFS 偶现 crash 问题，及重试失败问题。
 - jindo-core.jar nextarch classifer 支持新版内核。
 - 优化内存不足时的预读算法，防止内存过度抢占。

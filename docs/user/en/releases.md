@@ -309,6 +309,7 @@ Release of official version features for JindoSDK 6.5.0.
 
 - The [Maven repository for JindoSDK 6.5.0](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.0/oss-maven.md) and [Download Url](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.5.0/jindodata_download.md) has been updated.
 - Fix occasional issues with Signer V4 signature by replacing timestamp conversion functions localtime, gmtime with thread-safe versions localtime_r, gmtime_r.
+- Fix occasional hang-on issue in the prefetching algorithm, avoiding multiple initializations of the prefetching singleton module (affects versions 6.2.0+).
 - Resolve sporadic crashes when accessing OSS-HDFS via `libjindosdk_c.so`, as well as retry failure problems.
 - Support for newer kernel versions in the `nextarch` classifier within the `jindo-core.jar` package.
 - Optimize the prefetch algorithm under conditions of low memory availability.
