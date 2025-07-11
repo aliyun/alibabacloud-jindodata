@@ -14,6 +14,7 @@
 - 优化 OSS-HDFS InputStream 锁。
 - 优化 OSS 解冻接口，支持设置 OSS 解冻优先级。
 - 修复高并发写 OSS/OSS-HDFS close 偶现死锁问题。
+- 修复 OSS-HDFS 对特殊字符路径的支持，支持对路径做 url 编/解码。
 - 修复 JindoDistcp 若干问题，支持 `--syncSourceDelete`，详见[JindoDistCp 使用说明](https://aliyun.github.io/alibabacloud-jindodata/jindotools/jindodistcp_quickstart/)。
 - 修复 JindoCache 若干问题。
 - JindoFS CLI 使用 nextarch 实现。
