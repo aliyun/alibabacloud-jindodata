@@ -50,7 +50,7 @@ ossutil cp oss://<oss_bucket>/.dlsdata/.sysinfo/meta_analyze/inventory/166658446
 ```bash
 ## -field field : 指定元数据字段
 ## path为必选字段，另外还需指定一个及以上字段
-## 可选字段 : type size user group atime mtime permission state
+## 可选字段 : id type size user group atime mtime permission state storagePolicy storageConvertTime storageState
 ./jindofs admin -dumpInventory oss://<hdfs_bucket>/ -field path -field mtime
 ```
 
