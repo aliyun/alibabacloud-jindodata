@@ -49,6 +49,7 @@ Usage：
 ```bash
 ## -field field : Specify metadata field
 ## path is a must field. You must specify another one or more fields.
+## Optional fields : type size user group atime mtime permission state
 ./jindofs admin -dumpInventory oss://<hdfs_bucket>/ -field path -field mtime
 ```
 
