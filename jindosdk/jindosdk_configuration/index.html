@@ -444,9 +444,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">客户端常用配置</a>
+            <li class="nav-item" data-level="1"><a href="#ossoss-hdfs" class="nav-link">OSS/OSS-HDFS 客户端常用配置</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#ossoss-hdfs" class="nav-link">OSS/OSS-HDFS</a>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">日志配置项</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#io" class="nav-link">I/O 相关配置项</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">内存相关配置项</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#metrics" class="nav-link">Metrics 相关配置项</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -457,9 +469,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">客户端常用配置<a class="headerlink" href="#_1" title="Permanent link">§</a></h1>
-<h2 id="ossoss-hdfs">OSS/OSS-HDFS<a class="headerlink" href="#ossoss-hdfs" title="Permanent link">§</a></h2>
-<h3 id="_2">日志配置项<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
+<h1 id="ossoss-hdfs">OSS/OSS-HDFS 客户端常用配置<a class="headerlink" href="#ossoss-hdfs" title="Permanent link">§</a></h1>
+<h2 id="_1">日志配置项<a class="headerlink" href="#_1" title="Permanent link">§</a></h2>
 <table>
 <thead>
 <tr>
@@ -529,11 +540,12 @@
 </tr>
 </tbody>
 </table>
-<h4 id="java-sdk-log4jproperties">Java SDK 设置 log4j.properties<a class="headerlink" href="#java-sdk-log4jproperties" title="Permanent link">§</a></h4>
+<h3 id="java-sdk-log4jproperties">Java SDK 设置 log4j.properties<a class="headerlink" href="#java-sdk-log4jproperties" title="Permanent link">§</a></h3>
 <pre><code>log4j.logger.com.aliyun.jindodata=INFO
 log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 </code></pre>
-<h3 id="io">I/O 相关配置项<a class="headerlink" href="#io" title="Permanent link">§</a></h3>
+<h2 id="io">I/O 相关配置项<a class="headerlink" href="#io" title="Permanent link">§</a></h2>
+<h3 id="io_1">I/O 场景通用配置项<a class="headerlink" href="#io_1" title="Permanent link">§</a></h3>
 <table>
 <thead>
 <tr>
@@ -595,6 +607,48 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>4.3.0+</td>
 </tr>
 <tr>
+<td>fs.oss.signer.version</td>
+<td>整型</td>
+<td>0</td>
+<td>签名算法版本，可选值[0，1，4]。推荐使用0，表示默认算法版本，6.3.0版本之后默认使用 V4 签名算法提高访问 OSS/OSS-HDFS，若特殊场景希望指定签名算法版本，请指定 1 或 4。</td>
+<td>6.3.0+</td>
+</tr>
+<tr>
+<td>fs.oss.io.timeout.millisecond</td>
+<td>整型</td>
+<td>90000</td>
+<td>请求 OSS/OSS-HDFS 读写操作超时时间（毫秒）</td>
+<td>6.6.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.async.executor.number</td>
+<td>整型</td>
+<td>cpu核数</td>
+<td>进程内 OSS/OSS-HDFS 异步io线程数</td>
+<td>6.6.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.list.fallback.iterative</td>
+<td>布尔值</td>
+<td>false</td>
+<td>打开后，listStatus 对于大目录 list 自动 fallback 到迭代实现。</td>
+<td>6.8.3+ nextarch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">写场景相关配置项<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>fs.oss.upload.thread.concurrency</td>
 <td>整型</td>
 <td>MAX(cpu核数,16)</td>
@@ -614,27 +668,6 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>10</td>
 <td>单个文件 OSS/OSS-HDFS 最大并发上传任务数</td>
 <td>4.3.0+(deprecated)</td>
-</tr>
-<tr>
-<td>fs.oss.download.thread.concurrency</td>
-<td>整型</td>
-<td>MAX(cpu核数,16)</td>
-<td>进程内 OSS/OSS-HDFS 最大并发下载任务数</td>
-<td>4.3.0+(deprecated)</td>
-</tr>
-<tr>
-<td>fs.oss.read.readahead.max.buffer.count</td>
-<td>整型</td>
-<td>48</td>
-<td>最大同时预读 OSS/OSS-HDFS 的 buffer 个数</td>
-<td>4.3.0+(deprecated)</td>
-</tr>
-<tr>
-<td>fs.oss.read.buffer.size</td>
-<td>整型</td>
-<td>1048576</td>
-<td>OSS/OSS-HDFS 读缓冲区大小（字节）</td>
-<td>4.3.0+</td>
 </tr>
 <tr>
 <td>fs.oss.write.buffer.size</td>
@@ -672,52 +705,10 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>4.6.0+</td>
 </tr>
 <tr>
-<td>fs.oss.read.readahead.prefetcher.version</td>
-<td>字符串</td>
-<td>default</td>
-<td>可选值：<code>legacy</code> 原预读算法, <code>default</code> 新预读算法。新预读算法可能使用更多内存。若配置了新预读算法后发生性能下降，可能是由于内存池容量不足导致预读的块在被访问到之前就被提前逐出。为了避免该情况发生，可以考虑缩减最大预读长度，或允许预读使用更多内存。</td>
-<td>6.2.0+</td>
-</tr>
-<tr>
-<td>fs.oss.read.readahead.prefetch.size.max</td>
-<td>整型</td>
-<td>268435456</td>
-<td>预读最大长度（单位：byte）</td>
-<td>6.2.0+</td>
-</tr>
-<tr>
-<td>fs.oss.signer.version</td>
-<td>整型</td>
-<td>0</td>
-<td>签名算法版本，可选值[0，1，4]。推荐使用0，表示默认算法版本，6.3.0版本之后默认使用 V4 签名算法提高访问 OSS/OSS-HDFS，若特殊场景希望指定签名算法版本，请指定 1 或 4。</td>
-<td>6.3.0+</td>
-</tr>
-<tr>
-<td>fs.oss.io.timeout.millisecond</td>
-<td>整型</td>
-<td>90000</td>
-<td>请求 OSS/OSS-HDFS 读写操作超时时间（毫秒）</td>
-<td>6.6.0+ nextarch</td>
-</tr>
-<tr>
-<td>fs.oss.async.executor.number</td>
-<td>整型</td>
-<td>cpu核数</td>
-<td>进程内 OSS/OSS-HDFS 异步io线程数</td>
-<td>6.6.0+ nextarch</td>
-</tr>
-<tr>
 <td>fs.oss.upload.async.concurrency</td>
 <td>整型</td>
 <td>MAX(cpu核数,16)</td>
 <td>进程内 OSS/OSS-HDFS 异步上传并发数</td>
-<td>6.6.0+ nextarch</td>
-</tr>
-<tr>
-<td>fs.oss.download.async.concurrency</td>
-<td>整型</td>
-<td>MAX(cpu核数,16)</td>
-<td>进程内 OSS/OSS-HDFS 异步下载并发数</td>
 <td>6.6.0+ nextarch</td>
 </tr>
 <tr>
@@ -741,34 +732,124 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>打开后，OSS-HDFS 执行 flush 时虚拟块会合并小于<code>fs.oss.flush.merge.threshold.size</code>的 slice。</td>
 <td>6.7.8+ nextarch</td>
 </tr>
+</tbody>
+</table>
+<h3 id="_3">读场景配置项<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<h4 id="_4">读场景通用配置项<a class="headerlink" href="#_4" title="Permanent link">§</a></h4>
+<table>
+<thead>
 <tr>
-<td>fs.oss.read.readahead.clean.fully.accessed.block.enable</td>
-<td>布尔值</td>
-<td>true</td>
-<td>打开后，预读算法会立即清除完全读取的预读内存。</td>
-<td>6.8.0+ nextarch</td>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fs.oss.download.thread.concurrency</td>
+<td>整型</td>
+<td>MAX(cpu核数,16)</td>
+<td>进程内 OSS/OSS-HDFS 最大并发下载任务数</td>
+<td>4.3.0+(deprecated)</td>
 </tr>
 <tr>
-<td>fs.oss.read.use-pread</td>
+<td>fs.oss.download.async.concurrency</td>
+<td>整型</td>
+<td>MAX(cpu核数,16)</td>
+<td>进程内 OSS/OSS-HDFS 异步下载并发数</td>
+<td>6.6.0+ nextarch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_5">顺序读场景配置项<a class="headerlink" href="#_5" title="Permanent link">§</a></h4>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fs.oss.read.readahead.prefetcher.version</td>
+<td>字符串</td>
+<td>default</td>
+<td>可选值：<code>legacy</code> 原预读算法, <code>default</code> 新预读算法。新预读算法可能使用更多内存。若配置了新预读算法后发生性能下降，可能是由于内存池容量不足导致预读的块在被访问到之前就被提前逐出。为了避免该情况发生，可以考虑缩减最大预读长度，或允许预读使用更多内存。</td>
+<td>6.2.0+</td>
+</tr>
+<tr>
+<td>fs.oss.read.readahead.max.buffer.count</td>
+<td>整型</td>
+<td>48</td>
+<td>最大同时预读 OSS/OSS-HDFS 的 buffer 个数（legacy 预读算法）</td>
+<td>4.3.0+(deprecated)</td>
+</tr>
+<tr>
+<td>fs.oss.read.buffer.size</td>
+<td>整型</td>
+<td>1048576</td>
+<td>OSS/OSS-HDFS 读缓冲区大小（字节）（legacy 预读算法）</td>
+<td>4.3.0+(deprecated)</td>
+</tr>
+<tr>
+<td>fs.oss.read.readahead.pread.enable</td>
 <td>布尔值</td>
 <td>false</td>
-<td>打开后，读接口默认使用 pread 实现。</td>
-<td>6.8.2+ nextarch</td>
+<td>控制随机读接口是否开启预读</td>
+<td>6.2.0+</td>
 </tr>
 <tr>
-<td>fs.oss.pread.cache.enable</td>
-<td>布尔值</td>
-<td>false</td>
-<td>打开后，pread 接口支持缓存，否则为零拷贝实现。</td>
-<td>6.8.2+ nextarch</td>
+<td>fs.oss.read.readahead.prefetch.size.max</td>
+<td>整型</td>
+<td>268435456</td>
+<td>预读最大长度（单位：byte）</td>
+<td>6.2.0+</td>
 </tr>
 <tr>
-<td>fs.oss.list.fallback.iterative</td>
-<td>布尔值</td>
-<td>false</td>
-<td>打开后，listStatus 对于大目录 list 自动 fallback 到迭代实现。</td>
-<td>6.8.3+ nextarch</td>
+<td>fs.oss.read.readahead.download.block.size.min</td>
+<td>整型</td>
+<td>1048576</td>
+<td>预读最大长度（单位：byte）</td>
+<td>6.2.0+</td>
 </tr>
+<tr>
+<td>fs.oss.read.readahead.download.block.size.max</td>
+<td>整型</td>
+<td>4194304</td>
+<td>预读最大长度（单位：byte）</td>
+<td>6.2.0+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_6">湖表读场景相关配置项<a class="headerlink" href="#_6" title="Permanent link">§</a></h4>
+<p>判定为湖表文件的方式，有以下三种：</p>
+<ol>
+<li>
+<p>FileSystem 由 paimon/iceberg/hudi 创建。</p>
+</li>
+<li>
+<p>打开文件时，使用了 <a href="https://hadoop.apache.org/docs/r3.4.1/hadoop-project-dist/hadoop-common/filesystem/fsdatainputstreambuilder.html#Option:_fs.option.openfile.read.policy">openfile 方法（hadoop3.3.1+）</a>，并指定了文件类型是columnar/parquet/orc</p>
+</li>
+<li>
+<p>文件末尾是 <code>.parquet</code> 或者 <code>.orc</code></p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>fs.oss.read.profile.enable</td>
 <td>布尔值</td>
@@ -777,10 +858,31 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>6.9.0+ nextarch</td>
 </tr>
 <tr>
+<td>fs.oss.read.profile.columnar.readahead.pread.enable</td>
+<td>布尔值</td>
+<td>true</td>
+<td>控制湖表文件随机读接口是否开启预读</td>
+<td>6.9.0+ nextarch</td>
+</tr>
+<tr>
 <td>fs.oss.read.profile.columnar.readahead.prefetch.size.max</td>
 <td>整型</td>
 <td>16777216</td>
 <td>湖表格式文件预读最大长度（单位：byte）</td>
+<td>6.9.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.read.profile.columnar.readahead.download.block.size.min</td>
+<td>整型</td>
+<td>1048576</td>
+<td>预读最大长度（单位：byte）</td>
+<td>6.9.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.read.profile.columnar.readahead.download.block.size.max</td>
+<td>整型</td>
+<td>1048576</td>
+<td>预读最大长度（单位：byte）</td>
 <td>6.9.0+ nextarch</td>
 </tr>
 <tr>
@@ -799,7 +901,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 </tr>
 </tbody>
 </table>
-<h3 id="_3">内存相关配置项<a class="headerlink" href="#_3" title="Permanent link">§</a></h3>
+<h2 id="_7">内存相关配置项<a class="headerlink" href="#_7" title="Permanent link">§</a></h2>
 <table>
 <thead>
 <tr>
@@ -841,7 +943,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 </tr>
 </tbody>
 </table>
-<h3 id="metrics">Metrics 相关配置项<a class="headerlink" href="#metrics" title="Permanent link">§</a></h3>
+<h2 id="metrics">Metrics 相关配置项<a class="headerlink" href="#metrics" title="Permanent link">§</a></h2>
 <table>
 <thead>
 <tr>
