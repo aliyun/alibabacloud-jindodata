@@ -763,7 +763,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 </tr>
 </tbody>
 </table>
-<h4 id="_5">顺序读场景配置项<a class="headerlink" href="#_5" title="Permanent link">§</a></h4>
+<h4 id="_5">默认读场景配置项<a class="headerlink" href="#_5" title="Permanent link">§</a></h4>
 <table>
 <thead>
 <tr>
@@ -814,14 +814,14 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>fs.oss.read.readahead.download.block.size.min</td>
 <td>整型</td>
 <td>1048576</td>
-<td>预读最大长度（单位：byte）</td>
+<td>预读单个请求最小长度（单位：byte）</td>
 <td>6.2.0+</td>
 </tr>
 <tr>
 <td>fs.oss.read.readahead.download.block.size.max</td>
 <td>整型</td>
 <td>4194304</td>
-<td>预读最大长度（单位：byte）</td>
+<td>预读单个请求最大长度（单位：byte）</td>
 <td>6.2.0+</td>
 </tr>
 </tbody>
@@ -875,14 +875,14 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>fs.oss.read.profile.columnar.readahead.download.block.size.min</td>
 <td>整型</td>
 <td>1048576</td>
-<td>预读最大长度（单位：byte）</td>
+<td>预读单个请求最小长度（单位：byte）</td>
 <td>6.9.0+ nextarch</td>
 </tr>
 <tr>
 <td>fs.oss.read.profile.columnar.readahead.download.block.size.max</td>
 <td>整型</td>
 <td>1048576</td>
-<td>预读最大长度（单位：byte）</td>
+<td>预读单个请求最大长度（单位：byte）</td>
 <td>6.9.0+ nextarch</td>
 </tr>
 <tr>
