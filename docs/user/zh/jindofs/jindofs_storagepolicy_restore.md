@@ -67,7 +67,7 @@ jindofs fs -setStoragePolicy -path <path> -policy <policy> -restoreDays <restore
  * 处于临时解冻状态时，仍可以再次进行解冻，但是间隔必须超过 `2` 天以上。
 
 ## 临时解冻转标准/低频
-从6.13.0版本开始，临时解冻支持转低频/标准存储类型。即支持以下类型转换：
+从6.13.0版本开始，临时解冻支持转标准/低频存储类型。即支持以下类型转换：
 * CLOUD_AR_RESTORED -> CLOUD_STD
 * CLOUD_AR_RESTORED -> CLOUD_IA
 * CLOUD_COLD_AR_RESTORED -> CLOUD_STD
