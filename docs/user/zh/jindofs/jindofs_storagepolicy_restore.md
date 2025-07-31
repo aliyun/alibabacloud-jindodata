@@ -65,3 +65,12 @@ jindofs fs -setStoragePolicy -path <path> -policy <policy> -restoreDays <restore
  * 临时解冻任务完成后，数据仍不能立刻可读。通常归档类型需要数分钟后可读，冷归档类型则需要数小时。
  * 临时解冻有天数限制，由 `<restoreDays>` 指定，超出则回到不可读状态。
  * 处于临时解冻状态时，仍可以再次进行解冻，但是间隔必须超过 `2` 天以上。
+
+## 临时解冻转标准/低频
+从6.13.0版本开始，临时解冻支持转低频/标准存储类型。即支持以下类型转换：
+* CLOUD_AR_RESTORED -> CLOUD_STD
+* CLOUD_AR_RESTORED -> CLOUD_IA
+* CLOUD_COLD_AR_RESTORED -> CLOUD_STD
+* CLOUD_COLD_AR_RESTORED -> CLOUD_IA
+* CLOUD_DEEP_COLD_AR_RESTORED -> CLOUD_STD
+* CLOUD_DEEP_COLD_AR_RESTORED -> CLOUD_IA

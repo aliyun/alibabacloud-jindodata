@@ -67,3 +67,12 @@ Temporary thaw considerations:
 * Thawed data typically becomes readable within minutes for archives and hours for cold archives.
 * Data remains in a thawed state for the specified `<restoreDays>`, after which it reverts to being inaccessible.
 * While in a thawed state, another thaw can be initiated but with a minimum 2-day interval since the last one.
+
+## Thawed Data To Standard/IA Data
+Since 6.13.0, thawed data can be converted to standard/IA storage type. The following storage types can be converted:
+* CLOUD_AR_RESTORED -> CLOUD_STD
+* CLOUD_AR_RESTORED -> CLOUD_IA
+* CLOUD_COLD_AR_RESTORED -> CLOUD_STD
+* CLOUD_COLD_AR_RESTORED -> CLOUD_IA
+* CLOUD_DEEP_COLD_AR_RESTORED -> CLOUD_STD
+* CLOUD_DEEP_COLD_AR_RESTORED -> CLOUD_IA
