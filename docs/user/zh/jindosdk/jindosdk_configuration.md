@@ -89,7 +89,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 |----------------------------------------------------------| --- |---------------|----------------------------------------------------------------------|--------------------|
 | fs.oss.read.profile.enable                               |  布尔值  | true          | OSS/OSS-HDFS 在读取湖表格式文件时，默认开启针对湖表文件优化的预读算法。                           | 6.9.0+ nextarch    |
 | fs.oss.read.profile.columnar.readahead.pread.enable      |  布尔值 | true          | 控制湖表文件随机读接口是否开启预读                                                    | 6.9.0+ nextarch    |
-| fs.oss.read.profile.columnar.readahead.prefetch.size.max |  整型  | 16777216      | 湖表格式文件预读最大长度（单位：byte）                                                | 6.9.0+ nextarch    |
+| fs.oss.read.profile.columnar.readahead.prefetch.size.max |  整型  | 67108864      | 湖表格式文件预读最大长度（单位：byte）                                                | 6.9.0+ nextarch    |
 | fs.oss.read.profile.columnar.readahead.download.block.size.min |  整型  | 1048576     | 预读单个请求最小长度（单位：byte）                                                  | 6.9.0+ nextarch    |
 | fs.oss.read.profile.columnar.readahead.download.block.size.max |  整型  | 1048576     | 预读单个请求最大长度（单位：byte）                                                  | 6.9.0+ nextarch    |
 | fs.oss.vectored.read.min.seek.size                       |  整型  | 16384         | OSS/OSS-HDFS 在 readVectored 操作期间，对多个 FileRange 合并的最小合理寻址范围（字节）。      | 6.9.0+ nextarch    |

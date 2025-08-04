@@ -68,7 +68,7 @@ There are three ways to identify lake table files:
 | --- | --- | --- | --- | --- |
 | fs.oss.read.profile.enable | Boolean | true | When reading lake table format files, OSS/OSS-HDFS enables the optimized prefetch algorithm for lake table files by default. | 6.9.0+ nextarch |
 | fs.oss.read.profile.columnar.readahead.pread.enable | Boolean | true | Controls whether to enable prefetch for lake table file random read interface | 6.9.0+ nextarch |
-| fs.oss.read.profile.columnar.readahead.prefetch.size.max | Integer | 16777216 | Maximum prefetch length for lake table format files (unit: byte) | 6.9.0+ nextarch |
+| fs.oss.read.profile.columnar.readahead.prefetch.size.max | Integer | 67108864 | Maximum prefetch length for lake table format files (unit: byte) | 6.9.0+ nextarch |
 | fs.oss.read.profile.columnar.readahead.download.block.size.min | Integer | 1048576 | Minimum length of a single prefetch request (unit: byte) | 6.9.0+ nextarch |
 | fs.oss.read.profile.columnar.readahead.download.block.size.max | Integer | 1048576 | Maximum length of a single prefetch request (unit: byte) | 6.9.0+ nextarch |
 | fs.oss.vectored.read.min.seek.size | Integer | 16384 | The minimum reasonable seek range (bytes) for merging multiple FileRanges during readVectored operations in OSS/OSS-HDFS. | 6.9.0+ nextarch |
