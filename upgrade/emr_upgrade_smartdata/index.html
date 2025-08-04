@@ -487,7 +487,7 @@ tar zxf jindosdk-patches.tar.gz
 <p>下载 JindoSDK 软件包 jindosdk-{VERSION}-{PLATFORM}.tar.gz（以下以linux x86平台为例） ，放在解压后的目录。</p>
 <pre><code class="language-bash">cd jindosdk-patches
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.9.1/jindosdk-6.9.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.0/jindosdk-6.10.0-linux.tar.gz
 
 ls -l
 </code></pre>
@@ -495,7 +495,7 @@ ls -l
 <pre><code class="language-bash">-rwxrwxr-x 1 hadoop hadoop      1263 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6840 May 01 00:00 apply.sh
 -rw-rw-r-- 1 hadoop hadoop        40 May 01 00:00 hosts
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.9.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.10.0-linux.tar.gz
 -rwxrwxr-x 1 hadoop hadoop      1308 May 01 00:00 revert_all.sh
 -rwxrwxr-x 1 hadoop hadoop      6326 May 01 00:00 revert.sh
 </code></pre>
@@ -520,7 +520,7 @@ emr-worker-2
 <pre><code class="language-bash">./apply_all.sh $JINDOSDK_VERSION
 </code></pre>
 <p>如</p>
-<pre><code class="language-bash">./apply_all.sh 6.9.1
+<pre><code class="language-bash">./apply_all.sh 6.10.0
 </code></pre>
 <p>脚本执行完成后，返回如下提示信息。</p>
 <pre><code>&gt;&gt;&gt; updating ...  emr-header-1
@@ -579,13 +579,13 @@ c. 如参数value存在需要删除的参数，修改后点击保存，并更新
 <h3 id="5">5. 确认升级成功<a class="headerlink" href="#5" title="Permanent link">§</a></h3>
 <pre><code class="language-bash">ls -l /opt/apps/extra-jars/
 </code></pre>
-<p>以升级为 6.9.1 版本为例，返回示例如下：</p>
+<p>以升级为 6.10.0 版本为例，返回示例如下：</p>
 <pre><code class="language-bash">drwxr-xr-x 2 root   root       4096 Apr 24 16:19 flink
 -rw-r--r-- 1 hadoop hadoop   189081 Apr 24 15:33 hadoop-lzo-0.4.21-SNAPSHOT.jar
 drwxr-xr-x 2 hadoop hadoop     4096 Apr 24 15:33 hive
--rw-r--r-- 1 root   root   16264149 Apr 24 16:19 jindo-core-6.9.1.jar
--rw-r--r-- 1 root   root   14429862 Apr 24 16:19 jindo-core-linux-el7-aarch64-6.9.1.jar
--rw-r--r-- 1 root   root    4459297 Apr 24 16:19 jindo-sdk-6.9.1.jar
+-rw-r--r-- 1 root   root   16264149 Apr 24 16:19 jindo-core-6.10.0.jar
+-rw-r--r-- 1 root   root   14429862 Apr 24 16:19 jindo-core-linux-el7-aarch64-6.10.0.jar
+-rw-r--r-- 1 root   root    4459297 Apr 24 16:19 jindo-sdk-6.10.0.jar
 -rw-r--r-- 1 hadoop hadoop  1438552 Apr 24 15:33 jindotable-common.jar
 drwxr-xr-x 2 root   root       4096 Apr 24 16:19 spark
 drwxr-xr-x 2 root   root       4096 Apr 24 16:19 spark3
@@ -608,14 +608,14 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <h2 id="_3">场景二：扩容已有集群<a class="headerlink" href="#_3" title="Permanent link">§</a></h2>
 <p>扩容已有集群时可以自动升级修复。具体操作步骤如下：</p>
 <h3 id="1_1">1. 制作引导升级包<a class="headerlink" href="#1_1" title="Permanent link">§</a></h3>
-<p>下载的 jindosdk-patches.tar.gz ，jindosdk-6.9.1-linux.tar.gz 和 bootstrap_jindosdk.sh。</p>
+<p>下载的 jindosdk-patches.tar.gz ，jindosdk-6.10.0-linux.tar.gz 和 bootstrap_jindosdk.sh。</p>
 <pre><code class="language-bash">mkdir jindo-patch
 
 cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.9.1/jindosdk-6.9.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.0/jindosdk-6.10.0-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -623,14 +623,14 @@ ls -l
 </code></pre>
 <p>内容示例如下：</p>
 <pre><code class="language-bash">-rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.9.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.10.0-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 </code></pre>
 <p>执行命令制作升级包</p>
 <pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen $JINDOSDK_VERSION
 </code></pre>
 <p>如</p>
-<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen 6.9.1
+<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen 6.10.0
 </code></pre>
 <p><strong>参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。</strong></p>
 <p>成功后可以看到如下：</p>
@@ -708,14 +708,14 @@ hadoop dfs -ls oss://&lt;bucket-name&gt;/path/to/patch/
 <h2 id="_4">场景三：新建集群<a class="headerlink" href="#_4" title="Permanent link">§</a></h2>
 <p>新建EMR集群时在EMR控制台添加引导操作。具体操作步骤如下：</p>
 <h3 id="1_2">1. 制作引导升级包<a class="headerlink" href="#1_2" title="Permanent link">§</a></h3>
-<p>下载的 jindosdk-patches.tar.gz ，jindosdk-6.9.1-linux.tar.gz 和 bootstrap_jindosdk.sh。</p>
+<p>下载的 jindosdk-patches.tar.gz ，jindosdk-6.10.0-linux.tar.gz 和 bootstrap_jindosdk.sh。</p>
 <pre><code class="language-bash">mkdir jindo-patch
 
 cd jindo-patch
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/jindosdk-patches.tar.gz
 
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.9.1/jindosdk-6.9.1-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.0/jindosdk-6.10.0-linux.tar.gz
 
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/bootstrap_jindosdk.sh
 
@@ -723,14 +723,14 @@ ls -l
 </code></pre>
 <p>内容示例如下：</p>
 <pre><code class="language-bash">-rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 bootstrap_jindosdk.sh
--rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.9.1-linux.tar.gz
+-rw-r----- 1 hadoop hadoop xxxxxxxxx May 01 00:00 jindosdk-6.10.0-linux.tar.gz
 -rw-r----- 1 hadoop hadoop      xxxx May 01 00:00 jindosdk-patches.tar.gz
 </code></pre>
 <p>执行命令制作升级包</p>
 <pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen-full $JINDOSDK_VERSION
 </code></pre>
 <p>如</p>
-<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen-full 6.9.1
+<pre><code class="language-bash">bash bootstrap_jindosdk.sh -gen-full 6.10.0
 </code></pre>
 <p><strong>参数说明：-gen生成lite升级包，-gen-full表示生成完整升级包。</strong></p>
 <p>成功后可以看到如下：</p>
