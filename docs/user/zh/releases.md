@@ -16,6 +16,7 @@
 - JindoCLI、Tensorflow Collector 使用 nextarch 实现。
 - JindoSDK 优化 pread 日志，默认改成 debug。
 - 优化容器场景默认并发数，可以通过环境变量 `JINDO_DEFAULT_PROCS` 指定。
+- 优化了 JindoFileOutputCommitter。
 - 修复访问 OSS-HDFS 时，getServerDefaults 函数不需要鉴权。
 - 修复访问 OSS-HDFS 时，创建目录/文件时，对 umask 的支持。
 - 修复 libjindosdk_c.so 对一次性读大于 2G buffer 场景的支持。
