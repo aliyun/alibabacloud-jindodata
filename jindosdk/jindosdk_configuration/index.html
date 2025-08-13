@@ -827,7 +827,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 </tbody>
 </table>
 <h4 id="_6">湖表读场景相关配置项<a class="headerlink" href="#_6" title="Permanent link">§</a></h4>
-<p>判定为湖表文件的方式，有以下三种：</p>
+<p>判定为湖表文件的方式，有以下几种：</p>
 <ol>
 <li>
 <p>FileSystem 由 paimon/iceberg/hudi 创建。</p>
@@ -837,6 +837,9 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 </li>
 <li>
 <p>文件末尾是 <code>.parquet</code> 或者 <code>.orc</code></p>
+</li>
+<li>
+<p>fs.oss.read.profile.fallback.type 设置为 <code>columnar</code></p>
 </li>
 </ol>
 <table>
@@ -898,6 +901,13 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>2097152</td>
 <td>OSS/OSS-HDFS 在 readVectored 操作期间，对多个 FileRange 合并的最大长度（字节），为 0 时不合并。</td>
 <td>6.9.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.read.profile.fallback.type</td>
+<td>字符串</td>
+<td>off</td>
+<td>默认关闭，如果设置为<code>columnar</code>，OSS/OSS-HDFS 在读取文件时，默认使用湖表预读。</td>
+<td>6.10.0+ nextarch</td>
 </tr>
 </tbody>
 </table>
