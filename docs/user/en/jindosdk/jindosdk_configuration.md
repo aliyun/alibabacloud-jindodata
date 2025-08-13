@@ -56,13 +56,15 @@
 
 ### Lake Table Read Scenario Configuration Items
 
-There are three ways to identify lake table files:
+There are several ways to identify lake table files:
 
 1. FileSystem created by paimon/iceberg/hudi.
 
 2. When opening a file, the [openfile method (hadoop3.3.1+)](https://hadoop.apache.org/docs/r3.4.1/hadoop-project-dist/hadoop-common/filesystem/fsdatainputstreambuilder.html#Option:_fs.option.openfile.read.policy) is used, and the file type is specified as columnar/parquet/orc.
 
 3. The file ends with `.parquet` or `.orc`.
+
+4. `fs.oss.read.profile.fallback.type` is set to `columnar`
 
 | Configuration Item | Type | Default Value | Description | Version |
 | --- | --- | --- | --- | --- |
@@ -73,6 +75,7 @@ There are three ways to identify lake table files:
 | fs.oss.read.profile.columnar.readahead.download.block.size.max | Integer | 1048576 | Maximum length of a single prefetch request (unit: byte) | 6.9.0+ nextarch |
 | fs.oss.vectored.read.min.seek.size | Integer | 16384 | The minimum reasonable seek range (bytes) for merging multiple FileRanges during readVectored operations in OSS/OSS-HDFS. | 6.9.0+ nextarch |
 | fs.oss.vectored.read.max.merged.size | Integer | 2097152 | The maximum length (bytes) for merging multiple FileRanges during readVectored operations in OSS/OSS-HDFS. When 0, no merging occurs. | 6.9.0+ nextarch |
+| fs.oss.read.profile.fallback.type | String | off | Disabled by default. If set to columnar, OSS/OSS-HDFS will use lake table prefetching by default when reading files. | 6.10.0+ nextarch |
 
 ## Memory Configuration Items
 
