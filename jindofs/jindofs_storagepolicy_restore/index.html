@@ -466,6 +466,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">临时解冻转标准/低频</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -545,7 +549,15 @@
  * 用 <code>CLOUD_AR</code> 或者 <code>CLOUD_COLD_AR</code> 的策略进行归档之后，必须间隔超过 <code>2</code> 天才可进行解冻。
  * 临时解冻任务完成后，数据仍不能立刻可读。通常归档类型需要数分钟后可读，冷归档类型则需要数小时。
  * 临时解冻有天数限制，由 <code>&lt;restoreDays&gt;</code> 指定，超出则回到不可读状态。
- * 处于临时解冻状态时，仍可以再次进行解冻，但是间隔必须超过 <code>2</code> 天以上。</p></div>
+ * 处于临时解冻状态时，仍可以再次进行解冻，但是间隔必须超过 <code>2</code> 天以上。</p>
+<h2 id="_6">临时解冻转标准/低频<a class="headerlink" href="#_6" title="Permanent link">§</a></h2>
+<p>从6.13.0版本开始，临时解冻支持转标准/低频存储类型。即支持以下类型转换：
+* CLOUD_AR_RESTORED -&gt; CLOUD_STD
+* CLOUD_AR_RESTORED -&gt; CLOUD_IA
+* CLOUD_COLD_AR_RESTORED -&gt; CLOUD_STD
+* CLOUD_COLD_AR_RESTORED -&gt; CLOUD_IA
+* CLOUD_DEEP_COLD_AR_RESTORED -&gt; CLOUD_STD
+* CLOUD_DEEP_COLD_AR_RESTORED -&gt; CLOUD_IA</p></div>
             </div>
         </div>
 
