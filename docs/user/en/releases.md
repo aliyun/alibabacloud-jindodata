@@ -1,10 +1,19 @@
 # JindoSDK Release History
 
+## 6.10.1, 2025-09-22
+
+### Version Summary
+
+- JindoSDK updates [Maven repository for 6.10.1](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Upgraded yalantinglibs to [lts1.2.1](https://github.com/alibaba/yalantinglibs/tree/lts1.2.1). Fixed occasional crash issue when concurrently calling summary during initialization.
+- JindoSDK supports qos latency metrics.
+- JindoFS CLI fixes support for `-count -q` parameter.
+
 ## 6.10.0, 2025-08-04
 
 ### Version Summary
 
-- JindoSDK updates [Maven repository for 6.10.0](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- JindoSDK updates [Maven repository for 6.10.0](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.0/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.0/jindodata_download.md).
 - Supports OSS-HDFS metadata access batch interfaces: renameBatch, removeBatch (deleteBatch), getFileInfoBatch (getFileStatusBatch), getContentSummaryBatch, listDirectoryBatch, significantly improving metadata access performance in small file scenarios.
 - Supports listFiles(Path f, boolean recursive).
 - JindoDistributedFileSystem supports getServerDefaults(Path f).
@@ -18,14 +27,14 @@
 
 ## 6.9.1, 2025-06-04
 
-- JindoSDK updated [Maven repository for version 6.9.1](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- JindoSDK updated [Maven repository for version 6.9.1](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.9.1/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.9.1/jindodata_download.md).
 - JindoSDK fixed lake table format prefetching strategy, resolving performance regression issues in some scenarios when `fs.oss.read.profile.enable=true`.
 - JindoFuse fixed OSS scenario issue with multiple Append/Flush operations not supporting files larger than 2G.
 - JindoSDK optimized JindoInputStream logs to reduce the volume of logs in readVectored scenarios by allowing specification of `log4j.logger.com.aliyun.jindodata.common.JindoInputStream` log level.
 
 ## 6.9.0, 2025-05-21
 
-- Updated JindoSDK [Maven repository for version 6.9.0](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.9.0/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- Updated JindoSDK [Maven repository for version 6.9.0](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.9.0/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.9.0/jindodata_download.md).
 - Support for the [openFile()](https://issues.apache.org/jira/browse/HADOOP-15229) interface, allowing specification of read policy (requires Hadoop 3.3.0+).
 - Support for [Vectored IO](https://issues.apache.org/jira/browse/HADOOP-18103) interface (requires Hadoop 3.3.6+).
 - Optimized lake table format prefetching strategy, achieving a 30% improvement in heavy IO read scenarios (can be disabled by configuring `fs.oss.read.profile.enable=false` to revert to old version behavior).
