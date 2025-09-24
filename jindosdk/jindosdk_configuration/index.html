@@ -797,6 +797,13 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>4.3.0+(deprecated)</td>
 </tr>
 <tr>
+<td>fs.oss.read.position.buffer.size</td>
+<td>整型</td>
+<td>1048576</td>
+<td>OSS/OSS-HDFS 随机读缓冲区大小（字节），<code>fs.oss.read.readahead.pread.enable</code> 为 <code>false</code> 时，对应单次随机读请求最大字节数</td>
+<td>4.3.0+</td>
+</tr>
+<tr>
 <td>fs.oss.read.readahead.pread.enable</td>
 <td>布尔值</td>
 <td>false</td>
@@ -858,6 +865,13 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>布尔值</td>
 <td>true</td>
 <td>OSS/OSS-HDFS 在读取湖表格式文件时，默认开启针对湖表文件优化的预读算法。</td>
+<td>6.9.0+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.read.profile.columnar.position.buffer.size</td>
+<td>整型</td>
+<td>16777216</td>
+<td>OSS/OSS-HDFS 在读取湖表格式文件时，读缓冲区大小（字节）,<code>fs.oss.read.profile.columnar.readahead.pread.enable</code> 为 <code>false</code> 时，对应单次读请求最大字节数</td>
 <td>6.9.0+ nextarch</td>
 </tr>
 <tr>
