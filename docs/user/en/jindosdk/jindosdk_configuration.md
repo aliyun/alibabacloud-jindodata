@@ -49,6 +49,7 @@
 | fs.oss.read.readahead.prefetcher.version | String | default | Optional values: `legacy` original prefetch algorithm, `default` new prefetch algorithm. The new prefetch algorithm may use more memory. If performance degradation occurs after configuring the new prefetch algorithm, it may be due to insufficient memory pool capacity causing prefetched blocks to be evicted before being accessed. To avoid this situation, consider reducing the maximum prefetch length or allowing prefetch to use more memory. | 6.2.0+ |
 | fs.oss.read.readahead.max.buffer.count | Integer | 48 | Maximum number of buffers for simultaneous prefetching of OSS/OSS-HDFS (legacy prefetch algorithm) | 4.3.0+ (deprecated) |
 | fs.oss.read.buffer.size | Integer | 1048576 | Read buffer size (bytes) for OSS/OSS-HDFS (legacy prefetch algorithm) | 4.3.0+ (deprecated) |
+| fs.oss.read.position.buffer.size | Integer | 1048576 | OSS/OSS-HDFS random read buffer size (bytes). When `fs.oss.read.readahead.pread.enable` is `false`, it corresponds to the maximum bytes per read request | 4.3.0+ |
 | fs.oss.read.readahead.pread.enable | Boolean | false | Controls whether to enable prefetch for random read interface | 6.2.0+ |
 | fs.oss.read.readahead.prefetch.size.max | Integer | 268435456 | Maximum prefetch length (unit: byte) | 6.2.0+ |
 | fs.oss.read.readahead.download.block.size.min | Integer | 1048576 | Minimum length of a single prefetch request (unit: byte) | 6.2.0+ |
@@ -69,6 +70,7 @@ There are several ways to identify lake table files:
 | Configuration Item | Type | Default Value | Description | Version |
 | --- | --- | --- | --- | --- |
 | fs.oss.read.profile.enable | Boolean | true | When reading lake table format files, OSS/OSS-HDFS enables the optimized prefetch algorithm for lake table files by default. | 6.9.0+ nextarch |
+| fs.oss.read.profile.columnar.position.buffer.size | Integer | 16777216 | When OSS/OSS-HDFS reads lake table format files, the read buffer size (bytes). When `fs.oss.read.profile.columnar.readahead.pread.enable` is `false`, it corresponds to the maximum bytes per read request | 6.9.0+ nextarch |
 | fs.oss.read.profile.columnar.readahead.pread.enable | Boolean | true | Controls whether to enable prefetch for lake table file random read interface | 6.9.0+ nextarch |
 | fs.oss.read.profile.columnar.readahead.prefetch.size.max | Integer | 67108864 | Maximum prefetch length for lake table format files (unit: byte) | 6.9.0+ nextarch |
 | fs.oss.read.profile.columnar.readahead.download.block.size.min | Integer | 1048576 | Minimum length of a single prefetch request (unit: byte) | 6.9.0+ nextarch |

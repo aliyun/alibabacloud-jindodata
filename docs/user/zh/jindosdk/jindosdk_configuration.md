@@ -70,6 +70,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 | fs.oss.read.readahead.prefetcher.version      |  字符串 | default       | 可选值：`legacy` 原预读算法, `default` 新预读算法。新预读算法可能使用更多内存。若配置了新预读算法后发生性能下降，可能是由于内存池容量不足导致预读的块在被访问到之前就被提前逐出。为了避免该情况发生，可以考虑缩减最大预读长度，或允许预读使用更多内存。 | 6.2.0+             |
 | fs.oss.read.readahead.max.buffer.count        |  整型  | 48            | 最大同时预读 OSS/OSS-HDFS 的 buffer 个数（legacy 预读算法）                                                                                           | 4.3.0+(deprecated) |
 | fs.oss.read.buffer.size                       |  整型  | 1048576       | OSS/OSS-HDFS 读缓冲区大小（字节）（legacy 预读算法）                                                                                                   | 4.3.0+(deprecated) |
+| fs.oss.read.position.buffer.size              |  整型  | 1048576       | OSS/OSS-HDFS 随机读缓冲区大小（字节），`fs.oss.read.readahead.pread.enable` 为 `false` 时，对应单次随机读请求最大字节数                                              | 4.3.0+ |
 | fs.oss.read.readahead.pread.enable            |  布尔值 | false         | 控制随机读接口是否开启预读                                                                                                                          | 6.2.0+             |
 | fs.oss.read.readahead.prefetch.size.max       |  整型  | 268435456     | 预读最大长度（单位：byte）                                                                                                                        | 6.2.0+             |
 | fs.oss.read.readahead.download.block.size.min |  整型  | 1048576     | 预读单个请求最小长度（单位：byte）                                                                                                                    | 6.2.0+             |
@@ -90,6 +91,7 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 | 配置项                                                     |  类型  | 默认值      | 说明                                                                   | 版本               |
 |---------------------------------------------------------| --- |----------|----------------------------------------------------------------------|------------------|
 | fs.oss.read.profile.enable                              |  布尔值  | true     | OSS/OSS-HDFS 在读取湖表格式文件时，默认开启针对湖表文件优化的预读算法。                           | 6.9.0+ nextarch  |
+| fs.oss.read.profile.columnar.position.buffer.size     |  整型 | 16777216     | OSS/OSS-HDFS 在读取湖表格式文件时，读缓冲区大小（字节）,`fs.oss.read.profile.columnar.readahead.pread.enable` 为 `false` 时，对应单次读请求最大字节数 | 6.9.0+ nextarch  |
 | fs.oss.read.profile.columnar.readahead.pread.enable     |  布尔值 | true     | 控制湖表文件随机读接口是否开启预读                                                    | 6.9.0+ nextarch  |
 | fs.oss.read.profile.columnar.readahead.prefetch.size.max |  整型  | 67108864 | 湖表格式文件预读最大长度（单位：byte）                                                | 6.9.0+ nextarch  |
 | fs.oss.read.profile.columnar.readahead.download.block.size.min |  整型  | 1048576  | 预读单个请求最小长度（单位：byte）                                                  | 6.9.0+ nextarch  |
