@@ -1,4 +1,4 @@
-# JindoData 6.10.1 Maven 相关依赖
+# JindoData 6.10.2 Maven 相关依赖
 
 在 maven pom.xml 中添加 JindoSDK 的依赖
 
@@ -12,7 +12,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.10.1</jindodata.version>
+        <jindodata.version>6.10.2</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -62,7 +62,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.10.1</jindodata.version>
+        <jindodata.version>6.10.2</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -112,7 +112,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.10.1</jindodata.version>
+        <jindodata.version>6.10.2</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     
@@ -183,6 +183,13 @@
         <dependency>
             <groupId>com.aliyun.jindodata</groupId>
             <artifactId>jindo-core-linux-el7-aarch64</artifactId>
+            <version>${jindodata.version}</version>
+        </dependency>
+        
+        <!-- add jindo-core-extended-jar for windows -->
+        <dependency>
+            <groupId>com.aliyun.jindodata</groupId>
+            <artifactId>jindo-core-windows-x86_64</artifactId>
             <version>${jindodata.version}</version>
         </dependency>
     </dependencies>

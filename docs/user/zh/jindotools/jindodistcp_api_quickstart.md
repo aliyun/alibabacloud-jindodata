@@ -8,7 +8,7 @@
 
 目前 JindoSDK/JindoDistCP 支持主流 Intel X86 的 Linux 和 Mac（不支持 Windows系统，Mac M1 系列也暂不支持）
 
-以6.10.1版本为例，在 maven `pom.xml` 中添加 JindoDistCP 的依赖
+以6.10.2版本为例，在 maven `pom.xml` 中添加 JindoDistCP 的依赖
 
 ```xml
 
@@ -21,7 +21,7 @@
     <version>1.0</version>
     
     <properties>
-        <jindodata.version>6.10.1</jindodata.version>
+        <jindodata.version>6.10.2</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
     

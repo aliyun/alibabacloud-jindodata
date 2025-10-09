@@ -1,10 +1,20 @@
 # JindoSDK Release History
 
+## 6.10.2, 2025-10-09
+
+### Version Summary
+
+- Updated JindoSDK [Maven repository for version 6.10.2](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- Jindo CLI, JindoFs CLI, and Jindo Lite artifacts now support the Windows platform.
+- Improved task planning efficiency in JindoDistCp.
+- Exposed the `readBytes` interface in JindoInputStream.
+- Fixed an issue where the `getServerDefaults` function would hang when Ranger is enabled for accessing OSS-HDFS.
+
 ## 6.10.1, 2025-09-22
 
 ### Version Summary
 
-- JindoSDK updates [Maven repository for 6.10.1](jindosdk/oss-maven.md) and [download link](jindosdk/jindosdk_download.md).
+- JindoSDK updates [Maven repository for 6.10.1](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.1/oss-maven.md) and [download link](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.1/jindodata_download.md).
 - Upgraded yalantinglibs to [lts1.2.1](https://github.com/alibaba/yalantinglibs/tree/lts1.2.1). Fixed occasional crash issue when concurrently calling summary during initialization.
 - JindoSDK supports qos latency metrics.
 - JindoFS CLI fixes support for `-count -q` parameter.

@@ -1,5 +1,19 @@
 # JindoSDK 版本记录
 
+## 6.10.2，2025-10-09
+
+### 版本概要
+
+发布 JindoSDK 6.10.2 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.10.2 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- Jindo CLI、JindoFs CLI、Jindo Lite 产出物 支持 windows 平台。
+- JindoDistcp 优化任务规划效率。 
+- JindoInputStream 透出 readBytes 接口。
+- 修复打开 Ranger 访问 OSS-HDFS 场景，getServerDefaults 函数卡顿问题。
+
 ## 6.10.1，2025-09-22
 
 ### 版本概要
@@ -8,7 +22,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.1 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.10.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.1/oss-maven.md) 和 [下载地址](jindosdk/https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.1/jindodata_download.md)。
 - 升级 yalantinglibs 到 [lts1.2.1](https://github.com/alibaba/yalantinglibs/tree/lts1.2.1)。修复初始化时，并发调用 summary 偶现 crash 问题。
 - JindoSDK 支持 qos latency metrics。
 - JindoFS CLI 修复对 `-count -q` 参数的支持。

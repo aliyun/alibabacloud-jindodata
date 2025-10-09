@@ -10,7 +10,7 @@
 
 1.  下载最新的 tar.gz 包 jindosdk-x.y.z.tar.gz（x.y.z表版本号），下载链接见 [下载页面](../jindosdk_download.md)。
     
-2.  部署 jindosdk-6.10.1.tar.gz，whl安装包位于完整产出物 `jindosdk-x.x.x/lib/site-packages/` 的子目录中。多平台部署说明参见 [部署文档](../jindosdk_deployment_multi_platform.md)。
+2.  部署 jindosdk-6.10.2.tar.gz，whl安装包位于完整产出物 `jindosdk-x.x.x/lib/site-packages/` 的子目录中。多平台部署说明参见 [部署文档](../jindosdk_deployment_multi_platform.md)。
 
 3.  以`Python3.6`版本为例，请安装pyjindo-x.y.z-cp`36`-abi3-linux_x86_64.whl
     
@@ -55,12 +55,12 @@ export HADOOP_CONF_DIR=/etc/taihao-apps/hadoop-conf
 
 ### 安装 PyJindo
 
-以 Python3.8 环境安装最新版本的 pyjindo-6.10.1 为例
+以 Python3.8 环境安装最新版本的 pyjindo-6.10.2 为例
 
 ```bash
 python3.8 -m ensurepip
 python3.8 -m pip install pip --upgrade --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/
-python3.8 -m pip install pyjindo-6.10.1-cp38-abi3-linux_x86_64.whl
+python3.8 -m pip install pyjindo-6.10.2-cp38-abi3-linux_x86_64.whl
 ```
 
 ### 编写 python 测试程序
