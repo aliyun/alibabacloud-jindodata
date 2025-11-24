@@ -59,6 +59,7 @@ jindofs admin
         [-clearQuota -dlsUri <path>]
         [-setSpaceQuota -dlsUri <path> -q <spaceQuotaBytes> -t <storageType>]
         [-clearSpaceQuota -dlsUri <path> -t <storageType>]
+        [-getStats -dlsUri <path>]
         [-recoverLease -dlsUri <path>]
 jindofs fs
         [-help]

@@ -62,3 +62,21 @@ ossutil cp oss://<oss_bucket>/.dlsdata/.sysinfo/meta_analyze/inventory/166658446
 {"path":"/dls-1000326249/benchmark/n1","mtime":1660889124590}
 {"path":"/dls-1000326249/benchmark/n1/490747449","mtime":1660895613953}
 ```
+
+#### 2. 指定元数据分析路径
+*(从 6.10.0 开始支持)*
+
+该功能用于指定文件清单分析路径，默认分析根路径。
+
+用法：
+```bash
+## -path path : 指定元数据分析路径
+./jindofs admin -dumpInventory oss://<hdfs_bucket>/ -path oss://<hdfs_bucket>/dls-1000326249/benchmark
+```
+
+示例结果参考
+```json
+{"id":6246684106789500069,"path":"/dls-1000326249/benchmark","type":"directory","size":0,"user":"hadoop","group":"supergroup","atime":0,"mtime":1660889124590,"permission":511,"state":0}
+{"id":6246684106789500070,"path":"/dls-1000326249/benchmark/n1","type":"directory","size":0,"user":"hadoop","group":"supergroup","atime":0,"mtime":1660889124590,"permission":511,"state":0}
+{"id":6246684106789500071,"path":"/dls-1000326249/benchmark/n1/490747449","type":"directory","size":0,"user":"hadoop","group":"supergroup","atime":0,"mtime":1660895613953,"permission":511,"state":0}
+```

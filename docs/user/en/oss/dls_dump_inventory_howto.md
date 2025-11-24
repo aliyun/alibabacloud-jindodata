@@ -61,3 +61,20 @@ Here's an example of what the result might look like:
 {"path":"/dls-1000326249/benchmark/n1","mtime":1660889124590}
 {"path":"/dls-1000326249/benchmark/n1/490747449","mtime":1660895613953}
 ```
+
+#### 2. Specify metadata analysis path\(Supported since v6.10.0\)
+
+This function is used to specify the metadata analysis path. The default analysis path is "/".
+
+Usage：
+```bash
+## -path path : Specify metadata analysis path
+./jindofs admin -dumpInventory oss://<hdfs_bucket>/ -path oss://<hdfs_bucket>/dls-1000326249/benchmark
+```
+
+Here's an example of what the result might look like:
+```json
+{"id":6246684106789500069,"path":"/dls-1000326249/benchmark","type":"directory","size":0,"user":"hadoop","group":"supergroup","atime":0,"mtime":1660889124590,"permission":511,"state":0}
+{"id":6246684106789500070,"path":"/dls-1000326249/benchmark/n1","type":"directory","size":0,"user":"hadoop","group":"supergroup","atime":0,"mtime":1660889124590,"permission":511,"state":0}
+{"id":6246684106789500071,"path":"/dls-1000326249/benchmark/n1/490747449","type":"directory","size":0,"user":"hadoop","group":"supergroup","atime":0,"mtime":1660895613953,"permission":511,"state":0}
+```
