@@ -509,6 +509,18 @@ FINISHED.
 {&quot;path&quot;:&quot;/dls-1000326249/benchmark&quot;,&quot;mtime&quot;:1660889124590}
 {&quot;path&quot;:&quot;/dls-1000326249/benchmark/n1&quot;,&quot;mtime&quot;:1660889124590}
 {&quot;path&quot;:&quot;/dls-1000326249/benchmark/n1/490747449&quot;,&quot;mtime&quot;:1660895613953}
+</code></pre>
+<h4 id="2">2. 指定元数据分析路径<a class="headerlink" href="#2" title="Permanent link">§</a></h4>
+<p><em>(从 6.10.0 开始支持)</em></p>
+<p>该功能用于指定文件清单分析路径，默认分析根路径。</p>
+<p>用法：</p>
+<pre><code class="language-bash">## -path path : 指定元数据分析路径
+./jindofs admin -dumpInventory oss://&lt;hdfs_bucket&gt;/ -path oss://&lt;hdfs_bucket&gt;/dls-1000326249/benchmark
+</code></pre>
+<p>示例结果参考</p>
+<pre><code class="language-json">{&quot;id&quot;:6246684106789500069,&quot;path&quot;:&quot;/dls-1000326249/benchmark&quot;,&quot;type&quot;:&quot;directory&quot;,&quot;size&quot;:0,&quot;user&quot;:&quot;hadoop&quot;,&quot;group&quot;:&quot;supergroup&quot;,&quot;atime&quot;:0,&quot;mtime&quot;:1660889124590,&quot;permission&quot;:511,&quot;state&quot;:0}
+{&quot;id&quot;:6246684106789500070,&quot;path&quot;:&quot;/dls-1000326249/benchmark/n1&quot;,&quot;type&quot;:&quot;directory&quot;,&quot;size&quot;:0,&quot;user&quot;:&quot;hadoop&quot;,&quot;group&quot;:&quot;supergroup&quot;,&quot;atime&quot;:0,&quot;mtime&quot;:1660889124590,&quot;permission&quot;:511,&quot;state&quot;:0}
+{&quot;id&quot;:6246684106789500071,&quot;path&quot;:&quot;/dls-1000326249/benchmark/n1/490747449&quot;,&quot;type&quot;:&quot;directory&quot;,&quot;size&quot;:0,&quot;user&quot;:&quot;hadoop&quot;,&quot;group&quot;:&quot;supergroup&quot;,&quot;atime&quot;:0,&quot;mtime&quot;:1660895613953,&quot;permission&quot;:511,&quot;state&quot;:0}
 </code></pre></div>
             </div>
         </div>
