@@ -138,6 +138,7 @@ umount <mount_point>
 | d                            |   | 4.3.0+ | 使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。                                               | -d                                        |
 | auto_unmount                 |   | 4.3.0+ | fuse进程退出后自动umount挂载节点。                                                             | -oauto_unmount                            |
 | ro                           |   | 4.3.0+ | 只读挂载，启用参数后不允许写操作。                                                                  | -oro                                      |
+| ro_mount                     |   | 6.10.3+ | 配置后，只读挂载。                                                                             | -oro_mount                               |
 | direct_io                    |   | 4.3.0+ | 开启后，读写文件可以绕过page cache。                                                            | -odirect_io                               |
 | kernel_cache                 |   | 4.3.0+ | 开启后，利用内核缓存优化读性能。                                                                   | -okernel_cache                            |
 | auto_cache                   |   | 4.3.0+ | 默认开启，与kernel_cache 二选一，与kernel_cache不同的是，如果文件大小或修改时间发生变化，缓存就会失效。                   |                                           |
