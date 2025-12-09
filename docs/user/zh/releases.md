@@ -1,5 +1,21 @@
 # JindoSDK 版本记录
 
+## 6.10.3，2025-12-09
+
+### 版本概要
+
+发布 JindoSDK 6.10.3 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.10.3 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoFuse 支持只读挂载 `-oro_mount`。
+- 优化 Hadoop FileSystem close() 的实现。
+- 优化 PyJindo 对 fsspec 接口的兼容性。
+- 修复 PyJindo 打开文件异常，如文件不存在时，会 crash 的问题。
+- 修复 JindoDistributedFileSystem 对 `void rename(final Path src, final Path dst, final Options.Rename... options)` 的支持。
+- 添加 iterative list 相关操作的日志。
+
 ## 6.10.2，2025-10-09
 
 ### 版本概要
@@ -8,7 +24,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.2 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.10.2 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.2/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.2/jindodata_download.md)。
 - Jindo CLI、JindoFs CLI、Jindo Lite 产出物 支持 windows 平台。
 - JindoDistcp 优化任务规划效率。 
 - JindoInputStream 透出 readBytes 接口。
@@ -22,7 +38,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.1/oss-maven.md) 和 [下载地址](jindosdk/https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.1/jindodata_download.md)。
+- JindoSDK 更新 [6.10.1 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.1/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.1/jindodata_download.md)。
 - 升级 yalantinglibs 到 [lts1.2.1](https://github.com/alibaba/yalantinglibs/tree/lts1.2.1)。修复初始化时，并发调用 summary 偶现 crash 问题。
 - JindoSDK 支持 qos latency metrics。
 - JindoFS CLI 修复对 `-count -q` 参数的支持。

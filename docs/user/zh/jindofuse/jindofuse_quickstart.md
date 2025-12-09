@@ -131,33 +131,34 @@ umount <mount_point>
 
 ## 挂载选项
 
-| 参数名称                         |  必选  | 版本     | 参数说明                                                                               | 使用范例                                      |
-|------------------------------| --- |--------|------------------------------------------------------------------------------------|-------------------------------------------|
-| uri                          |  ✓  | 4.3.0+ | 配置需要映射的 oss 路径。路径可以是根目录，也可以是子目录。例如：oss://examplebucket/ 或 oss://examplebucket/subdir。 | -ouri=oss://examplebucket/                |
-| f                            |   | 4.3.0+ | 在前台启动进程。默认使用守护进程方式后台启动。使用该参数时，推荐开启终端日志。                                            | -f                                        |
-| d                            |   | 4.3.0+ | 使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。                                               | -d                                        |
-| auto_unmount                 |   | 4.3.0+ | fuse进程退出后自动umount挂载节点。                                                             | -oauto_unmount                            |
-| ro                           |   | 4.3.0+ | 只读挂载，启用参数后不允许写操作。                                                                  | -oro                                      |
-| direct_io                    |   | 4.3.0+ | 开启后，读写文件可以绕过page cache。                                                            | -odirect_io                               |
-| kernel_cache                 |   | 4.3.0+ | 开启后，利用内核缓存优化读性能。                                                                   | -okernel_cache                            |
-| auto_cache                   |   | 4.3.0+ | 默认开启，与kernel_cache 二选一，与kernel_cache不同的是，如果文件大小或修改时间发生变化，缓存就会失效。                   |                                           |
-| entry_timeout                |   | 4.3.0+ | 默认值，60。目录条目缓存保留时间（秒），用于优化性能。0表示不缓存。                                                | -oentry_timeout=60                        |
-| jindo_entry_timeout          |   | 4.3.0+ | 默认值，60。目录条目缓存保留时间（秒），用于优化性能。0表示不缓存。                                                | -oentry_timeout=0 -ojindo_entry_timeout=60 |
-| jindo_entry_size             |   | 4.3.0+ | 默认值，5000。目录条目缓存个数，用于优化性能。0表示不缓存。                                                   | -ojindo_entry_size=5000                   |
-| attr_timeout                 |   | 4.3.0+ | 默认值，60。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。                                                | -oattr_timeout=60                         |
-| jindo_attr_timeout           |   | 4.3.0+ | 默认值，60。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。                                                | -oattr_timeout=0 -ojindo_attr_timeout=60  |
-| jindo_attr_size              |   | 4.3.0+ | 默认值，50000。文件属性缓存个数，用于优化性能。0表示不缓存。                                                  | -ojindo_attr_size=50000 |
-| negative_timeout             |   | 4.3.0+ | 默认值，60。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。                                             | -onegative_timeout=0                      |
-| jindo_attr_async_concurrency |   | 6.8.5+ | 默认值，-1。大于0时，开启异步线程，以配置的并发数读取文件名，用于优化性能。小于等于0表示不开启。                                 | -ojindo_attr_async_concurrency=10         |
-| jindo_attr_async_queue       |   | 6.8.5+ | 默认值，100。异步线程池等待队列大小，超过此大小会同步等待。                                                    | -ojindo_attr_async_queue=100              |
-| jindo_attr_async_wait_ms     |   | 6.8.5+ | 默认值，1000。异步线程池等待最长时间，超过此时间会在当前线程同步执行。                                              | -ojindo_attr_async_wait_ms=1000           |
-| max_idle_threads             |   | 4.3.0+ | 默认值，10。处理内核回调的空闲线程池。                                                               | -omax_idle_threads=10                     |
-| xengine                      |   | 4.3.0+ | 打开缓存                                                                               | -oxengine                                 |
-| pread                        |   | 4.5.1+ | 默认使用顺序读。打开后，使用随机读代替顺序读，适用于随机读远多于顺序读的场景。                                            | -opread                                   |
-| no_symlink                   |   | 4.5.1+ | 配置后，关闭symlink功能。                                                                   | -ono_symlink                              |
-| no_writeback                 |   | 4.5.1+ | 配置后，关闭writeback功能。                                                                 | -ono_writeback                            |
-| no_flock                     |   | 4.5.1+ | 配置后，关闭flock功能。                                                                     | -ono_flock                                |
-| no_xattr                     |   | 4.5.1+ | 配置后，关闭xttar功能。                                                                     | -ono_xattr                                |
+| 参数名称                         |  必选  | 版本      | 参数说明                                                                                  | 使用范例                                      |
+|------------------------------| --- |---------|---------------------------------------------------------------------------------------|-------------------------------------------|
+| uri                          |  ✓  | 4.3.0+  | 配置需要映射的 oss 路径。路径可以是根目录，也可以是子目录。例如：oss://examplebucket/ 或 oss://examplebucket/subdir。 | -ouri=oss://examplebucket/                |
+| f                            |   | 4.3.0+  | 在前台启动进程。默认使用守护进程方式后台启动。使用该参数时，推荐开启终端日志。                                               | -f                                        |
+| d                            |   | 4.3.0+  | 使用 Debug 模式，在前台启动进程。使用该参数时，推荐开启终端日志。                                                  | -d                                        |
+| auto_unmount                 |   | 4.3.0+  | fuse进程退出后自动umount挂载节点。                                                                | -oauto_unmount                            |
+| ro                           |   | 4.3.0+  | 只读挂载，启用参数后不允许写操作。                                                                     | -oro                                      |
+| ro_mount                     |   | 6.10.3+ | 配置后，只读挂载。                                                                             | -oro_mount                               |
+| direct_io                    |   | 4.3.0+  | 开启后，读写文件可以绕过page cache。                                                               | -odirect_io                               |
+| kernel_cache                 |   | 4.3.0+  | 开启后，利用内核缓存优化读性能。                                                                      | -okernel_cache                            |
+| auto_cache                   |   | 4.3.0+  | 默认开启，与kernel_cache 二选一，与kernel_cache不同的是，如果文件大小或修改时间发生变化，缓存就会失效。                      |                                           |
+| entry_timeout                |   | 4.3.0+  | 默认值，60。目录条目缓存保留时间（秒），用于优化性能。0表示不缓存。                                                   | -oentry_timeout=60                        |
+| jindo_entry_timeout          |   | 4.3.0+  | 默认值，60。目录条目缓存保留时间（秒），用于优化性能。0表示不缓存。                                                   | -oentry_timeout=0 -ojindo_entry_timeout=60 |
+| jindo_entry_size             |   | 4.3.0+  | 默认值，5000。目录条目缓存个数，用于优化性能。0表示不缓存。                                                      | -ojindo_entry_size=5000                   |
+| attr_timeout                 |   | 4.3.0+  | 默认值，60。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。                                                   | -oattr_timeout=60                         |
+| jindo_attr_timeout           |   | 4.3.0+  | 默认值，60。文件属性缓存保留时间（秒），用于优化性能。0表示不缓存。                                                   | -oattr_timeout=0 -ojindo_attr_timeout=60  |
+| jindo_attr_size              |   | 4.3.0+  | 默认值，50000。文件属性缓存个数，用于优化性能。0表示不缓存。                                                     | -ojindo_attr_size=50000 |
+| negative_timeout             |   | 4.3.0+  | 默认值，60。文件名读取失败缓存保留时间（秒），用于优化性能。0表示不缓存。                                                | -onegative_timeout=0                      |
+| jindo_attr_async_concurrency |   | 6.8.5+  | 默认值，-1。大于0时，开启异步线程，以配置的并发数读取文件名，用于优化性能。小于等于0表示不开启。                                    | -ojindo_attr_async_concurrency=10         |
+| jindo_attr_async_queue       |   | 6.8.5+  | 默认值，100。异步线程池等待队列大小，超过此大小会同步等待。                                                       | -ojindo_attr_async_queue=100              |
+| jindo_attr_async_wait_ms     |   | 6.8.5+  | 默认值，1000。异步线程池等待最长时间，超过此时间会在当前线程同步执行。                                                 | -ojindo_attr_async_wait_ms=1000           |
+| max_idle_threads             |   | 4.3.0+  | 默认值，10。处理内核回调的空闲线程池。                                                                  | -omax_idle_threads=10                     |
+| xengine                      |   | 4.3.0+  | 打开缓存                                                                                  | -oxengine                                 |
+| pread                        |   | 4.5.1+  | 默认使用顺序读。打开后，使用随机读代替顺序读，适用于随机读远多于顺序读的场景。                                               | -opread                                   |
+| no_symlink                   |   | 4.5.1+  | 配置后，关闭symlink功能。                                                                      | -ono_symlink                              |
+| no_writeback                 |   | 4.5.1+  | 配置后，关闭writeback功能。                                                                    | -ono_writeback                            |
+| no_flock                     |   | 4.5.1+  | 配置后，关闭flock功能。                                                                        | -ono_flock                                |
+| no_xattr                     |   | 4.5.1+  | 配置后，关闭xttar功能。                                                                        | -ono_xattr                                |
 
 ## 配置选项
 

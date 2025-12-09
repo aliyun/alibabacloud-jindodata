@@ -136,6 +136,7 @@ JindoFuse currently supports the following POSIX APIs:
 | d | No | 4.3.0+ | Debug mode; runs in foreground. Recommended with terminal logging. | `-d` |
 | auto_unmount | No | 4.3.0+ | Automatically umount upon fuse process exit. | `-oauto_unmount` |
 | ro | No | 4.3.0+ | Mount as read-only; disallows write operations. | `-oro` |
+| ro_mount | No | 6.10.3+ | Mount as read-only when configured. | `-oro_mount` |
 | direct_io | No | 4.3.0+ | Bypass page cache during reads/writes. | `-odirect_io` |
 | kernel_cache | No | 4.3.0+ | Use kernel cache for optimized read performance. | `-okernel_cache` |
 | auto_cache | No | 4.3.0+ | Enabled by default; invalidates cache if file size or modification time changes. | N/A |

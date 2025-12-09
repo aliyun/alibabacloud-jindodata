@@ -1,5 +1,21 @@
 # JindoSDK Release History
 
+## 6.10.3, 2025-12-09
+
+### Version Summary
+
+Release of official JindoSDK 6.10.3 features.
+
+### Introduction
+
+- Updated JindoSDK [Maven repository for version 6.10.3](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- JindoFuse supports read-only mount with `-oro_mount`.
+- Optimized the implementation of Hadoop FileSystem close().
+- Improved PyJindo compatibility with fsspec interface.
+- Fixed PyJindo issue where opening a non-existent file would cause a crash.
+- Fixed JindoDistributedFileSystem support for `void rename(final Path src, final Path dst, final Options.Rename... options)`.
+- Added logging for iterative list related operations.
+
 ## 6.10.2, 2025-10-09
 
 ### Version Summary
