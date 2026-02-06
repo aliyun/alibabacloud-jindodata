@@ -1,5 +1,20 @@
 # JindoSDK 版本记录
 
+## 6.10.4，2026-02-06
+
+### 版本概要
+
+发布 JindoSDK 6.10.4 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.10.4 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 新增 CSDK 异步接口，支持 Lance 格式集成需要。
+- 支持 DLF Cache 集成使用。
+- 修复 OSS-HDFS 对 bucket 级 endpoint 配置支持。
+- 修复 JindoFuse 调用 readdir 接口的内存泄漏。
+- 修复 GoSDK 调用 GetFileInfo、ListDir、IO 接口的内存泄漏。
+
 ## 6.10.3，2025-12-09
 
 ### 版本概要
@@ -8,7 +23,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.3 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.10.3 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.3/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.3/jindodata_download.md)。
 - JindoFuse 支持只读挂载 `-oro_mount`。
 - 优化 Hadoop FileSystem close() 的实现。
 - 优化 PyJindo 对 fsspec 接口的兼容性。

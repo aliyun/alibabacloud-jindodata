@@ -1,5 +1,20 @@
 # JindoSDK Release History
 
+## 6.10.4, 2026-02-06
+
+### Release Summary
+
+Release of JindoSDK 6.10.4 official version features
+
+### Introduction
+
+- JindoSDK updates [Maven repository for 6.10.4](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- Added CSDK async interfaces to support Lance format integration requirements.
+- Support for DLF Cache integration.
+- Fixed OSS-HDFS bucket-level endpoint configuration support.
+- Fixed memory leak in JindoFuse readdir interface calls.
+- Fixed memory leaks in GoSDK GetFileInfo, ListDir, and IO interface calls.
+
 ## 6.10.3, 2025-12-09
 
 ### Version Summary
@@ -8,7 +23,7 @@ Release of official JindoSDK 6.10.3 features.
 
 ### Introduction
 
-- Updated JindoSDK [Maven repository for version 6.10.3](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- Updated JindoSDK [Maven repository for version 6.10.3](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.3/oss-maven.md) and [download links](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.3/jindodata_download.md).
 - JindoFuse supports read-only mount with `-oro_mount`.
 - Optimized the implementation of Hadoop FileSystem close().
 - Improved PyJindo compatibility with fsspec interface.
@@ -20,7 +35,7 @@ Release of official JindoSDK 6.10.3 features.
 
 ### Version Summary
 
-- Updated JindoSDK [Maven repository for version 6.10.2](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- Updated JindoSDK [Maven repository for version 6.10.2](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.2/oss-maven.md) and [download links](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.2/jindodata_download.md).
 - Jindo CLI, JindoFs CLI, and Jindo Lite artifacts now support the Windows platform.
 - Improved task planning efficiency in JindoDistCp.
 - Exposed the `readBytes` interface in JindoInputStream.
