@@ -18,7 +18,7 @@
     </property>
 </configuration>
 ```
-说明: XXX 为 OSS-HDFS 服务 Bucket 名称。
+说明: XXX 为 OSS-HDFS 服务 Bucket 名称。（JindoSDK 6.5.0 ~ 6.10.3 版本不支持对 OSS-HDFS 指定 bucket 级别 endpoint）
 
 ## 方式三：配置全局默认 Endpoint。
 
