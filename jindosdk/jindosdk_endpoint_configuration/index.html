@@ -470,7 +470,7 @@
     &lt;/property&gt;
 &lt;/configuration&gt;
 </code></pre>
-<p>说明: XXX 为 OSS-HDFS 服务 Bucket 名称。</p>
+<p>说明: XXX 为 OSS-HDFS 服务 Bucket 名称。（JindoSDK 6.5.0 ~ 6.10.3 版本不支持对 OSS-HDFS 指定 bucket 级别 endpoint）</p>
 <h2 id="endpoint_1">方式三：配置全局默认 Endpoint。<a class="headerlink" href="#endpoint_1" title="Permanent link">§</a></h2>
 <p>如果使用<code>oss://&lt;Bucket&gt;/&lt;Object&gt;</code>这种访问路径而且没有配置 Bucket 级别的 Endpoint，则会用全局 Endpoint 访问，如果要默认使用访问 OSS-HDFS 服务，则可用该方法。
 可在 Hadoop 的<code>core-site.xml</code>中配置全局默认 Endpoint。</p>
