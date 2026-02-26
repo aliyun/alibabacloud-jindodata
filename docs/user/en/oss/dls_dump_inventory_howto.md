@@ -52,7 +52,7 @@ Inventory fields description
 | ctime | Creation time (Create Time), Unix timestamp in milliseconds |
 | atime | Last access time (Access Time), Unix timestamp in milliseconds |
 | mtime | Last modification time (Modify Time), Unix timestamp in milliseconds |
-| storagePolicy | Storage policy, possible values: `UNSPECIFIED`, `CLOUD_STD` (Standard), `CLOUD_IA` (Infrequent Access), `CLOUD_AR` (Archive), `CLOUD_COLD_AR` (Cold Archive), `CLOUD_DEEP_COLD_AR` (Deep Cold Archive), `CLOUD_AR_RESTORED` (Archive Restored), `CLOUD_COLD_AR_RESTORED` (Cold Archive Restored), `CLOUD_DEEP_COLD_AR_RESTORED` (Deep Cold Archive Restored) |
+| storagePolicy | Storage policy, possible values: `UNSPECIFIED`(Default. Equals to Standard), `CLOUD_STD` (Standard), `CLOUD_IA` (Infrequent Access), `CLOUD_AR` (Archive), `CLOUD_COLD_AR` (Cold Archive), `CLOUD_DEEP_COLD_AR` (Deep Cold Archive), `CLOUD_AR_RESTORED` (Archive Restored), `CLOUD_COLD_AR_RESTORED` (Cold Archive Restored), `CLOUD_DEEP_COLD_AR_RESTORED` (Deep Cold Archive Restored) |
 | permission | Permission value in decimal (e.g., 511 corresponds to octal 777) |
 | state | Internal field |
 | storageConvertTime | Internal field |
