@@ -39,6 +39,25 @@ Here's an example of what the result might look like:
 Each entry represents a file or directory with its associated metadata properties such as ID, path, type, size, owner, group, access and modification times, permissions, and state.
 
 
+Inventory fields description
+
+| Field | Description |
+|-------|-------------|
+| id | Unique identifier of the file or directory |
+| path | Absolute path of the file or directory |
+| type | Type, possible values: `directory` or `file` |
+| size | File size in bytes, directory size is 0 |
+| user | Owner user of the file or directory |
+| group | Owner group of the file or directory |
+| ctime | Creation time (Create Time), Unix timestamp in milliseconds |
+| atime | Last access time (Access Time), Unix timestamp in milliseconds |
+| mtime | Last modification time (Modify Time), Unix timestamp in milliseconds |
+| storagePolicy | Storage policy, possible values: `UNSPECIFIED`, `CLOUD_STD` (Standard), `CLOUD_IA` (Infrequent Access), `CLOUD_AR` (Archive), `CLOUD_COLD_AR` (Cold Archive), `CLOUD_DEEP_COLD_AR` (Deep Cold Archive), `CLOUD_AR_RESTORED` (Archive Restored), `CLOUD_COLD_AR_RESTORED` (Cold Archive Restored), `CLOUD_DEEP_COLD_AR_RESTORED` (Deep Cold Archive Restored) |
+| permission | Permission value in decimal (e.g., 511 corresponds to octal 777) |
+| state | Internal field |
+| storageConvertTime | Internal field |
+| storageState | Internal field |
+
 ### Advanced Instructions
 
 #### 1. Specify metadata output fields\(Supported since v6.9.1\)
@@ -49,7 +68,7 @@ Usage：
 ```bash
 ## -field field : Specify metadata field
 ## path is a must field. You must specify another one or more fields.
-## Optional fields : id type size user group atime mtime permission state storagePolicy storageConvertTime storageState
+## Optional fields : id type size user group ctime atime mtime permission state storagePolicy storageConvertTime storageState
 ./jindofs admin -dumpInventory oss://<hdfs_bucket>/ -field path -field mtime
 ```
 
