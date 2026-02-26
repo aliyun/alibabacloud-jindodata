@@ -38,6 +38,24 @@ ossutil cp oss://<oss_bucket>/.dlsdata/.sysinfo/meta_analyze/inventory/166658446
 {"id":6246684106789500071,"path":"/dls-1000326249/benchmark/n1/490747449","type":"directory","size":0,"user":"hadoop","group":"supergroup","atime":0,"mtime":1660895613953,"permission":511,"state":0}
 ```
 
+输出字段参考
+
+| 字段 | 说明 |
+|------|------|
+| id | 文件或目录的唯一标识符 |
+| path | 文件或目录的绝对路径 |
+| type | 类型，可选值：`directory`（目录）或 `file`（文件） |
+| size | 文件大小，单位为字节（Byte），目录大小为 0 |
+| user | 文件或目录的所属用户 |
+| group | 文件或目录的所属用户组 |
+| ctime | 文件创建时间（Create Time），Unix 时间戳，单位为毫秒 |
+| atime | 最后访问时间（Access Time），Unix 时间戳，单位为毫秒 |
+| mtime | 最后修改时间（Modify Time），Unix 时间戳，单位为毫秒 |
+| storagePolicy | 存储策略，可选值：`UNSPECIFIED`（未指定）、`CLOUD_STD`（标准）、`CLOUD_IA`（低频）、`CLOUD_AR`（归档）、`CLOUD_COLD_AR`（冷归档）、`CLOUD_DEEP_COLD_AR`（深度冷归档）、`CLOUD_AR_RESTORED`（归档已解冻）、`CLOUD_COLD_AR_RESTORED`（冷归档已解冻）、`CLOUD_DEEP_COLD_AR_RESTORED`（深度冷归档已解冻） |
+| permission | 权限值，以十进制数值表示（如 511 对应八进制 777） |
+| state | 内部字段 |
+| storageConvertTime | 内部字段 |
+| storageState | 内部字段 |
 
 ### 进阶使用
 
@@ -50,7 +68,7 @@ ossutil cp oss://<oss_bucket>/.dlsdata/.sysinfo/meta_analyze/inventory/166658446
 ```bash
 ## -field field : 指定元数据字段
 ## path为必选字段，另外还需指定一个及以上字段
-## 可选字段 : id type size user group atime mtime permission state storagePolicy storageConvertTime storageState
+## 可选字段 : id type size user group ctime atime mtime permission state storagePolicy storageConvertTime storageState
 ./jindofs admin -dumpInventory oss://<hdfs_bucket>/ -field path -field mtime
 ```
 
