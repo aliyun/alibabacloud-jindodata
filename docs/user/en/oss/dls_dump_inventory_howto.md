@@ -2,7 +2,7 @@
 
 ## Overview
 
-Using the metadata export feature, you can export a JSON-formatted inventory of file metadata from your current OSS-HDFS bucket to an OSS location for statistical analysis.
+Using the metadata export feature, you can export a JSON-formatted inventory of file metadata from your current OSS-HDFS bucket to ```/.sysinfo/inventory``` for statistical analysis.
 
 * Configure the JindoFS command-line tool with the access key for your OSS-HDFS bucket, as per the [JindoFS Command-Line Tool Usage Guide](usages/oss_jindo_cli.md).
 
@@ -12,19 +12,18 @@ Using the metadata export feature, you can export a JSON-formatted inventory of 
 ```
 During this process, observe the output path:
 ```bash
-============Dump Inventory=============
-Job Id: 2ce40fba-5704-45c4-8720-d92a891d5cfd
-Data Location: oss://<oss_bucket>/.dlsdata/.sysinfo/meta_analyze/inventory/1666584461201.2ce40fba-5704-45c4-8720-d92a891d5cfd
+=============Dump Inventory=============
+Job Id: 0177388834774116055076952082867238
+Data Location: /.sysinfo/inventory/1773888347741.0177388834774116055076952082867238
 .....................................................................................................................
 FINISHED.
 ```
 This command is blocking, so wait approximately 10 seconds to 10 minutes (depending on the amount of metadata) until it outputs `FINISHED`, indicating successful completion.
 
 * Download the result file
-  Use the [Jindo Command-Line Tool](usages/oss_jindo_cli.md) configured with regular OSS keys (not OSS-HDFS), [ossutil](https://help.aliyun.com/document_detail/50452.html), Hadoop's `fs` command, or download directly from the OSS console:
 
 ```bash
-ossutil cp oss://<oss_bucket>/.dlsdata/.sysinfo/meta_analyze/inventory/1666584461201.2ce40fba-5704-45c4-8720-d92a891d5cfd ./
+./jindofs fs -get oss://<oss_bucket>/.sysinfo/inventory/1773888347741.0177388834774116055076952082867238
 ```
 Save it locally and open it with vi/vim or another editor.
 
