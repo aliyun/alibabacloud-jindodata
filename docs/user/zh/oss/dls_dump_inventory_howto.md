@@ -2,7 +2,7 @@
 *(从 4.6.0 开始支持)*
 
 ## 介绍
-使用元数据导出功能，可以将当前 OSS-HDFS bucket 下的文件元数据清单导出到 OSS 上的，格式为 json 文件，方便用户对元数据进行统计分析    
+使用元数据导出功能，可以将当前 OSS-HDFS bucket 下的文件元数据清单导出到 ```/.sysinfo/inventory``` 目录下，格式为 json 文件，方便用户对元数据进行统计分析    
 
 * 配置 JindoFS 命令行工具，配置对应 OSS-HDFS bucket 的访问密钥，参考 [JindoFS 命令行工具使用说明](../jindofs/jindofs_client_tools.md) 
 
@@ -24,7 +24,7 @@ FINISHED.
 * 下载结果文件
 
 ```bash
-./jindofs fs -get oss://<oss_bucket>/.dlsdata/.sysinfo/inventory/1773888347741.0177388834774116055076952082867238
+./jindofs fs -get oss://<oss_bucket>/.sysinfo/inventory/1773888347741.0177388834774116055076952082867238
 ```
 下载到本地，使用vi/vim打开即可。
 

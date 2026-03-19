@@ -2,7 +2,7 @@
 
 ## Overview
 
-Using the metadata export feature, you can export a JSON-formatted inventory of file metadata from your current OSS-HDFS bucket to an OSS location for statistical analysis.
+Using the metadata export feature, you can export a JSON-formatted inventory of file metadata from your current OSS-HDFS bucket to ```/.sysinfo/inventory``` for statistical analysis.
 
 * Configure the JindoFS command-line tool with the access key for your OSS-HDFS bucket, as per the [JindoFS Command-Line Tool Usage Guide](usages/oss_jindo_cli.md).
 
@@ -23,7 +23,7 @@ This command is blocking, so wait approximately 10 seconds to 10 minutes (depend
 * Download the result file
 
 ```bash
-./jindofs fs -get oss://<oss_bucket>/.dlsdata/.sysinfo/inventory/1773888347741.0177388834774116055076952082867238
+./jindofs fs -get oss://<oss_bucket>/.sysinfo/inventory/1773888347741.0177388834774116055076952082867238
 ```
 Save it locally and open it with vi/vim or another editor.
 
