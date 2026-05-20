@@ -30,7 +30,7 @@ If you only need the Hadoop SDK from JindoSDK in your Hadoop environment, use th
 
 For Java SDK, on Linux x86, you'll require `jindo-sdk-x.y.z.jar` and `jindo-core-x.y.z.jar`. On other platforms, you'll need `jindo-sdk-x.y.z.jar`、`jindo-core-x.y.z.jar` and `jindo-core-<platform-name>-x.y.z.jar`.
 
-Installation can be done through Maven by adding dependencies in `pom.xml` (refer to [6.10.4-OSS-Maven](oss-maven.md)) or directly downloading and deploying from OSS (see [6.10.4-Download](jindosdk_download.md)).
+Installation can be done through Maven by adding dependencies in `pom.xml` (refer to [6.10.5-OSS-Maven](oss-maven.md)) or directly downloading and deploying from OSS (see [6.10.5-Download](jindosdk_download.md)).
 
 ## Output Platform Table
 

@@ -1,4 +1,4 @@
-# JindoData v6.10.4 Download Links
+# JindoData v6.10.5 Download Links
 
 For multi-platform installation and deployment instructions, please refer to the [Documentation Link](jindosdk_deployment_multi_platform.md).
 
@@ -8,11 +8,11 @@ For old version issues and release notes, please refer to the [Documentation Lin
 
 ### Full Outputs
 
-[jindosdk-6.10.4-linux.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.4/jindosdk-6.10.4-linux.tar.gz) - For most Linux x86 distributions.
+[jindosdk-6.10.5-linux.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.5/jindosdk-6.10.5-linux.tar.gz) - For most Linux x86 distributions.
 
-[jindosdk-6.10.4-linux-el7-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.4/jindosdk-6.10.4-linux-el7-aarch64.tar.gz) - For Linux aarch64 distributions based on EL7.
+[jindosdk-6.10.5-linux-el7-aarch64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.5/jindosdk-6.10.5-linux-el7-aarch64.tar.gz) - For Linux aarch64 distributions based on EL7.
 
-[jindosdk-6.10.4-linux-el6-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.4/jindosdk-6.10.4-linux-el6-x86_64.tar.gz) - For CentOS 6 x86_64.
+[jindosdk-6.10.5-linux-el6-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.5/jindosdk-6.10.5-linux-el6-x86_64.tar.gz) - For CentOS 6 x86_64.
 
 [jindosdk-6.10.4-linux-ubuntu22-x86_64.tar.gz](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.4/jindosdk-6.10.4-linux-ubuntu22-x86_64.tar.gz) - For Ubuntu 22 x86_64.
 

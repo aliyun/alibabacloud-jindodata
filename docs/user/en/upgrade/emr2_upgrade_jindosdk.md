@@ -15,7 +15,7 @@ wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/
 tar zxf jindosdk-patches.tar.gz
 ```
 
-Download the JindoSDK software package `jindosdk-{VERSION}-{PLATFORM}.tar.gz`, replacing `{VERSION}` and `{PLATFORM}` appropriately (for example, `6.10.4` for version and `linux` for platform).
+Download the JindoSDK software package `jindosdk-{VERSION}-{PLATFORM}.tar.gz`, replacing `{VERSION}` and `{PLATFORM}` appropriately (for example, `6.10.5` for version and `linux` for platform).
 
 ```bash
 cd jindosdk-patches
@@ -67,10 +67,10 @@ Execute the `apply_all.sh` script to carry out the upgrade.
 ./apply_all.sh {NEW_JINDOSDK_VERSION}
 ```
 
-For instance, to upgrade to version `6.10.4`, run:
+For instance, to upgrade to version `6.10.5`, run:
 
 ```bash
-./apply_all.sh 6.10.4
+./apply_all.sh 6.10.5
 ```
 
 Upon completion, you will see output like:
@@ -98,13 +98,13 @@ To use the new JindoSDK version when expanding an existing cluster, add a bootst
 
 Download `jindosdk-patches.tar.gz`, `jindosdk-{VERSION}-{PLATFORM}.tar.gz`, and `[bootstrap_jindosdk.sh](https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh)`.
 
-For example, upgrading to version `6.10.4` on Linux x86:
+For example, upgrading to version `6.10.5` on Linux x86:
 
 ```bash
 mkdir jindo-patch
 cd jindo-patch
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/jindosdk-patches.tar.gz
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.4/jindosdk-6.10.4-linux.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.5/jindosdk-6.10.5-linux.tar.gz
 wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/resources/emr-taihao/bootstrap_jindosdk.sh
 ls -l
 ```
@@ -115,10 +115,10 @@ Generate the upgrade package next:
 bash bootstrap_jindosdk.sh -gen-full {NEW_JINDOSDK_VERSION}
 ```
 
-For version `6.10.4`, run:
+For version `6.10.5`, run:
 
 ```bash
-bash bootstrap_jindosdk.sh -gen-full 6.10.4
+bash bootstrap_jindosdk.sh -gen-full 6.10.5
 ```
 
 A generated patch will be located at `/home/emr-user/jindo-patch/jindosdk-bootstrap-patches.tar.gz`.
@@ -177,7 +177,7 @@ ls -l /opt/apps/JINDOSDK/jindosdk-current/lib
 ```
 
 ```bash
-lrwxrwxrwx 1 root root 64 Apr 12 11:08 jindo-core-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.10.4-linux/lib/jindo-core-6.10.4.jar
+lrwxrwxrwx 1 root root 64 Apr 12 11:08 jindo-core-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.10.5-linux/lib/jindo-core-6.10.5.jar
 lrwxrwxrwx 1 root root 82 Apr 12 11:08 jindo-core-linux-el7-aarch64-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.10.4-linux/lib/jindo-core-linux-el7-aarch64-6.10.4.jar
 lrwxrwxrwx 1 root root 63 Apr 12 11:08 jindo-sdk-6.2.0.jar -> /opt/apps/JINDOSDK/jindosdk-6.10.4-linux/lib/jindo-sdk-6.10.4.jar
 lrwxrwxrwx 1 root root 50 Apr 12 11:08 native -> /opt/apps/JINDOSDK/jindosdk-6.10.4-linux/lib/native

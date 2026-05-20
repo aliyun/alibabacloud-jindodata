@@ -17,11 +17,11 @@ tar zxf jindosdk-patches.tar.gz
 
 Download the JindoSDK software package `jindosdk-{VERSION}-{PLATFORM}.tar.gz` into the extracted folder.
 
-For upgrading the JindoSDK in a new cluster version to `6.10.4` on a Linux ARM environment:
+For upgrading the JindoSDK in a new cluster version to `6.10.5` on a Linux ARM environment:
 
 ```bash
 cd jindosdk-patches
-wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.4/jindosdk-6.10.4-linux-el7-aarch64.tar.gz
+wget https://jindodata-binary.oss-cn-shanghai.aliyuncs.com/release/6.10.5/jindosdk-6.10.5-linux-el7-aarch64.tar.gz
 ls -l
 ```
 
@@ -31,7 +31,7 @@ Your `jindosdk-patches` folder should show:
 -rwxrwxr-x 1 emr-user emr-user       575 May 01 00:00 apply_all.sh
 -rwxrwxr-x 1 emr-user emr-user      4047 May 01 00:00 apply.sh
 -rw-rw-r-- 1 emr-user emr-user        40 May 01 00:00 hosts
--rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.10.4-linux-el7-aarch64.tar.gz
+-rw-r----- 1 emr-user emr-user xxxxxxxxx May 01 00:00 jindosdk-6.10.5-linux-el7-aarch64.tar.gz
 ```
 
 > **Note**: Before upgrading from versions below 4.6.8 to 4.6.9 or higher or to version 6.x, set `fs.jdo.committer.allow.concurrent=false` in `core-site.xml` or in Spark configurations (`spark.hadoop.fs.jdo.committer.allow.concurrent=false`) to prevent data loss during the upgrade process. After all JindoSDK instances across GATEWAY nodes have been upgraded, you can remove this configuration at an appropriate time.
@@ -67,7 +67,7 @@ Execute the `apply_all.sh` script to initiate the upgrade.
 ./apply_all.sh {NEW_JINDOSDK_VERSION}
 ```
 
-For upgrading to version `6.10.4`, run:
+For upgrading to version `6.10.5`, run:
 
 ```bash
 ./apply_all.sh 6.10.4

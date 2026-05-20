@@ -1,5 +1,18 @@
 # JindoSDK Release History
 
+## 6.10.5, 2026-05-20
+
+### Release Summary
+
+Release of JindoSDK 6.10.5 official version features
+
+### Introduction
+
+- JindoSDK updates [Maven repository for 6.10.5](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- JindoCache supports CallerContext.
+- Fixed JindoCache high availability mode Raft startup stuck problem.
+- Fixed JindoCache RPC failure reconnection problem.
+
 ## 6.10.4, 2026-02-06
 
 ### Release Summary
