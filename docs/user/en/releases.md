@@ -1,5 +1,18 @@
 # JindoSDK Release History
 
+## 6.10.6, 2026-05-26
+
+### Release Summary
+
+Release of JindoSDK 6.10.6 official version features
+
+### Introduction
+
+- JindoSDK updates [Maven repository for 6.10.6](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- PyJindo supports Kerberos and Ranger in Hadoop environments.
+- Optimized the Hadoop FileSystem close() implementation by dereferencing objects in the FileSystem CACHE during the close operation.
+- JindoFuse: Fixed several potential issues.
+
 ## 6.10.5, 2026-05-20
 
 ### Release Summary
@@ -8,10 +21,11 @@ Release of JindoSDK 6.10.5 official version features
 
 ### Introduction
 
-- JindoSDK updates [Maven repository for 6.10.5](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- JindoSDK updates [Maven repository for 6.10.5](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.5/oss-maven.md) and [download links](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.5/jindodata_download.md).
 - JindoCache supports CallerContext.
 - Fixed JindoCache high availability mode Raft startup stuck problem.
 - Fixed JindoCache RPC failure reconnection problem.
+- Not Support for Intel MacOS Any More.
 
 ## 6.10.4, 2026-02-06
 
@@ -21,7 +35,7 @@ Release of JindoSDK 6.10.4 official version features
 
 ### Introduction
 
-- JindoSDK updates [Maven repository for 6.10.4](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- JindoSDK updates [Maven repository for 6.10.4](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.4/oss-maven.md) and [download links](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.4/jindodata_download.md).
 - Added CSDK async interfaces to support Lance format integration requirements.
 - Support for DLF Cache integration.
 - Fixed OSS-HDFS bucket-level endpoint configuration support.

@@ -1,5 +1,18 @@
 # JindoSDK 版本记录
 
+## 6.10.6，2026-05-26
+
+### 版本概要
+
+发布 JindoSDK 6.10.6 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.10.6 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- PyJindo 兼容在 Hadoop 环境中对 Kerberos + Ranger 的支持。
+- 优化 Hadoop FileSystem close() 的实现，在 close() 时提前对在 FileSystem CACHE 中的对象解引用。
+- JindoFuse 修复若干潜在问题。
+
 ## 6.10.5，2026-05-20
 
 ### 版本概要
@@ -8,10 +21,11 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.5 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.10.5 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.5/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.5/jindodata_download.md)。
 - JindoCache 支持 CallerContext。
 - 修复 JindoCache 高可用模式 Raft 启动卡住问题。
 - 修复 JindoCache RPC 失败重连问题。
+- 不再支持 macos x86 版本。
 
 ## 6.10.4，2026-02-06
 
@@ -21,7 +35,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.4 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.10.4 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.4/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.4/jindodata_download.md)。
 - 新增 CSDK 异步接口，支持 Lance 格式集成需要。
 - 支持 DLF Cache 集成使用。
 - 修复 OSS-HDFS 对 bucket 级 endpoint 配置支持。
@@ -38,7 +52,7 @@
 
 - JindoSDK 更新 [6.10.3 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.3/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.3/jindodata_download.md)。
 - JindoFuse 支持只读挂载 `-oro_mount`。
-- 优化 Hadoop FileSystem close() 的实现。
+- 优化 Hadoop FileSystem close() 的实现，在 finalize 中统一释放 native 对象。
 - 优化 PyJindo 对 fsspec 接口的兼容性。
 - 修复 PyJindo 打开文件异常，如文件不存在时，会 crash 的问题。
 - 修复 JindoDistributedFileSystem 对 `void rename(final Path src, final Path dst, final Options.Rename... options)` 的支持。
