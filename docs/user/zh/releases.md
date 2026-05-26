@@ -10,6 +10,8 @@
 
 - JindoSDK 更新 [6.10.6 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
 - PyJindo 兼容在 Hadoop 环境中对 Kerberos + Ranger 的支持。
+- 支持 OSS-HDFS 解冻接口。
+- 优化 JindoDistCp 的性能。
 - 优化 Hadoop FileSystem close() 的实现，在 close() 时提前对在 FileSystem CACHE 中的对象解引用。
 - JindoFuse 修复若干潜在问题。
 

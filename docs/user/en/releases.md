@@ -10,6 +10,8 @@ Release of JindoSDK 6.10.6 official version features
 
 - JindoSDK updates [Maven repository for 6.10.6](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
 - PyJindo supports Kerberos and Ranger in Hadoop environments.
+- Added support for the OSS-HDFS restore interface.
+- Optimized the performance of JindoDistCp.
 - Optimized the Hadoop FileSystem close() implementation by dereferencing objects in the FileSystem CACHE during the close operation.
 - JindoFuse: Fixed several potential issues.
 
