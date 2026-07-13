@@ -1,5 +1,20 @@
 # JindoSDK 版本记录
 
+## 6.10.7，2026-07-13
+
+### 版本概要
+
+发布 JindoSDK 6.10.7 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.10.7 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 支持 OSS 服务端加密。
+- 修改 OSS-HDFS 配置默认值。 `fs.oss.flush.merge.threshold.size` 默认为 0，即默认关闭合并小块。
+- 支持 bucket 级别 custom provider。
+- 新增配置 `fs.oss.list.iterative.first`，打开后，适合在扁平目录场景用 listIterative 代替 listDirectory，以节省内存。
+- JindoCommitter 新增对 legacy hadoop 的兼容。
+
 ## 6.10.6，2026-05-26
 
 ### 版本概要
@@ -8,7 +23,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.6 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.10.6 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.6/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.6/jindodata_download.md)。
 - PyJindo 兼容在 Hadoop 环境中对 Kerberos + Ranger 的支持。
 - 支持 OSS-HDFS 解冻接口。
 - 优化 JindoDistCp 的性能。

@@ -1,5 +1,20 @@
 # JindoSDK Release History
 
+## 6.10.7, 2026-05-26
+
+### Release Summary
+
+Release of JindoSDK 6.10.7 official version features
+
+### Introduction
+
+- JindoSDK updates [Maven repository for 6.10.7](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- Support for OSS server-side encryption.
+- Changed the default value of an OSS-HDFS configuration. `fs.oss.flush.merge.threshold.size` defaults to 0, meaning small block merging is disabled by default.
+- Support for bucket-level custom provider.
+- Added configuration `fs.oss.list.iterative.first`. When enabled, it is suitable for using listIterative instead of listDirectory in flat directory scenarios to save memory.
+- JindoCommitter adds compatibility with legacy Hadoop.
+
 ## 6.10.6, 2026-05-26
 
 ### Release Summary
@@ -8,7 +23,7 @@ Release of JindoSDK 6.10.6 official version features
 
 ### Introduction
 
-- JindoSDK updates [Maven repository for 6.10.6](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- JindoSDK updates [Maven repository for 6.10.6](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.6/oss-maven.md) and [download links](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.6/jindodata_download.md).
 - PyJindo supports Kerberos and Ranger in Hadoop environments.
 - Added support for the OSS-HDFS restore interface.
 - Optimized the performance of JindoDistCp.

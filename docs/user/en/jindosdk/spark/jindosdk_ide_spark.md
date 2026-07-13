@@ -14,7 +14,7 @@ First, update your `pom.xml` file with JindoSDK dependencies:
     <version>1.0</version>
 
     <properties>
-        <jindodata.version>6.10.6</jindodata.version>
+        <jindodata.version>6.10.7</jindodata.version>
         <hadoop.version>2.8.5</hadoop.version>
     </properties>
 
