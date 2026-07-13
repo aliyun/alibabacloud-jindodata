@@ -634,6 +634,34 @@ log4j.logger.com.aliyun.jindodata.common.FsStats=INFO
 <td>打开后，listStatus 对于大目录 list 自动 fallback 到迭代实现。</td>
 <td>6.8.3+ nextarch</td>
 </tr>
+<tr>
+<td>fs.oss.list.iterative.first</td>
+<td>布尔值</td>
+<td>false</td>
+<td>打开后，listStatus 默认走迭代实现。</td>
+<td>6.10.7+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.server-side-encryption</td>
+<td>字符串</td>
+<td>''</td>
+<td>示例值，AES256。也兼容 hadoop 社区风格的 <code>fs.oss.server-side-encryption-algorithm</code>，具体说明参见 <a href="https://help.aliyun.com/zh/oss/developer-reference/putobject?spm=a2c4g.11186623.help-menu-31815.d_1_0_5_0_0.6b0f71551eDUaC">x-oss-server-side-encryption</a>。</td>
+<td>6.10.7+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.server-side-data-encryption</td>
+<td>字符串</td>
+<td>''</td>
+<td>示例值，SM4。具体说明参见 <a href="https://help.aliyun.com/zh/oss/developer-reference/putobject?spm=a2c4g.11186623.help-menu-31815.d_1_0_5_0_0.6b0f71551eDUaC">x-oss-server-side-data-encryption</a>。</td>
+<td>6.10.7+ nextarch</td>
+</tr>
+<tr>
+<td>fs.oss.server-side-encryption-key-id</td>
+<td>字符串</td>
+<td>''</td>
+<td>示例值，9468da86-3509-4f8d-a61e-6eab1eac****。也兼容 hadoop 社区风格的<code>server-side-encryption.key</code>。具体说明参见 <a href="https://help.aliyun.com/zh/oss/developer-reference/putobject?spm=a2c4g.11186623.help-menu-31815.d_1_0_5_0_0.6b0f71551eDUaC">x-oss-server-side-encryption-key-id</a>。</td>
+<td>6.10.7+ nextarch</td>
+</tr>
 </tbody>
 </table>
 <h3 id="_2">写场景相关配置项<a class="headerlink" href="#_2" title="Permanent link">§</a></h3>
