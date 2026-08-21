@@ -1,6 +1,19 @@
 # JindoSDK Release History
 
-## 6.10.7, 2026-05-26
+## 6.10.8, 2026-08-21
+
+### Release Summary
+
+Release of JindoSDK 6.10.8 official version features
+
+### Introduction
+
+- JindoSDK updates [Maven repository for 6.10.8](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- Fixed binary compatibility with Hadoop 3.3.0-3.3.4.
+- Fixed the error handling logic for invalid configuration values.
+- Optimized POSIX semantics compatibility of JindoFuse for special paths.
+
+## 6.10.7, 2026-07-13
 
 ### Release Summary
 
@@ -8,7 +21,7 @@ Release of JindoSDK 6.10.7 official version features
 
 ### Introduction
 
-- JindoSDK updates [Maven repository for 6.10.7](jindosdk/oss-maven.md) and [download links](jindosdk/jindosdk_download.md).
+- JindoSDK updates [Maven repository for 6.10.7]([jindosdk/oss-maven.md](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.6/oss-maven.md)) and [download links]([jindosdk/jindosdk_download.md](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.6/jindodata_download.md)).
 - Support for OSS server-side encryption.
 - Changed the default value of an OSS-HDFS configuration. `fs.oss.flush.merge.threshold.size` defaults to 0, meaning small block merging is disabled by default.
 - Support for bucket-level custom provider.
