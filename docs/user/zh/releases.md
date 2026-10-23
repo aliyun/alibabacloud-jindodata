@@ -1,5 +1,18 @@
 # JindoSDK 版本记录
 
+## 6.10.9，2026-10-23
+
+### 版本概要
+
+发布 JindoSDK 6.10.9 正式版的功能
+
+### 介绍
+
+- JindoSDK 更新 [6.10.9 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- 修复预读回调的生命周期
+- 修复 pyjindo write 接口 str 长度对齐
+- 支持配置 delegation token 更新频率
+
 ## 6.10.8，2026-08-21
 
 ### 版本概要
@@ -8,7 +21,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.8 的 Maven 仓库](jindosdk/oss-maven.md) 和 [下载地址](jindosdk/jindosdk_download.md)。
+- JindoSDK 更新 [6.10.8 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.8/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.8/jindodata_download.md)。
 - 修复 hadoop 3.3.0-3.3.4版本的二进制兼容性。
 - 修复不合法配置值的错误处理逻辑。
 - 优化JindoFuse特殊路径下的posix语义兼容性。
@@ -21,7 +34,7 @@
 
 ### 介绍
 
-- JindoSDK 更新 [6.10.7 的 Maven 仓库]([jindosdk/oss-maven.md](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.7/oss-maven.md)) 和 [下载地址]([jindosdk/jindosdk_download.md](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.7/jindodata_download.md))。
+- JindoSDK 更新 [6.10.7 的 Maven 仓库](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.7/oss-maven.md) 和 [下载地址](https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/6.x/6.10.7/jindodata_download.md)。
 - 支持 OSS 服务端加密。
 - 修改 OSS-HDFS 配置默认值。 `fs.oss.flush.merge.threshold.size` 默认为 0，即默认关闭合并小块。
 - 支持 bucket 级别 custom provider。

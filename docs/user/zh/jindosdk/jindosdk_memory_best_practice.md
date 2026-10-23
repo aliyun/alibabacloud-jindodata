@@ -15,8 +15,8 @@ jindosdk 4.6.8 及以上版本完整产出物在 tar 包中默认携带了 jemal
 ├── conf
 │   ├── ...
 ├── lib
-│   ├── jindo-core-6.10.8.jar
-│   ├── jindo-sdk-6.10.8.jar
+│   ├── jindo-core-6.10.9.jar
+│   ├── jindo-sdk-6.10.9.jar
 │   └── native
 │       ├── libjemalloc.so
 │       ├── ...
